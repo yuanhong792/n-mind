@@ -1,0 +1,64 @@
+[
+  {
+    "seed": 20261121,
+    "dataset_hash": "0f385b919fe5a164",
+    "split_version": "v2-disjoint-pairs",
+    "n": {
+      "train": 96,
+      "val": 32,
+      "test": 32
+    },
+    "duplicate_train_trajectories": 0,
+    "overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "pairs": {
+      "train": 96,
+      "val": 32,
+      "test": 32,
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "shortcuts": {
+      "majority_action": 0,
+      "majority_acc_occluded": 0.4578,
+      "repeat_last_action_acc_occluded": 0.0234,
+      "n_occluded": 640
+    },
+    "ok": true
+  },
+  {
+    "seed": 7,
+    "dataset_hash": "239f87402f18557e",
+    "split_version": "v2-disjoint-pairs",
+    "n": {
+      "train": 96,
+      "val": 32,
+      "test": 32
+    },
+    "duplicate_train_trajectories": 0,
+    "overlap": {
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "pairs": {
+      "train": 96,
+      "val": 32,
+      "test": 32,
+      "train_test": 0,
+      "train_val": 0,
+      "val_test": 0
+    },
+    "shortcuts": {
+      "majority_action": 0,
+      "majority_acc_occluded": 0.3844,
+      "repeat_last_action_acc_occluded": 0.0344,
+      "n_occluded": 640
+    },
+    "ok": true
+  }
+]

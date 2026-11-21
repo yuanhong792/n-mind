@@ -115,14 +115,20 @@ def oracle_action(state_xy: tuple[int, int], goal: tuple[int, int], obstacles, s
     return int(cand[0][1])
 
 
-def make_trajectory(task: GridTask, rng: np.random.Generator, T: int) -> Trajectory:
+def make_trajectory(task: GridTask, rng: np.random.Generator, T: int,
+                    *, used_pairs: set | None = None) -> Trajectory:
     size = task.size
     obstacles = set(task.obstacles)
     for _ in range(200):
         start = (int(rng.integers(0, size)), int(rng.integers(0, size)))
         goal = (int(rng.integers(0, size)), int(rng.integers(0, size)))
         if start != goal and goal not in obstacles and start not in obstacles:
-            break
+            # used_pairs 用来保证 train/val/test 的 (起点,目标) 组合互不重叠：
+            # 只靠"不同的 RNG 流"不够，36x35 的空间里仍然会撞出同一条轨迹。
+            if used_pairs is None or (start, goal) not in used_pairs:
+                if used_pairs is not None:
+                    used_pairs.add((start, goal))
+                break
     obs = np.zeros((T, OBS_DIM), dtype=np.float32)
     acts = np.zeros((T,), dtype=np.int64)
     memory = np.zeros((T,), dtype=np.int64)          # goal 的线性编码；遮挡后仍是同一个值
@@ -148,12 +154,38 @@ def make_trajectory(task: GridTask, rng: np.random.Generator, T: int) -> Traject
     return Trajectory(obs=obs, actions=acts, goal=goal, start=start, memory_target=memory)
 
 
-def make_split(task: GridTask, *, n_train: int, n_test: int, T: int,
-               seed: int) -> dict[str, Any]:
-    """训练/测试轨迹族用互不相交的 RNG 流（seed*1000+1 / +2），保证无泄漏。"""
-    tr = [make_trajectory(task, np.random.default_rng(seed * 1000 + 1 + i), T) for i in range(n_train)]
-    te = [make_trajectory(task, np.random.default_rng(seed * 1000 + 2 + i), T) for i in range(n_test)]
-    return {"train": tr, "test": te, "task": task, "T": T, "seed": seed}
+SPLIT_VERSION = "v2-disjoint-pairs"   # 进 dataset_hash：生成器规则变了，旧 hash 自动失效
+
+
+def _split_rng(seed: int, split: int, i: int) -> np.random.Generator:
+    """每个 (split, i) 一条独立的 SeedSequence 流。
+
+    旧实现是 seed*1000 + 1 + i / + 2 + i：test[i] 的流恰好等于 train[i+1] 的流，
+    于是测试轨迹与训练轨迹逐字节相同（实测 32/32），0.93 的"泛化"其实是背书。
+    SeedSequence([seed, split, i]) 把三个坐标拼成互不重叠的熵源，从构造上杜绝错位。
+    """
+    return np.random.default_rng(np.random.SeedSequence([int(seed), int(split), int(i)]))
+
+
+def make_split(task: GridTask, *, n_train: int, n_test: int, T: int, seed: int,
+               n_val: int = 0) -> dict[str, Any]:
+    """train/val/test 用互不相交的 RNG 流 + 互不重叠的 (起点,目标) 组合。
+
+    验收口径：三个集合的轨迹签名两两无交集，起点-目标对两两无交集
+    （tests/test_datasets.py 钉住）。同一个模板只换随机数的"泛化"不算泛化。
+    """
+    used: set = set()
+    tr = [make_trajectory(task, _split_rng(seed, 1, i), T, used_pairs=used)
+          for i in range(n_train)]
+    va = [make_trajectory(task, _split_rng(seed, 2, i), T, used_pairs=used)
+          for i in range(n_val)]
+    te = [make_trajectory(task, _split_rng(seed, 3, i), T, used_pairs=used)
+          for i in range(n_test)]
+    out = {"train": tr, "test": te, "task": task, "T": T, "seed": seed,
+           "split_version": SPLIT_VERSION}
+    if n_val:
+        out["val"] = va
+    return out
 
 
 def stack(trajs: list[Trajectory]) -> dict[str, torch.Tensor]:
@@ -174,8 +206,10 @@ def batch_tensor(trajs: list[Trajectory], idx: list[int]) -> dict[str, torch.Ten
     return {k: v[idx] for k, v in stack(trajs).items()}
 
 
-def dataset_hash(task: GridTask, *, n_train: int, n_test: int, T: int, seed: int) -> str:
-    payload = {"task": asdict(task), "n_train": n_train, "n_test": n_test, "T": T, "seed": seed}
+def dataset_hash(task: GridTask, *, n_train: int, n_test: int, T: int, seed: int,
+                 n_val: int = 0) -> str:
+    payload = {"task": asdict(task), "n_train": n_train, "n_test": n_test, "n_val": n_val,
+               "T": T, "seed": seed, "split_version": SPLIT_VERSION}
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()[:16]
 
 

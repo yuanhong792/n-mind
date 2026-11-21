@@ -164,6 +164,11 @@ def cmd_train(args: argparse.Namespace) -> int:
     cfg = _cfg(args)
     kwargs: dict[str, Any] = {"epochs": args.epochs, "seed": args.seed,
                               "device": cfg.runtime.device, "quiet": args.quiet}
+    if getattr(args, "loss_mode", None):
+        kwargs["loss_mode"] = args.loss_mode
+    if getattr(args, "detach_pred", False):
+        # M2 结论：稀疏路由下让预测损失只训预测器、不去塑造 z，避免"为好预测而压平状态"
+        kwargs["loss_overrides"] = {"detach_pred_target": 1.0}
     if args.ablation:
         kwargs.update(_ablation_kwargs(args.ablation))
     if args.continual:
@@ -515,6 +520,10 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--ablation", default=None, help="no_router / no_error_gating / no_workspace")
     sp.add_argument("--ckpt", default=None)
     sp.add_argument("--traj-len", type=int, default=None)
+    sp.add_argument("--loss-mode", choices=("joint", "ce"), default="joint",
+                    help="joint = CE+预测+方差+路由+探针；ce = 只学动作（对照用）")
+    sp.add_argument("--detach-pred", action="store_true",
+                    help="预测损失不塑造编码器（稀疏路由推荐的 M2 配方）")
     sp.set_defaults(fn=cmd_train)
 
     sp = sub.add_parser("predict", help="加载权重做预测（观测来自 --observe 或随机轨迹）")

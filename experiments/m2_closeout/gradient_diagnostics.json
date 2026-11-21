@@ -1,0 +1,813 @@
+{
+  "seed": 20261121,
+  "batch_size": 8,
+  "mode": "model.train() + autograd.grad，未执行 optimizer.step",
+  "interpretation": {
+    "question": "pred(不detach)的梯度是否进入 blocks/router 并与 action 梯度方向冲突",
+    "how_to_read": "D 臂 pred_grad_share_on_blocks/router>0 且 cosine_action_vs_pred 显著为负、F1 臂两处归零（pred 只训练 predictor）＝detach 作用位置的直接证据；负 cosine 是冲突证据，不是机制证明——还需训练轨迹对照。"
+  },
+  "arms": [
+    {
+      "arm": "D_sparse_joint",
+      "checkpoint": "D_sparse_joint_s20261121.pt",
+      "detach_pred_target": false,
+      "note": "稀疏+联合，pred 目标不 detach",
+      "batches": [
+        {
+          "batch_id": 0,
+          "loss_values": {
+            "action": 0.696323,
+            "pred": 0.000943,
+            "var": 0.000493,
+            "balance": 2e-06,
+            "entropy": -0.999908,
+            "probe": 1.785912
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.458131,
+              "blocks": 0.128672,
+              "router": 0.0,
+              "workspace": 0.135205,
+              "predictor": 0.0,
+              "head": 0.59744,
+              "action_emb": 0.0,
+              "block_to_ws": 0.233864
+            },
+            "pred": {
+              "encoder": 0.00929,
+              "blocks": 6.2e-05,
+              "router": 0.0,
+              "workspace": 0.001582,
+              "predictor": 0.019063,
+              "head": 0.0,
+              "action_emb": 0.000146,
+              "block_to_ws": 0.000722
+            },
+            "var": {
+              "encoder": 0.012311,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 3.7e-05,
+              "blocks": 1e-06,
+              "router": 0.000445,
+              "workspace": 2.7e-05,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 1e-05
+            },
+            "entropy": {
+              "encoder": 0.000123,
+              "blocks": 6e-06,
+              "router": 0.001103,
+              "workspace": 0.000157,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 3.1e-05
+            },
+            "probe": {
+              "encoder": 0.779659,
+              "blocks": 0.198097,
+              "router": 0.0,
+              "workspace": 0.102231,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.105168
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": -0.0049,
+            "blocks": -0.1433,
+            "router": null,
+            "workspace": -0.0117,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.028
+          },
+          "cosine_action_vs_balance": {
+            "encoder": -0.0494,
+            "blocks": -0.0421,
+            "router": null,
+            "workspace": -0.0053,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.0966
+          },
+          "pred_grad_share_on_blocks": 0.0005,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 0.9069,
+            "z_hat_std": 0.9036
+          }
+        },
+        {
+          "batch_id": 1,
+          "loss_values": {
+            "action": 0.587841,
+            "pred": 0.000848,
+            "var": 0.0,
+            "balance": 2e-06,
+            "entropy": -0.999892,
+            "probe": 1.795904
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.183517,
+              "blocks": 0.096294,
+              "router": 0.0,
+              "workspace": 0.130318,
+              "predictor": 0.0,
+              "head": 0.617225,
+              "action_emb": 0.0,
+              "block_to_ws": 0.126513
+            },
+            "pred": {
+              "encoder": 0.010377,
+              "blocks": 4.9e-05,
+              "router": 0.0,
+              "workspace": 0.001007,
+              "predictor": 0.018425,
+              "head": 0.0,
+              "action_emb": 7.2e-05,
+              "block_to_ws": 0.000302
+            },
+            "var": {
+              "encoder": 0.0,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 6.1e-05,
+              "blocks": 2e-06,
+              "router": 0.000512,
+              "workspace": 2.7e-05,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 1.1e-05
+            },
+            "entropy": {
+              "encoder": 0.000264,
+              "blocks": 1e-05,
+              "router": 0.002035,
+              "workspace": 0.000331,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 5.3e-05
+            },
+            "probe": {
+              "encoder": 0.462938,
+              "blocks": 0.207645,
+              "router": 0.0,
+              "workspace": 0.117451,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.148507
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": 0.0396,
+            "blocks": 0.1321,
+            "router": null,
+            "workspace": 0.1037,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.2714
+          },
+          "cosine_action_vs_balance": {
+            "encoder": 0.0472,
+            "blocks": 0.0372,
+            "router": null,
+            "workspace": 0.0706,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.2497
+          },
+          "pred_grad_share_on_blocks": 0.0005,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 0.901,
+            "z_hat_std": 0.8986
+          }
+        }
+      ]
+    },
+    {
+      "arm": "F1_detach",
+      "checkpoint": "F1_detach_s20261121.pt",
+      "detach_pred_target": true,
+      "note": "稀疏+联合，pred 目标 detach",
+      "batches": [
+        {
+          "batch_id": 0,
+          "loss_values": {
+            "action": 0.196865,
+            "pred": 0.005983,
+            "var": 0.0,
+            "balance": 3.6e-05,
+            "entropy": -0.997727,
+            "probe": 0.36696
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.323906,
+              "blocks": 0.156366,
+              "router": 0.0,
+              "workspace": 0.135542,
+              "predictor": 0.0,
+              "head": 0.22481,
+              "action_emb": 0.0,
+              "block_to_ws": 0.158372
+            },
+            "pred": {
+              "encoder": 0.048527,
+              "blocks": 0.00083,
+              "router": 0.0,
+              "workspace": 0.009606,
+              "predictor": 0.098775,
+              "head": 0.0,
+              "action_emb": 0.000392,
+              "block_to_ws": 0.002216
+            },
+            "var": {
+              "encoder": 0.0,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.004549,
+              "blocks": 0.000235,
+              "router": 0.009315,
+              "workspace": 0.001338,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.001039
+            },
+            "entropy": {
+              "encoder": 0.010393,
+              "blocks": 0.001512,
+              "router": 0.033661,
+              "workspace": 0.015399,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.004606
+            },
+            "probe": {
+              "encoder": 1.883845,
+              "blocks": 0.553843,
+              "router": 0.0,
+              "workspace": 0.356131,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.355872
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": 0.0767,
+            "blocks": -0.0284,
+            "router": null,
+            "workspace": -0.0711,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.1154
+          },
+          "cosine_action_vs_balance": {
+            "encoder": 0.2084,
+            "blocks": -0.0159,
+            "router": null,
+            "workspace": 0.0254,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.0978
+          },
+          "pred_grad_share_on_blocks": 0.0053,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 1.1565,
+            "z_hat_std": 1.1552
+          }
+        },
+        {
+          "batch_id": 1,
+          "loss_values": {
+            "action": 0.273595,
+            "pred": 0.006037,
+            "var": 0.0,
+            "balance": 1.9e-05,
+            "entropy": -0.998075,
+            "probe": 0.572075
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.355141,
+              "blocks": 0.176122,
+              "router": 0.0,
+              "workspace": 0.214562,
+              "predictor": 0.0,
+              "head": 0.387707,
+              "action_emb": 0.0,
+              "block_to_ws": 0.23157
+            },
+            "pred": {
+              "encoder": 0.057636,
+              "blocks": 0.000707,
+              "router": 0.0,
+              "workspace": 0.009756,
+              "predictor": 0.114031,
+              "head": 0.0,
+              "action_emb": 0.000682,
+              "block_to_ws": 0.002678
+            },
+            "var": {
+              "encoder": 0.0,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.002389,
+              "blocks": 0.000128,
+              "router": 0.00611,
+              "workspace": 0.000589,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.000522
+            },
+            "entropy": {
+              "encoder": 0.008719,
+              "blocks": 0.001326,
+              "router": 0.024587,
+              "workspace": 0.007952,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.003156
+            },
+            "probe": {
+              "encoder": 1.348162,
+              "blocks": 0.475471,
+              "router": 0.0,
+              "workspace": 0.310519,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.416804
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": 0.0867,
+            "blocks": 0.0397,
+            "router": null,
+            "workspace": 0.0305,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.1021
+          },
+          "cosine_action_vs_balance": {
+            "encoder": -0.0205,
+            "blocks": -0.0017,
+            "router": null,
+            "workspace": 0.018,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.0052
+          },
+          "pred_grad_share_on_blocks": 0.004,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 1.1615,
+            "z_hat_std": 1.163
+          }
+        }
+      ]
+    },
+    {
+      "arm": "C_sparse_ce",
+      "checkpoint": "C_sparse_ce_s20261121.pt",
+      "detach_pred_target": null,
+      "note": "稀疏+纯CE（对照组，无联合损失）",
+      "batches": [
+        {
+          "batch_id": 0,
+          "loss_values": {
+            "action": 0.152874,
+            "pred": 0.920881,
+            "var": 0.000982,
+            "balance": 6.9e-05,
+            "entropy": -0.9972
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.385108,
+              "blocks": 0.298944,
+              "router": 0.0,
+              "workspace": 0.45978,
+              "predictor": 0.0,
+              "head": 0.296468,
+              "action_emb": 0.0,
+              "block_to_ws": 0.34644
+            },
+            "pred": {
+              "encoder": 0.341048,
+              "blocks": 0.002119,
+              "router": 0.0,
+              "workspace": 0.008025,
+              "predictor": 0.205668,
+              "head": 0.0,
+              "action_emb": 0.001222,
+              "block_to_ws": 0.005695
+            },
+            "var": {
+              "encoder": 0.014757,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.000644,
+              "blocks": 4.7e-05,
+              "router": 0.004178,
+              "workspace": 0.000315,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.000238
+            },
+            "entropy": {
+              "encoder": 0.005032,
+              "blocks": 0.00071,
+              "router": 0.023574,
+              "workspace": 0.002163,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.001374
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": -0.22,
+            "blocks": 0.0671,
+            "router": null,
+            "workspace": 0.1182,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.397
+          },
+          "cosine_action_vs_balance": {
+            "encoder": 0.0386,
+            "blocks": -0.1075,
+            "router": null,
+            "workspace": -0.1165,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.2937
+          },
+          "pred_grad_share_on_blocks": 0.007,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 0.963,
+            "z_hat_std": 0.0865
+          }
+        },
+        {
+          "batch_id": 1,
+          "loss_values": {
+            "action": 0.185773,
+            "pred": 0.929779,
+            "var": 0.001503,
+            "balance": 3.4e-05,
+            "entropy": -0.996887
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.549912,
+              "blocks": 0.364371,
+              "router": 0.0,
+              "workspace": 0.332515,
+              "predictor": 0.0,
+              "head": 0.333177,
+              "action_emb": 0.0,
+              "block_to_ws": 0.433752
+            },
+            "pred": {
+              "encoder": 0.342645,
+              "blocks": 0.001927,
+              "router": 0.0,
+              "workspace": 0.007398,
+              "predictor": 0.205593,
+              "head": 0.0,
+              "action_emb": 0.001269,
+              "block_to_ws": 0.004742
+            },
+            "var": {
+              "encoder": 0.022113,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.000483,
+              "blocks": 3.4e-05,
+              "router": 0.00315,
+              "workspace": 0.000253,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.000149
+            },
+            "entropy": {
+              "encoder": 0.003888,
+              "blocks": 0.000727,
+              "router": 0.023072,
+              "workspace": 0.00225,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.001403
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": 0.0345,
+            "blocks": 0.1052,
+            "router": null,
+            "workspace": 0.1108,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.2833
+          },
+          "cosine_action_vs_balance": {
+            "encoder": -0.0835,
+            "blocks": 0.0255,
+            "router": null,
+            "workspace": -0.0336,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.1412
+          },
+          "pred_grad_share_on_blocks": 0.0053,
+          "pred_grad_share_on_router": null,
+          "pred_health": {
+            "z_std": 0.9672,
+            "z_hat_std": 0.0855
+          }
+        }
+      ]
+    },
+    {
+      "arm": "B_dense_joint",
+      "checkpoint": "B_dense_joint_s20261121.pt",
+      "detach_pred_target": false,
+      "note": "稠密+联合（对照：STE 软掩码应有任务梯度到达 router）",
+      "batches": [
+        {
+          "batch_id": 0,
+          "loss_values": {
+            "action": 0.019923,
+            "pred": 0.002447,
+            "var": 0.0,
+            "balance": 0.003272,
+            "entropy": -0.952336,
+            "probe": 0.56937
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.16678,
+              "blocks": 0.055882,
+              "router": 0.00935,
+              "workspace": 0.025841,
+              "predictor": 0.0,
+              "head": 0.137779,
+              "action_emb": 0.0,
+              "block_to_ws": 0.044719
+            },
+            "pred": {
+              "encoder": 0.020626,
+              "blocks": 0.000164,
+              "router": 3.4e-05,
+              "workspace": 0.002322,
+              "predictor": 0.041067,
+              "head": 0.0,
+              "action_emb": 0.000121,
+              "block_to_ws": 0.000891
+            },
+            "var": {
+              "encoder": 0.0,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.019153,
+              "blocks": 0.002992,
+              "router": 0.028825,
+              "workspace": 0.004562,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.005972
+            },
+            "entropy": {
+              "encoder": 0.187915,
+              "blocks": 0.036468,
+              "router": 0.124167,
+              "workspace": 0.037039,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.066453
+            },
+            "probe": {
+              "encoder": 1.117666,
+              "blocks": 0.303788,
+              "router": 0.024751,
+              "workspace": 0.138248,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.338352
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": 0.1563,
+            "blocks": 0.0788,
+            "router": -0.453,
+            "workspace": -0.1073,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.1917
+          },
+          "cosine_action_vs_balance": {
+            "encoder": -0.1292,
+            "blocks": 0.0569,
+            "router": -0.1112,
+            "workspace": 0.2735,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": 0.0289
+          },
+          "pred_grad_share_on_blocks": 0.0029,
+          "pred_grad_share_on_router": 0.0036,
+          "pred_health": {
+            "z_std": 0.9443,
+            "z_hat_std": 0.9394
+          }
+        },
+        {
+          "batch_id": 1,
+          "loss_values": {
+            "action": 0.021685,
+            "pred": 0.001959,
+            "var": 0.000359,
+            "balance": 0.002116,
+            "entropy": -0.897385,
+            "probe": 0.429064
+          },
+          "grad_norms": {
+            "action": {
+              "encoder": 0.217448,
+              "blocks": 0.075422,
+              "router": 0.019946,
+              "workspace": 0.033772,
+              "predictor": 0.0,
+              "head": 0.142885,
+              "action_emb": 0.0,
+              "block_to_ws": 0.055696
+            },
+            "pred": {
+              "encoder": 0.014401,
+              "blocks": 0.000152,
+              "router": 4.6e-05,
+              "workspace": 0.002565,
+              "predictor": 0.034948,
+              "head": 0.0,
+              "action_emb": 0.000113,
+              "block_to_ws": 0.000632
+            },
+            "var": {
+              "encoder": 0.020416,
+              "blocks": 0.0,
+              "router": 0.0,
+              "workspace": 0.0,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.0
+            },
+            "balance": {
+              "encoder": 0.032107,
+              "blocks": 0.004197,
+              "router": 0.032797,
+              "workspace": 0.004115,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.008883
+            },
+            "entropy": {
+              "encoder": 0.251085,
+              "blocks": 0.054692,
+              "router": 0.188391,
+              "workspace": 0.060557,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.107459
+            },
+            "probe": {
+              "encoder": 1.01594,
+              "blocks": 0.304421,
+              "router": 0.034862,
+              "workspace": 0.15854,
+              "predictor": 0.0,
+              "head": 0.0,
+              "action_emb": 0.0,
+              "block_to_ws": 0.333067
+            }
+          },
+          "cosine_action_vs_pred": {
+            "encoder": -0.0416,
+            "blocks": -0.0164,
+            "router": 0.4131,
+            "workspace": 0.0088,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.0672
+          },
+          "cosine_action_vs_balance": {
+            "encoder": -0.2506,
+            "blocks": 0.126,
+            "router": 0.366,
+            "workspace": -0.0746,
+            "predictor": null,
+            "head": null,
+            "action_emb": null,
+            "block_to_ws": -0.0897
+          },
+          "pred_grad_share_on_blocks": 0.002,
+          "pred_grad_share_on_router": 0.0023,
+          "pred_health": {
+            "z_std": 0.9389,
+            "z_hat_std": 0.9341
+          }
+        }
+      ]
+    }
+  ]
+}

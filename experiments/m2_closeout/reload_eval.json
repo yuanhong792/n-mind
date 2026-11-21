@@ -1,0 +1,992 @@
+[
+  {
+    "arm": "A_dense_ce",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s20261121.pt",
+    "sha256": "a4f9915419b5d051a4b1c809399f8061476b2c266ecfd1339b89a26b9afe75ed",
+    "recorded": {
+      "acc_all": 0.9818,
+      "acc_occ": 0.9891,
+      "probe_posthoc_val": 0.3776,
+      "probe_posthoc_test": 0.4635,
+      "loss_head": 1.4085,
+      "loss_tail": 0.0175,
+      "steps": 480,
+      "wall_s": 138.34,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_s1.json"
+    },
+    "reload": {
+      "acc_all": 0.9818,
+      "acc_occ": 0.9891,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.4635,
+      "H1_fresh_pairs": {
+        "acc": 0.9714,
+        "acc_occ": 0.9734
+      },
+      "H2_len48": {
+        "acc": 0.9857,
+        "acc_occ": 0.9879
+      },
+      "H3_obstacles": {
+        "acc": 0.8294,
+        "acc_occ": 0.8422
+      },
+      "H4_rule_swap": {
+        "acc": 0.7044,
+        "acc_occ": 0.8078
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "A_dense_ce",
+    "seed": 7,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s7.pt",
+    "sha256": "151898ca1a890e1b14a7ebc0f6629300af1975ef0fd8f14bf949531aaf5ce5e1",
+    "recorded": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "probe_posthoc_val": 0.1029,
+      "probe_posthoc_test": 0.1406,
+      "loss_head": 1.393,
+      "loss_tail": 1.1279,
+      "steps": 12,
+      "wall_s": 14.07,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s7.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_smoke.json"
+    },
+    "reload": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.1406,
+      "H1_fresh_pairs": {
+        "acc": 0.3802,
+        "acc_occ": 0.4203
+      },
+      "H2_len48": {
+        "acc": 0.4089,
+        "acc_occ": 0.4297
+      },
+      "H3_obstacles": {
+        "acc": 0.3099,
+        "acc_occ": 0.3234
+      },
+      "H4_rule_swap": {
+        "acc": 0.3581,
+        "acc_occ": 0.3875
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "B_dense_joint",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s20261121.pt",
+    "sha256": "586b7bdb686b5b4bfce6e75df3f194af18883d8f5e208beb704f3abea19b59e3",
+    "recorded": {
+      "acc_all": 0.9427,
+      "acc_occ": 0.9797,
+      "probe_posthoc_val": 0.4935,
+      "probe_posthoc_test": 0.4883,
+      "loss_head": 3.3053,
+      "loss_tail": 0.1506,
+      "steps": 480,
+      "wall_s": 209.08,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.9427,
+      "acc_occ": 0.9797,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.4883,
+      "H1_fresh_pairs": {
+        "acc": 0.9076,
+        "acc_occ": 0.9344
+      },
+      "H2_len48": {
+        "acc": 0.9382,
+        "acc_occ": 0.9531
+      },
+      "H3_obstacles": {
+        "acc": 0.7786,
+        "acc_occ": 0.8031
+      },
+      "H4_rule_swap": {
+        "acc": 0.6914,
+        "acc_occ": 0.7781
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "B_dense_joint",
+    "seed": 7,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s7.pt",
+    "sha256": "2c651c83c280208126e14a458cb59533ddb9e01d40bc87d1e604ba7830be39de",
+    "recorded": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "probe_posthoc_val": 0.0312,
+      "probe_posthoc_test": 0.0195,
+      "loss_head": 3.2845,
+      "loss_tail": 2.1296,
+      "steps": 12,
+      "wall_s": 13.29,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s7.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_smoke.json"
+    },
+    "reload": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.0195,
+      "H1_fresh_pairs": {
+        "acc": 0.3802,
+        "acc_occ": 0.4203
+      },
+      "H2_len48": {
+        "acc": 0.4089,
+        "acc_occ": 0.4297
+      },
+      "H3_obstacles": {
+        "acc": 0.3099,
+        "acc_occ": 0.3234
+      },
+      "H4_rule_swap": {
+        "acc": 0.3581,
+        "acc_occ": 0.3875
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "C_sparse_ce",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261121.pt",
+    "sha256": "92144327519b67de74a893ef10d8c2718b94cab626b2fcc1c187b1c60f22db5c",
+    "recorded": {
+      "acc_all": 0.9219,
+      "acc_occ": 0.9563,
+      "probe_posthoc_val": 0.3177,
+      "probe_posthoc_test": 0.2773,
+      "loss_head": 1.4087,
+      "loss_tail": 0.1489,
+      "steps": 480,
+      "wall_s": 67.54,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_s1.json"
+    },
+    "reload": {
+      "acc_all": 0.9219,
+      "acc_occ": 0.9563,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.2773,
+      "H1_fresh_pairs": {
+        "acc": 0.9036,
+        "acc_occ": 0.9297
+      },
+      "H2_len48": {
+        "acc": 0.931,
+        "acc_occ": 0.9453
+      },
+      "H3_obstacles": {
+        "acc": 0.7695,
+        "acc_occ": 0.7906
+      },
+      "H4_rule_swap": {
+        "acc": 0.7135,
+        "acc_occ": 0.8141
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "C_sparse_ce",
+    "seed": 7,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s7.pt",
+    "sha256": "5fe9d419f8b1067606df0f313abc2ab3b16e0478122cda4389139c919756339f",
+    "recorded": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "probe_posthoc_val": 0.2409,
+      "probe_posthoc_test": 0.2656,
+      "loss_head": 1.3921,
+      "loss_tail": 1.1414,
+      "steps": 12,
+      "wall_s": 5.48,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s7.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_smoke.json"
+    },
+    "reload": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.2656,
+      "H1_fresh_pairs": {
+        "acc": 0.3802,
+        "acc_occ": 0.4203
+      },
+      "H2_len48": {
+        "acc": 0.4089,
+        "acc_occ": 0.4297
+      },
+      "H3_obstacles": {
+        "acc": 0.3099,
+        "acc_occ": 0.3234
+      },
+      "H4_rule_swap": {
+        "acc": 0.3581,
+        "acc_occ": 0.3875
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "D_sparse_joint",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s20261121.pt",
+    "sha256": "ddfd4adb0aad7e3d5721e548ff41a4687f78f70d6a640ed533646fddb1ccdd01",
+    "recorded": {
+      "acc_all": 0.5443,
+      "acc_occ": 0.5719,
+      "probe_posthoc_val": 0.3151,
+      "probe_posthoc_test": 0.4323,
+      "loss_head": 3.3076,
+      "loss_tail": 1.1718,
+      "steps": 480,
+      "wall_s": 109.44,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.5443,
+      "acc_occ": 0.5719,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.4323,
+      "H1_fresh_pairs": {
+        "acc": 0.5208,
+        "acc_occ": 0.55
+      },
+      "H2_len48": {
+        "acc": 0.5163,
+        "acc_occ": 0.5291
+      },
+      "H3_obstacles": {
+        "acc": 0.4297,
+        "acc_occ": 0.4313
+      },
+      "H4_rule_swap": {
+        "acc": 0.3542,
+        "acc_occ": 0.3703
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "D_sparse_joint",
+    "seed": 7,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s7.pt",
+    "sha256": "9e2ed619cc8f307655a1a2b5e3602bf5e781a74bebdc83d3fb8b911b9fe7a621",
+    "recorded": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "probe_posthoc_val": 0.0807,
+      "probe_posthoc_test": 0.0781,
+      "loss_head": 3.2833,
+      "loss_tail": 2.1255,
+      "steps": 12,
+      "wall_s": 5.41,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s7.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_smoke.json"
+    },
+    "reload": {
+      "acc_all": 0.3581,
+      "acc_occ": 0.3828,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.0781,
+      "H1_fresh_pairs": {
+        "acc": 0.3802,
+        "acc_occ": 0.4203
+      },
+      "H2_len48": {
+        "acc": 0.4089,
+        "acc_occ": 0.4297
+      },
+      "H3_obstacles": {
+        "acc": 0.3099,
+        "acc_occ": 0.3234
+      },
+      "H4_rule_swap": {
+        "acc": 0.3581,
+        "acc_occ": 0.3875
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F1_detach",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F1_detach_s20261121.pt",
+    "sha256": "5a3c24e4f73f3cd3e138dc68f32074736d9b6c3ad7a54aeae4b7b66c6f511301",
+    "recorded": {
+      "acc_all": 0.8294,
+      "acc_occ": 0.8984,
+      "probe_posthoc_val": 0.8255,
+      "probe_posthoc_test": 0.8307,
+      "loss_head": 3.3076,
+      "loss_tail": 0.5396,
+      "steps": 480,
+      "wall_s": 100.24,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F1_detach_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.8294,
+      "acc_occ": 0.8984,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.8307,
+      "H1_fresh_pairs": {
+        "acc": 0.7799,
+        "acc_occ": 0.8422
+      },
+      "H2_len48": {
+        "acc": 0.8385,
+        "acc_occ": 0.8722
+      },
+      "H3_obstacles": {
+        "acc": 0.6068,
+        "acc_occ": 0.6516
+      },
+      "H4_rule_swap": {
+        "acc": 0.6758,
+        "acc_occ": 0.7734
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F2_detach_novar",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F2_detach_novar_s20261121.pt",
+    "sha256": "342b0e522ea51420af95fba8a2fb2ba3c8b93b6fc05ac5d83e4ab4d7b4749567",
+    "recorded": {
+      "acc_all": 0.5859,
+      "acc_occ": 0.6344,
+      "probe_posthoc_val": 0.4766,
+      "probe_posthoc_test": 0.5612,
+      "loss_head": 3.3072,
+      "loss_tail": 1.0895,
+      "steps": 480,
+      "wall_s": 100.28,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F2_detach_novar_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.5859,
+      "acc_occ": 0.6344,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.5612,
+      "H1_fresh_pairs": {
+        "acc": 0.5677,
+        "acc_occ": 0.5953
+      },
+      "H2_len48": {
+        "acc": 0.5892,
+        "acc_occ": 0.6037
+      },
+      "H3_obstacles": {
+        "acc": 0.4557,
+        "acc_occ": 0.4828
+      },
+      "H4_rule_swap": {
+        "acc": 0.5299,
+        "acc_occ": 0.5813
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F3_pred025_novar",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F3_pred025_novar_s20261121.pt",
+    "sha256": "e65b0d170961b73036e8d80ae503fed79e8b3362091492325fc2b33a1c7bf6a4",
+    "recorded": {
+      "acc_all": 0.5677,
+      "acc_occ": 0.6125,
+      "probe_posthoc_val": 0.4362,
+      "probe_posthoc_test": 0.3711,
+      "loss_head": 2.5431,
+      "loss_tail": 0.9411,
+      "steps": 480,
+      "wall_s": 88.22,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F3_pred025_novar_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.5677,
+      "acc_occ": 0.6125,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.3711,
+      "H1_fresh_pairs": {
+        "acc": 0.5898,
+        "acc_occ": 0.6188
+      },
+      "H2_len48": {
+        "acc": 0.6217,
+        "acc_occ": 0.6378
+      },
+      "H3_obstacles": {
+        "acc": 0.4648,
+        "acc_occ": 0.4703
+      },
+      "H4_rule_swap": {
+        "acc": 0.5456,
+        "acc_occ": 0.6062
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F4_pred025",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F4_pred025_s20261121.pt",
+    "sha256": "d2e029b24c4cbdfc43b1879ada03824a5a01e5304f96b4d40fa415b12e651e2a",
+    "recorded": {
+      "acc_all": 0.5794,
+      "acc_occ": 0.6328,
+      "probe_posthoc_val": 0.4531,
+      "probe_posthoc_test": 0.5013,
+      "loss_head": 2.5435,
+      "loss_tail": 1.0408,
+      "steps": 480,
+      "wall_s": 100.17,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F4_pred025_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.5794,
+      "acc_occ": 0.6328,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.5013,
+      "H1_fresh_pairs": {
+        "acc": 0.5755,
+        "acc_occ": 0.6141
+      },
+      "H2_len48": {
+        "acc": 0.6257,
+        "acc_occ": 0.6477
+      },
+      "H3_obstacles": {
+        "acc": 0.4987,
+        "acc_occ": 0.5188
+      },
+      "H4_rule_swap": {
+        "acc": 0.5326,
+        "acc_occ": 0.5906
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F5_dense_detach",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F5_dense_detach_s20261121.pt",
+    "sha256": "2f204c2f094407df5cbc7adf87127ad1b9543ed89f24a3280bc3a47a052bd35c",
+    "recorded": {
+      "acc_all": 0.9128,
+      "acc_occ": 0.95,
+      "probe_posthoc_val": 0.7826,
+      "probe_posthoc_test": 0.8867,
+      "loss_head": 3.3053,
+      "loss_tail": 0.0058,
+      "steps": 480,
+      "wall_s": 170.72,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F5_dense_detach_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix.json"
+    },
+    "reload": {
+      "acc_all": 0.9128,
+      "acc_occ": 0.95,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.8867,
+      "H1_fresh_pairs": {
+        "acc": 0.9323,
+        "acc_occ": 0.9594
+      },
+      "H2_len48": {
+        "acc": 0.9661,
+        "acc_occ": 0.9815
+      },
+      "H3_obstacles": {
+        "acc": 0.7539,
+        "acc_occ": 0.7688
+      },
+      "H4_rule_swap": {
+        "acc": 0.6888,
+        "acc_occ": 0.7906
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F6_detach_pred025",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F6_detach_pred025_s20261121.pt",
+    "sha256": "31359a373933eb589b0d4ead3f8adb6309b12a09861298f46e3d5b32676a5b0e",
+    "recorded": {
+      "acc_all": 0.8477,
+      "acc_occ": 0.8938,
+      "probe_posthoc_val": 0.8151,
+      "probe_posthoc_test": 0.8255,
+      "loss_head": 2.5435,
+      "loss_tail": 0.4174,
+      "steps": 480,
+      "wall_s": 102.39,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F6_detach_pred025_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix2.json"
+    },
+    "reload": {
+      "acc_all": 0.8477,
+      "acc_occ": 0.8938,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.8255,
+      "H1_fresh_pairs": {
+        "acc": 0.8151,
+        "acc_occ": 0.8469
+      },
+      "H2_len48": {
+        "acc": 0.8633,
+        "acc_occ": 0.8821
+      },
+      "H3_obstacles": {
+        "acc": 0.6354,
+        "acc_occ": 0.6547
+      },
+      "H4_rule_swap": {
+        "acc": 0.5951,
+        "acc_occ": 0.6719
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F7_detach_soft_balent",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F7_detach_soft_balent_s20261121.pt",
+    "sha256": "a70df223dc81720e7c7494545aef562cbeb8b62f55ba40eeb11c55794c55c9b3",
+    "recorded": {
+      "acc_all": 0.8503,
+      "acc_occ": 0.9234,
+      "probe_posthoc_val": 0.9167,
+      "probe_posthoc_test": 0.8581,
+      "loss_head": 3.3156,
+      "loss_tail": 0.3591,
+      "steps": 480,
+      "wall_s": 124.02,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F7_detach_soft_balent_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix2.json"
+    },
+    "reload": {
+      "acc_all": 0.8503,
+      "acc_occ": 0.9234,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.8581,
+      "H1_fresh_pairs": {
+        "acc": 0.7995,
+        "acc_occ": 0.8766
+      },
+      "H2_len48": {
+        "acc": 0.8587,
+        "acc_occ": 0.8991
+      },
+      "H3_obstacles": {
+        "acc": 0.6745,
+        "acc_occ": 0.7141
+      },
+      "H4_rule_swap": {
+        "acc": 0.681,
+        "acc_occ": 0.7719
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "F8_detach_probe05",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F8_detach_probe05_s20261121.pt",
+    "sha256": "8ccba659587bf8ec691d48b62ad01243e6bcb7a25ff13c59c1c89dca3eaf1f44",
+    "recorded": {
+      "acc_all": 0.8008,
+      "acc_occ": 0.8719,
+      "probe_posthoc_val": 0.9219,
+      "probe_posthoc_test": 0.8802,
+      "loss_head": 4.1972,
+      "loss_tail": 0.4604,
+      "steps": 480,
+      "wall_s": 83.19,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F8_detach_probe05_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_fix2.json"
+    },
+    "reload": {
+      "acc_all": 0.8008,
+      "acc_occ": 0.8719,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.8802,
+      "H1_fresh_pairs": {
+        "acc": 0.7591,
+        "acc_occ": 0.8125
+      },
+      "H2_len48": {
+        "acc": 0.8366,
+        "acc_occ": 0.8679
+      },
+      "H3_obstacles": {
+        "acc": 0.6224,
+        "acc_occ": 0.6578
+      },
+      "H4_rule_swap": {
+        "acc": 0.5794,
+        "acc_occ": 0.6531
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_no_balent",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_balent_s20261121.pt",
+    "sha256": "973b9d4bf3d2546032c4bb5da0d7fd0a038ac7d113fd11bfa3ce66adda308002",
+    "recorded": {
+      "acc_all": 0.6549,
+      "acc_occ": 0.7031,
+      "probe_posthoc_val": 0.3268,
+      "probe_posthoc_test": 0.4219,
+      "loss_head": 3.3176,
+      "loss_tail": 1.0044,
+      "steps": 480,
+      "wall_s": 68.26,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_balent_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.6549,
+      "acc_occ": 0.7031,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.4219,
+      "H1_fresh_pairs": {
+        "acc": 0.6224,
+        "acc_occ": 0.6625
+      },
+      "H2_len48": {
+        "acc": 0.6602,
+        "acc_occ": 0.6818
+      },
+      "H3_obstacles": {
+        "acc": 0.4701,
+        "acc_occ": 0.475
+      },
+      "H4_rule_swap": {
+        "acc": 0.4896,
+        "acc_occ": 0.5375
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_no_pred",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_pred_s20261121.pt",
+    "sha256": "c07e9660ae66191eb3f7c0e2aebf884d6007ecc7f073d07f261615f5dc5d9eee",
+    "recorded": {
+      "acc_all": 0.8424,
+      "acc_occ": 0.9062,
+      "probe_posthoc_val": 0.763,
+      "probe_posthoc_test": 0.7799,
+      "loss_head": 2.2888,
+      "loss_tail": 0.4071,
+      "steps": 480,
+      "wall_s": 67.99,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_pred_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.8424,
+      "acc_occ": 0.9062,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.7799,
+      "H1_fresh_pairs": {
+        "acc": 0.8073,
+        "acc_occ": 0.8547
+      },
+      "H2_len48": {
+        "acc": 0.8594,
+        "acc_occ": 0.8857
+      },
+      "H3_obstacles": {
+        "acc": 0.6758,
+        "acc_occ": 0.7031
+      },
+      "H4_rule_swap": {
+        "acc": 0.6406,
+        "acc_occ": 0.7297
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_no_probe",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_probe_s20261121.pt",
+    "sha256": "e9004b67df80dae1d5353936934162cee27448a968a676f44ac25e7770b54a09",
+    "recorded": {
+      "acc_all": 0.5794,
+      "acc_occ": 0.6234,
+      "probe_posthoc_val": 0.2214,
+      "probe_posthoc_test": 0.2995,
+      "loss_head": 2.418,
+      "loss_tail": 0.7038,
+      "steps": 480,
+      "wall_s": 84.9,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_probe_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.5794,
+      "acc_occ": 0.6234,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.2995,
+      "H1_fresh_pairs": {
+        "acc": 0.5586,
+        "acc_occ": 0.5984
+      },
+      "H2_len48": {
+        "acc": 0.597,
+        "acc_occ": 0.6186
+      },
+      "H3_obstacles": {
+        "acc": 0.4583,
+        "acc_occ": 0.4813
+      },
+      "H4_rule_swap": {
+        "acc": 0.4909,
+        "acc_occ": 0.5344
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_no_var",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_var_s20261121.pt",
+    "sha256": "7c0e04445061d88ffed82b496ba374bf4279d59b9ad3073ff7e55a46983482a7",
+    "recorded": {
+      "acc_all": 0.7018,
+      "acc_occ": 0.7656,
+      "probe_posthoc_val": 0.3607,
+      "probe_posthoc_test": 0.5208,
+      "loss_head": 3.3072,
+      "loss_tail": 1.006,
+      "steps": 480,
+      "wall_s": 65.58,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_no_var_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.7018,
+      "acc_occ": 0.7656,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.5208,
+      "H1_fresh_pairs": {
+        "acc": 0.6211,
+        "acc_occ": 0.6687
+      },
+      "H2_len48": {
+        "acc": 0.668,
+        "acc_occ": 0.6939
+      },
+      "H3_obstacles": {
+        "acc": 0.5898,
+        "acc_occ": 0.6344
+      },
+      "H4_rule_swap": {
+        "acc": 0.4974,
+        "acc_occ": 0.5344
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_only_pred",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_only_pred_s20261121.pt",
+    "sha256": "437a6961493858232dc936af59d25430af033554a587b8b631b4eb292f9bb11a",
+    "recorded": {
+      "acc_all": 0.6146,
+      "acc_occ": 0.6516,
+      "probe_posthoc_val": 0.2018,
+      "probe_posthoc_test": 0.1992,
+      "loss_head": 2.4275,
+      "loss_tail": 0.6929,
+      "steps": 480,
+      "wall_s": 125.67,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_only_pred_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.6146,
+      "acc_occ": 0.6516,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.1992,
+      "H1_fresh_pairs": {
+        "acc": 0.6016,
+        "acc_occ": 0.6156
+      },
+      "H2_len48": {
+        "acc": 0.6139,
+        "acc_occ": 0.6214
+      },
+      "H3_obstacles": {
+        "acc": 0.4635,
+        "acc_occ": 0.4719
+      },
+      "H4_rule_swap": {
+        "acc": 0.4909,
+        "acc_occ": 0.5406
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  },
+  {
+    "arm": "I_only_probe",
+    "seed": 20261121,
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_only_probe_s20261121.pt",
+    "sha256": "dba73542968c0d9cad3505ffb03d2359fbf8893da6200fd241cf6ddb9c2155b4",
+    "recorded": {
+      "acc_all": 0.849,
+      "acc_occ": 0.9047,
+      "probe_posthoc_val": 0.7461,
+      "probe_posthoc_test": 0.7708,
+      "loss_head": 2.2984,
+      "loss_tail": 0.3402,
+      "steps": 480,
+      "wall_s": 104.66,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\I_only_probe_s20261121.pt",
+      "dataset_hash": null,
+      "recorded_in": "m2_2x2_iso.json"
+    },
+    "reload": {
+      "acc_all": 0.849,
+      "acc_occ": 0.9047,
+      "n_occ": 640,
+      "dataset_hash_match": false,
+      "probe_in_checkpoint": true,
+      "probe_posthoc_test": 0.7708,
+      "H1_fresh_pairs": {
+        "acc": 0.8151,
+        "acc_occ": 0.8594
+      },
+      "H2_len48": {
+        "acc": 0.873,
+        "acc_occ": 0.8984
+      },
+      "H3_obstacles": {
+        "acc": 0.6263,
+        "acc_occ": 0.6562
+      },
+      "H4_rule_swap": {
+        "acc": 0.6576,
+        "acc_occ": 0.7469
+      }
+    },
+    "status": "verified",
+    "delta_acc_occ_vs_record": 0.0
+  }
+]

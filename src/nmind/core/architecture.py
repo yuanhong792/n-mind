@@ -68,6 +68,7 @@ class NModel(nn.Module):
         use_error_gating: bool = True,
         use_workspace: bool = True,
         top_k: int | None = None,
+        router_ste: bool = False,
     ) -> None:
         super().__init__()
         if execution not in ("sparse", "dense"):
@@ -80,6 +81,10 @@ class NModel(nn.Module):
         self.use_error_gating = use_error_gating
         self.use_workspace = use_workspace
         self.top_k = int(top_k or cfg.top_k)
+        # 稀疏模式下给路由器接上任务梯度的开关（M2 收尾实验 F10）。
+        # 关闭时 route.weights 不参与前向（历史行为，router 只被均衡/熵正则训练）；
+        # 打开时选中的块更新按 route.weights 插值，梯度经插值路径回传路由器（STE 风格）。
+        self.router_ste = bool(router_ste)
 
         self.encoder = EventEncoder(
             numeric_dim=cfg.event_numeric_dim,
@@ -196,10 +201,15 @@ class NModel(nn.Module):
             touched = int(mask.sum().item())
         else:
             # 硬选择语义与稠密掩码路径保持一致：选中即整体采纳 h'，不按软权重缩放。
-            # route.weights 只承担两件事——给路由器回传梯度、报告相对重要性。
+            # route.weights 默认不参与前向（router_ste=False）：此时稀疏模式下路由器
+            # 收不到任何任务梯度（gradient_diagnostics.json 实测 action/pred/probe→router 全 0），
+            # 只有均衡/熵正则在训练它 —— 这是 D 臂失败的候选机制之一。
+            # router_ste=True 时传入软权重：前向仍是硬选择加权的插值，梯度经插值回传。
             idx = route.indices
+            w_sel = route.weights if self.router_ste else None
             for _d in range(depth):
-                h, _g, _m, _p, n_pairs = self.blocks.forward_sparse(z, h, w_read.value, idx)
+                h, _g, _m, _p, n_pairs = self.blocks.forward_sparse(z, h, w_read.value, idx,
+                                                                    weights=w_sel)
                 touched += int(n_pairs)
             h = h.clone()
 

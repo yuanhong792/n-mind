@@ -75,7 +75,7 @@ def _goal_code(goal: tuple[int, int], size: int = 6) -> int:
 def build_model(cfg: Config, *, seed: int, execution: str = "sparse", use_router: bool = True,
                 use_error_gating: bool = True, use_workspace: bool = True,
                 device: torch.device | str = "cpu", mem_dim: int = 16,
-                n_blocks: int | None = None) -> NModel:
+                n_blocks: int | None = None, router_ste: bool = False) -> NModel:
     """按消融开关装配模型。seed 决定初始化，同 seed 同权重（可复现验收靠这个）。"""
     torch.manual_seed(seed)
     np.random.seed(seed % (2**32))
@@ -84,7 +84,8 @@ def build_model(cfg: Config, *, seed: int, execution: str = "sparse", use_router
                                                                            "top_k": min(cfg.model.top_k, int(n_blocks))})})
     model = NModel(cfg.model, n_actions=datasets.N_ACTIONS, mem_dim=mem_dim,
                    execution=execution, use_router=use_router,
-                   use_error_gating=use_error_gating, use_workspace=use_workspace)
+                   use_error_gating=use_error_gating, use_workspace=use_workspace,
+                   router_ste=router_ste)
     return model.to(device)
 
 
@@ -103,20 +104,22 @@ def _with_aux(traj: Any) -> dict[str, Any]:
 def make_data(cfg: Config, task: datasets.GridTask, *, seed: int) -> dict[str, Any]:
     lcfg = cfg.learning
     data = datasets.make_split(task, n_train=lcfg.n_train, n_test=lcfg.n_test,
-                               T=lcfg.traj_len, seed=seed)
-    train = []
-    for t in data["train"]:
-        row = _with_aux(t)
-        row["task"] = task.name
-        train.append(row)
-    test = []
-    for t in data["test"]:
-        row = _with_aux(t)
-        row["task"] = task.name
-        test.append(row)
-    return {"train": train, "test": test,
+                               n_val=lcfg.n_val, T=lcfg.traj_len, seed=seed)
+
+    def rows_of(trajs: list) -> list[dict[str, Any]]:
+        out = []
+        for t in trajs:
+            row = _with_aux(t)
+            row["task"] = task.name
+            out.append(row)
+        return out
+
+    return {"train": rows_of(data["train"]), "test": rows_of(data["test"]),
+            "val": rows_of(data.get("val", [])),
             "dataset_hash": datasets.dataset_hash(task, n_train=lcfg.n_train,
-                                                  n_test=lcfg.n_test, T=lcfg.traj_len, seed=seed)}
+                                                  n_test=lcfg.n_test, n_val=lcfg.n_val,
+                                                  T=lcfg.traj_len, seed=seed),
+            "split_version": datasets.SPLIT_VERSION}
 
 
 def _assemble(rows: list[dict[str, Any]], dev: torch.device) -> dict[str, Any]:
@@ -165,19 +168,69 @@ def evaluate(model: NModel, probe: nn.Module, rows: list[dict[str, Any]], *,
             occ = b["obs"][:, :, 24] > 0.5
             occ_hit += int((pred[occ] == b["actions"][occ]).sum().item())
             occ_n += int(occ.sum().item())
-            T = b["obs"].shape[1]
-            p_pred = probe(out["ctx"].reshape(-1, out["ctx"].shape[-1])).argmax(-1)
-            codes = b["codes"].repeat_interleave(T)
-            phit += int((p_pred == codes).sum().item())
-            pn += int(codes.numel())
+            if probe is not None:
+                T = b["obs"].shape[1]
+                p_pred = probe(out["ctx"].reshape(-1, out["ctx"].shape[-1])).argmax(-1)
+                codes = b["codes"].repeat_interleave(T)
+                phit += int((p_pred == codes).sum().item())
+                pn += int(codes.numel())
     if was_training:
         model.train()
-    res: dict[str, float] = {"accuracy": hit / max(1, n), "n_steps": float(n),
-                             "probe_accuracy": phit / max(1, pn), "probe_n": float(pn)}
+    res: dict[str, float] = {"accuracy": hit / max(1, n), "n_steps": float(n)}
+    if probe is not None:
+        res["probe_accuracy"] = phit / max(1, pn) if pn else float("nan")
+        res["probe_n"] = float(pn)
     if occ_n:
         res["accuracy_occluded"] = occ_hit / occ_n
         res["n_steps_occluded"] = float(occ_n)
     return res
+
+
+def _extract_ctx(model: NModel, rows: list[dict[str, Any]], device: torch.device,
+                 batch_size: int = 8) -> tuple[torch.Tensor, torch.Tensor]:
+    """冻结主干，抽出 (池化状态, 目标格标签) 供事后探针拟合/评测。"""
+    xs, ys = [], []
+    was_training = model.training
+    model.eval()
+    with torch.no_grad():
+        for s in range(0, len(rows), batch_size):
+            b = _assemble(rows[s:s + batch_size], device)
+            out = model.forward_sequence(b["obs"], b["actions"], mem=b["mem"])
+            ctx = out["ctx"]
+            xs.append(ctx.reshape(-1, ctx.shape[-1]))
+            ys.append(b["codes"].repeat_interleave(ctx.shape[1]))
+    if was_training:
+        model.train()
+    return torch.cat(xs), torch.cat(ys)
+
+
+def fit_posthoc_probe(model: NModel, fit_rows: list[dict[str, Any]],
+                      eval_rows: list[dict[str, Any]], *, device: torch.device,
+                      epochs: int = 60, lr: float = 1e-2, batch_size: int = 8,
+                      seed: int = 0) -> dict[str, float]:
+    """事后读出探针：主干冻结、特征固定，只训一个 MLP 读"目标最初在哪一格"。
+
+    与联合探针的区别是**它不参与主干训练**，所以探针分数高不能再用
+    "探针和主干互相适配"来解释。2x2 消融里四组必须都用这把尺子量记忆，
+    否则 CE-only 组没有被训练过的探针，比较就无从谈起。
+    """
+    torch.manual_seed(seed)
+    probe = _make_probe(model.cfg.block_hidden, 36, hidden=64).to(device)
+    opt = torch.optim.AdamW(probe.parameters(), lr=lr, weight_decay=1e-4)
+    feats, codes = _extract_ctx(model, fit_rows, device, batch_size)
+    probe.train()
+    for _ in range(epochs):
+        loss = F.cross_entropy(probe(feats), codes)
+        opt.zero_grad(set_to_none=True)
+        loss.backward()
+        opt.step()
+    probe.eval()
+    f_e, c_e = _extract_ctx(model, eval_rows, device, batch_size)
+    with torch.no_grad():
+        pred = probe(f_e).argmax(-1)
+    return {"probe_posthoc_accuracy": float((pred == c_e).float().mean().item()),
+            "probe_posthoc_n": float(c_e.numel()),
+            "probe_posthoc_loss": round(float(loss.detach()), 4)}
 
 
 def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | None = None,
@@ -186,9 +239,19 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
           use_memory_input: bool = False, replay: ReservoirReplay | None = None,
           replay_ratio: float | None = None, trainable_adapter: bool = False,
           device: str = "auto", eval_interval: int | None = None, quiet: bool = False,
-          max_eval_rows: int = 16, checkpoint_path: str | None = None,
-          mem_provider: Any | None = None) -> TrainResult:
-    """训练一个任务。给了 replay 就按比例混批；trainable_adapter 只放开部分参数。"""
+          checkpoint_path: str | None = None,
+          mem_provider: Any | None = None, loss_mode: str = "joint",
+          posthoc_probe: bool = True, loss_overrides: dict[str, float] | None = None,
+          router_ste: bool = False) -> TrainResult:
+    """训练一个任务。给了 replay 就按比例混批；trainable_adapter 只放开部分参数。
+
+    `loss_mode`：`joint` = CE + 预测 + 方差 + 均衡 + 熵 + 联合探针（M1 原配置）；
+    `ce` = **只留 CE**，探针不参与训练（2x2 消融的 A/C 组就是这一档）。
+    两档走同一条代码路径、同一份数据、同一组初始化，差异只有损失项——
+    这样"联合损失是否拖累决策"才是可归因的实验，而不是两个脚本的差异。
+    """
+    if loss_mode not in ("joint", "ce"):
+        raise ValueError(f"loss_mode 只能是 'joint' 或 'ce'，实际 {loss_mode!r}")
     cfg = cfg or default_config()
     lcfg = cfg.learning
     seed = int(cfg.runtime.seed if seed is None else seed)
@@ -203,21 +266,34 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
     np.random.seed(seed % (2**32))
 
     model = build_model(cfg, seed=seed, device=dev, execution=execution, use_router=use_router,
-                        use_error_gating=use_error_gating, use_workspace=use_workspace)
+                        use_error_gating=use_error_gating, use_workspace=use_workspace,
+                        router_ste=router_ste)
     opened = _freeze_except_adapter(model) if trainable_adapter else []
     probe = _make_probe(cfg.model.block_hidden, 36).to(dev)      # 6x6 网格里目标所在格 = 36 类
-    weights = LossWeights.from_cfg(cfg)
+    weights = LossWeights.from_cfg(cfg) if loss_mode == "joint" else LossWeights(
+        pred=0.0, var=0.0, balance=0.0, entropy=0.0, probe=0.0)
+    if loss_overrides:
+        for k2, v2 in loss_overrides.items():
+            if not hasattr(weights, k2):
+                raise ValueError(f"未知损失权重 {k2!r}；可用：{list(weights.__dataclass_fields__)}")
+            setattr(weights, k2, float(v2))
 
     data = make_data(cfg, task, seed=seed)
     rows = data["train"]
     test_rows = data["test"]
+    val_rows = data["val"] or test_rows       # 无 val 时退回 test（并在返回体里标注）
     if use_memory_input:
         _inject_memory_rows(rows, mem_provider, dim=16, T=lcfg.traj_len)
         _inject_memory_rows(test_rows, mem_provider, dim=16, T=lcfg.traj_len)
+        if data["val"]:
+            _inject_memory_rows(val_rows, mem_provider, dim=16, T=lcfg.traj_len)
 
     bs = max(2, int(lcfg.batch_size))
     steps_per_epoch = int(lcfg.n_updates) or max(1, len(rows) // bs)
-    params = [p for p in list(model.parameters()) + list(probe.parameters()) if p.requires_grad]
+    train_params = list(model.parameters())
+    if loss_mode == "joint":
+        train_params += list(probe.parameters())   # CE 模式下探针不参与优化，避免偷偷改变量
+    params = [p for p in train_params if p.requires_grad]
     opt = torch.optim.AdamW(params, lr=lcfg.lr, weight_decay=1e-4)
     rng = np.random.default_rng(seed + 999)
 
@@ -236,11 +312,14 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
             b = _assemble(batch_rows, dev)
             out = model.forward_sequence(b["obs"], b["actions"], mem=b["mem"], depth=1)
             losses = compute_total(out, b["actions"], weights)
-            p_logits = probe(out["ctx"].reshape(-1, out["ctx"].shape[-1]))
-            codes = b["codes"].repeat_interleave(b["obs"].shape[1])
-            probe_loss = F.cross_entropy(p_logits, codes)
-            losses["probe"] = probe_loss
-            losses["total"] = losses["total"] + weights.probe * probe_loss
+            if loss_mode == "joint":
+                p_logits = probe(out["ctx"].reshape(-1, out["ctx"].shape[-1]))
+                codes = b["codes"].repeat_interleave(b["obs"].shape[1])
+                probe_loss = F.cross_entropy(p_logits, codes)
+                losses["probe"] = probe_loss
+                losses["total"] = losses["total"] + weights.probe * probe_loss
+            else:
+                losses["probe"] = losses["total"].new_zeros(())
             if not torch.isfinite(losses["total"]):
                 non_finite += 1
                 opt.zero_grad(set_to_none=True)
@@ -258,41 +337,52 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
         res.steps += steps_per_epoch
         model.eval()
         if (ep + 1) % eval_interval == 0 or ep == epochs - 1:
+            probe_live = probe if loss_mode == "joint" else None
             ev = {"epoch": ep,
-                  "train": evaluate(model, probe, rows, device=dev, occluded_only=True,
-                                    max_rows=max_eval_rows),
-                  "test": evaluate(model, probe, test_rows, device=dev, occluded_only=True,
-                                   max_rows=max_eval_rows)}
-            ev["train"]["accuracy_all"] = evaluate(model, probe, rows, device=dev,
-                                                   max_rows=max_eval_rows)["accuracy"]
-            ev["test"]["accuracy_all"] = evaluate(model, probe, test_rows, device=dev,
-                                                  max_rows=max_eval_rows)["accuracy"]
+                  "train": evaluate(model, probe_live, rows, device=dev, occluded_only=True),
+                  "val": evaluate(model, probe_live, val_rows, device=dev, occluded_only=True)}
+            ev["train"]["accuracy_all"] = evaluate(model, probe_live, rows, device=dev)["accuracy"]
+            ev["val"]["accuracy_all"] = evaluate(model, probe_live, val_rows, device=dev)["accuracy"]
             res.evals.append(ev)
             if not quiet:
-                t = ev["test"]
+                t = ev["val"]
                 print(f"[ep{ep}] total={res.curve['total'][-1]:.4f} act={res.curve['action'][-1]:.4f} "
-                      f"probe={res.curve['probe'][-1]:.4f} | test acc_all={t['accuracy_all']:.3f} "
+                      f"probe={res.curve['probe'][-1]:.4f} | val acc_all={t['accuracy_all']:.3f} "
                       f"acc_occ={t.get('accuracy_occluded', float('nan')):.3f} "
-                      f"probe_acc={t['probe_accuracy']:.3f}")
+                      f"probe_acc={t.get('probe_accuracy', float('nan')):.3f}")
     res.wall_s = time.perf_counter() - t0
     model.eval()
+    probe_live = probe if loss_mode == "joint" else None
     res.final = {
-        "eval": evaluate(model, probe, test_rows, device=dev, occluded_only=True),
-        "eval_all": evaluate(model, probe, test_rows, device=dev),
+        # 兼容旧字段：eval = 测试集（只在训练结束后摸一次）
+        "eval": evaluate(model, probe_live, test_rows, device=dev, occluded_only=True),
+        "eval_all": evaluate(model, probe_live, test_rows, device=dev),
+        "val": evaluate(model, probe_live, val_rows, device=dev, occluded_only=True),
         "route": model.active_block_stats(),
         "params": model.n_params(),
         "task": datasets.task_to_dict(task),
         "dataset_hash": data["dataset_hash"],
+        "split_version": data["split_version"],
+        "val_is_test_fallback": not bool(data["val"]),
         "config_hash": config_hash(cfg),
         "git_revision": git_revision(),
         "seed": seed,
         "execution": execution,
+        "loss_mode": loss_mode,
+        "loss_weights": {k2: float(getattr(weights, k2)) for k2 in
+                         ("pred", "var", "balance", "entropy", "probe")},
         "ablation": {"use_router": use_router, "use_error_gating": use_error_gating,
                      "use_workspace": use_workspace, "use_memory_input": use_memory_input,
-                     "trainable_adapter": trainable_adapter, "opened": opened},
+                     "trainable_adapter": trainable_adapter, "opened": opened,
+                     "router_ste": router_ste},
         "replay_items_used": len(replay) if replay is not None else 0,
         "non_finite_steps_skipped": non_finite,
     }
+    if posthoc_probe:
+        pos = fit_posthoc_probe(model, rows, val_rows, device=dev, seed=seed)
+        pos_test = fit_posthoc_probe(model, rows, test_rows, device=dev, seed=seed)
+        res.final["probe_posthoc_val"] = pos
+        res.final["probe_posthoc_test"] = pos_test
     if checkpoint_path:
         res.checkpoint = save_checkpoint(model, cfg=cfg, path=checkpoint_path, probe=probe,
                                          meta={"seed": seed, "task": datasets.task_to_dict(task),

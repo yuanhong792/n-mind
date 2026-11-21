@@ -1,0 +1,201 @@
+{
+  "env": {
+    "torch": "2.10.0+cu128",
+    "cpu": "i7-14700KF 28 逻辑核",
+    "threads_tested": [
+      1,
+      4,
+      8
+    ],
+    "batch": 1,
+    "T": 24,
+    "dtype": "float32",
+    "warmup": 10,
+    "repeats": 60,
+    "seed": 20261121,
+    "base_rss_mb": 493.8,
+    "note": "独占运行时执行；与其他训练/评测并行时的数字不可比"
+  },
+  "results": {
+    "D_sparse_joint": {
+      "threads_1": {
+        "p50_ms": 25.448,
+        "p95_ms": 27.471,
+        "mean_ms": 25.494,
+        "min_ms": 23.739,
+        "seq_per_s": 39.3,
+        "rss_peak_mb": 502.8,
+        "bench_wall_s": 1.8
+      },
+      "threads_4": {
+        "p50_ms": 25.717,
+        "p95_ms": 28.567,
+        "mean_ms": 26.06,
+        "min_ms": 24.681,
+        "seq_per_s": 38.9,
+        "rss_peak_mb": 505.0,
+        "bench_wall_s": 1.8
+      },
+      "threads_8": {
+        "p50_ms": 27.609,
+        "p95_ms": 53.056,
+        "mean_ms": 33.353,
+        "min_ms": 24.967,
+        "seq_per_s": 36.2,
+        "rss_peak_mb": 507.1,
+        "bench_wall_s": 2.3
+      }
+    },
+    "A_dense_ce": {
+      "threads_1": {
+        "p50_ms": 38.659,
+        "p95_ms": 40.732,
+        "mean_ms": 38.652,
+        "min_ms": 35.166,
+        "seq_per_s": 25.9,
+        "rss_peak_mb": 503.0,
+        "bench_wall_s": 2.7
+      },
+      "threads_4": {
+        "p50_ms": 38.185,
+        "p95_ms": 39.933,
+        "mean_ms": 38.45,
+        "min_ms": 36.813,
+        "seq_per_s": 26.2,
+        "rss_peak_mb": 504.5,
+        "bench_wall_s": 2.7
+      },
+      "threads_8": {
+        "p50_ms": 45.905,
+        "p95_ms": 80.994,
+        "mean_ms": 51.499,
+        "min_ms": 35.547,
+        "seq_per_s": 21.8,
+        "rss_peak_mb": 505.5,
+        "bench_wall_s": 3.6
+      }
+    },
+    "C_sparse_ce": {
+      "threads_1": {
+        "p50_ms": 25.626,
+        "p95_ms": 26.72,
+        "mean_ms": 25.671,
+        "min_ms": 23.975,
+        "seq_per_s": 39.0,
+        "rss_peak_mb": 503.6,
+        "bench_wall_s": 1.8
+      },
+      "threads_4": {
+        "p50_ms": 25.873,
+        "p95_ms": 27.137,
+        "mean_ms": 25.972,
+        "min_ms": 24.097,
+        "seq_per_s": 38.7,
+        "rss_peak_mb": 505.5,
+        "bench_wall_s": 1.8
+      },
+      "threads_8": {
+        "p50_ms": 31.517,
+        "p95_ms": 52.953,
+        "mean_ms": 34.436,
+        "min_ms": 25.243,
+        "seq_per_s": 31.7,
+        "rss_peak_mb": 507.1,
+        "bench_wall_s": 2.4
+      }
+    },
+    "F7_detach_soft_balent": {
+      "threads_1": {
+        "p50_ms": 25.567,
+        "p95_ms": 26.862,
+        "mean_ms": 25.713,
+        "min_ms": 24.099,
+        "seq_per_s": 39.1,
+        "rss_peak_mb": 503.6,
+        "bench_wall_s": 1.8
+      },
+      "threads_4": {
+        "p50_ms": 26.265,
+        "p95_ms": 27.891,
+        "mean_ms": 26.627,
+        "min_ms": 24.986,
+        "seq_per_s": 38.1,
+        "rss_peak_mb": 505.0,
+        "bench_wall_s": 1.9
+      },
+      "threads_8": {
+        "p50_ms": 29.228,
+        "p95_ms": 53.525,
+        "mean_ms": 33.311,
+        "min_ms": 25.147,
+        "seq_per_s": 34.2,
+        "rss_peak_mb": 507.1,
+        "bench_wall_s": 2.3
+      }
+    },
+    "F1_detach": {
+      "threads_1": {
+        "p50_ms": 25.566,
+        "p95_ms": 28.444,
+        "mean_ms": 25.733,
+        "min_ms": 24.011,
+        "seq_per_s": 39.1,
+        "rss_peak_mb": 503.8,
+        "bench_wall_s": 1.8
+      },
+      "threads_4": {
+        "p50_ms": 25.533,
+        "p95_ms": 27.893,
+        "mean_ms": 25.799,
+        "min_ms": 24.084,
+        "seq_per_s": 39.2,
+        "rss_peak_mb": 505.5,
+        "bench_wall_s": 1.8
+      },
+      "threads_8": {
+        "p50_ms": 28.357,
+        "p95_ms": 50.848,
+        "mean_ms": 32.565,
+        "min_ms": 24.584,
+        "seq_per_s": 35.3,
+        "rss_peak_mb": 506.5,
+        "bench_wall_s": 2.3
+      }
+    },
+    "F10_ste": {
+      "threads_1": {
+        "p50_ms": 25.559,
+        "p95_ms": 27.346,
+        "mean_ms": 25.822,
+        "min_ms": 24.327,
+        "seq_per_s": 39.1,
+        "rss_peak_mb": 503.8,
+        "bench_wall_s": 1.8
+      },
+      "threads_4": {
+        "p50_ms": 25.753,
+        "p95_ms": 26.877,
+        "mean_ms": 26.039,
+        "min_ms": 23.841,
+        "seq_per_s": 38.8,
+        "rss_peak_mb": 504.9,
+        "bench_wall_s": 1.8
+      },
+      "threads_8": {
+        "p50_ms": 27.52,
+        "p95_ms": 49.657,
+        "mean_ms": 32.12,
+        "min_ms": 25.002,
+        "seq_per_s": 36.3,
+        "rss_peak_mb": 506.6,
+        "bench_wall_s": 2.3
+      }
+    }
+  },
+  "speedup_dense_vs_sparse_p50": {
+    "threads_1": 1.509,
+    "threads_4": 1.476,
+    "threads_8": 1.457
+  },
+  "honesty": "这是端到端 wall-clock；'稀疏理论计算量减少'与'真实加速比'分开报告，不得混淆"
+}

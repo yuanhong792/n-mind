@@ -77,6 +77,18 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. 在 5 项联合损失下重训稠密 N-Cell，回答"是路由还是多损失拖累了学习"（预期 30–90s CPU）。
-2. 跑 `train --continual --json` 记录真实遗忘量（M4 验收）。
-3. 依据 1 的结论调稀疏版训练（先怀疑 pred/var/balance/entropy 权重），再谈加大模型。
+1. **F10 定案**：再加 5-10 个 seed（或加训步数）确认 0.914±0.031 的稳定性；达标则 M2 转 ACCEPTED 并把 router_ste 写入默认训练配置（先在 ROADMAP/decisions 记录）。
+2. pred 分支显式有效性指标（下一状态预测准确率/误差，M2.2 要求项）——本轮只验证了未常数化。
+3. H3 障碍 OOD 掉 13-18pp → 训练数据加障碍布局课程。
+4. M3 v1 结果分析 + 自由生成（M3.2）+ GRU/Transformer 对照。
+
+## M2 收尾（2026-11-21 第二轮，AutoClaw）
+
+- **全量重载验证**：22 个 checkpoint 全部重载评分，Δ=0.0 逐位复现（registry.json）；sha256 已登记。
+- **冻结 holdout**：H1 新对/ H2 长48 基本不掉点；**H3 障碍布局 OOD 掉 13-18pp（全部臂）**；H4 规则反转为弱对照（角点退化区，非泄漏信号）。
+- **机制诊断**（gradient_diagnostics.json）：稀疏模式下 action/pred/probe 对 router 梯度全为 0（任务盲路由），仅 balance/entropy 训练它；稠密 B 的 router 有任务梯度且 action×pred cosine -0.453 但仍收敛；D 是"从未收敛"不是"先崩后逃"。
+- **多 seed（20261122-24）**：C 0.941±0.002（架构稳定）；D 0.627±0.055（复现失败）；F1 0.895±0.016；**F7 0.872±0.038，其单 seed 0.923 确认为最好种子噪声，被 F1 反超**。
+- **新增消融**：F9（只软化、不 detach）0.593±0.039 ≈ D ⇒ detach 必要；**F10（F7+STE 路由）0.914±0.031（n=5），距 C 2.7pp——均值首次进入 ≤3pp 目标线**，方差大待定案。
+- **CPU 基准（独占）**：稀疏 25.6ms vs 稠密 38.7ms p50 @1 线程 = **1.51×**（旧 1.68× 撤回）；8 线程小算子受竞争（p95 升至 50ms）；RSS ~503MB。
+- **判定**：M2 **CONDITIONAL**（未闭环，差 F10 定案 + pred 显式有效性指标）。详见 experiments/m2_closeout/m2_closeout_report.md。
+- 测试套件 49 项全绿（+router_ste 3、+closeout 回归 3、+micro_lang 11）。

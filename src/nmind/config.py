@@ -105,6 +105,7 @@ class LearnCfg(BaseModel):
     traj_len: int = 24
     n_train: int = 96
     n_test: int = 32
+    n_val: int = 32                    # 调参只看 val；test 只在最终评测用一次
     n_updates: int = 6                 # 每 epoch 的优化步数（0 = 按 batch 自动）
     grad_clip: float = 5.0
     pred_weight: float = 1.0

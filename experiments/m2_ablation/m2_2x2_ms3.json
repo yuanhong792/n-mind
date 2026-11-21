@@ -1,0 +1,2036 @@
+{
+  "steps": 480,
+  "seeds": [
+    20261122,
+    20261123,
+    20261124
+  ],
+  "traj_len": 24,
+  "dataset_hash": "1ca0800979c6941e",
+  "split_version": "v2-disjoint-pairs",
+  "n_train": 96,
+  "n_val": 32,
+  "n_test": 32,
+  "arms": {
+    "A_dense_ce": {
+      "flags": {
+        "execution": "dense",
+        "use_router": false,
+        "loss_mode": "ce"
+      },
+      "loss_overrides": null
+    },
+    "B_dense_joint": {
+      "flags": {
+        "execution": "dense",
+        "use_router": false,
+        "loss_mode": "joint"
+      },
+      "loss_overrides": null
+    },
+    "C_sparse_ce": {
+      "flags": {
+        "execution": "sparse",
+        "use_router": true,
+        "loss_mode": "ce"
+      },
+      "loss_overrides": null
+    },
+    "D_sparse_joint": {
+      "flags": {
+        "execution": "sparse",
+        "use_router": true,
+        "loss_mode": "joint"
+      },
+      "loss_overrides": null
+    },
+    "F1_detach": {
+      "flags": {
+        "execution": "sparse",
+        "use_router": true,
+        "loss_mode": "joint"
+      },
+      "loss_overrides": {
+        "detach_pred_target": 1.0
+      }
+    },
+    "F7_detach_soft_balent": {
+      "flags": {
+        "execution": "sparse",
+        "use_router": true,
+        "loss_mode": "joint"
+      },
+      "loss_overrides": {
+        "detach_pred_target": 1.0,
+        "balance": 0.02,
+        "entropy": 0.002
+      }
+    }
+  },
+  "runs": [
+    {
+      "arm": "A_dense_ce",
+      "seed": 20261122,
+      "execution": "dense",
+      "loss_mode": "ce",
+      "wall_s": 230.4,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 1.3962,
+      "loss_tail": 0.0127,
+      "acc_all": 0.9505,
+      "acc_occ": 0.9672,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.5846,
+      "probe_posthoc_test": 0.4531,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s20261122.pt",
+      "action_curve": [
+        1.3962,
+        1.1874,
+        0.9118,
+        0.6312,
+        0.7061,
+        0.4316,
+        0.294,
+        0.5406,
+        0.3487,
+        0.2983,
+        0.2541,
+        0.21,
+        0.1422,
+        0.1063,
+        0.1113,
+        0.0758,
+        0.1236,
+        0.0933,
+        0.0533,
+        0.0561,
+        0.0488,
+        0.0288,
+        0.0382,
+        0.0435,
+        0.0132,
+        0.0099,
+        0.0029,
+        0.0035,
+        0.0069,
+        0.0027,
+        0.0084,
+        0.0025,
+        0.0088,
+        0.0018,
+        0.001,
+        0.0015,
+        0.003,
+        0.0017,
+        0.0004,
+        0.012
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.7641
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.9062
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.9625
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.9641
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.9719
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9672
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9703
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9734
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 66.003,
+      "seq_ms_min": 65.561,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 0.3493,
+      "route_top1_prob": 0.8948,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "B_dense_joint",
+      "seed": 20261122,
+      "execution": "dense",
+      "loss_mode": "joint",
+      "wall_s": 156.22,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 3.3236,
+      "loss_tail": 0.1696,
+      "acc_all": 0.9141,
+      "acc_occ": 0.9594,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.5755,
+      "probe_posthoc_test": 0.5182,
+      "probe_joint": 0.4297,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s20261122.pt",
+      "action_curve": [
+        1.3962,
+        1.1809,
+        1.1715,
+        0.8429,
+        0.9009,
+        0.7989,
+        0.9141,
+        0.5682,
+        0.36,
+        0.3926,
+        0.3111,
+        0.2735,
+        0.2341,
+        0.1845,
+        0.1976,
+        0.1723,
+        0.1998,
+        0.1465,
+        0.1448,
+        0.133,
+        0.1569,
+        0.1246,
+        0.0931,
+        0.1121,
+        0.0891,
+        0.1044,
+        0.0877,
+        0.1431,
+        0.2048,
+        0.1104,
+        0.1122,
+        0.0901,
+        0.0672,
+        0.0395,
+        0.0347,
+        0.0604,
+        0.0424,
+        0.0427,
+        0.0203,
+        0.0268
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.5469
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.9375
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.9734
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.9719
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.975
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9563
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9625
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9641
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 64.394,
+      "seq_ms_min": 62.646,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 1.8996,
+      "route_top1_prob": 0.2381,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "C_sparse_ce",
+      "seed": 20261122,
+      "execution": "sparse",
+      "loss_mode": "ce",
+      "wall_s": 76.39,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 1.3979,
+      "loss_tail": 0.0805,
+      "acc_all": 0.9245,
+      "acc_occ": 0.9422,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.4362,
+      "probe_posthoc_test": 0.4245,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261122.pt",
+      "action_curve": [
+        1.3979,
+        1.1527,
+        0.9392,
+        0.8413,
+        0.8741,
+        0.8498,
+        0.8714,
+        0.7959,
+        0.8355,
+        0.7944,
+        0.7851,
+        0.6747,
+        0.801,
+        0.7648,
+        0.6613,
+        0.5964,
+        0.6711,
+        0.5919,
+        0.58,
+        0.5201,
+        0.5736,
+        0.4896,
+        0.5163,
+        0.4792,
+        0.3889,
+        0.308,
+        0.3257,
+        0.3408,
+        0.2388,
+        0.2429,
+        0.4218,
+        0.3634,
+        0.1872,
+        0.2229,
+        0.1344,
+        0.1456,
+        0.1931,
+        0.1431,
+        0.1244,
+        0.1356
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4875
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5672
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6109
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.6547
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.8297
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.8453
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9172
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9406
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 35.512,
+      "seq_ms_min": 33.335,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0656,
+      "route_top1_prob": 0.1529,
+      "top1_block_share": 0.1501,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "D_sparse_joint",
+      "seed": 20261122,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 79.61,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.325,
+      "loss_tail": 1.0837,
+      "acc_all": 0.5664,
+      "acc_occ": 0.5906,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.5833,
+      "probe_posthoc_test": 0.4818,
+      "probe_joint": 0.2109,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s20261122.pt",
+      "action_curve": [
+        1.3979,
+        1.1656,
+        1.1693,
+        0.8689,
+        1.1084,
+        0.8615,
+        0.8912,
+        0.8842,
+        0.857,
+        0.8884,
+        0.8954,
+        0.8677,
+        0.8574,
+        0.8304,
+        0.7593,
+        0.7687,
+        0.8258,
+        0.766,
+        0.7606,
+        0.7603,
+        0.7719,
+        0.6912,
+        0.7581,
+        0.7175,
+        0.6134,
+        0.6867,
+        0.7154,
+        0.7381,
+        0.6876,
+        0.7196,
+        0.8352,
+        0.6814,
+        0.7171,
+        0.8105,
+        0.6939,
+        0.7005,
+        0.7542,
+        0.6681,
+        0.6364,
+        0.6017
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.525
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.4859
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.5906
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.5578
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.5891
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.575
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.5719
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.6016
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 34.186,
+      "seq_ms_min": 32.888,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0792,
+      "route_top1_prob": 0.1284,
+      "top1_block_share": 0.1784,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F1_detach",
+      "seed": 20261122,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 75.89,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.325,
+      "loss_tail": 0.3749,
+      "acc_all": 0.8464,
+      "acc_occ": 0.9062,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.819,
+      "probe_posthoc_test": 0.694,
+      "probe_joint": 0.6406,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F1_detach_s20261122.pt",
+      "action_curve": [
+        1.3979,
+        1.1056,
+        0.9825,
+        0.8632,
+        0.9198,
+        0.8704,
+        0.8799,
+        0.8118,
+        0.8308,
+        0.8693,
+        0.8508,
+        0.858,
+        0.7942,
+        0.6677,
+        0.8353,
+        0.6492,
+        0.5535,
+        0.6442,
+        0.5083,
+        0.4547,
+        0.4705,
+        0.5328,
+        0.421,
+        0.4448,
+        0.4264,
+        0.4213,
+        0.4492,
+        0.5186,
+        0.415,
+        0.3353,
+        0.4783,
+        0.3328,
+        0.3553,
+        0.4297,
+        0.3323,
+        0.3612,
+        0.3192,
+        0.2316,
+        0.2237,
+        0.2708
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4906
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.55
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6062
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.8688
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.8141
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9234
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.8828
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9531
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 33.523,
+      "seq_ms_min": 32.211,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0764,
+      "route_top1_prob": 0.1377,
+      "top1_block_share": 0.2017,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F7_detach_soft_balent",
+      "seed": 20261122,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 76.97,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.3329,
+      "loss_tail": 0.3215,
+      "acc_all": 0.8464,
+      "acc_occ": 0.9219,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.7747,
+      "probe_posthoc_test": 0.6615,
+      "probe_joint": 0.5755,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F7_detach_soft_balent_s20261122.pt",
+      "action_curve": [
+        1.3979,
+        1.1172,
+        0.9923,
+        0.9457,
+        0.916,
+        0.8809,
+        0.9313,
+        0.8452,
+        0.8326,
+        0.8735,
+        0.8764,
+        0.8403,
+        0.835,
+        0.8195,
+        0.7789,
+        0.6974,
+        0.6173,
+        0.6937,
+        0.5898,
+        0.4936,
+        0.4488,
+        0.4689,
+        0.4126,
+        0.4118,
+        0.3515,
+        0.2952,
+        0.3288,
+        0.3756,
+        0.3201,
+        0.3127,
+        0.4505,
+        0.3311,
+        0.3606,
+        0.3575,
+        0.2611,
+        0.2894,
+        0.3138,
+        0.2269,
+        0.2088,
+        0.2799
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4891
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.525
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6078
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.8219
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.9313
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9328
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9234
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9469
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 32.91,
+      "seq_ms_min": 31.804,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0705,
+      "route_top1_prob": 0.1382,
+      "top1_block_share": 0.2098,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "A_dense_ce",
+      "seed": 20261123,
+      "execution": "dense",
+      "loss_mode": "ce",
+      "wall_s": 154.4,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 1.3715,
+      "loss_tail": 0.0001,
+      "acc_all": 0.9479,
+      "acc_occ": 0.9563,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.6536,
+      "probe_posthoc_test": 0.4648,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s20261123.pt",
+      "action_curve": [
+        1.3715,
+        0.9311,
+        0.8316,
+        0.8232,
+        0.704,
+        0.3808,
+        0.4001,
+        0.3834,
+        0.2808,
+        0.2478,
+        0.1876,
+        0.2404,
+        0.2122,
+        0.2114,
+        0.159,
+        0.1834,
+        0.1568,
+        0.0744,
+        0.1174,
+        0.1287,
+        0.0696,
+        0.0518,
+        0.0197,
+        0.0146,
+        0.0062,
+        0.0039,
+        0.007,
+        0.0027,
+        0.002,
+        0.0028,
+        0.0009,
+        0.0005,
+        0.0005,
+        0.0003,
+        0.0001,
+        0.0003,
+        0.0004,
+        0.0002,
+        0.0002,
+        0.0003
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.9297
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.9453
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.9422
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.9828
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.9859
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9859
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9844
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9844
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 68.229,
+      "seq_ms_min": 65.247,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 0.2208,
+      "route_top1_prob": 0.9266,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "B_dense_joint",
+      "seed": 20261123,
+      "execution": "dense",
+      "loss_mode": "joint",
+      "wall_s": 161.0,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 3.217,
+      "loss_tail": 0.287,
+      "acc_all": 0.8906,
+      "acc_occ": 0.9469,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.6536,
+      "probe_posthoc_test": 0.4427,
+      "probe_joint": 0.3997,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s20261123.pt",
+      "action_curve": [
+        1.3715,
+        0.9706,
+        1.2823,
+        1.1792,
+        0.912,
+        0.8377,
+        0.8903,
+        0.9063,
+        0.8546,
+        0.837,
+        0.7941,
+        0.7996,
+        0.4652,
+        0.3751,
+        0.3488,
+        0.3045,
+        0.3399,
+        0.3171,
+        0.3364,
+        0.3071,
+        0.3022,
+        0.2611,
+        0.2072,
+        0.2121,
+        0.2426,
+        0.3227,
+        0.2395,
+        0.3692,
+        0.2738,
+        0.3425,
+        0.1789,
+        0.2438,
+        0.2486,
+        0.1792,
+        0.1562,
+        0.1095,
+        0.1378,
+        0.1662,
+        0.0914,
+        0.1302
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.55
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5281
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.9375
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.9672
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.9422
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9719
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9719
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9594
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 66.089,
+      "seq_ms_min": 65.344,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 1.8649,
+      "route_top1_prob": 0.2699,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "C_sparse_ce",
+      "seed": 20261123,
+      "execution": "sparse",
+      "loss_mode": "ce",
+      "wall_s": 71.99,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 1.3717,
+      "loss_tail": 0.2101,
+      "acc_all": 0.8971,
+      "acc_occ": 0.9391,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.5234,
+      "probe_posthoc_test": 0.3828,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261123.pt",
+      "action_curve": [
+        1.3717,
+        0.9489,
+        0.8975,
+        0.7984,
+        0.8707,
+        0.8219,
+        0.8776,
+        0.7942,
+        0.7184,
+        0.7161,
+        0.7763,
+        0.7067,
+        0.9199,
+        0.8553,
+        0.6362,
+        0.5441,
+        0.5129,
+        0.621,
+        0.5291,
+        0.7145,
+        0.7683,
+        0.6567,
+        0.7378,
+        0.6707,
+        0.7023,
+        0.6391,
+        0.646,
+        0.5829,
+        0.4165,
+        0.4025,
+        0.2931,
+        0.383,
+        0.3033,
+        0.2849,
+        0.156,
+        0.2177,
+        0.2415,
+        0.2654,
+        0.2358,
+        0.1806
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.5547
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.6141
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6109
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.5953
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.7156
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9125
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9328
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9578
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 31.684,
+      "seq_ms_min": 31.542,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0664,
+      "route_top1_prob": 0.1569,
+      "top1_block_share": 0.1481,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "D_sparse_joint",
+      "seed": 20261123,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 74.24,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2182,
+      "loss_tail": 1.0128,
+      "acc_all": 0.556,
+      "acc_occ": 0.5844,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.4336,
+      "probe_posthoc_test": 0.4974,
+      "probe_joint": 0.3529,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s20261123.pt",
+      "action_curve": [
+        1.3717,
+        0.9643,
+        1.2452,
+        1.1816,
+        0.9796,
+        0.9467,
+        0.9664,
+        0.9917,
+        0.9066,
+        0.8721,
+        0.8194,
+        0.8502,
+        0.8314,
+        0.8808,
+        0.9072,
+        0.79,
+        0.8514,
+        0.8531,
+        0.8493,
+        0.8272,
+        0.7813,
+        0.6814,
+        0.8359,
+        0.7686,
+        0.7418,
+        0.7267,
+        0.8242,
+        0.7643,
+        0.7113,
+        0.7577,
+        0.7222,
+        0.7991,
+        0.7528,
+        0.7361,
+        0.6279,
+        0.6543,
+        0.6091,
+        0.8226,
+        0.7636,
+        0.6876
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4672
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.4953
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.4859
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.55
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.5828
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.575
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.5953
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.6156
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 37.795,
+      "seq_ms_min": 33.469,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0769,
+      "route_top1_prob": 0.1373,
+      "top1_block_share": 0.1831,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F1_detach",
+      "seed": 20261123,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 90.38,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2182,
+      "loss_tail": 0.3813,
+      "acc_all": 0.8008,
+      "acc_occ": 0.8719,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.9297,
+      "probe_posthoc_test": 0.9049,
+      "probe_joint": 0.8451,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F1_detach_s20261123.pt",
+      "action_curve": [
+        1.3717,
+        0.9924,
+        0.983,
+        0.8362,
+        0.9328,
+        0.8647,
+        0.9159,
+        0.9072,
+        0.8678,
+        0.851,
+        0.8267,
+        0.7992,
+        0.8076,
+        0.8093,
+        0.7239,
+        0.912,
+        0.6519,
+        0.6844,
+        0.5881,
+        0.6439,
+        0.6819,
+        0.4831,
+        0.4876,
+        0.4022,
+        0.4642,
+        0.5674,
+        0.4358,
+        0.4791,
+        0.5238,
+        0.4624,
+        0.4115,
+        0.5541,
+        0.5108,
+        0.4376,
+        0.3921,
+        0.3659,
+        0.3491,
+        0.3062,
+        0.3962,
+        0.3784
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4953
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.5891
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.6984
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.725
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.7984
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.7937
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.8562
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 56.06,
+      "seq_ms_min": 40.64,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0696,
+      "route_top1_prob": 0.1456,
+      "top1_block_share": 0.2021,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F7_detach_soft_balent",
+      "seed": 20261123,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 97.25,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2262,
+      "loss_tail": 0.4858,
+      "acc_all": 0.7643,
+      "acc_occ": 0.8281,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.8607,
+      "probe_posthoc_test": 0.7865,
+      "probe_joint": 0.6849,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F7_detach_soft_balent_s20261123.pt",
+      "action_curve": [
+        1.3717,
+        0.9801,
+        0.9561,
+        0.8663,
+        0.9422,
+        0.8484,
+        0.9307,
+        0.9463,
+        0.8568,
+        0.8358,
+        0.8387,
+        0.7425,
+        0.8305,
+        0.775,
+        0.7757,
+        0.8089,
+        0.7482,
+        0.7179,
+        0.7135,
+        0.6619,
+        0.5825,
+        0.4587,
+        0.4329,
+        0.4042,
+        0.6837,
+        0.3946,
+        0.4723,
+        0.4245,
+        0.3038,
+        0.3673,
+        0.2343,
+        0.3968,
+        0.3164,
+        0.3148,
+        0.1731,
+        0.3216,
+        0.2659,
+        0.3198,
+        0.3797,
+        0.4068
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4953
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5578
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.5969
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.6687
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.7531
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.8266
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9375
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.8406
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 34.081,
+      "seq_ms_min": 31.737,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0746,
+      "route_top1_prob": 0.1373,
+      "top1_block_share": 0.2091,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "A_dense_ce",
+      "seed": 20261124,
+      "execution": "dense",
+      "loss_mode": "ce",
+      "wall_s": 154.05,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 1.3684,
+      "loss_tail": 0.0014,
+      "acc_all": 0.944,
+      "acc_occ": 0.95,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.4505,
+      "probe_posthoc_test": 0.4336,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\A_dense_ce_s20261124.pt",
+      "action_curve": [
+        1.3684,
+        0.9244,
+        0.8461,
+        0.8213,
+        0.3292,
+        0.3905,
+        0.3066,
+        0.2324,
+        0.2005,
+        0.1883,
+        0.2716,
+        0.1675,
+        0.1976,
+        0.2696,
+        0.1177,
+        0.1208,
+        0.0584,
+        0.0231,
+        0.0231,
+        0.0531,
+        0.0127,
+        0.0324,
+        0.0065,
+        0.0096,
+        0.0091,
+        0.024,
+        0.0144,
+        0.01,
+        0.0336,
+        0.0265,
+        0.0177,
+        0.0461,
+        0.0099,
+        0.0996,
+        0.0755,
+        0.041,
+        0.0194,
+        0.0094,
+        0.0069,
+        0.0121
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.875
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.875
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.9422
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.9641
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.9531
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.9563
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.95
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9594
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 65.814,
+      "seq_ms_min": 64.212,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 0.0165,
+      "route_top1_prob": 0.9961,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "B_dense_joint",
+      "seed": 20261124,
+      "execution": "dense",
+      "loss_mode": "joint",
+      "wall_s": 324.02,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 282589,
+      "loss_head": 3.2594,
+      "loss_tail": 0.2424,
+      "acc_all": 0.9089,
+      "acc_occ": 0.9437,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.5078,
+      "probe_posthoc_test": 0.4453,
+      "probe_joint": 0.4036,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\B_dense_joint_s20261124.pt",
+      "action_curve": [
+        1.3684,
+        1.082,
+        0.9789,
+        1.1344,
+        0.8903,
+        0.9166,
+        0.8409,
+        0.7442,
+        0.4237,
+        0.3581,
+        0.376,
+        0.3372,
+        0.2924,
+        0.3117,
+        0.2177,
+        0.277,
+        0.1629,
+        0.1359,
+        0.1698,
+        0.2328,
+        0.2714,
+        0.252,
+        0.1559,
+        0.1787,
+        0.1742,
+        0.2071,
+        0.1409,
+        0.279,
+        0.1661,
+        0.1456,
+        0.2274,
+        0.1797,
+        0.116,
+        0.1856,
+        0.0565,
+        0.1023,
+        0.1022,
+        0.1296,
+        0.0643,
+        0.062
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.5781
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.8781
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.8812
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.8688
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.8781
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.8531
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.8875
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.925
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 150.787,
+      "seq_ms_min": 64.775,
+      "mean_active_blocks_per_step": 8.0,
+      "route_entropy": 1.5691,
+      "route_top1_prob": 0.4057,
+      "top1_block_share": 0.125,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "C_sparse_ce",
+      "seed": 20261124,
+      "execution": "sparse",
+      "loss_mode": "ce",
+      "wall_s": 133.33,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 1.3679,
+      "loss_tail": 0.1349,
+      "acc_all": 0.9297,
+      "acc_occ": 0.9422,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.3659,
+      "probe_posthoc_test": 0.3945,
+      "probe_joint": null,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261124.pt",
+      "action_curve": [
+        1.3679,
+        0.9404,
+        0.8653,
+        0.9308,
+        0.842,
+        0.863,
+        0.8476,
+        0.816,
+        0.8231,
+        0.8286,
+        0.8032,
+        0.8148,
+        0.8197,
+        0.8345,
+        0.7098,
+        0.6286,
+        0.6607,
+        0.5593,
+        0.5455,
+        0.4747,
+        0.4821,
+        0.3196,
+        0.2529,
+        0.2119,
+        0.2502,
+        0.2549,
+        0.2068,
+        0.291,
+        0.1965,
+        0.159,
+        0.2103,
+        0.2238,
+        0.1925,
+        0.1933,
+        0.0865,
+        0.1508,
+        0.0607,
+        0.0837,
+        0.0564,
+        0.0876
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4906
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5125
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6578
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.8
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.8625
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.8828
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.9
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.9313
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 67.575,
+      "seq_ms_min": 66.738,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0707,
+      "route_top1_prob": 0.1479,
+      "top1_block_share": 0.1438,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "D_sparse_joint",
+      "seed": 20261124,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 137.01,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2582,
+      "loss_tail": 1.0387,
+      "acc_all": 0.6615,
+      "acc_occ": 0.7047,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.2786,
+      "probe_posthoc_test": 0.3997,
+      "probe_joint": 0.1771,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\D_sparse_joint_s20261124.pt",
+      "action_curve": [
+        1.3679,
+        1.0736,
+        0.9824,
+        1.1402,
+        1.0516,
+        0.9247,
+        1.187,
+        0.8828,
+        0.8535,
+        0.8344,
+        0.908,
+        0.9142,
+        0.8698,
+        0.8274,
+        0.8379,
+        0.7755,
+        0.7614,
+        0.743,
+        0.7032,
+        0.6552,
+        0.8253,
+        0.8615,
+        0.7915,
+        0.7083,
+        0.8187,
+        0.7481,
+        0.7401,
+        0.5679,
+        0.5962,
+        0.6255,
+        0.6676,
+        0.7416,
+        0.6871,
+        0.6828,
+        0.594,
+        0.6955,
+        0.6858,
+        0.5611,
+        0.5365,
+        0.5964
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4609
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.4828
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.4969
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.5906
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.5953
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.6438
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.6438
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.675
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 69.702,
+      "seq_ms_min": 67.857,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0792,
+      "route_top1_prob": 0.1288,
+      "top1_block_share": 0.18,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F1_detach",
+      "seed": 20261124,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 111.48,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2582,
+      "loss_tail": 0.3449,
+      "acc_all": 0.8542,
+      "acc_occ": 0.9062,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.8073,
+      "probe_posthoc_test": 0.793,
+      "probe_joint": 0.7383,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F1_detach_s20261124.pt",
+      "action_curve": [
+        1.3679,
+        0.9614,
+        0.8856,
+        0.9448,
+        0.8616,
+        0.8766,
+        0.9145,
+        0.8416,
+        0.8002,
+        0.774,
+        0.7581,
+        0.837,
+        0.8749,
+        0.6549,
+        0.7005,
+        0.6173,
+        0.5137,
+        0.573,
+        0.471,
+        0.5289,
+        0.5634,
+        0.4735,
+        0.474,
+        0.3515,
+        0.3827,
+        0.565,
+        0.39,
+        0.4476,
+        0.327,
+        0.3783,
+        0.4722,
+        0.5598,
+        0.4897,
+        0.5538,
+        0.3562,
+        0.3483,
+        0.2563,
+        0.3296,
+        0.2656,
+        0.3221
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.5
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5734
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.6359
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.7781
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.7922
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.7797
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.8625
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.8781
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 67.183,
+      "seq_ms_min": 64.685,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0743,
+      "route_top1_prob": 0.1399,
+      "top1_block_share": 0.2123,
+      "dead_blocks": 0
+    },
+    {
+      "arm": "F7_detach_soft_balent",
+      "seed": 20261124,
+      "execution": "sparse",
+      "loss_mode": "joint",
+      "wall_s": 111.3,
+      "steps": 480,
+      "params_total": 282589,
+      "active_params_per_step_est": 134365,
+      "loss_head": 3.2662,
+      "loss_tail": 0.4732,
+      "acc_all": 0.7969,
+      "acc_occ": 0.8656,
+      "n_steps_occ": 640,
+      "probe_posthoc_val": 0.6589,
+      "probe_posthoc_test": 0.7161,
+      "probe_joint": 0.6263,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F7_detach_soft_balent_s20261124.pt",
+      "action_curve": [
+        1.3679,
+        0.9724,
+        0.9194,
+        0.9196,
+        0.8576,
+        0.8787,
+        0.9049,
+        0.8685,
+        0.8249,
+        0.81,
+        0.8072,
+        0.9346,
+        0.8408,
+        0.8044,
+        0.7302,
+        0.6567,
+        0.6308,
+        0.5512,
+        0.6377,
+        0.637,
+        0.7113,
+        0.816,
+        0.645,
+        0.5618,
+        0.5783,
+        0.4122,
+        0.5425,
+        0.5014,
+        0.3971,
+        0.3402,
+        0.6358,
+        0.4577,
+        0.3817,
+        0.3792,
+        0.2539,
+        0.2863,
+        0.2461,
+        0.2805,
+        0.2227,
+        0.2195
+      ],
+      "val_occ_trace": [
+        {
+          "ep": 9,
+          "acc_occ": 0.4625
+        },
+        {
+          "ep": 19,
+          "acc_occ": 0.5922
+        },
+        {
+          "ep": 29,
+          "acc_occ": 0.65
+        },
+        {
+          "ep": 39,
+          "acc_occ": 0.7
+        },
+        {
+          "ep": 49,
+          "acc_occ": 0.7516
+        },
+        {
+          "ep": 59,
+          "acc_occ": 0.7844
+        },
+        {
+          "ep": 69,
+          "acc_occ": 0.8219
+        },
+        {
+          "ep": 79,
+          "acc_occ": 0.8516
+        }
+      ],
+      "non_finite_steps": 0,
+      "seq_ms_p50": 33.955,
+      "seq_ms_min": 32.009,
+      "mean_active_blocks_per_step": 2.0,
+      "route_entropy": 2.0745,
+      "route_top1_prob": 0.1346,
+      "top1_block_share": 0.1905,
+      "dead_blocks": 0
+    }
+  ],
+  "aggregate": [
+    {
+      "arm": "A_dense_ce",
+      "n_seeds": 3,
+      "acc_all": 0.9475,
+      "acc_all_std": 0.0027,
+      "acc_occ": 0.9578,
+      "acc_occ_std": 0.0071,
+      "probe_posthoc_val": 0.5629,
+      "probe_posthoc_val_std": 0.0843,
+      "probe_posthoc_test": 0.4505,
+      "probe_posthoc_test_std": 0.0129,
+      "seq_ms_p50": 66.682,
+      "seq_ms_p50_std": 1.0966,
+      "mean_active_blocks_per_step": 8.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 179.6167,
+      "wall_s_std": 35.9095
+    },
+    {
+      "arm": "B_dense_joint",
+      "n_seeds": 3,
+      "acc_all": 0.9045,
+      "acc_all_std": 0.0101,
+      "acc_occ": 0.95,
+      "acc_occ_std": 0.0068,
+      "probe_posthoc_val": 0.579,
+      "probe_posthoc_val_std": 0.0596,
+      "probe_posthoc_test": 0.4687,
+      "probe_posthoc_test_std": 0.035,
+      "seq_ms_p50": 93.7567,
+      "seq_ms_p50_std": 40.3325,
+      "mean_active_blocks_per_step": 8.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 213.7467,
+      "wall_s_std": 77.9994
+    },
+    {
+      "arm": "C_sparse_ce",
+      "n_seeds": 3,
+      "acc_all": 0.9171,
+      "acc_all_std": 0.0143,
+      "acc_occ": 0.9412,
+      "acc_occ_std": 0.0015,
+      "probe_posthoc_val": 0.4418,
+      "probe_posthoc_val_std": 0.0644,
+      "probe_posthoc_test": 0.4006,
+      "probe_posthoc_test_std": 0.0176,
+      "seq_ms_p50": 44.9237,
+      "seq_ms_p50_std": 16.093,
+      "mean_active_blocks_per_step": 2.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 93.9033,
+      "wall_s_std": 27.9367
+    },
+    {
+      "arm": "D_sparse_joint",
+      "n_seeds": 3,
+      "acc_all": 0.5946,
+      "acc_all_std": 0.0475,
+      "acc_occ": 0.6266,
+      "acc_occ_std": 0.0553,
+      "probe_posthoc_val": 0.4318,
+      "probe_posthoc_val_std": 0.1244,
+      "probe_posthoc_test": 0.4596,
+      "probe_posthoc_test_std": 0.0429,
+      "seq_ms_p50": 47.2277,
+      "seq_ms_p50_std": 15.9599,
+      "mean_active_blocks_per_step": 2.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 96.9533,
+      "wall_s_std": 28.4091
+    },
+    {
+      "arm": "F1_detach",
+      "n_seeds": 3,
+      "acc_all": 0.8338,
+      "acc_all_std": 0.0236,
+      "acc_occ": 0.8948,
+      "acc_occ_std": 0.0162,
+      "probe_posthoc_val": 0.852,
+      "probe_posthoc_val_std": 0.0551,
+      "probe_posthoc_test": 0.7973,
+      "probe_posthoc_test_std": 0.0862,
+      "seq_ms_p50": 52.2553,
+      "seq_ms_p50_std": 14.0025,
+      "mean_active_blocks_per_step": 2.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 92.5833,
+      "wall_s_std": 14.6128
+    },
+    {
+      "arm": "F7_detach_soft_balent",
+      "n_seeds": 3,
+      "acc_all": 0.8025,
+      "acc_all_std": 0.0338,
+      "acc_occ": 0.8719,
+      "acc_occ_std": 0.0385,
+      "probe_posthoc_val": 0.7648,
+      "probe_posthoc_val_std": 0.0827,
+      "probe_posthoc_test": 0.7214,
+      "probe_posthoc_test_std": 0.0512,
+      "seq_ms_p50": 33.6487,
+      "seq_ms_p50_std": 0.5248,
+      "mean_active_blocks_per_step": 2.0,
+      "mean_active_blocks_per_step_std": 0.0,
+      "wall_s": 95.1733,
+      "wall_s_std": 14.0919
+    }
+  ]
+}

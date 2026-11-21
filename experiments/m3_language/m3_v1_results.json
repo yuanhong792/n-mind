@@ -1,0 +1,362 @@
+{
+  "m3_version": "v1",
+  "seed": 3001,
+  "steps": 600,
+  "wall_s": 242.5,
+  "params": {
+    "encoder": 20352,
+    "blocks": 197632,
+    "router": 4712,
+    "workspace": 17025,
+    "predictor": 16832,
+    "head": 18319,
+    "action_emb": 188,
+    "block_to_ws": 4160,
+    "total": 279220
+  },
+  "vocab_size": 47,
+  "max_T": 93,
+  "loss_config": "CE(answer chars) + pred(detach_target) + 0.02*balance + 0.002*entropy + router_ste",
+  "honesty": "teacher-forced 评测；自由生成属 M3.2。M3 v1 不得宣称语言理解能力。",
+  "curve_answer_ce_head": [
+    3.8459,
+    3.7698,
+    3.6619,
+    3.6814,
+    3.4278
+  ],
+  "curve_answer_ce_tail": [
+    0.5823,
+    1.0427,
+    0.9081,
+    0.6663,
+    1.8745
+  ],
+  "dev": {
+    "answer_char_acc": 0.5253,
+    "n_answer_chars": 316,
+    "span_exact": 0.2463,
+    "n_spans": 134,
+    "wrong_examples": [
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 1 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 1 . -> no\nalpha is at 5 . -> "
+      },
+      {
+        "expected": "green",
+        "got": "r2eee",
+        "context": "a to 0 . -> ok\nwhat color is alpha ? -> "
+      },
+      {
+        "expected": "yes",
+        "got": "yee",
+        "context": "gamma is red . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "amma is red . -> yes\nalpha is blue . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "\nalpha is blue . -> no\nit is green . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "alpha is at 7 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "alpha is at 7 . -> no\nit is at 3 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "no\nit is at 3 . -> no\nbeta is at 4 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "alpha is red . -> "
+      }
+    ]
+  },
+  "holdout": {
+    "answer_char_acc": 0.5491,
+    "n_answer_chars": 346,
+    "span_exact": 0.3267,
+    "n_spans": 150,
+    "wrong_examples": [
+      {
+        "expected": "2",
+        "got": "e",
+        "context": "how many green ? -> "
+      },
+      {
+        "expected": "1",
+        "got": "2",
+        "context": "how many green ? -> 2\nhow many red ? -> "
+      },
+      {
+        "expected": "7",
+        "got": "2",
+        "context": "e beta to 2 . -> ok\nwhere is gamma ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 7 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 7 . -> no\nalpha is at 3 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "o\nalpha is at 3 . -> no\nit is at 2 . -> "
+      },
+      {
+        "expected": "0",
+        "got": "e",
+        "context": "how many blue ? -> "
+      },
+      {
+        "expected": "1",
+        "got": "2",
+        "context": "how many blue ? -> 0\nhow many red ? -> "
+      },
+      {
+        "expected": "1",
+        "got": "2",
+        "context": "0\nhow many red ? -> 1\nhow many red ? -> "
+      },
+      {
+        "expected": "blue",
+        "got": "rrde",
+        "context": "ha to 7 . -> ok\nwhat color is beta ? -> "
+      }
+    ]
+  },
+  "ood_name": {
+    "answer_char_acc": 0.4865,
+    "n_answer_chars": 222,
+    "span_exact": 0.3131,
+    "n_spans": 99,
+    "wrong_examples": [
+      {
+        "expected": "green",
+        "got": "22ree",
+        "context": "what color is epsilon ? -> "
+      },
+      {
+        "expected": "5",
+        "got": "2",
+        "context": "where is zeta ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "zeta is red . -> "
+      },
+      {
+        "expected": "yes",
+        "got": "eee",
+        "context": "ed . -> no\nis zeta left of epsilon ? -> "
+      },
+      {
+        "expected": "yes",
+        "got": "nee",
+        "context": " of epsilon ? -> yes\nzeta is green . -> "
+      },
+      {
+        "expected": "blue",
+        "got": "2rde",
+        "context": "what color is epsilon ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "zeta is red . -> "
+      },
+      {
+        "expected": "green",
+        "got": "22ree",
+        "context": "what color is epsilon ? -> "
+      },
+      {
+        "expected": "green",
+        "got": "22ree",
+        "context": "n ? -> green\nwhat color is epsilon ? -> "
+      },
+      {
+        "expected": "red",
+        "got": "2rd",
+        "context": "ta to 1 . -> ok\nwhat color is zeta ? -> "
+      }
+    ]
+  },
+  "ood_compose": {
+    "answer_char_acc": 0.5799,
+    "n_answer_chars": 169,
+    "span_exact": 0.3333,
+    "n_spans": 96,
+    "wrong_examples": [
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "gamma is at 1 . -> "
+      },
+      {
+        "expected": "0",
+        "got": "2",
+        "context": "mma is at 1 . -> no\nhow many green ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "gamma is not green . -> "
+      },
+      {
+        "expected": "1",
+        "got": "2",
+        "context": " is not green . -> no\nhow many red ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "alpha is at 5 . -> "
+      },
+      {
+        "expected": "1",
+        "got": "2",
+        "context": "alpha is at 5 . -> no\nhow many red ? -> "
+      },
+      {
+        "expected": "yes",
+        "got": "nee",
+        "context": "a to 0 . -> ok\nis it left of alpha ? -> "
+      },
+      {
+        "expected": "yes",
+        "got": "nes",
+        "context": "a to 5 . -> ok\nis it left of alpha ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "alpha is at 3 . -> "
+      },
+      {
+        "expected": "0",
+        "got": "2",
+        "context": "lpha is at 3 . -> no\nhow many blue ? -> "
+      }
+    ]
+  },
+  "ood_length": {
+    "answer_char_acc": 0.5149,
+    "n_answer_chars": 536,
+    "span_exact": 0.3167,
+    "n_spans": 240,
+    "wrong_examples": [
+      {
+        "expected": "red",
+        "got": "rre",
+        "context": "what color is alpha ? -> "
+      },
+      {
+        "expected": "red",
+        "got": "22e",
+        "context": "alpha ? -> red\nwhat color is gamma ? -> "
+      },
+      {
+        "expected": "red",
+        "got": "2re",
+        "context": "gamma ? -> red\nwhat color is alpha ? -> "
+      },
+      {
+        "expected": "red",
+        "got": "2rd",
+        "context": " alpha ? -> red\nwhat color is beta ? -> "
+      },
+      {
+        "expected": "red",
+        "got": "22e",
+        "context": " beta ? -> red\nwhat color is gamma ? -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 4 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "beta is at 4 . -> no\ngamma is at 4 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "amma is at 4 . -> no\ngamma is at 5 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "amma is at 5 . -> no\ngamma is at 1 . -> "
+      },
+      {
+        "expected": "no",
+        "got": "yo",
+        "context": "o\ngamma is at 1 . -> no\nit is at 5 . -> "
+      }
+    ]
+  },
+  "depth_compare_holdout": {
+    "depth1": {
+      "answer_char_acc": 0.5491,
+      "n_answer_chars": 346,
+      "span_exact": 0.3267,
+      "n_spans": 150
+    },
+    "depth2": {
+      "answer_char_acc": 0.4884,
+      "n_answer_chars": 346,
+      "span_exact": 0.22,
+      "n_spans": 150
+    },
+    "depth4": {
+      "answer_char_acc": 0.5,
+      "n_answer_chars": 346,
+      "span_exact": 0.2533,
+      "n_spans": 150
+    }
+  },
+  "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m3_language\\m3_v1.ckpt.pt",
+  "manifest_hashes": {
+    "train": "84794572875bd86c",
+    "holdout": "435a2c8ede98bc8b",
+    "ood_name": "6cd70dbca12564a2",
+    "ood_compose": "ac7d9611cfca3182",
+    "ood_length": "c8e9269c95fd80f1"
+  },
+  "majority_answer_baseline_span_exact": {
+    "baseline": "always answer = 'no'",
+    "train_freq": 0.23976608187134502,
+    "dev": 0.3731,
+    "holdout": 0.2867,
+    "OOD-name": 0.1515,
+    "OOD-compose": 0.25,
+    "OOD-length": 0.1375
+  }
+}

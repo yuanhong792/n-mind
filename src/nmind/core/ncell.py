@@ -154,9 +154,12 @@ class NCell(nn.Module):
         )
         h_upd = (1.0 - g) * h_sel + g * c
         if weights is not None:
-            # 软权重更新：未选中保持原值，选中按权重插值。
+            # STE（同稠密路径 mask 的做法）：把权重变量本身变成"前向值=1、∂/∂wk=1"，
+            # 插值 wk_ste*h_upd + (1-wk_ste)*h_sel 的前向值 = h_upd（硬采纳，精确），
+            # 反向 ∂h/∂wk = h_upd - h_sel → 路由器拿到任务梯度；块梯度不被缩放。
             wk = weights.reshape(-1).unsqueeze(-1).to(h_upd.dtype)
-            h_upd = (1.0 - wk) * h_sel + wk * h_upd
+            wk_ste = wk + (1.0 - wk).detach()
+            h_upd = wk_ste * h_upd + (1.0 - wk_ste) * h_sel
 
         h_new = h_prev.clone()
         h_new[rows, flat_blocks] = h_upd

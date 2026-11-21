@@ -80,7 +80,7 @@ def memory_span_curve(cfg: Config | None, model: NModel, *, task_seed: int,
         if t >= cfg.learning.traj_len:
             continue
         p = readout_probe(model, rows_tr, rows_te, t=t, device=device)
-        ev = evaluate(model, nn.Identity(), rows_te, device=device, occluded_only=True)
+        ev = evaluate(model, None, rows_te, device=device, occluded_only=True)
         p.update({"distractor_steps": float(t), "policy_acc_at_t": _acc_at_step(model, rows_te, t, device)})
         out.append(p)
     return out
@@ -102,7 +102,7 @@ def _acc_at_step(model: NModel, rows: list[dict[str, Any]], t: int, device: torc
 
 def decision_metrics(model: NModel, rows: list[dict[str, Any]], *, device: torch.device) -> dict[str, float]:
     """任务 3：动作决策。分"目标可见段/遮挡段/撞墙后一步"三档看，不给一个平均数糊过去。"""
-    base = evaluate(model, nn.Identity(), rows, device=device, occluded_only=False)
+    base = evaluate(model, None, rows, device=device, occluded_only=False)
     model.eval()
     vis_n = vis_hit = post_coll = post_coll_hit = 0
     with torch.no_grad():
@@ -120,7 +120,7 @@ def decision_metrics(model: NModel, rows: list[dict[str, Any]], *, device: torch
     res = {"accuracy_all": base["accuracy"], "accuracy_visible": vis_hit / max(1, vis_n),
            "n_visible": float(vis_n), "accuracy_after_collision": post_coll_hit / max(1, post_coll),
            "n_after_collision": float(post_coll)}
-    res["accuracy_occluded"] = evaluate(model, nn.Identity(), rows, device=device,
+    res["accuracy_occluded"] = evaluate(model, None, rows, device=device,
                                         occluded_only=True)["accuracy_occluded"]
     return res
 

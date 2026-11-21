@@ -1,0 +1,127 @@
+{
+  "note": "由 f9_f10 合并脚本从 checkpoint 全量重载评分生成（修复第二次运行覆盖 JSON 的问题）",
+  "arms": {
+    "F9_soft_only": "D + 软化均衡/熵, 不detach",
+    "F10_ste": "F7配置 + router_ste=True"
+  },
+  "reference": {
+    "C_sparse_ce_multiseed_mean": 0.9412,
+    "D_sparse_joint_multiseed_mean": 0.6266,
+    "F1_detach_multiseed_mean": 0.8948,
+    "F7_multiseed_mean": 0.8719
+  },
+  "aggregate": {
+    "F9_soft_only": {
+      "n": 5,
+      "mean": 0.5925,
+      "std": 0.0388
+    },
+    "F10_ste": {
+      "n": 5,
+      "mean": 0.9138,
+      "std": 0.0314
+    }
+  },
+  "runs": [
+    {
+      "arm": "F9_soft_only",
+      "seed": 20261121,
+      "acc_occ": 0.5563,
+      "acc_all": 0.5286,
+      "probe_posthoc_test": 0.4336,
+      "sha256_16": "f7e8908046eb2920",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F9_soft_only_s20261121.pt"
+    },
+    {
+      "arm": "F9_soft_only",
+      "seed": 20261122,
+      "acc_occ": 0.5594,
+      "acc_all": 0.5469,
+      "probe_posthoc_test": 0.5443,
+      "sha256_16": "7c65b07a4698ef44",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F9_soft_only_s20261122.pt"
+    },
+    {
+      "arm": "F9_soft_only",
+      "seed": 20261123,
+      "acc_occ": 0.5781,
+      "acc_all": 0.5508,
+      "probe_posthoc_test": 0.5312,
+      "sha256_16": "116417a8c8f89730",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F9_soft_only_s20261123.pt"
+    },
+    {
+      "arm": "F9_soft_only",
+      "seed": 20261124,
+      "acc_occ": 0.6078,
+      "acc_all": 0.5833,
+      "probe_posthoc_test": 0.3398,
+      "sha256_16": "6c20ec28fb88bf3c",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F9_soft_only_s20261124.pt"
+    },
+    {
+      "arm": "F9_soft_only",
+      "seed": 20261125,
+      "acc_occ": 0.6609,
+      "acc_all": 0.6172,
+      "probe_posthoc_test": 0.4531,
+      "sha256_16": "1fe549112fec78a2",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F9_soft_only_s20261125.pt"
+    },
+    {
+      "arm": "F10_ste",
+      "seed": 20261121,
+      "acc_occ": 0.8766,
+      "acc_all": 0.8333,
+      "probe_posthoc_test": 0.7643,
+      "sha256_16": "6d95085ad46ec47a",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F10_ste_s20261121.pt"
+    },
+    {
+      "arm": "F10_ste",
+      "seed": 20261122,
+      "acc_occ": 0.8922,
+      "acc_all": 0.8477,
+      "probe_posthoc_test": 0.7344,
+      "sha256_16": "5dd632605fbb00d0",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F10_ste_s20261122.pt"
+    },
+    {
+      "arm": "F10_ste",
+      "seed": 20261123,
+      "acc_occ": 0.9688,
+      "acc_all": 0.8958,
+      "probe_posthoc_test": 0.8568,
+      "sha256_16": "0de66aa2062b002d",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F10_ste_s20261123.pt"
+    },
+    {
+      "arm": "F10_ste",
+      "seed": 20261124,
+      "acc_occ": 0.9109,
+      "acc_all": 0.8724,
+      "probe_posthoc_test": 0.7344,
+      "sha256_16": "889bbd6bff0bcc8a",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F10_ste_s20261124.pt"
+    },
+    {
+      "arm": "F10_ste",
+      "seed": 20261125,
+      "acc_occ": 0.9203,
+      "acc_all": 0.8737,
+      "probe_posthoc_test": 0.7943,
+      "sha256_16": "1c7d6a76261be7e6",
+      "reloaded": true,
+      "checkpoint": "experiments\\m2_ablation\\F10_ste_s20261125.pt"
+    }
+  ]
+}

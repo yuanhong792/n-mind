@@ -1,0 +1,5 @@
+arm,seed,execution,loss_mode,wall_s,steps,params_total,active_params_per_step_est,loss_head,loss_tail,acc_all,acc_occ,n_steps_occ,probe_posthoc_val,probe_posthoc_test,probe_joint,checkpoint,seq_ms_p50,seq_ms_min,mean_active_blocks_per_step,route_entropy,route_top1_prob,top1_block_share,dead_blocks
+A_dense_ce,7,dense,ce,14.07,12,282589,282589,1.393,1.1279,0.3581,0.3828,640,0.1029,0.1406,,D:\cpu本地模型开发\n-mind\experiments\m2_ablation\A_dense_ce_s7.pt,69.358,59.323,8.0,2.0361,0.1984,0.125,0
+B_dense_joint,7,dense,joint,13.29,12,282589,282589,3.2845,2.1296,0.3581,0.3828,640,0.0312,0.0195,0.0312,D:\cpu本地模型开发\n-mind\experiments\m2_ablation\B_dense_joint_s7.pt,58.513,56.378,8.0,2.0788,0.1326,0.125,0
+C_sparse_ce,7,sparse,ce,5.48,12,282589,134365,1.3921,1.1414,0.3581,0.3828,640,0.2409,0.2656,,D:\cpu本地模型开发\n-mind\experiments\m2_ablation\C_sparse_ce_s7.pt,36.442,25.847,2.0,2.0744,0.1393,0.3285,0
+D_sparse_joint,7,sparse,joint,5.41,12,282589,134365,3.2833,2.1255,0.3581,0.3828,640,0.0807,0.0781,0.0312,D:\cpu本地模型开发\n-mind\experiments\m2_ablation\D_sparse_joint_s7.pt,26.951,26.331,2.0,2.0791,0.1304,0.3661,0

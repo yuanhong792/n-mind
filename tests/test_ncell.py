@@ -88,17 +88,23 @@ def test_straight_through_gives_router_gradient():
     assert float(soft.grad[torch.arange(B)[:, None], idx].abs().sum()) > 0.0
 
 
-def test_sparse_soft_weights_interpolate():
-    """给定权重 w ⇒ 选中块新状态 = (1-w)·旧 + w·全更新；w=0.5 时正好在中间。"""
+def test_sparse_soft_weights_are_ste():
+    """weights 只存在于反向：前向恒为硬采纳（与 weights=None 一致，容差 1e-6），
+    梯度按 (1-w)·旧 + w·全更新 的插值路径回传（M2 收尾 F10 的语义，2026-11-21 起）。"""
     cell = _cell()
     z, h, w, idx = _inputs(seed=9)
     rows = torch.arange(B)[:, None].expand(-1, K).reshape(-1)
     cols = idx.reshape(-1)
-    _r, _g, _m, _p, _n = cell.forward_sparse(z, h, w, idx, weights=torch.full((B, K), 1.0))
-    h_full = _r[rows, cols]
-    h_half = cell.forward_sparse(z, h, w, idx, weights=torch.full((B, K), 0.5))[0][rows, cols]
-    h_old = h[rows, cols]
-    assert torch.allclose(h_half, 0.5 * h_old + 0.5 * h_full, atol=1e-6)
+    h_hard = cell.forward_sparse(z, h, w, idx)[0][rows, cols]
+    for wv in (0.0, 0.5, 1.0):
+        h_w = cell.forward_sparse(z, h, w, idx, weights=torch.full((B, K), wv))[0][rows, cols]
+        assert torch.allclose(h_w, h_hard, atol=1e-6), f"weights={wv} 不应改变前向数值"
+    # 反向通路存在：对输出加权和反传后，至少一个参数拿到非零梯度
+    # （router 级别的任务梯度断言在 test_router_ste.py 整模型验证）。
+    h_out, *_ = cell.forward_sparse(z, h, w, idx, weights=torch.full((B, K), 0.5))
+    (h_out * torch.randn_like(h_out)).sum().backward()
+    assert any(p.grad is not None and float(p.grad.pow(2).sum()) > 0
+               for p in cell.parameters() if p.requires_grad)
 
 
 def test_shape_errors_are_loud():
