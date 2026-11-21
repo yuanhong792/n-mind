@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-11-21 18:37:04",
+  "git_commit": "5720f74203f2dafb4ce0da338599508fbd3fdac8",
+  "device": "cpu",
+  "seed": 20261121,
+  "verdict_rule": "见各条目 validation_rule；预登记于脚本 docstring",
+  "runs": [
+    {
+      "arm": "F10_next_s20261121",
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261121.pt",
+      "seed": 20261121,
+      "n_train_points": 2208,
+      "n_test_points": 736,
+      "T1_action_sensitivity": {
+        "action_sensitivity_mean": 1.049,
+        "action_sensitivity_p95": 1.3286,
+        "cosine_zhat_vs_z_mean": 0.8779,
+        "n_points": 96
+      },
+      "T2_cosine_zhat_vs_z": 0.8795,
+      "T3_readout_next_pos_acc": {
+        "R1_z_only(copy_baseline)": 0.4904891304347826,
+        "R2_z_plus_action(oracle_equiv)": 0.8994565217391305,
+        "R3_zhat_only": 0.7894021739130435,
+        "R4_zhat_plus_action": 0.8274456521739131,
+        "R5_zhat_shuffled_action(neg_control)": 0.779891304347826
+      },
+      "T4_negative_controls": {
+        "majority_delta_acc": 0.0041,
+        "copy_current_acc": 0.0
+      },
+      "world_model_validated": true,
+      "validation_rule": "R4 > max(R1, copy, majority)+0.05 且 T1 敏感性 ≥0.05（预登记）",
+      "wall_s": 1.9
+    },
+    {
+      "arm": "F10_next_s20261122",
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261122.pt",
+      "seed": 20261121,
+      "n_train_points": 2208,
+      "n_test_points": 736,
+      "T1_action_sensitivity": {
+        "action_sensitivity_mean": 1.1475,
+        "action_sensitivity_p95": 1.9957,
+        "cosine_zhat_vs_z_mean": 0.8727,
+        "n_points": 96
+      },
+      "T2_cosine_zhat_vs_z": 0.8193,
+      "T3_readout_next_pos_acc": {
+        "R1_z_only(copy_baseline)": 0.5163043478260869,
+        "R2_z_plus_action(oracle_equiv)": 0.9144021739130435,
+        "R3_zhat_only": 0.8288043478260869,
+        "R4_zhat_plus_action": 0.8369565217391305,
+        "R5_zhat_shuffled_action(neg_control)": 0.811141304347826
+      },
+      "T4_negative_controls": {
+        "majority_delta_acc": 0.0041,
+        "copy_current_acc": 0.0
+      },
+      "world_model_validated": true,
+      "validation_rule": "R4 > max(R1, copy, majority)+0.05 且 T1 敏感性 ≥0.05（预登记）",
+      "wall_s": 1.3
+    }
+  ]
+}

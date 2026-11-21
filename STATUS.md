@@ -77,10 +77,17 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. **F10 定案**：再加 5-10 个 seed（或加训步数）确认 0.914±0.031 的稳定性；达标则 M2 转 ACCEPTED 并把 router_ste 写入默认训练配置（先在 ROADMAP/decisions 记录）。
-2. pred 分支显式有效性指标（下一状态预测准确率/误差，M2.2 要求项）——本轮只验证了未常数化。
-3. H3 障碍 OOD 掉 13-18pp → 训练数据加障碍布局课程。
-4. M3 v1 结果分析 + 自由生成（M3.2）+ GRU/Transformer 对照。
+1. M3 Step5/6：dev 低于捷径诊断 + 同预算 GRU/Transformer 对照 + 持续学习四臂对照（Frozen/Memory-only/Local-update/Full-update）——任务书已给执行顺序，本轮未开始（保 CPU 给 M2.2）。
+2. H3b/H4b 数据集构建（未见障碍拓扑 + 非退化规则反转）。
+3. F10/F10_next 扩展到预登记储备 seed（20261136-40）。
+
+## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）
+
+- **pred 分支缺陷实锤并修复**：legacy 模式预测器把目标当输入（cos(z_hat,z)=0.998、动作敏感性 0.025、读出不超过拷贝基线），三臂 world_model_validated=false；新增 `pred_mode="next"`（(s_t,a_t)→s_{t+1}，与 error 门控语义一致，默认 current 不动历史口径）后 F10_next 两 seed **validated=True**（敏感性 1.05-1.15、z_hat 单独读出下一位置超拷贝基线 +30pp、主任务不退化 0.91-0.97）。
+- **配对 seed 反转旧叙事**（预登记 20261131-35，experiments/m2_2_validation/f10_paired_seeds.json）：C_sparse_ce 0.853±0.113（旧 seed 族 0.941±0.002 是 seed 运气，最差 0.659）；**F10_ste 0.934±0.071，配对均值 C−F10=−8.0pp（F10 反超），4/5 seed 优于 C**；bootstrap 95% CI [−21.6, +5.6] 跨零，n=5 证据方向明确但未定案。机制自洽：C 的路由器从未被任何损失训练（CE 模式连均衡/熵都没有），F10 的任务梯度路由跨数据 seed 稳健。
+- 轨迹干预实验（同一 fork 点 5 臂分叉）结果见 experiments/m2_2_validation/pred_interventions.json。
+- 环境审计：experiments/m2_2_validation/environment.json（运行时检测：torch 2.10.0+cu128、cuda 运行时可用但本轮实验全部 device=cpu）；代码地图 docs/code_map.md。
+- 测试 52 项全绿（+pred_mode 回归 3）。
 
 ## M2 收尾（2026-11-21 第二轮，AutoClaw）
 

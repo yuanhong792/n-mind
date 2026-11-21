@@ -49,5 +49,6 @@
 ## 已知阻塞
 
 1. ~~torch 为 CPU 版 → RTX 5070（Blackwell, sm_120）不可用~~ → 2026-11-21 已装 cu128 轮子启用 GPU（小袁确认；GPU 冒烟：小模型下 GPU 无速度优势，先保留给更大规模，见 STATUS GPU 状态）。
-2. 稀疏路由版训练显著落后于同架构稠密版（0.61 vs 0.93 遮挡段）——这是当前最重要的科学问题，在解释清楚之前不扩展模型规模。
-3. 并行会话（Codex）在同一仓库推进 M2；提交只 add 自己的文件，避免裹挟半成品。
+2. ~~稀疏路由版训练显著落后~~ → 2026-11-21 M2.2 配对实验反转：C 在新数据 seed 上 0.853±0.113（最差 0.659），F10_ste 0.934±0.071 均值反超 C 8.0pp；pred 分支 legacy 缺陷已修复（pred_mode="next"，world_model_validated=true）。待收尾：配对 CI 跨零需扩 seed、多步闭环 rollout、H3b/H4b。详见 experiments/m2_2_validation/report.md。
+3. M2.2 判定 CONDITIONAL（倾向 ACCEPTED）：差 F10 扩 seed 定案 + 多步 rollout + H3b/H4b。
+4. M3 预研已启动（v1 管线 + OOD 超捷径）；Step5/6（GRU/Transformer 对照、持续学习四臂）待排。

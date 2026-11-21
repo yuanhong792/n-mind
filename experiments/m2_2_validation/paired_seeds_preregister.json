@@ -1,0 +1,24 @@
+{
+  "experiment": "F10 配对 seed 定案（M2.2-A / 提示词第 3 节）",
+  "preregistered_at": "2026-11-21 17:48",
+  "preregistered_by": "AutoClaw 会话（结果产生前写入）",
+  "rule": "seeds 不包含已用于选择 F10 的 20261121-20261125；预算允许时扩展到第二组",
+  "arms": {
+    "A_dense_ce": "稠密上界参考",
+    "C_sparse_ce": "稀疏+CE 基线（配对主对照）",
+    "F1_detach": "detach 修复候选",
+    "F10_ste": "detach+软化+STE 路由候选"
+  },
+  "seeds_primary": [20261131, 20261132, 20261133, 20261134, 20261135],
+  "seeds_reserve": [20261136, 20261137, 20261138, 20261139, 20261140],
+  "steps": 480,
+  "traj_len": 24,
+  "device": "cpu",
+  "statistics": {
+    "std": "ddof=1（样本标准差；此前报告 0.914±0.031 为 ddof=0 总体 std，本轮起统一 ddof=1）",
+    "paired": "逐 seed 配对差值 C−F10；bootstrap 95% CI 以 seed 为重抽样单位（n_seeds 次×10000）",
+    "gate": "沿用已冻结的 ≤3pp 平均差距门槛；均值达标不自动 ACCEPTED"
+  },
+  "runner": "experiments/2026-11-21_m2_2x2.py --tag paired5 / paired5b",
+  "notes": "数据 split 与模型初始化由同一 seed 派生（seed*1000+1/+2/+3 流），配对指同 seed 跨臂对比"
+}

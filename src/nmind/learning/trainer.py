@@ -75,7 +75,8 @@ def _goal_code(goal: tuple[int, int], size: int = 6) -> int:
 def build_model(cfg: Config, *, seed: int, execution: str = "sparse", use_router: bool = True,
                 use_error_gating: bool = True, use_workspace: bool = True,
                 device: torch.device | str = "cpu", mem_dim: int = 16,
-                n_blocks: int | None = None, router_ste: bool = False) -> NModel:
+                n_blocks: int | None = None, router_ste: bool = False,
+                pred_mode: str | None = None) -> NModel:
     """按消融开关装配模型。seed 决定初始化，同 seed 同权重（可复现验收靠这个）。"""
     torch.manual_seed(seed)
     np.random.seed(seed % (2**32))
@@ -85,7 +86,8 @@ def build_model(cfg: Config, *, seed: int, execution: str = "sparse", use_router
     model = NModel(cfg.model, n_actions=datasets.N_ACTIONS, mem_dim=mem_dim,
                    execution=execution, use_router=use_router,
                    use_error_gating=use_error_gating, use_workspace=use_workspace,
-                   router_ste=router_ste)
+                   router_ste=router_ste,
+                   pred_mode=cfg.model.pred_mode if pred_mode is None else pred_mode)
     return model.to(device)
 
 
@@ -242,7 +244,7 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
           checkpoint_path: str | None = None,
           mem_provider: Any | None = None, loss_mode: str = "joint",
           posthoc_probe: bool = True, loss_overrides: dict[str, float] | None = None,
-          router_ste: bool = False) -> TrainResult:
+          router_ste: bool = False, pred_mode: str | None = None) -> TrainResult:
     """训练一个任务。给了 replay 就按比例混批；trainable_adapter 只放开部分参数。
 
     `loss_mode`：`joint` = CE + 预测 + 方差 + 均衡 + 熵 + 联合探针（M1 原配置）；
@@ -267,7 +269,8 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
 
     model = build_model(cfg, seed=seed, device=dev, execution=execution, use_router=use_router,
                         use_error_gating=use_error_gating, use_workspace=use_workspace,
-                        router_ste=router_ste)
+                        router_ste=router_ste, pred_mode=pred_mode)
+    pred_mode_eff = model.pred_mode   # None 时取 cfg.model.pred_mode
     opened = _freeze_except_adapter(model) if trainable_adapter else []
     probe = _make_probe(cfg.model.block_hidden, 36).to(dev)      # 6x6 网格里目标所在格 = 36 类
     weights = LossWeights.from_cfg(cfg) if loss_mode == "joint" else LossWeights(
@@ -311,7 +314,8 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
                 batch_rows = batch_rows[: max(1, bs - n_rep)] + replay.sample(n_rep)
             b = _assemble(batch_rows, dev)
             out = model.forward_sequence(b["obs"], b["actions"], mem=b["mem"], depth=1)
-            losses = compute_total(out, b["actions"], weights)
+            losses = compute_total(out, b["actions"], weights,
+                                   pred_shift=(pred_mode_eff == "next"))
             if loss_mode == "joint":
                 p_logits = probe(out["ctx"].reshape(-1, out["ctx"].shape[-1]))
                 codes = b["codes"].repeat_interleave(b["obs"].shape[1])
@@ -374,7 +378,7 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
         "ablation": {"use_router": use_router, "use_error_gating": use_error_gating,
                      "use_workspace": use_workspace, "use_memory_input": use_memory_input,
                      "trainable_adapter": trainable_adapter, "opened": opened,
-                     "router_ste": router_ste},
+                     "router_ste": router_ste, "pred_mode": pred_mode_eff},
         "replay_items_used": len(replay) if replay is not None else 0,
         "non_finite_steps_skipped": non_finite,
     }

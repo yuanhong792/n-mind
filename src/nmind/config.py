@@ -35,6 +35,12 @@ class ModelCfg(BaseModel):
     encoder_hidden: int = 64
     predictor_hidden: int = 64
     shared_trunk_blocks: int = 0       # >0 时前若干层块跨任务共享（消融用）
+    pred_mode: Literal["current", "next"] = "current"
+    # current = 历史行为（z_hat[t]=f(z[t],a[t-1])，损失 MSE(z_hat[t],z[t])——预测器把目标当
+    #   输入，实测学成恒等拷贝：cos(z_hat,z)=0.998、动作敏感性 0.025，world_model 失效）；
+    # next = 真世界模型目标：z_hat[t]=f(z[t],a[t],w[t])，损失对齐 z[t+1]（detach 目标），
+    #   与 error 门控的既有语义（z_hat[t] 预测 z[t+1]）一致。默认保持 current 以不改变
+    #   已有 checkpoint 的复现口径。
 
 
 class RuntimeCfg(BaseModel):

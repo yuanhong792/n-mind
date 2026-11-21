@@ -1,0 +1,698 @@
+{
+  "experiment": "训练轨迹干预（detach/STE/pred 权重，同一 fork 点分叉）",
+  "fork_step": 240,
+  "phase2_steps": 240,
+  "minimal_matrix_rationale": "5 臂覆盖：不加干预对照 / detach / STE / 组合 / 关 pred——回答'中途切换是否有效、两开关是否独立、任务梯度进 router 是否充分'",
+  "seeds": [
+    20261121,
+    20261122,
+    20261123
+  ],
+  "device": "cpu",
+  "runs": [
+    {
+      "seed": 20261121,
+      "fork_step": 240,
+      "fork_val_occ": 0.5031,
+      "fork_router_task_grad": 0.0,
+      "arms": {
+        "arm0_baseline": {
+          "switches": {},
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5031
+            }
+          ],
+          "final_val_occ": 0.5031,
+          "test_acc_occ": 0.5188,
+          "posthoc_probe_test": 0.3893,
+          "action_loss_head": 0.8311,
+          "action_loss_tail": 0.7288
+        },
+        "arm1_detach": {
+          "switches": {
+            "detach_pred_target": true
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5031
+            }
+          ],
+          "final_val_occ": 0.5031,
+          "test_acc_occ": 0.5625,
+          "posthoc_probe_test": 0.4544,
+          "action_loss_head": 0.8317,
+          "action_loss_tail": 0.7336
+        },
+        "arm2_ste": {
+          "switches": {
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.008183,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5031
+            }
+          ],
+          "final_val_occ": 0.5031,
+          "test_acc_occ": 0.5188,
+          "posthoc_probe_test": 0.4284,
+          "action_loss_head": 0.8406,
+          "action_loss_tail": 0.7429
+        },
+        "arm3_detach_ste": {
+          "switches": {
+            "detach_pred_target": true,
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.008178,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5031
+            }
+          ],
+          "final_val_occ": 0.5031,
+          "test_acc_occ": 0.5781,
+          "posthoc_probe_test": 0.4753,
+          "action_loss_head": 0.8423,
+          "action_loss_tail": 0.7078
+        },
+        "arm4_pred0": {
+          "switches": {
+            "pred_weight": 0.0
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5031
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5031
+            }
+          ],
+          "final_val_occ": 0.5031,
+          "test_acc_occ": 0.5406,
+          "posthoc_probe_test": 0.4167,
+          "action_loss_head": 0.8324,
+          "action_loss_tail": 0.7515
+        }
+      }
+    },
+    {
+      "seed": 20261122,
+      "fork_step": 240,
+      "fork_val_occ": 0.5625,
+      "fork_router_task_grad": 0.0,
+      "arms": {
+        "arm0_baseline": {
+          "switches": {},
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5625
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5906
+            }
+          ],
+          "final_val_occ": 0.5906,
+          "test_acc_occ": 0.5797,
+          "posthoc_probe_test": 0.2839,
+          "action_loss_head": 0.7525,
+          "action_loss_tail": 0.7059
+        },
+        "arm1_detach": {
+          "switches": {
+            "detach_pred_target": true
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5625
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5906
+            }
+          ],
+          "final_val_occ": 0.5906,
+          "test_acc_occ": 0.5359,
+          "posthoc_probe_test": 0.5417,
+          "action_loss_head": 0.7515,
+          "action_loss_tail": 0.6519
+        },
+        "arm2_ste": {
+          "switches": {
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.012765,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5625
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5906
+            }
+          ],
+          "final_val_occ": 0.5906,
+          "test_acc_occ": 0.6219,
+          "posthoc_probe_test": 0.4388,
+          "action_loss_head": 0.8039,
+          "action_loss_tail": 0.6935
+        },
+        "arm3_detach_ste": {
+          "switches": {
+            "detach_pred_target": true,
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.012762,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5625
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5906
+            }
+          ],
+          "final_val_occ": 0.5906,
+          "test_acc_occ": 0.6016,
+          "posthoc_probe_test": 0.5326,
+          "action_loss_head": 0.8032,
+          "action_loss_tail": 0.6571
+        },
+        "arm4_pred0": {
+          "switches": {
+            "pred_weight": 0.0
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5625
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5906
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5906
+            }
+          ],
+          "final_val_occ": 0.5906,
+          "test_acc_occ": 0.6062,
+          "posthoc_probe_test": 0.3138,
+          "action_loss_head": 0.7509,
+          "action_loss_tail": 0.7345
+        }
+      }
+    },
+    {
+      "seed": 20261123,
+      "fork_step": 240,
+      "fork_val_occ": 0.5797,
+      "fork_router_task_grad": 0.0,
+      "arms": {
+        "arm0_baseline": {
+          "switches": {},
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5797
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5938
+            }
+          ],
+          "final_val_occ": 0.5938,
+          "test_acc_occ": 0.6016,
+          "posthoc_probe_test": 0.5391,
+          "action_loss_head": 0.7331,
+          "action_loss_tail": 0.6534
+        },
+        "arm1_detach": {
+          "switches": {
+            "detach_pred_target": true
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5797
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5938
+            }
+          ],
+          "final_val_occ": 0.5938,
+          "test_acc_occ": 0.7406,
+          "posthoc_probe_test": 0.5534,
+          "action_loss_head": 0.7322,
+          "action_loss_tail": 0.5954
+        },
+        "arm2_ste": {
+          "switches": {
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.067075,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5797
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5938
+            }
+          ],
+          "final_val_occ": 0.5938,
+          "test_acc_occ": 0.6156,
+          "posthoc_probe_test": 0.4701,
+          "action_loss_head": 0.7462,
+          "action_loss_tail": 0.6591
+        },
+        "arm3_detach_ste": {
+          "switches": {
+            "detach_pred_target": true,
+            "router_ste": true
+          },
+          "first_step_router_task_grad": 0.067022,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5797
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5938
+            }
+          ],
+          "final_val_occ": 0.5938,
+          "test_acc_occ": 0.6359,
+          "posthoc_probe_test": 0.4688,
+          "action_loss_head": 0.7432,
+          "action_loss_tail": 0.6317
+        },
+        "arm4_pred0": {
+          "switches": {
+            "pred_weight": 0.0
+          },
+          "first_step_router_task_grad": 0.0,
+          "trace": [
+            {
+              "step": 240,
+              "val_occ": 0.5797
+            },
+            {
+              "step": 280,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 320,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 360,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 400,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 440,
+              "val_occ": 0.5938
+            },
+            {
+              "step": 480,
+              "val_occ": 0.5938
+            }
+          ],
+          "final_val_occ": 0.5938,
+          "test_acc_occ": 0.5953,
+          "posthoc_probe_test": 0.4701,
+          "action_loss_head": 0.7318,
+          "action_loss_tail": 0.6591
+        }
+      }
+    }
+  ],
+  "summary": {
+    "arm0_baseline": {
+      "final_test_occ_mean": 0.5667,
+      "final_test_occ_std_ddof1": 0.043,
+      "per_seed": [
+        0.5188,
+        0.5797,
+        0.6016
+      ]
+    },
+    "arm1_detach": {
+      "final_test_occ_mean": 0.613,
+      "final_test_occ_std_ddof1": 0.111,
+      "per_seed": [
+        0.5625,
+        0.5359,
+        0.7406
+      ]
+    },
+    "arm2_ste": {
+      "final_test_occ_mean": 0.5854,
+      "final_test_occ_std_ddof1": 0.058,
+      "per_seed": [
+        0.5188,
+        0.6219,
+        0.6156
+      ]
+    },
+    "arm3_detach_ste": {
+      "final_test_occ_mean": 0.6052,
+      "final_test_occ_std_ddof1": 0.029,
+      "per_seed": [
+        0.5781,
+        0.6016,
+        0.6359
+      ]
+    },
+    "arm4_pred0": {
+      "final_test_occ_mean": 0.5807,
+      "final_test_occ_std_ddof1": 0.035,
+      "per_seed": [
+        0.5406,
+        0.6062,
+        0.5953
+      ]
+    }
+  },
+  "wall_s": 812.4
+}

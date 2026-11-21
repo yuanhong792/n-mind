@@ -69,6 +69,7 @@ class NModel(nn.Module):
         use_workspace: bool = True,
         top_k: int | None = None,
         router_ste: bool = False,
+        pred_mode: str = "current",
     ) -> None:
         super().__init__()
         if execution not in ("sparse", "dense"):
@@ -85,6 +86,11 @@ class NModel(nn.Module):
         # 关闭时 route.weights 不参与前向（历史行为，router 只被均衡/熵正则训练）；
         # 打开时选中的块更新按 route.weights 插值，梯度经插值路径回传路由器（STE 风格）。
         self.router_ste = bool(router_ste)
+        # pred_mode：current=历史重建目标（预测器把目标当输入，实测学成恒等拷贝）；
+        # next=真世界模型（(s_t,a_t)→s_{t+1}，损失对齐 z[t+1]）。默认 current 保持复现口径。
+        if pred_mode not in ("current", "next"):
+            raise ValueError(f"pred_mode 只能是 'current' 或 'next'，实际 {pred_mode!r}")
+        self.pred_mode = pred_mode
 
         self.encoder = EventEncoder(
             numeric_dim=cfg.event_numeric_dim,
@@ -144,6 +150,7 @@ class NModel(nn.Module):
         mem: torch.Tensor | None = None,
         k: int | None = None,
         depth: int = 1,
+        action_cur: torch.Tensor | None = None,
     ) -> tuple[StepOutput, NState]:  # noqa: PLR0915 - 单步就是整条推理图，拆开反而失真
         bsz = numeric.shape[0]
         z = self.encoder(numeric, text_feat)
@@ -232,7 +239,17 @@ class NModel(nn.Module):
         if a_idx.dim() != 1 or a_idx.shape[0] != bsz:
             raise ValueError(f"action_prev 形状应为 [B]（B={bsz}），实际 {tuple(action_prev.shape)}")
         action_e = self.action_emb(a_idx)
-        z_hat = self.predictor(z, action_e, w_read.value)
+        if self.pred_mode == "next" and action_cur is not None:
+            # 真世界模型目标：(s_t, a_t) → s_{t+1}。输入是当前观测与**当前动作**，
+            # 不含未来观测/标签；损失在 trainer 里对齐 z[t+1]（pred_shift=True）。
+            a_cur = action_cur.long()
+            if a_cur.dim() == 2 and a_cur.shape[-1] == 1:
+                a_cur = a_cur.squeeze(-1)
+            if a_cur.dim() != 1 or a_cur.shape[0] != bsz:
+                raise ValueError(f"action_cur 形状应为 [B]（B={bsz}），实际 {tuple(action_cur.shape)}")
+            z_hat = self.predictor(z, self.action_emb(a_cur), w_read.value)
+        else:
+            z_hat = self.predictor(z, action_e, w_read.value)
 
         ctx_z = h.mean(dim=1)                        # 块状态池化，作为决策主输入
         decision = self.head.decide(ctx_z, w_read.value, mem)
@@ -295,6 +312,7 @@ class NModel(nn.Module):
                 None if mem is None else mem[:, t],
                 k=k,
                 depth=depth,
+                action_cur=actions[:, t] if self.pred_mode == "next" else None,
             )
             zs.append(out.z)
             hats.append(out.z_hat)

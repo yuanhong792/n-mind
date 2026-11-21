@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "arm": "F10_next",
+      "seed": 20261121,
+      "steps": 480,
+      "acc_all": 0.9206,
+      "acc_occ": 0.9719,
+      "probe_posthoc_test": 0.7995,
+      "pred_tail": 0.0719,
+      "non_finite": 0,
+      "pred_mode": "next",
+      "router_ste": true,
+      "dataset_hash": "0f385b919fe5a164",
+      "wall_s": 72.7,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261121.pt"
+    },
+    {
+      "arm": "F10_next",
+      "seed": 20261122,
+      "steps": 480,
+      "acc_all": 0.9232,
+      "acc_occ": 0.9594,
+      "probe_posthoc_test": 0.6654,
+      "pred_tail": 0.0788,
+      "non_finite": 0,
+      "pred_mode": "next",
+      "router_ste": true,
+      "dataset_hash": "1ca0800979c6941e",
+      "wall_s": 71.8,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261122.pt"
+    },
+    {
+      "arm": "F10_next",
+      "seed": 20261123,
+      "steps": 480,
+      "acc_all": 0.8529,
+      "acc_occ": 0.9109,
+      "probe_posthoc_test": 0.7734,
+      "pred_tail": 0.1083,
+      "non_finite": 0,
+      "pred_mode": "next",
+      "router_ste": true,
+      "dataset_hash": "9ebb5aef8818c239",
+      "wall_s": 71.7,
+      "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261123.pt"
+    }
+  ]
+}

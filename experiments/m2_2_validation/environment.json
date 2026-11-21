@@ -1,0 +1,22 @@
+{
+  "captured_at": "2026-11-21 17:48:06",
+  "git_commit": "9ee5ec1602b4797c56311a570915f3ebfc551639",
+  "torch_version": "2.10.0+cu128",
+  "cuda_available_runtime": true,
+  "cuda_device_count": 1,
+  "actual_device_used_by_detect": "cuda",
+  "torch_threads": 8,
+  "cpu": {
+    "logical": 28,
+    "physical": 20,
+    "model": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel"
+  },
+  "ram_total_gb": 31.8,
+  "os": "Windows 11",
+  "python": "3.12.10",
+  "note": "运行时检测，非包名推断；M2/M3 实验均以 device=cpu 执行",
+  "device_note": [
+    "未启用 AVX-512：CPU 吞吐上限低于支持该指令集的机器，跨机对比需注明",
+    "torch 线程数 = 8（OMP_NUM_THREADS 已同步；仅供复现说明）"
+  ]
+}
