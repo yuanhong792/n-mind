@@ -1,0 +1,35 @@
+# 云端增强示例：默认**不启用**。复制成 configs/cloud.local.yaml（已在 .gitignore 里）
+# 再填 base_url/model；密钥只写环境变量名，绝不能写在这里。
+#
+# 三道门都在代码里（bridge/policy.py），改这里的数字只能调整预算与门槛，
+# 不能把门拆掉：
+#   1) mode=ask 时每条请求都要显式批准，未批准不发起；
+#   2) 只允许 allowed_categories 白名单；
+#   3) 预算花完即拒；带敏感字段/私人记忆正文的 payload 直接拦。
+# 另外：把云端答复当"外部假设"，不当训练标签——除非 feedback 明确证实。
+name: cloud_example
+
+cloud:
+  mode: "ask"                       # "ask" = 每次都要人点头；"auto_allowed" 才自动出网
+  provider: openai_compatible       # 仅走 urllib，不需要额外依赖
+  base_url: "https://REPLACE-ME/v1" # 例：本地 Ollama 是 http://127.0.0.1:11434/v1
+  model: "REPLACE-ME"
+  api_key_env: NMIND_CLOUD_API_KEY  # 只记变量名；程序从环境变量读，不写日志、不入库
+  timeout_s: 20.0
+  max_retries: 2
+  max_payload_chars: 2000           # 出网正文长度上限（脱敏后才算）
+  cost_budget_units_total: 0.50     # 总预算，单位自定；0 = 一分都不许花
+  cost_estimate_per_call: 0.01      # 单次预估成本，用来做预算门
+  require_explicit_approval: true
+  allowed_categories: [public_web_query]   # 不要往这里加 personal_data / private_files
+  audit_log: results/cloud_audit.jsonl     # 只记类别、长度、决定、花费，不记正文与密钥
+
+runtime:
+  device: auto
+  seed: 20261121
+
+learning:
+  epochs: 6
+
+logging:
+  mask_secrets: true

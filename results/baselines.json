@@ -1,0 +1,99 @@
+{
+  "hardware": {
+    "platform": "Windows 11",
+    "machine": "AMD64",
+    "python": "3.12.10",
+    "torch": "2.10.0+cpu",
+    "cpu_count_logical": 28,
+    "cpu_count_physical": 20,
+    "cpu_features": {
+      "avx2": true,
+      "avx512": false,
+      "amx_tile": false,
+      "vnni": false
+    },
+    "ram_total_mb": 32598.9,
+    "ram_available_mb": 11203.2,
+    "cuda_available": false,
+    "torch_threads": 8,
+    "cuda_devices": [],
+    "notes": [
+      "走 CPU 路径：本机无可用 CUDA（受支持的默认，不是故障）",
+      "未启用 AVX-512：CPU 吞吐上限低于支持该指令集的机器，跨机对比需注明",
+      "torch 线程数 = 8（OMP_NUM_THREADS 已同步；仅供复现说明）"
+    ]
+  },
+  "seed": 20261121,
+  "task": {
+    "name": "A",
+    "size": 6,
+    "goal_visible_steps": 4,
+    "obstacles": [],
+    "reversed_control": false,
+    "seed": 20261121
+  },
+  "dataset_hash": "9b1b16a63b4b44e5",
+  "rows": [
+    {
+      "name": "dense_n_cell",
+      "params": 282589,
+      "active_elements": 197632,
+      "accuracy": 0.8567708333333334,
+      "accuracy_occluded": 0.9328125,
+      "recall": NaN,
+      "chance": 0.027777777777777776,
+      "train_s": 0.8748984932899475,
+      "seq_ms": 151.96629999991274,
+      "note": "同架构关闭路由：全块激活"
+    },
+    {
+      "name": "gru_2layer",
+      "params": 54248,
+      "active_elements": 54248,
+      "accuracy": 0.5299479166666666,
+      "accuracy_occluded": 0.55625,
+      "recall": 0.15104166666666666,
+      "chance": 0.027777777777777776,
+      "train_s": 0.6820311546325684,
+      "seq_ms": 2.201499999500811,
+      "note": "无路由/无工作空间/无预测器；损失只含 CE+读出，与 N-Cell 主损失不同，见 LIMITATIONS"
+    }
+  ],
+  "shared_trunk": [
+    {
+      "variant": "private_only",
+      "shared_blocks": 0,
+      "private_blocks": 4,
+      "params": 204008,
+      "loss_drop": 0.6792,
+      "accuracy": 0.6328,
+      "accuracy_occluded": 0.6625,
+      "recall": 0.3151,
+      "seq_ms": 11.071
+    },
+    {
+      "variant": "mixed",
+      "shared_blocks": 4,
+      "private_blocks": 2,
+      "params": 129128,
+      "loss_drop": 0.7154,
+      "accuracy": 0.6237,
+      "accuracy_occluded": 0.65,
+      "recall": 0.2031,
+      "seq_ms": 10.039
+    },
+    {
+      "variant": "shared_only",
+      "shared_blocks": 6,
+      "private_blocks": 0,
+      "params": 29288,
+      "loss_drop": 0.7535,
+      "accuracy": 0.651,
+      "accuracy_occluded": 0.6813,
+      "recall": 0.2747,
+      "seq_ms": 5.492
+    }
+  ],
+  "params_total": 282589,
+  "note": "transformer 基线未实现；本表结论仅在已实现的三个主干之间成立"
+}

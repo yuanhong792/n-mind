@@ -1,0 +1,79 @@
+{
+  "wall_s": 6.62,
+  "epochs": 6,
+  "params": 282589,
+  "seed": 20261121,
+  "loss_first": 3.3092,
+  "loss_last": 2.1562,
+  "eval_occluded": {
+    "accuracy": 0.4440104166666667,
+    "n_steps": 768.0,
+    "probe_accuracy": 0.12239583333333333,
+    "probe_n": 768.0,
+    "accuracy_occluded": 0.459375,
+    "n_steps_occluded": 640.0
+  },
+  "eval_all": {
+    "accuracy": 0.4440104166666667,
+    "n_steps": 768.0,
+    "probe_accuracy": 0.12239583333333333,
+    "probe_n": 768.0,
+    "accuracy_occluded": 0.459375,
+    "n_steps_occluded": 640.0
+  },
+  "route_load": {
+    "load_per_block": [
+      0.1558,
+      0.1081,
+      0.0981,
+      0.1345,
+      0.1111,
+      0.1179,
+      0.1703,
+      0.1043
+    ],
+    "dead_blocks": 0,
+    "top1_block_share": 0.1703
+  },
+  "dataset_hash": "9b1b16a63b4b44e5",
+  "config_hash": "f1dfd1ad1da33b38",
+  "git_revision": "no-git",
+  "checkpoint": "D:\\cpu本地模型开发\\n-mind\\results\\demo.ckpt.pt",
+  "save_load_bitwise_identical": true,
+  "predicted_actions_first_row": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "oracle_actions_first_row": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    3,
+    1
+  ]
+}

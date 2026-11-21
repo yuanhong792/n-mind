@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+
+# 运行产物：权重、数据集、日志、结果（大文件与个人数据不入库）
+results/*.ckpt
+results/*.pt
+results/*.jsonl
+results/runs/
+data/*.db
+data/*.db-*
+logs/
+
+# 凭据：绝不提交
+.env
+*.env
+secrets*
+configs/cloud.local.yaml

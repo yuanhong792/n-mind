@@ -1,0 +1,374 @@
+{
+  "goal": [
+    1,
+    1
+  ],
+  "start": [
+    5,
+    0
+  ],
+  "actions": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "steps": [
+    {
+      "tick": 1,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2241,
+        0.2721,
+        0.2647,
+        0.2392
+      ],
+      "confidence": 0.2721,
+      "margin": 0.0074,
+      "error": 0.5,
+      "k": 2,
+      "blocks_touched": 2,
+      "step_ms": 5.366,
+      "validation": {
+        "ok": false,
+        "reason": "distance_increased",
+        "basis": "observed",
+        "dist_now": 4,
+        "dist_next": 5
+      },
+      "memory_hits": 3,
+      "memory_titles": [
+        "物体在 (4,0)，目标在 (1,1)。 invalid",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (4,0)，目标在 (1,1)。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 3 条本地记忆。",
+      "episode_id": 9
+    },
+    {
+      "tick": 2,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2214,
+        0.272,
+        0.2677,
+        0.2389
+      ],
+      "confidence": 0.272,
+      "margin": 0.0043,
+      "error": 0.9963,
+      "k": 2,
+      "blocks_touched": 2,
+      "step_ms": 0.997,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 4,
+      "memory_titles": [
+        "物体在 (4,0)，目标在 (1,1)。 invalid",
+        "物体在 (4,0)，目标在 (1,1)。 invalid",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标在 (1,1)。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 4 条本地记忆。",
+      "episode_id": 10
+    },
+    {
+      "tick": 3,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2214,
+        0.2726,
+        0.2672,
+        0.2389
+      ],
+      "confidence": 0.2726,
+      "margin": 0.0054,
+      "error": 0.9933,
+      "k": 3,
+      "blocks_touched": 3,
+      "step_ms": 1.211,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)。 invalid",
+        "物体在 (4,0)，目标在 (1,1)。 invalid"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 11
+    },
+    {
+      "tick": 4,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2217,
+        0.2725,
+        0.2663,
+        0.2395
+      ],
+      "confidence": 0.2725,
+      "margin": 0.0062,
+      "error": 0.9889,
+      "k": 4,
+      "blocks_touched": 4,
+      "step_ms": 1.076,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)。 invalid"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 12
+    },
+    {
+      "tick": 5,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2211,
+        0.2726,
+        0.2649,
+        0.2415
+      ],
+      "confidence": 0.2726,
+      "margin": 0.0077,
+      "error": 0.9896,
+      "k": 5,
+      "blocks_touched": 5,
+      "step_ms": 1.335,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 12
+    },
+    {
+      "tick": 6,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2203,
+        0.2732,
+        0.2641,
+        0.2424
+      ],
+      "confidence": 0.2732,
+      "margin": 0.0091,
+      "error": 0.9896,
+      "k": 6,
+      "blocks_touched": 6,
+      "step_ms": 1.066,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 12
+    },
+    {
+      "tick": 7,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2197,
+        0.2739,
+        0.2636,
+        0.2429
+      ],
+      "confidence": 0.2739,
+      "margin": 0.0103,
+      "error": 0.9897,
+      "k": 7,
+      "blocks_touched": 7,
+      "step_ms": 1.13,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 12
+    },
+    {
+      "tick": 8,
+      "action": 1,
+      "action_name": "right",
+      "probabilities": [
+        0.2191,
+        0.2745,
+        0.2632,
+        0.2433
+      ],
+      "confidence": 0.2745,
+      "margin": 0.0112,
+      "error": 0.9897,
+      "k": 8,
+      "blocks_touched": 8,
+      "step_ms": 1.223,
+      "validation": {
+        "ok": false,
+        "reason": "out_of_bounds",
+        "basis": "observed"
+      },
+      "memory_hits": 5,
+      "memory_titles": [
+        "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (4,0)，目标被遮挡，本步发生碰撞（未移动）。 invalid",
+        "物体在 (5,0)，目标在 (1,1)。 invalid",
+        "物体在 (5,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv",
+        "物体在 (4,0)，目标在 (1,1)，本步发生碰撞（未移动）。 inv"
+      ],
+      "decision_source": "memory+network",
+      "cloud_used": false,
+      "cloud_summary": {
+        "used": false
+      },
+      "text": "物体在 (5,0)，目标被遮挡，本步发生碰撞（未移动）。 → 倾向于向右移动，（各方向得分接近，本地不确定度高），参考了 5 条本地记忆。",
+      "episode_id": 12
+    }
+  ],
+  "stats": {
+    "governor": {
+      "steps": 8,
+      "degraded_ratio": 0.0,
+      "mean_k": 4.625,
+      "max_depth": 1,
+      "last_step_ms": 1.223,
+      "peak_step_ms": 5.366,
+      "peak_rss_mb": 227.1,
+      "stopped_reason": ""
+    },
+    "model": {
+      "load_per_block": [
+        0.1081,
+        0.1892,
+        0.0811,
+        0.2162,
+        0.027,
+        0.0541,
+        0.1892,
+        0.1351
+      ],
+      "dead_blocks": 0,
+      "top1_block_share": 0.2162
+    },
+    "params": 282717,
+    "memory": {
+      "episodes": 7,
+      "active_facts": 0,
+      "deleted_tombstones": 0,
+      "training_runs": 0,
+      "facts_by_status": {},
+      "schema": {
+        "schema_version": 1,
+        "fts5": true
+      },
+      "db_bytes": 114688
+    },
+    "cloud": {
+      "mode": "off",
+      "requested": 0,
+      "allowed": 0,
+      "denied": {},
+      "budget_total": 0.0,
+      "spent": 0.0,
+      "budget_left": 0.0,
+      "allowed_categories": [
+        "public_web_query"
+      ],
+      "require_explicit_approval": true,
+      "calls": 0
+    },
+    "text_source": "hash",
+    "use_memory": true,
+    "device": "cpu",
+    "session": "run"
+  }
+}

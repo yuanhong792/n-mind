@@ -1,0 +1,85 @@
+# 最小 CPU 配置（默认就是它，改这里等于改默认可复现基线）
+# 未知键会直接报错，防止"以为开了其实没开"。
+name: cpu_minimal
+
+model:
+  event_numeric_dim: 26      # = learning/datasets.OBS_DIM
+  event_text_dim: 128        # 哈希袋词特征，不是预训练语言模型
+  z_dim: 64
+  block_hidden: 64
+  n_blocks: 8
+  workspace_slots: 8
+  workspace_dim: 64
+  top_k: 2
+  action_dim: 4
+  encoder_hidden: 64
+  predictor_hidden: 64
+  shared_trunk_blocks: 0
+
+runtime:
+  device: auto               # 无 CUDA 时自动走 CPU，不因此拒绝运行
+  torch_threads: 0           # 0 = 按核数取 min(8, 逻辑核/2)
+  max_step_ms: 50.0
+  max_rss_mb: 4096.0
+  max_recurrence_depth: 1
+  seed: 20261121
+
+memory:
+  db_path: data/nmind.db
+  working_capacity: 16
+  episodic_enabled: true
+  semantic_enabled: true
+  fts_enabled: true
+  retrieval_top_k: 5
+  fact_stale_after_days: 180
+  consolidation_batch: 32
+
+cloud:
+  mode: "off"                # "off" | "ask" | "auto_allowed"（必须加引号：裸写 off 会被 YAML 当布尔）
+  provider: mock
+  base_url: ""
+  model: ""
+  api_key_env: NMIND_CLOUD_API_KEY   # 只记变量名，绝不记值
+  timeout_s: 20.0
+  max_retries: 2
+  max_payload_chars: 4000
+  cost_budget_units_total: 0.0       # 0 = 一分都不许花
+  cost_estimate_per_call: 0.0
+  require_explicit_approval: true
+  allowed_categories: [public_web_query]
+  audit_log: results/cloud_audit.jsonl
+
+learning:
+  lr: 0.003
+  batch_size: 16
+  epochs: 6
+  traj_len: 24
+  n_train: 96
+  n_test: 32
+  n_updates: 6
+  grad_clip: 5.0
+  pred_weight: 1.0
+  aux_balance_weight: 0.1
+  var_reg_weight: 0.05
+  entropy_weight: 0.01
+  probe_weight: 0.25
+  target_std: 0.25
+  detach_pred_target: false
+  replay_buffer: 2000
+  replay_ratio: 0.25
+  adapter_trainable: true
+  eval_interval: 1
+  checkpoint_dir: results
+
+language:
+  source: hash               # hash | local_adapter（local_adapter 需自备权重，绝不自动下载）
+  adapter_path: ""
+  auto_download: false
+  max_text_chars: 512
+
+logging:
+  level: info
+  dir: logs
+  mask_secrets: true
+
+offline_forced: false

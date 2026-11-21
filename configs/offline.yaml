@@ -1,0 +1,50 @@
+# 完全离线档：给"不许碰网络"的场景（内网、审计、演示机）。
+#
+# offline_forced 是代码里的硬开关：即便有人把云端密钥塞进环境变量、
+# 或把 cloud.mode 改成 auto_allowed，effective_cloud_mode() 仍然返回 off，
+# 且不会建立任何 socket。CLI 的 --offline 走的是同一条路（优先级更高）。
+name: offline
+offline_forced: true
+
+model:
+  event_numeric_dim: 26
+  z_dim: 64
+  block_hidden: 64
+  n_blocks: 8
+  workspace_slots: 8
+  workspace_dim: 64
+  top_k: 2
+
+runtime:
+  device: cpu                # 明确 CPU，避免任何"等 GPU"的分支
+  torch_threads: 0
+  max_step_ms: 50.0
+  max_rss_mb: 4096.0
+  max_recurrence_depth: 1
+
+memory:
+  db_path: data/nmind_offline.db
+  episodic_enabled: true     # 本地 SQLite 不算出网，离线档照样有长期记忆
+  semantic_enabled: true
+  fts_enabled: true
+
+cloud:
+  mode: "off"
+  provider: mock
+  cost_budget_units_total: 0.0
+  require_explicit_approval: true
+
+learning:
+  epochs: 6
+  batch_size: 16
+  traj_len: 24
+  n_train: 96
+  n_test: 32
+
+language:
+  source: hash               # 只用确定性哈希特征，不下载、不调用任何外部文本模型
+  auto_download: false
+
+logging:
+  level: info
+  mask_secrets: true

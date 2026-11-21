@@ -1,0 +1,73 @@
+# 12 GB GPU 档：指令里假想的"有卡"环境。
+#
+# 诚实声明：本机没有 CUDA，这份配置**没有在本机实测过**。
+# 它只是把形状放大，给出"如果换到 12 GB 卡上该怎么配"的起点；
+# 任何性能/能力结论都必须等那次机器上的 benchmark + 消融出来才成立。
+# 在这台 CPU 机器上跑它只会更慢（走 CPU 路径），不会更准。
+name: gpu_12gb
+
+model:
+  event_numeric_dim: 26
+  event_text_dim: 128
+  z_dim: 128
+  block_hidden: 128
+  n_blocks: 16
+  workspace_slots: 16
+  workspace_dim: 128
+  top_k: 4
+  action_dim: 4
+  encoder_hidden: 128
+  predictor_hidden: 128
+  shared_trunk_blocks: 4     # 前 4 块跨任务共享（参数效率实验用，见 docs/EXPERIMENTS.md）
+
+runtime:
+  device: auto               # 有 CUDA 就用，没有就 CPU，不拒绝运行
+  torch_threads: 0
+  max_step_ms: 25.0
+  max_rss_mb: 8192.0
+  max_recurrence_depth: 2
+  seed: 20261121
+
+memory:
+  db_path: data/nmind_gpu.db
+  working_capacity: 64
+  episodic_enabled: true
+  semantic_enabled: true
+  fts_enabled: true
+  retrieval_top_k: 8
+  fact_stale_after_days: 180
+  consolidation_batch: 128
+
+cloud:
+  mode: "off"
+
+learning:
+  lr: 0.002
+  batch_size: 64
+  epochs: 30
+  traj_len: 48
+  n_train: 512
+  n_test: 128
+  n_updates: 0               # 0 = 按 batch 自动
+  grad_clip: 5.0
+  pred_weight: 1.0
+  aux_balance_weight: 0.1
+  var_reg_weight: 0.05
+  entropy_weight: 0.01
+  probe_weight: 0.25
+  target_std: 0.25
+  detach_pred_target: false
+  replay_buffer: 20000
+  replay_ratio: 0.25
+  adapter_trainable: true
+  eval_interval: 2
+  checkpoint_dir: results
+
+language:
+  source: hash
+  auto_download: false       # 有卡也不自动下载权重；要换文本来源请自己放好模型目录
+
+logging:
+  level: info
+  dir: logs
+  mask_secrets: true

@@ -1,0 +1,127 @@
+{
+  "state_prediction": {
+    "accuracy": 0.4440104166666667,
+    "n_steps": 768.0,
+    "probe_accuracy": 0.12239583333333333,
+    "probe_n": 768.0,
+    "accuracy_occluded": 0.459375,
+    "n_steps_occluded": 640.0
+  },
+  "decision": {
+    "accuracy_all": 0.4440104166666667,
+    "accuracy_visible": 0.3671875,
+    "n_visible": 128.0,
+    "accuracy_after_collision": 0.0,
+    "n_after_collision": 0.0,
+    "accuracy_occluded": 0.459375
+  },
+  "memory_recall_visible_step": {
+    "recall_train": 0.2604166567325592,
+    "recall_test": 0.375,
+    "chance": 0.027777777777777776,
+    "probe_loss": 2.380033016204834,
+    "n_test": 32.0,
+    "step": 1.0
+  },
+  "memory_recall_occluded": {
+    "recall_train": 0.1875,
+    "recall_test": 0.28125,
+    "chance": 0.027777777777777776,
+    "probe_loss": 2.3747034072875977,
+    "n_test": 32.0,
+    "step": 23.0
+  },
+  "memory_span_curve": [
+    {
+      "recall_train": 0.4166666567325592,
+      "recall_test": 0.375,
+      "chance": 0.027777777777777776,
+      "probe_loss": 1.7599892616271973,
+      "n_test": 24.0,
+      "step": 2.0,
+      "distractor_steps": 2.0,
+      "policy_acc_at_t": 0.375
+    },
+    {
+      "recall_train": 0.2083333283662796,
+      "recall_test": 0.2083333283662796,
+      "chance": 0.027777777777777776,
+      "probe_loss": 2.0278847217559814,
+      "n_test": 24.0,
+      "step": 6.0,
+      "distractor_steps": 6.0,
+      "policy_acc_at_t": 0.5
+    },
+    {
+      "recall_train": 0.25,
+      "recall_test": 0.25,
+      "chance": 0.027777777777777776,
+      "probe_loss": 1.8131462335586548,
+      "n_test": 24.0,
+      "step": 12.0,
+      "distractor_steps": 12.0,
+      "policy_acc_at_t": 0.5416666666666666
+    },
+    {
+      "recall_train": 0.2916666567325592,
+      "recall_test": 0.2916666567325592,
+      "chance": 0.027777777777777776,
+      "probe_loss": 1.7658567428588867,
+      "n_test": 24.0,
+      "step": 20.0,
+      "distractor_steps": 20.0,
+      "policy_acc_at_t": 0.5416666666666666
+    }
+  ],
+  "budget": {
+    "T": 16,
+    "n_each": 20,
+    "gated": {
+      "easy": {
+        "mean_k": 2.0,
+        "accuracy": 0.4125,
+        "mean_step_ms": 24.619
+      },
+      "hard": {
+        "mean_k": 2.0,
+        "accuracy": 0.3937,
+        "mean_step_ms": 23.482
+      }
+    },
+    "fixed_k1": {
+      "easy": {
+        "mean_k": 1.0,
+        "accuracy": 0.4125,
+        "mean_step_ms": 23.819
+      },
+      "hard": {
+        "mean_k": 1.0,
+        "accuracy": 0.3937,
+        "mean_step_ms": 20.243
+      }
+    },
+    "fixed_kall": {
+      "easy": {
+        "mean_k": 8.0,
+        "accuracy": 0.4344,
+        "mean_step_ms": 35.744
+      },
+      "hard": {
+        "mean_k": 8.0,
+        "accuracy": 0.3937,
+        "mean_step_ms": 34.001
+      }
+    }
+  },
+  "_meta": {
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\results\\demo.ckpt.pt",
+    "config_hash": "f1dfd1ad1da33b38",
+    "git_revision": "no-git",
+    "probe_restored_from_checkpoint": true,
+    "dataset_hash": "9b1b16a63b4b44e5",
+    "task": {
+      "goal_visible_steps": 4,
+      "seed": 20261121
+    }
+  }
+}
