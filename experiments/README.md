@@ -25,6 +25,13 @@
 - 结果：`../results/benchmark_cpu.json`
 - 结论：T=48 序列，dense 35.4ms；sparse k=1 **21.1ms**（1.68×）、k=2 23.6ms、k=4 28.5ms（8 线程，AVX2，无 AVX-512）。稀疏有真实延迟收益；能耗未测量。
 
+## 2026-11-21 GPU 冒烟（CLI 环境变更后首验）
+
+- 脚本：`2026-11-21_gpu_smoke.py`；结果：`2026-11-21_gpu_smoke.json`
+- 背景：小袁确认后安装 torch 2.10.0+cu128（download.pytorch.org 直连 ~400KB/s，改用阿里云镜像）；安装暴露并修复 `EventEncoder` 隐式 CPU 张量设备 bug。
+- 结论：CUDA 可用（RTX 5070 sm_120，11.94GB，显存峰值 103MB）；同 seed 6 epoch demo **GPU 43.4s vs CPU 17.1s——当前 28 万参数规模 GPU 无优势**（kernel 启动开销主导）；GPU 训练→CPU 推理最大概率差 5.96e-08（float32 累加顺序噪声，等效逐位一致，满足"GPU 训练、CPU 推理"验收）。
+- 局限：单次短训，未测 5-10M 参数与大批次场景；能耗未测量。
+
 ## 2026-11-21 任务套件（欠训练 demo 权重，仅验证管线）
 
 - 命令：`python -m nmind.cli evaluate --json --seed 20261121`

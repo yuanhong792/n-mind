@@ -1,0 +1,55 @@
+{
+  "experiment": "GPU 冒烟：可用性 + 训练对比 + GPU→CPU 一致性",
+  "seed": 20261121,
+  "date": "2026-11-21",
+  "torch": "2.10.0+cu128",
+  "cuda_available": true,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5070",
+    "capability": "12.0",
+    "vram_total_gb": 11.94,
+    "vram_reserved_mb": 0.0
+  },
+  "train_gpu": {
+    "device_used": "cuda:0",
+    "wall_s": 43.43,
+    "grad_steps": 36,
+    "loss_first": 3.3076,
+    "loss_last": 1.9353,
+    "test": {
+      "accuracy": 0.4270833333333333,
+      "n_steps": 768.0,
+      "probe_accuracy": 0.06380208333333333,
+      "probe_n": 768.0,
+      "accuracy_occluded": 0.45,
+      "n_steps_occluded": 640.0
+    },
+    "params": 282589,
+    "seed": 20261121,
+    "gpu_peak_mb": 102.8
+  },
+  "train_cpu": {
+    "device_used": "cpu",
+    "wall_s": 17.08,
+    "grad_steps": 36,
+    "loss_first": 3.3076,
+    "loss_last": 1.9299,
+    "test": {
+      "accuracy": 0.4283854166666667,
+      "n_steps": 768.0,
+      "probe_accuracy": 0.10026041666666667,
+      "probe_n": 768.0,
+      "accuracy_occluded": 0.4515625,
+      "n_steps_occluded": 640.0
+    },
+    "params": 282589,
+    "seed": 20261121
+  },
+  "gpu_train_cpu_infer": {
+    "checkpoint": "D:\\cpu本地模型开发\\n-mind\\results\\gpu_smoke.ckpt.pt",
+    "max_prob_diff_gpu_vs_cpu": 6e-08,
+    "bitwise_identical": false,
+    "n_rows_checked": 8,
+    "note": "GPU(NCHW/不同kernel)与CPU浮点非结合顺序可能不同；一致=完全可复现，不一致=记录实际差异量级，不许说谎。"
+  }
+}

@@ -73,7 +73,8 @@ class EventEncoder(nn.Module):
         parts = []
         if self.num_mlp is not None:
             if numeric is None:
-                numeric = torch.zeros(1, self.numeric_dim)
+                # 设备跟另一个输入走，否则 GPU 模式下会造出 CPU 张量（CUDA 冒烟实验暴露）
+                numeric = torch.zeros(1, self.numeric_dim, device=text_feat.device)
             if numeric.shape[-1] != self.numeric_dim:
                 raise ValueError(
                     f"numeric 维度应为 {self.numeric_dim}，实际 {numeric.shape[-1]}"
@@ -82,7 +83,8 @@ class EventEncoder(nn.Module):
         if self.txt_mlp is not None:
             if text_feat is None:
                 b = parts[0].shape[0] if parts else 1
-                text_feat = torch.zeros(b, self.text_dim)
+                # 设备跟 numeric 走：训练/推理在 CUDA 上时这里必须在同一设备
+                text_feat = torch.zeros(b, self.text_dim, device=numeric.device)
             if text_feat.shape[-1] != self.text_dim:
                 raise ValueError(
                     f"text_feat 维度应为 {self.text_dim}，实际 {text_feat.shape[-1]}"

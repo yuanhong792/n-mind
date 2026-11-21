@@ -4,10 +4,10 @@
 
 ## 环境
 
-- Windows 11，Python 3.12.10，torch **2.10.0+cpu**，pytest 9.2.0，包已 `pip install -e .`
-- i7-14700KF（28 逻辑核，AVX2，无 AVX-512）/ 32GB RAM / RTX 5070 12GB（torch CPU 版用不上）
-- 云端 `mode: off`，本次会话零网络调用
-- Git：本仓库 2026-11-21 初始化（此前无版本控制）
+- Windows 11，Python 3.12.10，torch **2.10.0+cu128**（2026-11-21 15:44 由 CPU 版升级，阿里云镜像），pytest 9.2.0，包已 `pip install -e .`
+- i7-14700KF（28 逻辑核，AVX2，无 AVX-512）/ 32GB RAM / **RTX 5070 12GB 已启用**（sm_120，驱动 596.36，doctor 报设备 cuda）
+- 云端 `mode: off`，开发全程零网络调用（pip 安装除外）
+- Git：2026-11-21 初始化；**注意可能有并行会话（Codex）在同一仓库工作，提交时只 add 自己的文件**
 
 ## 可复现命令
 
@@ -60,11 +60,20 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 4. `Timing.as_dict` 缺 `per_event_ms`；CLI 引用不存在的 `peak_rss_mb` 键。
 5. `baselines.fit/score`：NModel 返回 `action_logits`、GRU 返回 `logits`，键名自适应。
 6. `SharedTrunkCell` 共享槽位输入未复制导致 GRUCell 批大小不匹配（16 vs 64）。
+7. `EventEncoder` 在 text_feat/numeric 缺省时造隐式 CPU 零张量 → GPU 训练崩；已改为跟随输入设备（GPU 冒烟实验暴露）。
+
+## GPU 状态（2026-11-21 启用，小袁确认安装）
+
+- torch 2.10.0+cu128 落位（RTX 5070 需 cu128+；download.pytorch.org 直连 ~400KB/s 卡慢，改用阿里云镜像 `--find-links` 完成安装）
+- GPU 冒烟实验（experiments/2026-11-21_gpu_smoke.json）：同 seed 6 epoch demo，GPU 43.4s vs CPU 17.1s，**小模型下 GPU 无优势**（kernel 启动开销主导，显存峰值仅 103MB）；GPU 训练→CPU 推理最大概率差 5.96e-08（等效逐位一致）
+- 测试 32 项全绿（含 test_datasets.py 5 项——并行会话新增）
+- 结论：GPU 先保留用于更大模型/更大批次，当前 M2 对比实验继续以 CPU 口径为准（两边数字都来自实测，不混用口径）
 
 ## 阻塞
 
-- GPU：torch CPU 版无法用 RTX 5070（Blackwell 需 cu128 轮子，约 3GB 下载）。装不装等小袁拍板。
-- 未实现：Transformer 基线、多种子重复、持续学习实验运行记录、门控收益验证。
+- ~~GPU：torch CPU 版无法用 RTX 5070~~ → 已解决（cu128 已装，见上方 GPU 状态）
+- 未实现：Transformer 基线、多种子重复、持续学习实验运行记录、门控收益验证
+- 并行会话正在做 M2（m2_* 实验文件与 test_datasets.py 出现在仓库）；跨会话提交前先 `git status` 分清归属
 
 ## 下次会话第一件事
 

@@ -15,7 +15,7 @@
 | 项 | 值 |
 |---|---|
 | Python | 3.12.10（`C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe`） |
-| torch | 2.10.0+cpu（系统默认 python 3.13 无 torch，勿用） |
+| torch | **2.10.0+cu128**（2026-11-21 升级，RTX 5070 可用；默认设备 auto→cuda；CPU 路径必须继续可用，见 AGENTS 第三节） |
 | 硬件 | i7-14700KF 28 逻辑核 / 32GB RAM / RTX 5070 12GB（torch CPU 版暂用不上） |
 | 安装 | 仓库根目录 `pip install -e .` 后用 `python -m nmind.cli ...` |
 | 测试 | pytest 9.2.0，27 项 |
