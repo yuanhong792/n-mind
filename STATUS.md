@@ -77,9 +77,19 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. M3 Step5/6：dev 低于捷径诊断 + 同预算 GRU/Transformer 对照 + 持续学习四臂对照（Frozen/Memory-only/Local-update/Full-update）——任务书已给执行顺序，本轮未开始（保 CPU 给 M2.2）。
-2. H3b/H4b 数据集构建（未见障碍拓扑 + 非退化规则反转）。
-3. F10/F10_next 扩展到预登记储备 seed（20261136-40）。
+1. H3b/H4b 数据集构建 + 障碍课程对照（M2.2 COMPLETE 的最后两项）。
+2. M3 Step5/6：dev 低于捷径诊断 + 同预算 GRU/Transformer 对照 + 持续学习四臂（Frozen/Memory-only/Local-update/Full-update）。
+3. F10 配置封装为 named config（configs/f10_next.yaml，含 pred_mode=next+router_ste+软化正则），作为默认训练入口。
+
+## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）——含 10-seed 定案补充
+
+- **pred 分支缺陷实锤并修复**：legacy 模式预测器把目标当输入（cos(z_hat,z)=0.998、动作敏感性 0.025、读出不超过拷贝基线），三臂 world_model_validated=false；新增 `pred_mode="next"`（(s_t,a_t)→s_{t+1}，与 error 门控语义一致）后 F10_next 两 seed **validated=true**（敏感性 1.05-1.15、z_hat 单独读出下一位置 0.92-0.93 **超过真值等价读出 R2**、主任务不退化 0.91-0.97）。
+- **三个真 bug 连锁修复**：① train() 的 pred_mode kwarg 不同步进 cfg → 存档记录错误语义；② _model_kwargs 漏记 router_ste/pred_mode → 权重加载成功但语义静默回退；③ run_next_mode 未设 cfg。均已修复并重训验证（同 seed 逐位复现）。
+- **配对 seed 定案（10 seed，ddof=1）**：C_sparse_ce 0.877±0.087（旧"0.941±0.002 稳定"是 seed 族假象，最差 0.659）；**F10_ste 0.931±0.050，配对 C−F10=−5.41pp（F10 反超，7/10 seed 优），bootstrap 95% CI 上界 +1.28pp < 3pp 门槛——配对口径下稳健满足**；F10 方差为 C 的 57%。M2 冻结基线更新为配对口径（experiments/m2_2_validation/f10_paired_combined.json）。
+- **轨迹干预**（5 臂×3 seed，同一 fork 点）：detach/STE/关 pred 任意组合 240 步内无法把 D 从坏盆地拉出——D 失败是早期锁定，修复必须从初始化生效；"早期锁定"假设获证据支持。
+- **决策 D6**：pred_mode 默认翻转为 next（legacy 是已实锤的缺陷目标）；router_ste 保持 opt-in（C 臂对照依赖）。多步闭环 rollout 完成：next 模式误差饱和（h1 0.59→h10 0.66 不爆炸），解码位置超 copy/majority 基线，h10 的 copy 高值是钉住态退化区（与 H4 同源）。
+- **M2.2 判定**：F10 ≤3pp 门槛**配对口径稳健满足**；CONDITIONAL 保持（差 H3b/H4b 两项，M2.2 COMPLETE 前不升 ACCEPTED）。报告：experiments/m2_2_validation/report.md。
+- 测试 52 项全绿；环境审计 environment.json；代码地图 docs/code_map.md。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）
 
