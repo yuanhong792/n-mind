@@ -42,10 +42,13 @@ def git_revision(cwd: Path | None = None) -> str:
 
 
 def _model_kwargs(cfg: Config, model: NModel) -> dict[str, Any]:
+    # router_ste/pred_mode 必须随档：它们改变前向/梯度语义而不改变参数形状，
+    # 漏记会导致"权重加载成功、语义静默回退"（2026-11-21 F10_next rollout 踩过）。
     return {"n_actions": model.n_actions, "mem_dim": model.mem_dim,
             "execution": model.execution, "use_router": model.use_router,
             "use_error_gating": model.use_error_gating, "use_workspace": model.use_workspace,
-            "top_k": model.top_k}
+            "top_k": model.top_k, "router_ste": model.router_ste,
+            "pred_mode": model.pred_mode}
 
 
 def save_checkpoint(model: NModel, *, cfg: Config | None = None, path: str | Path,

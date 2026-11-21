@@ -66,6 +66,20 @@ def bootstrap_paired_ci(diff: list[float], *, n_boot: int = 10000, seed: int = 1
 
 
 def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--group", default="primary", choices=["primary", "reserve", "all"],
+                    help="primary=预登记主组 20261131-35；reserve=储备组 20261136-40")
+    args = ap.parse_args()
+    if args.group == "primary":
+        seeds = PRE["seeds_primary"]
+    elif args.group == "reserve":
+        seeds = PRE["seeds_reserve"]
+    else:
+        seeds = PRE["seeds_primary"] + PRE["seeds_reserve"]
+    global SEEDS
+    SEEDS = seeds
+    print(f"seed 组 {args.group}: {seeds}", flush=True)
     cfg = _runner.default_config()
     cfg.learning.epochs = max(1, STEPS // cfg.learning.n_updates)
     cfg.learning.traj_len = 24
@@ -136,7 +150,7 @@ def main() -> int:
         "paired": paired, "gate_3pp": gate,
         "honesty": "std 为 ddof=1；bootstrap 重抽样单位=seed；禁止用单 seed 最优值下结论",
     }
-    dest = HERE / "f10_paired_seeds.json"
+    dest = HERE / f"f10_paired_seeds_{args.group}.json"
     tmp = dest.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(dest)

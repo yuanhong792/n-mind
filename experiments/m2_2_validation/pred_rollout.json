@@ -1,0 +1,178 @@
+{
+  "captured_at": "2026-11-21 19:13:19",
+  "git_commit": "24ceefd2055a4e91eda8a8c0c62537a247f4fcc8",
+  "device": "cpu",
+  "seed": 20261121,
+  "protocol": "潜空间闭环：ẑ0=z_true0，ẑ[k+1]=P(ẑ[k],a[k],w=0)；全程不喂未来真实观测；workspace 读出置零（纯 (z,a)→z' 核口径，如实标注）",
+  "baselines": {
+    "1": {
+      "copy_current_acc": 0.0,
+      "majority_delta_acc": 0.0041,
+      "n": 736
+    },
+    "3": {
+      "copy_current_acc": 0.0,
+      "majority_delta_acc": 0.0,
+      "n": 672
+    },
+    "5": {
+      "copy_current_acc": 0.0,
+      "majority_delta_acc": 0.0,
+      "n": 608
+    },
+    "10": {
+      "copy_current_acc": 0.7567,
+      "majority_delta_acc": 0.0,
+      "n": 448
+    }
+  },
+  "runs": [
+    {
+      "arm": "F10_next_s20261121",
+      "readout_ceiling_on_z_true": 0.9648,
+      "rollout": {
+        "1": {
+          "latent_rel_error": 0.5863,
+          "decoded_pos_acc": 0.375,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 0.8915,
+          "decoded_pos_acc": 0.2188,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 0.6422,
+          "decoded_pos_acc": 0.1875,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 0.6553,
+          "decoded_pos_acc": 0.1875,
+          "n": 32
+        }
+      },
+      "rollout_shuffled_actions_negctl": {
+        "1": {
+          "latent_rel_error": 0.6275,
+          "decoded_pos_acc": 0.2188,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 1.0988,
+          "decoded_pos_acc": 0.0938,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 0.9839,
+          "decoded_pos_acc": 0.1562,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 1.1202,
+          "decoded_pos_acc": 0.125,
+          "n": 32
+        }
+      },
+      "pred_mode": "next"
+    },
+    {
+      "arm": "F10_next_s20261122",
+      "readout_ceiling_on_z_true": 0.9635,
+      "rollout": {
+        "1": {
+          "latent_rel_error": 0.5052,
+          "decoded_pos_acc": 0.375,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 0.7583,
+          "decoded_pos_acc": 0.1875,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 0.6817,
+          "decoded_pos_acc": 0.25,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 0.691,
+          "decoded_pos_acc": 0.3125,
+          "n": 32
+        }
+      },
+      "rollout_shuffled_actions_negctl": {
+        "1": {
+          "latent_rel_error": 0.647,
+          "decoded_pos_acc": 0.1875,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 1.0017,
+          "decoded_pos_acc": 0.0938,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 1.0452,
+          "decoded_pos_acc": 0.125,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 1.1183,
+          "decoded_pos_acc": 0.0,
+          "n": 32
+        }
+      },
+      "pred_mode": "next"
+    },
+    {
+      "arm": "F10_ste_s20261121",
+      "readout_ceiling_on_z_true": 0.9245,
+      "rollout": {
+        "1": {
+          "latent_rel_error": 0.4197,
+          "decoded_pos_acc": 0.0625,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 0.6489,
+          "decoded_pos_acc": 0.0312,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 1.1544,
+          "decoded_pos_acc": 0.0,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 1.1858,
+          "decoded_pos_acc": 0.125,
+          "n": 32
+        }
+      },
+      "rollout_shuffled_actions_negctl": {
+        "1": {
+          "latent_rel_error": 0.4213,
+          "decoded_pos_acc": 0.0625,
+          "n": 32
+        },
+        "3": {
+          "latent_rel_error": 0.6531,
+          "decoded_pos_acc": 0.0312,
+          "n": 32
+        },
+        "5": {
+          "latent_rel_error": 1.1538,
+          "decoded_pos_acc": 0.0,
+          "n": 32
+        },
+        "10": {
+          "latent_rel_error": 1.186,
+          "decoded_pos_acc": 0.125,
+          "n": 32
+        }
+      },
+      "pred_mode": "current"
+    }
+  ]
+}

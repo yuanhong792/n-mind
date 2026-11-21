@@ -67,9 +67,11 @@ def test_next_mode_pred_loss_aligns_to_future():
     assert torch.isfinite(losses["total"])
 
 
-def test_default_pred_mode_is_legacy_current():
+def test_default_pred_mode_is_next():
+    """M2.2 验证后（2026-11-21）默认翻转为 next：legacy current 是已实锤的缺陷目标。"""
     m = _model("current")
     assert m.pred_mode == "current"
+    assert default_config().model.pred_mode == "next", "默认应为 next（决策 D6）"
     acts = torch.zeros(2, 5, dtype=torch.long)
     out = _run(m, acts)
     w = LossWeights(pred=1.0)

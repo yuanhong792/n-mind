@@ -12,7 +12,7 @@
       "pred_mode": "next",
       "router_ste": true,
       "dataset_hash": "0f385b919fe5a164",
-      "wall_s": 72.7,
+      "wall_s": 89.0,
       "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261121.pt"
     },
     {
@@ -27,7 +27,7 @@
       "pred_mode": "next",
       "router_ste": true,
       "dataset_hash": "1ca0800979c6941e",
-      "wall_s": 71.8,
+      "wall_s": 90.6,
       "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261122.pt"
     },
     {
@@ -42,7 +42,7 @@
       "pred_mode": "next",
       "router_ste": true,
       "dataset_hash": "9ebb5aef8818c239",
-      "wall_s": 71.7,
+      "wall_s": 90.4,
       "checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\F10_next_s20261123.pt"
     }
   ]

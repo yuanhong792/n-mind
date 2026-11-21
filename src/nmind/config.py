@@ -35,12 +35,13 @@ class ModelCfg(BaseModel):
     encoder_hidden: int = 64
     predictor_hidden: int = 64
     shared_trunk_blocks: int = 0       # >0 时前若干层块跨任务共享（消融用）
-    pred_mode: Literal["current", "next"] = "current"
-    # current = 历史行为（z_hat[t]=f(z[t],a[t-1])，损失 MSE(z_hat[t],z[t])——预测器把目标当
-    #   输入，实测学成恒等拷贝：cos(z_hat,z)=0.998、动作敏感性 0.025，world_model 失效）；
-    # next = 真世界模型目标：z_hat[t]=f(z[t],a[t],w[t])，损失对齐 z[t+1]（detach 目标），
-    #   与 error 门控的既有语义（z_hat[t] 预测 z[t+1]）一致。默认保持 current 以不改变
-    #   已有 checkpoint 的复现口径。
+    pred_mode: Literal["current", "next"] = "next"
+    # next = 真世界模型目标（(s_t,a_t)→s_{t+1}，损失对齐 z[t+1] detach，与 error 门控语义
+    #   一致）。2026-11-21 M2.2 验证后设为默认：legacy "current" 把预测目标当输入，
+    #   实测学成恒等拷贝（cos≈0.998、动作敏感性 0.025），world_model_validated=false；
+    #   next 模式 validated=true 且主任务不退化（experiments/m2_2_validation/pred_eval.json）。
+    #   旧 checkpoint 重载用 allow_config_mismatch=True（形状不变，仅 pred 语义不同，
+    #   决策输出不受 pred 影响）。current 保留为消融开关。
 
 
 class RuntimeCfg(BaseModel):

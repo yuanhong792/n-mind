@@ -257,6 +257,10 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
     cfg = cfg or default_config()
     lcfg = cfg.learning
     seed = int(cfg.runtime.seed if seed is None else seed)
+    if pred_mode is not None and pred_mode != cfg.model.pred_mode:
+        # 单一事实源：kwarg 覆盖必须同步进 cfg，否则 checkpoint 里存的 cfg 与实际
+        # 装配的模型不一致（F10_next 首轮踩过：存档记 current，重载按 current 重建）。
+        cfg = cfg.model_copy(update={"model": cfg.model.model_copy(update={"pred_mode": pred_mode})})
     epochs = int(lcfg.epochs if epochs is None else epochs)
     eval_interval = max(1, int(lcfg.eval_interval if eval_interval is None else eval_interval))
     replay_ratio = float(lcfg.replay_ratio if replay_ratio is None else replay_ratio)
