@@ -116,7 +116,7 @@ def main() -> int:
     ap(f"多 seed：{ms3['seeds']}，每臂 {ms3['steps']} 步，dataset_hash {ms3['dataset_hash']}")
     ap(f"（split {ms3['split_version']}，train/val/test = {ms3['n_train']}/{ms3['n_val']}/{ms3['n_test']}）")
     ap("")
-    ap("| 臂 | 遮挡段 acc（均值±样本std，n=3 新 seed） | 单 seed 20261121 报告值 |")
+    ap("| 臂 | 遮挡段 acc（均值±总体std ddof=0，n=3 新 seed；样本 std 见 m2_2_validation） | 单 seed 20261121 报告值 |")
     ap("|---|---|---:|")
     seed21 = {}
     for src, key in ((fix, None), (fix2, None)):

@@ -59,6 +59,8 @@ FIX = {
     "F6_detach_pred025": {"detach_pred_target": 1.0, "pred": 0.25},
     "F7_detach_soft_balent": {"detach_pred_target": 1.0, "balance": 0.02, "entropy": 0.002},
     "F8_detach_probe05": {"detach_pred_target": 1.0, "probe": 0.5},
+    # M2.2 机制修复候选（2026-11-21）：STE 路由。flags 里的 router_ste 由 main() 特判注入
+    "F10_ste": {"detach_pred_target": 1.0, "balance": 0.02, "entropy": 0.002},
 }
 
 
@@ -149,7 +151,8 @@ def aggregate(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 agg[key] = None
                 continue
             agg[key] = round(statistics.mean(vals), 4)
-            agg[key + "_std"] = round(statistics.pstdev(vals), 4) if len(vals) > 1 else 0.0
+            # 2026-11-21 M2.2 起统一样本 std（ddof=1）；此前历史 JSON 为 pstdev（ddof=0）
+            agg[key + "_std"] = round(statistics.stdev(vals), 4) if len(vals) > 1 else 0.0
         out.append(agg)
     return out
 
@@ -193,6 +196,8 @@ def main() -> None:
             else:
                 base = ARMS["B_dense_joint"] if name.startswith("F5") else ARMS["D_sparse_joint"]
                 flags, overrides = dict(base), dict(FIX[name])
+                if name == "F10_ste":
+                    flags["router_ste"] = True    # F10 的机制开关（train 已支持该 kwargs）
             t0 = time.perf_counter()
             row = run_arm(name, flags, cfg=cfg, seed=seed, device=args.device,
                           out_dir=out_dir, T=args.traj_len, loss_overrides=overrides)
@@ -209,15 +214,19 @@ def main() -> None:
         w = csv.DictWriter(fh, fieldnames=scalar_cols)
         w.writeheader()
         w.writerows([{k: r[k] for k in scalar_cols} for r in rows])
+    arms_meta = {}
+    for name in picked:
+        base = dict(ARMS[name]) if name in ARMS else dict(
+            ARMS["B_dense_joint"] if name.startswith("F5") else ARMS["D_sparse_joint"])
+        if name == "F10_ste":
+            base["router_ste"] = True
+        arms_meta[name] = {"flags": base,
+                           "loss_overrides": (None if name in ARMS else
+                                              dict(ISO[name]) if name in ISO else dict(FIX[name]))}
     payload = {"steps": args.steps, "seeds": seeds, "traj_len": args.traj_len,
                "dataset_hash": data["dataset_hash"], "split_version": data.get("split_version"),
                "n_train": len(data["train"]), "n_val": len(data["val"]), "n_test": len(data["test"]),
-               "arms": {name: {"flags": dict(ARMS[name]) if name in ARMS else
-                               dict(ARMS["B_dense_joint"] if name.startswith("F5")
-                                    else ARMS["D_sparse_joint"]),
-                               "loss_overrides": (None if name in ARMS else
-                                                  dict(ISO[name]) if name in ISO else dict(FIX[name]))}
-                        for name in picked}, "runs": rows, "aggregate": agg}
+               "arms": arms_meta, "runs": rows, "aggregate": agg}
     (out_dir / f"m2_2x2{tag}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2),
                                                encoding="utf-8")
     print(f"\n写入 {csv_path} 与 {out_dir}/m2_2x2{tag}.json")

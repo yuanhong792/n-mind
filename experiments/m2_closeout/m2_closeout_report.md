@@ -72,7 +72,7 @@ torch 2.10.0+cu128，评测线程 20）。
 多 seed：[20261122, 20261123, 20261124]，每臂 480 步，dataset_hash 1ca0800979c6941e
 （split v2-disjoint-pairs，train/val/test = 96/32/32）
 
-| 臂 | 遮挡段 acc（均值±样本std，n=3 新 seed） | 单 seed 20261121 报告值 |
+| 臂 | 遮挡段 acc（均值±总体std ddof=0，n=3 新 seed；样本 std 见 m2_2_validation） | 单 seed 20261121 报告值 |
 |---|---|---:|
 | A_dense_ce | 0.958 ± 0.007 | — |
 | B_dense_joint | 0.950 ± 0.007 | 0.980 |
