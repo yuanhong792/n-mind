@@ -1,0 +1,269 @@
+{
+  "experiment_id": "m4.1-stability-001",
+  "matrix": {
+    "inheritance_ok": true,
+    "frozen_violations": 0,
+    "b_ood_gain": 0.0155,
+    "frozen_baseline_B_OOD_conflict": 0.5956,
+    "negative_b_ood_gain": -0.4667,
+    "a_forgetting": 0.0266,
+    "neural_beats_frozen": true,
+    "best_arm": "Neural-only",
+    "memory_only_B_OOD_conflict": 0.6022
+  },
+  "arms": {
+    "Frozen": {
+      "updates": 0,
+      "A_after_occ": 0.6594,
+      "A_forgetting": 0.0,
+      "B": {
+        "acc_occluded_total": 0.6797,
+        "acc_occluded_conflict": 0.5518,
+        "acc_occluded_coincident": 0.8141,
+        "n_conflict": 328,
+        "n_coincident": 312
+      },
+      "B_OOD": {
+        "acc_occluded_total": 0.7422,
+        "acc_occluded_conflict": 0.5956,
+        "acc_occluded_coincident": 0.8901,
+        "n_conflict": 450,
+        "n_coincident": 446
+      },
+      "mem_injected": false,
+      "rss_mb": 548.9
+    },
+    "Memory-only": {
+      "updates": 0,
+      "mem_injected": true,
+      "A_after_occ": 0.6594,
+      "A_forgetting": 0.0,
+      "B": {
+        "acc_occluded_total": 0.6828,
+        "acc_occluded_conflict": 0.5762,
+        "acc_occluded_coincident": 0.7949,
+        "n_conflict": 328,
+        "n_coincident": 312
+      },
+      "B_OOD": {
+        "acc_occluded_total": 0.7444,
+        "acc_occluded_conflict": 0.6022,
+        "acc_occluded_coincident": 0.8879,
+        "n_conflict": 450,
+        "n_coincident": 446
+      },
+      "params_bitwise_unchanged": true,
+      "rss_mb": 553.1
+    },
+    "Neural-only": {
+      "updates": 48,
+      "mem_injected": false,
+      "A_after_occ": 0.6328,
+      "A_forgetting": 0.0266,
+      "B": {
+        "acc_occluded_total": 0.7125,
+        "acc_occluded_conflict": 0.6098,
+        "acc_occluded_coincident": 0.8205,
+        "n_conflict": 328,
+        "n_coincident": 312
+      },
+      "B_OOD": {
+        "acc_occluded_total": 0.7366,
+        "acc_occluded_conflict": 0.6111,
+        "acc_occluded_coincident": 0.8632,
+        "n_conflict": 450,
+        "n_coincident": 446
+      },
+      "B_OOD_gain_conflict": 0.0155,
+      "delta_summary": {
+        "trainable_total": 19,
+        "trainable_changed_count": 9,
+        "frozen_total": 36,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "max_param_abs_delta": 6830.0,
+      "fit": {
+        "optimizer_steps_executed": 48,
+        "effective_samples": 768,
+        "status": "TRAINED",
+        "rejected": null,
+        "loss_first": 1.7001,
+        "loss_last": 0.7264,
+        "grad_norms_first_step": {
+          "head.ctx_mlp.0.weight": 0.778759,
+          "head.ctx_mlp.0.bias": 0.193063,
+          "head.ctx_mlp.2.weight": 0.510366,
+          "head.ctx_mlp.2.bias": 0.065648,
+          "head.act_out.weight": 1.001432,
+          "head.act_out.bias": 0.066514,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 0.929102,
+          "block_to_ws.bias": 0.230538
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 16488.087891
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.05
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "70025ea9abb6d74bfe9922b4d9fa99a31cdf33ad97d9f0cd3ba329cb62c6b17f",
+        "wall_s": 19.04
+      },
+      "child_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m4_online\\ckpts\\m4.1-stability-001_Neural-only_candidate.pt",
+      "child_reload_conflict_score": 0.6098,
+      "reload_consistent": true,
+      "rss_mb": 649.8
+    },
+    "Hybrid": {
+      "updates": 48,
+      "mem_injected": true,
+      "A_after_occ": 0.6453,
+      "A_forgetting": 0.0141,
+      "B": {
+        "acc_occluded_total": 0.6281,
+        "acc_occluded_conflict": 0.5061,
+        "acc_occluded_coincident": 0.7564,
+        "n_conflict": 328,
+        "n_coincident": 312
+      },
+      "B_OOD": {
+        "acc_occluded_total": 0.6261,
+        "acc_occluded_conflict": 0.46,
+        "acc_occluded_coincident": 0.7937,
+        "n_conflict": 450,
+        "n_coincident": 446
+      },
+      "B_OOD_gain_conflict": -0.1356,
+      "delta_summary": {
+        "trainable_total": 19,
+        "trainable_changed_count": 9,
+        "frozen_total": 36,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "max_param_abs_delta": 6884.0,
+      "fit": {
+        "optimizer_steps_executed": 48,
+        "effective_samples": 768,
+        "status": "TRAINED",
+        "rejected": null,
+        "loss_first": 2.0045,
+        "loss_last": 0.7161,
+        "grad_norms_first_step": {
+          "head.ctx_mlp.0.weight": 1.004919,
+          "head.ctx_mlp.0.bias": 0.223341,
+          "head.ctx_mlp.2.weight": 0.615256,
+          "head.ctx_mlp.2.bias": 0.061968,
+          "head.act_out.weight": 1.29652,
+          "head.act_out.bias": 0.061885,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 1.033644,
+          "block_to_ws.bias": 0.194478
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 16464.4375
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.165831
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "d178657e3fedab0ecffe45ceead4d2fa5d557f23c664c1fd55917c4504e05472",
+        "wall_s": 19.72
+      },
+      "child_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m4_online\\ckpts\\m4.1-stability-001_Hybrid_candidate.pt",
+      "child_reload_conflict_score": 0.5061,
+      "reload_consistent": true,
+      "rss_mb": 652.4
+    },
+    "Negative-shuffled": {
+      "updates": 16,
+      "mem_injected": false,
+      "A_after_occ": 0.1578,
+      "A_forgetting": 0.5016,
+      "B": {
+        "acc_occluded_total": 0.1531,
+        "acc_occluded_conflict": 0.1799,
+        "acc_occluded_coincident": 0.125,
+        "n_conflict": 328,
+        "n_coincident": 312
+      },
+      "B_OOD": {
+        "acc_occluded_total": 0.0848,
+        "acc_occluded_conflict": 0.1289,
+        "acc_occluded_coincident": 0.0404,
+        "n_conflict": 450,
+        "n_coincident": 446
+      },
+      "B_OOD_gain_conflict": -0.4667,
+      "delta_summary": {
+        "trainable_total": 19,
+        "trainable_changed_count": 9,
+        "frozen_total": 36,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "max_param_abs_delta": 2287.0,
+      "fit": {
+        "optimizer_steps_executed": 16,
+        "effective_samples": 256,
+        "status": "TRAINED",
+        "rejected": null,
+        "loss_first": 7.5827,
+        "loss_last": 1.5645,
+        "grad_norms_first_step": {
+          "head.ctx_mlp.0.weight": 3.115959,
+          "head.ctx_mlp.0.bias": 1.045027,
+          "head.ctx_mlp.2.weight": 2.673364,
+          "head.ctx_mlp.2.bias": 0.381394,
+          "head.act_out.weight": 5.900812,
+          "head.act_out.bias": 0.343023,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 1.612678,
+          "block_to_ws.bias": 0.511068
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 5484.820312
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.122474
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "3c84d49a19a6c844dd91353eb2ae777d27ad1b5beaf29f5a2ade64cd4e662d74",
+        "wall_s": 6.66
+      },
+      "child_checkpoint": null,
+      "child_reload_conflict_score": null,
+      "reload_consistent": null,
+      "rss_mb": 651.5
+    }
+  },
+  "gates": {
+    "gates": {
+      "inheritance_and_frozen_ok": true,
+      "b_ood_gain_ge_threshold": false,
+      "beats_negative_control": true,
+      "a_drop_within_limit": true,
+      "neural_beats_frozen": true
+    },
+    "all_pass": false,
+    "thresholds": {
+      "b_ood_gain_pp": 10.0,
+      "a_drop_max_pp": 3.0
+    }
+  },
+  "candidate_status": "REJECTED"
+}

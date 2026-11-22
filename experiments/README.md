@@ -64,3 +64,9 @@
 - 链路 PASS：模拟网页规则页（control-reversed-v1）→ 解析/程序化验证 → 96 条 verified 经验 → 显式调度 → 四臂+负对照候选更新（96/120 步，48.6s，RSS 647MB）→ 封存评测 → 审计/回滚。
 - 判定 REJECTED：复位协议下 B_OOD 冲突步 +2.9pp<+10pp、A 遗忘 −3.75pp>3pp；参数学习 PASS（17/19 变化、冻结 0 违规）；负对照 −45.6pp 无泄漏。**关键发现：router.load_bias 漂移曾伪装 ~26pp 适应（不复位 0.8889 / 复位 0.6244）——buffer 复位协议的定量必要性。**
 - 失败诊断：λ_anchor=0.1+λ_replay=0.3 过度约束 40 步 adapter 学习；需新预注册（λ_anchor=0、λ_replay=0.15、48 步）并批准。真实联网 NOT_TESTED（默认关）。
+
+## 2026-11-22 M4.1 稳定性预注册复验（遗忘修复、外推定位）
+
+- 脚本：`m4_online/run_m41_stability.py`（预登记 λ_anchor=0、λ_replay=0.15、48 步）+ `make_m41_param_evidence.py`（剔除 buffer 重算参数证据）；结果：`m41_stability.json`、`m41_param_evidence.json`、`benchmark_matrix_m41.json`；报告：`M4_1_REPORT.md`。
+- 判定 REJECTED（4/5）：A 遗忘 −2.66pp ✅（λ 调整修复遗忘半边）；B_OOD(T=32) +1.55pp ❌。**诊断修正：瓶颈是长度外推而非 λ**（同集对比锚定 +10.4pp vs 无锚 +5.8pp；M3 轮 +28.7pp 系另一数据 seed）。max 权重 delta 0.1116（6830 系 block_load_count 计数器累加，口径更正）。
+- 待批准：混合时域经验流新预注册（T=24+32）攻长度外推。

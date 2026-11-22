@@ -37,6 +37,13 @@ python -m pytest tests -q          # 27 passed
 - **安全**：恶意网页夹具 instruction_detected→rejected→不进学习流（测试断言零执行/零改配置）；dedup 生效；sealed 零泄漏；offline 硬断。configs/online_learning.yaml 三开关默认关（network/auto_weight_update/promotion=manual）。
 - 测试 **82 项全绿**（+tests/test_online_learning.py 10 项）。报告：experiments/m4_online/M4_REPORT.md。
 
+## M4.1 稳定性预注册复验：遗忘门槛修复、外推瓶颈定位（2026-11-22 第三轮，AutoClaw）
+
+- 预登记（小袁指令）：λ_anchor=0、λ_replay=0.15、48 步、1 seed（m4.1-stability-001）。结果 **REJECTED（4/5 门槛过）**：A 遗忘 −3.75→**−2.66pp ✅**（回放防遗忘起效）；B_OOD(T=32) **+1.55pp ❌**。参数证据：9/19 变化、max 权重 delta 0.1116、冻结逐位 0 违规（训练时+保存权重双重核验）；6830 是 block_load_count 计数器 buffer 累加，已剔除重算（口径更正）。
+- **诊断修正（诚实）**：M4 报告“λ 过约束”不是 OOD 失败主因——同数据集上锚定配置 B_test 反而更好（+10.4pp vs +5.8pp）；B_OOD 在所有已测配置下都不达标（+2.9/+1.55pp）。真正瓶颈 = **T=32 长度外推**（训练时域外的递归状态分布）；run 间方差大，单 seed λ 归因不可靠。
+- 报告：experiments/m4_online/M4_1_REPORT.md；参数证据：m41_param_evidence.json。
+- 路线（小袁 2026-11-22）：M4.2=A→B→C→D 连续技能学习+遗忘矩阵（规划）；M5=互联网即知识空间（任务书已下，P0/P1/P2/P3 优先）；M6=多模态仅接口规划。
+
 ## 最新真实结果
 
 ### 1. M1 过拟合 + 训练预算扫描（experiments/2026-11-21_m1_overfit.json，seed 20261121）
@@ -94,9 +101,9 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. M4 联网学习新预注册重跑（λ_anchor=0、λ_replay=0.15、48 步，约 1 分钟 CPU）——**需小袁批准**：检验无锚定配置在复位协议下的真实增益与遗忘（REJECTED 失败诊断见 experiments/m4_online/M4_REPORT.md）。
-2. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**（约 2.5h CPU），M2.2 收尾依赖它。
-3. 3-seed 复验与多 seed 验证、真实 HTTP 只读冒烟（门槛通过后）、F10 配置封装 configs/f10_next.yaml、M3 Step5/6 继续排队。
+1. M5 P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）+ P4/P5 触发管线已建，集成实验见 experiments/m5_cognition/；神经更新继续 NOT_TESTED（m4.1 REJECTED，等混合时域新预注册批准）。
+2. 混合时域经验流新预注册（B 训练流 T=24+32 混合，攻长度外推）——**需小袁批准**（约 1-2 分钟 CPU）。
+3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；F10 配置封装、M3 Step5/6 排队。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）——含 10-seed 定案补充
 
