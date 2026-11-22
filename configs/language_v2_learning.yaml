@@ -1,0 +1,6 @@
+training_enabled: false
+optimizer_steps: 0
+stable_checkpoint_readonly: true
+gate_b005: PAUSED
+model: language_v2
+device: cpu

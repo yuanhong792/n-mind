@@ -1,0 +1,12 @@
+{
+  "format": "nmind-language-v2-childlike-preregistration/1",
+  "status": "PREREGISTERED_NOT_RUN",
+  "training_authorized": false,
+  "optimizer_steps": 0,
+  "data_download_bytes": 0,
+  "sealed_answer_access": false,
+  "gates": {"G0": "engineering safety", "G1": "token roundtrip", "G2": "micro learning", "G3": "unseen situations", "G4": "counterfactual updates", "G5": "multi-turn", "G6": "autonomous growth"},
+  "counterfactual_pairs": 80,
+  "arms": ["neural_only", "memory_only", "neural_plus_memory", "retrieval", "rule_baseline"],
+  "promotion": "manual only"
+}

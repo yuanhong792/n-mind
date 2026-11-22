@@ -1,0 +1,11 @@
+{
+  "status": "PASS_WITH_NOT_RUN_GATES",
+  "network_enabled": false,
+  "download_bytes": 0,
+  "optimizer_steps": 0,
+  "stable_checkpoint_modified": false,
+  "external_model": false,
+  "historical_evidence_preserved": true,
+  "language_v2_components": ["tokenizer_v2", "data_sources", "corpus_pipeline", "language_world", "learning_gate"],
+  "unrun": ["licensed corpus acquisition", "formal training", "childlike capability evaluation"]
+}
