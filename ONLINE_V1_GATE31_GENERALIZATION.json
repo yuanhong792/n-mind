@@ -1,0 +1,213 @@
+{
+  "status": "COMPLETE",
+  "questions_total": 5,
+  "questions": [
+    {
+      "id": "R01",
+      "question": "try和except如何配合处理错误？",
+      "response_source": "retrieval",
+      "citations": [
+        {
+          "doc_id": "d512fcf8d7c56e8f445cb353",
+          "chunk_id": "df826e15bafb5034b4f257f2",
+          "title": "内置函数 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/functions.html",
+          "fetched_at_utc": "2026-11-22T22:20:09+0800",
+          "excerpt": "errors 是一个可选的字符串参数，用于指定如何处理编码和解码错误 —— 这不能在二进制模式下使用。可以使用各种标准错误处理程序（在 错误处理方案 中列出），但是使用 codecs.register_error() 注册的任何错误处理名称也是有效的。 标准名称包括： \n如果存在编码错误， 'strict' 会引发 ValueError 异常。默认值 None 具有相同的效果。 \n'ignore' 忽略错误。请注意，忽略编码错误可能会导致数据丢失。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "15436b0b4d3744daf282046d",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "8. 错误和异常 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n8. 错误和异常 \n| \nTheme Auto Light Dark | \n8. 错误和异常 ¶ 至此，本教程还未深入介绍错误信息，但如果您尝试过本教程前文中的例子，应该已经看到过一些错误信息。错误可（至少）被分为两种： 语法错误 和 异常 。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "50298979858ab914beedb768",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "<protocol>_error() --- 表明该处理器知道如何处理来自 (非 http ) protocol 的错误。 \n<protocol>_request() --- 表明该处理器知道如何预处理 protocol 请求。 \n更多信息请参阅 BaseHandler.<protocol>_request() 。 \n<protocol>_response() --- 表明该处理器知道如何后继处理 protocol 响应。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "has_evidence": true
+    },
+    {
+      "id": "R02",
+      "question": "json.dumps通常把什么转换成什么？",
+      "response_source": "retrieval",
+      "citations": [
+        {
+          "doc_id": "fee8b129530316af3eb81fb8",
+          "chunk_id": "afffde34493ac1e0cbf03ac0",
+          "title": "datetime --- 基本日期和时间类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/datetime.html",
+          "fetched_at_utc": "2026-11-22T22:21:23+0800",
+          "excerpt": "1毫秒会转换成1000微秒。 \n1分钟会转换成60秒。 \n1小时会转换成3600秒。 \n1星期会转换成7天。 \n日期、秒、微秒都是标准化的，所以它们的表达方式也是唯一的，例： \n0 <= microseconds < 1000000 \n0 <= seconds < 3600*24 (一天的秒数) \n-999999999 <= days <= 999999999",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "95faf6c8b62befe376109e56",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "备注 \nJSON 格式通常用于现代应用程序的数据交换。程序员早已对它耳熟能详，可谓是交互操作的不二之选。 \n只需一行简单的代码即可查看某个对象的 JSON 字符串表现形式： \n>>> import json >>> x = [ 1 , 'simple' , 'list' ] >>> json . dumps ( x ) '[1, \"simple\", \"list\"]' \ndumps() 函数还有一个变体， dump() ，它只将对象序列化为 text file 。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "0279c29f20e4051773c95295",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "其参数的含义与 dump() 中的相同。 \n备注 \nJSON 中的键-值对中的键永远是 str 类型的。当一个对象被转化为 JSON 时，字典中所有的键都会被强制转换为字符串。这所造成的结果是字典被转换为 JSON 然后转换回字典时可能和原来的不相等。换句话说，如果 x 具有非字符串的键，则有 loads(dumps(x)) != x 。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "has_evidence": true
+    },
+    {
+      "id": "R03",
+      "question": "Path.exists()用于检查什么？",
+      "response_source": "retrieval",
+      "citations": [
+        {
+          "doc_id": "d91f0f58e77dbff9aee837c4",
+          "chunk_id": "14847dc65be0ce0e3b4a839d",
+          "title": "pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/pathlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:21+0800",
+          "excerpt": "这包括 os.path.abspath() 与 Path.absolute() , os.path.relpath() 与 PurePath.relative_to() 。 \nos 和 os.path \npathlib \nos.path.abspath() \nPath.absolute() [ 1 ] \nos.path.realpath() \nPath.resolve() \nos.chmod() \nPath.chmod() \nos.mkdir()",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "754f480c502ced6e11da74ec",
+          "chunk_id": "09b69a7623882b7e7ee60482",
+          "title": "os --- 多种操作系统接口 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/os.html",
+          "fetched_at_utc": "2026-11-22T22:22:09+0800",
+          "excerpt": "path ¶ 本条目的完整路径：等效于 os.path.join(scandir_path, entry.name) ，其中 scandir_path 就是 scandir() 的 path 参数。仅当 scandir() 的 path 参数为绝对路径时，本路径才是绝对路径。如果 scandir() 的 path 参数是 文件描述符 ，则 path 属性与上述 name 属性相同。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "aec71797aefed98e43abc79f",
+          "chunk_id": "9c15324e7bd76117d4bdb0ff",
+          "title": "15. 浮点算术：争议和限制 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/floatingpoint.html",
+          "fetched_at_utc": "2026-11-22T22:20:04+0800",
+          "excerpt": "15.1. 表示性错误 ¶ 本小节将详细解释 \"0.1\" 的例子，并说明你可以怎样亲自对此类情况进行精确分析。 假定前提是已基本熟悉二进制浮点表示法。 \n表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因。 \n为什么会这样？ 1/10 是无法用二进制小数精确表示的。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "has_evidence": true
+    },
+    {
+      "id": "R04",
+      "question": "logging中的日志级别有什么作用？",
+      "response_source": "retrieval",
+      "citations": [
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "53372a2fc90541d393f957bf",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "与方法相关联的全局作用域就是包含该方法的定义语句的模块。（类永远不会被用作全局作用域。）尽管一个人很少会有好的理由在方法中使用全局作用域中的数据，全局作用域依然存在许多合理的使用场景：举个例子，导入到全局作用域的函数和模块可以被方法所使用，定义在全局作用域中的函数和类也一样。通常，包含该方法的类本身就定义在全局作用域中，而在下一节中我们将会发现，为何有些时候方法需要引用其所属类。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "06ecb23bd449b069dfba4eaa",
+          "chunk_id": "b563cfdb2daae388c247441b",
+          "title": "logging --- Python 的日志记录工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/logging.html",
+          "fetched_at_utc": "2026-11-22T22:22:01+0800",
+          "excerpt": "logging. disable ( level = CRITICAL ) ¶ 为所有日志记录器提供重写的级别 level ，其优先级高于日志记录器自己的级别。 当需要临时限制整个应用程序中的日志记录输出时，此功能会很有用。 它的效果是禁用所有重要程度为 level 及以下的日志记录调用，因此如果你附带 INFO 值调用它，则所有 INFO 和 DEBUG 事件就会被丢弃，而重要程度为 WARNING 以及上的事件将根据日志记录器的当前有效级别来处理。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "3c5ed8fc2419df5245cc5788",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "info ( ) ¶ 自 3.9 版本弃用: 已弃用，建议改用 headers 。 \ncode ¶ 自 3.9 版本弃用: 已弃用，建议改用 status 。 \ngetcode ( ) ¶ 自 3.9 版本弃用: 已弃用，建议改用 status 。 \n目录 urllib.request --- 用于打开 URL 的可扩展库 Request 对象 \nOpenerDirector 对象 \nBaseHandler 对象 \nHTTPRedirectHandler 对象",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "has_evidence": true
+    },
+    {
+      "id": "R05",
+      "question": "集合和列表在成员关系检查上有什么不同？",
+      "response_source": "retrieval",
+      "citations": [
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "c54bf5892b10b2f973b9fd81",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "set 和 frozenset 均支持集合与集合的比较。 两个集合当且仅当每个集合中的每个元素均包含于另一个集合之内（即各为对方的子集）时则相等。 一个集合当且仅当其为另一个集合的真子集（即为后者的子集但两者不相等）时则小于另一个集合。 一个集合当且仅当其为另一个集合的真超集（即为后者的超集但两者不相等）时则大于另一个集合。 \nset 的实例与 frozenset 的实例之间基于它们的成员进行比较。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "b884a8217908e7e41857fc89",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自己的对象类型和方法，参见 类 。） 在示例中显示的方法 append() 是由列表对象定义的；",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "5c881f3cbc0695f14bf18ab0",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "现在，大多数命名空间都使用 Python 字典实现，但除非涉及到性能优化，我们一般不会关注这方面的事情，而且将来也可能会改变这种方式。命名空间的例子有：内置名称集合（包括 abs() 函数以及内置异常的名称等）；一个模块的全局名称；一个函数调用中的局部名称。对象的属性集合也是命名空间的一种形式。关于命名空间的一个重要知识点是，不同命名空间中的名称之间绝对没有关系；例如，两个不同的模块都可以定义 maximize 函数，且不会造成混淆。",
+          "score": null,
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "has_evidence": true
+    }
+  ],
+  "evidence_rate": 1.0,
+  "optimizer_steps": 0
+}

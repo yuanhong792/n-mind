@@ -35,6 +35,17 @@ class KnowledgeSearch:
                 "SELECT f.chunk_id, bm25(chunks_fts) AS rank FROM chunks_fts f "
                 "WHERE chunks_fts MATCH ? ORDER BY rank LIMIT ?",
                 (match_expr, max(limit * 8, 24))).fetchall()
+            # Multi-route recall: the full query and each meaningful token get
+            # a bounded route, then the common reranker merges them.
+            seen = {r["chunk_id"] for r in rows}
+            for token in tokens.split():
+                extra = self.store.conn.execute(
+                    "SELECT f.chunk_id, bm25(chunks_fts) AS rank FROM chunks_fts f "
+                    "WHERE chunks_fts MATCH ? ORDER BY rank LIMIT ?",
+                    (f'"{token}"', max(limit * 2, 6))).fetchall()
+                for row in extra:
+                    if row["chunk_id"] not in seen:
+                        rows.append(row); seen.add(row["chunk_id"])
         except Exception:                            # noqa: BLE001 - MATCH 语法问题退回 LIKE
             return []
         scored = []
@@ -47,7 +58,24 @@ class KnowledgeSearch:
                                {"citation": self._citation(chunk),
                                 "score": _bm25_to_relevance(r["rank"]) + coverage}))
         scored.sort(key=lambda item: (item[0], item[1]), reverse=True)
-        return [item[2] for item in scored[:limit]]
+        # Bounded diversity: reserve one result per document before filling
+        # remaining slots, so cross-document questions are not monopolized by
+        # repeated chunks from the same page.
+        selected = []
+        seen_docs = set()
+        for item in scored:
+            doc_id = item[2]["citation"]["doc_id"]
+            if doc_id in seen_docs:
+                continue
+            selected.append(item[2]); seen_docs.add(doc_id)
+            if len(selected) >= limit:
+                return selected
+        for item in scored:
+            if item[2] not in selected:
+                selected.append(item[2])
+            if len(selected) >= limit:
+                break
+        return selected
 
     def _search_like(self, query: str, limit: int) -> list[dict[str, Any]]:
         """离线兜底：取查询里的关键词（汉字串/ASCII 词）做 LIKE 扫描。"""
