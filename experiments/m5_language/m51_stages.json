@@ -1,0 +1,271 @@
+{
+  "experiment": "m5.1-stage-micro-v2",
+  "seed": 20261301,
+  "captured_at": "2026-11-22 13:24:23",
+  "design_fix_vs_v1": "从零阶段全参训练（v1 冻结随机主干系设计错误）",
+  "gates": {
+    "em": 0.35,
+    "tf": 0.9,
+    "tool": 0.85,
+    "forget_max_em_pp": 3.0
+  },
+  "budget": {
+    "steps": {
+      "stage0": 200,
+      "stage1": 200,
+      "tool": 100,
+      "continual": 48
+    },
+    "wall_limit_s": 300.0
+  },
+  "stage0": {
+    "train": {
+      "steps": 200,
+      "loss_first": 3.2165,
+      "loss_last": 0.1896,
+      "wall_s": 41.89,
+      "curve_head": [
+        3.2165,
+        2.997,
+        2.8469,
+        2.6793,
+        2.5147
+      ],
+      "curve_tail": [
+        0.2018,
+        0.1936,
+        0.1912,
+        0.1951,
+        0.1896
+      ]
+    },
+    "eval": {
+      "em": 0.5,
+      "n": 40,
+      "nonempty_rate": 1.0,
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。|小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。|小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        }
+      ]
+    },
+    "tf_span_em": 0.5,
+    "gate_pass": false,
+    "samples": [
+      {
+        "prompt": "用户：小明在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在2号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在2号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在2号位置。",
+        "em": false,
+        "finish": "eos"
+      }
+    ]
+  },
+  "stage1": {
+    "train": {
+      "steps": 200,
+      "loss_first": 3.2328,
+      "loss_last": 0.2601,
+      "wall_s": 73.52,
+      "curve_head": [
+        3.2328,
+        3.0367,
+        2.9127,
+        2.7687,
+        2.5434
+      ],
+      "curve_tail": [
+        0.2594,
+        0.2439,
+        0.2768,
+        0.2477,
+        0.2601
+      ]
+    },
+    "eval": {
+      "em": 0.15,
+      "n": 40,
+      "nonempty_rate": 1.0,
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。小红在4号位置。|小红在哪里？|助手：",
+          "oracle": "小红在4号位置。",
+          "pred": "小红在1号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。小红在1号位置。|小红在哪里？|助手：",
+          "oracle": "小红在1号位置。",
+          "pred": "小红在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在4号位置。|小红在哪里？|助手：",
+          "oracle": "小红在4号位置。",
+          "pred": "小红在2号位置。",
+          "em": false,
+          "finish": "eos"
+        }
+      ]
+    },
+    "tf_span_em": 0.15,
+    "gate_pass": false,
+    "samples": [
+      {
+        "prompt": "用户：小明在1号位置。小红在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在1号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在2号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在4号位置。小红在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在2号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在2号位置。",
+        "em": false,
+        "finish": "eos"
+      }
+    ]
+  },
+  "tool": {
+    "steps": 100,
+    "unseen_phrasing_acc": 1.0,
+    "n": 45,
+    "gate_pass": true,
+    "samples": [
+      {
+        "q": "用户：杯子的颜色呢？\n助手：",
+        "gold": "DIRECT",
+        "pred": "DIRECT"
+      },
+      {
+        "q": "用户：杯子的颜色呢？\n助手：",
+        "gold": "DIRECT",
+        "pred": "DIRECT"
+      },
+      {
+        "q": "用户：图书馆闭馆日是什么？帮我查查。\n助手：",
+        "gold": "TOOL_LOOKUP",
+        "pred": "TOOL_LOOKUP"
+      },
+      {
+        "q": "用户：图书馆闭馆日是什么？帮我查查。\n助手：",
+        "gold": "TOOL_LOOKUP",
+        "pred": "TOOL_LOOKUP"
+      },
+      {
+        "q": "用户：图书馆闭馆日是什么？帮我查查。\n助手：",
+        "gold": "TOOL_LOOKUP",
+        "pred": "TOOL_LOOKUP"
+      },
+      {
+        "q": "用户：帮我算算3加4是多少。\n助手：",
+        "gold": "TOOL_CALC",
+        "pred": "TOOL_CALC"
+      }
+    ],
+    "note": "工具执行由独立程序验证；选择头只测神经选择"
+  },
+  "continual": {
+    "skipped_reason": "stage0 未通过"
+  },
+  "wall_s_total": 157.2,
+  "honesty": "微型任务证明的是管线、缩放规律与持续学习衔接，不代表通用中文能力；3-seed 复验与扩预算需另行批准"
+}

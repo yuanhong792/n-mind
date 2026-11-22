@@ -1,0 +1,68 @@
+{
+  "experiment": "m5.1-p0-diagnose",
+  "captured_at": "2026-11-22 13:10:08",
+  "checkpoint_meta": {
+    "steps": 200,
+    "seed": 20261241,
+    "parent_checkpoint_sha256": "random-init(from-scratch)",
+    "saved_at": "2026-11-22T12:02:15+0800",
+    "data_manifest_hash": "57987ce05beaf5fa"
+  },
+  "A_train_truncation": {
+    "n": 300,
+    "truncated": 0,
+    "rate": 0.0,
+    "note": "train_language.max_len=160（超出即切尾）"
+  },
+  "B_C_D_tf_vs_free": {
+    "train": {
+      "tf_answer_span_em": 0.1293,
+      "tf_answer_char_acc": 0.7195,
+      "tf_first_token_acc": 0.2636,
+      "n_answer_spans": 990,
+      "free_gen_em": 0.0026,
+      "free_gen_n": 391,
+      "stop_reasons": {
+        "eos": 296,
+        "newline": 84,
+        "max_tokens": 11
+      },
+      "echo_rate": 0.0435,
+      "len_ratio_mean": 1.099
+    },
+    "sealed_test": {
+      "tf_answer_span_em": 0.1255,
+      "tf_answer_char_acc": 0.7127,
+      "tf_first_token_acc": 0.2435,
+      "n_answer_spans": 271,
+      "free_gen_em": 0.0,
+      "free_gen_n": 101,
+      "stop_reasons": {
+        "eos": 82,
+        "newline": 15,
+        "max_tokens": 4
+      },
+      "echo_rate": 0.0693,
+      "len_ratio_mean": 1.15
+    }
+  },
+  "E_block_load_train_cum": {
+    "load_per_block": [
+      0.1308,
+      0.0816,
+      0.1365,
+      0.1368,
+      0.113,
+      0.1454,
+      0.1442,
+      0.1116
+    ],
+    "dead_blocks": 0
+  },
+  "findings": {
+    "memorization_vs_generalization": "train TF-span-EM=0.1293 vs sealed=0.1255",
+    "exposure_bias_gap": "sealed: TF-span-EM=0.1255 vs free-gen-EM=0.0（差 0.1255）",
+    "echo_dominance": "sealed 回声率=0.0693",
+    "stop_mix": "sealed 停止分布={'eos': 82, 'newline': 15, 'max_tokens': 4}"
+  }
+}
