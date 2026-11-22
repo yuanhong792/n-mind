@@ -1,0 +1,161 @@
+{
+  "experiment": "h3b v2 corrected-input retrain smoke",
+  "device": "cpu",
+  "updates": 240,
+  "seeds": [
+    20261201,
+    20261202,
+    20261203
+  ],
+  "obs_dim": 62,
+  "data_audit": {
+    "train_n": 256,
+    "val_n": 64,
+    "test_n": 64,
+    "train_manifests": [
+      "8ea76df38a1a5419",
+      "a3d18fbbac3d0a16",
+      "2ff9a85d57560b23",
+      "4161830136b1a332",
+      "53c9e3044075e6cf",
+      "70f008b7f6d7b669",
+      "9be3f888f7fce0b8",
+      "8edb63f2408e9a03"
+    ],
+    "val_manifests": [
+      "867494f2ac56acb6",
+      "86cb824198afc140"
+    ],
+    "test_manifests": [
+      "e070bc1e30f3dfa5",
+      "4da43f5806d1a221"
+    ]
+  },
+  "arms": {
+    "A_dense_ce": {
+      "execution": "dense",
+      "use_router": false,
+      "loss_mode": "ce"
+    },
+    "C_sparse_ce": {
+      "execution": "sparse",
+      "use_router": true,
+      "loss_mode": "ce"
+    },
+    "F10_ste": {
+      "execution": "sparse",
+      "use_router": true,
+      "loss_mode": "joint",
+      "router_ste": true,
+      "loss_overrides": {
+        "detach_pred_target": 1.0,
+        "balance": 0.02,
+        "entropy": 0.002
+      }
+    }
+  },
+  "runs": [
+    {
+      "task": "h3b",
+      "arm": "A_dense_ce",
+      "seed": 20261201,
+      "accuracy_occluded": 0.9203125,
+      "accuracy_all": 0.876953125,
+      "wall_s": 88.93
+    },
+    {
+      "task": "h3b",
+      "arm": "C_sparse_ce",
+      "seed": 20261201,
+      "accuracy_occluded": 0.496875,
+      "accuracy_all": 0.4869791666666667,
+      "wall_s": 42.5
+    },
+    {
+      "task": "h3b",
+      "arm": "F10_ste",
+      "seed": 20261201,
+      "accuracy_occluded": 0.471875,
+      "accuracy_all": 0.44921875,
+      "wall_s": 36.16
+    },
+    {
+      "task": "h3b",
+      "arm": "A_dense_ce",
+      "seed": 20261202,
+      "accuracy_occluded": 0.83203125,
+      "accuracy_all": 0.7819010416666666,
+      "wall_s": 78.64
+    },
+    {
+      "task": "h3b",
+      "arm": "C_sparse_ce",
+      "seed": 20261202,
+      "accuracy_occluded": 0.52421875,
+      "accuracy_all": 0.4934895833333333,
+      "wall_s": 35.93
+    },
+    {
+      "task": "h3b",
+      "arm": "F10_ste",
+      "seed": 20261202,
+      "accuracy_occluded": 0.56953125,
+      "accuracy_all": 0.541015625,
+      "wall_s": 35.6
+    },
+    {
+      "task": "h3b",
+      "arm": "A_dense_ce",
+      "seed": 20261203,
+      "accuracy_occluded": 0.88125,
+      "accuracy_all": 0.8470052083333334,
+      "wall_s": 76.04
+    },
+    {
+      "task": "h3b",
+      "arm": "C_sparse_ce",
+      "seed": 20261203,
+      "accuracy_occluded": 0.403125,
+      "accuracy_all": 0.392578125,
+      "wall_s": 34.1
+    },
+    {
+      "task": "h3b",
+      "arm": "F10_ste",
+      "seed": 20261203,
+      "accuracy_occluded": 0.47421875,
+      "accuracy_all": 0.462890625,
+      "wall_s": 35.46
+    }
+  ],
+  "summary": {
+    "A_dense_ce": {
+      "mean": 0.8779,
+      "std_ddof1": 0.0442,
+      "per_seed": [
+        0.9203125,
+        0.83203125,
+        0.88125
+      ]
+    },
+    "C_sparse_ce": {
+      "mean": 0.4747,
+      "std_ddof1": 0.0635,
+      "per_seed": [
+        0.496875,
+        0.52421875,
+        0.403125
+      ]
+    },
+    "F10_ste": {
+      "mean": 0.5052,
+      "std_ddof1": 0.0557,
+      "per_seed": [
+        0.471875,
+        0.56953125,
+        0.47421875
+      ]
+    }
+  },
+  "claim_limit": "3-seed smoke；完成 10-seed 与闭环评测前不得升级 ACCEPTED"
+}
