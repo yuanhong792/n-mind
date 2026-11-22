@@ -1,0 +1,594 @@
+{
+  "experiment": "gateb004-diagnostics",
+  "ts": "2026-11-22T18:33:17+0800",
+  "zero_training": true,
+  "protocols": {
+    "freegen": "freegen-v1（与 001-003 历史口径一致）"
+  },
+  "models": {
+    "stable": {
+      "a_retention_em": 1.0,
+      "b_sealed_em": 0.0,
+      "cf_follow_rate": 0.0833,
+      "answer_rank_stats_B": {
+        "n": 40,
+        "rank_mean": 1.0,
+        "rank_top1_rate": 1.0,
+        "prob_mean": 0.989684,
+        "eos_minus_top_mean": -10.7032
+      },
+      "route_histogram_B": {
+        "counts": [
+          39,
+          23,
+          61,
+          45,
+          69,
+          3,
+          67,
+          33
+        ],
+        "freq": [
+          0.1147,
+          0.0676,
+          0.1794,
+          0.1324,
+          0.2029,
+          0.0088,
+          0.1971,
+          0.0971
+        ]
+      },
+      "trace_sample": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "logits_match_original": true,
+        "final_occupied": [
+          1.2965,
+          1.1482,
+          1.2487,
+          0.8308
+        ],
+        "final_ws_content_norm": [
+          10.148,
+          6.015,
+          4.0563,
+          5.0658
+        ],
+        "final_block_states_norm": [
+          9.3396,
+          8.8737,
+          9.6839,
+          9.0304,
+          9.6059,
+          0.0,
+          9.4125,
+          9.3691
+        ],
+        "read_attn_entropy_last": 0.0955,
+        "eos_logit_last": -2.2612
+      },
+      "probe_position_head_input": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_position_ws_content": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_head_input": {
+        "n_train": 43,
+        "n_test": 29,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.7241,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_pos_balance": {
+        "pos1": 36,
+        "pos2": 36
+      },
+      "counterfactual_rep_shift": {
+        "query_entity_changed": {
+          "cosine": 0.9338,
+          "l2": 1.7551
+        },
+        "query_entity_same_control": {
+          "cosine": 0.989,
+          "l2": 0.7419
+        }
+      }
+    },
+    "001": {
+      "a_retention_em": 0.6875,
+      "b_sealed_em": 0.0,
+      "cf_follow_rate": 0.1667,
+      "answer_rank_stats_B": {
+        "n": 40,
+        "rank_mean": 1.0,
+        "rank_top1_rate": 1.0,
+        "prob_mean": 0.974012,
+        "eos_minus_top_mean": -6.3164
+      },
+      "route_histogram_B": {
+        "counts": [
+          21,
+          34,
+          42,
+          78,
+          66,
+          32,
+          55,
+          12
+        ],
+        "freq": [
+          0.0618,
+          0.1,
+          0.1235,
+          0.2294,
+          0.1941,
+          0.0941,
+          0.1618,
+          0.0353
+        ]
+      },
+      "trace_sample": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "logits_match_original": true,
+        "final_occupied": [
+          1.2152,
+          0.9071,
+          1.3527,
+          1.3932
+        ],
+        "final_ws_content_norm": [
+          3.2049,
+          3.1672,
+          5.0074,
+          4.1582
+        ],
+        "final_block_states_norm": [
+          8.56,
+          8.8168,
+          8.3354,
+          9.1781,
+          8.9744,
+          8.282,
+          9.0523,
+          7.4643
+        ],
+        "read_attn_entropy_last": 0.3408,
+        "eos_logit_last": 0.6102
+      },
+      "probe_position_head_input": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_position_ws_content": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_head_input": {
+        "n_train": 43,
+        "n_test": 29,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.7241,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_pos_balance": {
+        "pos1": 36,
+        "pos2": 36
+      },
+      "ws_content_drift_vs_stable": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "slots": [
+          {
+            "slot": 0,
+            "cosine": 0.679,
+            "occupied_diff": -0.0813
+          },
+          {
+            "slot": 1,
+            "cosine": 0.866,
+            "occupied_diff": -0.2411
+          },
+          {
+            "slot": 2,
+            "cosine": 0.6069,
+            "occupied_diff": 0.104
+          },
+          {
+            "slot": 3,
+            "cosine": 0.6324,
+            "occupied_diff": 0.5624
+          }
+        ],
+        "note": "候选更新后槽内容漂移——漂移大说明 Workspace 写入层承载了更新主效应"
+      },
+      "ws_content_drift_B_mean_cosine": 0.8261,
+      "counterfactual_rep_shift": {
+        "query_entity_changed": {
+          "cosine": 0.9433,
+          "l2": 1.3908
+        },
+        "query_entity_same_control": {
+          "cosine": 0.9826,
+          "l2": 0.7643
+        }
+      }
+    },
+    "002": {
+      "a_retention_em": 0.0,
+      "b_sealed_em": 0.0,
+      "cf_follow_rate": 0.0,
+      "answer_rank_stats_B": {
+        "n": 40,
+        "rank_mean": 1.0,
+        "rank_top1_rate": 1.0,
+        "prob_mean": 0.948238,
+        "eos_minus_top_mean": -9.7812
+      },
+      "route_histogram_B": {
+        "counts": [
+          110,
+          10,
+          73,
+          29,
+          29,
+          3,
+          48,
+          38
+        ],
+        "freq": [
+          0.3235,
+          0.0294,
+          0.2147,
+          0.0853,
+          0.0853,
+          0.0088,
+          0.1412,
+          0.1118
+        ]
+      },
+      "trace_sample": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "logits_match_original": true,
+        "final_occupied": [
+          0.7669,
+          1.3114,
+          1.3151,
+          1.2473
+        ],
+        "final_ws_content_norm": [
+          6.6923,
+          6.8863,
+          9.167,
+          10.7741
+        ],
+        "final_block_states_norm": [
+          8.4082,
+          6.8261,
+          8.98,
+          7.7671,
+          8.0103,
+          5.336,
+          8.9447,
+          8.4244
+        ],
+        "read_attn_entropy_last": 0.0,
+        "eos_logit_last": -2.2588
+      },
+      "probe_position_head_input": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_position_ws_content": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 0.95,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_head_input": {
+        "n_train": 43,
+        "n_test": 29,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.7241,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_pos_balance": {
+        "pos1": 36,
+        "pos2": 36
+      },
+      "ws_content_drift_vs_stable": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "slots": [
+          {
+            "slot": 0,
+            "cosine": 0.7946,
+            "occupied_diff": -0.5295
+          },
+          {
+            "slot": 1,
+            "cosine": 0.7171,
+            "occupied_diff": 0.1632
+          },
+          {
+            "slot": 2,
+            "cosine": 0.0966,
+            "occupied_diff": 0.0664
+          },
+          {
+            "slot": 3,
+            "cosine": -0.1273,
+            "occupied_diff": 0.4165
+          }
+        ],
+        "note": "候选更新后槽内容漂移——漂移大说明 Workspace 写入层承载了更新主效应"
+      },
+      "ws_content_drift_B_mean_cosine": 0.7725,
+      "counterfactual_rep_shift": {
+        "query_entity_changed": {
+          "cosine": 0.9773,
+          "l2": 0.8856
+        },
+        "query_entity_same_control": {
+          "cosine": 0.9429,
+          "l2": 1.4343
+        }
+      }
+    },
+    "003": {
+      "a_retention_em": 0.175,
+      "b_sealed_em": 0.0,
+      "cf_follow_rate": 0.0833,
+      "answer_rank_stats_B": {
+        "n": 40,
+        "rank_mean": 1.0,
+        "rank_top1_rate": 1.0,
+        "prob_mean": 0.871884,
+        "eos_minus_top_mean": -8.7635
+      },
+      "route_histogram_B": {
+        "counts": [
+          133,
+          3,
+          56,
+          26,
+          20,
+          29,
+          22,
+          51
+        ],
+        "freq": [
+          0.3912,
+          0.0088,
+          0.1647,
+          0.0765,
+          0.0588,
+          0.0853,
+          0.0647,
+          0.15
+        ]
+      },
+      "trace_sample": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "logits_match_original": true,
+        "final_occupied": [
+          1.4622,
+          1.0708,
+          1.0385,
+          0.7861
+        ],
+        "final_ws_content_norm": [
+          13.3694,
+          6.2931,
+          11.9749,
+          8.2822
+        ],
+        "final_block_states_norm": [
+          8.0362,
+          0.0,
+          8.5964,
+          6.7528,
+          4.918,
+          5.49,
+          7.8293,
+          7.9849
+        ],
+        "read_attn_entropy_last": 0.6456,
+        "eos_logit_last": -2.4481
+      },
+      "probe_position_head_input": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 0.75,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_position_ws_content": {
+        "n_train": 28,
+        "n_test": 20,
+        "test_accuracy": 0.85,
+        "majority_baseline": 0.4,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_head_input": {
+        "n_train": 43,
+        "n_test": 29,
+        "test_accuracy": 1.0,
+        "majority_baseline": 0.7241,
+        "note": "探针监督=外部线性读出，只作表示诊断，不计入自主语言能力成绩"
+      },
+      "probe_entity_pos_balance": {
+        "pos1": 36,
+        "pos2": 36
+      },
+      "ws_content_drift_vs_stable": {
+        "prompt": "用户：小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+        "slots": [
+          {
+            "slot": 0,
+            "cosine": 0.5545,
+            "occupied_diff": 0.1658
+          },
+          {
+            "slot": 1,
+            "cosine": 0.6505,
+            "occupied_diff": -0.0774
+          },
+          {
+            "slot": 2,
+            "cosine": -0.089,
+            "occupied_diff": -0.2102
+          },
+          {
+            "slot": 3,
+            "cosine": -0.6719,
+            "occupied_diff": -0.0447
+          }
+        ],
+        "note": "候选更新后槽内容漂移——漂移大说明 Workspace 写入层承载了更新主效应"
+      },
+      "ws_content_drift_B_mean_cosine": 0.6019,
+      "counterfactual_rep_shift": {
+        "query_entity_changed": {
+          "cosine": 0.9562,
+          "l2": 1.0707
+        },
+        "query_entity_same_control": {
+          "cosine": 0.9797,
+          "l2": 0.7671
+        }
+      }
+    }
+  },
+  "probes": {},
+  "interventions": {
+    "stable+head(002)": {
+      "swapped_params": [
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 0.7875,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "stable+b2w(002)": {
+      "swapped_params": [
+        "block_to_ws.bias",
+        "block_to_ws.weight"
+      ],
+      "A_em": 0.25,
+      "B_em": 0.0,
+      "cf_follow": 0.0
+    },
+    "stable+head+b2w(002)": {
+      "swapped_params": [
+        "block_to_ws.bias",
+        "block_to_ws.weight",
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 0.0,
+      "B_em": 0.0,
+      "cf_follow": 0.0
+    },
+    "stable+b2w(003)": {
+      "swapped_params": [
+        "block_to_ws.bias",
+        "block_to_ws.weight"
+      ],
+      "A_em": 0.175,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "001+stable_head": {
+      "swapped_params": [
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 0.7375,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "002+stable_head": {
+      "swapped_params": [
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 0.25,
+      "B_em": 0.0,
+      "cf_follow": 0.0
+    },
+    "002+stable_b2w": {
+      "swapped_params": [
+        "block_to_ws.bias",
+        "block_to_ws.weight"
+      ],
+      "A_em": 0.7875,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "002+stable_head+b2w": {
+      "swapped_params": [
+        "block_to_ws.bias",
+        "block_to_ws.weight",
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 1.0,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "003+stable_head": {
+      "swapped_params": [
+        "head.bias",
+        "head.weight"
+      ],
+      "A_em": 0.175,
+      "B_em": 0.0,
+      "cf_follow": 0.0833
+    },
+    "002+stable_ws": {
+      "B_em_ws_replaced": 0.0,
+      "A_em_ws_replaced": 0.425
+    },
+    "002+stable_h": {
+      "B_em_h_replaced": 0.0,
+      "A_em_h_replaced": 0.15
+    },
+    "003+stable_ws": {
+      "B_em_ws_replaced": 0.0,
+      "A_em_ws_replaced": 0.475
+    },
+    "003+stable_h": {
+      "B_em_h_replaced": 0.0,
+      "A_em_h_replaced": 0.675
+    },
+    "stable+002_ws": {
+      "B_em_ws_replaced": 0.0
+    },
+    "stable+002_h": {
+      "B_em_h_replaced": 0.0
+    }
+  },
+  "wall_s": 104.03,
+  "integrity": {
+    "stable_untouched": "全程内存副本，磁盘 checkpoint 零写入",
+    "methodology_note": "模块组合存在非线性相互作用，单次替换效果不解释为唯一因果来源；探针监督只作表示诊断，不计入自主语言能力成绩"
+  }
+}

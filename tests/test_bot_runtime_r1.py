@@ -466,9 +466,10 @@ def test_09_buffer_drift_is_separate_from_neural_gain(tiny_lm, tmp_path: Path):
     pc = rep["parameter_change"]                              # 参数变化也是独立字段
     assert pc["tensors_changed"] >= 0
     assert rep["gates"]["weight_changed"] == (pc["tensors_changed"] > 0)
-    assert rep["status"] in ("PROPOSED", "REJECTED")
-    if rep["status"] == "REJECTED":
-        assert rep["gates"]["new_skill_gain"] is False or rep["gates"]["old_task_retention"] is False
+    # Gate-B 004 契约：arms=("neural",) 缺 frozen/memory/negative 三臂 → 终判 INCONCLUSIVE
+    # （缺证据 ≠ 失败 ≠ 通过）；buffer drift 取证与参数审计断言不受终判状态影响。
+    assert rep["status"] == "INCONCLUSIVE"
+    assert any("missing_arms" in r for r in rep["inconclusive_reasons"])
 
 
 # ================================================================== §9.10

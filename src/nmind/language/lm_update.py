@@ -86,6 +86,34 @@ def set_trainable(model, *, trainable: str = "all",
     return names
 
 
+KNOWN_TRAINABLE_MODES = ("all", "adapter")
+KNOWN_ADAPTER_PREFIXES = ("head.", "block_to_ws.")
+
+
+def set_trainable(model, *, trainable: str = "all",
+                  adapter_prefixes: tuple[str, ...] | None = None) -> list[str]:
+    """返回本次可训练参数名；"all" 全参，"adapter" 只放开输出头与工作空间写入。
+
+    白名单校验（Gate-B 004）：trainable 只允许 all/adapter；adapter_prefixes 必须是
+    KNOWN_ADAPTER_PREFIXES 的子集——未知前缀直接报错，防止诊断实验静默放开意外模块。"""
+    if trainable not in KNOWN_TRAINABLE_MODES:
+        raise ValueError(f"trainable={trainable!r} 不在白名单 {KNOWN_TRAINABLE_MODES}")
+    prefixes = adapter_prefixes if adapter_prefixes is not None else ("head.", "block_to_ws.")
+    if trainable == "adapter":
+        unknown = [p for p in prefixes if p not in KNOWN_ADAPTER_PREFIXES]
+        if unknown:
+            raise ValueError(f"adapter_prefixes {unknown} 不在白名单 {KNOWN_ADAPTER_PREFIXES}")
+        if not prefixes:
+            raise ValueError("adapter 模式下前缀列表不能为空（否则将静默冻结全部参数）")
+    names: list[str] = []
+    for name, p in model.named_parameters():
+        ok = trainable == "all" or name.startswith(prefixes)
+        p.requires_grad_(ok)
+        if ok:
+            names.append(name)
+    return names
+
+
 def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
                          lr: float = 3e-3, seed: int = 0, label: str = "lm-update",
                          wall_limit_s: float = 60.0, batch_size: int = 16,
@@ -93,11 +121,18 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
                          trainable: str = "all",
                          adapter_prefixes: tuple[str, ...] | None = None,
                          label_permutation_seed: int | None = None,
-                         budget: AdaptationBudget | None = None) -> dict[str, Any]:
+                         budget: AdaptationBudget | None = None,
+                         record_grad_norms: bool = False) -> dict[str, Any]:
     """有界流更新：最多 `updates` 次 optimizer.step 且不超过 wall_limit_s。
 
     adapter_prefixes：None=沿用 set_trainable 默认（head.+block_to_ws.）；传入自定义
-    前缀元组可进一步收窄 adapter 范围（Gate-B 003 冻结输出头实验用），默认行为不变。"""
+    前缀元组可进一步收窄 adapter 范围（Gate-B 003 冻结输出头实验用），默认行为不变。
+
+    步数口径（Gate-B 004 拆分）：`attempted_steps` = 尝试的梯度步数（含非有限 loss
+    跳过，预算按尝试计防止无限循环）；`optimizer_steps_executed` = **真实完成**
+    backward+step 的次数——非有限跳过绝不冒充完成优化（001—003 轮两值恰好相等的
+    场景下口径无影响，但口径本身必须诚实）。record_grad_norms=True 时额外记录每组
+    可训练参数的梯度范数（诊断接口，默认关闭，不影响默认训练行为）。"""
     if not rows:
         raise ValueError("空 rows：没有 verified 经验不得触发更新")
     budget = budget or AdaptationBudget(updates, label=label)
@@ -123,6 +158,9 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
     # 四臂对照名存实亡。现在本臂计数从 used0 起算，总闸单独判。
     used0 = budget.used
     arm_cap = int(updates)
+    steps_done = 0
+    grad_norms: dict[str, float] = {}
+    grad_norm_peak: dict[str, float] = {}
     model.train()
     while True:
         if budget.used - used0 >= arm_cap:
@@ -149,19 +187,34 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
         opt.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(params, 5.0)
+        if record_grad_norms:
+            for pname, p in ((n, prm) for n, prm in model.named_parameters() if prm.requires_grad):
+                g = float(p.grad.norm()) if p.grad is not None else 0.0
+                grad_norms[pname] = round(g, 6)
+                grad_norm_peak[pname] = max(grad_norm_peak.get(pname, 0.0), round(g, 6))
         opt.step()
+        steps_done += 1
         curve.append(round(float(loss.detach()), 4))
         hits += h
         total += n
     wall = round(time.perf_counter() - t0, 2)
     model.eval()
-    return {"arm": label, "optimizer_steps_executed": budget.used - used0,
+    return {"arm": label, "optimizer_steps_executed": steps_done,
+             "attempted_steps": budget.used - used0,
+             "attempted_vs_executed_note": "attempted 含非有限 loss 跳过（预算按尝试计防无限循环）；"
+                                            "executed 只数真实完成 backward+step 的次数",
              "arm_step_cap": arm_cap,
              "budget_used_total": budget.used, "budget_cap": budget.cap,
              "loss_first": curve[0] if curve else None, "loss_last": curve[-1] if curve else None,
              "curve": curve, "non_finite_steps_skipped": non_finite,
              "answer_token_accuracy": round(hits / total, 4) if total else None,
-             "trainable": trainable, "trainable_params": len(trainable_names),
+             "trainable": trainable,
+             "trainable_prefixes": (list(adapter_prefixes) if adapter_prefixes is not None
+                                     else list(KNOWN_ADAPTER_PREFIXES) if trainable == "adapter" else None),
+             "trainable_names": trainable_names,
+             "trainable_params": len(trainable_names),
+             "grad_norm_last": grad_norms if record_grad_norms else None,
+             "grad_norm_peak": grad_norm_peak if record_grad_norms else None,
              "wall_s": wall, "stopped_by": stopped_by,
              "label_permutation_seed": label_permutation_seed}
 

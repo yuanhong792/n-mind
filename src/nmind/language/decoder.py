@@ -30,7 +30,15 @@ class GenerationRecord:
 def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
              state: LMState | None = None, max_new_tokens: int = 32, greedy: bool = True,
              temperature: float = 1.0, repetition_penalty: float | None = None,
-             seed: int | None = None, stop_on_newline: bool = True) -> tuple[GenerationRecord, LMState]:
+             seed: int | None = None, stop_on_newline: bool = True,
+             primed: tuple[torch.Tensor, LMState] | None = None
+             ) -> tuple[GenerationRecord, LMState]:
+    """自回归生成。
+
+    primed：调用方已完成 prompt 前向时，直接传入 (prompt 末位 logits, prompt 末位
+    LMState)，生成从该 logits 采样首个新 token，prompt_ids 不再前向（Gate-B 004
+    free_generation_v2 的无重复前缀口径）。None 时保持历史行为（对 prompt_ids 做一次
+    前向再采样）。两条路径的采样/停止/记录逻辑完全共用。"""
     if max_new_tokens <= 0:
         raise ValueError("max_new_tokens 必须 > 0")
     was_training = model.training
@@ -46,8 +54,11 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
     rec = GenerationRecord()
     try:
         with torch.no_grad():
-            x = torch.tensor([list(prompt_ids)], dtype=torch.long)
-            logits, st = model(x, state)
+            if primed is not None:
+                logits, st = primed
+            else:
+                x = torch.tensor([list(prompt_ids)], dtype=torch.long)
+                logits, st = model(x, state)
             for _ in range(max_new_tokens):
                 last = logits[0, -1].clone()
                 if repetition_penalty and produced:
@@ -81,10 +92,21 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
     return rec, st
 
 
+# 自由生成协议 ID（Gate-B 004 起）：协议显式命名，历史结果与协议绑定，不许事后重解释。
+FREEGEN_PROTOCOL_V1 = "freegen-v1-anchor-reforward"
+FREEGEN_PROTOCOL_V2 = "freegen-v2-direct-continuation"
+
+
 def free_generation(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
                     anchor: str = "助手：", max_new_tokens: int = 24,
                     greedy: bool = True) -> GenerationRecord:
-    """自由生成的唯一口径（R2 收口）：整段 prompt 前向拿递归状态，再从 anchor 续写。
+    """v1 口径（协议 FREEGEN_PROTOCOL_V1，001—003 全部结果与待复现工件绑定此协议）：
+    整段 prompt 前向拿递归状态，再把 anchor 作为 generate 的初始 prompt 续写。
+
+    已知问题（Gate-B 004 审计实锤）：prompt 已以 anchor 结尾，generate 内部又把
+    anchor 单独前向一次 —— anchor 的 token 被递归更新两次，首个生成 token 的条件
+    状态是"prompt + 二次 anchor"。001—003 的所有臂（含基线/负对照）共用此口径，
+    臂间比较内部一致，历史判定不改写；新实验一律使用 free_generation_v2。
 
     同一段逻辑原来在 `bot.runtime.neural_attempt`、`bot.learning_loop.free_gen_em`、
     `experiments/m5_language/run_m52.eval_free` 各写了一遍，三处容易走偏（忘了先前向
@@ -98,4 +120,23 @@ def free_generation(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
         _logits, state = model(torch.tensor([ids], dtype=torch.long))
     rec, _st = generate(model, tokenizer, tokenizer.encode(anchor), state=state,
                          max_new_tokens=max_new_tokens, greedy=greedy)
+    return rec
+
+
+def free_generation_v2(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
+                       anchor: str = "助手：", max_new_tokens: int = 24,
+                       greedy: bool = True) -> GenerationRecord:
+    """v2 口径（协议 FREEGEN_PROTOCOL_V2，Gate-B 004 起的新实验统一协议）：
+    完整 prompt **单次前向**，直接从最后一个位置的 logits 采样首个新 token，
+    anchor 不二次前向；后续自回归与 v1 完全共用 generate 的采样/停止/记录逻辑。
+
+    与 v1 的差异仅在首个 token 的条件状态：v1 = prompt + 二次 anchor 的递归更新，
+    v2 = prompt 末位。答案字符续写的语义（从 "助手：" 之后接答案）两者一致。"""
+    if not prompt.endswith(anchor):
+        raise ValueError(f"prompt 必须以锚点 {anchor!r} 结尾：{prompt!r}")
+    ids = tokenizer.encode(prompt)
+    with torch.no_grad():
+        logits, state = model(torch.tensor([ids], dtype=torch.long))
+    rec, _st = generate(model, tokenizer, [], primed=(logits, state),
+                        max_new_tokens=max_new_tokens, greedy=greedy)
     return rec

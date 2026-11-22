@@ -23,7 +23,7 @@ import torch
 from ..learning.online_adaptation import (AdaptationBudget, clone_snapshot,
                                            seal_eval_state, state_hash,
                                            verify_bitwise_inheritance)
-from ..language.decoder import generate
+from ..language.decoder import free_generation, generate
 from ..language.lm_update import encode_rows, masked_stream_update, parameter_audit
 from ..language.neural_dialogue import load_lm, save_lm
 from ..language.tokenizer import CharTokenizer
@@ -31,6 +31,8 @@ from .experience_bridge import VerifiedExperience, to_learning_rows
 
 NEW_SKILL_GAIN_THRESHOLD = 0.10          # 预登记阈值：不可为过门槛而调整
 FORGETTING_LIMIT_PP = 3.0
+COUNTERFACTUAL_FOLLOW_MIN: float | None = None   # 反事实跟随率门槛：预登记声明后生效
+REQUIRED_ARMS = ("frozen", "memory", "neural", "negative")
 
 
 def free_gen_em(model, tok: CharTokenizer, prompts: list[str], answers: list[str],
@@ -105,6 +107,8 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                          memory_index: tuple[list[str], list[str]] | None = None,
                          replay_ratio: float = 0.15, trainable: str = "all",
                          adapter_prefixes: tuple[str, ...] | None = None,
+                         counterfactual_items: list[dict[str, str]] | None = None,
+                         record_grad_norms: bool = False,
                          arms: tuple[str, ...] = ("frozen", "neural"),
                          wall_limit_s: float = 60.0,
                          candidate_path: str | Path | None = None,
@@ -133,6 +137,17 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     rows = encode_rows(tok, prompts, answers)
     replay_rows = encode_rows(tok, *replay_pairs) if replay_pairs else None
 
+    # 评测完整性预检（Gate-B 004 契约）：训练照常进行，但关键评测缺失时不给
+    # PROPOSED/REJECTED 终判，只标 INCONCLUSIVE——"缺证据"不是"失败"，更不是"通过"。
+    inconclusive_reasons: list[str] = []
+    missing_arms = sorted(set(REQUIRED_ARMS) - set(arms))
+    if missing_arms:
+        inconclusive_reasons.append("missing_arms: " + ",".join(missing_arms))
+    if retention_pairs is None:
+        inconclusive_reasons.append(
+            "retention_pairs 未提供：旧技能保持率必须用独立封存集评测，"
+            "不得回退到训练行（R1 曾用训练行前 8 条当'旧任务'，测的是背题不是遗忘）")
+
     parent, parent_meta = load_lm(stable_checkpoint, tok)
     parent_sha = state_hash(parent)
     child, _ = load_lm(stable_checkpoint, tok)
@@ -149,10 +164,14 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     base_old = free_gen_em(child, tok, old_prompts, old_answers, max_new_tokens=max_new_tokens)
     # 抗遗忘锚点必须是"父模型已经会做的事"（A 组封存集），不是训练集自己：
     # R1 用训练行前 8 条当"旧任务"，那测的是背没背住，测不出旧技能有没有被冲掉。
-    ret_prompts, ret_answers = (retention_pairs if retention_pairs
-                                 else (old_prompts, old_answers))
-    base_ret = free_gen_em(child, tok, ret_prompts, ret_answers,
-                            max_new_tokens=max_new_tokens)
+    # Gate-B 004 契约：retention_pairs 缺失时 base_ret=None（遗忘不评测 → INCONCLUSIVE），
+    # 绝不回退到训练行——宁可缺证据，不造假证据。
+    if retention_pairs is not None:
+        ret_prompts, ret_answers = retention_pairs
+        base_ret = free_gen_em(child, tok, ret_prompts, ret_answers,
+                                max_new_tokens=max_new_tokens)
+    else:
+        ret_prompts, ret_answers, base_ret = [], [], None
 
     budget = budget or AdaptationBudget(updates, label="bot-candidate")
     arm_reports: dict[str, Any] = {"frozen": {"sealed_em": base, "steps": 0,
@@ -175,8 +194,9 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                                     label="bot-neural", wall_limit_s=arm_wall,
                                     replay_rows=replay_rows,
                                     replay_ratio=(replay_ratio if replay_rows else 0.0),
-                                    trainable=trainable, budget=budget,
-                                    adapter_prefixes=adapter_prefixes)
+                                trainable=trainable, budget=budget,
+                                adapter_prefixes=adapter_prefixes,
+                                record_grad_norms=record_grad_norms)
     else:
         upd = {"optimizer_steps_executed": 0, "stopped_by": "arm_not_selected"}
     after_state = {k: v.detach().clone() for k, v in child.state_dict().items()}
@@ -191,6 +211,23 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                              max_new_tokens=max_new_tokens)
     memorize_after = free_gen_em(child, tok, old_prompts, old_answers,
                                   max_new_tokens=max_new_tokens)
+    # 反事实绑定跟随率（Gate-B 004 进入候选验收）：调用方传入预构造的反事实项
+    # （fingerprint/prompt/target/group，group=同一反事实对），同组全对才算"跟随查询实体"。
+    # 生成走 v1 口径（free_generation，与 free_gen_em 的历史口径一致）；M5.2 已证明
+    # EM 会掩盖近因启发式，此指标是绑定泛化的独立证据线。门槛由预登记声明
+    # （COUNTERFACTUAL_FOLLOW_MIN，默认 None=只记录不判定，不偷设门槛）。
+    cf_rate: float | None = None
+    cf_groups: dict[str, list[bool]] = {}
+    if counterfactual_items:
+        child.eval()
+        with torch.no_grad():
+            for it in counterfactual_items:
+                rec_cf = free_generation(child, tok, it["prompt"],
+                                          max_new_tokens=max_new_tokens)
+                ok = _norm(rec_cf.text) == _norm(it["target"])
+                cf_groups.setdefault(it["group"], []).append(ok)
+        if cf_groups:
+            cf_rate = round(sum(all(v) for v in cf_groups.values()) / len(cf_groups), 4)
     # before/after 快照来自 state_dict()，里面既有可训练参数也有路由计数 buffer。
     # 必须拆开报：block_load_count 在一次前向里就能跳到几千，混在"参数变化"里
     # 会让"权重到底动了多少"这个取证问题失去意义（M4 虚假增益同款陷阱的取证版本）。
@@ -201,9 +238,12 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     buffer_change = parameter_audit({k: v for k, v in before_state.items() if k in b_names},
                                     {k: v for k, v in after_state.items() if k in b_names})
     arm_reports["neural"] = {"update": {k: upd[k] for k in
-                                         ("optimizer_steps_executed", "loss_first", "loss_last",
+                                         ("optimizer_steps_executed", "attempted_steps",
+                                          "loss_first", "loss_last",
                                           "wall_s", "stopped_by", "non_finite_steps_skipped",
-                                          "trainable", "trainable_params")},
+                                          "trainable", "trainable_params",
+                                          "trainable_prefixes", "trainable_names",
+                                          "grad_norm_last", "grad_norm_peak")},
                               "steps_cap_this_arm": per_arm,
                               "total_steps_cap_all_arms": int(updates),
                               "sealed_em_after": sealed_after,
@@ -264,17 +304,39 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                         "steps_used_total": int(budget.used),
                         "budget_log": budget.log},
         "thresholds": {"new_skill_gain_min": NEW_SKILL_GAIN_THRESHOLD,
-                        "old_task_forgetting_max_pp": FORGETTING_LIMIT_PP},
+                        "old_task_forgetting_max_pp": FORGETTING_LIMIT_PP,
+                        "counterfactual_follow_min": COUNTERFACTUAL_FOLLOW_MIN},
         "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
     }
     gain = report["new_skill_gain"]
     forget = report["old_task_forgetting_pp"]
+    # Gate-B 004 验收契约：
+    #   * 遗忘评测缺失（forget=None）不再自动通过——None 就是 None，缺证据不给 PASS；
+    #   * 负对照纳入正式 gates（002 轮人工核对的 gate_3 补代码化）；
+    #   * 反事实跟随率进入验收（门槛由预登记声明，默认只记录）；
+    #   * NEW_SKILL_GAIN_THRESHOLD / FORGETTING_LIMIT_PP 历史门槛一字不动。
+    neg_arm = arm_reports.get("negative")
+    neg_em = neg_arm.get("sealed_em_after") if isinstance(neg_arm, dict) else None
     gates = {"new_skill_gain": gain is not None and gain >= NEW_SKILL_GAIN_THRESHOLD,
-              "old_task_retention": forget is None or forget >= -FORGETTING_LIMIT_PP,
+              "old_task_retention": forget is not None and forget >= -FORGETTING_LIMIT_PP,
+              "negative_control": (neg_em is not None and sealed_after is not None
+                                    and neg_em < sealed_after),
               "weight_changed": param_change["tensors_changed"] > 0,
-              "inheritance": True}
+              "inheritance": True,
+              "counterfactual_follow": (True if cf_rate is None or COUNTERFACTUAL_FOLLOW_MIN is None
+                                         else cf_rate >= COUNTERFACTUAL_FOLLOW_MIN)}
     report["gates"] = gates
-    report["status"] = "PROPOSED" if all(gates.values()) else "REJECTED"
+    report["counterfactual"] = {"follow_rate": cf_rate,
+                                 "gate_enforced": COUNTERFACTUAL_FOLLOW_MIN is not None,
+                                 "n_items": len(counterfactual_items or []),
+                                 "n_groups": len(cf_groups),
+                                 "protocol": "freegen-v1（与历史 EM 口径一致）"}
+    report["inconclusive_reasons"] = inconclusive_reasons
+    if inconclusive_reasons:
+        # 缺证据 ≠ 失败 ≠ 通过：终判悬置，候选照常隔离，绝不下 PROPOSED/REJECTED
+        report["status"] = "INCONCLUSIVE"
+    else:
+        report["status"] = "PROPOSED" if all(gates.values()) else "REJECTED"
     if candidate_path is not None:
         save_lm(candidate_path, model=child, tokenizer=tok, cfg=child.cfg,
                 steps=int(upd.get("optimizer_steps_executed") or 0), seed=seed,

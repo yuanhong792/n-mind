@@ -156,6 +156,22 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **三轮消融链结论（gateb_paired_report.json 已更新为三轮版）**：遗忘是**分布式**的——head 贡献 ~17.5pp、block_to_ws 承载 ~82.5pp，任何单组件的序列更新都破坏 A 组绑定表示；容量递减方向（23→4→2 张量）只会"学得更少忘得更少但不学"（记忆化 0.5→0→0）。**结构性结论：当前 NMindLM（共享 workspace 写入 + 共享 head）下，序列式单任务增量更新必然破坏旧表示，隔离式持续学习的三条红线挡得住静默重建、挡不住表示冲突本身——增量学习三轮 REJECTED 需架构级方案。**
 - **003 之后的方向（需用户批准，未启动）**：a) A+B 混合课程（验证冲突是否来自序列范式本身）；b) replay 加权 0.5+（序列语义内最后一搏）；c) 架构级 per-task 组件/输出残差（M6 级）；d) 暂停归档转投 M5 基线。反事实跟随率三轮配对报告单列（stable 0.25 / 001 0.2917 / 002 0.0833 / 003 0.0833）。
 
+## Gate-B 004 机制诊断：因果定位到 Workspace 写入映射（2026-11-22 第十一轮，零训练）
+
+- **证据归档**：001-003 原始证据与封存数据零改动（git 验证），候选权重/磁盘 checkpoint 全程零写入。
+- **解码协议修复（实锤 bug）**：free_generation（v1）把已含"助手："的 prompt 前向后又在 generate 内部二次前向 anchor——首个 token 条件状态含二次递归更新。001-003 全臂同口径、臂间比较内部一致，历史判定不改写；新增 `primed` 直续模式 + `free_generation_v2`（协议 freegen-v2-direct-continuation），v1 保留供复现。测试：首 Token 一致性/EOS/checkpoint 重载/跨轮状态。
+- **验收契约修复**：遗忘缺失不再自动通过（封死 None 自动 PASS 通道）；负对照纳入正式 gates；反事实跟随率进入验收（门槛由预登记声明，默认只记录）；缺臂/缺独立封存集 → INCONCLUSIVE（训练与取证照常）；retention 缺失绝不回退训练行；历史门槛一字不动。lm_update：attempted_steps 与 optimizer_steps_executed 拆分（非有限跳过不冒充完成优化）、trainable/adapter_prefixes 白名单、可选梯度范数记录。
+- **机制诊断（零训练 104s，GATEB004_DIAGNOSTICS.json）**：
+  - **参数替换归因**：002 骨架+stable_b2w 挽回 **78.75pp**（最大单项，0→0.7875）、+stable_head 挽回 25pp、双换回 **完全恢复 1.0**；反向 stable+002_b2w 毁 75pp——**block_to_ws 写入映射是旧技能损失第一因果点，head 第二**。
+  - **递归污染实锤**：003 位置线性探针 1.0→0.75——block_to_ws 更新经 workspace 内容 → read → route → blocks 递归路径污染块状态 h（对应 -82.5pp）。
+  - **表示非原发损失**：002 位置/实体探针均 1.0（信息在 h 中完好可解码），A 组 EM=0——坏的是读出通道（b2w 写入+head 解码），不是表示本身。
+  - **激活替换佐证**：003+stable_h 单点换回挽回 67.5pp < 参数级替换——自回归后续步仍被候选写入污染；workspace 槽机制本身无恙。
+  - **B 泛化三轮为 0 的定性**：新绑定从未被学会（stable+002 任何替换 B 仍 0），不存在"被换掉的 B 能力"。
+  - 方法论红线：模块组合非线性相互作用，归因是最大贡献点排序非单点因果；探针监督只作表示诊断不计入自主能力成绩。
+- **测试**：全仓 **120 项全绿**（108 既有 + test_gateb004_fixes 12 + test_gateb004_diagnostics 5；test_09 终判断言按 004 契约更新为 INCONCLUSIVE 预期，drift 取证断言不变）。
+- **产出**：GATEB004_REPORT.md（因果答案+方案 A/B/C 接口草案）、gateb_pre_registration_005_DRAFT.json（技能残差适配器方案 B 草案，DRAFT 未批准）；gate_3 代码化缺口已补。
+- **005 起待办**：残差模块代码+测试 → 用户批准 005 预登记（含反事实门槛确认）→ 单变量审计 → 执行。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。
