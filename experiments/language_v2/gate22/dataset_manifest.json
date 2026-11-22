@@ -1,0 +1,12 @@
+{
+  "format": "language-v2-gate2-dataset/1",
+  "seed": 20261123,
+  "counts": {
+    "train": 768,
+    "dev": 144,
+    "sealed": 240
+  },
+  "train_tokens": 41856,
+  "sha256": "3f1a3b503b4784b748385e651fa46b135f01b315a50f6a66af05724ed877612f",
+  "sealed_pair_count": 80
+}

@@ -21,13 +21,14 @@ def balanced_rows(items: list[Gate2Item]) -> list[Gate2Item]:
             if i < len(groups[level]): out.append(groups[level][i])
     return out
 
-def train_arm(items: list[Gate2Item], out: str | Path, *, steps: int, seed: int, lr: float, permute: bool=False) -> dict:
-    torch.manual_seed(seed); tok=TokenizerV2(); model=LanguageV2Model(LanguageV2Config(d_model=24,n_blocks=2,block_hidden=24,workspace_dim=12,workspace_slots=2)); model.train()
+def train_arm(items: list[Gate2Item], out: str | Path, *, steps: int, seed: int, lr: float, permute: bool=False, init_seed: int | None = None, permutation_seed: int | None = None) -> dict:
+    init_seed = seed if init_seed is None else init_seed
+    torch.manual_seed(init_seed); tok=TokenizerV2(); model=LanguageV2Model(LanguageV2Config(d_model=24,n_blocks=2,block_hidden=24,workspace_dim=12,workspace_slots=2)); model.train()
     before=_state_hash(model); opt=torch.optim.AdamW(model.parameters(), lr=lr); out=Path(out); out.mkdir(parents=True,exist_ok=True)
     rows=balanced_rows(list(items)); rows=rows[:max(1, min(len(rows), 512))]
     if_answer=[x.answer for x in rows]
     if permute:
-        g=torch.Generator().manual_seed(seed+77); order=torch.randperm(len(if_answer),generator=g).tolist(); if_answer=[if_answer[i] for i in order]
+        g=torch.Generator().manual_seed(seed+77 if permutation_seed is None else permutation_seed); order=torch.randperm(len(if_answer),generator=g).tolist(); if_answer=[if_answer[i] for i in order]
     losses=[]; answer_losses=[]; start=time.perf_counter(); actual=0; tokens=0
     for step in range(steps):
         item=rows[step % len(rows)]; text=item.prompt + if_answer[step % len(if_answer)]
@@ -41,4 +42,4 @@ def train_arm(items: list[Gate2Item], out: str | Path, *, steps: int, seed: int,
         loss.backward(); opt.step()
         actual += 1; tokens += int(answer_target.numel()); losses.append(float(loss.detach())); answer_losses.append(float(loss.detach()))
     after=_state_hash(model); ckpt=out/"candidate.pt"; save_language_v2(ckpt,model,tok,steps=actual,seed=seed,manifest_hash="gate2")
-    return {"arm":out.name,"seed":seed,"requested_steps":steps,"optimizer_steps_executed":actual,"lr":lr,"permute":permute,"loss_first":losses[0],"loss_last":losses[-1],"answer_loss_first":answer_losses[0],"answer_loss_last":answer_losses[-1],"tokens":tokens,"rows_used":len(rows),"levels_used":sorted({x.level for x in rows}),"loss_mask":"answer_span_plus_eos","wall_s":time.perf_counter()-start,"param_sha_before":before,"param_sha_after":after,"parameters_changed":before!=after,"checkpoint":str(ckpt),"device":"cuda" if torch.cuda.is_available() else "cpu"}
+    return {"arm":out.name,"seed":seed,"init_seed":init_seed,"permutation_seed":permutation_seed,"requested_steps":steps,"optimizer_steps_executed":actual,"lr":lr,"permute":permute,"loss_first":losses[0],"loss_last":losses[-1],"answer_loss_first":answer_losses[0],"answer_loss_last":answer_losses[-1],"tokens":tokens,"rows_used":len(rows),"levels_used":sorted({x.level for x in rows}),"loss_mask":"answer_span_plus_eos","wall_s":time.perf_counter()-start,"param_sha_before":before,"param_sha_after":after,"parameters_changed":before!=after,"checkpoint":str(ckpt),"device":"cuda" if torch.cuda.is_available() else "cpu"}

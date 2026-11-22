@@ -1,0 +1,7478 @@
+{
+  "zero": {
+    "status": "ZERO_TRAINING_BASELINE",
+    "seed": 20261123,
+    "optimizer_steps": 0,
+    "items": 240,
+    "exact_match": 0.0,
+    "counterfactual_pair_pass": 0.0,
+    "counterfactual_pairs": 80,
+    "response_source": "neural_only_random_initialization",
+    "items_detail": [
+      {
+        "item_id": "L0-sealed-0000",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0001",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0002",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0003",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0004",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0005",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0006",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0007",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0008",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0009",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0010",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0011",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0012",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0013",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0014",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0015",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0016",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0017",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0018",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0019",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0020",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0021",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0022",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0023",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0024",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0025",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0026",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0027",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0028",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0029",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0030",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0031",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0032",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0033",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0034",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0035",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0036",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0037",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0038",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0039",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0040",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0041",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0042",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0043",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0044",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0045",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0046",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0047",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0048",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0049",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0050",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0051",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0052",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0053",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0054",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0055",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0056",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0057",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0058",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0059",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0060",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0061",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0062",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0063",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0064",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0065",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0066",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0067",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0068",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0069",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0070",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0071",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0072",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0073",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0074",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0075",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0076",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0077",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0078",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L0-sealed-0079",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0080",
+        "pair_id": "cf-000",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0081",
+        "pair_id": "cf-000",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0082",
+        "pair_id": "cf-001",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0083",
+        "pair_id": "cf-001",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0084",
+        "pair_id": "cf-002",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0085",
+        "pair_id": "cf-002",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0086",
+        "pair_id": "cf-003",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0087",
+        "pair_id": "cf-003",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0088",
+        "pair_id": "cf-004",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0089",
+        "pair_id": "cf-004",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0090",
+        "pair_id": "cf-005",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0091",
+        "pair_id": "cf-005",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0092",
+        "pair_id": "cf-006",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0093",
+        "pair_id": "cf-006",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0094",
+        "pair_id": "cf-007",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0095",
+        "pair_id": "cf-007",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0096",
+        "pair_id": "cf-008",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0097",
+        "pair_id": "cf-008",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0098",
+        "pair_id": "cf-009",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0099",
+        "pair_id": "cf-009",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0100",
+        "pair_id": "cf-010",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0101",
+        "pair_id": "cf-010",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0102",
+        "pair_id": "cf-011",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0103",
+        "pair_id": "cf-011",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0104",
+        "pair_id": "cf-012",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0105",
+        "pair_id": "cf-012",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0106",
+        "pair_id": "cf-013",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0107",
+        "pair_id": "cf-013",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0108",
+        "pair_id": "cf-014",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0109",
+        "pair_id": "cf-014",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0110",
+        "pair_id": "cf-015",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0111",
+        "pair_id": "cf-015",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0112",
+        "pair_id": "cf-016",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0113",
+        "pair_id": "cf-016",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0114",
+        "pair_id": "cf-017",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0115",
+        "pair_id": "cf-017",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0116",
+        "pair_id": "cf-018",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0117",
+        "pair_id": "cf-018",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0118",
+        "pair_id": "cf-019",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0119",
+        "pair_id": "cf-019",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0120",
+        "pair_id": "cf-020",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0121",
+        "pair_id": "cf-020",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0122",
+        "pair_id": "cf-021",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0123",
+        "pair_id": "cf-021",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0124",
+        "pair_id": "cf-022",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0125",
+        "pair_id": "cf-022",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0126",
+        "pair_id": "cf-023",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0127",
+        "pair_id": "cf-023",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0128",
+        "pair_id": "cf-024",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0129",
+        "pair_id": "cf-024",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0130",
+        "pair_id": "cf-025",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0131",
+        "pair_id": "cf-025",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0132",
+        "pair_id": "cf-026",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0133",
+        "pair_id": "cf-026",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0134",
+        "pair_id": "cf-027",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0135",
+        "pair_id": "cf-027",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0136",
+        "pair_id": "cf-028",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0137",
+        "pair_id": "cf-028",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0138",
+        "pair_id": "cf-029",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0139",
+        "pair_id": "cf-029",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0140",
+        "pair_id": "cf-030",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0141",
+        "pair_id": "cf-030",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0142",
+        "pair_id": "cf-031",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0143",
+        "pair_id": "cf-031",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0144",
+        "pair_id": "cf-032",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0145",
+        "pair_id": "cf-032",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0146",
+        "pair_id": "cf-033",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0147",
+        "pair_id": "cf-033",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0148",
+        "pair_id": "cf-034",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0149",
+        "pair_id": "cf-034",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0150",
+        "pair_id": "cf-035",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0151",
+        "pair_id": "cf-035",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0152",
+        "pair_id": "cf-036",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0153",
+        "pair_id": "cf-036",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0154",
+        "pair_id": "cf-037",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0155",
+        "pair_id": "cf-037",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0156",
+        "pair_id": "cf-038",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0157",
+        "pair_id": "cf-038",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0158",
+        "pair_id": "cf-039",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0159",
+        "pair_id": "cf-039",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0160",
+        "pair_id": "cf-040",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0161",
+        "pair_id": "cf-040",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0162",
+        "pair_id": "cf-041",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0163",
+        "pair_id": "cf-041",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0164",
+        "pair_id": "cf-042",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0165",
+        "pair_id": "cf-042",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0166",
+        "pair_id": "cf-043",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0167",
+        "pair_id": "cf-043",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0168",
+        "pair_id": "cf-044",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0169",
+        "pair_id": "cf-044",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0170",
+        "pair_id": "cf-045",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0171",
+        "pair_id": "cf-045",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0172",
+        "pair_id": "cf-046",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0173",
+        "pair_id": "cf-046",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0174",
+        "pair_id": "cf-047",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0175",
+        "pair_id": "cf-047",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0176",
+        "pair_id": "cf-048",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0177",
+        "pair_id": "cf-048",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0178",
+        "pair_id": "cf-049",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0179",
+        "pair_id": "cf-049",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0180",
+        "pair_id": "cf-050",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0181",
+        "pair_id": "cf-050",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0182",
+        "pair_id": "cf-051",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0183",
+        "pair_id": "cf-051",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0184",
+        "pair_id": "cf-052",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0185",
+        "pair_id": "cf-052",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0186",
+        "pair_id": "cf-053",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0187",
+        "pair_id": "cf-053",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0188",
+        "pair_id": "cf-054",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0189",
+        "pair_id": "cf-054",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0190",
+        "pair_id": "cf-055",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0191",
+        "pair_id": "cf-055",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0192",
+        "pair_id": "cf-056",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0193",
+        "pair_id": "cf-056",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0194",
+        "pair_id": "cf-057",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0195",
+        "pair_id": "cf-057",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0196",
+        "pair_id": "cf-058",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0197",
+        "pair_id": "cf-058",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0198",
+        "pair_id": "cf-059",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0199",
+        "pair_id": "cf-059",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0200",
+        "pair_id": "cf-060",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0201",
+        "pair_id": "cf-060",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0202",
+        "pair_id": "cf-061",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0203",
+        "pair_id": "cf-061",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0204",
+        "pair_id": "cf-062",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0205",
+        "pair_id": "cf-062",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0206",
+        "pair_id": "cf-063",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0207",
+        "pair_id": "cf-063",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0208",
+        "pair_id": "cf-064",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0209",
+        "pair_id": "cf-064",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0210",
+        "pair_id": "cf-065",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0211",
+        "pair_id": "cf-065",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0212",
+        "pair_id": "cf-066",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0213",
+        "pair_id": "cf-066",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0214",
+        "pair_id": "cf-067",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0215",
+        "pair_id": "cf-067",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0216",
+        "pair_id": "cf-068",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0217",
+        "pair_id": "cf-068",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0218",
+        "pair_id": "cf-069",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0219",
+        "pair_id": "cf-069",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0220",
+        "pair_id": "cf-070",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0221",
+        "pair_id": "cf-070",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0222",
+        "pair_id": "cf-071",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0223",
+        "pair_id": "cf-071",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0224",
+        "pair_id": "cf-072",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0225",
+        "pair_id": "cf-072",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0226",
+        "pair_id": "cf-073",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0227",
+        "pair_id": "cf-073",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0228",
+        "pair_id": "cf-074",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0229",
+        "pair_id": "cf-074",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0230",
+        "pair_id": "cf-075",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0231",
+        "pair_id": "cf-075",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0232",
+        "pair_id": "cf-076",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0233",
+        "pair_id": "cf-076",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0234",
+        "pair_id": "cf-077",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0235",
+        "pair_id": "cf-077",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0236",
+        "pair_id": "cf-078",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0237",
+        "pair_id": "cf-078",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0238",
+        "pair_id": "cf-079",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      },
+      {
+        "item_id": "L1-sealed-0239",
+        "pair_id": "cf-079",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false
+      }
+    ]
+  },
+  "main": {
+    "items": [
+      {
+        "item_id": "L0-sealed-0000",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0001",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0002",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0003",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0004",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0005",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0006",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0007",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0008",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0009",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0010",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0011",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0012",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0013",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0014",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0015",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0016",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0017",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0018",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0019",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0020",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0021",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0022",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0023",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0024",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0025",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0026",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0027",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0028",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0029",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0030",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0031",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0032",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0033",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0034",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0035",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0036",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0037",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0038",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0039",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0040",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0041",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0042",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0043",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0044",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0045",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0046",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0047",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0048",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0049",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0050",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0051",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0052",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0053",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0054",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0055",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0056",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0057",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0058",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0059",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0060",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0061",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0062",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0063",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0064",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0065",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0066",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0067",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0068",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0069",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0070",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0071",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0072",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0073",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0074",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0075",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0076",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0077",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0078",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0079",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0080",
+        "pair_id": "cf-000",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0081",
+        "pair_id": "cf-000",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0082",
+        "pair_id": "cf-001",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0083",
+        "pair_id": "cf-001",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0084",
+        "pair_id": "cf-002",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0085",
+        "pair_id": "cf-002",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0086",
+        "pair_id": "cf-003",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0087",
+        "pair_id": "cf-003",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0088",
+        "pair_id": "cf-004",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0089",
+        "pair_id": "cf-004",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0090",
+        "pair_id": "cf-005",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0091",
+        "pair_id": "cf-005",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0092",
+        "pair_id": "cf-006",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0093",
+        "pair_id": "cf-006",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0094",
+        "pair_id": "cf-007",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0095",
+        "pair_id": "cf-007",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0096",
+        "pair_id": "cf-008",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0097",
+        "pair_id": "cf-008",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0098",
+        "pair_id": "cf-009",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0099",
+        "pair_id": "cf-009",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0100",
+        "pair_id": "cf-010",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0101",
+        "pair_id": "cf-010",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0102",
+        "pair_id": "cf-011",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0103",
+        "pair_id": "cf-011",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0104",
+        "pair_id": "cf-012",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0105",
+        "pair_id": "cf-012",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0106",
+        "pair_id": "cf-013",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0107",
+        "pair_id": "cf-013",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0108",
+        "pair_id": "cf-014",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0109",
+        "pair_id": "cf-014",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0110",
+        "pair_id": "cf-015",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0111",
+        "pair_id": "cf-015",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0112",
+        "pair_id": "cf-016",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0113",
+        "pair_id": "cf-016",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0114",
+        "pair_id": "cf-017",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0115",
+        "pair_id": "cf-017",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0116",
+        "pair_id": "cf-018",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0117",
+        "pair_id": "cf-018",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0118",
+        "pair_id": "cf-019",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0119",
+        "pair_id": "cf-019",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0120",
+        "pair_id": "cf-020",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0121",
+        "pair_id": "cf-020",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0122",
+        "pair_id": "cf-021",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0123",
+        "pair_id": "cf-021",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0124",
+        "pair_id": "cf-022",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0125",
+        "pair_id": "cf-022",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0126",
+        "pair_id": "cf-023",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0127",
+        "pair_id": "cf-023",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0128",
+        "pair_id": "cf-024",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0129",
+        "pair_id": "cf-024",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0130",
+        "pair_id": "cf-025",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0131",
+        "pair_id": "cf-025",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0132",
+        "pair_id": "cf-026",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0133",
+        "pair_id": "cf-026",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0134",
+        "pair_id": "cf-027",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0135",
+        "pair_id": "cf-027",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0136",
+        "pair_id": "cf-028",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0137",
+        "pair_id": "cf-028",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0138",
+        "pair_id": "cf-029",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0139",
+        "pair_id": "cf-029",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0140",
+        "pair_id": "cf-030",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0141",
+        "pair_id": "cf-030",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0142",
+        "pair_id": "cf-031",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0143",
+        "pair_id": "cf-031",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0144",
+        "pair_id": "cf-032",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0145",
+        "pair_id": "cf-032",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0146",
+        "pair_id": "cf-033",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0147",
+        "pair_id": "cf-033",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0148",
+        "pair_id": "cf-034",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0149",
+        "pair_id": "cf-034",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0150",
+        "pair_id": "cf-035",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0151",
+        "pair_id": "cf-035",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0152",
+        "pair_id": "cf-036",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0153",
+        "pair_id": "cf-036",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0154",
+        "pair_id": "cf-037",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0155",
+        "pair_id": "cf-037",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0156",
+        "pair_id": "cf-038",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0157",
+        "pair_id": "cf-038",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0158",
+        "pair_id": "cf-039",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0159",
+        "pair_id": "cf-039",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0160",
+        "pair_id": "cf-040",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0161",
+        "pair_id": "cf-040",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0162",
+        "pair_id": "cf-041",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0163",
+        "pair_id": "cf-041",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0164",
+        "pair_id": "cf-042",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0165",
+        "pair_id": "cf-042",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0166",
+        "pair_id": "cf-043",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0167",
+        "pair_id": "cf-043",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0168",
+        "pair_id": "cf-044",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0169",
+        "pair_id": "cf-044",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0170",
+        "pair_id": "cf-045",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0171",
+        "pair_id": "cf-045",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0172",
+        "pair_id": "cf-046",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0173",
+        "pair_id": "cf-046",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0174",
+        "pair_id": "cf-047",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0175",
+        "pair_id": "cf-047",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0176",
+        "pair_id": "cf-048",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0177",
+        "pair_id": "cf-048",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0178",
+        "pair_id": "cf-049",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0179",
+        "pair_id": "cf-049",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0180",
+        "pair_id": "cf-050",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0181",
+        "pair_id": "cf-050",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0182",
+        "pair_id": "cf-051",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0183",
+        "pair_id": "cf-051",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0184",
+        "pair_id": "cf-052",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0185",
+        "pair_id": "cf-052",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0186",
+        "pair_id": "cf-053",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0187",
+        "pair_id": "cf-053",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0188",
+        "pair_id": "cf-054",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0189",
+        "pair_id": "cf-054",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0190",
+        "pair_id": "cf-055",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0191",
+        "pair_id": "cf-055",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0192",
+        "pair_id": "cf-056",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0193",
+        "pair_id": "cf-056",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0194",
+        "pair_id": "cf-057",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0195",
+        "pair_id": "cf-057",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0196",
+        "pair_id": "cf-058",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0197",
+        "pair_id": "cf-058",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0198",
+        "pair_id": "cf-059",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0199",
+        "pair_id": "cf-059",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0200",
+        "pair_id": "cf-060",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0201",
+        "pair_id": "cf-060",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0202",
+        "pair_id": "cf-061",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0203",
+        "pair_id": "cf-061",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0204",
+        "pair_id": "cf-062",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0205",
+        "pair_id": "cf-062",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0206",
+        "pair_id": "cf-063",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0207",
+        "pair_id": "cf-063",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0208",
+        "pair_id": "cf-064",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0209",
+        "pair_id": "cf-064",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0210",
+        "pair_id": "cf-065",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0211",
+        "pair_id": "cf-065",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0212",
+        "pair_id": "cf-066",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0213",
+        "pair_id": "cf-066",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0214",
+        "pair_id": "cf-067",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0215",
+        "pair_id": "cf-067",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0216",
+        "pair_id": "cf-068",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0217",
+        "pair_id": "cf-068",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0218",
+        "pair_id": "cf-069",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0219",
+        "pair_id": "cf-069",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0220",
+        "pair_id": "cf-070",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0221",
+        "pair_id": "cf-070",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0222",
+        "pair_id": "cf-071",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0223",
+        "pair_id": "cf-071",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0224",
+        "pair_id": "cf-072",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0225",
+        "pair_id": "cf-072",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0226",
+        "pair_id": "cf-073",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0227",
+        "pair_id": "cf-073",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0228",
+        "pair_id": "cf-074",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0229",
+        "pair_id": "cf-074",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0230",
+        "pair_id": "cf-075",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0231",
+        "pair_id": "cf-075",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0232",
+        "pair_id": "cf-076",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0233",
+        "pair_id": "cf-076",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0234",
+        "pair_id": "cf-077",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0235",
+        "pair_id": "cf-077",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0236",
+        "pair_id": "cf-078",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0237",
+        "pair_id": "cf-078",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0238",
+        "pair_id": "cf-079",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0239",
+        "pair_id": "cf-079",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      }
+    ],
+    "exact_match": 0.16666666666666666,
+    "counterfactual_pair_pass": 0.0,
+    "counterfactual_pairs": 80,
+    "response_source": "neural"
+  },
+  "label_permutation": {
+    "items": [
+      {
+        "item_id": "L0-sealed-0000",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0001",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0002",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0003",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0004",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0005",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0006",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0007",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0008",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0009",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0010",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0011",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0012",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0013",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0014",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0015",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0016",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0017",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0018",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0019",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0020",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0021",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0022",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0023",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0024",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0025",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0026",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0027",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0028",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0029",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0030",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0031",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0032",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0033",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0034",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0035",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0036",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0037",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0038",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0039",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0040",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0041",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0042",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0043",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0044",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0045",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0046",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0047",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0048",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0049",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0050",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0051",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0052",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0053",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0054",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0055",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0056",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0057",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0058",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0059",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0060",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0061",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0062",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0063",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0064",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0065",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0066",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0067",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0068",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0069",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0070",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0071",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0072",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0073",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0074",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0075",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0076",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0077",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0078",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0079",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0080",
+        "pair_id": "cf-000",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0081",
+        "pair_id": "cf-000",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0082",
+        "pair_id": "cf-001",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0083",
+        "pair_id": "cf-001",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0084",
+        "pair_id": "cf-002",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0085",
+        "pair_id": "cf-002",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0086",
+        "pair_id": "cf-003",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0087",
+        "pair_id": "cf-003",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0088",
+        "pair_id": "cf-004",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0089",
+        "pair_id": "cf-004",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0090",
+        "pair_id": "cf-005",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0091",
+        "pair_id": "cf-005",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0092",
+        "pair_id": "cf-006",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0093",
+        "pair_id": "cf-006",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0094",
+        "pair_id": "cf-007",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0095",
+        "pair_id": "cf-007",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0096",
+        "pair_id": "cf-008",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0097",
+        "pair_id": "cf-008",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0098",
+        "pair_id": "cf-009",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0099",
+        "pair_id": "cf-009",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0100",
+        "pair_id": "cf-010",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0101",
+        "pair_id": "cf-010",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0102",
+        "pair_id": "cf-011",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0103",
+        "pair_id": "cf-011",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0104",
+        "pair_id": "cf-012",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0105",
+        "pair_id": "cf-012",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0106",
+        "pair_id": "cf-013",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0107",
+        "pair_id": "cf-013",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0108",
+        "pair_id": "cf-014",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0109",
+        "pair_id": "cf-014",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0110",
+        "pair_id": "cf-015",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0111",
+        "pair_id": "cf-015",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0112",
+        "pair_id": "cf-016",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0113",
+        "pair_id": "cf-016",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0114",
+        "pair_id": "cf-017",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0115",
+        "pair_id": "cf-017",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0116",
+        "pair_id": "cf-018",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0117",
+        "pair_id": "cf-018",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0118",
+        "pair_id": "cf-019",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0119",
+        "pair_id": "cf-019",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0120",
+        "pair_id": "cf-020",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0121",
+        "pair_id": "cf-020",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0122",
+        "pair_id": "cf-021",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0123",
+        "pair_id": "cf-021",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0124",
+        "pair_id": "cf-022",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0125",
+        "pair_id": "cf-022",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0126",
+        "pair_id": "cf-023",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0127",
+        "pair_id": "cf-023",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0128",
+        "pair_id": "cf-024",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0129",
+        "pair_id": "cf-024",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0130",
+        "pair_id": "cf-025",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0131",
+        "pair_id": "cf-025",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0132",
+        "pair_id": "cf-026",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0133",
+        "pair_id": "cf-026",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0134",
+        "pair_id": "cf-027",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0135",
+        "pair_id": "cf-027",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0136",
+        "pair_id": "cf-028",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0137",
+        "pair_id": "cf-028",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0138",
+        "pair_id": "cf-029",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0139",
+        "pair_id": "cf-029",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0140",
+        "pair_id": "cf-030",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0141",
+        "pair_id": "cf-030",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0142",
+        "pair_id": "cf-031",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0143",
+        "pair_id": "cf-031",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0144",
+        "pair_id": "cf-032",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0145",
+        "pair_id": "cf-032",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0146",
+        "pair_id": "cf-033",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0147",
+        "pair_id": "cf-033",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0148",
+        "pair_id": "cf-034",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0149",
+        "pair_id": "cf-034",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0150",
+        "pair_id": "cf-035",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0151",
+        "pair_id": "cf-035",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0152",
+        "pair_id": "cf-036",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0153",
+        "pair_id": "cf-036",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0154",
+        "pair_id": "cf-037",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0155",
+        "pair_id": "cf-037",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0156",
+        "pair_id": "cf-038",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0157",
+        "pair_id": "cf-038",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0158",
+        "pair_id": "cf-039",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0159",
+        "pair_id": "cf-039",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0160",
+        "pair_id": "cf-040",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0161",
+        "pair_id": "cf-040",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0162",
+        "pair_id": "cf-041",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0163",
+        "pair_id": "cf-041",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0164",
+        "pair_id": "cf-042",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0165",
+        "pair_id": "cf-042",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0166",
+        "pair_id": "cf-043",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0167",
+        "pair_id": "cf-043",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0168",
+        "pair_id": "cf-044",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0169",
+        "pair_id": "cf-044",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0170",
+        "pair_id": "cf-045",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0171",
+        "pair_id": "cf-045",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0172",
+        "pair_id": "cf-046",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0173",
+        "pair_id": "cf-046",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0174",
+        "pair_id": "cf-047",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0175",
+        "pair_id": "cf-047",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0176",
+        "pair_id": "cf-048",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0177",
+        "pair_id": "cf-048",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0178",
+        "pair_id": "cf-049",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0179",
+        "pair_id": "cf-049",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0180",
+        "pair_id": "cf-050",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0181",
+        "pair_id": "cf-050",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0182",
+        "pair_id": "cf-051",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0183",
+        "pair_id": "cf-051",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0184",
+        "pair_id": "cf-052",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0185",
+        "pair_id": "cf-052",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0186",
+        "pair_id": "cf-053",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0187",
+        "pair_id": "cf-053",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0188",
+        "pair_id": "cf-054",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0189",
+        "pair_id": "cf-054",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0190",
+        "pair_id": "cf-055",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0191",
+        "pair_id": "cf-055",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0192",
+        "pair_id": "cf-056",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0193",
+        "pair_id": "cf-056",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0194",
+        "pair_id": "cf-057",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0195",
+        "pair_id": "cf-057",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0196",
+        "pair_id": "cf-058",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0197",
+        "pair_id": "cf-058",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0198",
+        "pair_id": "cf-059",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0199",
+        "pair_id": "cf-059",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0200",
+        "pair_id": "cf-060",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0201",
+        "pair_id": "cf-060",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0202",
+        "pair_id": "cf-061",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0203",
+        "pair_id": "cf-061",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0204",
+        "pair_id": "cf-062",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0205",
+        "pair_id": "cf-062",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0206",
+        "pair_id": "cf-063",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0207",
+        "pair_id": "cf-063",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0208",
+        "pair_id": "cf-064",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0209",
+        "pair_id": "cf-064",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0210",
+        "pair_id": "cf-065",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0211",
+        "pair_id": "cf-065",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0212",
+        "pair_id": "cf-066",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0213",
+        "pair_id": "cf-066",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0214",
+        "pair_id": "cf-067",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0215",
+        "pair_id": "cf-067",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0216",
+        "pair_id": "cf-068",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0217",
+        "pair_id": "cf-068",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0218",
+        "pair_id": "cf-069",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0219",
+        "pair_id": "cf-069",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0220",
+        "pair_id": "cf-070",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0221",
+        "pair_id": "cf-070",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0222",
+        "pair_id": "cf-071",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0223",
+        "pair_id": "cf-071",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0224",
+        "pair_id": "cf-072",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0225",
+        "pair_id": "cf-072",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0226",
+        "pair_id": "cf-073",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0227",
+        "pair_id": "cf-073",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0228",
+        "pair_id": "cf-074",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0229",
+        "pair_id": "cf-074",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0230",
+        "pair_id": "cf-075",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0231",
+        "pair_id": "cf-075",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0232",
+        "pair_id": "cf-076",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0233",
+        "pair_id": "cf-076",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0234",
+        "pair_id": "cf-077",
+        "expected": "桌子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0235",
+        "pair_id": "cf-077",
+        "expected": "架子",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0236",
+        "pair_id": "cf-078",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0237",
+        "pair_id": "cf-078",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0238",
+        "pair_id": "cf-079",
+        "expected": "盒子",
+        "prediction": "盒子",
+        "exact_match": true,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0239",
+        "pair_id": "cf-079",
+        "expected": "地板",
+        "prediction": "盒子",
+        "exact_match": false,
+        "source": "neural_only"
+      }
+    ],
+    "exact_match": 0.16666666666666666,
+    "counterfactual_pair_pass": 0.0,
+    "counterfactual_pairs": 80,
+    "response_source": "neural"
+  },
+  "lr_zero": {
+    "items": [
+      {
+        "item_id": "L0-sealed-0000",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0001",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0002",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0003",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0004",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0005",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0006",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0007",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0008",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0009",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0010",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0011",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0012",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0013",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0014",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0015",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0016",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0017",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0018",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0019",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0020",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0021",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0022",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0023",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0024",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0025",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0026",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0027",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0028",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0029",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0030",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0031",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0032",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0033",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0034",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0035",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0036",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0037",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0038",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0039",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0040",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0041",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0042",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0043",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0044",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0045",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0046",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0047",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0048",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0049",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0050",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0051",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0052",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0053",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0054",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0055",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0056",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0057",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0058",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0059",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0060",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0061",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0062",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0063",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0064",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0065",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0066",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0067",
+        "pair_id": null,
+        "expected": "红色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0068",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0069",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0070",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0071",
+        "pair_id": null,
+        "expected": "蓝色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0072",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0073",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0074",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0075",
+        "pair_id": null,
+        "expected": "绿色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0076",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0077",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0078",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L0-sealed-0079",
+        "pair_id": null,
+        "expected": "黄色",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0080",
+        "pair_id": "cf-000",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0081",
+        "pair_id": "cf-000",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0082",
+        "pair_id": "cf-001",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0083",
+        "pair_id": "cf-001",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0084",
+        "pair_id": "cf-002",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0085",
+        "pair_id": "cf-002",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0086",
+        "pair_id": "cf-003",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0087",
+        "pair_id": "cf-003",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0088",
+        "pair_id": "cf-004",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0089",
+        "pair_id": "cf-004",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0090",
+        "pair_id": "cf-005",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0091",
+        "pair_id": "cf-005",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0092",
+        "pair_id": "cf-006",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0093",
+        "pair_id": "cf-006",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0094",
+        "pair_id": "cf-007",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0095",
+        "pair_id": "cf-007",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0096",
+        "pair_id": "cf-008",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0097",
+        "pair_id": "cf-008",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0098",
+        "pair_id": "cf-009",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0099",
+        "pair_id": "cf-009",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0100",
+        "pair_id": "cf-010",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0101",
+        "pair_id": "cf-010",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0102",
+        "pair_id": "cf-011",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0103",
+        "pair_id": "cf-011",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0104",
+        "pair_id": "cf-012",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0105",
+        "pair_id": "cf-012",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0106",
+        "pair_id": "cf-013",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0107",
+        "pair_id": "cf-013",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0108",
+        "pair_id": "cf-014",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0109",
+        "pair_id": "cf-014",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0110",
+        "pair_id": "cf-015",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0111",
+        "pair_id": "cf-015",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0112",
+        "pair_id": "cf-016",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0113",
+        "pair_id": "cf-016",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0114",
+        "pair_id": "cf-017",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0115",
+        "pair_id": "cf-017",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0116",
+        "pair_id": "cf-018",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0117",
+        "pair_id": "cf-018",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0118",
+        "pair_id": "cf-019",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0119",
+        "pair_id": "cf-019",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0120",
+        "pair_id": "cf-020",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0121",
+        "pair_id": "cf-020",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0122",
+        "pair_id": "cf-021",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0123",
+        "pair_id": "cf-021",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0124",
+        "pair_id": "cf-022",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0125",
+        "pair_id": "cf-022",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0126",
+        "pair_id": "cf-023",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0127",
+        "pair_id": "cf-023",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0128",
+        "pair_id": "cf-024",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0129",
+        "pair_id": "cf-024",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0130",
+        "pair_id": "cf-025",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0131",
+        "pair_id": "cf-025",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0132",
+        "pair_id": "cf-026",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0133",
+        "pair_id": "cf-026",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0134",
+        "pair_id": "cf-027",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0135",
+        "pair_id": "cf-027",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0136",
+        "pair_id": "cf-028",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0137",
+        "pair_id": "cf-028",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0138",
+        "pair_id": "cf-029",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0139",
+        "pair_id": "cf-029",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0140",
+        "pair_id": "cf-030",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0141",
+        "pair_id": "cf-030",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0142",
+        "pair_id": "cf-031",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0143",
+        "pair_id": "cf-031",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0144",
+        "pair_id": "cf-032",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0145",
+        "pair_id": "cf-032",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0146",
+        "pair_id": "cf-033",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0147",
+        "pair_id": "cf-033",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0148",
+        "pair_id": "cf-034",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0149",
+        "pair_id": "cf-034",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0150",
+        "pair_id": "cf-035",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0151",
+        "pair_id": "cf-035",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0152",
+        "pair_id": "cf-036",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0153",
+        "pair_id": "cf-036",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0154",
+        "pair_id": "cf-037",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0155",
+        "pair_id": "cf-037",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0156",
+        "pair_id": "cf-038",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0157",
+        "pair_id": "cf-038",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0158",
+        "pair_id": "cf-039",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0159",
+        "pair_id": "cf-039",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0160",
+        "pair_id": "cf-040",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0161",
+        "pair_id": "cf-040",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0162",
+        "pair_id": "cf-041",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0163",
+        "pair_id": "cf-041",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0164",
+        "pair_id": "cf-042",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0165",
+        "pair_id": "cf-042",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0166",
+        "pair_id": "cf-043",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0167",
+        "pair_id": "cf-043",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0168",
+        "pair_id": "cf-044",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0169",
+        "pair_id": "cf-044",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0170",
+        "pair_id": "cf-045",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0171",
+        "pair_id": "cf-045",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0172",
+        "pair_id": "cf-046",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0173",
+        "pair_id": "cf-046",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0174",
+        "pair_id": "cf-047",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0175",
+        "pair_id": "cf-047",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0176",
+        "pair_id": "cf-048",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0177",
+        "pair_id": "cf-048",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0178",
+        "pair_id": "cf-049",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0179",
+        "pair_id": "cf-049",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0180",
+        "pair_id": "cf-050",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0181",
+        "pair_id": "cf-050",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0182",
+        "pair_id": "cf-051",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0183",
+        "pair_id": "cf-051",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0184",
+        "pair_id": "cf-052",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0185",
+        "pair_id": "cf-052",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0186",
+        "pair_id": "cf-053",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0187",
+        "pair_id": "cf-053",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0188",
+        "pair_id": "cf-054",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0189",
+        "pair_id": "cf-054",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0190",
+        "pair_id": "cf-055",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0191",
+        "pair_id": "cf-055",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0192",
+        "pair_id": "cf-056",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0193",
+        "pair_id": "cf-056",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0194",
+        "pair_id": "cf-057",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0195",
+        "pair_id": "cf-057",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0196",
+        "pair_id": "cf-058",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0197",
+        "pair_id": "cf-058",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0198",
+        "pair_id": "cf-059",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0199",
+        "pair_id": "cf-059",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0200",
+        "pair_id": "cf-060",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0201",
+        "pair_id": "cf-060",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0202",
+        "pair_id": "cf-061",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0203",
+        "pair_id": "cf-061",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0204",
+        "pair_id": "cf-062",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0205",
+        "pair_id": "cf-062",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0206",
+        "pair_id": "cf-063",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0207",
+        "pair_id": "cf-063",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0208",
+        "pair_id": "cf-064",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0209",
+        "pair_id": "cf-064",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0210",
+        "pair_id": "cf-065",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0211",
+        "pair_id": "cf-065",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0212",
+        "pair_id": "cf-066",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0213",
+        "pair_id": "cf-066",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0214",
+        "pair_id": "cf-067",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0215",
+        "pair_id": "cf-067",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0216",
+        "pair_id": "cf-068",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0217",
+        "pair_id": "cf-068",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0218",
+        "pair_id": "cf-069",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0219",
+        "pair_id": "cf-069",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0220",
+        "pair_id": "cf-070",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0221",
+        "pair_id": "cf-070",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0222",
+        "pair_id": "cf-071",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0223",
+        "pair_id": "cf-071",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0224",
+        "pair_id": "cf-072",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0225",
+        "pair_id": "cf-072",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0226",
+        "pair_id": "cf-073",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0227",
+        "pair_id": "cf-073",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0228",
+        "pair_id": "cf-074",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0229",
+        "pair_id": "cf-074",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0230",
+        "pair_id": "cf-075",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0231",
+        "pair_id": "cf-075",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0232",
+        "pair_id": "cf-076",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0233",
+        "pair_id": "cf-076",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0234",
+        "pair_id": "cf-077",
+        "expected": "桌子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0235",
+        "pair_id": "cf-077",
+        "expected": "架子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0236",
+        "pair_id": "cf-078",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0237",
+        "pair_id": "cf-078",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0238",
+        "pair_id": "cf-079",
+        "expected": "盒子",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      },
+      {
+        "item_id": "L1-sealed-0239",
+        "pair_id": "cf-079",
+        "expected": "地板",
+        "prediction": "<invalid-byte>",
+        "exact_match": false,
+        "source": "neural_only"
+      }
+    ],
+    "exact_match": 0.0,
+    "counterfactual_pair_pass": 0.0,
+    "counterfactual_pairs": 80,
+    "response_source": "neural"
+  }
+}

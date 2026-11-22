@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETED",
+  "steps_by_arm": {
+    "main": 512,
+    "label_permutation": 512,
+    "lr_zero": 32
+  },
+  "optimizer_steps_total": 1056,
+  "wall_s": 533.2936020999987,
+  "within_budget": true,
+  "stable": "read-only"
+}

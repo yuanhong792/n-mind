@@ -19,4 +19,4 @@ def zero_step_gate2_baseline(items: list[Gate2Item], seed: int = 20261123, limit
     pairs={}
     for row in rows:
         if row["pair_id"]: pairs.setdefault(row["pair_id"],[]).append(row["exact_match"])
-    return {"status":"ZERO_TRAINING_BASELINE","seed":seed,"optimizer_steps":0,"items":len(rows),"exact_match":sum(x["exact_match"] for x in rows)/max(1,len(rows)),"counterfactual_pair_pass":sum(all(x) for x in pairs.values())/max(1,len(pairs)),"counterfactual_pairs":len(pairs),"response_source":"neural_only_random_initialization"}
+    return {"status":"ZERO_TRAINING_BASELINE","seed":seed,"optimizer_steps":0,"items":len(rows),"exact_match":sum(x["exact_match"] for x in rows)/max(1,len(rows)),"counterfactual_pair_pass":sum(all(x) for x in pairs.values())/max(1,len(pairs)),"counterfactual_pairs":len(pairs),"response_source":"neural_only_random_initialization","items_detail":rows}

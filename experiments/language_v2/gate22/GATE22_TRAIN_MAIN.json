@@ -1,0 +1,27 @@
+{
+  "arm": "main",
+  "seed": 20261123,
+  "init_seed": 20261123,
+  "permutation_seed": null,
+  "requested_steps": 512,
+  "optimizer_steps_executed": 512,
+  "lr": 0.001,
+  "permute": false,
+  "loss_first": 5.499861240386963,
+  "loss_last": 0.7221441864967346,
+  "answer_loss_first": 5.499861240386963,
+  "answer_loss_last": 0.7221441864967346,
+  "tokens": 3584,
+  "rows_used": 512,
+  "levels_used": [
+    "L0",
+    "L1"
+  ],
+  "loss_mask": "answer_span_plus_eos",
+  "wall_s": 183.74709620000067,
+  "param_sha_before": "d04f762d4042d8cdd443ef3d32a2f4437f18001616af42ffedfc0efea5018cf2",
+  "param_sha_after": "0420efc6abc7eb42733ee1949bc999a6d2d9e615f90913c64abcd323ce398370",
+  "parameters_changed": true,
+  "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate22\\runs\\main\\candidate.pt",
+  "device": "cpu"
+}
