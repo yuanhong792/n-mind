@@ -8,10 +8,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .chat_service import ChatService
-from .idle_explorer import IdleWebExplorer
-from .knowledge_search import KnowledgeSearch
-from .source_registry import SourceRegistry
+from ..chat_service import ChatService
+from ..idle_explorer import IdleWebExplorer
+from ..knowledge_search import KnowledgeSearch
+from ..source_registry import SourceRegistry
 
 
 def build_web_stack(policy, offline: bool, registry: SourceRegistry,
@@ -21,11 +21,11 @@ def build_web_stack(policy, offline: bool, registry: SourceRegistry,
     stable 权重解析与 CLI run / Tkinter 完全相同：bot 根目录副本优先，
     词表哈希校验拒绝加载不兼容 checkpoint；缺失时模型侧如实标缺失。
     """
-    from ..language.neural_dialogue import load_lm
-    from ..language.tokenizer import CharTokenizer
-    from ..online.promotion import file_sha256
+    from ...language.neural_dialogue import load_lm
+    from ...language.tokenizer import CharTokenizer
+    from ...online.promotion import file_sha256
 
-    from ..memory import MemoryService, MemoryStore
+    from ...memory import MemoryService, MemoryStore
     memory_service = MemoryService(MemoryStore(root_dir / "memory.db"))
     chat_service = ChatService(knowledge=knowledge, memory_service=memory_service)
     stable = root_dir / "stable_model.pt"
@@ -46,7 +46,7 @@ def build_web_stack(policy, offline: bool, registry: SourceRegistry,
 
 def load_stable_pair(args) -> tuple[Path | None, Path | None]:
     """与 CLI 的 stable 权重解析同口径（供 Web 服务单独调用时复用）。"""
-    from ..cli import _root, _stable_pair
+    from ...cli import _root, _stable_pair
     return _stable_pair(args, _root(args))
 
 

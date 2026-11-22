@@ -1,0 +1,1 @@
+{"experiment":"Autonomous Planning V1","tasks":50,"arms":["rule","neural_candidate","memory_assisted"],"optimizer_steps":0,"network":"offline","status":"PREREGISTERED"}

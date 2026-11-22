@@ -106,6 +106,10 @@ class _Handler(BaseHTTPRequestHandler):
             q = (query or {}).get("query", [""])[0]
             self._json(200, self.api.memory_search(q))
             return
+        if path.startswith("/api/planning/") and path.endswith("/events"):
+            task_id = path[len("/api/planning/"):-len("/events")]
+            self._json(200, {"task_id": task_id, "events": self.api.planning_store.events(task_id)})
+            return
         if path == "/api/web/status":
             self._json(200, self.api.web_status())
             return
@@ -188,6 +192,16 @@ class _Handler(BaseHTTPRequestHandler):
             mid = int(path[len("/api/memories/"):-len("/feedback")])
             self._json(200, self.api.memory_feedback(mid, body))
             return
+        if path == "/api/planning/goals":
+            request = str(body.get("request") or "").strip()
+            if not request:
+                self._json(400, {"error": "request 不能为空"})
+                return
+            self._json(202, self.api.create_planning_goal(request))
+            return
+        if path == "/api/planning/control":
+            self._json(200, self.api.planning_control(str(body.get("action") or "")))
+            return
         if path == "/api/web/sites":
             host = str(body.get("host") or "").strip().lower().rstrip("/")
             scope = str(body.get("path_scope") or "")
@@ -255,6 +269,11 @@ class WebBotServer:
         self._service_thread: threading.Thread | None = None
         self._url: str = ""
         self.runtime: Any = None
+        from ..planning import PlanningStore, PlanExecutor, RulePlanner
+        from ..planning.tool_adapter import build_tools
+        self.planning_store = PlanningStore(Path(root_dir) / "planning.db")
+        self.planner = RulePlanner()
+        self.planning_executor = PlanExecutor(self.planning_store, build_tools(knowledge=knowledge, memory=getattr(chat_service, "memory_service", None)), memory=getattr(chat_service, "memory_service", None))
         self._build_runtime(root_dir, offline)
 
     def _build_runtime(self, root_dir, offline) -> None:
@@ -410,6 +429,21 @@ class WebBotServer:
             return {"events": [], "error": str(exc)}
 
     # ---------------------------------------------------------------- 聊天
+    def create_planning_goal(self, request: str) -> dict[str, Any]:
+        from ..planning import GoalSpec
+        goal = GoalSpec.create(request)
+        plan = self.planner.plan(goal)
+        result = self.planning_executor.run(goal, plan)
+        return {"goal_id": goal.goal_id, "plan_source": plan.source,
+                "steps": [s.__dict__ for s in plan.steps], "result": result}
+
+    def planning_control(self, action: str) -> dict[str, Any]:
+        if action == "pause": self.planning_executor.pause()
+        elif action == "resume": self.planning_executor.resume()
+        elif action == "cancel": self.planning_executor.cancel()
+        else: return {"ok": False, "error": "unknown planning action"}
+        return {"ok": True, "action": action}
+
     def create_session(self, title: str) -> str:
         sid = self.client.new_session_id()
         self.client.create_session(sid, title)
@@ -439,7 +473,7 @@ def launch_web_ui(args) -> int:
     """`bot ui` 默认模式：启动本地 Web 工作台并打开浏览器。"""
     import webbrowser
 
-    from ..cli import _policy, _root
+    from .cli import _policy, _root
     from .client import BotClient
     from .knowledge_ingest import ensure_fixture_pages
     from .knowledge_search import KnowledgeSearch

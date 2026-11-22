@@ -53,6 +53,10 @@ class CapabilityTracker:
         _check_vocab("feedback_source", feedback_source, FEEDBACK_SOURCES)
         _check_vocab("learning_target", learning_target, LEARNING_TARGETS)
         rec = self.records.setdefault(capability_id, self._new_rec(capability_id, task_family))
+        # Backward-compatible normalization for tracker records created before
+        # the V1.1 attribution fields existed.
+        for table in ("response_sources", "feedback_sources", "learning_targets"):
+            rec.setdefault(table, {})
         rec["attempts"] += 1
         rec["skill_id"] = skill_id or rec["skill_id"]
         # unverified 永远不计成功：§5 四态反馈里它和 verified 是两个账户
