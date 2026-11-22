@@ -129,6 +129,13 @@ R1 当前基线模型约 **282,589** 参数，M3 微型语言实验模型约 **2
 
 证据：[M3 训练脚本](./experiments/m3_language/run_m3_v1.py) · [M3 结果 JSON](./experiments/m3_language/m3_v1_results.json)
 
+### M5 从零中文语言模型（2026-11-22，早期）
+
+- 自建字符级 tokenizer + NCell/Router/Workspace 自回归语言模型，**452k 参数从随机权重训练**，未导入任何预训练权重。
+- 首轮单 seed 200 步：TF 字符准确率 74.41%，自由生成精确匹配（free-gen EM）3.61%，判定 `PIPELINE_READY_LANGUAGE_NOT_VALIDATED`。
+- M5.1 诊断裁定瓶颈为**欠训练**（训练集 TF-span-EM 12.93% ≈ sealed 12.55%），排除截断、过拟合与路由死块；修正"从零阶段误用局部更新口径"的设计错误后，stage0 单实体复制 free-gen EM **0.50**（过 EM 门槛，TF 0.5 未达 0.9 整门 FAIL），stage1 两实体绑定 **0.15**（低于 0.25 随机线），未见问法工具选择 **100%（45/45）**。
+- 当前自动化测试 **92 项通过**；绑定学习预算（stage0/1 各 600–1000 步）待批准。证据：[M5 报告](./experiments/m5_language/M5_LANGUAGE_REPORT.md) · [M5.1 报告](./experiments/m5_language/M5_1_REPORT.md)
+
 ## 快速开始
 
 ### 系统要求

@@ -38,17 +38,18 @@
 - [x] 增量学习最小闭环 smoke（experiments/m3_incremental/）：四臂对照 1-seed，Neural-Head 未见 B 冲突步 +28.7pp、A 零遗忘；NEURAL_UPDATE_VERIFIED；RESEARCH_VALIDATED 未授予（需多 seed）
 - [x] 联网自主学习链路（模拟网页→验证→经验流→调度→候选更新→封存评测→审计）打通（experiments/m4_online/）；首轮 candidate REJECTED：复位协议下 B_OOD +2.9pp<10pp、A −3.75pp>3pp；关键发现：load_bias 漂移曾伪装 ~26pp“适应”，复位后消失（详见 M4_REPORT.md）；真实联网 NOT_TESTED（默认关，待批准）
 - [x] **M4.1 稳定性预注册复验**（experiments/m4_online/run_m41_stability.py，λ_anchor=0+λ_replay=0.15+48 步）：A 遗忘 −3.75→−2.66pp（≤3pp ✅ 修复生效）；B_OOD(T=32) +1.55pp 仍 <10pp ❌；**诊断修正：瓶颈是长度外推而非 λ**（同集对比锚定配置反而更好 +10.4pp vs +5.8pp；on-distribution 增益随 seed 大幅波动）。候选隔离、stable 未动。报告 M4_1_REPORT.md
-- 🔶 **M5-Language（2026-11-22 第四轮，当前活跃）**：中文受限领域神经语言交互栈建成（tokenizer/七 split 数据+oracle/NMindLM 自回归/自由解码/ChatSession/三条 CLI），单 seed 200 步管线验证通过但语言能力未验证（free-gen EM 3.61% vs 多数基线，PIPELINE_READY_LANGUAGE_NOT_VALIDATED）；与 M5-Network（互联网即知识空间）明确区分：Network=按需联网/工具/验证通路（已建 online/ + M4 集成），Language=自有神经网络的中文生成能力（本轮建成）。两者共用不可信输入隔离与授权约定
+- 🔶 **M5-Language（2026-11-22 第四/五轮，当前活跃）**：中文受限领域神经语言交互栈建成（tokenizer/七 split 数据+oracle/NMindLM 自回归/自由解码/ChatSession/三条 CLI），首轮 200 步 PIPELINE_READY_LANGUAGE_NOT_VALIDATED（free-gen EM 3.61%）。**M5.1 诊断**：截断/路由死块排除，欠训练实锤（train TF-span-EM 12.93%≈sealed 12.55%）+ exposure bias 实锤（TF 12.55%→free 0%）；修正 v1 从零阶段误用局部更新口径的设计错误（改全参，TF 0→0.5）。阶段化验证：stage0 单实体 free-gen EM 0.50（过 EM 门槛、TF 0.5 未达 0.9 整门 FAIL）、stage1 两实体绑定 0.15 FAIL（低于随机线）、工具选择头未见问法 100% PASS（首个完整通过的神经子能力）、continual 按预登记 SKIPPED。下一步 stage0/1 各 600-1000 步验绑定，**需批准**。与 M5-Network（互联网即知识空间）区分：Network=按需联网/工具/验证通路，Language=自有神经网络的中文生成能力。两者共用不可信输入隔离与授权约定
 - 🔶 **M4.2（规划，待批准）**：A→B→C→D 连续技能学习 + 经验回放 + 遗忘矩阵，全部任务同一权重世系；候选方案：混合时域经验流（T=24+32）攻长度外推
 - 🔶 **M5-Network（任务书已下，部分建成）**：online/ 数据通路已建并接入 M4；P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）待排；真实联网与候选部署须批准
 - ⬜ **M6（仅接口规划）**：多模态统一输入描述与模态路由接口，不启动大规模视觉/语音/视频训练
 - ⬜ 多 seed 增量学习验证 + stable/candidate 双轨回测（需用户批准预算）
 - ⬜ 持续学习 A→B→A 全量运行记录（train_continual 已修复，待批准排期）
 
-## M5 语言能力试验 ⬜
+## M5 语言能力试验 🔶
 
-- 当前 `language.source: hash`（哈希袋词特征，不是语言模型）。
-- 前置条件：M2–M4 验收通过。从原始文本训练自有 tokenizer，禁止导入预训练权重。
+- 已从 `language.source: hash`（哈希袋词特征）推进到自建字符级 tokenizer + NMindLM 自回归语言模型（452k 参数，从零训练，无预训练权重）。
+- M5-Language：管线建成但语言能力未验证（free-gen EM 3.61%）；M5.1 阶段化微型验证：stage0 EM 0.50 过 EM 门槛但 TF 整门 FAIL、stage1 绑定 0.15 FAIL、工具选择 100% PASS。下一步绑定预算待批准。
+- M5-Network：互联网即知识空间，online/ 通路已建并接入 M4；P1-P3 待排，真实联网默认关。
 
 ## M6 普通设备部署 ⬜
 

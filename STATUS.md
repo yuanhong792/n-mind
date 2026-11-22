@@ -53,6 +53,24 @@ python -m pytest tests -q          # 27 passed
 - 与 **M5-Network（互联网即知识空间，2026-11-22 第二三轮已建 online/ 数据通路与 M4 集成）** 的关系：两者共用不可信输入隔离/授权开关/来源审计约定；M5-Network 的 P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）被本指令接替尚未开发。
 - 测试 **92 项全绿**（+tests/test_language_m5.py 10 项）。报告：experiments/m5_language/M5_LANGUAGE_REPORT.md。
 
+## M5.1 中文语言理解修复阶段：P0 诊断 + 阶段化微型验证（2026-11-22 第五轮，AutoClaw）
+
+- **P0 诊断（无需重训，diagnose_m5.json）四假设裁定**：①训练截断率 0 → 排除；②过拟合 → 排除（train TF-span-EM 12.93% ≈ sealed 12.55%，连训练集都没背下来 ⇒ **欠训练**）；③exposure bias → **实锤（次因）**（sealed TF-span-EM 12.55% → free-gen 0%）；④路由死块/机制 bug → 排除（8 块负载 0.08–0.15 无死块，TF 条件下部分 span 全对 ⇒ 梯度/状态通路正常）。停止条件正常（eos 82 / newline 15 / max_tokens 4），回声率 6.9%。
+- **v1 设计错误（诚实记录并修正）**：从零阶段误用 M4 的"head+block_to_ws 局部更新"口径（随机主干 + 只训输出头），4 选 1 查找在数学上不可学，stage0 TF=0.0。v2 改为**从零阶段全参训练**，M4 局部更新口径只用于持续学习（父=已训练模型）；修正后 stage0 TF 0.0→0.5、free-gen EM 0→0.5。
+- **机制改进（诊断驱动）**：答案掩码损失（CE 只计答案 span 含 EOS，用户轮与"助手："前缀零梯度）；等长批量答案掩码前向，v1 逐样本 257s → v2 批量 42s（6×）。N-Cell/Router/Workspace 核心架构未改。
+- **阶段结果（m51_stages.json，全部实测，样例逐条保留）**：
+
+| 阶段 | 步数 | free-gen EM（sealed） | TF-span-EM | 门槛 |
+|---|---:|---:|---:|---|
+| Stage 0 单实体复制 | 200 | **0.50** | 0.50 | EM 过（多数基线 0.25+10pp）/ TF 未达 0.9 → 整门 FAIL |
+| Stage 1 两实体绑定 | 200 | **0.15** | 0.15 | FAIL（低于 0.25 随机线） |
+| Stage T 工具选择（未见问法） | 100 | — | — | **PASS（1.00 ≥ 0.85，45/45）** |
+| 持续学习 v0→v1 | 48 | — | — | SKIPPED（stage0 整门未过，按预登记不继承） |
+
+- **判定**：管线与机制无 bug；瓶颈是"内容绑定 vs 训练预算"的缩放——200 步学会格式与工具意图，学不会事实绑定。stage0 是首个自由生成正确答案（EM 0.50）的微型任务；工具选择头是**首个完整通过的神经子能力**。错误样例：结构完美、内容绑定失败（`小明在1号`→`2号`；`小红在4号`→`1号`）。
+- **资源**：各阶段独立预算均 <300s，总墙钟 157.2s，参数量 452,116，CPU 8 线程。
+- **下一步（需批准，未自行启动）**：预登记 stage0/1 各 600–1000 步（约 2–5 分钟/阶段）验绑定能否跨过 35%；stage0 错误偏向"2号位置"，下一轮训练集需位置均衡采样校验；exposure bias 待绑定学会后复测。报告：experiments/m5_language/M5_1_REPORT.md。测试 **92 项全绿**。
+
 ## 最新真实结果
 
 ### 1. M1 过拟合 + 训练预算扫描（experiments/2026-11-21_m1_overfit.json，seed 20261121）
@@ -110,7 +128,7 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. M5-Language 训练预算申请：预登记 2000-4000 步（约 20-30 分钟 CPU）+ 扩对话量，目标过 in-domain 门槛——**需小袁批准**。
+1. M5.1 绑定验证预算申请：预登记 stage0/1 各 600-1000 步（约 2-5 分钟/阶段）验两实体绑定能否过 35%——**需小袁批准**。
 2. M4.1 的混合时域经验流新预注册（T=24+32 攻长度外推）——**需小袁批准**。
 3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；M5-Network P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）待排；F10 配置封装、M3 Step5/6 排队。
 
