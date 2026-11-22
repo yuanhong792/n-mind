@@ -1,0 +1,7 @@
+{
+  "plan_id": "nmind-first-real-web-v1-20261122",
+  "status": "PENDING_USER_APPROVAL",
+  "sites": [{"host":"docs.python.org","enabled":false,"path_scopes":["/zh-cn/3.11/tutorial/","/zh-cn/3.11/library/"],"robots_url":"https://docs.python.org/robots.txt","trust_state":"public-read-only"}],
+  "network_enabled": false,
+  "revocation": {"supported": true, "cross_origin_redirects": false, "cookies": false}
+}
