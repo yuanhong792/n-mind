@@ -1,43 +1,41 @@
 """Deterministic LanguageWorld-derived train/dev/sealed records for Gate-2."""
 from __future__ import annotations
 from dataclasses import dataclass, asdict
-import hashlib, json, random
+import hashlib, json
 from .tokenizer_v2 import TokenizerV2
 
 @dataclass(frozen=True)
 class Gate2Item:
     item_id: str; level: str; prompt: str; answer: str; split: str; pair_id: str | None = None
 
-_objs = ["苹果", "杯子", "书", "钥匙", "盒子", "球", "积木", "花"]
-_colors = ["红色", "蓝色", "绿色", "黄色"]
-_places = ["桌子", "盒子", "地板", "架子"]
+_objs = ["\u82f9\u679c", "\u676f\u5b50", "\u4e66", "\u94a5\u5319", "\u76d2\u5b50", "\u7403", "\u79ef\u6728", "\u82b1"]
+_colors = ["\u7ea2\u8272", "\u84dd\u8272", "\u7eff\u8272", "\u9ec4\u8272"]
+_places = ["\u684c\u5b50", "\u76d2\u5b50", "\u5730\u677f", "\u67b6\u5b50"]
 
 def build_gate2_dataset(seed: int = 20261123) -> dict[str, list[Gate2Item]]:
-    rng = random.Random(seed); train=[]; dev=[]; sealed=[]
-    def add(dst, level, idx, prompt, answer, pair=None):
+    train=[]; dev=[]; sealed=[]
+    def add(dst, level, prompt, answer, pair=None):
         split = "sealed" if dst is sealed else "dev" if dst is dev else "train"
         dst.append(Gate2Item(f"{level}-{split}-{len(dst):04d}", level, prompt, answer, split, pair))
-    # L0 uses combinations disjoint from held-out object/colour combinations.
     for i in range(256):
-        obj, color, place = _objs[i % 4], _colors[(i // 4) % 4], _places[(i // 16) % 2]
-        add(train, "L0", i, f"{obj}是{color}的。{obj}是什么颜色？", color)
+        obj, color = _objs[i % 4], _colors[(i // 4) % 4]
+        add(train, "L0", f"{obj}\u662f{color}\u7684\u3002{obj}\u662f\u4ec0\u4e48\u989c\u8272\uff1f", color)
     for i in range(64):
         obj, color = _objs[4 + i % 4], _colors[(i // 4) % 4]
-        add(dev, "L0", i, f"观察到{obj}是{color}的。请问{obj}是什么颜色？", color)
+        add(dev, "L0", f"\u89c2\u5bdf\u5230{obj}\u662f{color}\u7684\u3002\u8bf7\u95ee{obj}\u662f\u4ec0\u4e48\u989c\u8272\uff1f", color)
     for i in range(80):
-        obj, color = _objs[4 + (i % 4)], _colors[(i // 4) % 4]
-        add(sealed, "L0", i, f"现在看到一件{color}的{obj}。{obj}的颜色是？", color)
-    # L1 is stateful: each pair reverses locations, and sealed entities are new.
+        obj, color = _objs[4 + i % 4], _colors[(i // 4) % 4]
+        add(sealed, "L0", f"\u73b0\u5728\u770b\u5230\u4e00\u4ef6{color}\u7684{obj}\u3002{obj}\u7684\u989c\u8272\u662f\uff1f", color)
     for i in range(512):
         a, b = _objs[i % 4], _objs[(i // 4) % 4 + 4]; p, q = _places[i % 2], _places[(i // 2) % 2 + 2]
-        add(train, "L1", i, f"{a}在{p}。{b}在{q}。{a}在哪里？", p)
+        add(train, "L1", f"{a}\u5728{p}\u3002{b}\u5728{q}\u3002{a}\u5728\u54ea\u91cc\uff1f", p)
     for i in range(80):
         a, b = _objs[4 + i % 4], _objs[i % 4]; p, q = _places[(i // 2) % 2], _places[(i // 3) % 2 + 2]
-        add(dev, "L1", i, f"{a}在{p}。{b}在{q}。把{a}移动到{q}。{a}现在在哪里？", q)
+        add(dev, "L1", f"{a}\u5728{p}\u3002{b}\u5728{q}\u3002\u628a{a}\u79fb\u52a8\u5230{q}\u3002{a}\u73b0\u5728\u5728\u54ea\u91cc\uff1f", q)
     for i in range(80):
         a, b = _objs[4 + i % 4], _objs[(i + 2) % 4]; p, q = _places[(i // 2) % 2], _places[(i // 3) % 2 + 2]
-        pair=f"cf-{i:03d}"; add(sealed, "L1", i, f"{a}在{p}。{b}在{q}。{a}现在在哪里？", p, pair)
-        add(sealed, "L1", i, f"{a}在{q}。{b}在{p}。{a}现在在哪里？", q, pair)
+        pair=f"cf-{i:03d}"; add(sealed, "L1", f"{a}\u5728{p}\u3002{b}\u5728{q}\u3002{a}\u73b0\u5728\u5728\u54ea\u91cc\uff1f", p, pair)
+        add(sealed, "L1", f"{a}\u5728{q}\u3002{b}\u5728{p}\u3002{a}\u73b0\u5728\u5728\u54ea\u91cc\uff1f", q, pair)
     return {"train": train, "dev": dev, "sealed": sealed}
 
 def manifest(data: dict[str, list[Gate2Item]]) -> dict:

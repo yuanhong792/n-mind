@@ -1,0 +1,11 @@
+{
+  "status": "DIAGNOSED_NO_TRAINING",
+  "optimizer_steps": 0,
+  "network": 0,
+  "data_coverage": {"train_total": 768, "trainer_rows_used": 256, "used_levels": ["L0"], "unused_levels": ["L1"], "l1_training_rows_used": 0, "answer_boundary_supervision": "none"},
+  "state": {"max_abs_logit_diff_last_token": 0.0, "protocol": "full_vs_state_chunked"},
+  "teacher_forced_answer_sample": {"main": 0.5952380952380952, "permute": 0.6428571428571429, "lr0": 0.0, "items": 24, "answer_tokens": 168},
+  "free_generation_sealed": {"main": 0.0, "permute": 0.0, "lr0": 0.0},
+  "findings": ["L1 excluded by first-256 truncation", "unmasked prompt-copy CE dominates loss", "free generation remains the semantic metric"],
+  "prior_encoding_claim": "WITHDRAWN_AFTER_CODEPOINT_CHECK"
+}
