@@ -1,0 +1,130 @@
+{
+  "experiment": "gate-b-unseen-entity-002",
+  "task_book": "Agent Runtime R2 任务书 §6（Gate-B：受控候选训练）",
+  "preregistered_at": "2026-11-22",
+  "status": "APPROVED",
+  "design": "SINGLE_VARIABLE_ABLATION",
+  "note": "本文件在训练开始前落盘，锁定预算/门槛/数据划分。相对 001 的唯一变量 = trainable: all → adapter；其余预算/数据/seed/门槛逐项不变，保证失败归因干净（001→002 差异只能来自可训练范围）。训练一旦启动不得回调任何数值；REJECTED 不追加预算重跑。",
+  "prior_round": {
+    "experiment": "gate-b-unseen-entity-001",
+    "verdict": "REJECTED",
+    "key_evidence": "全参 48 步：背题成功（训练行 loss 2.05→0.19、记忆化 0→0.5）但未见位置泛化 0（sealed EM 0.0→0.0）+ A 组真遗忘 -31.25pp（1.0→0.6875）",
+    "attribution": "全参 452k 参数在 48 行小学习流上过拟合训练位置组合，同时大步数梯度冲击冲掉已会的 A 组绑定；M4.1 网格任务中 replay 0.15 的保护在语言任务全参场景失效"
+  },
+  "target_skill": {
+    "skill_id": "skill.binding.unseen_entity",
+    "family": "unseen_entity_qa",
+    "tier": "B",
+    "baseline_neural_em": 0.0,
+    "gap_pp": 100.0,
+    "stream_disjoint": true,
+    "unchanged_from_001": true
+  },
+  "parent": {
+    "checkpoint": "experiments/m5_language/m52_s0_checkpoint.pt",
+    "expected_state_sha256": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+    "tokenizer": "experiments/m5_language/tokenizer_m52.json",
+    "invariants": [
+      "stable 文件逐位不写回",
+      "词表不换（load_lm 哈希校验）",
+      "零网络调用"
+    ]
+  },
+  "data_plan": {
+    "note": "与 001 逐项相同（同 builder/同 n/同 seed），保证单变量对照",
+    "learning_stream": {
+      "family": "unseen_entity_qa",
+      "split": "train",
+      "n": 48,
+      "seed": 20261621,
+      "positions": [
+        "1号位置",
+        "2号位置"
+      ],
+      "entity": "小红"
+    },
+    "sealed_eval": {
+      "family": "unseen_entity_qa",
+      "split": "sealed",
+      "n": 40,
+      "seed": 20261622,
+      "positions": [
+        "3号位置",
+        "4号位置"
+      ],
+      "train_sealed_overlap_rate": 0.0
+    },
+    "retention_anchor": {
+      "family": "position_qa(A组)",
+      "split": "sealed",
+      "n": 80,
+      "seed": 20261403
+    },
+    "replay_pairs": {
+      "family": "position_qa(A组)",
+      "split": "train",
+      "n": 48,
+      "seed": 20261401,
+      "construction_note": "直调 build_position_qa(48, 20261401, 'train')"
+    },
+    "memory_index": "仅学习流 48 行；封存标签永不入索引"
+  },
+  "budget": {
+    "single_variable": "trainable: all -> adapter（R1 smoke Neural-Head 成功口径；set_trainable adapter_prefixes=('head.','block_to_ws.')）",
+    "total_gradient_steps": 96,
+    "per_arm": {
+      "neural": 48,
+      "negative": 48
+    },
+    "lr": 0.003,
+    "trainable": "adapter",
+    "replay_ratio": 0.15,
+    "wall_limit_s_total": 120,
+    "init_seed": 20261601,
+    "label_permutation_seed": 20261602,
+    "max_new_tokens": 24,
+    "arms": [
+      "frozen",
+      "memory",
+      "neural",
+      "negative"
+    ],
+    "rationale": "seed/lr/步数/replay 全部与 001 相同——若 002 仍 REJECTED，003 再单动 lr 或步数结构，保持消融链干净",
+    "wall_limit_s_per_arm": 60,
+    "budget_enforcement": "AdaptationBudget 跨臂硬总闸（learning_loop 既有实现，超限抛 BudgetExceeded）",
+    "per_arm_note": "neural 48 步 = 学习流 48 行恰好 1 epoch 全覆盖（与 001 相同口径）"
+  },
+  "gates_preregistered": {
+    "new_skill_gain_min": 0.1,
+    "gate_1_new_skill": "sealed_after_em - sealed_baseline_em >= +0.10（代码常量不可调）",
+    "gate_2_retention": "A组封存 80 条 EM 下降 <= 3pp（retention 同口径——001 轮已修复 learning_loop 指标，本轮起口径可信）",
+    "gate_3_negative_control": "negative 臂（乱标签）sealed EM < neural 臂 sealed EM",
+    "gate_4_weight_changed": "named_parameters 中可训练范围内 tensors_changed > 0，且 trainable 范围外的参数逐位不变（adapter 收窄的取证要求：非 head./block_to_ws. 前缀张量必须 0 变化）",
+    "gate_5_integrity": "逐位继承断言 + seal_eval_state 复位取证 + stable 文件 sha 前后一致",
+    "gate_6_frozen_untouched": "frozen 臂 sealed EM 与基线一致",
+    "extra_report": "per-position 分解（3号/4号位各自 EM）+ trainable_params 数量记录"
+  },
+  "verdict_rules": {
+    "PASS": "全部 6 闸通过 → PROPOSED，候选存 candidates/proposed/，晋升需 --i-approve",
+    "FAIL": "任一闸不过 → REJECTED，候选存 candidates/rejected/，stable 逐位不变",
+    "no_retry": "REJECTED 后本轮不追加预算；003 必须新预登记（候选方向：lr 降档 3e-3→1e-3 或步数结构调整，仍单变量）"
+  },
+  "hypothesis_and_risk": {
+    "hypothesis": "收窄到 adapter（head+block_to_ws）后：a) A 组遗忘被结构性抑制（主干逐位不动）；b) 输出映射可学（R1 smoke Neural-Head 24 步 +28.7pp 同族先例）",
+    "risk_a": "adapter 参数量太小，48 步可能学不动新绑定（gain < 0.10）→ 003 方向 = 步数结构（如仅 neural 臂加倍，负对照维持）",
+    "risk_b": "lr 3e-3 对 adapter 仍偏大 → 003 方向 = lr 降档",
+    "risk_c": "若 adapter 口径下仍背题不泛化，则瓶颈不在可训练范围而在任务结构/容量，需回到 M5 线重审绑定机制"
+  },
+  "estimated_cost": {
+    "wall_clock_estimate_s": "约 60-120（adapter 可训练参数远小于全参，训练步应更快）",
+    "budget_note": "与 001 同量级：96 梯度步总闸"
+  },
+  "execution": {
+    "command": "python experiments/bot_runtime_r2/run_gate_b.py --run 002",
+    "script": "experiments/bot_runtime_r2/run_gate_b.py（--run 必填，防误跑；预算读自本预登记）",
+    "result_file": "experiments/bot_runtime_r2/gateb_result_002.json（+ results/bot_r2/ 镜像）"
+  },
+  "approved_at": "2026-11-22",
+  "approved_by": "小袁（用户本人，会话内批准：批准开展 Gate-B 002 单变量消融实验，执行前完成一致性审计）",
+  "audit_gate": "experiments/bot_runtime_r2/gateb002_consistency_audit.json VERDICT=PASS"
+}

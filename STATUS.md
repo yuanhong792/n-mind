@@ -139,6 +139,15 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **判定 REJECTED（两项实fail）**：泛化 0 + 真遗忘 −31.25pp。候选隔离 candidates/rejected/，stable 逐位不变。按预登记 no_retry 条款不追加预算重跑；下一轮（若做）必须新预登记，候选方向：trainable 收窄（head/局部更新，R1 smoke 成功口径）、回放加强、lr 降档、步数结构调整——需用户批准。
 - 结果：experiments/bot_runtime_r2/gateb_result_001.json（含 metric_caveat 勘误附注）+ gateb001_retention_diagnosis.json；results/bot_r2/ 镜像。
 
+## Gate-B 002 单变量消融 REJECTED：遗忘定位到共享输出头（2026-11-22 第九轮）
+
+- **审计先行**（用户要求，五项程序化审计全 PASS 后才执行，gateb002_consistency_audit.json）：父 checkpoint/训练集/封存集（实跑指纹逐字节）/seed/lr/回放/总步数/评测协议与 001 一致；唯一变量确认 trainable all→adapter（数值字段白名单 diff 仅此一项）；adapter 范围=head+block_to_ws 4 张量（19 张量冻结）；buffer 复位协议 TRANSIENT_BUFFERS=[block_load_count, router.load_bias] 干跑取证；001 防重放闸 exit 4。002 预登记补齐对齐字段（entity/train_sealed_overlap_rate/wall_limit_s_per_arm）。
+- **实测（96/96 步用满，22.95s，stable 逐位未动）**：sealed（未见位置）EM 0.0→0.0 gain=0 gate_1 FAIL；**A 组遗忘 −100pp（1.0→0.0，retention 修复后原生口径）**gate_2 FAIL——比 001 全参（−31.25pp）更糟；训练行记忆化 0.0（连题都没背下，loss 2.05→0.70）；负对照 0.0；**冻结违规 0**（19/19 范围外张量逐位不变，审计③取证落实）。
+- **配对对照报告**（gateb_paired_report.json）：反事实绑定跟随率 stable 0.25 → 001 0.2917 → 002 0.0833（近因捷径率全程 0——不是走捷径而是输出分布被改写）。
+- **失败归因**（gateb002_failure_attribution.json）：假设"收窄可训练范围防遗忘"被推翻——遗忘位置在**共享输出头**：新实体分布与旧实体分布在同一 head.weight 直接竞争，R1 网格任务 Neural-Head 成功先例（动作空间小、任务同构）不适用于语言任务全词表输出。两轮共同结论：问题不在可训练范围选择，在架构层。
+- **实现缺口如实登记**：预登记 6 闸中 gate_3（负对照不反超）未代码化进 gates 判定；反事实跟随率评测未进主流程（本轮为报告阶段独立评测）。
+- **候选方向（需用户批准，未启动 003）**：a) A+B 混合课程（改变增量语义需任务书确认）；b) replay 加权 0.15→0.5+；c) 架构方案 per-task 输出头/输出残差（M6 级）；d) 接受证据暂停 003。禁止自动晋升：双双 REJECTED 隔离于 candidates/rejected/。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

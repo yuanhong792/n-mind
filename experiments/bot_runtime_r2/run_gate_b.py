@@ -19,6 +19,7 @@
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import shutil
@@ -62,15 +63,30 @@ def _pos_of(task) -> str:
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description="Gate-B 受控候选训练（预登记驱动，防误跑）")
+    ap.add_argument("--run", default="", help="轮号（如 001/002），必填；不指定不启动任何训练")
+    args = ap.parse_args()
+    if not args.run:
+        print("[GATE-B] 用法：python run_gate_b.py --run <轮号>（如 --run 002）。")
+        print("[GATE-B] 不指定轮号不启动任何训练（001 预登记为 APPROVED 历史口径，防误重放）。")
+        return 2
+    pre_path = PREREG if args.run == "001" else OUT / f"gateb_pre_registration_{args.run}.json"
+    if not pre_path.exists():
+        print(f"[GATE-B] 预登记不存在：{pre_path}")
+        return 3
+    pre = json.loads(pre_path.read_text(encoding="utf-8"))
+    if pre["status"] != "APPROVED":
+        print(f"[GATE-B] 预登记状态={pre['status']}，尚未获用户批准，不启动训练。")
+        print(f"[GATE-B] 批准方式：把 {pre_path.name} 的 status 改为 APPROVED 后重跑本脚本。")
+        return 2
+    run_id = args.run
+    result_file = OUT / f"gateb_result_{run_id}.json"
+    if result_file.exists():
+        print(f"[GATE-B] {result_file.name} 已存在——该轮已完成，禁止重跑覆盖既有证据。")
+        return 4
     t0 = time.time()
     torch.set_num_threads(8)
     dev = torch.device("cpu")
-
-    pre = json.loads(PREREG.read_text(encoding="utf-8"))
-    if pre["status"] != "APPROVED":
-        print(f"[GATE-B] 预登记状态={pre['status']}，尚未获用户批准，不启动训练。")
-        print("[GATE-B] 批准方式：把 gateb_pre_registration.json 的 status 改为 APPROVED 后重跑本脚本。")
-        return 2
 
     # 1. 父模型指纹校验：不符预登记值说明 stable 已被别处改动，直接退出
     tok = CharTokenizer.load(str(TOK))
@@ -99,7 +115,7 @@ def main() -> int:
     model_sha_short = parent_sha[:16]
     verified = [
         VerifiedExperience(
-            experience_id=f"gateb001-{t.fingerprint}",
+            experience_id=f"{run_id}-{t.fingerprint}",
             task_family=t.family,
             observation={"question": t.question, "source": "preregistered_dataset"},
             action={"reference": "oracle_target_only"},
@@ -116,23 +132,27 @@ def main() -> int:
         ) for t in train
     ]
 
-    # 4. 四臂候选更新（预算 96 步跨臂硬总闸；任一闸失败即 REJECTED）
-    cand_tmp = OUT / "candidates" / "_pending_gateb001.pt"
+    # 4. 四臂候选更新（预算全部读自预登记：002 起 trainable/lr/steps/seed 均由预登记锁定，
+    #    脚本本身冻结——预登记差异即实验差异，001(all)/002(adapter) 走同一代码路径）
+    b = pre["budget"]
+    cand_tmp = OUT / "candidates" / f"_pending_{run_id}.pt"
     cand_tmp.parent.mkdir(parents=True, exist_ok=True)
     report = run_candidate_update(
         stable_checkpoint=str(STABLE), tokenizer_path=str(TOK),
         verified=verified, sealed_prompts=sealed_p, sealed_answers=sealed_a,
-        dev=dev, updates=96, lr=0.003, seed=20261601,
+        dev=dev, updates=int(b["total_gradient_steps"]), lr=float(b["lr"]),
+        seed=int(b["init_seed"]),
         replay_pairs=(replay_p, replay_a), retention_pairs=(anchor_p, anchor_a),
-        memory_index=(train_p, train_a), replay_ratio=0.15,
-        trainable="all", arms=("frozen", "memory", "neural", "negative"),
-        wall_limit_s=120.0, candidate_path=str(cand_tmp), max_new_tokens=24)
+        memory_index=(train_p, train_a), replay_ratio=float(b["replay_ratio"]),
+        trainable=str(b["trainable"]), arms=("frozen", "memory", "neural", "negative"),
+        wall_limit_s=float(b["wall_limit_s_total"]), candidate_path=str(cand_tmp),
+        max_new_tokens=int(b["max_new_tokens"]))
 
     # 5. 候选按判定落位（PROPOSED→proposed/，REJECTED→rejected/），再做 per-position 分解
     verdict = report.get("status", "UNKNOWN")
     final_dir = OUT / "candidates" / ("proposed" if verdict == "PROPOSED" else "rejected")
     final_dir.mkdir(parents=True, exist_ok=True)
-    final_path = final_dir / "gateb001.pt"
+    final_path = final_dir / f"{run_id}.pt"
     if cand_tmp.exists():
         shutil.move(str(cand_tmp), str(final_path))
         report["candidate_path"] = str(final_path)
@@ -160,7 +180,7 @@ def main() -> int:
     # 6. stable 完整性核验 + 结果落盘（experiments/ 留档 + results/ 镜像）
     stable_sha_after = _file_sha(STABLE)
     result: dict = {
-        "experiment": "gateb-unseen-entity-001",
+        "experiment": pre["experiment"],
         "preregistration": str(PREREG),
         "verdict": verdict,
         "gates": report.get("gates"),
@@ -178,10 +198,10 @@ def main() -> int:
         "device": "cpu", "torch_threads": 8,
         "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
     }
-    OUT.joinpath("gateb_result_001.json").write_text(
+    OUT.joinpath(f"gateb_result_{run_id}.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     MIRROR.mkdir(parents=True, exist_ok=True)
-    (MIRROR / "gateb_result_001.json").write_text(
+    (MIRROR / f"gateb_result_{run_id}.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # 7. 判定打印（诚实口径：过/不过都如实写，不粉饰）
@@ -194,7 +214,7 @@ def main() -> int:
         print(f"[GATE-B]   {name}: {'PASS' if ok else 'FAIL'}")
     print(f"[GATE-B] per-position: {json.dumps(per_position, ensure_ascii=False)}")
     print(f"[GATE-B] stable 未被改动 = {result['stable_untouched']}  wall = {result['wall_s']}s")
-    print(f"[GATE-B] 结果已落盘 experiments/bot_runtime_r2/gateb_result_001.json")
+    print(f"[GATE-B] 结果已落盘 experiments/bot_runtime_r2/gateb_result_{run_id}.json")
     return 0 if verdict == "PROPOSED" else 1
 
 

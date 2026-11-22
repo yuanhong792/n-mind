@@ -1,0 +1,62 @@
+{
+  "audit": "gateb002-consistency-v2",
+  "ts": "2026-11-22",
+  "checks": {
+    "①一致性": {
+      "parent_checkpoint_一致": true,
+      "tokenizer_一致": true,
+      "训练集_一致": true,
+      "封存集_一致": true,
+      "A组锚点_一致": true,
+      "回放_一致": true,
+      "budget数值字段全部一致": true,
+      "门槛数值一致(gain0.10/遗忘3pp)": true,
+      "评测协议一致": true,
+      "训练集指纹=001实跑记录": true,
+      "封存集指纹=001实跑记录": true
+    },
+    "②唯一变量": {
+      "数值字段差异": {
+        "trainable": [
+          "all",
+          "adapter"
+        ]
+      },
+      "唯一变量确认": true,
+      "说明性字段差异(不参与判定)": [
+        "single_variable",
+        "rationale",
+        "budget_enforcement",
+        "per_arm_note"
+      ]
+    },
+    "③adapter范围": {
+      "trainable": [
+        "block_to_ws.bias",
+        "block_to_ws.weight",
+        "head.bias",
+        "head.weight"
+      ],
+      "n_trainable": 4,
+      "n_frozen": 19,
+      "全部命中adapter前缀": true,
+      "范围外取证": "learning_loop before/after 全量 state_dict 取证 → 范围外逐位不变可检出"
+    },
+    "④buffer复位": {
+      "TRANSIENT_BUFFERS": [
+        "block_load_count",
+        "router.load_bias"
+      ],
+      "001实测reset_applied": true,
+      "干跑reset_applied": true,
+      "漂移单列不冒充学习": "M4 实测口径（漂移曾伪装26pp），seal_eval_state 漂移单独记录"
+    },
+    "⑤防覆盖": {
+      "gateb_result_001存在": true,
+      "001已提交入库(commit 87922db)": true,
+      "脚本防重放exit4": true,
+      "本轮未提交文件(正常)": "M experiments/bot_runtime_r2/run_gate_b.py\n?? experiments/bot_runtime_r2/gateb002_consistency_audit.json\n?? experiments/bot_runtime_r2/gateb_pre_registration_002.json"
+    }
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,49 @@
+{
+  "experiment": "gate-b-unseen-entity-002-failure-attribution",
+  "verdict": "REJECTED",
+  "paired_report": "experiments/bot_runtime_r2/gateb_paired_report.json",
+  "single_variable": "trainable: all -> adapter（审计五项 PASS 后执行，唯一变量确认）",
+  "findings": [
+    {
+      "f": "假设被推翻：收窄可训练范围没有防住遗忘，反而更糟",
+      "evidence": "A组遗忘 001(all)=-31.25pp vs 002(adapter)=-100pp（1.0->0.0）"
+    },
+    {
+      "f": "遗忘位置在共享输出头而非主干",
+      "evidence": "adapter 只训 head+block_to_ws 4 张量，48 步新实体（小红在1/2号）梯度把输出映射完全改写，A组（小明）查询全部输出错误；全参时主干反而保留部分A组表示（0.6875）"
+    },
+    {
+      "f": "adapter 容量不足以承载新绑定",
+      "evidence": "训练行记忆化 0.0（001 全参为 0.5）；loss 2.05->0.70（001 ->0.19）"
+    },
+    {
+      "f": "泛化双双为零：绑定未跨位置迁移",
+      "evidence": "sealed(位置3/4号) EM 0.0->0.0 两轮相同；per-position 3/4号位均 0"
+    },
+    {
+      "f": "反事实跟随率：002 摧毁了 stable 已有的弱跟随能力",
+      "evidence": "stable 0.25 -> 001 0.2917 -> 002 0.0833；近因捷径率全程 0（模型不是走捷径而是输出分布损坏）"
+    },
+    {
+      "f": "取证健康：无虚假增益",
+      "evidence": "002 冻结违规 0（19/19 范围外张量逐位不变）；buffer 复位 reset_applied=true；stable 逐位未动；负对照 0.0 未反超"
+    }
+  ],
+  "root_cause": "共享输出头上的任务序列训练结构性冲突：新实体分布与旧实体分布在同一 head.weight 输出空间直接竞争。R1 网格任务 Neural-Head 成功先例（动作空间小、任务同构）不适用于语言任务（全词表输出分布）。两轮实验共同指向：问题不在可训练范围选择，而在架构层。",
+  "implementation_gaps_found": [
+    "预登记 6 闸中 gate_3(负对照不反超)未代码化进 gates 判定（代码仅 4 闸）——002 轮人工核对通过但需补实现",
+    "反事实跟随率评测未进 run_gate_b 主流程（本轮为报告阶段独立评测），建议 003 预登记时纳入"
+  ],
+  "next_options_requires_user_approval": [
+    "a. 混合课程：A+B 数据混训（非序列），验证冲突是否消失——但改变增量学习语义，需任务书层面确认",
+    "b. replay 大幅加权（0.15->0.5+）保持序列语义，代价是每步梯度 A 组占多数",
+    "c. 架构方案：per-task 输出头/输出残差适配，回避共享 head 冲突（M6 级别改动）",
+    "d. 接受两轮证据，把 增量学习需架构级方案 写入 STATUS 结论，003 暂停"
+  ],
+  "no_auto_actions": [
+    "未自动启动 003",
+    "未扩大预算",
+    "未晋升候选（双双 REJECTED 隔离于 candidates/rejected/）",
+    "stable 逐位未动"
+  ]
+}

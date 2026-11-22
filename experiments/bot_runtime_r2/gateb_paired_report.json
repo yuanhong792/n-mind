@@ -1,0 +1,96 @@
+{
+  "experiment": "gateb-paired-001-vs-002",
+  "ts": "2026-11-22",
+  "counterfactual_follow": {
+    "stable": {
+      "n_items": 24,
+      "n_pairs": 12,
+      "query_entity_follow_rate": 0.25,
+      "recency_shortcut_rate": 0.0
+    },
+    "001_rejected": {
+      "n_items": 24,
+      "n_pairs": 12,
+      "query_entity_follow_rate": 0.2917,
+      "recency_shortcut_rate": 0.0
+    },
+    "002_rejected": {
+      "n_items": 24,
+      "n_pairs": 12,
+      "query_entity_follow_rate": 0.0833,
+      "recency_shortcut_rate": 0.0
+    }
+  },
+  "a_retention": {
+    "stable": 1.0,
+    "001_rejected": 0.6875,
+    "002_rejected": 0.0
+  },
+  "rows": [
+    {
+      "metric": "B新技能自由生成EM(封存40条,未见位置)",
+      "001": "0.0 -> 0.0 (gain 0.0)",
+      "002": "0.0 -> 0.0 (gain 0.0)",
+      "门槛": "gain >= +0.10"
+    },
+    {
+      "metric": "A旧技能保持EM(封存80条)",
+      "001": "基线1.0 -> 0.6875 (诊断补测)",
+      "002": "1.0 -> 0.0 (retention同口径)",
+      "门槛": ">= -3pp"
+    },
+    {
+      "metric": "遗忘幅度pp",
+      "001": -31.25,
+      "002": -100.0,
+      "门槛": ">= -3.0"
+    },
+    {
+      "metric": "反事实绑定跟随率(binding_swap cf)",
+      "001": {
+        "n_items": 24,
+        "n_pairs": 12,
+        "query_entity_follow_rate": 0.2917,
+        "recency_shortcut_rate": 0.0
+      },
+      "002": {
+        "n_items": 24,
+        "n_pairs": 12,
+        "query_entity_follow_rate": 0.0833,
+        "recency_shortcut_rate": 0.0
+      },
+      "stable基线": {
+        "n_items": 24,
+        "n_pairs": 12,
+        "query_entity_follow_rate": 0.25,
+        "recency_shortcut_rate": 0.0
+      }
+    },
+    {
+      "metric": "参数变化(变化张量/23, max_delta)",
+      "001": "17/23, 0.140213 (全参)",
+      "002": "4/23, 0.143655 (adapter=4张量)"
+    },
+    {
+      "metric": "冻结违规数(范围外张量变化)",
+      "001": "N/A(全参无范围外)",
+      "002": 0
+    },
+    {
+      "metric": "负对照臂(乱标签) sealed EM",
+      "001": 0.0,
+      "002": 0.0,
+      "要求": "必须低于neural臂"
+    },
+    {
+      "metric": "候选判定",
+      "001": "REJECTED",
+      "002": "REJECTED"
+    },
+    {
+      "metric": "预算/墙钟/stable",
+      "001": "96/96步, 22.5s, 逐位未动",
+      "002": "96/96步, 22.95s, 逐位未动"
+    }
+  ]
+}
