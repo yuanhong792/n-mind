@@ -36,6 +36,7 @@
 - [x] SQLite 情景记忆（FTS5）、检索器、巩固器、墓碑删除、replay 缓冲
 - [x] `train --continual`（A→B→重测 A，replay 开关）实现完成；2026-11-22 修复 B 阶段权重继承缺陷（同 seed ≠ 继承），B 阶段从 A 后权重逐位克隆并内置断言
 - [x] 增量学习最小闭环 smoke（experiments/m3_incremental/）：四臂对照 1-seed，Neural-Head 未见 B 冲突步 +28.7pp、A 零遗忘；NEURAL_UPDATE_VERIFIED；RESEARCH_VALIDATED 未授予（需多 seed）
+- [x] 联网自主学习链路（模拟网页→验证→经验流→调度→候选更新→封存评测→审计）打通（experiments/m4_online/）；首轮 candidate REJECTED：复位协议下 B_OOD +2.9pp<10pp、A −3.75pp>3pp；关键发现：load_bias 漂移曾伪装 ~26pp“适应”，复位后消失（详见 M4_REPORT.md）；真实联网 NOT_TESTED（默认关，待批准）
 - ⬜ 多 seed 增量学习验证 + stable/candidate 双轨回测（需用户批准预算）
 - ⬜ 持续学习 A→B→A 全量运行记录（train_continual 已修复，待批准排期）
 

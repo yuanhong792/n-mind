@@ -1,0 +1,37 @@
+# N-MIND 在线学习默认配置（M4 任务书第 9 节）
+# 安全三开关：联网默认关、自动权重更新默认关、晋升人工批准。
+# 代码侧权威实现在 src/nmind/online/（本文件为可读镜像，改行为必须改代码并过测试）。
+
+network:
+  enabled: false            # 真实 HTTP 默认关；开启需 allowlist + 显式覆写
+  allowlist:
+    - "https://example.com/"
+  timeout_s: 10.0
+  max_bytes: 1000000
+  offline_mode_is_hard: true   # offline 下真实 HTTP 一律拒绝（OfflineModeError/blocked）
+
+learning:
+  auto_weight_update: false    # 候选权重更新只能由显式实验脚本触发
+  budget:
+    max_total_steps: 120       # 单实验全部臂合计 optimizer.step 上限
+    wall_limit_s: 300
+  scope_default: adapter       # head_only | adapter | head_and_workspace | selected_ncells
+  lambda_replay: 0.3
+  lambda_anchor: 0.1
+  replay_k: 4
+
+promotion:
+  mode: manual                 # candidate 通过封存评测后仍为 PROPOSED，等人工批准
+  b_ood_gain_threshold_pp: 10.0
+  a_drop_max_pp: 3.0
+
+experience:
+  verified_only_update: true   # 只有 verified 经验进入学习流
+  sealed_eval_never_replay: true
+  dedup_by_content_sha256: true
+
+provenance:
+  record_url: true
+  record_utc: true
+  record_source_sha256: true
+  extractor_version: extractor-v1

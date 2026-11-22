@@ -57,3 +57,10 @@
 - 脚本：`m2_2_validation/train_ood_v2_full.py`（已就绪未运行：10 seed × 3 臂 × 课程/无课程 × 480 步 + 闭环成功率 + 长度外推 + 配对统计）。
 - 3-seed smoke（240 步）：`h3b_v2_retrain_smoke.json`（H3b 稀疏臂 ~0.5 欠训练、稠密 0.88）、`h4b_v2_retrain_smoke.json`（H4b cued：F10 0.898 > C 0.749，显式规则提示有效）。
 - 状态：按 2026-11-22 纠偏指令暂停，待用户批准预算后执行（预估 ~2.5h CPU）。
+
+## 2026-11-22 M4 联网自主神经学习全链路（首轮 REJECTED）
+
+- 脚本：`m4_online/run_online_smoke.py`（全链路）+ `make_continuity_report.py`（P0 回归证据）；结果：`m4_online/{continuity_bug_regression,online_stream_smoke,benchmark_matrix,experience_manifest}.json`、`model_promotion_audit.jsonl`、`experiences.jsonl`；报告：`m4_online/M4_REPORT.md`。
+- 链路 PASS：模拟网页规则页（control-reversed-v1）→ 解析/程序化验证 → 96 条 verified 经验 → 显式调度 → 四臂+负对照候选更新（96/120 步，48.6s，RSS 647MB）→ 封存评测 → 审计/回滚。
+- 判定 REJECTED：复位协议下 B_OOD 冲突步 +2.9pp<+10pp、A 遗忘 −3.75pp>3pp；参数学习 PASS（17/19 变化、冻结 0 违规）；负对照 −45.6pp 无泄漏。**关键发现：router.load_bias 漂移曾伪装 ~26pp 适应（不复位 0.8889 / 复位 0.6244）——buffer 复位协议的定量必要性。**
+- 失败诊断：λ_anchor=0.1+λ_replay=0.3 过度约束 40 步 adapter 学习；需新预注册（λ_anchor=0、λ_replay=0.15、48 步）并批准。真实联网 NOT_TESTED（默认关）。

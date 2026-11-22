@@ -35,7 +35,7 @@ from .trainer import _assemble
 
 TRANSIENT_BUFFERS = ("block_load_count", "router.load_bias")
 ADAPTER_MODULES = ("head", "action_emb", "block_to_ws")
-SCOPES = ("frozen", "adapter", "core_partial")
+SCOPES = ("frozen", "adapter", "core_partial", "head_only", "head_and_workspace", "selected_ncells")
 
 
 # ------------------------------------------------------------------ 快照与世系
@@ -133,10 +133,13 @@ def apply_update_scope(model: NModel, *, scope: str = "adapter",
                        ) -> dict[str, Any]:
     """冻结/放参数并返回 ScopePlan（trainable/frozen 清单 + 块级梯度掩码规则）。
 
-    scope:
-      frozen       —— 全部冻结（memory_only / Control-0 的合法形态）
-      adapter      —— 只放开 head / action_emb / block_to_ws（Neural-Head）
-      core_partial —— adapter 之外再放开指定 N-Cell 块的核权重（Neural-Core）
+    scope（M4 任务书第 2 节命名）：
+      frozen            —— 全部冻结（memory_only / Control-0 的合法形态）
+      head_only         —— 只放开决策头（最小可塑性）
+      adapter           —— head + action_emb + block_to_ws（历史口径，兼容保留）
+      head_and_workspace —— head + action_emb + block_to_ws + workspace
+      core_partial      —— adapter 之外再放开指定 N-Cell 块的核权重（历史口径）
+      selected_ncells   —— head_and_workspace + 指定 N-Cell 块（selected_ncells 语义）
     core_block_ids 显式给定放开的块号（预登记用，如父模型负载最高的 2 块）；
     未给定时默认前 core_blocks 个块。
     """
@@ -145,14 +148,21 @@ def apply_update_scope(model: NModel, *, scope: str = "adapter",
     for p in model.parameters():
         p.requires_grad_(False)
     trainable: list[str] = []
-    if scope in ("adapter", "core_partial"):
-        for name in ADAPTER_MODULES:
-            for pname, p in getattr(model, name).named_parameters():
-                p.requires_grad_(True)
-                trainable.append(f"{name}.{pname}")
+    if scope == "head_only":
+        open_modules: tuple[str, ...] = ("head",)
+    elif scope == "adapter":
+        open_modules = ADAPTER_MODULES
+    elif scope in ("head_and_workspace", "core_partial", "selected_ncells"):
+        open_modules = ADAPTER_MODULES + ("workspace",)
+    else:
+        open_modules = ()
+    for name in open_modules:
+        for pname, p in getattr(model, name).named_parameters():
+            p.requires_grad_(True)
+            trainable.append(f"{name}.{pname}")
     mask_rules: list[dict[str, Any]] = []
     chosen: list[int] = []
-    if scope == "core_partial":
+    if scope in ("core_partial", "selected_ncells"):
         nc = model.blocks
         n_blocks = int(nc.n_blocks)
         if core_block_ids is None:

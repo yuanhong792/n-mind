@@ -28,6 +28,15 @@ python -m pytest tests -q          # 27 passed
 - 测试 **72 项全绿**（64 项既有 + tests/test_true_continual.py 8 项新断言）。
 - H3b/H4b v2 的 10-seed 全量重训 **DEFERRED_NOT_CANCELLED**（脚本 train_ood_v2_full.py 就绪未运行，约 2.5h CPU，待小袁批准）。
 
+## M4 联网自主神经学习：全链路打通 + 首轮 REJECTED（2026-11-22 第二轮，AutoClaw）
+
+- **链路 PASS**：src/nmind/online/（fetcher/fixtures/extractor/provenance/verifier/experiences/scheduler/promotion/explorer）+ learning/online_trainer.py（有界流更新：CE + λ_replay·CE_replay + λ_anchor·锚定）+ evaluation/lifelong.py。模拟网页夹具发布结构化规则 control-reversed-v1 → 解析/程序化验证 → 96 条 verified 经验流 → 调度触发候选更新（四臂+负对照，96/120 步，48.6s，RSS 647MB）→ 封存评测 → 晋升审计。
+- **判定 candidate_status=REJECTED**：B_OOD 冲突步 gain +2.9pp < +10pp、A 遗忘 −3.75pp > 3pp；其余门槛过（继承逐位/冻结 0 违规/负对照 −45.6pp 无泄漏/neural>frozen）。候选隔离 ckpts/rejected/，stable 逐位未动。参数学习本身 PASS（17/19 非零变化）＝NEURAL_UPDATE_VERIFIED；可泛化技能 FAIL；真实联网 NOT_TESTED（门槛未过不触网）。
+- **关键发现**：训练态 router.load_bias 漂移承载 ~26pp 的“表面适应”——不复位时 B_OOD 0.8889，复位后 0.6244。buffer 复位协议（任务书要求）防止把 buffer 漂移冒充参数学习，本轮给出定量证据。
+- **失败诊断**：λ_anchor=0.1+λ_replay=0.3 在 40 步内过度约束 adapter（对照：上轮无锚定 48 步单 seed +28.7pp）；Hybrid 证明锚定+回放保 A（−0.31pp）但代价是 B 几乎不学。修复需新预注册并批准。
+- **安全**：恶意网页夹具 instruction_detected→rejected→不进学习流（测试断言零执行/零改配置）；dedup 生效；sealed 零泄漏；offline 硬断。configs/online_learning.yaml 三开关默认关（network/auto_weight_update/promotion=manual）。
+- 测试 **82 项全绿**（+tests/test_online_learning.py 10 项）。报告：experiments/m4_online/M4_REPORT.md。
+
 ## 最新真实结果
 
 ### 1. M1 过拟合 + 训练预算扫描（experiments/2026-11-21_m1_overfit.json，seed 20261121）
@@ -85,9 +94,9 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. 多 seed 增量学习验证（5-10 独立 seed × 同四臂，约 15 分钟 CPU）——**需小袁批准后运行**，把 NEW_SKILL_SIGNAL 升级为带置信区间的结论。
-2. H3b/H4b v2 10-seed 全量重训（train_ood_v2_full.py）——DEFERRED_NOT_CANCELLED，**需小袁批准**（约 2.5h CPU），M2.2 收尾依赖它。
-3. F10 配置封装 configs/f10_next.yaml（含 pred_mode=next+router_ste+软化正则）作为默认训练入口；M3 Step5/6（GRU/Transformer 对照）继续排队。
+1. M4 联网学习新预注册重跑（λ_anchor=0、λ_replay=0.15、48 步，约 1 分钟 CPU）——**需小袁批准**：检验无锚定配置在复位协议下的真实增益与遗忘（REJECTED 失败诊断见 experiments/m4_online/M4_REPORT.md）。
+2. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**（约 2.5h CPU），M2.2 收尾依赖它。
+3. 3-seed 复验与多 seed 验证、真实 HTTP 只读冒烟（门槛通过后）、F10 配置封装 configs/f10_next.yaml、M3 Step5/6 继续排队。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）——含 10-seed 定案补充
 

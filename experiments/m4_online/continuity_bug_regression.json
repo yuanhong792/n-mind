@@ -1,0 +1,173 @@
+{
+  "generated_at": "2026-11-22 11:13:02",
+  "command": "pytest tests/test_true_continual.py tests/test_online_learning.py -v",
+  "exit_code": 0,
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "p0_continuity_regression": {
+    "conclusion": "PIPELINE_FIXED",
+    "assertions": [
+      "B 阶段起点 = A 结束权重逐位一致（且 ≠ 随机初始化）",
+      "显式 model= 优先，语义冲突报错不静默重建",
+      "增量更新只动允许参数，冻结参数逐位不变",
+      "lr=0 / 全冻结零学习收益（逐位不变）",
+      "各臂同一父快照（哈希一致）",
+      "reversed_control 存在有效冲突样本",
+      "子 checkpoint 保存→重载分数一致 + 预算中止不触 stable",
+      "fresh_build 路径行为不变"
+    ],
+    "cases": [
+      {
+        "test": "tests.test_true_continual::test_1_b_phase_inherits_a_weights_bitwise",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_2_explicit_model_takes_priority_no_silent_rebuild",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_3_incremental_update_changes_only_allowed_params",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_4_no_update_lr0_paths_params_bitwise_unchanged",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_5_all_arms_start_from_identical_parent",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_6_reversed_control_has_effective_conflict_samples",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_7_child_checkpoint_roundtrip_and_safe_abort",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_true_continual::test_8_fresh_build_path_unchanged",
+        "outcome": "passed"
+      }
+    ]
+  },
+  "online_safety_regression": {
+    "cases": [
+      {
+        "test": "tests.test_online_learning::test_offline_mode_blocks_http",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_web_content_cannot_run_commands_or_change_config",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_duplicate_url_content_is_deduplicated",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_unverified_experience_cannot_trigger_update",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_sealed_eval_never_enters_replay",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_candidate_failure_rolls_back_stable_checkpoint",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_learning_budget_hard_stop",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_new_skill_metric_is_unseen_holdout",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_no_gradient_when_memory_only",
+        "outcome": "passed"
+      },
+      {
+        "test": "tests.test_online_learning::test_load_resume_preserves_pred_and_state",
+        "outcome": "passed"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "test": "tests.test_true_continual::test_1_b_phase_inherits_a_weights_bitwise",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_2_explicit_model_takes_priority_no_silent_rebuild",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_3_incremental_update_changes_only_allowed_params",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_4_no_update_lr0_paths_params_bitwise_unchanged",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_5_all_arms_start_from_identical_parent",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_6_reversed_control_has_effective_conflict_samples",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_7_child_checkpoint_roundtrip_and_safe_abort",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_true_continual::test_8_fresh_build_path_unchanged",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_offline_mode_blocks_http",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_web_content_cannot_run_commands_or_change_config",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_duplicate_url_content_is_deduplicated",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_unverified_experience_cannot_trigger_update",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_sealed_eval_never_enters_replay",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_candidate_failure_rolls_back_stable_checkpoint",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_learning_budget_hard_stop",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_new_skill_metric_is_unseen_holdout",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_no_gradient_when_memory_only",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests.test_online_learning::test_load_resume_preserves_pred_and_state",
+      "outcome": "passed"
+    }
+  ]
+}
