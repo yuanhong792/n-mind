@@ -37,3 +37,23 @@
 - 命令：`python -m nmind.cli evaluate --json --seed 20261121`
 - 结果：`../results/evaluate.json`
 - 结论：状态预测/决策细分/记忆跨度曲线/预算-难度表全部出数；`gated` 与 `fixed_k1` 准确率相同 ⇒ 门控尚未学到"难任务多算"。权重为欠训练 demo checkpoint，数字只证明管线可运行，不代表能力上限。
+
+## 2026-11-22 H3b/H4b 口径复核与 v2
+
+- 脚本：`m2_2_validation/ood_h3b_h4b.py`；结果：`m2_2_validation/ood_h3b_h4b_v2.json`。
+- H3b v1 的 oracle 使用模型不可见的障碍信息，且“BFS 可解”与曼哈顿贪心标签不一致，旧结果不进入验收。v2 使用 62 维显式障碍图、BFS 最短路标签、逐族隔离布局和内容级 manifest hash。
+- 旧 26 维 checkpoint 与 H3b v2 不兼容，因此 JSON 明确记录 `not_run_incompatible_input_dim`；完成障碍课程重训前不报模型成绩。
+- H4b 不再使用 `总准确率-巧合占比`。10-seed F10 的冲突步/巧合步/总准确率为 0.589/0.862/0.720；由于没有规则提示，该结果只表示反转规则分布偏移表现。另建 27 维显式规则提示的正常/反转配对数据，等待同口径重训。
+
+## 2026-11-22 M4 增量学习首次 smoke（参数连续性修复后）
+
+- 脚本：`m3_incremental/run_incremental_smoke.py`；结果：`m3_incremental/{lineage,parameter_deltas,learning_controls,retention_eval}.json` 与 `m4_incremental_smoke.json`；报告：`m3_incremental/m3_incremental_report.md`。
+- 修复背景：`train_continual()` 的 B 阶段此前重新 build_model()（同 seed ≠ 权重继承），已改为从 A 后权重逐位克隆 + 内置断言；新增 `learning/online_adaptation.py`（fit_existing_model + 预算守卫 + 逐位取证）。
+- 结论（1 预声明 seed，104/120 步，20.5s，CPU）：父 checkpoint = C_sparse_ce_s20261131（A 遮挡段 0.6594，与 M2.2 冻结记录一致）。新任务 B = reversed_control（未见测试 seed 20261142）：Neural-Head 未见冲突步 0.6019→0.8889（+28.7pp，超 +10pp 门槛且高于全部基线），A 零遗忘；Neural-Core +11.7pp 但 A −4.2pp；memory-only +2.5pp 且参数逐位不变；lr=0 反向检验逐位不变。判定：PIPELINE_FIXED / NEURAL_UPDATE_VERIFIED / NEW_SKILL_SIGNAL_SINGLE_SEED (Neural-Head) / RETENTION_PASS_SINGLE_SEED；RESEARCH_VALIDATED 不由 1-seed 授予。
+- 局限：单 seed；B_before 冲突步 0.6019 偏高（父模型边界态错误与反转规则巧合），结论只称信号。
+
+## 2026-11-22 H3b/H4b v2 全量重训（DEFERRED_NOT_CANCELLED）
+
+- 脚本：`m2_2_validation/train_ood_v2_full.py`（已就绪未运行：10 seed × 3 臂 × 课程/无课程 × 480 步 + 闭环成功率 + 长度外推 + 配对统计）。
+- 3-seed smoke（240 步）：`h3b_v2_retrain_smoke.json`（H3b 稀疏臂 ~0.5 欠训练、稠密 0.88）、`h4b_v2_retrain_smoke.json`（H4b cued：F10 0.898 > C 0.749，显式规则提示有效）。
+- 状态：按 2026-11-22 纠偏指令暂停，待用户批准预算后执行（预估 ~2.5h CPU）。

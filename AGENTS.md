@@ -9,6 +9,7 @@
 3. **CPU 必须可跑**：加载、推理、评测不得依赖 CUDA。GPU 是可选加速（当前 torch 为 CPU 版，CUDA 路径未启用，见 STATUS）。
 4. **诚实记录**：所有指标来自实际执行。没跑就写"未运行"，没证明就写"研究假设"。禁止伪造准确率 / 步数 / 完成状态；禁止改测试集掩盖失败。
 5. **不写密钥**：配置只记环境变量名（`NMIND_CLOUD_API_KEY`），绝不写值。数据库、聊天记录、用户隐私不入库。
+6. **增量学习不静默重建**（2026-11-22）：续训必须从已验证 checkpoint 逐位继承权重（`train(model=...)` / `fit_existing_model`），语义冲突报错而非重建；冻结参数逐位不变（torch.equal）；批量重训/扩 seed 须用户批准（AdaptationBudget 硬限制）；三种运行模式 inference / memory_only / neural_adapt 分开计量，训练态 buffer（load_bias/block_load_count）不冒充学习。
 
 ## 二、环境（本机实测，2026-11-21）
 
@@ -18,7 +19,7 @@
 | torch | **2.10.0+cu128**（2026-11-21 升级，RTX 5070 可用；默认设备 auto→cuda；CPU 路径必须继续可用，见 AGENTS 第三节） |
 | 硬件 | i7-14700KF 28 逻辑核 / 32GB RAM / RTX 5070 12GB（torch CPU 版暂用不上） |
 | 安装 | 仓库根目录 `pip install -e .` 后用 `python -m nmind.cli ...` |
-| 测试 | pytest 9.2.0，52 项（含 router_ste/pred_mode/micro_lang 回归） |
+| 测试 | pytest 9.2.0，72 项（含 router_ste/pred_mode/micro_lang/H3b-H4b/true_continual 回归） |
 
 ## 三、常用命令
 

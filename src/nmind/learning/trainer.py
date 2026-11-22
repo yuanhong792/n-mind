@@ -244,8 +244,14 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
           checkpoint_path: str | None = None,
           mem_provider: Any | None = None, loss_mode: str = "joint",
           posthoc_probe: bool = True, loss_overrides: dict[str, float] | None = None,
-          router_ste: bool = False, pred_mode: str | None = None) -> TrainResult:
+           router_ste: bool = False, pred_mode: str | None = None,
+           data_override: dict[str, Any] | None = None,
+           model: NModel | None = None, probe: nn.Module | None = None) -> TrainResult:
     """训练一个任务。给了 replay 就按比例混批；trainable_adapter 只放开部分参数。
+
+    M4（2026-11-22）新增：`model`/`probe` 显式传入现存模型时**跳过 build_model()**，
+    从给定权重继续更新（增量学习唯一合法入口）。传入模型与 cfg 的输入维度、
+    execution/router_ste/pred_mode 语义不一致时**报错停止**，绝不静默重建。
 
     `loss_mode`：`joint` = CE + 预测 + 方差 + 均衡 + 熵 + 联合探针（M1 原配置）；
     `ce` = **只留 CE**，探针不参与训练（2x2 消融的 A/C 组就是这一档）。
@@ -271,12 +277,38 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
     torch.manual_seed(seed)
     np.random.seed(seed % (2**32))
 
-    model = build_model(cfg, seed=seed, device=dev, execution=execution, use_router=use_router,
-                        use_error_gating=use_error_gating, use_workspace=use_workspace,
-                        router_ste=router_ste, pred_mode=pred_mode)
-    pred_mode_eff = model.pred_mode   # None 时取 cfg.model.pred_mode
-    opened = _freeze_except_adapter(model) if trainable_adapter else []
-    probe = _make_probe(cfg.model.block_hidden, 36).to(dev)      # 6x6 网格里目标所在格 = 36 类
+    if model is not None:
+        # M4 续训入口：显式传入的模型优先，禁止静默重新初始化。
+        # 任何语义不一致都直接报错——宁可停止实验，也不偷偷重建后仍声称"续训"。
+        conflicts: list[str] = []
+        if int(model.cfg.event_numeric_dim) != int(cfg.model.event_numeric_dim):
+            conflicts.append(f"event_numeric_dim 模型={model.cfg.event_numeric_dim} cfg={cfg.model.event_numeric_dim}")
+        if model.execution != execution:
+            conflicts.append(f"execution 模型={model.execution} kwarg={execution}")
+        if model.use_router != use_router:
+            conflicts.append(f"use_router 模型={model.use_router} kwarg={use_router}")
+        if bool(model.router_ste) != bool(router_ste):
+            conflicts.append(f"router_ste 模型={model.router_ste} kwarg={router_ste}")
+        if pred_mode is not None and model.pred_mode != pred_mode:
+            conflicts.append(f"pred_mode 模型={model.pred_mode} kwarg={pred_mode}")
+        if conflicts:
+            raise ValueError("传入模型与训练配置不一致（增量学习禁止静默重建）：" + "；".join(conflicts))
+        model = model.to(dev)
+        pred_mode_eff = model.pred_mode
+        opened = _freeze_except_adapter(model) if trainable_adapter else []
+        init_mode = "provided_model"
+    else:
+        model = build_model(cfg, seed=seed, device=dev, execution=execution, use_router=use_router,
+                            use_error_gating=use_error_gating, use_workspace=use_workspace,
+                            router_ste=router_ste, pred_mode=pred_mode)
+        pred_mode_eff = model.pred_mode   # None 时取 cfg.model.pred_mode
+        opened = _freeze_except_adapter(model) if trainable_adapter else []
+        init_mode = "fresh_build"
+    probe_was_provided = probe is not None
+    if probe_was_provided:
+        probe = probe.to(dev)
+    else:
+        probe = _make_probe(cfg.model.block_hidden, 36).to(dev)      # 6x6 网格里目标所在格 = 36 类
     weights = LossWeights.from_cfg(cfg) if loss_mode == "joint" else LossWeights(
         pred=0.0, var=0.0, balance=0.0, entropy=0.0, probe=0.0)
     if loss_overrides:
@@ -285,7 +317,15 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
                 raise ValueError(f"未知损失权重 {k2!r}；可用：{list(weights.__dataclass_fields__)}")
             setattr(weights, k2, float(v2))
 
-    data = make_data(cfg, task, seed=seed)
+    data = make_data(cfg, task, seed=seed) if data_override is None else data_override
+    for split in ("train", "test"):
+        if not data.get(split):
+            raise ValueError(f"data_override 的 {split!r} 不能为空")
+        actual_dim = int(np.asarray(data[split][0]["obs"]).shape[-1])
+        if actual_dim != cfg.model.event_numeric_dim:
+            raise ValueError(
+                f"{split} 观测维度 {actual_dim} 与模型 event_numeric_dim "
+                f"{cfg.model.event_numeric_dim} 不一致")
     rows = data["train"]
     test_rows = data["test"]
     val_rows = data["val"] or test_rows       # 无 val 时退回 test（并在返回体里标注）
@@ -382,7 +422,8 @@ def train(cfg: Config | None = None, *, epochs: int | None = None, seed: int | N
         "ablation": {"use_router": use_router, "use_error_gating": use_error_gating,
                      "use_workspace": use_workspace, "use_memory_input": use_memory_input,
                      "trainable_adapter": trainable_adapter, "opened": opened,
-                     "router_ste": router_ste, "pred_mode": pred_mode_eff},
+                     "router_ste": router_ste, "pred_mode": pred_mode_eff,
+                     "init_mode": init_mode, "provided_probe": probe_was_provided},
         "replay_items_used": len(replay) if replay is not None else 0,
         "non_finite_steps_skipped": non_finite,
     }
@@ -414,7 +455,19 @@ def train_continual(cfg: Config | None = None, *, seed: int | None = None,
                     use_replay: bool = True, trainable_adapter: bool = False,
                     device: str = "auto", quiet: bool = False,
                     checkpoint_path: str | None = None) -> dict[str, Any]:
-    """A → B → 重测 A。关掉 replay 时旧任务轨迹完全不参与，用来量真实遗忘量。"""
+    """A → B → 重测 A（M4 修复：B 阶段真正继承 A 后权重）。
+
+    2026-11-22 修复前的缺陷：B 阶段调用 train() 时重新 build_model()，同一 seed 只能
+    重建"相同初始权重"，A 阶段学到的参数完全没有进入 B 阶段——forgetting 指标无法
+    解释为"先学 A 再学 B 之后的遗忘"。
+    修复后：A 训练 → 快照 → B 阶段以 A 后权重为唯一起点（逐位克隆 + 内置继承断言）;
+    optimizer 为增量阶段新建并明确记录（不继承 A 阶段动量）。
+    seed 语义分开记录：模型参数初始化 seed = seed（A/B 同一权重世系）；B 阶段训练数据
+    采样 seed = seed + 1（独立数据流，与重新初始化无关）。关掉 replay 时旧任务轨迹
+    完全不参与 B 阶段，量到的就是纯参数漂移遗忘。
+    """
+    from .online_adaptation import clone_snapshot, state_hash, verify_bitwise_inheritance
+
     cfg = cfg or default_config()
     seed = int(cfg.runtime.seed if seed is None else seed)
     ep = int(cfg.learning.epochs if epochs is None else epochs)
@@ -432,12 +485,22 @@ def train_continual(cfg: Config | None = None, *, seed: int | None = None,
     dev = rA.model.block_load_count.device
     a_before = evaluate(rA.model, rA.probe, dA["test"], device=dev, occluded_only=True)
 
-    rB = train(cfg, epochs=ep, seed=seed, task=taskB, device=device, quiet=quiet,
-               replay=buffer, replay_ratio=replay_ratio, trainable_adapter=trainable_adapter,
-               checkpoint_path=checkpoint_path)
-    # rB 复用了 rA 的 seed ⇒ 同一份初始权重，差别只在"先学了 A"与"是否重放"
-    a_after = evaluate(rB.model, rB.probe, dA["test"], device=dev, occluded_only=True)
-    b_after = rB.final["eval"]
+    # ---- M4 修复核心：B 阶段从 A 后权重逐位克隆出发，绝不靠"相同 seed"冒充继承 ----
+    a_snap = clone_snapshot(rA.model, rA.probe)
+    b_model = build_model(cfg, seed=seed, device=dev)      # 同结构新对象；权重立刻被 A 后快照覆盖
+    b_probe = _make_probe(cfg.model.block_hidden, 36).to(dev)
+    b_model.load_state_dict(a_snap["model"], strict=True)
+    if a_snap.get("probe"):
+        b_probe.load_state_dict(a_snap["probe"], strict=True)
+    inherit = verify_bitwise_inheritance(a_snap, b_model, b_probe)
+    if not inherit["all_bitwise_equal"]:
+        raise RuntimeError(f"B 阶段权重继承断言失败：{inherit['mismatched_keys']}")
+
+    b_train = train(cfg, epochs=ep, seed=seed + 1, task=taskB, device=device, quiet=quiet,
+                    model=b_model, probe=b_probe, replay=buffer, replay_ratio=replay_ratio,
+                    trainable_adapter=trainable_adapter, checkpoint_path=checkpoint_path)
+    a_after = evaluate(b_train.model, b_train.probe, dA["test"], device=dev, occluded_only=True)
+    b_after = b_train.final["eval"]
     return {"taskA": datasets.task_to_dict(taskA), "taskB": datasets.task_to_dict(taskB),
             "use_replay": use_replay, "replay_ratio": replay_ratio,
             "buffer_size": len(buffer) if buffer else 0,
@@ -446,8 +509,14 @@ def train_continual(cfg: Config | None = None, *, seed: int | None = None,
             "forgetting_occluded_accuracy": a_before.get("accuracy_occluded", float("nan"))
             - a_after.get("accuracy_occluded", float("nan")),
             "forgetting_probe_accuracy": a_before["probe_accuracy"] - a_after["probe_accuracy"],
-            "curve_A_tail": rA.curve["total"][-3:], "curve_B_tail": rB.curve["total"][-3:],
-            "model": rB.model, "probe": rB.probe, "data_A": dA, "data_B": dB}
+            "curve_A_tail": rA.curve["total"][-3:], "curve_B_tail": b_train.curve["total"][-3:],
+            "model": b_train.model, "probe": b_train.probe, "data_A": dA, "data_B": dB,
+            "lineage": {"model_init_seed": seed, "b_data_sampling_seed": seed + 1,
+                        "parent_state_sha256": a_snap["sha256"],
+                        "child_state_sha256": state_hash(b_train.model, b_train.probe),
+                        "inheritance_verified": inherit["all_bitwise_equal"],
+                        "optimizer": "B 阶段新建 AdamW（动量不继承 A 阶段）",
+                        "init_mode_b": b_train.final["ablation"]["init_mode"]}}
 
 
 __all__ = ["TrainResult", "build_model", "make_data", "evaluate", "train", "train_continual"]

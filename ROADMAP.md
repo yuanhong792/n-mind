@@ -34,8 +34,10 @@
 ## M4 长期记忆与持续学习 🔶
 
 - [x] SQLite 情景记忆（FTS5）、检索器、巩固器、墓碑删除、replay 缓冲
-- [x] `train --continual`（A→B→重测 A，replay 开关）实现完成
-- ⬜ 持续学习实验真实运行并记录遗忘量（下一步第一件事之一）
+- [x] `train --continual`（A→B→重测 A，replay 开关）实现完成；2026-11-22 修复 B 阶段权重继承缺陷（同 seed ≠ 继承），B 阶段从 A 后权重逐位克隆并内置断言
+- [x] 增量学习最小闭环 smoke（experiments/m3_incremental/）：四臂对照 1-seed，Neural-Head 未见 B 冲突步 +28.7pp、A 零遗忘；NEURAL_UPDATE_VERIFIED；RESEARCH_VALIDATED 未授予（需多 seed）
+- ⬜ 多 seed 增量学习验证 + stable/candidate 双轨回测（需用户批准预算）
+- ⬜ 持续学习 A→B→A 全量运行记录（train_continual 已修复，待批准排期）
 
 ## M5 语言能力试验 ⬜
 
@@ -49,6 +51,6 @@
 ## 已知阻塞
 
 1. ~~torch 为 CPU 版 → RTX 5070（Blackwell, sm_120）不可用~~ → 2026-11-21 已装 cu128 轮子启用 GPU（小袁确认；GPU 冒烟：小模型下 GPU 无速度优势，先保留给更大规模，见 STATUS GPU 状态）。
-2. ~~稀疏路由版训练显著落后~~ → 2026-11-21 M2.2 配对实验反转：C 在新数据 seed 上 0.853±0.113（最差 0.659），F10_ste 0.934±0.071 均值反超 C 8.0pp；pred 分支 legacy 缺陷已修复（pred_mode="next"，world_model_validated=true）。待收尾：配对 CI 跨零需扩 seed、多步闭环 rollout、H3b/H4b。详见 experiments/m2_2_validation/report.md。
-3. M2.2 判定 CONDITIONAL（倾向 ACCEPTED）：差 F10 扩 seed 定案 + 多步 rollout + H3b/H4b。
+2. ~~稀疏路由版训练显著落后~~ → 2026-11-21 M2.2 10-seed 配对定案：F10_ste 0.931±0.050，C 0.877±0.087；pred 分支 legacy 缺陷已修复（pred_mode="next"）。
+3. M2.2 继续 `CONDITIONAL`：H3b v1 经复核存在隐藏障碍信息与 oracle 口径错误，已用显式地图+BFS oracle 的 v2 替代；旧 checkpoint 26 维输入与 v2 的 62 维不兼容，需完成障碍课程同口径重训。H4b 只保留为反转规则分布偏移诊断。2026-11-22 起其 10-seed 全量重训标记 **DEFERRED_NOT_CANCELLED**（脚本 train_ood_v2_full.py 就绪，待用户批准预算后执行）。
 4. M3 预研已启动（v1 管线 + OOD 超捷径）；Step5/6（GRU/Transformer 对照、持续学习四臂）待排。

@@ -1,0 +1,55 @@
+{
+  "experiment_id": "m4-incremental-smoke-001",
+  "parent_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m2_ablation\\C_sparse_ce_s20261131.pt",
+  "parent_checkpoint_saved_at": "2026-11-21T18:01:20+0800",
+  "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+  "parent_git_revision": "5720f74",
+  "task_A": {
+    "name": "A",
+    "size": 6,
+    "goal_visible_steps": 4,
+    "obstacles": [],
+    "reversed_control": false,
+    "seed": 20261131
+  },
+  "task_B_train": {
+    "name": "B",
+    "size": 6,
+    "goal_visible_steps": 4,
+    "obstacles": [],
+    "reversed_control": true,
+    "seed": 20261141
+  },
+  "task_B_test": {
+    "name": "B",
+    "size": 6,
+    "goal_visible_steps": 4,
+    "obstacles": [],
+    "reversed_control": true,
+    "seed": 20261142
+  },
+  "dataset_hashes": {
+    "A_test": "cc0c5a45452b1ff0",
+    "B_train": "3658d5e36db2ad5f",
+    "B_test": "6905ef4f0dbd9da3"
+  },
+  "sampling_seeds": {
+    "Neural-Head": 20261151,
+    "Neural-Core": 20261152,
+    "Negative-lr0": 20261153
+  },
+  "steps_allocation": {
+    "Neural-Head": 48,
+    "Neural-Core": 48,
+    "Negative-lr0": 8
+  },
+  "budget_cap": 120,
+  "budget_used": 104,
+  "core_block_ids_rule": "父模型 block_load_count 最高的 2 块（平局取小号）",
+  "core_block_ids": [
+    5,
+    1
+  ],
+  "same_model_lineage_verified": true,
+  "seed_semantics": "父模型参数初始化 seed=20261131（M2 预登记）；本轮零新建模型初始化；臂间差异只有采样流 seed 与参数范围，不是重新初始化"
+}

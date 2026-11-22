@@ -1,6 +1,6 @@
 # STATUS.md — 当前真实进度
 
-更新：2026-11-21（AutoClaw 会话）。所有数字来自本机实际运行，证据在 `results/` 与 `experiments/`。
+更新：2026-11-22（AutoClaw 会话）。所有数字来自本机实际运行，证据在 `results/` 与 `experiments/`。
 
 ## 环境
 
@@ -19,6 +19,14 @@ python -m nmind.cli baseline --json --epochs 12 --seed 20261121
 python -m nmind.cli benchmark --json --seed 20261121
 python -m pytest tests -q          # 27 passed
 ```
+
+## M4 增量学习：参数连续性修复与首次四臂 smoke（2026-11-22，AutoClaw）
+
+- **P0 bug 修复（实锤并闭环）**：`train_continual()` 的 B 阶段此前调用 train() 重新 build_model()——同一 seed 只重建相同初始权重，A 阶段学到的参数从未进入 B，forgetting 指标无法解释为真实遗忘。修复：`train()` 新增 `model=`/`probe=` 显式入参（提供时跳过 build_model，语义冲突直接报错不静默重建）；`train_continual()` B 阶段改为从 A 后权重逐位克隆 + 内置继承断言；optimizer 增量阶段新建并记录；采样 seed 与初始化 seed 分开记录。
+- **新增** `src/nmind/learning/online_adaptation.py`：`fit_existing_model`（neural_adapt 唯一合法入口）+ AdaptationBudget 硬预算守卫 + 逐位继承/冻结取证（torch.equal，不用容差）+ transient buffer（load_bias/block_load_count）单独记录与复位。
+- **首次四臂增量学习 smoke**（experiments/m3_incremental/，1 预声明 seed，104/120 步，20.5s，RSS 645MB）：父 checkpoint = C_sparse_ce_s20261131（A 遮挡段 0.6594，与 M2.2 冻结记录一致）。新任务 B = reversed_control（训练 96 条 / 未见测试 32 条，seed 20261141/42）。结果：Neural-Head 未见 B 冲突步 0.6019→**0.8889（+28.7pp）**、A 0.6594→0.6609（零遗忘）；Neural-Core 0.7191（+11.7pp）但 A −4.2pp（门槛内）；memory-only +2.5pp 且参数逐位不变；lr=0 对照逐位不变。判定：PIPELINE_FIXED / NEURAL_UPDATE_VERIFIED / NEW_SKILL_SIGNAL_SINGLE_SEED (Neural-Head) / RETENTION_PASS_SINGLE_SEED；RESEARCH_VALIDATED 不由 1-seed 授予。报告：experiments/m3_incremental/m3_incremental_report.md。
+- 测试 **72 项全绿**（64 项既有 + tests/test_true_continual.py 8 项新断言）。
+- H3b/H4b v2 的 10-seed 全量重训 **DEFERRED_NOT_CANCELLED**（脚本 train_ood_v2_full.py 就绪未运行，约 2.5h CPU，待小袁批准）。
 
 ## 最新真实结果
 
@@ -77,9 +85,9 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. H3b/H4b 数据集构建 + 障碍课程对照（M2.2 COMPLETE 的最后两项）。
-2. M3 Step5/6：dev 低于捷径诊断 + 同预算 GRU/Transformer 对照 + 持续学习四臂（Frozen/Memory-only/Local-update/Full-update）。
-3. F10 配置封装为 named config（configs/f10_next.yaml，含 pred_mode=next+router_ste+软化正则），作为默认训练入口。
+1. 多 seed 增量学习验证（5-10 独立 seed × 同四臂，约 15 分钟 CPU）——**需小袁批准后运行**，把 NEW_SKILL_SIGNAL 升级为带置信区间的结论。
+2. H3b/H4b v2 10-seed 全量重训（train_ood_v2_full.py）——DEFERRED_NOT_CANCELLED，**需小袁批准**（约 2.5h CPU），M2.2 收尾依赖它。
+3. F10 配置封装 configs/f10_next.yaml（含 pred_mode=next+router_ste+软化正则）作为默认训练入口；M3 Step5/6（GRU/Transformer 对照）继续排队。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）——含 10-seed 定案补充
 
@@ -90,6 +98,14 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **决策 D6**：pred_mode 默认翻转为 next（legacy 是已实锤的缺陷目标）；router_ste 保持 opt-in（C 臂对照依赖）。多步闭环 rollout 完成：next 模式误差饱和（h1 0.59→h10 0.66 不爆炸），解码位置超 copy/majority 基线，h10 的 copy 高值是钉住态退化区（与 H4 同源）。
 - **M2.2 判定**：F10 ≤3pp 门槛**配对口径稳健满足**；CONDITIONAL 保持（差 H3b/H4b 两项，M2.2 COMPLETE 前不升 ACCEPTED）。报告：experiments/m2_2_validation/report.md。
 - 测试 52 项全绿；环境审计 environment.json；代码地图 docs/code_map.md。
+
+## H3b/H4b 口径复核与 v2（2026-11-22）
+
+- H3b v1 作废为验收证据：标签 oracle 读取完整障碍图，但 26 维输入没有障碍地图且轨迹零碰撞；“BFS 可解”也与实际曼哈顿贪心标签不一致。旧 H3b 数字仅保留为历史诊断。
+- H3b v2（`h3b-v2-observable-bfs`）已完成数据层修正：观测追加 6×6 障碍图（26→62 维）、标签改为确定性 BFS 最短路、每条轨迹必须实际到达目标、dev/holdout 逐拓扑实例隔离、manifest 指纹覆盖实际 obs/actions/start/goal。旧 checkpoint 输入维度不兼容，**尚未重训、尚无模型成绩**。
+- H4b 重新定义为“反转规则分布偏移”，不再声称规则切换识别。评分拆为冲突步/巧合步/总分：F10 10-seed 为 **0.589±0.145 / 0.862±0.068 / 0.720±0.084**；C 冲突步 0.471±0.125，配对 C−F10=-0.118，bootstrap 95% CI [-0.214,-0.018]。由于没有规则提示与真实闭环，不能外推为自主规则切换能力。
+- H4b cued v2 另建正常/反转成对样本，同一 start/goal、每步显式规则提示（27 维）；旧 26 维 checkpoint 同样不兼容，等待配对课程重训。
+- 证据：`experiments/m2_2_validation/ood_h3b_h4b_v2.json`；测试 **64 项全绿**。M2.2 继续保持 `CONDITIONAL`，下一关是 H3b/H4b cued v2 同口径重训。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）
 

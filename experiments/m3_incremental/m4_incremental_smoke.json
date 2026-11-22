@@ -1,0 +1,2795 @@
+{
+  "experiment_id": "m4-incremental-smoke-001",
+  "captured_at": "2026-11-22 10:43:27",
+  "device": "cpu",
+  "torch_threads": 20,
+  "budget": {
+    "cap": 120,
+    "used": 104,
+    "log": [
+      {
+        "arm": "Neural-Head",
+        "steps": 48,
+        "used_after": 48
+      },
+      {
+        "arm": "Neural-Core",
+        "steps": 48,
+        "used_after": 96
+      },
+      {
+        "arm": "Negative-lr0",
+        "steps": 8,
+        "used_after": 104
+      }
+    ]
+  },
+  "baselines": {
+    "test_majority_action": 2,
+    "test_majority_acc_on_conflict": 0.4321,
+    "train_majority_action": 2,
+    "train_majority_acc_on_test_conflict": 0.4321,
+    "random_policy": 0.25
+  },
+  "A_before_occ": 0.6594,
+  "B_before": {
+    "conflict": 0.6019,
+    "n_conflict": 324,
+    "coincident": 0.807,
+    "n_coincident": 316,
+    "total_occluded": 0.7031,
+    "n_total_occluded": 640
+  },
+  "arms": {
+    "Control-0": {
+      "arm": "Control-0",
+      "A_after_occ": 0.6594,
+      "A_forgetting": 0.0,
+      "B_after": {
+        "conflict": 0.6019,
+        "n_conflict": 324,
+        "coincident": 0.807,
+        "n_coincident": 316,
+        "total_occluded": 0.7031,
+        "n_total_occluded": 640
+      },
+      "B_gain_conflict": 0.0,
+      "updates": 0,
+      "note": "不更新权重、不加外部记忆",
+      "rss_mb": 550.3
+    },
+    "Control-Memory": {
+      "arm": "Control-Memory",
+      "updates": 0,
+      "episodes_written": 96,
+      "memory_error": null,
+      "mem_vector_note": "16维：可见期目标(x,y,code)+规则标志+检索标志；父模型从未训练过读取 mem",
+      "A_after_occ": 0.6594,
+      "A_forgetting": 0.0,
+      "B_after": {
+        "conflict": 0.6265,
+        "coincident": 0.8006,
+        "total_occluded": 0.7125
+      },
+      "B_gain_conflict": 0.0246,
+      "params_bitwise_unchanged": true,
+      "rss_mb": 554.3
+    },
+    "Neural-Head": {
+      "arm": "Neural-Head",
+      "A_after_occ": 0.6609,
+      "A_forgetting": -0.0015,
+      "B_after": {
+        "conflict": 0.8889,
+        "n_conflict": 324,
+        "coincident": 0.5443,
+        "n_coincident": 316,
+        "total_occluded": 0.7188,
+        "n_total_occluded": 640
+      },
+      "B_gain_conflict": 0.287,
+      "updates": 48,
+      "fit": {
+        "scope": "adapter",
+        "core_blocks_chosen": [],
+        "optimizer_steps_executed": 48,
+        "effective_samples": 768,
+        "optimizer_init": {
+          "kind": "AdamW(new)",
+          "lr": 0.003,
+          "weight_decay": {
+            "adapter_group": 0.0001,
+            "core_group": 0.0
+          },
+          "momentum_inherited": false,
+          "note": "增量阶段 optimizer 新建，动量不从任何先前阶段继承（任务书允许，须记录）"
+        },
+        "loss_action_first": 1.3072,
+        "loss_action_last": 0.6012,
+        "grad_norms_first_step": {
+          "head.ctx_mlp.0.weight": 0.554474,
+          "head.ctx_mlp.0.bias": 0.13959,
+          "head.ctx_mlp.2.weight": 0.333042,
+          "head.ctx_mlp.2.bias": 0.035121,
+          "head.act_out.weight": 0.689294,
+          "head.act_out.bias": 0.03869,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 0.567857,
+          "block_to_ws.bias": 0.119024
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 13339.866211
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.15
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "9aab397561f120557a1594e226b56f6937f38f76854c12caa79fe697f61abc57",
+        "wall_s": 6.97
+      },
+      "delta_full": {
+        "modules": {
+          "action_emb.weight": {
+            "shape": [
+              4,
+              4
+            ],
+            "norm_before": 3.004059,
+            "norm_after": 3.004015,
+            "delta_l2": 4.433e-05,
+            "delta_max_abs": 2.861e-05,
+            "changed_elements": 16,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_load_count": {
+            "shape": [
+              8
+            ],
+            "norm_before": 179116.453125,
+            "norm_after": 192201.15625,
+            "delta_l2": 13339.86621094,
+            "delta_max_abs": 5533.0,
+            "changed_elements": 8,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_to_ws.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.475137,
+            "norm_after": 0.621761,
+            "delta_l2": 0.30946431,
+            "delta_max_abs": 0.06109641,
+            "changed_elements": 64,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_to_ws.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.622021,
+            "norm_after": 5.880511,
+            "delta_l2": 2.38029122,
+            "delta_max_abs": 0.10558988,
+            "changed_elements": 4096,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "blocks.W_g": {
+            "shape": [
+              8,
+              192,
+              64
+            ],
+            "norm_before": 31.955833,
+            "norm_after": 31.955833,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_h": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.017717,
+            "norm_after": 16.017717,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_w": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 17.215263,
+            "norm_after": 17.215263,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_z": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.487509,
+            "norm_after": 16.487509,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.b_c": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.013891,
+            "norm_after": 1.013891,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.b_g": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.661261,
+            "norm_after": 1.661261,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.fuse.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.460232,
+            "norm_after": 0.460232,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.fuse.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 6.776605,
+            "norm_after": 6.776605,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.817688,
+            "norm_after": 0.817688,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.weight": {
+            "shape": [
+              64,
+              26
+            ],
+            "norm_before": 6.195798,
+            "norm_after": 6.195798,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.505893,
+            "norm_after": 0.505893,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 6.73603,
+            "norm_after": 6.73603,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.359101,
+            "norm_after": 0.359101,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.451097,
+            "norm_after": 8.451097,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.259392,
+            "norm_after": 0.259392,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 4.621225,
+            "norm_after": 4.621225,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.315486,
+            "norm_after": 0.315486,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.133461,
+            "norm_after": 5.133461,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.act_out.bias": {
+            "shape": [
+              4
+            ],
+            "norm_before": 0.122234,
+            "norm_after": 0.158646,
+            "delta_l2": 0.06195936,
+            "delta_max_abs": 0.04492828,
+            "changed_elements": 4,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.act_out.weight": {
+            "shape": [
+              4,
+              64
+            ],
+            "norm_before": 1.777037,
+            "norm_after": 1.421878,
+            "delta_l2": 0.61224657,
+            "delta_max_abs": 0.07966387,
+            "changed_elements": 256,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.cand_mlp.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.389044,
+            "norm_after": 0.389044,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.265694,
+            "norm_after": 3.265694,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.59877,
+            "norm_after": 0.54497,
+            "delta_l2": 0.20026888,
+            "delta_max_abs": 0.06450304,
+            "changed_elements": 32,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.0.weight": {
+            "shape": [
+              32,
+              144
+            ],
+            "norm_before": 7.174948,
+            "norm_after": 6.991812,
+            "delta_l2": 2.69593048,
+            "delta_max_abs": 0.12434797,
+            "changed_elements": 4608,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 1.006264,
+            "norm_after": 1.041446,
+            "delta_l2": 0.22448382,
+            "delta_max_abs": 0.04963593,
+            "changed_elements": 64,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.2.weight": {
+            "shape": [
+              64,
+              32
+            ],
+            "norm_before": 6.191277,
+            "norm_after": 5.777849,
+            "delta_l2": 1.50505388,
+            "delta_max_abs": 0.0969144,
+            "changed_elements": 2048,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.key.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.25968,
+            "norm_after": 3.25968,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.275517,
+            "norm_after": 3.275517,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.281978,
+            "norm_after": 3.281978,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.scalar.weight": {
+            "shape": [
+              1,
+              32
+            ],
+            "norm_before": 0.617308,
+            "norm_after": 0.617308,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.409701,
+            "norm_after": 0.409701,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.weight": {
+            "shape": [
+              64,
+              132
+            ],
+            "norm_before": 4.619127,
+            "norm_after": 4.619127,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.538574,
+            "norm_after": 0.538574,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.662345,
+            "norm_after": 4.662345,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.623889,
+            "norm_after": 0.623889,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.648018,
+            "norm_after": 4.648018,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.load_bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 5.261416,
+            "norm_after": 5.240229,
+            "delta_l2": 0.14999987,
+            "delta_max_abs": 0.0999999,
+            "changed_elements": 6,
+            "changed_ratio": 0.75,
+            "bitwise_equal": false
+          },
+          "router.score_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.304083,
+            "norm_after": 0.304083,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.0.weight": {
+            "shape": [
+              32,
+              138
+            ],
+            "norm_before": 3.25531,
+            "norm_after": 3.25531,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 0.302236,
+            "norm_after": 0.302236,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.weight": {
+            "shape": [
+              8,
+              32
+            ],
+            "norm_before": 1.681826,
+            "norm_after": 1.681826,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.k_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.878129,
+            "norm_after": 8.878129,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.795953,
+            "norm_after": 0.795953,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.052455,
+            "norm_after": 8.052455,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.slot_keys": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 3.761883,
+            "norm_after": 3.761883,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.bias": {
+            "shape": [
+              1
+            ],
+            "norm_before": 0.039003,
+            "norm_after": 0.039003,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.weight": {
+            "shape": [
+              1,
+              64
+            ],
+            "norm_before": 0.605381,
+            "norm_after": 0.605381,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.v_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.172437,
+            "norm_after": 5.172437,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.write_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.334761,
+            "norm_after": 5.334761,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          }
+        },
+        "trainable_total": 19,
+        "trainable_changed_count": 9,
+        "changed_trainable_params": [
+          "action_emb.weight",
+          "block_to_ws.bias",
+          "block_to_ws.weight",
+          "head.act_out.bias",
+          "head.act_out.weight",
+          "head.ctx_mlp.0.bias",
+          "head.ctx_mlp.0.weight",
+          "head.ctx_mlp.2.bias",
+          "head.ctx_mlp.2.weight"
+        ],
+        "frozen_total": 36,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "scope_plan": {
+        "scope": "adapter",
+        "core_blocks_chosen": [],
+        "trainable_parameter_names": [
+          "head.ctx_mlp.0.weight",
+          "head.ctx_mlp.0.bias",
+          "head.ctx_mlp.2.weight",
+          "head.ctx_mlp.2.bias",
+          "head.act_out.weight",
+          "head.act_out.bias",
+          "head.cand_norm.weight",
+          "head.cand_norm.bias",
+          "head.query_norm.weight",
+          "head.query_norm.bias",
+          "head.key.weight",
+          "head.query.weight",
+          "head.cand_mlp.weight",
+          "head.cand_mlp.bias",
+          "head.query_mlp.weight",
+          "head.scalar.weight",
+          "action_emb.weight",
+          "block_to_ws.weight",
+          "block_to_ws.bias"
+        ],
+        "frozen_parameter_names": [
+          "encoder.num_mlp.0.weight",
+          "encoder.num_mlp.0.bias",
+          "encoder.num_mlp.2.weight",
+          "encoder.num_mlp.2.bias",
+          "encoder.txt_mlp.0.weight",
+          "encoder.txt_mlp.0.bias",
+          "encoder.txt_mlp.2.weight",
+          "encoder.txt_mlp.2.bias",
+          "encoder.fuse.weight",
+          "encoder.fuse.bias",
+          "encoder.out_norm.weight",
+          "encoder.out_norm.bias",
+          "blocks.W_g",
+          "blocks.b_g",
+          "blocks.W_z",
+          "blocks.W_h",
+          "blocks.W_w",
+          "blocks.b_c",
+          "router.score_mlp.0.weight",
+          "router.score_mlp.0.bias",
+          "router.score_mlp.2.weight",
+          "router.score_mlp.2.bias",
+          "workspace.slot_keys",
+          "workspace.q_proj.weight",
+          "workspace.q_proj.bias",
+          "workspace.k_proj.weight",
+          "workspace.v_proj.weight",
+          "workspace.write_proj.weight",
+          "workspace.utility_mlp.weight",
+          "workspace.utility_mlp.bias",
+          "predictor.net.0.weight",
+          "predictor.net.0.bias",
+          "predictor.net.2.weight",
+          "predictor.net.2.bias",
+          "predictor.net.4.weight",
+          "predictor.net.4.bias"
+        ],
+        "grad_mask_rules": []
+      },
+      "child_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m3_incremental\\ckpts\\m4-incremental-smoke-001_Neural-Head_candidate.pt",
+      "child_reload_conflict_score": 0.8889,
+      "reload_consistent": true,
+      "rss_mb": 663.5
+    },
+    "Neural-Core": {
+      "arm": "Neural-Core",
+      "A_after_occ": 0.6172,
+      "A_forgetting": 0.0422,
+      "B_after": {
+        "conflict": 0.7191,
+        "n_conflict": 324,
+        "coincident": 0.7563,
+        "n_coincident": 316,
+        "total_occluded": 0.7375,
+        "n_total_occluded": 640
+      },
+      "B_gain_conflict": 0.1172,
+      "updates": 48,
+      "fit": {
+        "scope": "core_partial",
+        "core_blocks_chosen": [
+          1,
+          5
+        ],
+        "optimizer_steps_executed": 48,
+        "effective_samples": 768,
+        "optimizer_init": {
+          "kind": "AdamW(new)",
+          "lr": 0.003,
+          "weight_decay": {
+            "adapter_group": 0.0001,
+            "core_group": 0.0
+          },
+          "momentum_inherited": false,
+          "note": "增量阶段 optimizer 新建，动量不从任何先前阶段继承（任务书允许，须记录）"
+        },
+        "loss_action_first": 1.6569,
+        "loss_action_last": 0.5266,
+        "grad_norms_first_step": {
+          "blocks.W_g": 0.12434,
+          "blocks.b_g": 0.012919,
+          "blocks.W_z": 0.304765,
+          "blocks.W_h": 0.120701,
+          "blocks.W_w": 0.117976,
+          "blocks.b_c": 0.037885,
+          "head.ctx_mlp.0.weight": 0.701431,
+          "head.ctx_mlp.0.bias": 0.235805,
+          "head.ctx_mlp.2.weight": 0.470868,
+          "head.ctx_mlp.2.bias": 0.113722,
+          "head.act_out.weight": 0.980528,
+          "head.act_out.bias": 0.11702,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 0.60539,
+          "block_to_ws.bias": 0.141303
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 13238.954102
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.278388
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "e271996490ab96463442a6189c2b75e46c915e132ec67c1b3b83dd748ed94cc1",
+        "wall_s": 8.23
+      },
+      "delta_full": {
+        "modules": {
+          "action_emb.weight": {
+            "shape": [
+              4,
+              4
+            ],
+            "norm_before": 3.004059,
+            "norm_after": 3.004015,
+            "delta_l2": 4.433e-05,
+            "delta_max_abs": 2.861e-05,
+            "changed_elements": 16,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_load_count": {
+            "shape": [
+              8
+            ],
+            "norm_before": 179116.453125,
+            "norm_after": 192026.671875,
+            "delta_l2": 13238.95410156,
+            "delta_max_abs": 5474.0,
+            "changed_elements": 8,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_to_ws.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.475137,
+            "norm_after": 0.601926,
+            "delta_l2": 0.28440639,
+            "delta_max_abs": 0.06443553,
+            "changed_elements": 64,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_to_ws.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.622021,
+            "norm_after": 5.852124,
+            "delta_l2": 2.08246446,
+            "delta_max_abs": 0.08954735,
+            "changed_elements": 4096,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "blocks.W_g": {
+            "shape": [
+              8,
+              192,
+              64
+            ],
+            "norm_before": 31.955833,
+            "norm_after": 32.341324,
+            "delta_l2": 5.23282051,
+            "delta_max_abs": 0.10240343,
+            "changed_elements": 24576,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "blocks.W_h": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.017717,
+            "norm_after": 16.102041,
+            "delta_l2": 2.65380216,
+            "delta_max_abs": 0.09753439,
+            "changed_elements": 8192,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "blocks.W_w": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 17.215263,
+            "norm_after": 17.485043,
+            "delta_l2": 2.87689352,
+            "delta_max_abs": 0.08596425,
+            "changed_elements": 8192,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "blocks.W_z": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.487509,
+            "norm_after": 16.683935,
+            "delta_l2": 2.7787919,
+            "delta_max_abs": 0.09359334,
+            "changed_elements": 8192,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "blocks.b_c": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.013891,
+            "norm_after": 1.036309,
+            "delta_l2": 0.34565517,
+            "delta_max_abs": 0.0751714,
+            "changed_elements": 128,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "blocks.b_g": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.661261,
+            "norm_after": 1.728143,
+            "delta_l2": 0.43414152,
+            "delta_max_abs": 0.10869931,
+            "changed_elements": 128,
+            "changed_ratio": 0.25,
+            "bitwise_equal": false
+          },
+          "encoder.fuse.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.460232,
+            "norm_after": 0.460232,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.fuse.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 6.776605,
+            "norm_after": 6.776605,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.817688,
+            "norm_after": 0.817688,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.weight": {
+            "shape": [
+              64,
+              26
+            ],
+            "norm_before": 6.195798,
+            "norm_after": 6.195798,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.505893,
+            "norm_after": 0.505893,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 6.73603,
+            "norm_after": 6.73603,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.359101,
+            "norm_after": 0.359101,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.451097,
+            "norm_after": 8.451097,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.259392,
+            "norm_after": 0.259392,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 4.621225,
+            "norm_after": 4.621225,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.315486,
+            "norm_after": 0.315486,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.133461,
+            "norm_after": 5.133461,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.act_out.bias": {
+            "shape": [
+              4
+            ],
+            "norm_before": 0.122234,
+            "norm_after": 0.128758,
+            "delta_l2": 0.04873982,
+            "delta_max_abs": 0.03315508,
+            "changed_elements": 4,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.act_out.weight": {
+            "shape": [
+              4,
+              64
+            ],
+            "norm_before": 1.777037,
+            "norm_after": 1.440304,
+            "delta_l2": 0.56355751,
+            "delta_max_abs": 0.07766839,
+            "changed_elements": 256,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.cand_mlp.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.389044,
+            "norm_after": 0.389044,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.265694,
+            "norm_after": 3.265694,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.59877,
+            "norm_after": 0.528448,
+            "delta_l2": 0.19469237,
+            "delta_max_abs": 0.0773697,
+            "changed_elements": 32,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.0.weight": {
+            "shape": [
+              32,
+              144
+            ],
+            "norm_before": 7.174948,
+            "norm_after": 7.076775,
+            "delta_l2": 2.53385997,
+            "delta_max_abs": 0.11247633,
+            "changed_elements": 4608,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 1.006264,
+            "norm_after": 0.983319,
+            "delta_l2": 0.21173403,
+            "delta_max_abs": 0.03572384,
+            "changed_elements": 64,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.ctx_mlp.2.weight": {
+            "shape": [
+              64,
+              32
+            ],
+            "norm_before": 6.191277,
+            "norm_after": 5.768736,
+            "delta_l2": 1.45006597,
+            "delta_max_abs": 0.08893241,
+            "changed_elements": 2048,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "head.key.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.25968,
+            "norm_after": 3.25968,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.275517,
+            "norm_after": 3.275517,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.281978,
+            "norm_after": 3.281978,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.scalar.weight": {
+            "shape": [
+              1,
+              32
+            ],
+            "norm_before": 0.617308,
+            "norm_after": 0.617308,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.409701,
+            "norm_after": 0.409701,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.weight": {
+            "shape": [
+              64,
+              132
+            ],
+            "norm_before": 4.619127,
+            "norm_after": 4.619127,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.538574,
+            "norm_after": 0.538574,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.662345,
+            "norm_after": 4.662345,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.623889,
+            "norm_after": 0.623889,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.648018,
+            "norm_after": 4.648018,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.load_bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 5.261416,
+            "norm_after": 5.489079,
+            "delta_l2": 0.27838796,
+            "delta_max_abs": 0.14999986,
+            "changed_elements": 6,
+            "changed_ratio": 0.75,
+            "bitwise_equal": false
+          },
+          "router.score_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.304083,
+            "norm_after": 0.304083,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.0.weight": {
+            "shape": [
+              32,
+              138
+            ],
+            "norm_before": 3.25531,
+            "norm_after": 3.25531,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 0.302236,
+            "norm_after": 0.302236,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.weight": {
+            "shape": [
+              8,
+              32
+            ],
+            "norm_before": 1.681826,
+            "norm_after": 1.681826,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.k_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.878129,
+            "norm_after": 8.878129,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.795953,
+            "norm_after": 0.795953,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.052455,
+            "norm_after": 8.052455,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.slot_keys": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 3.761883,
+            "norm_after": 3.761883,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.bias": {
+            "shape": [
+              1
+            ],
+            "norm_before": 0.039003,
+            "norm_after": 0.039003,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.weight": {
+            "shape": [
+              1,
+              64
+            ],
+            "norm_before": 0.605381,
+            "norm_after": 0.605381,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.v_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.172437,
+            "norm_after": 5.172437,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.write_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.334761,
+            "norm_after": 5.334761,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          }
+        },
+        "trainable_total": 25,
+        "trainable_changed_count": 15,
+        "changed_trainable_params": [
+          "action_emb.weight",
+          "block_to_ws.bias",
+          "block_to_ws.weight",
+          "blocks.W_g",
+          "blocks.W_h",
+          "blocks.W_w",
+          "blocks.W_z",
+          "blocks.b_c",
+          "blocks.b_g",
+          "head.act_out.bias",
+          "head.act_out.weight",
+          "head.ctx_mlp.0.bias",
+          "head.ctx_mlp.0.weight",
+          "head.ctx_mlp.2.bias",
+          "head.ctx_mlp.2.weight"
+        ],
+        "frozen_total": 30,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "scope_plan": {
+        "scope": "core_partial",
+        "core_blocks_chosen": [
+          1,
+          5
+        ],
+        "trainable_parameter_names": [
+          "head.ctx_mlp.0.weight",
+          "head.ctx_mlp.0.bias",
+          "head.ctx_mlp.2.weight",
+          "head.ctx_mlp.2.bias",
+          "head.act_out.weight",
+          "head.act_out.bias",
+          "head.cand_norm.weight",
+          "head.cand_norm.bias",
+          "head.query_norm.weight",
+          "head.query_norm.bias",
+          "head.key.weight",
+          "head.query.weight",
+          "head.cand_mlp.weight",
+          "head.cand_mlp.bias",
+          "head.query_mlp.weight",
+          "head.scalar.weight",
+          "action_emb.weight",
+          "block_to_ws.weight",
+          "block_to_ws.bias",
+          "blocks.W_g",
+          "blocks.b_g",
+          "blocks.W_z",
+          "blocks.W_h",
+          "blocks.W_w",
+          "blocks.b_c"
+        ],
+        "frozen_parameter_names": [
+          "encoder.num_mlp.0.weight",
+          "encoder.num_mlp.0.bias",
+          "encoder.num_mlp.2.weight",
+          "encoder.num_mlp.2.bias",
+          "encoder.txt_mlp.0.weight",
+          "encoder.txt_mlp.0.bias",
+          "encoder.txt_mlp.2.weight",
+          "encoder.txt_mlp.2.bias",
+          "encoder.fuse.weight",
+          "encoder.fuse.bias",
+          "encoder.out_norm.weight",
+          "encoder.out_norm.bias",
+          "router.score_mlp.0.weight",
+          "router.score_mlp.0.bias",
+          "router.score_mlp.2.weight",
+          "router.score_mlp.2.bias",
+          "workspace.slot_keys",
+          "workspace.q_proj.weight",
+          "workspace.q_proj.bias",
+          "workspace.k_proj.weight",
+          "workspace.v_proj.weight",
+          "workspace.write_proj.weight",
+          "workspace.utility_mlp.weight",
+          "workspace.utility_mlp.bias",
+          "predictor.net.0.weight",
+          "predictor.net.0.bias",
+          "predictor.net.2.weight",
+          "predictor.net.2.bias",
+          "predictor.net.4.weight",
+          "predictor.net.4.bias"
+        ],
+        "grad_mask_rules": [
+          {
+            "param": "blocks.W_g",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              192,
+              64
+            ]
+          },
+          {
+            "param": "blocks.b_g",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              64
+            ]
+          },
+          {
+            "param": "blocks.W_z",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              64,
+              64
+            ]
+          },
+          {
+            "param": "blocks.W_h",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              64,
+              64
+            ]
+          },
+          {
+            "param": "blocks.W_w",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              64,
+              64
+            ]
+          },
+          {
+            "param": "blocks.b_c",
+            "keep_blocks": [
+              1,
+              5
+            ],
+            "n_blocks": 8,
+            "shape": [
+              8,
+              64
+            ]
+          }
+        ]
+      },
+      "child_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\m3_incremental\\ckpts\\m4-incremental-smoke-001_Neural-Core_candidate.pt",
+      "child_reload_conflict_score": 0.7191,
+      "reload_consistent": true,
+      "rss_mb": 685.6
+    },
+    "Negative-lr0": {
+      "arm": "Negative-lr0",
+      "A_after_occ": 0.6594,
+      "A_forgetting": 0.0,
+      "B_after": {
+        "conflict": 0.6019,
+        "n_conflict": 324,
+        "coincident": 0.807,
+        "n_coincident": 316,
+        "total_occluded": 0.7031,
+        "n_total_occluded": 640
+      },
+      "B_gain_conflict": 0.0,
+      "updates": 8,
+      "fit": {
+        "scope": "adapter",
+        "core_blocks_chosen": [],
+        "optimizer_steps_executed": 8,
+        "effective_samples": 128,
+        "optimizer_init": {
+          "kind": "AdamW(new)",
+          "lr": 0.0,
+          "weight_decay": {
+            "adapter_group": 0.0001,
+            "core_group": 0.0
+          },
+          "momentum_inherited": false,
+          "note": "增量阶段 optimizer 新建，动量不从任何先前阶段继承（任务书允许，须记录）"
+        },
+        "loss_action_first": 1.4207,
+        "loss_action_last": 1.4082,
+        "grad_norms_first_step": {
+          "head.ctx_mlp.0.weight": 0.669057,
+          "head.ctx_mlp.0.bias": 0.223207,
+          "head.ctx_mlp.2.weight": 0.488354,
+          "head.ctx_mlp.2.bias": 0.11207,
+          "head.act_out.weight": 1.051323,
+          "head.act_out.bias": 0.11934,
+          "action_emb.weight": 0.0,
+          "block_to_ws.weight": 0.562667,
+          "block_to_ws.bias": 0.223325
+        },
+        "transient_buffer_drift": {
+          "block_load_count": {
+            "changed": true,
+            "delta_l2": 2211.330322
+          },
+          "router.load_bias": {
+            "changed": true,
+            "delta_l2": 0.132287
+          }
+        },
+        "parent_state_sha256": "7bb8c379c17bebb5f138c6f98770746df45701aa728e052c743b34761dca12e3",
+        "child_state_sha256": "f9acda39b3ca062d9244e1534dce7121a76f1d65a50df644159ad623de6ea9bf",
+        "wall_s": 1.27
+      },
+      "delta_full": {
+        "modules": {
+          "action_emb.weight": {
+            "shape": [
+              4,
+              4
+            ],
+            "norm_before": 3.004059,
+            "norm_after": 3.004059,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "block_load_count": {
+            "shape": [
+              8
+            ],
+            "norm_before": 179116.453125,
+            "norm_after": 181278.578125,
+            "delta_l2": 2211.33032227,
+            "delta_max_abs": 930.0,
+            "changed_elements": 8,
+            "changed_ratio": 1.0,
+            "bitwise_equal": false
+          },
+          "block_to_ws.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.475137,
+            "norm_after": 0.475137,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "block_to_ws.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.622021,
+            "norm_after": 5.622021,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_g": {
+            "shape": [
+              8,
+              192,
+              64
+            ],
+            "norm_before": 31.955833,
+            "norm_after": 31.955833,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_h": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.017717,
+            "norm_after": 16.017717,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_w": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 17.215263,
+            "norm_after": 17.215263,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.W_z": {
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "norm_before": 16.487509,
+            "norm_after": 16.487509,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.b_c": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.013891,
+            "norm_after": 1.013891,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "blocks.b_g": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 1.661261,
+            "norm_after": 1.661261,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.fuse.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.460232,
+            "norm_after": 0.460232,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.fuse.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 6.776605,
+            "norm_after": 6.776605,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.817688,
+            "norm_after": 0.817688,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.0.weight": {
+            "shape": [
+              64,
+              26
+            ],
+            "norm_before": 6.195798,
+            "norm_after": 6.195798,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.505893,
+            "norm_after": 0.505893,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.num_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 6.73603,
+            "norm_after": 6.73603,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.359101,
+            "norm_after": 0.359101,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.out_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.451097,
+            "norm_after": 8.451097,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.259392,
+            "norm_after": 0.259392,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.0.weight": {
+            "shape": [
+              64,
+              128
+            ],
+            "norm_before": 4.621225,
+            "norm_after": 4.621225,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.315486,
+            "norm_after": 0.315486,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "encoder.txt_mlp.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.133461,
+            "norm_after": 5.133461,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.act_out.bias": {
+            "shape": [
+              4
+            ],
+            "norm_before": 0.122234,
+            "norm_after": 0.122234,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.act_out.weight": {
+            "shape": [
+              4,
+              64
+            ],
+            "norm_before": 1.777037,
+            "norm_after": 1.777037,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_mlp.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.389044,
+            "norm_after": 0.389044,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.265694,
+            "norm_after": 3.265694,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.cand_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.59877,
+            "norm_after": 0.59877,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.0.weight": {
+            "shape": [
+              32,
+              144
+            ],
+            "norm_before": 7.174948,
+            "norm_after": 7.174948,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 1.006264,
+            "norm_after": 1.006264,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.ctx_mlp.2.weight": {
+            "shape": [
+              64,
+              32
+            ],
+            "norm_before": 6.191277,
+            "norm_after": 6.191277,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.key.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.25968,
+            "norm_after": 3.25968,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.275517,
+            "norm_after": 3.275517,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_mlp.weight": {
+            "shape": [
+              32,
+              64
+            ],
+            "norm_before": 3.281978,
+            "norm_after": 3.281978,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.0,
+            "norm_after": 0.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.query_norm.weight": {
+            "shape": [
+              64
+            ],
+            "norm_before": 8.0,
+            "norm_after": 8.0,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "head.scalar.weight": {
+            "shape": [
+              1,
+              32
+            ],
+            "norm_before": 0.617308,
+            "norm_after": 0.617308,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.409701,
+            "norm_after": 0.409701,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.0.weight": {
+            "shape": [
+              64,
+              132
+            ],
+            "norm_before": 4.619127,
+            "norm_after": 4.619127,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.538574,
+            "norm_after": 0.538574,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.2.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.662345,
+            "norm_after": 4.662345,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.623889,
+            "norm_after": 0.623889,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "predictor.net.4.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 4.648018,
+            "norm_after": 4.648018,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.load_bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 5.261416,
+            "norm_after": 5.277309,
+            "delta_l2": 0.13228744,
+            "delta_max_abs": 0.0999999,
+            "changed_elements": 4,
+            "changed_ratio": 0.5,
+            "bitwise_equal": false
+          },
+          "router.score_mlp.0.bias": {
+            "shape": [
+              32
+            ],
+            "norm_before": 0.304083,
+            "norm_after": 0.304083,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.0.weight": {
+            "shape": [
+              32,
+              138
+            ],
+            "norm_before": 3.25531,
+            "norm_after": 3.25531,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.bias": {
+            "shape": [
+              8
+            ],
+            "norm_before": 0.302236,
+            "norm_after": 0.302236,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "router.score_mlp.2.weight": {
+            "shape": [
+              8,
+              32
+            ],
+            "norm_before": 1.681826,
+            "norm_after": 1.681826,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.k_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.878129,
+            "norm_after": 8.878129,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.bias": {
+            "shape": [
+              64
+            ],
+            "norm_before": 0.795953,
+            "norm_after": 0.795953,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.q_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 8.052455,
+            "norm_after": 8.052455,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.slot_keys": {
+            "shape": [
+              8,
+              64
+            ],
+            "norm_before": 3.761883,
+            "norm_after": 3.761883,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.bias": {
+            "shape": [
+              1
+            ],
+            "norm_before": 0.039003,
+            "norm_after": 0.039003,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.utility_mlp.weight": {
+            "shape": [
+              1,
+              64
+            ],
+            "norm_before": 0.605381,
+            "norm_after": 0.605381,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.v_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.172437,
+            "norm_after": 5.172437,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          },
+          "workspace.write_proj.weight": {
+            "shape": [
+              64,
+              64
+            ],
+            "norm_before": 5.334761,
+            "norm_after": 5.334761,
+            "delta_l2": 0.0,
+            "delta_max_abs": 0.0,
+            "changed_elements": 0,
+            "changed_ratio": 0.0,
+            "bitwise_equal": true
+          }
+        },
+        "trainable_total": 19,
+        "trainable_changed_count": 0,
+        "changed_trainable_params": [],
+        "frozen_total": 36,
+        "frozen_violations": [],
+        "frozen_all_bitwise_unchanged": true
+      },
+      "scope_plan": {
+        "scope": "adapter",
+        "core_blocks_chosen": [],
+        "trainable_parameter_names": [
+          "head.ctx_mlp.0.weight",
+          "head.ctx_mlp.0.bias",
+          "head.ctx_mlp.2.weight",
+          "head.ctx_mlp.2.bias",
+          "head.act_out.weight",
+          "head.act_out.bias",
+          "head.cand_norm.weight",
+          "head.cand_norm.bias",
+          "head.query_norm.weight",
+          "head.query_norm.bias",
+          "head.key.weight",
+          "head.query.weight",
+          "head.cand_mlp.weight",
+          "head.cand_mlp.bias",
+          "head.query_mlp.weight",
+          "head.scalar.weight",
+          "action_emb.weight",
+          "block_to_ws.weight",
+          "block_to_ws.bias"
+        ],
+        "frozen_parameter_names": [
+          "encoder.num_mlp.0.weight",
+          "encoder.num_mlp.0.bias",
+          "encoder.num_mlp.2.weight",
+          "encoder.num_mlp.2.bias",
+          "encoder.txt_mlp.0.weight",
+          "encoder.txt_mlp.0.bias",
+          "encoder.txt_mlp.2.weight",
+          "encoder.txt_mlp.2.bias",
+          "encoder.fuse.weight",
+          "encoder.fuse.bias",
+          "encoder.out_norm.weight",
+          "encoder.out_norm.bias",
+          "blocks.W_g",
+          "blocks.b_g",
+          "blocks.W_z",
+          "blocks.W_h",
+          "blocks.W_w",
+          "blocks.b_c",
+          "router.score_mlp.0.weight",
+          "router.score_mlp.0.bias",
+          "router.score_mlp.2.weight",
+          "router.score_mlp.2.bias",
+          "workspace.slot_keys",
+          "workspace.q_proj.weight",
+          "workspace.q_proj.bias",
+          "workspace.k_proj.weight",
+          "workspace.v_proj.weight",
+          "workspace.write_proj.weight",
+          "workspace.utility_mlp.weight",
+          "workspace.utility_mlp.bias",
+          "predictor.net.0.weight",
+          "predictor.net.0.bias",
+          "predictor.net.2.weight",
+          "predictor.net.2.bias",
+          "predictor.net.4.weight",
+          "predictor.net.4.bias"
+        ],
+        "grad_mask_rules": []
+      },
+      "child_checkpoint": null,
+      "child_reload_conflict_score": null,
+      "reload_consistent": null,
+      "rss_mb": 644.6
+    }
+  },
+  "verdicts": {
+    "pipeline_fixed": "PIPELINE_FIXED",
+    "neural_update": "NEURAL_UPDATE_VERIFIED",
+    "negative_control_lr0": "PASS",
+    "new_skill": "NEW_SKILL_SIGNAL_SINGLE_SEED (Neural-Head)",
+    "retention": "RETENTION_PASS_SINGLE_SEED",
+    "research_validated": "NOT_GRANTED_BY_1_SEED_SMOKE（按任务书第 7 节）"
+  },
+  "preregistered": {
+    "new_skill_min_gain_pp": 10.0,
+    "retention_max_drop_pp": 5.0,
+    "seeds": {
+      "A": 20261131,
+      "B_train": 20261141,
+      "B_test": 20261142,
+      "sampling": {
+        "Neural-Head": 20261151,
+        "Neural-Core": 20261152,
+        "Negative-lr0": 20261153
+      }
+    },
+    "steps_allocation": {
+      "Neural-Head": 48,
+      "Neural-Core": 48,
+      "Negative-lr0": 8
+    },
+    "core_block_ids": [
+      5,
+      1
+    ],
+    "core_rule": "父模型 block_load_count 最高的 2 块（平局取小号）"
+  },
+  "wall_s_total": 20.5,
+  "wall_limit_s": 300.0,
+  "rss_mb_end": 644.6,
+  "honesty": "1 seed smoke；参数变化≠学会新技能；训练样本提升≠泛化；RESEARCH_VALIDATED 需独立 seed+置信区间+预算公平对照"
+}

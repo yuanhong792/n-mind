@@ -1,0 +1,27 @@
+{
+  "Control-0": {
+    "A_before": 0.6594,
+    "A_after": 0.6594,
+    "forgetting": 0.0
+  },
+  "Control-Memory": {
+    "A_before": 0.6594,
+    "A_after": 0.6594,
+    "forgetting": 0.0
+  },
+  "Neural-Head": {
+    "A_before": 0.6594,
+    "A_after": 0.6609,
+    "forgetting": -0.0015
+  },
+  "Neural-Core": {
+    "A_before": 0.6594,
+    "A_after": 0.6172,
+    "forgetting": 0.0422
+  },
+  "Negative-lr0": {
+    "A_before": 0.6594,
+    "A_after": 0.6594,
+    "forgetting": 0.0
+  }
+}
