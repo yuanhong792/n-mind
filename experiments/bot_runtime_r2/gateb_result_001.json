@@ -1,0 +1,650 @@
+{
+  "experiment": "gateb-unseen-entity-001",
+  "preregistration": "D:\\cpu本地模型开发\\n-mind\\experiments\\bot_runtime_r2\\gateb_pre_registration.json",
+  "verdict": "REJECTED",
+  "gates": {
+    "new_skill_gain": false,
+    "old_task_retention": true,
+    "weight_changed": true,
+    "inheritance": true
+  },
+  "report": {
+    "executed": true,
+    "status": "REJECTED",
+    "parent_sha256": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+    "parent_checkpoint_meta": {
+      "steps": 600,
+      "seed": 20261402,
+      "parent_checkpoint_sha256": "random-init",
+      "saved_at": "2026-11-22T13:48:34+0800",
+      "data_manifest_hash": "[[\"用户：小明在1号位置。\\n"
+    },
+    "child_sha256": "37ecd066495e683dbf0e9a9ef7ff2a61576e86953da04c81e642ea77746c3bc4",
+    "inheritance_verified": true,
+    "verified_experience_count": 48,
+    "trainable_scope": "all",
+    "arms": {
+      "frozen": {
+        "sealed_em": 0.0,
+        "steps": 0,
+        "note": "同权重基线，零更新"
+      },
+      "memory": {
+        "sealed_em": 0.0,
+        "steps": 0,
+        "hit": 0,
+        "abstain": 40,
+        "n": 40,
+        "index_size": 48,
+        "upper_bound_if_labels_were_memoized": 1.0,
+        "note": "索引只含学习流（train）已存条目。未见测试集按构造题面不同，所以命中率低/为 0 是**预期结果**——这一臂的存在就是为了证明'背过的题'与'参数学到的能力'是两件事"
+      },
+      "neural": {
+        "update": {
+          "optimizer_steps_executed": 48,
+          "loss_first": 2.0459,
+          "loss_last": 0.1943,
+          "wall_s": 8.82,
+          "stopped_by": "arm_cap_reached",
+          "non_finite_steps_skipped": 0,
+          "trainable": "all",
+          "trainable_params": 23
+        },
+        "steps_cap_this_arm": 48,
+        "total_steps_cap_all_arms": 96,
+        "sealed_em_after": 0.0,
+        "old_task_em_after": 0.5
+      },
+      "negative": {
+        "update": {
+          "optimizer_steps_executed": 48,
+          "stopped_by": "budget_exhausted"
+        },
+        "steps_cap_this_arm": 48,
+        "sealed_em_after": 0.0
+      }
+    },
+    "sealed_baseline_em": 0.0,
+    "sealed_after_em": 0.0,
+    "new_skill_gain": 0.0,
+    "old_task_baseline_em": 0.0,
+    "old_task_after_em": 0.5,
+    "old_task_forgetting_pp": 50.0,
+    "parameter_change": {
+      "tensors_changed": 17,
+      "tensors_unchanged": 6,
+      "max_abs_delta": 0.140213,
+      "missing_keys": []
+    },
+    "buffer_change_during_training": {
+      "tensors_changed": 2,
+      "tensors_unchanged": 0,
+      "max_abs_delta": 10211.0,
+      "missing_keys": []
+    },
+    "audit_scope_note": "parameter_change 只含 named_parameters()；路由计数 buffer 的单列在 buffer_change_during_training，评测前由 transient_buffer_drift 复位",
+    "transient_buffer_drift": {
+      "reset_buffers": [
+        "block_load_count",
+        "router.load_bias"
+      ],
+      "drift": {
+        "block_load_count": {
+          "changed": true,
+          "delta_l2": 18439.128906
+        },
+        "router.load_bias": {
+          "changed": true,
+          "delta_l2": 0.165831
+        }
+      },
+      "reset_applied": true
+    },
+    "budget_used_steps": 96,
+    "budget_max_steps": 96,
+    "budget_plan": {
+      "authorized_total_steps": 96,
+      "training_arms": [
+        "neural",
+        "negative"
+      ],
+      "per_arm_step_cap": 48,
+      "wall_cap_total_s": 120.0,
+      "wall_cap_per_arm_s": 60.0,
+      "steps_used_total": 96,
+      "budget_log": [
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 1
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 2
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 3
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 4
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 5
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 6
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 7
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 8
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 9
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 10
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 11
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 12
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 13
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 14
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 15
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 16
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 17
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 18
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 19
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 20
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 21
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 22
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 23
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 24
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 25
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 26
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 27
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 28
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 29
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 30
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 31
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 32
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 33
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 34
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 35
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 36
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 37
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 38
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 39
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 40
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 41
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 42
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 43
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 44
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 45
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 46
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 47
+        },
+        {
+          "arm": "bot-neural",
+          "steps": 1,
+          "used_after": 48
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 49
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 50
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 51
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 52
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 53
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 54
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 55
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 56
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 57
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 58
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 59
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 60
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 61
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 62
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 63
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 64
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 65
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 66
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 67
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 68
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 69
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 70
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 71
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 72
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 73
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 74
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 75
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 76
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 77
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 78
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 79
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 80
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 81
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 82
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 83
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 84
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 85
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 86
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 87
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 88
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 89
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 90
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 91
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 92
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 93
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 94
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 95
+        },
+        {
+          "arm": "bot-negative",
+          "steps": 1,
+          "used_after": 96
+        }
+      ]
+    },
+    "thresholds": {
+      "new_skill_gain_min": 0.1,
+      "old_task_forgetting_max_pp": 3.0
+    },
+    "ts": "2026-11-22T17:44:11+0800",
+    "gates": {
+      "new_skill_gain": false,
+      "old_task_retention": true,
+      "weight_changed": true,
+      "inheritance": true
+    },
+    "candidate_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\bot_runtime_r2\\candidates\\rejected\\gateb001.pt"
+  },
+  "per_position_sealed": {
+    "3号位置": {
+      "n": 20,
+      "em": 0.0
+    },
+    "4号位置": {
+      "n": 20,
+      "em": 0.0
+    },
+    "_baseline": {
+      "3号位置": 0.0,
+      "4号位置": 0.0
+    }
+  },
+  "stable_file_sha256_before": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "stable_file_sha256_after": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "stable_untouched": true,
+  "parent_state_sha256": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+  "data_fingerprints": {
+    "train_sha16": "3d4cc1ff25a72fc0",
+    "sealed_sha16": "e3d25f0b01f20db7"
+  },
+  "wall_s": 22.5,
+  "device": "cpu",
+  "torch_threads": 8,
+  "ts": "2026-11-22T17:44:14+0800",
+  "metric_caveat": {
+    "issue": "本轮 old_task_forgetting_pp=+50.0 为假阳性：learning_loop 当时测的是训练行前8条的记忆化(0.0->0.5)，非 A 组保持率",
+    "true_retention": {
+      "A_sealed_n": 80,
+      "baseline_em": 1.0,
+      "candidate_em": 0.6875,
+      "forgetting_pp": -31.25
+    },
+    "true_retention_verdict": "FAIL（门槛 >= -3pp）——灾难性遗忘，全参 48 步 lr=3e-3 + replay_ratio 0.15 不足以保护旧技能",
+    "diagnosis_file": "experiments/bot_runtime_r2/gateb001_retention_diagnosis.json",
+    "fix": "learning_loop.py 遗忘指标已修复为 retention 同口径（训练行前8条改列 train_rows_memorization 诊断），修复后测试 108 全绿",
+    "conclusion": "REJECTED 判定维持且更成立：gate_1 FAIL(泛化 0) + gate_2 实际 FAIL(真遗忘 -31.25pp)"
+  }
+}

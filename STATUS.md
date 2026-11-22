@@ -131,6 +131,14 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **清理**：删除并行会话遗留 `chat_session.py`（幻觉产物：引用 4 个不存在的类，import 必崩，与 `language/session.py` 正式实现重复）、`cli.py.bak-20261122-parallelstub`、`__tmp/`、根目录 `_smoke_r2.py`。
 - **未做**：`online/resource_manager.py`（§7 五档链路）未建；`bot skills/capability-report/learn-status/curriculum/eval` 五个子命令未注册；Gate-B（对 unseen_entity 受控候选训练）需预登记预算待批准；`fetcher.py` 传输硬化未动。
 
+## Gate-B 001：首个受控候选训练 REJECTED + 遗忘指标真 bug 修复（2026-11-22 第八轮）
+
+- **预登记先行**（experiments/bot_runtime_r2/gateb_pre_registration.json，用户批准后执行）：目标 skill.binding.unseen_entity（Gate-A 唯一全资格技能，EM 0.0/缺口 100pp/位置轴对半切指纹互斥），预算 96 梯度步跨臂硬总闸（neural 48 + negative 48）、lr=3e-3、trainable="all"、replay_ratio=0.15、A 组回放 48 行 + A 组封存 80 行做抗遗忘锚点、seed 20261601/20261602。
+- **实测（22.5s，budget 96/96 用满，stable 逐位未动）**：训练行 loss 2.05→0.19（背题成功）但 **sealed（位置 3/4 号，未见）EM 0.0→0.0，gain=0.0 gate_1 FAIL**；负对照臂 0.0；memory 臂 abstain 40/40（符合"背题≠能力"口径）；per-position 分解 3/4 号位均为 0.0——模型过拟合到训练位置组合（8 个唯一输入），绑定未跨位置泛化。
+- **抓出并修复 learning_loop 遗忘指标真 bug（R2 §4 修复项的完成）**：旧口径 base_ret 用 retention_pairs 但 old_after 仍测训练行前 8 条——本轮记忆化 +50pp 给出假阳性 PASS。从 rejected 候选补测真实 A 组保持率：**EM 1.0→0.6875 = −31.25pp，灾难性遗忘实锤**（远超 −3pp 门槛；M4.1 网格任务 −2.66pp 的回放保护在语言任务全参 48 步下失效）。修复：old_task_forgetting_pp 改为 retention 同口径，训练行前 8 条改列 train_rows_memorization 诊断不参与闸判定；修复后测试 **108 项全绿**。
+- **判定 REJECTED（两项实fail）**：泛化 0 + 真遗忘 −31.25pp。候选隔离 candidates/rejected/，stable 逐位不变。按预登记 no_retry 条款不追加预算重跑；下一轮（若做）必须新预登记，候选方向：trainable 收窄（head/局部更新，R1 smoke 成功口径）、回放加强、lr 降档、步数结构调整——需用户批准。
+- 结果：experiments/bot_runtime_r2/gateb_result_001.json（含 metric_caveat 勘误附注）+ gateb001_retention_diagnosis.json；results/bot_r2/ 镜像。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

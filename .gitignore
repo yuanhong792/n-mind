@@ -26,3 +26,5 @@ configs/cloud.local.yaml
 results/bot_*/
 results/bot_*.json
 experiments/*/_work/
+experiments/*/candidates/
+experiments/*/_pending*

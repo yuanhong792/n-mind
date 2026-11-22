@@ -1,0 +1,8 @@
+{
+  "A组封存80条 EM 基线(stable)": 1.0,
+  "A组封存80条 EM 候选(rejected ckpt)": 0.6875,
+  "真实遗忘pp": -31.25,
+  "门槛": ">= -3.0",
+  "diagnostic_only": true,
+  "note": "诊断性补测：原报告 old_task_forgetting_pp=+50.0 测的是训练行前8条(0.0->0.5记忆化)，非A组保持率"
+}

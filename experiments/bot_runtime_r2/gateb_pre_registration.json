@@ -1,0 +1,103 @@
+{
+  "experiment": "gate-b-unseen-entity-001",
+  "task_book": "Agent Runtime R2 任务书 §6（Gate-B：受控候选训练）",
+  "preregistered_at": "2026-11-22",
+  "status": "APPROVED",
+  "approved_at": "2026-11-22",
+  "approved_by": "小袁（用户本人，会话内明确批准：批准，直接开跑吧）",
+  "approval_scope": "仅限本预登记预算（96 梯度步 / 120s 墙钟），REJECTED 不追加",
+  "note": "本文件在训练开始前落盘，锁定预算/门槛/数据划分。训练一旦启动不得回调任何数值；REJECTED 不追加预算重跑（防止靠调参爬坡制造收益）。",
+
+  "target_skill": {
+    "skill_id": "skill.binding.unseen_entity",
+    "family": "unseen_entity_qa",
+    "tier": "B",
+    "gate_a_verdict": "ELIGIBLE_NEW_SKILL",
+    "selector_score": 0.9893,
+    "baseline_neural_em": 0.0,
+    "gap_pp": 100.0,
+    "in_vocab": true,
+    "oov_tokens": [],
+    "oracle_standalone": true,
+    "stream_disjoint": true,
+    "why_this_one": "Gate-A 全部资格检查通过的唯一技能：父模型全新实体（小红）+ 位置轴对半切（学习流 1/2 号位、封存 3/4 号位）构成双重未见，输入指纹互斥使 泛化/背诵 可区分"
+  },
+
+  "parent": {
+    "checkpoint": "experiments/m5_language/m52_s0_checkpoint.pt",
+    "expected_state_sha256": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+    "tokenizer": "experiments/m5_language/tokenizer_m52.json",
+    "vocab_size": 31,
+    "invariants": ["stable 文件逐位不写回", "词表不换（load_lm 哈希校验）", "零网络调用"]
+  },
+
+  "data_plan": {
+    "builder": "nmind.language.binding_data.build_family",
+    "learning_stream": {
+      "family": "unseen_entity_qa", "split": "train", "n": 48, "seed": 20261621,
+      "positions": ["1号位置", "2号位置"], "entity": "小红",
+      "note": "与 Gate-A matrix.dataset_stats.unseen_entity_qa.n_train=48 完全同源"
+    },
+    "sealed_eval": {
+      "family": "unseen_entity_qa", "split": "sealed", "n": 40, "seed": 20261622,
+      "positions": ["3号位置", "4号位置"],
+      "train_sealed_overlap_rate": 0.0
+    },
+    "retention_anchor": {
+      "family": "position_qa(A组)", "split": "sealed", "n": 80, "seed": 20261403,
+      "note": "M5.2 s0_sealed 同源（父模型 sealed EM=1.0），作为抗遗忘锚点传入 retention_pairs；绝不复用 R1 的训练行前 8 条口径"
+    },
+    "replay_pairs": {
+      "family": "position_qa(A组)", "split": "train", "n": 48, "seed": 20261401,
+      "construction_note": "position_qa 在 SPLIT_TABLE 中无 train 行（父模型训练走 M5.2 直调口径），执行脚本直调 build_position_qa(48, 20261401, 'train')，n/seed 与本预登记一致",
+      "note": "父模型训练分布同源行作回放，replay_ratio=0.15（M4.1 已验证回放防遗忘生效：-3.75→-2.66pp）"
+    },
+    "memory_index": "仅学习流 48 行 (prompt, answer)；封存集标签永不入索引"
+  },
+
+  "budget": {
+    "total_gradient_steps": 96,
+    "per_arm": {"neural": 48, "negative": 48},
+    "budget_enforcement": "AdaptationBudget 跨臂硬总闸（learning_loop 既有实现，超限抛 BudgetExceeded）",
+    "per_arm_note": "neural 48 步 = 学习流 48 行恰好 1 epoch 全覆盖；R1 半臂 24 步仅覆盖 50% 数据",
+    "lr": 0.003,
+    "trainable": "all",
+    "replay_ratio": 0.15,
+    "wall_limit_s_total": 120,
+    "wall_limit_s_per_arm": 60,
+    "init_seed": 20261601,
+    "label_permutation_seed": 20261602,
+    "max_new_tokens": 24,
+    "arms": ["frozen", "memory", "neural", "negative"]
+  },
+
+  "gates_preregistered": {
+    "new_skill_gain_min": 0.10,
+    "gate_1_new_skill": "sealed_after_em - sealed_baseline_em >= +0.10（NEW_SKILL_GAIN_THRESHOLD，代码常量不可调）",
+    "gate_2_retention": "A组封存 80 条 EM 下降 <= 3pp（FORGETTING_LIMIT_PP；old_task_forgetting_pp >= -3.0）",
+    "gate_3_negative_control": "negative 臂（乱标签）sealed EM < neural 臂 sealed EM（乱标签对照不得反超）",
+    "gate_4_weight_changed": "named_parameters 中 tensors_changed > 0，且 buffer 变化单列不冒充参数学习",
+    "gate_5_integrity": "逐位继承断言通过 + seal_eval_state 复位取证 reset_applied=true + stable 文件 sha 前后一致",
+    "gate_6_frozen_untouched": "frozen 臂 sealed EM 与基线一致（同权重）",
+    "extra_report": "per-position 分解（3号/4号位各自 EM）随结果落盘，防止整体 EM 掩盖单侧失败；反事实结构已由位置对半切天然构成"
+  },
+
+  "verdict_rules": {
+    "PASS": "全部 6 闸通过 → status=PROPOSED，候选权重存 candidates/proposed/，晋升需 --i-approve（evolution_manager）",
+    "FAIL": "任一闸不过 → status=REJECTED，候选权重存 candidates/rejected/，stable 逐位不变",
+    "no_retry": "REJECTED 后本轮不追加预算、不调 lr/步数重跑；如需第二轮实验必须重新预登记并获批准"
+  },
+
+  "estimated_cost": {
+    "per_item_eval_s": 0.08551,
+    "train_steps_total": 96,
+    "wall_clock_estimate_s": "约 60-120（CPU 8 线程，452k 参数）",
+    "rss_estimate_mb": "约 650（参照 M4/M5 系列实测）"
+  },
+
+  "evidence_paths": {
+    "result_json": "experiments/bot_runtime_r2/gateb_result_001.json",
+    "result_mirror": "results/bot_r2/gateb_result_001.json",
+    "gate_a_basis": "experiments/bot_runtime_r2/baseline_capability_matrix.json"
+  }
+}

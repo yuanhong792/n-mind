@@ -181,7 +181,14 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     audit = seal_eval_state(child, {k: v.clone() for k, v in parent.state_dict().items()})
     sealed_after = free_gen_em(child, tok, sealed_prompts, sealed_answers,
                                 max_new_tokens=max_new_tokens)
-    old_after = free_gen_em(child, tok, old_prompts, old_answers, max_new_tokens=max_new_tokens)
+    # 遗忘指标必须与基线同口径（R2 §4 修复的完成，Gate-B 001 轮抓出）：训练后重测的
+    # 必须是 retention_pairs（A 组封存集）本身。此前 old_after 仍测训练行前 8 条，
+    # 那是"记忆化"不是"保持"——001 轮实测：记忆化 +50pp 掩盖了 A 组 -31.25pp 真遗忘，
+    # 旧闸给出假阳性 PASS。训练行前 8 条保留为独立诊断列，不参与闸判定。
+    ret_after = free_gen_em(child, tok, ret_prompts, ret_answers,
+                             max_new_tokens=max_new_tokens)
+    memorize_after = free_gen_em(child, tok, old_prompts, old_answers,
+                                  max_new_tokens=max_new_tokens)
     # before/after 快照来自 state_dict()，里面既有可训练参数也有路由计数 buffer。
     # 必须拆开报：block_load_count 在一次前向里就能跳到几千，混在"参数变化"里
     # 会让"权重到底动了多少"这个取证问题失去意义（M4 虚假增益同款陷阱的取证版本）。
@@ -198,7 +205,7 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                               "steps_cap_this_arm": per_arm,
                               "total_steps_cap_all_arms": int(updates),
                               "sealed_em_after": sealed_after,
-                              "old_task_em_after": old_after}
+                              "old_task_em_after": ret_after}
 
     if "negative" in arms:
         neg_model, _ = load_lm(stable_checkpoint, tok)
@@ -230,10 +237,13 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         "sealed_after_em": sealed_after,
         "new_skill_gain": (round(sealed_after - base, 4)
                             if base is not None and sealed_after is not None else None),
-        "old_task_baseline_em": base_old,
-        "old_task_after_em": old_after,
-        "old_task_forgetting_pp": (round((old_after - base_old) * 100, 2)
-                                    if base_old is not None and old_after is not None else None),
+        "old_task_baseline_em": base_ret,
+        "old_task_after_em": ret_after,
+        "old_task_forgetting_pp": (round((ret_after - base_ret) * 100, 2)
+                                    if base_ret is not None and ret_after is not None else None),
+        "train_rows_memorization": {"baseline_em": base_old, "after_em": memorize_after,
+                                     "note": "训练行前8条记忆化诊断：上升只证明背题，"
+                                             "不参与遗忘闸判定（Gate-B 001 轮教训）"},
         "parameter_change": param_change,
         "buffer_change_during_training": buffer_change,
         "audit_scope_note": "parameter_change 只含 named_parameters()；路由计数 buffer 的单列在 "
