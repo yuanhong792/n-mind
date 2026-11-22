@@ -1,0 +1,7 @@
+{
+  "format": "nmind-language-v2-baseline/1",
+  "status": "NOT_RUN",
+  "reason": "Independent optimizer budget has not been authorized.",
+  "metrics": {"neural_only": null, "memory_assisted": null, "knowledge_retrieval": null, "tool": null},
+  "historical_evidence": ["experiments/m5_language/M5_LANGUAGE_REPORT.md", "experiments/m5_language/M5_1_REPORT.md", "experiments/m5_language/M5_2_REPORT.md"]
+}

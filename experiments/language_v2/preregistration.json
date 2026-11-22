@@ -1,0 +1,16 @@
+{
+  "format": "nmind-language-v2-preregistration/1",
+  "status": "PRE_REGISTERED_NOT_TRAINED",
+  "train_authorized": false,
+  "optimizer_steps_budget": 0,
+  "stable_checkpoint_mutation": false,
+  "external_models": false,
+  "tokenizer": "reversible UTF-8 byte tokenizer, 260 IDs",
+  "architecture": "N-Cell + BlockRouter + GlobalWorkspace, fresh random initialization",
+  "seed": 20261122,
+  "counterfactual_pairs": 80,
+  "counterfactual_cases": 160,
+  "required_capabilities": ["binding", "fact_update", "negation", "pronoun", "multiturn", "free_generation"],
+  "evaluation_arms": ["neural_only", "memory_assisted", "knowledge_retrieval", "tool"],
+  "leakage_controls": ["sealed answers", "no question-specific hardcoding", "pair-order reversal", "independent regression set"]
+}

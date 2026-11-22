@@ -1,0 +1,8 @@
+{
+  "version": "language-v2-data-1",
+  "count": 160,
+  "sha256": "8e057a0f3c403bbf6076572a009cdc5206917cfb955f77ec95a0f5f0d3dbb28a",
+  "pair_count": 80,
+  "source": "code-generated independent oracle",
+  "generation": {"seed": 20261122, "generator": "src/nmind/language/data_v2.py"}
+}

@@ -1,0 +1,11 @@
+{
+  "format": "nmind-language-v2-audit/1",
+  "scope": "M5, M5.1, M5.2 and Gate-B historical evidence",
+  "preserved_reports": ["experiments/m5_language/M5_LANGUAGE_REPORT.md", "experiments/m5_language/M5_1_REPORT.md", "experiments/m5_language/M5_2_REPORT.md"],
+  "preserved_checkpoints": ["experiments/m5_language/language_checkpoint.pt", "experiments/m5_language/m52_s0_checkpoint.pt", "experiments/m5_language/m52_s1_checkpoint.pt"],
+  "new_training": "NOT_RUN",
+  "optimizer_steps": 0,
+  "stable_checkpoint_changed": false,
+  "network_access": 0,
+  "external_llm": false
+}
