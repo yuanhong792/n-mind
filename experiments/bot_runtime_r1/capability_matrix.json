@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-11-22T15:44:17+0800",
+  "level_legend": [
+    "UNTESTED",
+    "TESTED_FAIL",
+    "MEMORY_ASSISTED",
+    "TOOL_ASSISTED",
+    "NEURAL_TRAINED",
+    "NEURAL_GENERALIZED"
+  ],
+  "note": "level 只由实测推进：tool 成功≠神经掌握；NEURAL_GENERALIZED 需要封存集 holdout",
+  "by_family": {
+    "arithmetic": {
+      "neural": {
+        "capability_id": "arithmetic:neural",
+        "task_family": "arithmetic",
+        "level": "TESTED_FAIL",
+        "attempts": 27,
+        "verified_successes": 0,
+        "failures": 27,
+        "heldout_score": 0.0,
+        "outcome_source": "none",
+        "tool_invocations": 0,
+        "network_invocations": 0,
+        "average_cost_s": null
+      },
+      "tool": {
+        "capability_id": "arithmetic:tool",
+        "task_family": "arithmetic",
+        "level": "TOOL_ASSISTED",
+        "attempts": 27,
+        "verified_successes": 27,
+        "failures": 0,
+        "heldout_score": null,
+        "outcome_source": "tool",
+        "tool_invocations": 27,
+        "network_invocations": 0,
+        "average_cost_s": null
+      },
+      "levels": {
+        "neural": "TESTED_FAIL",
+        "tool": "TOOL_ASSISTED"
+      }
+    },
+    "json_extract": {
+      "neural": {
+        "capability_id": "json_extract:neural",
+        "task_family": "json_extract",
+        "level": "TESTED_FAIL",
+        "attempts": 27,
+        "verified_successes": 0,
+        "failures": 27,
+        "heldout_score": 0.0,
+        "outcome_source": "none",
+        "tool_invocations": 0,
+        "network_invocations": 0,
+        "average_cost_s": null
+      },
+      "tool": {
+        "capability_id": "json_extract:tool",
+        "task_family": "json_extract",
+        "level": "TOOL_ASSISTED",
+        "attempts": 27,
+        "verified_successes": 27,
+        "failures": 0,
+        "heldout_score": null,
+        "outcome_source": "tool",
+        "tool_invocations": 27,
+        "network_invocations": 0,
+        "average_cost_s": null
+      },
+      "levels": {
+        "neural": "TESTED_FAIL",
+        "tool": "TOOL_ASSISTED"
+      }
+    },
+    "grid_rules": {
+      "neural": {
+        "capability_id": "grid_rules:neural",
+        "task_family": "grid_rules",
+        "level": "TESTED_FAIL",
+        "attempts": 27,
+        "verified_successes": 0,
+        "failures": 27,
+        "heldout_score": 0.0,
+        "outcome_source": "none",
+        "tool_invocations": 0,
+        "network_invocations": 0,
+        "average_cost_s": null
+      },
+      "tool": null,
+      "levels": {
+        "neural": "TESTED_FAIL"
+      }
+    }
+  },
+  "capabilities": {
+    "arithmetic:neural": {
+      "capability_id": "arithmetic:neural",
+      "task_family": "arithmetic",
+      "level": "TESTED_FAIL",
+      "attempts": 27,
+      "verified_successes": 0,
+      "failures": 27,
+      "heldout_score": 0.0,
+      "outcome_source": "none",
+      "tool_invocations": 0,
+      "network_invocations": 0,
+      "average_cost_s": null
+    },
+    "arithmetic:tool": {
+      "capability_id": "arithmetic:tool",
+      "task_family": "arithmetic",
+      "level": "TOOL_ASSISTED",
+      "attempts": 27,
+      "verified_successes": 27,
+      "failures": 0,
+      "heldout_score": null,
+      "outcome_source": "tool",
+      "tool_invocations": 27,
+      "network_invocations": 0,
+      "average_cost_s": null
+    },
+    "grid_rules:neural": {
+      "capability_id": "grid_rules:neural",
+      "task_family": "grid_rules",
+      "level": "TESTED_FAIL",
+      "attempts": 27,
+      "verified_successes": 0,
+      "failures": 27,
+      "heldout_score": 0.0,
+      "outcome_source": "none",
+      "tool_invocations": 0,
+      "network_invocations": 0,
+      "average_cost_s": null
+    },
+    "json_extract:neural": {
+      "capability_id": "json_extract:neural",
+      "task_family": "json_extract",
+      "level": "TESTED_FAIL",
+      "attempts": 27,
+      "verified_successes": 0,
+      "failures": 27,
+      "heldout_score": 0.0,
+      "outcome_source": "none",
+      "tool_invocations": 0,
+      "network_invocations": 0,
+      "average_cost_s": null
+    },
+    "json_extract:tool": {
+      "capability_id": "json_extract:tool",
+      "task_family": "json_extract",
+      "level": "TOOL_ASSISTED",
+      "attempts": 27,
+      "verified_successes": 27,
+      "failures": 0,
+      "heldout_score": null,
+      "outcome_source": "tool",
+      "tool_invocations": 27,
+      "network_invocations": 0,
+      "average_cost_s": null
+    }
+  },
+  "sealed_free_gen_em": {
+    "arithmetic": {
+      "status": "MEASURED",
+      "family": "arithmetic",
+      "sealed_em": 0.0,
+      "n": 8,
+      "arm": "stable",
+      "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+    },
+    "json_extract": {
+      "status": "MEASURED",
+      "family": "json_extract",
+      "sealed_em": 0.0,
+      "n": 8,
+      "arm": "stable",
+      "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+    },
+    "grid_rules": {
+      "status": "MEASURED",
+      "family": "grid_rules",
+      "sealed_em": 0.0,
+      "n": 8,
+      "arm": "stable",
+      "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+    }
+  },
+  "candidate_arms": {
+    "frozen": {
+      "sealed_em": 0.0,
+      "steps": 0,
+      "note": "同权重基线，零更新"
+    },
+    "memory": {
+      "sealed_em": 1.0,
+      "steps": 0,
+      "note": "外部记忆命中，非神经学习；该臂按构造恒为 1.0，只用于把'检索变强'从'参数变强'里减掉，不作为能力证据"
+    },
+    "neural": {
+      "update": {
+        "optimizer_steps_executed": 24,
+        "loss_first": 10.1561,
+        "loss_last": 1.0142,
+        "wall_s": 19.34,
+        "stopped_by": "arm_cap_reached",
+        "non_finite_steps_skipped": 0,
+        "trainable": "all",
+        "trainable_params": 23
+      },
+      "steps_cap_this_arm": 24,
+      "total_steps_cap_all_arms": 48,
+      "sealed_em_after": 0.0,
+      "old_task_em_after": 0.0
+    },
+    "negative": {
+      "update": {
+        "optimizer_steps_executed": 24,
+        "stopped_by": "budget_exhausted"
+      },
+      "steps_cap_this_arm": 24,
+      "sealed_em_after": 0.0
+    }
+  },
+  "thresholds_pre_registered": {
+    "new_skill_gain_min": 0.1,
+    "old_task_forgetting_max_pp": 3.0
+  }
+}

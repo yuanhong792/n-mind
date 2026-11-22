@@ -1,0 +1,72 @@
+{
+  "stable_source": "experiments\\m5_language\\m52_s0_checkpoint.pt",
+  "stable_source_sha256": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "stable_copy_sha256": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "stable_identical_to_source": true,
+  "state_hash_parent": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+  "state_hash_child": "393defc4144407978bbbbd660bc36d5e3981ffc44721ae58a88a2e471ca9c27a",
+  "inheritance_verified": true,
+  "parameter_change": {
+    "tensors_changed": 17,
+    "tensors_unchanged": 6,
+    "max_abs_delta": 0.073495,
+    "missing_keys": []
+  },
+  "parameter_change_scope": "仅 named_parameters()（23 张量）；路由计数 buffer 单列如下",
+  "buffer_change_during_training": {
+    "tensors_changed": 2,
+    "tensors_unchanged": 0,
+    "max_abs_delta": 9472.0,
+    "missing_keys": []
+  },
+  "transient_buffer_drift": {
+    "reset_buffers": [
+      "block_load_count",
+      "router.load_bias"
+    ],
+    "drift": {
+      "block_load_count": {
+        "changed": true,
+        "delta_l2": 21446.849609
+      },
+      "router.load_bias": {
+        "changed": true,
+        "delta_l2": 0.406202
+      }
+    },
+    "reset_applied": true
+  },
+  "gates": {
+    "new_skill_gain": false,
+    "old_task_retention": true,
+    "weight_changed": true,
+    "inheritance": true
+  },
+  "status": "REJECTED",
+  "budget": {
+    "authorized_total": 48,
+    "used": 48,
+    "cap_this_proposal": 48,
+    "per_arm_cap": 24,
+    "arm_steps": {
+      "frozen": 0,
+      "memory": 0,
+      "neural": 24,
+      "negative": 24
+    }
+  },
+  "promotion": {
+    "mode": "manual",
+    "approve_without_flag": {
+      "promoted": false,
+      "reason": "没有可晋升候选（REJECTED 候选已被隔离，不自动回捞）",
+      "quarantined": [
+        "candidate_1795333415.pt"
+      ]
+    },
+    "quarantined_candidates": [
+      "candidate_1795333415.pt"
+    ],
+    "lineage_file_present": false
+  }
+}

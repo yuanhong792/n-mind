@@ -110,6 +110,17 @@ python -m pytest tests -q          # 27 passed
 dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6ms；k=4 28.5ms。
 稀疏路由在 CPU 上有真实延迟收益，但准确率收益未证实（见上）。
 
+## Agent Runtime R1 独立 Bot 自主学习（2026-11-22 第六轮，Qoder）
+
+- **交付**：`src/nmind/bot/` 12 个模块（状态机/调度/目标/能力台账/练习环境/经验桥/学习环/晋升管理/策略/存储/状态快照/CLI）+ `configs/bot_runtime.yaml`、`bot_demo.yaml`、`bot_safe-local.yaml`、`bot_candidate-demo.yaml` + `tests/test_bot_runtime_r1.py`（16 项）+ `experiments/bot_runtime_r1/`（九份证据 + `reproduce.ps1` + `BOT_R1_REPORT.md`）。stable 源权重 `experiments/m5_language/m52_s0_checkpoint.pt` 只被复制，绝不被写。
+- **无人值守闭环 PASS**：20 轮 ×3 实例（arithmetic/grid_rules/json_extract）全程零用户输入；累计 81 实例、81 唯一指纹、0 条封存样本进学习流；用户消息在实例边界真抢占（不丢队列、按序回答）；`pause` 冻住周期 22→22、`resume` 先答消息再继续→23、`stop` rc=0 且锁清理；重启后 23→26 轮、新增 18 个唯一实例、0 重复、SQLite 完好。
+- **资源实测**：CPU 占整机 **42.5 %**（政策 50 %；torch 线程由代码 20→13 夹紧），RSS 峰值 **216.2 MB**（上限 2048 MB），Phase A 墙钟 7.44 s/20 轮，候选训练轮 37.9 s（上限 60 s 跨臂）。
+- **神经增长判定 REJECTED**：显式授权 48 步全部用满（neural 24 + negative 对照 24），封存集自由生成 EM **0.0 → 0.0**，预登记门槛 +0.10 未达；17/23 张可训练张量真变化（max_abs_delta 0.0735）、buffer 复位取证 `reset_applied=true`、候选被隔离、stable sha 逐位不变、无 `--i-approve` 的晋升被拒。安全探针 **11/11 PASS**。结论：**闭环与防自欺机制可靠，能力没有增长**——三类任务的神经基线本身就是 0（M5.2 权重对这些题面输出无关句子，如 `请计算：11加18等于多少？`→`小明在2号位置。`），54/81 的 verified 全部来自确定性工具并单列计量，不计入神经分数。
+- **端到端实验抓出并修掉的真实缺陷（8 项）**：① 共享预算把 negative 对照臂饿死成 0 步（四臂对照名存实亡）；② 参数取证混入 `block_load_count` 计数（max_abs_delta 9472 假象，M4 虚假增益同款口径漏洞）；③ `PAUSED → IDLE_EXPLORE` 非法转移使常驻进程 resume 后崩溃；④ §9.2 用户抢占此前并未真的实装；⑤ json_extract 题面与封存集同题造成矛盾监督（§9.6 FAIL）；⑥ 日志/事件无容量上限（§9.12）；⑦ `READY → CANDIDATE_TRAINING` 非法转移使 `bot candidate` 直接报错；⑧ 帮助文本承诺的 `--profile safe-local`/`candidate-demo` 缺配置文件（照文档敲就 SystemExit）。
+- 测试 **108 项全绿**（修完 CLI 全局开关位置 bug 后重跑 53.29 s，含 M4/M5 回归未破坏；本任务 +16：§9.1–§9.15 + §9.16 实验回归 + profile/开关可执行性断言）。`reproduce.ps1` 修复后端到端重跑退出码 0、安全探针 11/11 PASS。
+- **未做**：P4 真实联网（默认关闭，需单独授权）、P5 开机自启/GUI 面板/exe 打包；grid_rules 仍没有程序 oracle 工具路径（该族 27/27 rejected，tool 侧记 null）。
+- **环境实测提醒**：本会话解释器 `torch 2.10.0+cpu`（本文上方 11-21 记录的 cu128 + RTX 5070 与本轮实测不一致）；R1 全程 CPU、零网络、零外部模型 API。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

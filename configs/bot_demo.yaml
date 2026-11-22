@@ -1,0 +1,35 @@
+# N-MIND Agent Runtime R1 —— 演示档（快速循环，仍保持全部安全默认）
+# 与 bot_runtime.yaml 的唯一区别是冷却/阈值调小，便于在几分钟内看到多轮自主循环。
+# 联网、自动神经训练、自动晋升仍然一律关闭：这些不是演示便利项。
+bot:
+  enabled: true
+  auto_start_with_os: false
+  idle_learning_enabled: true
+  user_task_priority: true
+  single_instance: true
+  network_enabled: false
+  auto_candidate_training: false
+  promotion_mode: manual
+  allow_external_code_execution: false
+  allow_remote_model_api: false
+  practice_task_allowlist: [arithmetic, json_extract, grid_rules]
+  max_tasks_per_idle_cycle: 3
+  min_cooldown_seconds: 3
+  max_idle_cpu_percent: 50
+  max_rss_mb: 2048
+  max_disk_mb: 512
+  max_network_requests_per_cycle: 0
+  max_optimizer_steps_per_cycle: 0
+  max_training_wall_seconds_per_cycle: 0
+  max_consecutive_failures: 3
+  stable_checkpoint_readonly: true
+  scheduler_verified_threshold: 8
+  scheduler_max_updates_per_batch: 120
+
+candidate:
+  # max_steps / max_wall_s 是“跨所有会训练的臂合计”的硬上限：
+  # neural 与 negative 对照各拿一半（48 → 每臂 24 步；60 s → 每臂 30 s）。
+  authorized: false
+  max_steps: 48
+  max_wall_s: 60
+  lambda_replay: 0.15

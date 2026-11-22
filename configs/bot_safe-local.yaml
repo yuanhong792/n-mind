@@ -1,0 +1,38 @@
+# N-MIND Agent Runtime R1 —— safe-local 档（命令行 --profile safe-local 对应本文件）
+# 语义 = 任务书 §7 的默认安全姿态：离线、只读、受控、低成本；与 bot_runtime.yaml 一致，
+# 单独命名是为了让 `bot doctor/run/once --profile safe-local` 这条文档命令真的能执行。
+# 代码侧权威实现在 src/nmind/bot/policy.py，本文件为可读镜像。
+bot:
+  enabled: true
+  auto_start_with_os: false        # 开机自启必须显式安装，绝不默认
+  idle_learning_enabled: true      # 空闲自主练习（离线、程序可验证任务）
+  user_task_priority: true         # 用户消息优先于练习
+  single_instance: true            # lock.json 单实例互斥
+  network_enabled: false           # 真实联网默认关
+  auto_candidate_training: false   # 候选神经更新默认关，需显式授权
+  promotion_mode: manual           # 候选永不自动覆盖 stable
+  allow_external_code_execution: false
+  allow_remote_model_api: false
+  practice_task_allowlist: [arithmetic, json_extract, grid_rules]
+  max_tasks_per_idle_cycle: 3
+  min_cooldown_seconds: 60
+  max_idle_cpu_percent: 50
+  max_rss_mb: 2048
+  max_disk_mb: 512
+  max_network_requests_per_cycle: 0
+  max_optimizer_steps_per_cycle: 0     # 默认 0：无授权不允许 optimizer.step
+  max_training_wall_seconds_per_cycle: 0
+  max_consecutive_failures: 3
+  stable_checkpoint_readonly: true
+  scheduler_verified_threshold: 32     # verified 经验数触发阈值（预登记，勿在跑动中调）
+  scheduler_max_updates_per_batch: 120 # 单次候选更新硬预算（optimizer.step）
+  heldout_per_family: 8                # 每族封存集大小（独立随机流，永不进学习流）
+
+candidate:
+  # max_steps / max_wall_s 是“跨所有会训练的臂合计”的硬上限：
+  # neural 与 negative 对照各拿一半（48 → 每臂 24 步；60 s → 每臂 30 s）。
+  authorized: false
+  max_steps: 48
+  max_wall_s: 60
+  lambda_replay: 0.15
+  arms: [frozen, memory, neural, negative]

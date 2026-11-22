@@ -136,6 +136,17 @@ R1 当前基线模型约 **282,589** 参数，M3 微型语言实验模型约 **2
 - M5.1 诊断裁定瓶颈为**欠训练**（训练集 TF-span-EM 12.93% ≈ sealed 12.55%），排除截断、过拟合与路由死块；修正"从零阶段误用局部更新口径"的设计错误后，stage0 单实体复制 free-gen EM **0.50**（过 EM 门槛，TF 0.5 未达 0.9 整门 FAIL），stage1 两实体绑定 **0.15**（低于 0.25 随机线），未见问法工具选择 **100%（45/45）**。
 - 当前自动化测试 **92 项通过**；绑定学习预算（stage0/1 各 600–1000 步）待批准。证据：[M5 报告](./experiments/m5_language/M5_LANGUAGE_REPORT.md) · [M5.1 报告](./experiments/m5_language/M5_1_REPORT.md)
 
+### Agent Runtime R1：独立 Bot 自主学习（2026-11-22）
+
+> 证据：`experiments/bot_runtime_r1/`（九份实测产物 + `BOT_R1_REPORT.md` + `reproduce.ps1`）。N-MIND 本身即 Bot，运行不依赖 Codex/Ollama/第三方大模型 API。
+
+- **无人自主学习闭环 PASS**：没有任何用户消息时，Bot 自己跑了 20 轮 ×3 实例的离线可判分任务（算术 / 网格规则 / JSON 字段提取），累计 81 个任务实例、81 个唯一指纹、0 条封存测试样本进入学习流。
+- **用户优先与跨进程控制 PASS**：消息到达即在实例边界抢占练习并按序回答；`pause` 真的冻住周期、`resume` 先补答消息、`stop` 干净退出并释放单实例锁；重启后周期与经验累计一致、stable 权重哈希不变。
+- **分层计量**：三类任务的**神经**基线准确率为 0（模型对这些题面输出无关句子），54/81 的 verified 全部来自确定性工具/oracle，两类成绩分列在能力台账里，绝不互相冒充。
+- **候选神经更新判定 REJECTED**：显式授权 48 optimizer 步（主臂 24 + 标签置换负对照 24，硬预算用满），封存集自由生成 EM 0.0 → 0.0，未达预登记的 +0.10 增益门槛；参数确有变化（17/23 张量，max_abs_delta 0.0735）、训练态 buffer 已复位取证、候选被隔离、stable 逐位不变、未经人工 `--i-approve` 的晋升被拒绝。
+- **诚实结论**：本轮证明的是运行时、预算、取证与防自欺机制可靠，**不证明**"Bot 越练越聪明"。能力增长需要 M5 语言线先把可判分任务的神经基线抬离 0。
+- CPU 占用 42.5 %（政策 50 %，线程由代码夹紧 20→13）、RSS 峰值 216 MB；安全探针 11/11 PASS；全仓测试 108 项通过。
+
 ## 快速开始
 
 ### 系统要求
@@ -204,6 +215,32 @@ python experiments/m3_language/run_m3_v1.py --steps 600
 
 完整实验索引见 [experiments/README.md](./experiments/README.md)，报告与进度见 [STATUS.md](./STATUS.md)。
 
+### Agent Runtime R1：把 N-MIND 当独立 Bot 跑
+
+在 PowerShell 里（先按上文装好；未 `pip install -e .` 时另设 `$env:PYTHONPATH = "src"`）：
+
+```powershell
+python -m nmind.cli bot doctor --profile safe-local      # 体检：依赖/线程夹紧/权重/策略/锁
+python -m nmind.cli bot once --offline --cycles 20       # 零用户输入时自主练习（不更新权重）
+python -m nmind.cli bot eval                             # 封存集自由生成 EM（神经侧真实分数）
+python -m nmind.cli bot run --offline --profile safe-local   # 常驻：用户优先 + 空闲自动练习
+python -m nmind.cli bot status                           # 另一个终端看状态/心跳/预算余量
+python -m nmind.cli bot ask "你好，现在你在忙什么？"       # 用户消息，抢占低优先级练习
+python -m nmind.cli bot pause                            # 跨进程暂停（控制文件）
+python -m nmind.cli bot resume
+python -m nmind.cli bot stop
+python -m nmind.cli bot goals                            # 目标池与 selection_source=rule
+python -m nmind.cli bot audit --limit 20                 # 世系/隔离区/经验计数
+python -m nmind.cli bot logs --cycles --limit 5          # 自主循环明细（含每次尝试与判分）
+
+# 候选神经更新与晋升：默认关闭，必须逐条显式执行（预算是代码级硬闸）
+python -m nmind.cli bot candidate --i-authorize --steps 48
+python -m nmind.cli bot approve --i-approve              # 仅候选过全部门槛并人工批准才原子晋升
+python -m nmind.cli bot rollback                         # 回到上一次晋升前的备份
+```
+
+`--profile` 对应 `configs/bot_<profile>.yaml`：`safe-local` 是任务书默认安全姿态（联网关、自动训练关、晋升 manual、冷却 60 s），`demo` 只把冷却调小便于观察、安全开关不变，`candidate-demo` 预置候选预算但 `authorized: false`。全局开关 `--offline/--json/--device/--seed` 写在 `bot` 前后都可以。一键复现全部实测（含安全探针）：`powershell -ExecutionPolicy Bypass -File experiments\bot_runtime_r1\reproduce.ps1`。
+
 ## 项目目录
 
 ```text
@@ -214,9 +251,10 @@ n-mind/
 │   ├── memory/        # SQLite 情景记忆、检索、巩固
 │   ├── evaluation/    # 任务、基线、消融与性能评测
 │   ├── language/      # 微型语言、语言接口
+│   ├── bot/           # Agent Runtime R1：独立 Bot 状态机、自主练习、候选学习、CLI
 │   ├── runtime/       # 引擎、资源预算、硬件检测
 │   └── bridge/        # 云端策略、隐私与供应商适配
-├── configs/           # CPU / GPU / offline / cloud 示例配置
+├── configs/           # CPU / GPU / offline / cloud / bot_* 安全档示例配置
 ├── experiments/       # 可追溯实验脚本、报告及 JSON
 ├── results/           # CLI 生成结果
 ├── tests/             # 回归测试

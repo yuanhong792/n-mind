@@ -494,7 +494,7 @@ def _add_common(target: argparse.ArgumentParser, *, suppress: bool) -> None:
     target.add_argument("--device", default=d, choices=["auto", "cpu", "cuda"])
     target.add_argument("--seed", type=int, default=d)
     target.add_argument("--json", action="store_true", default=false_d,
-                        help="输出机器可读 JSON 文件路径")
+                        help="输出机器可读 JSON（布尔开关；文件路径用 --out 给）")
     target.add_argument("--out", default=d, help="--json 时的输出文件")
     target.add_argument("--quiet", action="store_true", default=false_d)
     target.add_argument("--traceback", action="store_true", default=false_d,
@@ -506,6 +506,9 @@ def build_parser() -> argparse.ArgumentParser:
                                 description="N-MIND 2.0：本机 CPU 可跑的本地优先研究模型")
     _add_common(p, suppress=False)
     sub = p.add_subparsers(dest="cmd", required=True)
+
+    from .bot import cli as bot_cli          # M5 Agent Runtime R1
+    bot_cli.register(sub, [])
 
     sp = sub.add_parser("doctor", help="硬件/依赖/配置体检")
     sp.set_defaults(fn=cmd_doctor)

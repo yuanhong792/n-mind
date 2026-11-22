@@ -1,0 +1,126 @@
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "STOPPED", "to": "STARTING", "reason": "启动：加载稳定权重与记录"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "STARTING", "to": "READY", "reason": "就绪"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:49+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:50+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:50+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:50+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:50+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:51+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:52+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:53+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:54+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:42:55+0800", "run_id": "run-1795333369-35868", "from": "COOLDOWN", "to": "STOPPED", "reason": "once 模式：跑完即退"}
+{"ts": "2026-11-22T15:43:01+0800", "run_id": "run-1795333381-41296", "from": "STOPPED", "to": "STARTING", "reason": "启动：加载稳定权重与记录"}
+{"ts": "2026-11-22T15:43:01+0800", "run_id": "run-1795333381-41296", "from": "STARTING", "to": "READY", "reason": "就绪"}
+{"ts": "2026-11-22T15:43:01+0800", "run_id": "run-1795333381-41296", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:01+0800", "run_id": "run-1795333381-41296", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:43:02+0800", "run_id": "run-1795333381-41296", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:08+0800", "run_id": "run-1795333381-41296", "from": "COOLDOWN", "to": "SERVING", "reason": "1 条用户消息到达，暂停低优先级练习"}
+{"ts": "2026-11-22T15:43:08+0800", "run_id": "run-1795333381-41296", "from": "SERVING", "to": "READY", "reason": "用户任务处理完毕"}
+{"ts": "2026-11-22T15:43:08+0800", "run_id": "run-1795333381-41296", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:08+0800", "run_id": "run-1795333381-41296", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:43:08+0800", "run_id": "run-1795333381-41296", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:12+0800", "run_id": "run-1795333381-41296", "from": "COOLDOWN", "to": "PAUSED", "reason": "控制文件 pause.flag"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "PAUSED", "to": "READY", "reason": "用户恢复"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "READY", "to": "SERVING", "reason": "1 条用户消息到达，暂停低优先级练习"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "SERVING", "to": "READY", "reason": "用户任务处理完毕"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:43:25+0800", "run_id": "run-1795333381-41296", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:29+0800", "run_id": "run-1795333381-41296", "from": "COOLDOWN", "to": "STOPPED", "reason": "控制文件 stop.flag"}
+{"ts": "2026-11-22T15:43:31+0800", "run_id": "run-1795333411-41292", "from": "STOPPED", "to": "STARTING", "reason": "启动：加载稳定权重与记录"}
+{"ts": "2026-11-22T15:43:31+0800", "run_id": "run-1795333411-41292", "from": "STARTING", "to": "READY", "reason": "就绪"}
+{"ts": "2026-11-22T15:43:31+0800", "run_id": "run-1795333411-41292", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:31+0800", "run_id": "run-1795333411-41292", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 arithmetic"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "COOLDOWN", "to": "READY", "reason": "冷却结束，回到就绪"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 grid_rules"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:43:32+0800", "run_id": "run-1795333411-41292", "from": "COOLDOWN", "to": "STOPPED", "reason": "once 模式：跑完即退"}
+{"ts": "2026-11-22T15:43:35+0800", "run_id": "run-1795333415-39332", "from": "STOPPED", "to": "STARTING", "reason": "启动：加载稳定权重与记录"}
+{"ts": "2026-11-22T15:43:35+0800", "run_id": "run-1795333415-39332", "from": "STARTING", "to": "READY", "reason": "就绪"}
+{"ts": "2026-11-22T15:43:35+0800", "run_id": "run-1795333415-39332", "from": "READY", "to": "CANDIDATE_TRAINING", "reason": "51 条 verified 经验触发候选更新（已授权，剩余预算 48 步）"}
+{"ts": "2026-11-22T15:44:11+0800", "run_id": "run-1795333415-39332", "from": "CANDIDATE_TRAINING", "to": "SEALED_EVALUATION", "reason": "封存自由生成评测（propose_candidate 内完成）"}
+{"ts": "2026-11-22T15:44:11+0800", "run_id": "run-1795333415-39332", "from": "SEALED_EVALUATION", "to": "COOLDOWN", "reason": "候选 REJECTED：已隔离，stable 未变"}
+{"ts": "2026-11-22T15:44:11+0800", "run_id": "run-1795333415-39332", "from": "COOLDOWN", "to": "STOPPED", "reason": "candidate 命令结束"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "STOPPED", "to": "STARTING", "reason": "启动：加载稳定权重与记录"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "STARTING", "to": "READY", "reason": "就绪"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "READY", "to": "IDLE_EXPLORE", "reason": "空闲：自主选择练习目标"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "IDLE_EXPLORE", "to": "IDLE_PRACTICE", "reason": "练习 json_extract"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "IDLE_PRACTICE", "to": "COOLDOWN", "reason": "MEMORY_ONLY：未授权神经更新（或无本地权重），经验已入档"}
+{"ts": "2026-11-22T15:44:17+0800", "run_id": "run-1795333457-44520", "from": "COOLDOWN", "to": "STOPPED", "reason": "once 模式：跑完即退"}

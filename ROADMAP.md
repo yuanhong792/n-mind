@@ -56,9 +56,22 @@
 
 - ONNX 导出 / INT8 量化 / 可复现性能报告。前置：M3 验收。
 
+## M7 独立 Agent Runtime（N-MIND Bot 自主学习）🔶
+
+任务书：`N-MIND_Agent_Runtime_R1_独立Bot自主学习_Codex开发提示词.md`；证据：`experiments/bot_runtime_r1/`（九份 + `BOT_R1_REPORT.md` + `reproduce.ps1`）。
+
+- [x] **P1 运行时与 CLI ✅**：`src/nmind/bot/` 状态机（12 态 + 合法转移表，非法转移即 ERROR_SAFE）、单实例锁、可中断休眠、跨进程 pause/resume/stop/ask、`bot doctor/run/once/status/goals/logs/audit/eval/candidate/approve/rollback`；无 Codex/Ollama/第三方模型依赖（探针：真实循环内 socket 出网 0 次 + 源码扫描 0 处调用点）。
+- [x] **P2 无人值守离线自主练习 ✅**：20 轮 ×3 实例、三任务族、oracle 独立判分、能力台账按 `{family}:neural` 与 `{family}:tool` 分列；81 实例 81 唯一指纹、0 封存泄漏；用户消息真抢占；重启不重复任务。
+- [x] **P3 候选学习集成 ✅（闭环验收 / 能力判定 REJECTED）**：显式授权 48 步（neural 24 + negative 24，硬闸用满）、四臂对照、buffer 复位取证、逐位继承、预登记门槛（+0.10 / ≤3pp）、REJECTED→隔离、stable 逐位不变、晋升仅 `--i-approve`。**真实能力增长未证明**（封存 EM 0.0→0.0，单 seed 诊断级）。
+- [ ] **P4 只读联网探索 ⬜**：默认关闭，需单独授权 + allowlist/私网/重定向逐跳/流量硬限审计后才能开。
+- [ ] **P5 Windows 体验 ⬜**：开机自启（显式安装动作）、本地面板、exe 打包均未开发。
+- [ ] **能力缺口**：三类任务的神经基线为 0（M5.2 权重不会答这些题面），`grid_rules` 还没有程序 oracle 工具路径；"越练越聪明"目前只有机制、没有证据。
+
 ## 已知阻塞
 
 1. ~~torch 为 CPU 版 → RTX 5070（Blackwell, sm_120）不可用~~ → 2026-11-21 已装 cu128 轮子启用 GPU（小袁确认；GPU 冒烟：小模型下 GPU 无速度优势，先保留给更大规模，见 STATUS GPU 状态）。
 2. ~~稀疏路由版训练显著落后~~ → 2026-11-21 M2.2 10-seed 配对定案：F10_ste 0.931±0.050，C 0.877±0.087；pred 分支 legacy 缺陷已修复（pred_mode="next"）。
 3. M2.2 继续 `CONDITIONAL`：H3b v1 经复核存在隐藏障碍信息与 oracle 口径错误，已用显式地图+BFS oracle 的 v2 替代；旧 checkpoint 26 维输入与 v2 的 62 维不兼容，需完成障碍课程同口径重训。H4b 只保留为反转规则分布偏移诊断。2026-11-22 起其 10-seed 全量重训标记 **DEFERRED_NOT_CANCELLED**（脚本 train_ood_v2_full.py 就绪，待用户批准预算后执行）。
 4. M3 预研已启动（v1 管线 + OOD 超捷径）；Step5/6（GRU/Transformer 对照、持续学习四臂）待排。
+5. **M7 神经增长的先决条件是语言基线**：本轮三类任务神经 EM=0，任何"预算内局部更新"都不可能达到 +0.10 门槛——R1 证的是闭环，不是能力。要让 Neural Growth 可判定，得先让 M5 线在可判分任务上把基线抬到 >0（或与工具 oracle 同口径重定义任务族）。
+6. **环境口径不一致（实测优先）**：本文上方记录 torch 2.10.0+cu128 + RTX 5070；2026-11-22 R1 会话在同一台机器实测 `python -c "import torch; print(torch.__version__)"` = **2.10.0+cpu**，R1 全部实验在 CPU 上跑。后续会话动手前先自测一次，不要沿用本文记录。

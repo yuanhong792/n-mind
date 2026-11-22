@@ -1,0 +1,123 @@
+{
+  "phaseA_practice": {
+    "wall_s": 7.44,
+    "cycles": 20,
+    "families": [
+      "arithmetic",
+      "grid_rules",
+      "json_extract"
+    ],
+    "ran": 20,
+    "preempted": 0,
+    "attempts": 60,
+    "verified": 39,
+    "rejected": 21,
+    "user_inbox_present": false,
+    "candidate_decisions": [
+      "MEMORY_ONLY"
+    ],
+    "exhausted_families": [],
+    "task_instances_done": 60,
+    "sealed_em_by_family": {
+      "arithmetic": {
+        "status": "MEASURED",
+        "family": "arithmetic",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      },
+      "json_extract": {
+        "status": "MEASURED",
+        "family": "json_extract",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      },
+      "grid_rules": {
+        "status": "MEASURED",
+        "family": "grid_rules",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      }
+    }
+  },
+  "phaseB_resident": {
+    "profile": "demo（冷却 3s，仅为让观察窗口内能看到周期真的在推进；network/auto_candidate_training/promotion_mode 与默认档一致）",
+    "resident_cycles": 3,
+    "user_replies": 2,
+    "stop_reason": "控制文件 stop.flag",
+    "state": "STOPPED",
+    "pause_froze_cycles": true,
+    "cycles_during_pause": {
+      "at_pause": 22,
+      "after_resume": 23
+    },
+    "lock_cleaned": true,
+    "returncode": 0,
+    "resource_totals": {
+      "wall_s": 6.359,
+      "cpu_s": 75.609,
+      "rss_peak_mb": 216.2,
+      "cycles": 23,
+      "cpu_cores": 28,
+      "cpu_percent_of_machine": 42.5,
+      "limit_cpu_percent": 50,
+      "limit_rss_mb": 2048,
+      "cpu_cap": {
+        "cores": 28,
+        "threads_before": 20,
+        "threads_after": 13,
+        "requested_by_policy": 13,
+        "max_idle_cpu_percent": 50
+      }
+    }
+  },
+  "phaseC_restart": {
+    "cycles_before_restart": 23,
+    "cycles_after": 26,
+    "state_restored": true,
+    "stable_sha_unchanged": true,
+    "new_unique_task_instances": 18,
+    "repeated_task_instances": 0,
+    "sqlite_ok": true
+  },
+  "phaseD_candidate_wall_s": 37.88,
+  "cumulative": {
+    "wall_s": 7.278,
+    "cpu_s": 89.515,
+    "rss_peak_mb": 216.2,
+    "cycles": 27,
+    "cpu_cores": 28,
+    "cpu_percent_of_machine": 43.9,
+    "limit_cpu_percent": 50,
+    "limit_rss_mb": 2048,
+    "cpu_cap": {
+      "cores": 28,
+      "threads_before": 20,
+      "threads_after": 13,
+      "requested_by_policy": 13,
+      "max_idle_cpu_percent": 50
+    }
+  },
+  "cpu_cap": {
+    "cores": 28,
+    "threads_before": 20,
+    "threads_after": 13,
+    "requested_by_policy": 13,
+    "max_idle_cpu_percent": 50
+  },
+  "policy_limits": {
+    "max_idle_cpu_percent": 50,
+    "max_rss_mb": 2048,
+    "max_disk_mb": 512,
+    "max_network_requests_per_cycle": 0
+  },
+  "bot_root_disk_bytes": 3732469,
+  "optimizer_steps_total": 48,
+  "network_requests": 0,
+  "note": "cpu_percent_of_machine = CPU 秒 /(墙钟秒 × 逻辑核数)；RSS 取窗口峰值"
+}

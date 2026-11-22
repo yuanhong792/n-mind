@@ -21,3 +21,8 @@ logs/
 *.env
 secrets*
 configs/cloud.local.yaml
+
+# Agent Runtime R1：Bot 运行状态目录（SQLite/权重副本/控制文件）与实验暂存目录不入库
+results/bot_*/
+results/bot_*.json
+experiments/*/_work/

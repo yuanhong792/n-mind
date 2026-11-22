@@ -1,0 +1,139 @@
+{
+  "started_at": "2026-11-22T15:42:48+0800",
+  "stable_source": "experiments\\m5_language\\m52_s0_checkpoint.pt",
+  "stable_source_sha256": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "bot_root": "D:\\cpu本地模型开发\\n-mind\\results\\bot_r1_e2e",
+  "phaseA": {
+    "wall_s": 7.44,
+    "cycles": 20,
+    "families": [
+      "arithmetic",
+      "grid_rules",
+      "json_extract"
+    ],
+    "ran": 20,
+    "preempted": 0,
+    "attempts": 60,
+    "verified": 39,
+    "rejected": 21,
+    "user_inbox_present": false,
+    "candidate_decisions": [
+      "MEMORY_ONLY"
+    ],
+    "exhausted_families": [],
+    "task_instances_done": 60,
+    "sealed_em_by_family": {
+      "arithmetic": {
+        "status": "MEASURED",
+        "family": "arithmetic",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      },
+      "json_extract": {
+        "status": "MEASURED",
+        "family": "json_extract",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      },
+      "grid_rules": {
+        "status": "MEASURED",
+        "family": "grid_rules",
+        "sealed_em": 0.0,
+        "n": 8,
+        "arm": "stable",
+        "model_sha": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529"
+      }
+    }
+  },
+  "phaseB": {
+    "profile": "demo（冷却 3s，仅为让观察窗口内能看到周期真的在推进；network/auto_candidate_training/promotion_mode 与默认档一致）",
+    "resident_cycles": 3,
+    "user_replies": 2,
+    "stop_reason": "控制文件 stop.flag",
+    "state": "STOPPED",
+    "pause_froze_cycles": true,
+    "cycles_during_pause": {
+      "at_pause": 22,
+      "after_resume": 23
+    },
+    "lock_cleaned": true,
+    "returncode": 0,
+    "resource_totals": {
+      "wall_s": 6.359,
+      "cpu_s": 75.609,
+      "rss_peak_mb": 216.2,
+      "cycles": 23,
+      "cpu_cores": 28,
+      "cpu_percent_of_machine": 42.5,
+      "limit_cpu_percent": 50,
+      "limit_rss_mb": 2048,
+      "cpu_cap": {
+        "cores": 28,
+        "threads_before": 20,
+        "threads_after": 13,
+        "requested_by_policy": 13,
+        "max_idle_cpu_percent": 50
+      }
+    }
+  },
+  "phaseC": {
+    "cycles_before_restart": 23,
+    "cycles_after": 26,
+    "state_restored": true,
+    "stable_sha_unchanged": true,
+    "new_unique_task_instances": 18,
+    "repeated_task_instances": 0,
+    "sqlite_ok": true
+  },
+  "phaseD": {
+    "wall_s": 37.88,
+    "executed": true,
+    "status": "REJECTED",
+    "steps_this_cycle": 48,
+    "steps_used_total": 48,
+    "budget": {
+      "authorized": true,
+      "authorized_total_steps": 48,
+      "steps_used": 48,
+      "steps_remaining": 0,
+      "promotion_mode": "manual",
+      "stable_checkpoint": "D:\\cpu本地模型开发\\n-mind\\results\\bot_r1_e2e\\stable_model.pt"
+    },
+    "promotion": "manual（需 nmind bot approve --i-approve）",
+    "gates": {
+      "new_skill_gain": false,
+      "old_task_retention": true,
+      "weight_changed": true,
+      "inheritance": true
+    },
+    "sealed_baseline_em": 0.0,
+    "sealed_after_em": 0.0,
+    "new_skill_gain": 0.0,
+    "old_task_forgetting_pp": 0.0,
+    "arm_steps": {
+      "frozen": 0,
+      "memory": 0,
+      "neural": 24,
+      "negative": 24
+    },
+    "arm_sealed_em_after": {
+      "frozen": 0.0,
+      "memory": 1.0,
+      "neural": 0.0,
+      "negative": 0.0
+    },
+    "memory_arm_note": "外部记忆命中，非神经学习；该臂按构造恒为 1.0，只用于把'检索变强'从'参数变强'里减掉，不作为能力证据",
+    "stable_sha_unchanged": true,
+    "approve_without_flag_refused": true,
+    "quarantined": [
+      "candidate_1795333415.pt"
+    ]
+  },
+  "finished_at": "2026-11-22T15:44:17+0800",
+  "security_passed": 11,
+  "security_failed": 0
+}
