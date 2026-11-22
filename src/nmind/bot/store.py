@@ -46,6 +46,36 @@ CREATE TABLE IF NOT EXISTS kv (
 """
 
 
+_CHAT_SCHEMA = """
+-- Bot V1 聊天持久化（独立命名表，绝不改动 R1 的 events/capabilities/completed_tasks/kv）
+CREATE TABLE IF NOT EXISTS chat_sessions (
+    session_id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS chat_messages (
+    message_id TEXT NOT NULL,          -- 用户消息 UUID；assistant 回复行复用同一 message_id（role 区分）
+    session_id TEXT NOT NULL,
+    role TEXT NOT NULL,                -- user | assistant
+    text TEXT NOT NULL,
+    response_source TEXT DEFAULT '',   -- neural | retrieval | tool | rule | none
+    citations_json TEXT,
+    status TEXT DEFAULT 'QUEUED',      -- QUEUED | RUNNING | DONE | FAILED | CANCELLED | RETRYABLE
+    created_at TEXT NOT NULL,
+    updated_at TEXT,
+    model_sha TEXT DEFAULT '',
+    protocol_id TEXT DEFAULT '',
+    latency_ms REAL,
+    error TEXT,
+    seq INTEGER,                       -- 会话内序号（回放顺序可复核）
+    PRIMARY KEY (message_id, role)
+);
+CREATE INDEX IF NOT EXISTS idx_chat_messages_session ON chat_messages(session_id, seq);
+CREATE INDEX IF NOT EXISTS idx_chat_messages_status ON chat_messages(status);
+"""
+
+
 class BotStore:
     def __init__(self, db_path: str | Path) -> None:
         self.path = Path(db_path)
@@ -54,8 +84,11 @@ class BotStore:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode = WAL")
         self.conn.execute("PRAGMA synchronous = FULL")
+        self.conn.execute("PRAGMA busy_timeout = 5000")
         self.conn.executescript(_SCHEMA)
         self._migrate()
+        self.conn.executescript(_CHAT_SCHEMA)
+        self._recover_interrupted()
 
     def _migrate(self) -> None:
         """老库补列：completed_tasks.fingerprint（内容指纹去重）；R2 归因五列。"""
@@ -199,3 +232,185 @@ class BotStore:
 
     def close(self) -> None:
         self.conn.close()
+
+    # ------------------------------------------------------------ Bot V1 聊天持久化
+    # 设计要点：message_id(UUID) 领取对应回复，不是读最新日志冒充；
+    # 领取走 BEGIN IMMEDIATE 事务，跨进程并发发消息不丢不重；
+    # 启动时 QUEUED/RUNNING → RETRYABLE（断电重启不静默丢队列）。
+    def _recover_interrupted(self) -> None:
+        self.conn.execute(
+            "UPDATE chat_messages SET status='RETRYABLE', updated_at=?, error='进程中断，重启后标记为可重试' "
+            "WHERE role='user' AND status IN ('QUEUED','RUNNING')",
+            (time.strftime("%Y-%m-%dT%H:%M:%S%z"),))
+
+    def create_session(self, session_id: str, title: str) -> None:
+        now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        self.conn.execute(
+            "INSERT OR IGNORE INTO chat_sessions (session_id, title, created_at, updated_at) "
+            "VALUES (?,?,?,?)", (session_id, title, now, now))
+
+    def list_sessions(self) -> list[dict[str, Any]]:
+        return [dict(r) for r in self.conn.execute(
+            "SELECT * FROM chat_sessions ORDER BY updated_at DESC")]
+
+    def delete_session(self, session_id: str) -> int:
+        cur = self.conn.execute("DELETE FROM chat_messages WHERE session_id=?", (session_id,))
+        self.conn.execute("DELETE FROM chat_sessions WHERE session_id=?", (session_id,))
+        return cur.rowcount
+
+    def rename_session(self, session_id: str, title: str) -> None:
+        self.conn.execute(
+            "UPDATE chat_sessions SET title=?, updated_at=? WHERE session_id=?",
+            (title, time.strftime("%Y-%m-%dT%H:%M:%S%z"), session_id))
+
+    def session_title(self, session_id: str) -> str | None:
+        row = self.conn.execute("SELECT title FROM chat_sessions WHERE session_id=?",
+                                (session_id,)).fetchone()
+        return row["title"] if row else None
+
+    def enqueue_message(self, message_id: str, session_id: str, text: str) -> dict[str, Any]:
+        """入队用户消息（原子追加；同会话自动建目录并刷新 updated_at）。"""
+        now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        self.create_session(session_id, text[:20] or "新会话")
+        seq = self.conn.execute(
+            "SELECT COALESCE(MAX(seq),0)+1 AS s FROM chat_messages WHERE session_id=?",
+            (session_id,)).fetchone()["s"]
+        with self.conn:
+            self.conn.execute(
+                "INSERT INTO chat_messages (message_id, session_id, role, text, status, "
+                "created_at, seq) VALUES (?,?,?,?,?,?,?)",
+                (message_id, session_id, "user", text, "QUEUED", now, int(seq)))
+        self.conn.execute("UPDATE chat_sessions SET updated_at=? WHERE session_id=?",
+                          (now, session_id))
+        return {"message_id": message_id, "session_id": session_id, "status": "QUEUED",
+                "seq": int(seq)}
+
+    def claim_next_message(self) -> dict[str, Any] | None:
+        """领取下一条待处理消息（QUEUED/RETRYABLE 中最早一条）→ RUNNING。
+        BEGIN IMMEDIATE 保证两个进程/线程不会领到同一条。"""
+        now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        try:
+            self.conn.execute("BEGIN IMMEDIATE")
+            row = self.conn.execute(
+                "SELECT * FROM chat_messages WHERE role='user' AND status IN ('QUEUED','RETRYABLE') "
+                "ORDER BY created_at LIMIT 1").fetchone()
+            if row is None:
+                self.conn.execute("COMMIT")
+                return None
+            self.conn.execute(
+                "UPDATE chat_messages SET status='RUNNING', updated_at=? "
+                "WHERE message_id=? AND role='user'", (now, row["message_id"]))
+            self.conn.execute("COMMIT")
+        except sqlite3.OperationalError:
+            return None
+        rec = dict(row)
+        rec["status"] = "RUNNING"
+        return rec
+
+    def finish_message(self, message_id: str, *, reply_text: str, response_source: str,
+                       citations: list[dict[str, Any]] | None = None, model_sha: str = "",
+                       protocol_id: str = "", latency_ms: float = 0.0,
+                       note: str = "", extra: dict[str, Any] | None = None) -> None:
+        """写回复行（role=assistant，同一 message_id）并把用户行标 DONE。
+
+        extra：附加协议字段（unk_rate/finish_reason 等），随 note 一起以 JSON
+        落库，领取时还原——契约字段不因持久化丢字段。
+        """
+        now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        row = self.conn.execute(
+            "SELECT session_id FROM chat_messages WHERE message_id=? AND role='user'",
+            (message_id,)).fetchone()
+        seq = None
+        if row:
+            seq = self.conn.execute(
+                "SELECT COALESCE(MAX(seq),0)+1 AS s FROM chat_messages WHERE session_id=? AND role='assistant'",
+                (row["session_id"],)).fetchone()["s"]
+        meta: dict[str, Any] = {"note": note}
+        if extra:
+            meta.update(extra)
+        with self.conn:
+            self.conn.execute(
+                "INSERT OR REPLACE INTO chat_messages (message_id, session_id, role, text, "
+                "response_source, citations_json, status, created_at, updated_at, model_sha, "
+                "protocol_id, latency_ms, error, seq) VALUES "
+                "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                (message_id, row["session_id"] if row else "", "assistant", reply_text,
+                 response_source, json.dumps(citations or [], ensure_ascii=False), "DONE",
+                 now, now, model_sha, protocol_id, float(latency_ms),
+                 json.dumps(meta, ensure_ascii=False) if len(meta) > 1 or note else None,
+                 seq))
+            self.conn.execute(
+                "UPDATE chat_messages SET status='DONE', updated_at=? "
+                "WHERE message_id=? AND role='user'", (now, message_id))
+
+    def fail_message(self, message_id: str, error: str) -> None:
+        now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        with self.conn:
+            self.conn.execute(
+                "UPDATE chat_messages SET status='FAILED', updated_at=?, error=? "
+                "WHERE message_id=? AND role='user'", (now, error[:2000], message_id))
+
+    def get_reply(self, message_id: str) -> dict[str, Any] | None:
+        """用 message_id 领取对应回复（没有就 None——调用方继续等，不拿别的消息冒充）。"""
+        row = self.conn.execute(
+            "SELECT * FROM chat_messages WHERE message_id=? AND role='assistant'",
+            (message_id,)).fetchone()
+        if row is None:
+            user = self.conn.execute(
+                "SELECT status FROM chat_messages WHERE message_id=? AND role='user'",
+                (message_id,)).fetchone()
+            if user and user["status"] == "FAILED":
+                return {"message_id": message_id, "status": "FAILED", "role": "assistant",
+                        "text": "", "response_source": "none"}
+            return None
+        rec = dict(row)
+        rec["citations"] = json.loads(rec["citations_json"] or "[]")
+        rec["note"] = ""
+        rec.pop("unk_rate", None)
+        rec.pop("finish_reason", None)
+        if rec.get("error"):
+            try:
+                meta = json.loads(rec["error"])
+                if isinstance(meta, dict):
+                    rec["note"] = meta.pop("note", "")
+                    for k in ("unk_rate", "finish_reason", "memory_hits"):
+                        if k in meta:
+                            rec[k] = meta[k]
+            except (ValueError, AttributeError):
+                rec["note"] = ""
+        return rec
+
+    def message_status(self, message_id: str) -> str | None:
+        row = self.conn.execute(
+            "SELECT status FROM chat_messages WHERE message_id=? AND role='user'",
+            (message_id,)).fetchone()
+        return row["status"] if row else None
+
+    def list_messages(self, session_id: str, *, limit: int = 200) -> list[dict[str, Any]]:
+        rows = self.conn.execute(
+            "SELECT * FROM chat_messages WHERE session_id=? ORDER BY seq LIMIT ?",
+            (session_id, int(limit))).fetchall()
+        out = []
+        for r in rows:
+            rec = dict(r)
+            rec["citations"] = json.loads(rec["citations_json"] or "[]")
+            if rec.get("error"):
+                try:
+                    meta = json.loads(rec["error"])
+                    if isinstance(meta, dict):
+                        rec["note"] = meta.pop("note", "")
+                        for k in ("unk_rate", "finish_reason", "memory_hits"):
+                            if k in meta:
+                                rec[k] = meta[k]
+                except (ValueError, AttributeError):
+                    rec["note"] = ""
+            else:
+                rec["note"] = ""
+            out.append(rec)
+        return out
+
+    def queue_len(self) -> int:
+        row = self.conn.execute(
+            "SELECT COUNT(*) AS c FROM chat_messages WHERE role='user' "
+            "AND status IN ('QUEUED','RUNNING','RETRYABLE')").fetchone()
+        return int(row["c"])

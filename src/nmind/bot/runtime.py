@@ -34,9 +34,9 @@ import os
 import random
 import time
 import traceback
-from types import SimpleNamespace
 from dataclasses import asdict
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 import torch
@@ -48,12 +48,18 @@ from ..learning.online_adaptation import AdaptationBudget, state_hash
 from ..online.scheduler import SchedulerConfig
 from . import resources
 from .capability_tracker import CapabilityTracker
-from .experience_bridge import VerifiedExperience, build_experience
 from .curriculum import CurriculumConfig, SkillSelector, dataset_stats
+from .experience_bridge import VerifiedExperience, build_experience
 from .goal_manager import GoalManager
 from .policy import BotPolicy
-from .practice import (execute_tool, feedback_state, make_sealed_set, make_task,
-                     program_oracle, verify)
+from .practice import (
+    execute_tool,
+    feedback_state,
+    make_sealed_set,
+    make_task,
+    program_oracle,
+    verify,
+)
 from .scheduler import BotScheduler
 from .skill_registry import default_registry
 from .status import build_snapshot
@@ -150,8 +156,8 @@ class BotRuntime:
         self._rng = random.Random(self.seed)              # 练习流（可复现）
         self._started = False
         self.res_window = resources.Window()
-        self.resource_totals: dict[str, float] = {**{"wall_s": 0.0, "cpu_s": 0.0,
-                                                    "rss_peak_mb": 0.0, "cycles": 0},
+        self.resource_totals: dict[str, float] = {"wall_s": 0.0, "cpu_s": 0.0,
+                                                    "rss_peak_mb": 0.0, "cycles": 0,
                                                   **self.store.get_state("resource_totals", {})}
         self.exhausted_families: set[str] = set()
         # ---- R2：技能注册表 + 能力匹配选择器（Gate-A 产物只读加载，绝不在循环里重算）----
@@ -365,6 +371,59 @@ class BotRuntime:
     def submit_user_task(self, text: str) -> dict[str, Any]:
         self.user_queue.append(text)
         return {"queued": True, "queue_len": len(self.user_queue)}
+
+    # ---- Bot V1：SQLite 聊天队列（可靠 message_id 协议，GUI 与 CLI 共用）----
+    def process_chat_queue(self, chat_service) -> int:
+        """领取并回答 chat_messages 表中的用户消息（每条用 message_id 可追溯）。
+
+        用户优先：run_forever 每个循环边界先清空本队列再考虑空闲任务；
+        控制文件（stop/pause）在单条消息边界生效，正在生成的回复会写完。
+        """
+        served = 0
+        while True:
+            if self._check_control():
+                break
+            msg = self.store.claim_next_message()
+            if msg is None:
+                break
+            served += 1
+            if can_transition(self.state.name, "SERVING") and \
+                    self.state not in (BotState.SERVING, BotState.STOPPED):
+                self._transition("SERVING", f"聊天消息 {msg['message_id'][:8]} 到达")
+            from .chat_service import ChatRequest, ChatResponse
+            req = ChatRequest(message_id=msg["message_id"], session_id=msg["session_id"],
+                              text=msg["text"], created_at=msg["created_at"])
+            self.store.event(self.run_id, "chat_claimed",
+                             {"message_id": msg["message_id"],
+                              "session_id": msg["session_id"], "len": len(msg["text"])})
+            try:
+                resp = chat_service.reply(req)
+                if not isinstance(resp, ChatResponse):
+                    raise TypeError(f"chat_service.reply 应返回 ChatResponse，"
+                                    f"得到 {type(resp).__name__}")
+                self.store.finish_message(
+                    resp.message_id, reply_text=resp.text,
+                    response_source=resp.response_source,
+                    citations=[c.to_dict() if hasattr(c, "to_dict") else c
+                               for c in resp.citations],
+                    model_sha=resp.model_sha, protocol_id=resp.protocol_id,
+                    latency_ms=resp.latency_ms, note=resp.note,
+                    extra={"unk_rate": resp.unk_rate,
+                           "finish_reason": resp.finish_reason,
+                           "memory_hits": resp.memory_hits})
+                self.store.event(self.run_id, "chat_replied",
+                                 {"message_id": resp.message_id,
+                                  "response_source": resp.response_source,
+                                  "latency_ms": resp.latency_ms})
+            except Exception as exc:                      # noqa: BLE001 - 失败要落账不能吞
+                self.store.fail_message(msg["message_id"],
+                                        f"{type(exc).__name__}: {exc}")
+                self.store.event(self.run_id, "chat_failed",
+                                 {"message_id": msg["message_id"],
+                                  "error": f"{type(exc).__name__}: {exc}"[:1000]})
+        if served and self.state == BotState.SERVING:
+            self._transition("READY", "聊天队列处理完毕")
+        return served
 
     def inbox_len(self) -> int:
         box = self.root / INBOX_FILE
@@ -1058,12 +1117,19 @@ class BotRuntime:
 
     # ---- 驻留循环（真实 Windows 后台运行）----
     def run_forever(self, *, max_cycles: int | None = None, deadline_s: float | None = None,
-                    poll_s: float = 1.0) -> dict[str, Any]:
-        """常驻：用户消息优先 → 空闲则练习 → 否则可中断睡眠（无忙等）。"""
+                    poll_s: float = 1.0, chat_service=None,
+                    explorer=None) -> dict[str, Any]:
+        """常驻：用户消息优先 → 空闲则（探索/练习）→ 否则可中断睡眠（无忙等）。
+
+        chat_service（Bot V1）：提供时每个循环边界先清空 SQLite 聊天队列；
+        explorer（Bot V1）：提供时网络启用且配额允许时做限量自主探索，
+        用户消息到达即在请求边界抢占（IdleWebExplorer 内部实现）。
+        """
         self.start()
         t0 = self.monotonic()
         cycles = 0
         replies_done = 0
+        chat_done = 0
         stop_reason = "未停止（本次调用未被中断）"
         while True:
             ctrl = self._check_control()
@@ -1089,12 +1155,32 @@ class BotRuntime:
             replies_done += len(replies)
             if replies:
                 continue                                   # 用户任务优先，处理完再看
+            if chat_service is not None:
+                served = self.process_chat_queue(chat_service)
+                chat_done += served
+                if served:
+                    continue                               # 用户消息优先于一切空闲动作
             if max_cycles is not None and cycles >= max_cycles:
                 stop_reason = f"达到 max_cycles={max_cycles}"
                 break
             if deadline_s is not None and self.monotonic() - t0 >= deadline_s:
                 stop_reason = f"达到 deadline {deadline_s}s"
                 break
+            if explorer is not None and self.scheduler.should_idle_learn(
+                    now=self.monotonic(), user_queue_len=self.inbox_len()):
+                out = explorer.run_idle_exploration(self)
+                cycles += 1
+                if out.get("stopped_early"):
+                    stop_reason = "循环内响应控制文件（stop.flag）"
+                    break
+                if out.get("paused"):
+                    continue
+                if self.state == BotState.ERROR_SAFE:
+                    stop_reason = "进入 ERROR_SAFE，停止自主循环"
+                    break
+                if out.get("explored") or out.get("reason") == "explore_cooldown":
+                    self.heartbeat()
+                    continue
             if self.scheduler.should_idle_learn(now=self.monotonic(),
                                                 user_queue_len=self.inbox_len()):
                 out = self.run_idle_cycle()
@@ -1114,8 +1200,9 @@ class BotRuntime:
                     stop_reason = "控制文件 stop.flag"
                     continue
             self.heartbeat()
-        return {"cycles": cycles, "user_replies": replies_done, "reason": stop_reason,
-                "state": self.state.name, "resource_totals": self.resource_summary()}
+        return {"cycles": cycles, "user_replies": replies_done, "chat_replies": chat_done,
+                "reason": stop_reason, "state": self.state.name,
+                "resource_totals": self.resource_summary()}
 
     def _sleep(self, seconds: float) -> str | None:
         """可中断睡眠：每 ≤0.5s 检查一次控制文件，绝不 busy-wait。"""
