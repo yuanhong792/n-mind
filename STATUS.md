@@ -193,10 +193,11 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 - ~~GPU：torch CPU 版无法用 RTX 5070~~ → 已解决（cu128 已装，见上方 GPU 状态）
 - 未实现：Transformer 基线、多种子重复、持续学习实验运行记录、门控收益验证
-- 并行会话正在做 M2（m2_* 实验文件与 test_datasets.py 出现在仓库）；跨会话提交前先 `git status` 分清归属
+- 同一仓库有并行会话（Codex/AutoClaw）在做 Agent Runtime R2：跨会话提交前先 `git status` 分清归属，未提交的他人文件一律不 add；实测发生过"本会话改到一半的文件被对方提交走"与"cli.py 被换成坏存根"两次干扰（2026-11-22 第八轮）
 
 ## 下次会话第一件事
 
+0. **Gate-B 005 预登记待批**（`gateb_pre_registration_005_DRAFT.json`，DRAFT 不执行）：建议次序 C 混合课程+回放 → B 技能残差适配器 → A Workspace 写入门控——**需小袁批准**；R2 剩余交付：`online/resource_manager.py` 五档链路、bot CLI 五子命令、`fetcher.py` SSRF 硬化、`BOT_R2_REPORT.md` 汇总（001-004 结论已在 STATUS/README/ROADMAP，报告文件尚未落）。
 1. M5.1 绑定验证预算申请：预登记 stage0/1 各 600-1000 步（约 2-5 分钟/阶段）验两实体绑定能否过 35%——**需小袁批准**。
 2. M4.1 的混合时域经验流新预注册（T=24+32 攻长度外推）——**需小袁批准**。
 3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；M5-Network P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）待排；F10 配置封装、M3 Step5/6 排队。
