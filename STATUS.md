@@ -71,7 +71,14 @@ python -m pytest tests -q          # 27 passed
 - **资源**：各阶段独立预算均 <300s，总墙钟 157.2s，参数量 452,116，CPU 8 线程。
 - **下一步（需批准，未自行启动）**：预登记 stage0/1 各 600–1000 步（约 2–5 分钟/阶段）验绑定能否跨过 35%；stage0 错误偏向"2号位置"，下一轮训练集需位置均衡采样校验；exposure bias 待绑定学会后复测。报告：experiments/m5_language/M5_1_REPORT.md。测试 **92 项全绿**。
 
-## 最新真实结果
+## M5.2 中文事实绑定与泛化（2026-11-22 第五轮，AutoClaw）
+
+- **P0 审计**："2号位置"先验非数据偏置（46/51/54/49 基本均衡）；冻结 M5.1 checkpoint 反事实探针位置跟随率 0%（全部生成 ack 模板）——**"陈述→好的。"确认语捷径是全对话 EM 3.61% 的机制性原因**。
+- **数据修正**：位置精确均衡轮转 + ack 三选一化+30% 无确认 + 12 组合轮转绑定 + 反事实对照对 + S2 更新探针；预登记训练前落盘（m52_pre_registration.json）。
+- **实测（预算 N-MIND 谱系 1250/1250 严格用满）**：过拟合自检 PASS（校准历史三次全披露：EM 判据两次误标定→改相对判据 8× 未训练基线）；**S0 单实体绑定 PASS（sealed free-gen EM 1.0 / TF 1.0）**；**S1 两实体绑定 FAIL——sealed EM 0.8375 过 EM 门槛，但位置交换跟随率 0.0833**（24 对仅 2 对）——**近因启发式实锤：模型答"最近陈述的位置"而非按查询实体绑定**（错误样例：事实在第一句时答第二句的位置）；S2 移动更新零样本 8.33%（未训练任务，真实缺口）；GRU 对照同预算 EM 0.0%（NMindLM 架构优势证据，GRU 600 步为诊断性追加计算已披露）。
+- **指标勘误**：entity_selection_acc（答案含实体名恒 1.0）与 last_statement_copy_acc（or True 笔误）作废，以交换跟随率实测取代（m52_follow_eval.json 逐条记录）。
+- 测试 92 全绿；提交 <见 log>。报告：experiments/m5_language/M5_2_REPORT.md；数据：m52_diagnostics/m52_pre_registration/m52_eval/m52_follow_eval.json。
+- 待批准：① 近因启发式机制修复（查询重加权/步数加倍/structured_assist 对照臂三选一或组合）；② S2 事实更新训练；③ M4.2 遗忘矩阵；④ M4.1 混合时域。
 
 ### 1. M1 过拟合 + 训练预算扫描（experiments/2026-11-21_m1_overfit.json，seed 20261121）
 

@@ -1,0 +1,14 @@
+[neural] checkpoint=experiments/m5_language/m52_s1_checkpoint.pt steps=600 （自由生成，无 teacher forcing；诊断行需 --diagnostics）
+输入中文对话；/reset 重置会话；/quit 退出。
+脉脑> 小明在3号位置。
+  [response_source=neural tool=None finish=eos latency=61.47ms generated='小明在3号位置。']
+脉脑> 小明在3号位置。
+  [response_source=neural tool=None finish=eos latency=40.0ms generated='小明在3号位置。']
+脉脑> 小明在
+  [response_source=neural tool=None finish=eos latency=35.5ms generated='小明在']
+脉脑> 小
+  [response_source=neural tool=None finish=eos latency=20.15ms generated='小']
+脉脑> 小红在3号位置。
+  [response_source=neural tool=None finish=eos latency=27.96ms generated='小红在3号位置。']
+脉脑> 小明在3号位置。
+  [response_source=neural tool=None finish=eos latency=67.71ms generated='小明在3号位置。']

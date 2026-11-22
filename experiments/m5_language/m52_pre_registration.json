@@ -1,0 +1,73 @@
+{
+  "experiment": "m5.2-binding",
+  "seed": 20261401,
+  "data_sha256_16": {
+    "s0_train": "[[\"用户：小明在1号位置。\\n",
+    "s0_dev": "[[\"用户：小明在1号位置。\\n",
+    "s0_sealed": "[[\"用户：小明在1号位置。\\n",
+    "s1_train": "[[\"用户：小明在1号位置。小红",
+    "s1_sealed": "[[\"用户：小明在1号位置。小红",
+    "s2_update_probe": "[[\"用户：小明在1号位置。小红",
+    "s2_counterfactual": "[[\"用户：小明在1号位置。小红",
+    "s4_paraphrase_ood": "[[\"用户：小明在1号位置。小红"
+  },
+  "data_audit": {
+    "s0_train_answer_pos": {
+      "1号位置": 100,
+      "2号位置": 100,
+      "3号位置": 100,
+      "4号位置": 100
+    },
+    "s0_sealed_answer_pos": {
+      "1号位置": 20,
+      "2号位置": 20,
+      "3号位置": 20,
+      "4号位置": 20
+    },
+    "s1_train_answer_pos": {
+      "1号位置": 135,
+      "2号位置": 66,
+      "3号位置": 133,
+      "4号位置": 66
+    },
+    "s1_sealed_answer_pos": {
+      "1号位置": 27,
+      "2号位置": 14,
+      "3号位置": 26,
+      "4号位置": 13
+    },
+    "s1_query_entity": {
+      "小明": 200,
+      "小红": 200
+    },
+    "note": "位置按 i%4 轮转精确均衡；组合按 12 组合轮转；ack 三选一轮转+30% 无确认"
+  },
+  "steps": {
+    "overfit": 50,
+    "s0": 600,
+    "s1": 600
+  },
+  "total_cap": 1250,
+  "wall_limit_s_per_task": 360.0,
+  "gates": {
+    "s0_em": 0.9,
+    "s0_tf": 0.9,
+    "s1_em": 0.5,
+    "s1_baseline_pp": 0.1,
+    "fact_follow": 0.7
+  },
+  "arms": [
+    "overfit50",
+    "s0_600",
+    "s1_600",
+    "s2_zero_shot_probe",
+    "s4_paraphrase_ood",
+    "gru_control_on_s1_fail"
+  ],
+  "training": {
+    "full_param_from_scratch": true,
+    "masked_answer_ce_with_eos": true,
+    "optimizer": "AdamW(lr=3e-3)",
+    "batch": 16
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "overfit": {
+    "train": {
+      "steps": 50,
+      "loss_first": 3.4521,
+      "loss_last": 0.8875,
+      "wall_s": 13.44,
+      "curve_head": [
+        3.4521,
+        3.2178,
+        3.0048,
+        2.8014,
+        2.5569
+      ],
+      "curve_tail": [
+        0.8399,
+        0.8548,
+        0.9181,
+        0.8521,
+        0.8875
+      ]
+    },
+    "train_em": 0.0,
+    "tf_char_acc": 0.7847,
+    "untrained_char_acc": 0.0,
+    "gate_pass": true,
+    "calibration_history": [
+      {
+        "v": 0,
+        "criterion": "train free-gen EM ≥ 0.9 @50步",
+        "result": "FAIL EM=0",
+        "verdict": "误标定：50 步损失只能到 0.73-0.87，EM=0 是必然，非训练循环缺陷"
+      },
+      {
+        "v": 1,
+        "criterion": "tf_char_acc ≥ 0.85 @50步",
+        "result": "FAIL 0.5",
+        "verdict": "仍误标定：架构记忆速度决定 50 步上限"
+      },
+      {
+        "v": 2,
+        "criterion": "loss_last ≤ 1.0 且 tf_char_acc ≥ 8×未训练基线（同脚本实测）",
+        "result": "免校准相对判据",
+        "verdict": "最终口径：损失收敛+相对基线显著学习"
+      }
+    ],
+    "disclosed": true
+  },
+  "s0": {
+    "train": {
+      "steps": 600,
+      "loss_first": 3.4312,
+      "loss_last": 0.0184,
+      "wall_s": 193.56,
+      "curve_head": [
+        3.4312,
+        3.234,
+        2.9963,
+        2.8047,
+        2.5436
+      ],
+      "curve_tail": [
+        0.0185,
+        0.0357,
+        0.0243,
+        0.0369,
+        0.0184
+      ]
+    },
+    "sealed": {
+      "em": 1.0,
+      "n": 80,
+      "nonempty_rate": 1.0,
+      "entity_selection_acc": 1.0,
+      "position_selection_acc": 1.0,
+      "early_eos_rate": 1.0,
+      "echo_rate": 1.0,
+      "stop_reasons": {
+        "eos": 80
+      },
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在4号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。|明白了。用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|明白了。用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在4号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。|收到。用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|收到。用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        }
+      ]
+    },
+    "dev": {
+      "em": 1.0,
+      "n": 80,
+      "nonempty_rate": 1.0,
+      "entity_selection_acc": 1.0,
+      "position_selection_acc": 1.0,
+      "early_eos_rate": 1.0,
+      "echo_rate": 1.0,
+      "stop_reasons": {
+        "eos": 80
+      },
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。|好的。用户：小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在4号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。|明白了。用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|明白了。用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。|明白了。用户：小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在4号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。|收到。用户：小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。|用户：小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        }
+      ]
+    },
+    "tf_span_em": 1.0,
+    "gate_pass": true
+  },
+  "s1": {
+    "train": {
+      "steps": 600,
+      "loss_first": 3.4424,
+      "loss_last": 0.088,
+      "wall_s": 260.3,
+      "curve_head": [
+        3.4424,
+        3.199,
+        3.0274,
+        2.7966,
+        2.5667
+      ],
+      "curve_tail": [
+        0.0745,
+        0.0889,
+        0.094,
+        0.0751,
+        0.088
+      ]
+    },
+    "sealed": {
+      "em": 0.8375,
+      "n": 80,
+      "nonempty_rate": 1.0,
+      "entity_selection_acc": 1.0,
+      "position_selection_acc": 0.8375,
+      "early_eos_rate": 1.0,
+      "echo_rate": 0.8375,
+      "stop_reasons": {
+        "eos": 80
+      },
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。小红在2号位置。|小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。小红在3号位置。|小红在哪里？|助手：",
+          "oracle": "小红在3号位置。",
+          "pred": "小红在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。小红在4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在1号位置。",
+          "pred": "小明在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在1号位置。|小红在哪里？|助手：",
+          "oracle": "小红在1号位置。",
+          "pred": "小红在1号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在3号位置。|小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在4号位置。|小红在哪里？|助手：",
+          "oracle": "小红在4号位置。",
+          "pred": "小红在1号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在1号位置。|小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在2号位置。|小红在哪里？|助手：",
+          "oracle": "小红在2号位置。",
+          "pred": "小红在2号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在3号位置。",
+          "pred": "小明在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。小红在1号位置。|小红在哪里？|助手：",
+          "oracle": "小红在1号位置。",
+          "pred": "小红在1号位置。",
+          "em": true,
+          "finish": "eos"
+        }
+      ]
+    },
+    "tf_span_em": 0.6625,
+    "baselines": {
+      "position_prior": "小明在1号位置。",
+      "position_prior_acc": 0.175,
+      "last_statement_copy_acc": 1.0
+    },
+    "s2_update_probe_zero_shot": {
+      "em": 0.0833,
+      "n": 60,
+      "nonempty_rate": 1.0,
+      "entity_selection_acc": 1.0,
+      "position_selection_acc": 0.0833,
+      "early_eos_rate": 1.0,
+      "echo_rate": 0.75,
+      "stop_reasons": {
+        "eos": 60
+      },
+      "samples": [
+        {
+          "prompt": "用户：小明在1号位置。小红在2号位置。把小明移动到2号位置。|小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在1号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。小红在3号位置。把小红移动到1号位置。|小红在哪里？|助手：",
+          "oracle": "小红在1号位置。",
+          "pred": "小红在3号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在1号位置。小红在4号位置。把小明移动到4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在1号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在1号位置。把小红移动到2号位置。|小红在哪里？|助手：",
+          "oracle": "小红在2号位置。",
+          "pred": "小红在1号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在3号位置。把小明移动到4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在3号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在2号位置。小红在4号位置。把小红移动到3号位置。|小红在哪里？|助手：",
+          "oracle": "小红在3号位置。",
+          "pred": "小红在3号位置。",
+          "em": true,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在1号位置。把小明移动到4号位置。|小明在哪里？|助手：",
+          "oracle": "小明在4号位置。",
+          "pred": "小明在3号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在2号位置。把小红移动到4号位置。|小红在哪里？|助手：",
+          "oracle": "小红在4号位置。",
+          "pred": "小红在2号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在3号位置。小红在4号位置。把小明移动到2号位置。|小明在哪里？|助手：",
+          "oracle": "小明在2号位置。",
+          "pred": "小明在3号位置。",
+          "em": false,
+          "finish": "eos"
+        },
+        {
+          "prompt": "用户：小明在4号位置。小红在1号位置。把小红移动到2号位置。|小红在哪里？|助手：",
+          "oracle": "小红在2号位置。",
+          "pred": "小红在1号位置。",
+          "em": false,
+          "finish": "eos"
+        }
+      ]
+    },
+    "fact_follow": {
+      "n": 60,
+      "ok": 0,
+      "rate": 0.0
+    },
+    "gate_pass": false
+  },
+  "s4_paraphrase_ood": {
+    "em": 0.4167,
+    "n": 60,
+    "nonempty_rate": 1.0,
+    "entity_selection_acc": 0.75,
+    "position_selection_acc": 0.6667,
+    "early_eos_rate": 1.0,
+    "echo_rate": 0.4167,
+    "stop_reasons": {
+      "eos": 60
+    },
+    "samples": [
+      {
+        "prompt": "用户：小明在1号位置。小红在2号位置。|小明的位置在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在11号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在1号位置。小红在3号位置。|小红现在什么地方？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红在3号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在1号位置。小红在4号位置。|小明的位置在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在2号位置。小红在1号位置。|小红现在什么地方？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在2号位置。小红在3号位置。|小明的位置在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在2号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在2号位置。小红在4号位置。|小红现在什么地方？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小明在1号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在3号位置。小红在1号位置。|小明的位置在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在3号位置。小红在2号位置。|小红现在什么地方？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在3号位置。",
+        "em": false,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在3号位置。小红在4号位置。|小明的位置在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true,
+        "finish": "eos"
+      },
+      {
+        "prompt": "用户：小明在4号位置。小红在1号位置。|小红现在什么地方？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": false,
+        "finish": "eos"
+      }
+    ]
+  },
+  "gru_control": {
+    "steps": 600,
+    "sealed_free_gen_em": 0.0,
+    "note": "诊断性对照：同数据同预算的简单 GRU（非 N-MIND 神经能力成绩）"
+  },
+  "total_steps_used": 1850,
+  "wall_s_total": 539.4,
+  "honesty": "门槛预登记于 m52_pre_registration.json（训练前写盘）；失败不降门槛；规则基线不计入神经成绩"
+}

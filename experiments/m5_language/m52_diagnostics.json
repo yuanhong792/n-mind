@@ -1,0 +1,101 @@
+{
+  "experiment": "m5.2-p0-audit",
+  "captured_at": "2026-11-22 13:35:50",
+  "A_m51_data": {
+    "stage0_train_answer_pos": {
+      "1号位置": 46,
+      "2号位置": 51,
+      "3号位置": 54,
+      "4号位置": 49
+    },
+    "stage0_sealed_answer_pos": {
+      "1号位置": 12,
+      "2号位置": 9,
+      "3号位置": 11,
+      "4号位置": 8
+    },
+    "stage1_train_answer_pos": {
+      "1号位置": 55,
+      "2号位置": 57,
+      "3号位置": 43,
+      "4号位置": 45
+    },
+    "stage1_query_entity": {
+      "小明": 106,
+      "小红": 94
+    },
+    "stage0_answer_digit_tokens": {
+      "1": 46,
+      "2": 51,
+      "3": 54,
+      "4": 49
+    }
+  },
+  "C_counterfactual_probe": {
+    "position_swap": [
+      {
+        "expected": "小明在1号位置。",
+        "free_generated": "好的的。",
+        "teacher_forced_position_pred": null,
+        "position_pred": "",
+        "stop_reason": "eos",
+        "em": false,
+        "prompt_variant": "小明在1号位置"
+      },
+      {
+        "expected": "小明在2号位置。",
+        "free_generated": "好的。",
+        "teacher_forced_position_pred": null,
+        "position_pred": "",
+        "stop_reason": "eos",
+        "em": false,
+        "prompt_variant": "小明在2号位置"
+      },
+      {
+        "expected": "小明在3号位置。",
+        "free_generated": "好的。",
+        "teacher_forced_position_pred": null,
+        "position_pred": "",
+        "stop_reason": "eos",
+        "em": false,
+        "prompt_variant": "小明在3号位置"
+      },
+      {
+        "expected": "小明在4号位置。",
+        "free_generated": "好的。",
+        "teacher_forced_position_pred": null,
+        "position_pred": "",
+        "stop_reason": "eos",
+        "em": false,
+        "prompt_variant": "小明在4号位置"
+      }
+    ],
+    "position_follow_rate": 0.0,
+    "entity_swap": [
+      {
+        "entity": "小明",
+        "expected": "小明在3号位置。",
+        "free_generated": "好。",
+        "follows_entity": false
+      },
+      {
+        "entity": "小红",
+        "expected": "小红在3号位置。",
+        "free_generated": "。",
+        "follows_entity": false
+      }
+    ],
+    "checkpoint_meta": {
+      "steps": 200,
+      "seed": 20261241,
+      "parent_checkpoint_sha256": "random-init(from-scratch)",
+      "saved_at": "2026-11-22T12:02:15+0800",
+      "data_manifest_hash": "57987ce05beaf5fa"
+    }
+  },
+  "D_baselines": {
+    "last_statement_copy_on_probe": 1.0,
+    "position_prior": "3号位置",
+    "position_prior_on_probe": 0.0
+  }
+}

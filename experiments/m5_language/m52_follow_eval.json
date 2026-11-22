@@ -1,0 +1,457 @@
+{
+  "experiment": "m5.2-follow-eval-corrected",
+  "captured_at": "2026-11-22 13:55:59",
+  "checkpoint": "m52_s1_checkpoint.pt",
+  "checkpoint_meta": {
+    "steps": 600,
+    "seed": 20261404,
+    "parent_checkpoint_sha256": "random-init",
+    "saved_at": "2026-11-22T13:53:30+0800",
+    "data_manifest_hash": "[[\"用户：小明在1号位置。小红"
+  },
+  "definition_fix": "m52_eval.json 的 fact_follow 配对逻辑失效（n=0）且 last_statement_copy 基线被 `or True` 写坏；本文件用位置交换反事实对与修正基线重测（纯评测零训练）",
+  "n_pairs": 24,
+  "fact_follow_rate": 0.0833,
+  "gate": 0.7,
+  "gate_pass": false,
+  "rule_baseline_follow_rate": 1.0,
+  "s2_move_update_zero_shot": {
+    "em": 0.0833,
+    "n": 60,
+    "note": "S2 事实更新未训练：模型答移动前旧位置（8.33%）——真实能力缺口，待批准后训练"
+  },
+  "pairs": [
+    {
+      "combo": "小明@1号位置|小红@2号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在1号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在2号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@1号位置|小红@3号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在1号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在3号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在3号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@1号位置|小红@4号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在1号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在4号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在11号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小明@2号位置|小红@1号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在2号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在1号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@2号位置|小红@3号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在2号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在2号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在3号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "follow_ok": true,
+      "answers_differ": true
+    },
+    {
+      "combo": "小明@2号位置|小红@4号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在2号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@3号位置|小红@1号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在3号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在1号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在3号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@3号位置|小红@2号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在3号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在2号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在2号位置。",
+        "em": true
+      },
+      "follow_ok": true,
+      "answers_differ": true
+    },
+    {
+      "combo": "小明@3号位置|小红@4号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在3号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小明在4号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在2号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小明@4号位置|小红@1号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在4号位置。小红在1号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在11号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在1号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在1号位置。",
+        "pred": "小明在1号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小明@4号位置|小红@2号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在4号位置。小红在2号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在2号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在2号位置。",
+        "pred": "小明在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小明@4号位置|小红@3号位置",
+      "query": "小明",
+      "A": {
+        "prompt": "用户：小明在4号位置。小红在3号位置。|小明在哪里？|助手：",
+        "oracle": "小明在4号位置。",
+        "pred": "小明在2号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小明在3号位置。小红在4号位置。|小明在哪里？|助手：",
+        "oracle": "小明在3号位置。",
+        "pred": "小明在3号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@1号位置|小明@2号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在1号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在1号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小红在2号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小红@1号位置|小明@3号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在1号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在3号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在3号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@1号位置|小明@4号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在1号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在1号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小红在4号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在1号位置置置置置置置置置置置置置置置置置置",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@2号位置|小明@1号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在2号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在1号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在1号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小红@2号位置|小明@3号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在2号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在3号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在3号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红在号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@2号位置|小明@4号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在2号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在4号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小红@3号位置|小明@1号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在3号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在1号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在3号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@3号位置|小明@2号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在3号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红在号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在2号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在3号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@3号位置|小明@4号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在3号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红在3号位置。",
+        "em": true
+      },
+      "B": {
+        "prompt": "用户：小红在4号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在2号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@4号位置|小明@1号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在4号位置。小明在1号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在1号位置置置置置置置置置置置置置置置置置置",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在1号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在1号位置。",
+        "pred": "小红在1号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    },
+    {
+      "combo": "小红@4号位置|小明@2号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在4号位置。小明在2号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在2号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在2号位置。",
+        "pred": "小红在1号位置。",
+        "em": false
+      },
+      "follow_ok": false,
+      "answers_differ": false
+    },
+    {
+      "combo": "小红@4号位置|小明@3号位置",
+      "query": "小红",
+      "A": {
+        "prompt": "用户：小红在4号位置。小明在3号位置。|小红在哪里？|助手：",
+        "oracle": "小红在4号位置。",
+        "pred": "小红在2号位置。",
+        "em": false
+      },
+      "B": {
+        "prompt": "用户：小红在3号位置。小明在4号位置。|小红在哪里？|助手：",
+        "oracle": "小红在3号位置。",
+        "pred": "小红在3号位置。",
+        "em": true
+      },
+      "follow_ok": false,
+      "answers_differ": true
+    }
+  ]
+}
