@@ -1,0 +1,45 @@
+# N-MIND M5-Language 配置（代码侧权威实现在 src/nmind/language/，本文件为可读镜像）
+# 预登记预算：单 seed、≤200 optimizer 更新、≤300s 墙钟、RSS <2GB；禁止自动加训。
+
+model:
+  d_model: 96
+  n_blocks: 8
+  block_hidden: 96
+  workspace_dim: 64
+  workspace_slots: 4
+  top_k: 2
+  router_ste: false          # C 臂口径；任务盲路由为已知事实，不隐瞒
+
+data:
+  generator_version: dialogue-v1
+  splits: [train, dev, sealed_test, ood_name, ood_paraphrase, ood_composition, ood_length]
+  vocab_source: train_only   # 词表只从 train 文本构建并冻结
+
+training:
+  seed: 20261241
+  max_updates: 200
+  batch_size: 16
+  max_len: 160
+  lr: 3.0e-3
+  wall_limit_s: 300
+  eval_interval: 20
+
+evaluation:
+  greedy: true               # 自由生成默认贪心；--sample 可开温度采样
+  max_new_tokens: 32
+  sealed_test_runs: 1        # 封存集只在最终验收评一次
+  gate:
+    b_ood_min_gain_pp: 10.0  # 逐意图 free-gen exact match ≥ 多数基线 + 10pp
+    min_intent_types: 2
+
+chat:
+  mode: neural               # neural | rule_baseline（fallback 时显式标注）
+  max_input_chars: 200
+  max_new_tokens: 32
+  max_turns: 100
+  offline: true              # 语言栈默认离线；联网属 M5-Network，另有开关
+
+safety:
+  auto_deploy: false         # 候选永不自动覆盖稳定权重
+  network_enabled: false
+  untrusted_input_isolation: true   # 用户/网页文本永不当命令执行

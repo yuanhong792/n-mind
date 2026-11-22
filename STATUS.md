@@ -44,6 +44,15 @@ python -m pytest tests -q          # 27 passed
 - 报告：experiments/m4_online/M4_1_REPORT.md；参数证据：m41_param_evidence.json。
 - 路线（小袁 2026-11-22）：M4.2=A→B→C→D 连续技能学习+遗忘矩阵（规划）；M5=互联网即知识空间（任务书已下，P0/P1/P2/P3 优先）；M6=多模态仅接口规划。
 
+## M5-Language 中文神经语言交互（2026-11-22 第四轮，AutoClaw）
+
+- **目标与边界**：自有随机初始化神经网络的受限领域中文理解/多轮状态/自由生成；禁止预训练权重/教师/API；rule_baseline 单独命名不计入神经成绩。
+- **已实现并测试**：src/nmind/language/（tokenizer 词表冻结+UNK 不再静默丢弃 / dialogue_data 七 split 预登记+独立 oracle / NMindLM=NCell+Router+Workspace 自回归+452k 参数 / decoder 自由解码无标签泄漏 / ChatSession 跨轮状态+工具路由+response_source / train-language・evaluate-language・chat 三条 CLI）；数据 manifest（seed/sha/逐意图多数基线）落盘。
+- **实测**：单 seed 200/200 步 154.4s，TF 字符准确率 74.41%（sealed）但 free-gen EM 仅 3.61%（sealed）/0~0.98%（四 OOD）——**判定 PIPELINE_READY_LANGUAGE_NOT_VALIDATED**（IN_DOMAIN/OOD 门槛均未过）；规则基线在合成域接近满分，反证了 rule/神经分开计量的必要性；CLI 演示错误全部保留（chat_demo_transcript.txt）。
+- **失败分析**：200 步只够学会对话结构（回声+模板片段），世界追踪/工具路由未涌现；修复了 load_lm 缺 eval() 导致重载即漂移 buffer 的真 bug（test_9 抓住）。
+- 与 **M5-Network（互联网即知识空间，2026-11-22 第二三轮已建 online/ 数据通路与 M4 集成）** 的关系：两者共用不可信输入隔离/授权开关/来源审计约定；M5-Network 的 P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）被本指令接替尚未开发。
+- 测试 **92 项全绿**（+tests/test_language_m5.py 10 项）。报告：experiments/m5_language/M5_LANGUAGE_REPORT.md。
+
 ## 最新真实结果
 
 ### 1. M1 过拟合 + 训练预算扫描（experiments/2026-11-21_m1_overfit.json，seed 20261121）
@@ -101,9 +110,9 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-1. M5 P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）+ P4/P5 触发管线已建，集成实验见 experiments/m5_cognition/；神经更新继续 NOT_TESTED（m4.1 REJECTED，等混合时域新预注册批准）。
-2. 混合时域经验流新预注册（B 训练流 T=24+32 混合，攻长度外推）——**需小袁批准**（约 1-2 分钟 CPU）。
-3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；F10 配置封装、M3 Step5/6 排队。
+1. M5-Language 训练预算申请：预登记 2000-4000 步（约 20-30 分钟 CPU）+ 扩对话量，目标过 in-domain 门槛——**需小袁批准**。
+2. M4.1 的混合时域经验流新预注册（T=24+32 攻长度外推）——**需小袁批准**。
+3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；M5-Network P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）待排；F10 配置封装、M3 Step5/6 排队。
 
 ## M2.2 机制验证（2026-11-21 第四轮，AutoClaw）——含 10-seed 定案补充
 

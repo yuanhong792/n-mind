@@ -1,0 +1,250 @@
+{
+  "generator_version": "dialogue-v1",
+  "intent_weights": {
+    "stmt_pos": 0.2,
+    "stmt_color": 0.1,
+    "move": 0.08,
+    "paint": 0.02,
+    "qa_pos": 0.13,
+    "qa_pos_ref": 0.09,
+    "qa_color": 0.09,
+    "qa_color_ref": 0.06,
+    "qa_count": 0.05,
+    "qa_compare": 0.05,
+    "qa_neg": 0.05,
+    "tool_calc": 0.04,
+    "tool_lookup": 0.03,
+    "unanswerable": 0.03
+  },
+  "entities": {
+    "train_persons": [
+      "小明",
+      "小红",
+      "小刚",
+      "小丽"
+    ],
+    "ood_persons": [
+      "大伟",
+      "阿强",
+      "小芳",
+      "老王"
+    ],
+    "train_objects": [
+      "杯子",
+      "书本",
+      "钥匙",
+      "皮球"
+    ],
+    "ood_objects": [
+      "盒子",
+      "帽子"
+    ]
+  },
+  "templates": {
+    "train": {
+      "qa_pos": [
+        "{e}在哪里？",
+        "{e}在哪儿？"
+      ],
+      "qa_pos_ref": [
+        "它在哪里？",
+        "它在哪儿？"
+      ],
+      "qa_color": [
+        "{e}是什么颜色？",
+        "{e}什么颜色？"
+      ],
+      "move": [
+        "把{e}移动到{p}。",
+        "把{e}放到{p}。"
+      ],
+      "state_pos": [
+        "{e}在{p}。",
+        "{e}正位于{p}。"
+      ]
+    },
+    "paraphrase_only": {
+      "qa_pos": [
+        "{e}现在位于什么地方？",
+        "{e}呆在哪里呢？"
+      ],
+      "qa_pos_ref": [
+        "它现在位于什么地方？"
+      ],
+      "qa_color": [
+        "{e}的颜色是什么？",
+        "说说{e}是什么颜色的。"
+      ],
+      "move": [
+        "请把{e}挪到{p}。"
+      ],
+      "state_pos": [
+        "{e}被放在了{p}。"
+      ]
+    }
+  },
+  "splits": {
+    "train": {
+      "seed": 20261231,
+      "n_dialogues": 300,
+      "turns_range": [
+        2,
+        4
+      ],
+      "para": false,
+      "sha256": "7d7202f961b6e822",
+      "majority_answers": {
+        "qa_compare": "不是。",
+        "tool_calc": "TOOL_CALCULATOR 10+11",
+        "qa_pos": "小刚在2号位置。",
+        "tool_lookup": "TOOL_LOOKUP 图书馆闭馆日",
+        "qa_pos_ref": "皮球在6号位置。",
+        "qa_color": "书本是红色的。",
+        "qa_neg": "不对，小明在6号位置。",
+        "unanswerable": "我不知道。",
+        "qa_count": "有0样。",
+        "qa_color_ref": "皮球是绿色的。"
+      },
+      "n_question_turns": 391
+    },
+    "dev": {
+      "seed": 20261232,
+      "n_dialogues": 60,
+      "turns_range": [
+        2,
+        4
+      ],
+      "para": false,
+      "sha256": "af72b1453c8fb2e9",
+      "majority_answers": {
+        "qa_pos": "小刚在5号位置。",
+        "qa_count": "有0样。",
+        "tool_calc": "TOOL_CALCULATOR 3*5",
+        "unanswerable": "我不知道。",
+        "qa_pos_ref": "小红在6号位置。",
+        "tool_lookup": "TOOL_LOOKUP 图书馆闭馆日",
+        "qa_color": "小红是红色的。",
+        "qa_neg": "是的，杯子不在2号位置。",
+        "qa_color_ref": "小丽是红色的。",
+        "qa_compare": "不是。"
+      },
+      "n_question_turns": 73
+    },
+    "sealed_test": {
+      "seed": 20261233,
+      "n_dialogues": 80,
+      "turns_range": [
+        2,
+        4
+      ],
+      "para": false,
+      "sha256": "9f3b80ca3937dc4e",
+      "majority_answers": {
+        "tool_calc": "TOOL_CALCULATOR 4+11",
+        "qa_compare": "不是。",
+        "qa_pos": "书本在3号位置。",
+        "qa_color": "小丽是绿色的。",
+        "qa_color_ref": "小丽是绿色的。",
+        "unanswerable": "我不知道。",
+        "qa_neg": "不对，小明在4号位置。",
+        "qa_pos_ref": "小红在2号位置。",
+        "tool_lookup": "TOOL_LOOKUP 仓库盘点日",
+        "qa_count": "有0样。"
+      },
+      "n_question_turns": 101
+    },
+    "ood_name": {
+      "seed": 20261234,
+      "n_dialogues": 60,
+      "turns_range": [
+        2,
+        4
+      ],
+      "para": false,
+      "sha256": "e0bc94424ea71c51",
+      "majority_answers": {
+        "qa_pos": "大伟在4号位置。",
+        "qa_color": "帽子是蓝色的。",
+        "qa_pos_ref": "大伟在3号位置。",
+        "tool_calc": "TOOL_CALCULATOR 6*12",
+        "qa_neg": "是的，盒子不在5号位置。",
+        "unanswerable": "我不知道。",
+        "qa_count": "有0样。",
+        "tool_lookup": "TOOL_LOOKUP 仓库盘点日",
+        "qa_compare": "不是。",
+        "qa_color_ref": "老王是红色的。"
+      },
+      "n_question_turns": 71
+    },
+    "ood_paraphrase": {
+      "seed": 20261235,
+      "n_dialogues": 60,
+      "turns_range": [
+        2,
+        4
+      ],
+      "para": true,
+      "sha256": "8f0c0965544be221",
+      "majority_answers": {
+        "qa_pos": "钥匙在3号位置。",
+        "qa_count": "有0样。",
+        "qa_pos_ref": "书本在4号位置。",
+        "qa_neg": "是的，书本不在5号位置。",
+        "qa_color_ref": "钥匙是黄色的。",
+        "tool_lookup": "TOOL_LOOKUP 仓库盘点日",
+        "tool_calc": "TOOL_CALCULATOR 9*7",
+        "qa_compare": "不是。",
+        "unanswerable": "我不知道。",
+        "qa_color": "小明是黄色的。"
+      },
+      "n_question_turns": 78
+    },
+    "ood_composition": {
+      "seed": 20261236,
+      "n_dialogues": 60,
+      "turns_range": [
+        4,
+        6
+      ],
+      "para": false,
+      "sha256": "73dc4212a7260e39",
+      "majority_answers": {
+        "qa_pos": "小丽在6号位置。",
+        "qa_neg": "是的，钥匙不在2号位置。",
+        "tool_lookup": "TOOL_LOOKUP 图书馆闭馆日",
+        "tool_calc": "TOOL_CALCULATOR 5+11",
+        "qa_color": "小红是蓝色的。",
+        "qa_compare": "不是。",
+        "qa_color_ref": "钥匙是红色的。",
+        "qa_count": "有0样。",
+        "qa_pos_ref": "钥匙在5号位置。",
+        "unanswerable": "我不知道。"
+      },
+      "n_question_turns": 127
+    },
+    "ood_length": {
+      "seed": 20261237,
+      "n_dialogues": 40,
+      "turns_range": [
+        6,
+        8
+      ],
+      "para": false,
+      "sha256": "229369340839f260",
+      "majority_answers": {
+        "tool_calc": "TOOL_CALCULATOR 7*2",
+        "qa_compare": "不是。",
+        "qa_color_ref": "皮球是未知的。",
+        "qa_pos_ref": "皮球在2号位置。",
+        "qa_color": "皮球是红色的。",
+        "unanswerable": "我不知道。",
+        "qa_count": "有0样。",
+        "qa_pos": "杯子在6号位置。",
+        "tool_lookup": "TOOL_LOOKUP 仓库盘点日",
+        "qa_neg": "不对，小刚在6号位置。"
+      },
+      "n_question_turns": 136
+    }
+  },
+  "manifest_hash": "57987ce05beaf5fa"
+}

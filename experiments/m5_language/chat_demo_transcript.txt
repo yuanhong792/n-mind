@@ -1,0 +1,14 @@
+[neural] checkpoint=experiments/m5_language/language_checkpoint.pt steps=200 （自由生成，无 teacher forcing；诊断行需 --diagnostics）
+输入中文对话；/reset 重置会话；/quit 退出。
+脉脑> （空生成）
+  [response_source=neural tool=None finish=eos latency=91.66ms generated='']
+脉脑> 小明在哪？
+  [response_source=neural tool=None finish=newline latency=28.84ms generated='小明在哪？']
+脉脑> 的用户：小红的位置。
+  [response_source=neural tool=None finish=newline latency=47.58ms generated='的用户：小红的位置。']
+脉脑> 小在哪？
+  [response_source=neural tool=None finish=newline latency=45.08ms generated='小在哪？']
+脉脑> 用户：小丽在号位置。
+  [response_source=neural tool=None finish=eos latency=50.53ms generated='用户：小丽在号位置。']
+脉脑> 小明在哪？
+  [response_source=neural tool=None finish=newline latency=55.2ms generated='小明在哪？']

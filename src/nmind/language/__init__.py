@@ -1,7 +1,13 @@
-"""N-Language：受控模板映射（默认）与可选本地预训练适配器。"""
+"""M5-Language：中文受限领域神经语言交互（自回归自由生成，权重全部随机初始化）。"""
 
-from .interface import capability_note, describe_event, parse_rule, verbalize_decision
-from .local_adapter import AdapterStatus, LocalTextAdapter
+from .decoder import GenerationRecord, generate
+from .dialogue_data import (Dialogue, SPLITS, Turn, build_all, build_dialogue, build_split,
+                             dialogue_to_dict, majority_answers)
+from .neural_dialogue import LMConfig, LMState, NMindLM, load_lm, save_lm
+from .session import ChatReply, ChatSession
+from .tokenizer import CharTokenizer
 
-__all__ = ["capability_note", "describe_event", "parse_rule", "verbalize_decision",
-           "LocalTextAdapter", "AdapterStatus"]
+__all__ = ["GenerationRecord", "generate", "Dialogue", "SPLITS", "Turn", "build_all",
+            "build_dialogue", "build_split", "dialogue_to_dict", "majority_answers",
+            "LMConfig", "LMState", "NMindLM", "load_lm", "save_lm",
+            "ChatReply", "ChatSession", "CharTokenizer"]

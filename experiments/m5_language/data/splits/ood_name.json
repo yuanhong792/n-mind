@@ -1,0 +1,2392 @@
+[
+ {
+  "dialogue_id": "ood_name-0000",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "大伟在5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把阿强移动到6号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在6号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0001",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "帽子是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "帽子什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "帽子是蓝色的。",
+    "intent": "qa_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳正位于5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0002",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0003",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟正位于3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子是红色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "它在哪里？",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在3号位置。",
+    "intent": "qa_pos_ref"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0004",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "请计算：6加12等于多少？",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 6*12",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "它在哪儿？",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在4号位置。",
+    "intent": "qa_pos_ref"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0005",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟的颜色是绿色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "把老王移动到5号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0006",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "它在哪里？",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "老王在1号位置。",
+    "intent": "qa_pos_ref"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0007",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王是黄色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "帽子正位于5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "帽子在5号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0008",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "大伟是什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟是绿色的。",
+    "intent": "qa_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0009",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子的颜色是红色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子是红色的。",
+    "intent": "qa_color"
+   },
+   {
+    "role": "user",
+    "text": "把帽子移动到2号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0010",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "请计算：11加2等于多少？",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 11*2",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "帽子正位于6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子正位于5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把盒子放到4号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0011",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把盒子移动到1号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "盒子不在5号位置吗？",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "assistant",
+    "text": "是的，盒子不在5号位置。",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "user",
+    "text": "盒子不在1号位置吗？",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "assistant",
+    "text": "不对，盒子在1号位置。",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "user",
+    "text": "下周的彩票号码是什么？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0012",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "阿强是黄色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "月球上有几只兔子？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0013",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟在3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在2号位置。",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "user",
+    "text": "把小芳放到3号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0014",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "下周的彩票号码是什么？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0015",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王的颜色是蓝色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "大伟正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在4号位置。",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "user",
+    "text": "3号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0016",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "算一下6乘4等于多少。",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 6*4",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "它在哪里？",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在4号位置。",
+    "intent": "qa_pos_ref"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0017",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把小芳放到6号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0018",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把盒子移动到6号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "老王的颜色是绿色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在6号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0019",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "请计算：11加4等于多少？",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 11*4",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "盒子不在6号位置吗？",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "assistant",
+    "text": "是的，盒子不在6号位置。",
+    "intent": "qa_neg"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0020",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把盒子移动到1号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "大伟正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在1号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0021",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子是黄色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "3号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0022",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在1号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0023",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "请计算：2加8等于多少？",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 2+8",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "老王在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0024",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "算一下3乘8等于多少。",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 3*8",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "盒子正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把老王放到4号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0025",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "老王的颜色是蓝色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟在6号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0026",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王在3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "老王在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "老王在3号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0027",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强的颜色是绿色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "阿强在3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把小芳放到4号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "把小芳移动到1号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在3号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0028",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0029",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子的颜色是红色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "5号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0030",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "查资料：仓库盘点日？",
+    "intent": "tool_lookup"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_LOOKUP 仓库盘点日",
+    "intent": "tool_lookup"
+   },
+   {
+    "role": "user",
+    "text": "帽子在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把大伟放到2号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "盒子正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0031",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "帽子的颜色是蓝色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子是什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "帽子是蓝色的。",
+    "intent": "qa_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0032",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "阿强的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在1号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0033",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强是黄色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "把小芳移动到3号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "老王在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在3号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0034",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把盒子涂成绿色。",
+    "intent": "paint"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "paint"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在2号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0035",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子正位于3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在3号位置。",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0036",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帮我查一下仓库盘点日。",
+    "intent": "tool_lookup"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_LOOKUP 仓库盘点日",
+    "intent": "tool_lookup"
+   },
+   {
+    "role": "user",
+    "text": "阿强的颜色是绿色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "大伟是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0037",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "大伟在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "下周的彩票号码是什么？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0038",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "帽子在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "帽子在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "帽子在2号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0039",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王在5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "老王在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "2号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   },
+   {
+    "role": "user",
+    "text": "阿强的颜色是绿色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0040",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳正位于3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳的位置编号比盒子大吗？",
+    "intent": "qa_compare"
+   },
+   {
+    "role": "assistant",
+    "text": "不是。",
+    "intent": "qa_compare"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0041",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳的颜色是蓝色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳是蓝色的。",
+    "intent": "qa_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0042",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "老王是红色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "它是什么颜色？",
+    "intent": "qa_color_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "老王是红色的。",
+    "intent": "qa_color_ref"
+   },
+   {
+    "role": "user",
+    "text": "阿强正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在2号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0043",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "老王的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "老王是什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "老王是黄色的。",
+    "intent": "qa_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0044",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "下周的彩票号码是什么？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "user",
+    "text": "老王正位于6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把帽子放到5号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0045",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳的位置编号比小芳大吗？",
+    "intent": "qa_compare"
+   },
+   {
+    "role": "assistant",
+    "text": "不是。",
+    "intent": "qa_compare"
+   },
+   {
+    "role": "user",
+    "text": "它在哪儿？",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在2号位置。",
+    "intent": "qa_pos_ref"
+   },
+   {
+    "role": "user",
+    "text": "老王正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0046",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把盒子移动到4号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "老王是黄色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "老王什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "老王是黄色的。",
+    "intent": "qa_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0047",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在5号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0048",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳在2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在2号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0049",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子正位于5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "帽子是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在5号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0050",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "算一下8乘9等于多少。",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "assistant",
+    "text": "TOOL_CALCULATOR 8*9",
+    "intent": "tool_calc"
+   },
+   {
+    "role": "user",
+    "text": "大伟是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "阿强正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "大伟什么颜色？",
+    "intent": "qa_color"
+   },
+   {
+    "role": "assistant",
+    "text": "大伟是绿色的。",
+    "intent": "qa_color"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0051",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "帽子是绿色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳在5号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在5号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0052",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "阿强正位于1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强不在1号位置吗？",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "assistant",
+    "text": "不对，阿强在1号位置。",
+    "intent": "qa_neg"
+   },
+   {
+    "role": "user",
+    "text": "盒子的颜色是蓝色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "3号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0053",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "小芳正位于4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "小芳是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳在哪儿？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0054",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把小芳移动到4号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "小芳是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "阿强的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "小芳在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "小芳在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0055",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把小芳放到2号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "老王正位于3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "4号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有0样。",
+    "intent": "qa_count"
+   },
+   {
+    "role": "user",
+    "text": "把老王移动到3号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0056",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子在1号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "老王是蓝色的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "1号位置有几样东西？",
+    "intent": "qa_count"
+   },
+   {
+    "role": "assistant",
+    "text": "有1样。",
+    "intent": "qa_count"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0057",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "盒子正位于2号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "盒子的颜色是红色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "老王的颜色是黄色。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_color"
+   },
+   {
+    "role": "user",
+    "text": "盒子在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "盒子在2号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0058",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "月球上有几只兔子？",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "assistant",
+    "text": "我不知道。",
+    "intent": "unanswerable"
+   },
+   {
+    "role": "user",
+    "text": "大伟在6号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   }
+  ]
+ },
+ {
+  "dialogue_id": "ood_name-0059",
+  "split": "ood_name",
+  "turns": [
+   {
+    "role": "user",
+    "text": "把盒子放到2号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强在3号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "把小芳放到5号位置。",
+    "intent": "move"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "move"
+   },
+   {
+    "role": "user",
+    "text": "阿强在4号位置。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "好的。",
+    "intent": "stmt_pos"
+   },
+   {
+    "role": "user",
+    "text": "阿强在哪里？",
+    "intent": "qa_pos"
+   },
+   {
+    "role": "assistant",
+    "text": "阿强在4号位置。",
+    "intent": "qa_pos"
+   }
+  ]
+ }
+]

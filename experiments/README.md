@@ -70,3 +70,11 @@
 - 脚本：`m4_online/run_m41_stability.py`（预登记 λ_anchor=0、λ_replay=0.15、48 步）+ `make_m41_param_evidence.py`（剔除 buffer 重算参数证据）；结果：`m41_stability.json`、`m41_param_evidence.json`、`benchmark_matrix_m41.json`；报告：`M4_1_REPORT.md`。
 - 判定 REJECTED（4/5）：A 遗忘 −2.66pp ✅（λ 调整修复遗忘半边）；B_OOD(T=32) +1.55pp ❌。**诊断修正：瓶颈是长度外推而非 λ**（同集对比锚定 +10.4pp vs 无锚 +5.8pp；M3 轮 +28.7pp 系另一数据 seed）。max 权重 delta 0.1116（6830 系 block_load_count 计数器累加，口径更正）。
 - 待批准：混合时域经验流新预注册（T=24+32）攻长度外推。
+
+## 2026-11-22 M5-Language 中文神经语言交互（管线就绪、能力未验证）
+
+- 脚本：`../language/` 模块 + CLI `train-language`/`evaluate-language`/`chat`；结果：`m5_language/{train_language,eval_language}.json`、`data/`（七 split+manifest）、`chat_demo_transcript.txt`；报告：`M5_LANGUAGE_REPORT.md`。
+- 判定 **PIPELINE_READY_LANGUAGE_NOT_VALIDATED**：管线全通（自由生成无 teacher forcing、无标签泄漏、会话隔离、词表冻结、buffer 复位协议），但单 seed 200 步自由生成 EM 仅 3.61%（sealed）/0~0.98%（OOD），预登记门槛未过；TF 字符准确率 74.41% 仅诊断口径。
+- 规则基线在合成域接近满分——rule/神经分开计量的必要性实锤；CLI 演示保留全部错误样例。
+- 修复真 bug：load_lm 缺 eval()（重载即漂移 buffer）；tokenizer UNK 被 decode 静默丢弃。
+- 测试 92 项全绿（+test_language_m5.py 10 项）。

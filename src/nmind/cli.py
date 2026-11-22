@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -582,9 +583,135 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--n-context", type=int, default=3)
     sp.set_defaults(fn=cmd_cloud)
 
+    sp = sub.add_parser("train-language", help="M5-Language：单 seed 小预算训练（≤200 步/300s）")
+    sp.add_argument("--max-updates", type=int, default=200)
+    sp.add_argument("--batch-size", type=int, default=16)
+    sp.add_argument("--wall-limit-s", type=float, default=300.0)
+    sp.set_defaults(fn=cmd_train_language)
+
+    sp = sub.add_parser("evaluate-language", help="M5-Language：自由生成评测（封存集只评一次）")
+    sp.add_argument("--checkpoint", default="experiments/m5_language/language_checkpoint.pt")
+    sp.add_argument("--tokenizer", default="experiments/m5_language/tokenizer.json")
+    sp.add_argument("--data-dir", default="experiments/m5_language/data")
+    sp.add_argument("--splits", default="sealed_test,ood_name,ood_paraphrase,ood_composition,ood_length")
+    sp.add_argument("--max-new-tokens", type=int, default=32)
+    sp.add_argument("--sample", action="store_true")
+    sp.add_argument("--sample-seed", type=int, default=20261299)
+    sp.set_defaults(fn=cmd_evaluate_language)
+
+    sp = sub.add_parser("chat", help="M5-Language：中文终端交互（--mode neural|rule_baseline）")
+    sp.add_argument("--checkpoint", default="experiments/m5_language/language_checkpoint.pt")
+    sp.add_argument("--tokenizer", default="experiments/m5_language/tokenizer.json")
+    sp.add_argument("--mode", default="neural", choices=["neural", "rule_baseline"])
+    sp.add_argument("--session", default="cli")
+    sp.add_argument("--max-new-tokens", type=int, default=32)
+    sp.add_argument("--sample", action="store_true")
+    sp.add_argument("--temperature", type=float, default=1.0)
+    sp.add_argument("--sample-seed", type=int, default=20261299)
+    sp.add_argument("--diagnostics", action="store_true")
+    sp.add_argument("--allow-rule-fallback", action="store_true")
+    sp.set_defaults(fn=cmd_chat)
+
     for child in sub.choices.values():
         _add_common(child, suppress=True)      # 允许 nmind demo --epochs 8 --seed 11 这种写法
     return p
+
+
+def cmd_train_language(args: argparse.Namespace) -> int:
+    from .language.train_language import LanguageTrainConfig, run_train
+    cfg = LanguageTrainConfig(seed=getattr(args, "seed", None) or 20261241,
+                               max_updates=args.max_updates, batch_size=args.batch_size,
+                               wall_limit_s=args.wall_limit_s)
+    payload = run_train(cfg, device=getattr(args, "device", "cpu") or "cpu")
+    print(json.dumps({k: payload[k] for k in ("optimizer_steps_executed", "vocab_size",
+                                               "params_total", "loss_first", "loss_last",
+                                               "wall_s", "checkpoint")},
+                      ensure_ascii=False))
+    return 0
+
+
+def cmd_evaluate_language(args: argparse.Namespace) -> int:
+    from .language.evaluate_language import run_eval
+    payload = run_eval(checkpoint_path=args.checkpoint, tokenizer_path=args.tokenizer,
+                        data_dir=args.data_dir,
+                        out_path=getattr(args, "out", None) or "experiments/m5_language/eval_language.json",
+                        device=getattr(args, "device", "cpu") or "cpu",
+                        splits=args.splits.split(",") if args.splits else None,
+                        max_new_tokens=args.max_new_tokens, greedy=not args.sample,
+                        sample_seed=args.sample_seed)
+    print(json.dumps(payload["flags"], ensure_ascii=False))
+    return 0
+
+
+def cmd_chat(args: argparse.Namespace) -> int:
+    from .language.session import ChatSession
+    from .language.tokenizer import CharTokenizer
+    if not Path(args.tokenizer).exists():
+        print(f"错误：找不到 tokenizer：{args.tokenizer}")
+        return 2
+    tok = CharTokenizer.load(args.tokenizer)
+    session = None
+    if args.mode == "neural":
+        if not Path(args.checkpoint).exists():
+            print(f"错误：缺少语言 checkpoint：{args.checkpoint}")
+            print("（绝不把空模型伪装成已训练模型。可先运行：python -m nmind.cli train-language；"
+                    "或加 --allow-rule-fallback 以规则基线模式继续，回复会标注 response_source=rule_baseline。）")
+            return 2
+        from .language.neural_dialogue import load_lm
+        model, meta = load_lm(args.checkpoint, tok)
+        session = ChatSession(model, tok, session_id=args.session or "cli",
+                               greedy=not args.sample, temperature=args.temperature,
+                               sample_seed=args.sample_seed, max_new_tokens=args.max_new_tokens)
+        print(f"[neural] checkpoint={args.checkpoint} steps={meta.get('steps')} "
+                "（自由生成，无 teacher forcing；诊断行需 --diagnostics）")
+    else:
+        print("[rule_baseline] 规则基线模式（不计入神经生成成绩）")
+    print("输入中文对话；/reset 重置会话；/quit 退出。")
+    rule_state = {"positions": {}, "colors": {}}
+    last_entity = None
+    for line in sys.stdin:
+        line = line.strip()
+        if not line:
+            continue
+        if line in ("/quit", "/exit"):
+            break
+        if line == "/reset":
+            if session is not None:
+                session.reset()
+            rule_state = {"positions": {}, "colors": {}}
+            last_entity = None
+            print("[会话已重置]")
+            continue
+        if session is not None:
+            reply = session.send(line)
+            print(f"脉脑> {reply.text}")
+            if args.diagnostics:
+                print(f"  [response_source={reply.response_source} tool={reply.tool} "
+                      f"finish={reply.finish_reason} latency={reply.latency_ms}ms "
+                      f"generated={reply.generated_text!r}]")
+        else:
+            from .language.evaluate_language import _rule_state_track, rule_baseline_reply
+            _rule_state_track(line, rule_state)
+            last_entity = None
+            for e in {e for e in re.findall(r"[\u4e00-\u9fff]{2,4}", line)}:
+                last_entity = e
+            intent = "unanswerable"
+            if re.search(r"在哪里|在哪儿|什么地方", line):
+                intent = "qa_pos_ref" if ("它" in line or "那个" in line) else "qa_pos"
+            elif re.search(r"什么颜色|颜色", line):
+                intent = "qa_color"
+            elif re.search(r"几样", line):
+                intent = "qa_count"
+            elif line.startswith("请计算") or line.startswith("算一下"):
+                intent = "tool_calc"
+            elif line.startswith("查资料") or line.startswith("帮我查"):
+                intent = "tool_lookup"
+            elif re.search(r"不在.*吗", line):
+                intent = "qa_neg"
+            elif re.search(r"位置编号比", line):
+                intent = "qa_compare"
+            print(f"脉脑(rule_baseline)> {rule_baseline_reply(line, intent, rule_state, last_entity)}")
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:

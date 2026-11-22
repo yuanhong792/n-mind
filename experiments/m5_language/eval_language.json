@@ -1,0 +1,642 @@
+{
+  "experiment": "m5-language-eval",
+  "captured_at": "2026-11-22 12:05:28",
+  "checkpoint": "experiments/m5_language/language_checkpoint.pt",
+  "checkpoint_meta": {
+    "steps": 200,
+    "seed": 20261241,
+    "parent_checkpoint_sha256": "random-init(from-scratch)",
+    "saved_at": "2026-11-22T12:02:15+0800",
+    "data_manifest_hash": "57987ce05beaf5fa"
+  },
+  "greedy": true,
+  "max_new_tokens": 32,
+  "seal_eval_state": {
+    "reset_buffers": [
+      "block_load_count",
+      "router.load_bias"
+    ],
+    "drift": {
+      "block_load_count": {
+        "changed": false,
+        "delta_l2": 0.0
+      },
+      "router.load_bias": {
+        "changed": false,
+        "delta_l2": 0.0
+      }
+    },
+    "reset_applied": true
+  },
+  "splits": {
+    "sealed_test": {
+      "n_question_turns": 101,
+      "nonempty_rate": 1.0,
+      "free_generation_exact_match": 0.0361,
+      "per_intent": {
+        "qa_color": {
+          "n": 5,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小丽是绿色的。",
+          "majority_acc": 0.2,
+          "beats_majority_10pp": false
+        },
+        "qa_color_ref": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小丽是绿色的。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_compare": {
+          "n": 8,
+          "em": 3,
+          "acc": 0.375,
+          "majority_answer": "不是。",
+          "majority_acc": 0.875,
+          "beats_majority_10pp": false
+        },
+        "qa_count": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "有0样。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        },
+        "qa_neg": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "不对，小明在4号位置。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_pos": {
+          "n": 43,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "书本在3号位置。",
+          "majority_acc": 0.1163,
+          "beats_majority_10pp": false
+        },
+        "qa_pos_ref": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小红在2号位置。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "tool_calc": {
+          "n": 11,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_CALCULATOR 4+11",
+          "majority_acc": 0.0909,
+          "beats_majority_10pp": false
+        },
+        "tool_calc_execution": {
+          "n": 11,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_calc_selection": {
+          "n": 11,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_lookup": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_LOOKUP 仓库盘点日",
+          "majority_acc": 0.7143,
+          "beats_majority_10pp": false
+        },
+        "tool_lookup_selection": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "unanswerable": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "我不知道。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        }
+      },
+      "rule_baseline_acc": {
+        "tool_calc": 0.4545,
+        "qa_compare": 0.0,
+        "qa_pos": 1.0,
+        "qa_color": 0.0,
+        "qa_color_ref": 0.25,
+        "unanswerable": 1.0,
+        "qa_neg": 1.0,
+        "qa_pos_ref": 0.75,
+        "tool_lookup": 1.0,
+        "qa_count": 1.0
+      },
+      "types_beating_majority_10pp": []
+    },
+    "ood_name": {
+      "n_question_turns": 71,
+      "nonempty_rate": 0.9859,
+      "free_generation_exact_match": 0.0,
+      "per_intent": {
+        "qa_color": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "帽子是蓝色的。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_color_ref": {
+          "n": 1,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "老王是红色的。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        },
+        "qa_compare": {
+          "n": 2,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "不是。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        },
+        "qa_count": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "有0样。",
+          "majority_acc": 0.8571,
+          "beats_majority_10pp": false
+        },
+        "qa_neg": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "是的，盒子不在5号位置。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_pos": {
+          "n": 29,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "大伟在4号位置。",
+          "majority_acc": 0.1034,
+          "beats_majority_10pp": false
+        },
+        "qa_pos_ref": {
+          "n": 5,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "大伟在3号位置。",
+          "majority_acc": 0.2,
+          "beats_majority_10pp": false
+        },
+        "tool_calc": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_CALCULATOR 6*12",
+          "majority_acc": 0.1429,
+          "beats_majority_10pp": false
+        },
+        "tool_calc_execution": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_calc_selection": {
+          "n": 7,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_lookup": {
+          "n": 2,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_LOOKUP 仓库盘点日",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        },
+        "tool_lookup_selection": {
+          "n": 2,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "unanswerable": {
+          "n": 6,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "我不知道。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        }
+      },
+      "rule_baseline_acc": {
+        "qa_pos": 1.0,
+        "qa_color": 0.0,
+        "qa_pos_ref": 0.8,
+        "tool_calc": 0.5714,
+        "qa_neg": 0.75,
+        "unanswerable": 1.0,
+        "qa_count": 1.0,
+        "tool_lookup": 1.0,
+        "qa_compare": 0.0,
+        "qa_color_ref": 1.0
+      },
+      "types_beating_majority_10pp": []
+    },
+    "ood_paraphrase": {
+      "n_question_turns": 78,
+      "nonempty_rate": 1.0,
+      "free_generation_exact_match": 0.0,
+      "per_intent": {
+        "qa_color": {
+          "n": 3,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小明是黄色的。",
+          "majority_acc": 0.6667,
+          "beats_majority_10pp": false
+        },
+        "qa_color_ref": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "钥匙是黄色的。",
+          "majority_acc": 0.5,
+          "beats_majority_10pp": false
+        },
+        "qa_compare": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "不是。",
+          "majority_acc": 0.75,
+          "beats_majority_10pp": false
+        },
+        "qa_count": {
+          "n": 4,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "有0样。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        },
+        "qa_neg": {
+          "n": 5,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "是的，书本不在5号位置。",
+          "majority_acc": 0.2,
+          "beats_majority_10pp": false
+        },
+        "qa_pos": {
+          "n": 32,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "钥匙在3号位置。",
+          "majority_acc": 0.0938,
+          "beats_majority_10pp": false
+        },
+        "qa_pos_ref": {
+          "n": 14,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "书本在4号位置。",
+          "majority_acc": 0.2143,
+          "beats_majority_10pp": false
+        },
+        "tool_calc": {
+          "n": 6,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_CALCULATOR 9*7",
+          "majority_acc": 0.1667,
+          "beats_majority_10pp": false
+        },
+        "tool_calc_execution": {
+          "n": 6,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_calc_selection": {
+          "n": 6,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_lookup": {
+          "n": 3,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_LOOKUP 仓库盘点日",
+          "majority_acc": 0.6667,
+          "beats_majority_10pp": false
+        },
+        "tool_lookup_selection": {
+          "n": 3,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "unanswerable": {
+          "n": 3,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "我不知道。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        }
+      },
+      "rule_baseline_acc": {
+        "qa_pos": 0.2188,
+        "qa_count": 1.0,
+        "qa_pos_ref": 0.0,
+        "qa_neg": 0.4,
+        "qa_color_ref": 0.5,
+        "tool_lookup": 1.0,
+        "tool_calc": 0.3333,
+        "qa_compare": 0.0,
+        "unanswerable": 1.0,
+        "qa_color": 0.0
+      },
+      "types_beating_majority_10pp": []
+    },
+    "ood_composition": {
+      "n_question_turns": 127,
+      "nonempty_rate": 0.9921,
+      "free_generation_exact_match": 0.0098,
+      "per_intent": {
+        "qa_color": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小红是蓝色的。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_color_ref": {
+          "n": 5,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "钥匙是红色的。",
+          "majority_acc": 0.2,
+          "beats_majority_10pp": false
+        },
+        "qa_compare": {
+          "n": 11,
+          "em": 1,
+          "acc": 0.0909,
+          "majority_answer": "不是。",
+          "majority_acc": 0.6364,
+          "beats_majority_10pp": false
+        },
+        "qa_count": {
+          "n": 5,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "有0样。",
+          "majority_acc": 0.8,
+          "beats_majority_10pp": false
+        },
+        "qa_neg": {
+          "n": 9,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "是的，钥匙不在2号位置。",
+          "majority_acc": 0.2222,
+          "beats_majority_10pp": false
+        },
+        "qa_pos": {
+          "n": 34,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "小丽在6号位置。",
+          "majority_acc": 0.1176,
+          "beats_majority_10pp": false
+        },
+        "qa_pos_ref": {
+          "n": 19,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "钥匙在5号位置。",
+          "majority_acc": 0.2632,
+          "beats_majority_10pp": false
+        },
+        "tool_calc": {
+          "n": 9,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_CALCULATOR 5+11",
+          "majority_acc": 0.1111,
+          "beats_majority_10pp": false
+        },
+        "tool_calc_execution": {
+          "n": 9,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_calc_selection": {
+          "n": 9,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_lookup": {
+          "n": 16,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_LOOKUP 图书馆闭馆日",
+          "majority_acc": 0.6875,
+          "beats_majority_10pp": false
+        },
+        "tool_lookup_selection": {
+          "n": 16,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "unanswerable": {
+          "n": 11,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "我不知道。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        }
+      },
+      "rule_baseline_acc": {
+        "qa_pos": 1.0,
+        "qa_neg": 0.8889,
+        "tool_lookup": 1.0,
+        "tool_calc": 0.2222,
+        "qa_color": 0.0,
+        "qa_compare": 0.0,
+        "qa_color_ref": 0.0,
+        "qa_count": 0.8,
+        "qa_pos_ref": 0.8421,
+        "unanswerable": 1.0
+      },
+      "types_beating_majority_10pp": []
+    },
+    "ood_length": {
+      "n_question_turns": 136,
+      "nonempty_rate": 0.9926,
+      "free_generation_exact_match": 0.0,
+      "per_intent": {
+        "qa_color": {
+          "n": 13,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "皮球是红色的。",
+          "majority_acc": 0.1538,
+          "beats_majority_10pp": false
+        },
+        "qa_color_ref": {
+          "n": 12,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "皮球是未知的。",
+          "majority_acc": 0.25,
+          "beats_majority_10pp": false
+        },
+        "qa_compare": {
+          "n": 18,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "不是。",
+          "majority_acc": 0.7778,
+          "beats_majority_10pp": false
+        },
+        "qa_count": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "有0样。",
+          "majority_acc": 0.5,
+          "beats_majority_10pp": false
+        },
+        "qa_neg": {
+          "n": 3,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "不对，小刚在6号位置。",
+          "majority_acc": 0.3333,
+          "beats_majority_10pp": false
+        },
+        "qa_pos": {
+          "n": 30,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "杯子在6号位置。",
+          "majority_acc": 0.1,
+          "beats_majority_10pp": false
+        },
+        "qa_pos_ref": {
+          "n": 24,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "皮球在2号位置。",
+          "majority_acc": 0.125,
+          "beats_majority_10pp": false
+        },
+        "tool_calc": {
+          "n": 10,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_CALCULATOR 7*2",
+          "majority_acc": 0.1,
+          "beats_majority_10pp": false
+        },
+        "tool_calc_execution": {
+          "n": 10,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_calc_selection": {
+          "n": 10,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "tool_lookup": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "TOOL_LOOKUP 仓库盘点日",
+          "majority_acc": 0.625,
+          "beats_majority_10pp": false
+        },
+        "tool_lookup_selection": {
+          "n": 8,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": null
+        },
+        "unanswerable": {
+          "n": 10,
+          "em": 0,
+          "acc": 0.0,
+          "majority_answer": "我不知道。",
+          "majority_acc": 1.0,
+          "beats_majority_10pp": false
+        }
+      },
+      "rule_baseline_acc": {
+        "tool_calc": 0.7,
+        "qa_compare": 0.0,
+        "qa_color_ref": 0.25,
+        "qa_pos_ref": 0.625,
+        "qa_color": 0.0,
+        "unanswerable": 1.0,
+        "qa_count": 1.0,
+        "qa_pos": 1.0,
+        "tool_lookup": 1.0,
+        "qa_neg": 1.0
+      },
+      "types_beating_majority_10pp": []
+    }
+  },
+  "random_untrained_baseline": {
+    "sealed_test_em": 0.0,
+    "n": 101
+  },
+  "char_accuracy_teacher_forced": {
+    "sealed_test": 0.7441
+  },
+  "latency_ms_p50": 12.01,
+  "latency_ms_p95": 23.04,
+  "flags": {
+    "PIPELINE_READY": true,
+    "FREE_GENERATION_WORKS": true,
+    "IN_DOMAIN_PASS": false,
+    "OOD_PASS": false,
+    "OPEN_CHAT_NOT_VALIDATED": true,
+    "NEURAL_CONTINUAL_LEARNING": "NOT_TESTED（m4.1 REJECTED；等混合时域新预注册批准）",
+    "REAL_NETWORKING": "NOT_TESTED（默认离线）"
+  },
+  "honesty": "封存集只评一次；错误回答全部保留在分任务明细之外——本 JSON 不展示逐条文本，逐条样例见报告与 CLI 演示记录"
+}
