@@ -93,6 +93,31 @@ def reset_transient_buffers(model: NModel, snapshot_model_state: dict[str, torch
                 buffers[name].copy_(snapshot_model_state[name].to(buffers[name].device))
 
 
+def seal_eval_state(model: NModel,
+                    stable_state: dict[str, torch.Tensor] | None = None) -> dict[str, Any]:
+    """统一评测状态控制（M5 任务书 P0.1）：封存评测前复位训练态 buffer 并记录漂移。
+
+    口径：
+      * 训练态 buffer（load_bias/block_load_count）复位到 stable 值，漂移单独记录，
+        不冒充参数学习（M4 实测：漂移曾伪装 ~26pp 适应）；
+      * recurrent state / workspace state 在 forward_sequence 内部每次重建，不跨调用存活；
+      * 外部记忆经 rows["mem"] 注入，由调用方审计（memory-only 臂单独计量）；
+      * optimizer 状态不属模型，增量阶段新建已由 fit_existing_model/bounded_stream_update 记录。
+    """
+    drift: dict[str, Any] = {}
+    bufs = dict(model.named_buffers())
+    for name in TRANSIENT_BUFFERS:
+        if name in bufs and stable_state and name in stable_state:
+            before = bufs[name].detach().clone()
+            ref = stable_state[name].to(before.device)
+            drift[name] = {"changed": not torch.equal(before, ref),
+                           "delta_l2": round(float((before - ref).norm()), 6)}
+    if stable_state is not None:
+        reset_transient_buffers(model, stable_state)
+    return {"reset_buffers": sorted(TRANSIENT_BUFFERS), "drift": drift,
+            "reset_applied": stable_state is not None}
+
+
 def _transient_buffers(model: NModel) -> dict[str, torch.Tensor]:
     return {name: buf.detach().clone()
             for name, buf in model.named_buffers() if name in TRANSIENT_BUFFERS}
@@ -362,4 +387,4 @@ def fit_existing_model(model: NModel, *, cfg, rows: list[dict], device,
 
 __all__ = ["AdaptationBudget", "BudgetExceeded", "apply_update_scope", "clone_snapshot",
            "fit_existing_model", "parameter_delta", "reset_transient_buffers",
-           "state_hash", "verify_bitwise_inheritance"]
+           "seal_eval_state", "state_hash", "verify_bitwise_inheritance"]
