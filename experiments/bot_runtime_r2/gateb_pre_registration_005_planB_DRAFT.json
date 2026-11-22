@@ -1,0 +1,60 @@
+{
+  "experiment": "gate-b-005-skill-residual-DRAFT",
+  "status": "DRAFT_NOT_APPROVED",
+  "note": "本文件是 004 诊断结论驱动的预登记草案，未获批准前不得执行任何训练。执行前需：补齐预算终值、用户批准、status 改 APPROVED。依据：GATEB004_REPORT.md 因果定位——旧技能损失主因是 block_to_ws 写入映射（参数替换挽回 78.75pp 最大单项）与 head（第二损失点），且 b2w 更新经 Workspace 递归污染块状态（003 位置探针 1.0→0.75）。",
+  "design_choice": "方案 B（技能残差适配器）+ 004 修复后的验收契约（v2 解码协议、INCONCLUSIVE 语义、反事实跟随率进验收）",
+
+  "architecture_change": {
+    "new_module": "block_to_ws_residual（小型 MLP：block_hidden -> workspace_dim，初始化零输出或极小高斯）",
+    "routing": "skill_gate(z) 门控（单层线性 + sigmoid，随残差训练）：门控值乘残差输出；stable 路径的 block_to_ws 主参数冻结逐位不动",
+    "forward_change": "payload = block_to_ws(h_sel) + skill_gate(z) * block_to_ws_residual(h_sel)；旧任务门控趋 0 时与 stable 数学等价",
+    "invariants": ["stable 主干/head/block_to_ws/router/workspace 逐位冻结", "词表不换", "断网可跑", "门控初始输出接近 0（保稳定）"]
+  },
+
+  "target_skill": {
+    "skill_id": "skill.binding.unseen_entity",
+    "family": "unseen_entity_qa",
+    "baseline_neural_em": 0.0,
+    "gap_pp": 100.0,
+    "unchanged_from_001": true
+  },
+
+  "data_plan": {
+    "note": "与 001-003 逐项相同（同 builder/同 n/同 seed），保持纵向可比",
+    "learning_stream": { "family": "unseen_entity_qa", "split": "train", "n": 48, "seed": 20261621 },
+    "sealed_eval": { "family": "unseen_entity_qa", "split": "sealed", "n": 40, "seed": 20261622 },
+    "retention_anchor": { "family": "position_qa(A组)", "split": "sealed", "n": 80, "seed": 20261403 },
+    "replay_pairs": { "family": "position_qa(A组)", "split": "train", "n": 48, "seed": 20261401 },
+    "counterfactual_items": "binding_swap counterfactual split（004 起进入验收记录）"
+  },
+
+  "budget_draft": {
+    "total_gradient_steps": 96,
+    "per_arm": { "neural": 48, "negative": 48 },
+    "trainable": "adapter",
+    "adapter_prefixes": ["block_to_ws_residual.", "skill_gate."],
+    "lr": 0.003,
+    "replay_ratio": 0.15,
+    "wall_limit_s_total": 120,
+    "init_seed": 20261701,
+    "arms": ["frozen", "memory", "neural", "negative"],
+    "to_finalize_before_approval": ["确认残差模块参数量与 96 步预算匹配", "冻结 head 是否保留为对照臂（head_frozen vs head_free 两臂）"]
+  },
+
+  "gates_draft": {
+    "new_skill_gain_min": 0.10,
+    "old_task_forgetting_max_pp": 3.0,
+    "counterfactual_follow_min": "DRAFT：建议 0.5（stable 基线 0.0833、001 峰值 0.2917，需用户确认或提高）",
+    "freeze_audit": "block_to_ws_residual/skill_gate 之外的 21+2 张量逐位不变，违规数必须为 0",
+    "protocol": "评测协议切换 freegen-v2-direct-continuation（004 修复后新协议，与 001-003 的 v1 历史口径分别记录，不做跨协议直接比较）"
+  },
+
+  "hypothesis": "残差适配器使新技能的更新流不经过 stable 的 block_to_ws/head 参数 → A 组写入/读出通道逐位保全（002+stable_b2w 挽回 78.75pp 的干预证据直接支持），遗忘被结构性抑制；风险：门控未学会时残差不生效（gain 不足），或残差经 workspace 递归仍污染 h（003 探针教训）——后者需在 005 里加 workspace 漂移监测（004 的 ws_content_drift 工具已就绪）",
+
+  "pre_execution_checklist": [
+    "残差模块代码 + 单元测试（门控初始近零/旧路径逐位等价断言）",
+    "用户批准预算与反事实门槛",
+    "单变量审计（相对 002/003 的架构差异全部写进预登记）",
+    "状态：本草案不满足执行条件，禁止运行"
+  ]
+}
