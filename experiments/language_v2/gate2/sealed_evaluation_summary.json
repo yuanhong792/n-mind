@@ -1,0 +1,8 @@
+{
+  "protocol": "neural-only greedy continuation, single sealed pass",
+  "memory_retrieval_tools_rules": false,
+  "main": {"exact_match": 0.0, "counterfactual_pair_pass": 0.0, "counterfactual_pairs": 80, "response_source": "neural"},
+  "permute": {"exact_match": 0.0, "counterfactual_pair_pass": 0.0, "counterfactual_pairs": 80, "response_source": "neural"},
+  "lr0": {"exact_match": 0.0, "counterfactual_pair_pass": 0.0, "counterfactual_pairs": 80, "response_source": "neural"},
+  "status": "TRAIN_SIGNAL_ONLY_BINDING_FAIL"
+}

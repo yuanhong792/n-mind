@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.11.0+cpu",
+  "cuda_available": false,
+  "cuda_device": null,
+  "network_enabled": false,
+  "external_models": false,
+  "optimizer_steps": 0,
+  "tokenizer_roundtrip": true,
+  "world_oracle_update": true,
+  "split_disjoint": true,
+  "dataset": {
+    "format": "language-v2-gate2-dataset/1",
+    "seed": 20261123,
+    "counts": {
+      "train": 768,
+      "dev": 144,
+      "sealed": 240
+    },
+    "train_tokens": 41856,
+    "sha256": "3f1a3b503b4784b748385e651fa46b135f01b315a50f6a66af05724ed877612f",
+    "sealed_pair_count": 80
+  },
+  "gate1_manual_fixture": "PASS",
+  "memory_retrieval_tools_rules": "DISABLED",
+  "stable_checkpoint": "READ_ONLY"
+}

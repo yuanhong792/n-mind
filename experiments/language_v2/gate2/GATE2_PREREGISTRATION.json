@@ -1,0 +1,14 @@
+{
+  "format": "language-v2-gate2/1",
+  "status": "AUTHORIZED_SINGLE_ROUND",
+  "seed": 20261123,
+  "arms": {"main": {"steps": 512, "lr": 0.001}, "permute": {"steps": 512, "lr": 0.001, "labels_permuted": true}, "lr0": {"steps": 32, "lr": 0.0}},
+  "total_step_budget": 1056,
+  "wall_clock_limit_s": 5400,
+  "data": "LanguageWorld generated records only",
+  "memory_retrieval_tools_rules": false,
+  "stable_checkpoint": "read-only",
+  "promotion": "manual only",
+  "thresholds": {"L0_sealed_gain_pp": 20, "L1_sealed_gain_pp": 10, "counterfactual_follow": 0.70, "update_accuracy": 0.60},
+  "no_extra_seeds_or_retraining": true
+}
