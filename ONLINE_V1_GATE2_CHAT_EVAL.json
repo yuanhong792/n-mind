@@ -1,15 +1,447 @@
 {
-  "status":"PENDING_USER_APPROVAL","questions_total":10,"questions_sealed":true,"answers_recorded":0,"retrieval_tests_run":0,"neural_training_steps":0,
-  "questions":[
-    {"id":"G2-01","question":"Python列表和元组有什么区别？","expected_sources":["tutorial/datastructures.html"]},
-    {"id":"G2-02","question":"Python中for循环和while循环分别适合什么场景？","expected_sources":["tutorial/controlflow.html"]},
-    {"id":"G2-03","question":"Python如何定义函数？","expected_sources":["tutorial/controlflow.html"]},
-    {"id":"G2-04","question":"Python模块如何导入？","expected_sources":["tutorial/modules.html"]},
-    {"id":"G2-05","question":"Python如何处理异常？","expected_sources":["tutorial/errors.html"]},
-    {"id":"G2-06","question":"Python如何读取文件？","expected_sources":["tutorial/inputoutput.html"]},
-    {"id":"G2-07","question":"Python中的类和对象是什么关系？","expected_sources":["tutorial/classes.html"]},
-    {"id":"G2-08","question":"Python字典数据结构有什么特点？","expected_sources":["tutorial/datastructures.html"]},
-    {"id":"G2-09","question":"range函数如何使用？","expected_sources":["tutorial/controlflow.html"]},
-    {"id":"G2-10","question":"Python官方教程能否证明N-MIND项目2027年的实验计划？","expected_sources":[],"expected_response_source":"abstain"}
-  ]
+  "status": "COMPLETE",
+  "questions_total": 10,
+  "questions": [
+    {
+      "id": "G2-01",
+      "question": "Python列表和元组有什么区别？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：5. 数据结构 — Python 3.11.18 文档、4. 更多控制流工具 — Python 3.11.18 文档）：\n【1】5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：\n【2】match point : case Point ( x , y ) if x == y : print ( f \"Y=X at { x } \" ) case Point ( x , y ): print ( f \"Not on the diagonal\" ) \n该语句的一些其它关键特性： \n与解包赋值类似，元组和列表模式具有完全相同的含义并且实际上都能匹配任意序列，区别是它们不能匹配迭代器或字符串。\n【3】2, 1]) \n输出时，元组都要由圆括号标注，这样才能正确地解释嵌套元组。输入时，圆括号可有可无，不过经常是必须的（如果元组是更大的表达式的一部分）。不允许为元组中的单个元素赋值，当然，可以创建含列表等可变对象的元组。 \n虽然，元组与列表很像，但使用场景不同，用途也不同。元组是 immutable （不可变的），一般可包含异质元素序列，通过解包（见本节下文）或索引访问（如果是 namedtuples ，可以属性访问）。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "12797f2c2cdb85f52c465843",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "ac08c18aed2446156cbc7aa3",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "match point : case Point ( x , y ) if x == y : print ( f \"Y=X at { x } \" ) case Point ( x , y ): print ( f \"Not on the diagonal\" ) \n该语句的一些其它关键特性： \n与解包赋值类似，元组和列表模式具有完全相同的含义并且实际上都能匹配任意序列，区别是它们不能匹配迭代器或字符串。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "8ad0a67aa18f5a85eddc8f9f",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "2, 1]) \n输出时，元组都要由圆括号标注，这样才能正确地解释嵌套元组。输入时，圆括号可有可无，不过经常是必须的（如果元组是更大的表达式的一部分）。不允许为元组中的单个元素赋值，当然，可以创建含列表等可变对象的元组。 \n虽然，元组与列表很像，但使用场景不同，用途也不同。元组是 immutable （不可变的），一般可包含异质元素序列，通过解包（见本节下文）或索引访问（如果是 namedtuples ，可以属性访问）。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 2.49,
+      "neural_called": false
+    },
+    {
+      "id": "G2-02",
+      "question": "Python中for循环和while循环分别适合什么场景？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档）：\n【1】在 for 循环中， else 子句会在循环成功结束最后一次迭代之后执行。 \n在 while 循环中，它会在循环条件变为假值后执行。 \n无论哪种循环，如果因为 break 而结束，那么 else 子句就 不会 执行。 \n下面的搜索质数的 for 循环就是一个例子：\n【2】>>> sum ( range ( 4 )) # 0 + 1 + 2 + 3 6 \n之后我们会看到更多返回可迭代对象，或以可迭代对象作为参数的函数。在 数据结构 这一章中，我们将讨论 list() 的更多细节。 \n4.4. 循环中的 break 、 continue 语句及 else 子句 ¶ break 语句将跳出最近的一层 for 或 while 循环。 \nfor 或 while 循环可以包括 else 子句。\n【3】name? It is lancelot. What is your quest? It is the holy grail. What is your favorite color? It is blue. \n为了逆向对序列进行循环，可以求出欲循环的正向序列，然后调用 reversed() 函数： \n>>> for i in reversed ( range ( 1 , 10 , 2 )): ... print ( i ) ... 9 7 5 3 1",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "8cb5d06dcc974e4d751efb6c",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "在 for 循环中， else 子句会在循环成功结束最后一次迭代之后执行。 \n在 while 循环中，它会在循环条件变为假值后执行。 \n无论哪种循环，如果因为 break 而结束，那么 else 子句就 不会 执行。 \n下面的搜索质数的 for 循环就是一个例子：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "4710641fa8f36d88112f5eaa",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": ">>> sum ( range ( 4 )) # 0 + 1 + 2 + 3 6 \n之后我们会看到更多返回可迭代对象，或以可迭代对象作为参数的函数。在 数据结构 这一章中，我们将讨论 list() 的更多细节。 \n4.4. 循环中的 break 、 continue 语句及 else 子句 ¶ break 语句将跳出最近的一层 for 或 while 循环。 \nfor 或 while 循环可以包括 else 子句。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "2b964b71efc1f504de4ea97c",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "name? It is lancelot. What is your quest? It is the holy grail. What is your favorite color? It is blue. \n为了逆向对序列进行循环，可以求出欲循环的正向序列，然后调用 reversed() 函数： \n>>> for i in reversed ( range ( 1 , 10 , 2 )): ... print ( i ) ... 9 7 5 3 1",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 2.56,
+      "neural_called": false
+    },
+    {
+      "id": "G2-03",
+      "question": "Python如何定义函数？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档）：\n【1】print ( \"Grass is green\" ) case Color . BLUE : print ( \"I'm feeling the blues :(\" ) \n更详细的说明和更多示例，可参阅以教程格式撰写的 PEP 636 。 \n4.7. 定义函数 ¶ 下列代码创建一个可以输出限定数值内的斐波那契数列函数：\n【2】4.4. 循环中的 break 、 continue 语句及 else 子句 \n4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表\n【3】4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表 \n4.8.5. 解包实参列表 \n4.8.6. Lambda 表达式 \n4.8.7. 文档字符串",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "8746827599e73203aac5859d",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "print ( \"Grass is green\" ) case Color . BLUE : print ( \"I'm feeling the blues :(\" ) \n更详细的说明和更多示例，可参阅以教程格式撰写的 PEP 636 。 \n4.7. 定义函数 ¶ 下列代码创建一个可以输出限定数值内的斐波那契数列函数：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "0a2166790119401f3b67c7e6",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "4.4. 循环中的 break 、 continue 语句及 else 子句 \n4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "1e8e1d1e4b76d4b2bc82cef8",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表 \n4.8.5. 解包实参列表 \n4.8.6. Lambda 表达式 \n4.8.7. 文档字符串",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.7,
+      "neural_called": false
+    },
+    {
+      "id": "G2-04",
+      "question": "Python模块如何导入？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：6. 模块 — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档）：\n【1】例如，如果你在 sound/effects/__init__.py 文件中添加了一个 reverse 函数， from sound.effects import * 将只导入 echo 和 surround 这两个子模块，但 不会 导入 reverse 子模块，因为它被本地定义的 reverse 函数所遮挡:\n【2】): # return Fibonacci series up to n result = [] a , b = 0 , 1 while a < n : result . append ( a ) a , b = b , a + b return result \n现在，进入 Python 解释器，用以下命令导入该模块： \n>>> import fibo\n【3】5.8. 序列和其他类型的比较 \n6. 模块 6.1. 模块详解 6.1.1. 以脚本方式执行模块 \n6.1.2. 模块搜索路径 \n6.1.3. “已编译的” Python 文件 \n6.2. 标准模块 \n6.3. dir() 函数 \n6.4. 包 6.4.1. 从包中导入 * \n6.4.2. 相对导入 \n6.4.3. 多目录中的包 \n7. 输入与输出 7.1. 更复杂的输出格式 7.1.1. 格式化字符串字面值 \n7.1.2. 字符串 format() 方法",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "8810b397daf8e2b9a7f71186",
+          "chunk_id": "e8481537489fae778e8bab61",
+          "title": "6. 模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/modules.html",
+          "fetched_at_utc": "2026-11-22T22:09:56+0800",
+          "excerpt": "例如，如果你在 sound/effects/__init__.py 文件中添加了一个 reverse 函数， from sound.effects import * 将只导入 echo 和 surround 这两个子模块，但 不会 导入 reverse 子模块，因为它被本地定义的 reverse 函数所遮挡:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "8810b397daf8e2b9a7f71186",
+          "chunk_id": "32ec3ca2a04ab080f7da835c",
+          "title": "6. 模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/modules.html",
+          "fetched_at_utc": "2026-11-22T22:09:56+0800",
+          "excerpt": "): # return Fibonacci series up to n result = [] a , b = 0 , 1 while a < n : result . append ( a ) a , b = b , a + b return result \n现在，进入 Python 解释器，用以下命令导入该模块： \n>>> import fibo",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "50462d1a16fb0e09e8eae1cc",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "5.8. 序列和其他类型的比较 \n6. 模块 6.1. 模块详解 6.1.1. 以脚本方式执行模块 \n6.1.2. 模块搜索路径 \n6.1.3. “已编译的” Python 文件 \n6.2. 标准模块 \n6.3. dir() 函数 \n6.4. 包 6.4.1. 从包中导入 * \n6.4.2. 相对导入 \n6.4.3. 多目录中的包 \n7. 输入与输出 7.1. 更复杂的输出格式 7.1.1. 格式化字符串字面值 \n7.1.2. 字符串 format() 方法",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/modules.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.46,
+      "neural_called": false
+    },
+    {
+      "id": "G2-05",
+      "question": "Python如何处理异常？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：8. 错误和异常 — Python 3.11.18 文档）：\n【1】错误可能是由于所指向的词元 之前 缺少某个词元而导致的。 在这个例子中，错误是在函数 print() 上检测到的，原因是在它之前缺少一个冒号 ( ':' )。 文件名和行号也会被打印出来以便你在输入是来自脚本时可以知道要去哪里查找问题。 \n8.2. 异常 ¶ 即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 异常 ，异常不一定导致严重的后果：很快我们就能学会如何处理 Python 的异常。大多数异常不会被程序处理，而是显示下列错误信息：\n【2】它们包括由 sys.exit() 引发的 SystemExit ，以及当用户希望中断程序时引发的 KeyboardInterrupt 。 \nException 可以被用作通配符，捕获（几乎）一切。然而，好的做法是，尽可能具体地说明我们打算处理的异常类型，并允许任何意外的异常传播下去。 \n处理 Exception 最常见的模式是打印或记录异常，然后重新提出（允许调用者也处理异常）:\n【3】如果没有触发异常，则跳过 except 子句 ， try 语句执行完毕。 \n如果在执行 try 子句时发生了异常，则跳过该子句中剩下的部分。如果异常的类型与 except 关键字后指定的异常相匹配，则会执行 except 子句 ，然后跳到 try/except 代码块之后继续执行。 \n如果发生的异常与 except 子句 中指定的异常不匹配，则它会被传递到外层的 try 语句中；如果没有找到处理器，则它是一个 未处理异常 且执行将停止并输出一条错误消息。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "0ed1659c63a5805d3f0aa96d",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "错误可能是由于所指向的词元 之前 缺少某个词元而导致的。 在这个例子中，错误是在函数 print() 上检测到的，原因是在它之前缺少一个冒号 ( ':' )。 文件名和行号也会被打印出来以便你在输入是来自脚本时可以知道要去哪里查找问题。 \n8.2. 异常 ¶ 即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 异常 ，异常不一定导致严重的后果：很快我们就能学会如何处理 Python 的异常。大多数异常不会被程序处理，而是显示下列错误信息：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "17f648d67cc55d9eb6144791",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "它们包括由 sys.exit() 引发的 SystemExit ，以及当用户希望中断程序时引发的 KeyboardInterrupt 。 \nException 可以被用作通配符，捕获（几乎）一切。然而，好的做法是，尽可能具体地说明我们打算处理的异常类型，并允许任何意外的异常传播下去。 \n处理 Exception 最常见的模式是打印或记录异常，然后重新提出（允许调用者也处理异常）:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "3b947af628c7d3e7c918e46d",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "如果没有触发异常，则跳过 except 子句 ， try 语句执行完毕。 \n如果在执行 try 子句时发生了异常，则跳过该子句中剩下的部分。如果异常的类型与 except 关键字后指定的异常相匹配，则会执行 except 子句 ，然后跳到 try/except 代码块之后继续执行。 \n如果发生的异常与 except 子句 中指定的异常不匹配，则它会被传递到外层的 try 语句中；如果没有找到处理器，则它是一个 未处理异常 且执行将停止并输出一条错误消息。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/errors.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.45,
+      "neural_called": false
+    },
+    {
+      "id": "G2-06",
+      "question": "Python如何读取文件？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：7. 输入与输出 — Python 3.11.18 文档）：\n【1】>>> for line in f : ... print ( line , end = '' ) ... This is the first line of the file. Second line of the file \n如需以列表形式读取文件中的所有行，可以用 list(f) 或 f.readlines() 。 \nf.write(string) 把 string 的内容写入文件，并返回写入的字符数。\n【2】f.read(size) 可用于读取文件内容，它会读取一些数据，并返回字符串（文本模式），或字节串对象（在二进制模式下）。 size 是可选的数值参数。省略 size 或 size 为负数时，读取并返回整个文件的内容；文件大小是内存的两倍时，会出现问题。 size 取其他值时，读取并返回最多 size 个字符（文本模式）或 size 个字节（二进制模式）。如已到达文件末尾， f.read() 返回空字符串 ( '' )。\n【3】因为 UTF-8 是现代事实上的标准，除非你知道你需要使用一个不同的编码，否则建议使用 encoding=\"utf-8\" 。在模式后面加上一个 'b' ，可以用 binary mode 打开文件。二进制模式的数据是以 bytes 对象的形式读写的。在二进制模式下打开文件时，你不能指定 encoding 。 \n在文本模式下读取文件时，默认把平台特定的行结束符 (Unix 上为 \\n , Windows 上为 \\r\\n ) 转换为 \\n 。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "9b454d7401f6beefcb2baa9f",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": ">>> for line in f : ... print ( line , end = '' ) ... This is the first line of the file. Second line of the file \n如需以列表形式读取文件中的所有行，可以用 list(f) 或 f.readlines() 。 \nf.write(string) 把 string 的内容写入文件，并返回写入的字符数。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "1962af3b1a410eefbaafb43b",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "f.read(size) 可用于读取文件内容，它会读取一些数据，并返回字符串（文本模式），或字节串对象（在二进制模式下）。 size 是可选的数值参数。省略 size 或 size 为负数时，读取并返回整个文件的内容；文件大小是内存的两倍时，会出现问题。 size 取其他值时，读取并返回最多 size 个字符（文本模式）或 size 个字节（二进制模式）。如已到达文件末尾， f.read() 返回空字符串 ( '' )。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "dc27f15e5ef342172c56f406",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "因为 UTF-8 是现代事实上的标准，除非你知道你需要使用一个不同的编码，否则建议使用 encoding=\"utf-8\" 。在模式后面加上一个 'b' ，可以用 binary mode 打开文件。二进制模式的数据是以 bytes 对象的形式读写的。在二进制模式下打开文件时，你不能指定 encoding 。 \n在文本模式下读取文件时，默认把平台特定的行结束符 (Unix 上为 \\n , Windows 上为 \\r\\n ) 转换为 \\n 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/inputoutput.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.45,
+      "neural_called": false
+    },
+    {
+      "id": "G2-07",
+      "question": "Python中的类和对象是什么关系？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：9. 类 — Python 3.11.18 文档、8. 错误和异常 — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档）：\n【1】Python 有两个内置函数可被用于继承机制： \n使用 isinstance() 来检查一个实例的类型: isinstance(obj, int) 仅会在 obj.__class__ 为 int 或某个派生自 int 的类时为 True 。 \n使用 issubclass() 来检查类的继承关系: issubclass(bool, int) 为 True ，因为 bool 是 int 的子类。\n【2】in <module> TypeError : bad type Add some information Add some more information >>> \n例如，当把异常收集到一个异常组时，我们可能想为各个错误添加上下文信息。在下文中，组中的每个异常都有一个说明，指出这个错误是什么时候发生的。\n【3】9. 类 9.1. 名称和对象 \n9.2. Python 作用域和命名空间 9.2.1. 作用域和命名空间示例 \n9.3. 初探类 9.3.1. 类定义语法 \n9.3.2. Class 对象 \n9.3.3. 实例对象 \n9.3.4. 方法对象 \n9.3.5. 类和实例变量 \n9.4. 补充说明 \n9.5. 继承 9.5.1. 多重继承 \n9.6. 私有变量 \n9.7. 杂项说明 \n9.8. 迭代器 \n9.9. 生成器 \n9.10. 生成器表达式",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "cbfb344ef8021de2304f7034",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "Python 有两个内置函数可被用于继承机制： \n使用 isinstance() 来检查一个实例的类型: isinstance(obj, int) 仅会在 obj.__class__ 为 int 或某个派生自 int 的类时为 True 。 \n使用 issubclass() 来检查类的继承关系: issubclass(bool, int) 为 True ，因为 bool 是 int 的子类。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "1caefe114c7e8a9965bbad43",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "in <module> TypeError : bad type Add some information Add some more information >>> \n例如，当把异常收集到一个异常组时，我们可能想为各个错误添加上下文信息。在下文中，组中的每个异常都有一个说明，指出这个错误是什么时候发生的。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "45738ca9d86d5986a3ee7ac4",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "9. 类 9.1. 名称和对象 \n9.2. Python 作用域和命名空间 9.2.1. 作用域和命名空间示例 \n9.3. 初探类 9.3.1. 类定义语法 \n9.3.2. Class 对象 \n9.3.3. 实例对象 \n9.3.4. 方法对象 \n9.3.5. 类和实例变量 \n9.4. 补充说明 \n9.5. 继承 9.5.1. 多重继承 \n9.6. 私有变量 \n9.7. 杂项说明 \n9.8. 迭代器 \n9.9. 生成器 \n9.10. 生成器表达式",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/classes.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.93,
+      "neural_called": false
+    },
+    {
+      "id": "G2-08",
+      "question": "Python字典数据结构有什么特点？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：5. 数据结构 — Python 3.11.18 文档）：\n【1】5. 数据结构 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n5. 数据结构 \n| \nTheme Auto Light Dark | \n5. 数据结构 ¶ 本章深入讲解之前学过的一些内容，同时，还增加了新的知识点。 \n5.1. 列表详解 ¶ 列表数据类型支持很多方法，列表对象的所有方法所示如下：\n【2】注意，创建空集合只能用 set() ，不能用 {} ， {} 创建的是空字典，下一小节介绍数据结构：字典。 \n以下是一些简单的示例 \n>>> basket = { 'apple' , 'orange' , 'apple' , 'pear' , 'orange' , 'banana' } >>> print ( basket ) # show that duplicates have been removed {'orange', 'banana', 'pear', 'appl\n【3】上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n5. 数据结构 \n| \nTheme Auto Light Dark | \n© 版权所有 2001-2026, Python Software Foundation. \nThis page is licensed under the Python Software Foundation License Version 2.",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "99fd296509be4e8f7ac28ba1",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "5. 数据结构 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n5. 数据结构 \n| \nTheme Auto Light Dark | \n5. 数据结构 ¶ 本章深入讲解之前学过的一些内容，同时，还增加了新的知识点。 \n5.1. 列表详解 ¶ 列表数据类型支持很多方法，列表对象的所有方法所示如下：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "7b7d31ee70118dccf7b7ac45",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "注意，创建空集合只能用 set() ，不能用 {} ， {} 创建的是空字典，下一小节介绍数据结构：字典。 \n以下是一些简单的示例 \n>>> basket = { 'apple' , 'orange' , 'apple' , 'pear' , 'orange' , 'banana' } >>> print ( basket ) # show that duplicates have been removed {'orange', 'banana', 'pear', 'appl",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "25214206ad5709bb7e6bab13",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n5. 数据结构 \n| \nTheme Auto Light Dark | \n© 版权所有 2001-2026, Python Software Foundation. \nThis page is licensed under the Python Software Foundation License Version 2.",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.72,
+      "neural_called": false
+    },
+    {
+      "id": "G2-09",
+      "question": "range函数如何使用？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、9. 类 — Python 3.11.18 文档）：\n【1】----------- ---------- ----------\n| | |\n| Positional or keyword |\n| - Keyword only\n-- Positional only \n/ 和 * 是可选的。这些符号表明形参如何把参数值传递给函数：位置、位置或关键字、关键字。关键字形参也叫作命名形参。 \n4.8.3.1. 位置或关键字参数 ¶ 函数定义中未使用 / 和 * 时，参数可以按位置或关键字传递给函数。\n【2】>>> list ( range ( 5 , 10 )) [5, 6, 7, 8, 9] >>> list ( range ( 0 , 10 , 3 )) [0, 3, 6, 9] >>> list ( range ( - 10 , - 100 , - 30 )) [-10, -40, -70] \n要按索引迭代序列，可以组合使用 range() 和 len() :\n【3】9.9. 生成器 ¶ 生成器 是一个用于创建迭代器的简单而强大的工具。 它们的写法类似于标准的函数，但当它们要返回数据时会使用 yield 语句。 每次在生成器上调用 next() 时，它会从上次离开的位置恢复执行（它会记住上次执行语句时的所有数据值）。 一个显示如何非常容易地创建生成器的示例如下:",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "7f835a12c14bcd19b40e7f31",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "----------- ---------- ----------\n| | |\n| Positional or keyword |\n| - Keyword only\n-- Positional only \n/ 和 * 是可选的。这些符号表明形参如何把参数值传递给函数：位置、位置或关键字、关键字。关键字形参也叫作命名形参。 \n4.8.3.1. 位置或关键字参数 ¶ 函数定义中未使用 / 和 * 时，参数可以按位置或关键字传递给函数。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "f338e55eb5debfeb67c99d14",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": ">>> list ( range ( 5 , 10 )) [5, 6, 7, 8, 9] >>> list ( range ( 0 , 10 , 3 )) [0, 3, 6, 9] >>> list ( range ( - 10 , - 100 , - 30 )) [-10, -40, -70] \n要按索引迭代序列，可以组合使用 range() 和 len() :",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "65a43c33ff537c8bae6920f6",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "9.9. 生成器 ¶ 生成器 是一个用于创建迭代器的简单而强大的工具。 它们的写法类似于标准的函数，但当它们要返回数据时会使用 yield 语句。 每次在生成器上调用 next() 时，它会从上次离开的位置恢复执行（它会记住上次执行语句时的所有数据值）。 一个显示如何非常容易地创建生成器的示例如下:",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_found": true,
+      "latency_ms": 1.6,
+      "neural_called": false
+    },
+    {
+      "id": "G2-10",
+      "question": "Python官方教程能否证明N-MIND项目2027年的实验计划？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "4c804b732772a119fa2f49b9",
+          "chunk_id": "0ee8f597f520381f6688b6da",
+          "title": "10. 标准库简介 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/stdlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:16+0800",
+          "excerpt": "SciPy项目 < https://scipy.org > 有许多其他模块用于数值计算。 \n10.7. 互联网访问 ¶ 有许多模块可用于访问互联网和处理互联网协议。其中两个最简单的 urllib.request 用于从URL检索数据，以及 smtplib 用于发送邮件:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "1361170069f99f59ee767959",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": ">>> def make_incrementor ( n ): ... return lambda x : x + n ... >>> f = make_incrementor ( 42 ) >>> f ( 0 ) 42 >>> f ( 1 ) 43 \n上例用 lambda 表达式返回函数。还可以把匿名函数用作传递的实参：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "e80e5935ea6d3e1f1977b5c4",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "能让其他人轻松阅读你的代码总是一个好主意，采用一种好的编码风格对此有很大帮助。 \nPython 项目大多都遵循 PEP 8 的风格指南；它推行的编码风格易于阅读、赏心悦目。Python 开发者均应抽时间悉心研读；以下是该提案中的核心要点： \n缩进，用 4 个空格，不要用制表符。 \n4 个空格是小缩进（更深嵌套）和大缩进（更易阅读）之间的折中方案。制表符会引起混乱，最好别用。 \n换行，一行不超过 79 个字符。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_found": true,
+      "latency_ms": 2.11,
+      "neural_called": false
+    }
+  ],
+  "supported_evidence_rate": 1.0,
+  "out_of_scope_abstain": true,
+  "optimizer_steps": 0
 }

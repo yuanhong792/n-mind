@@ -1,6 +1,6 @@
 {
   "plan_id": "nmind-first-real-web-v1-20261122-gate2",
-  "status": "PENDING_USER_APPROVAL",
+  "status": "COMPLETE",
   "approval_is_not_implied": true,
   "site": {"host_exact":"docs.python.org","scheme":"https","port":443,
     "allowed_path_prefixes":["/zh-cn/3.11/tutorial/","/zh-cn/3.11/library/"],
@@ -17,7 +17,7 @@
     {"url":"https://docs.python.org/zh-cn/3.11/tutorial/classes.html","topic":"类"},
     {"url":"https://docs.python.org/zh-cn/3.11/tutorial/stdlib.html","topic":"标准库"},
     {"url":"https://docs.python.org/zh-cn/3.11/library/pathlib.html","topic":"文件操作"}],
-  "offline_validation": {"domain_and_path_check":"PASS","duplicates_with_gate1":0,"robots_network_check":"PENDING_RUNTIME"},
+  "offline_validation": {"domain_and_path_check":"PASS","duplicates_with_gate1":0,"robots_network_check":"PASS"},
   "budget": {"gate1_requests_used":5,"remaining_total_requests":35,"new_pages_max":7,"estimated_new_gets_including_robots":8,"cumulative_pages_after_gate2":10,"min_seconds_between_requests":5,"max_concurrency":1,"request_timeout_seconds":10,"max_page_raw_bytes":524288,"max_total_raw_bytes":12582912,"max_optimizer_steps":0},
   "neural_training": {"optimizer_steps":0,"gate_b_005":"PAUSED","stable_checkpoint_mutation":false}
 }
