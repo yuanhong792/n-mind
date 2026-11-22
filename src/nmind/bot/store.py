@@ -58,12 +58,22 @@ class BotStore:
         self._migrate()
 
     def _migrate(self) -> None:
-        """老库补列：completed_tasks.fingerprint（内容指纹去重，重启不重复执行同一实例）。"""
+        """老库补列：completed_tasks.fingerprint（内容指纹去重）；R2 归因五列。"""
         cols = {r["name"] for r in self.conn.execute("PRAGMA table_info(completed_tasks)")}
         if "fingerprint" not in cols:
             self.conn.execute("ALTER TABLE completed_tasks ADD COLUMN fingerprint TEXT")
         self.conn.execute(
             "CREATE INDEX IF NOT EXISTS idx_completed_fingerprint ON completed_tasks(fingerprint)")
+        # R2：一条经验"答对了"不等于"神经学会了"，必须把来源与用途写进同一行，
+        # 否则台账又会把工具/检索/规则的成功混成神经能力（R1 的账目就是这么糊的）。
+        cap_cols = {r["name"] for r in self.conn.execute("PRAGMA table_info(capabilities)")}
+        for col, decl in (("skill_id", "TEXT DEFAULT ''"),
+                          ("response_source", "TEXT DEFAULT 'unknown'"),
+                          ("feedback_source", "TEXT DEFAULT 'unverified'"),
+                          ("learning_target", "TEXT DEFAULT 'none'"),
+                          ("capability_state", "TEXT DEFAULT 'UNTESTED'")):
+            if col not in cap_cols:
+                self.conn.execute(f"ALTER TABLE capabilities ADD COLUMN {col} {decl}")
 
     def event(self, run_id: str, kind: str, payload: dict[str, Any]) -> None:
         self.conn.execute(
@@ -85,6 +95,11 @@ class BotStore:
             "weight_update_steps": rec.get("weight_update_steps", 0),
             "model_sha": rec.get("model_sha", ""), "status": rec.get("status", "UNTESTED"),
             "evidence_path": rec.get("evidence_path", ""),
+            "skill_id": rec.get("skill_id", ""),
+            "response_source": rec.get("response_source", "unknown"),
+            "feedback_source": rec.get("feedback_source", "unverified"),
+            "learning_target": rec.get("learning_target", "none"),
+            "capability_state": rec.get("capability_state", rec.get("status", "UNTESTED")),
             "updated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         merged.update(rec)
         merged["capability_id"] = rec["capability_id"]
@@ -92,11 +107,14 @@ class BotStore:
             """INSERT INTO capabilities (capability_id, task_family, attempts,
                 verified_successes, failures, heldout_score, outcome_source,
                 tool_invocations, network_invocations, weight_update_steps,
-                model_sha, evidence_path, status, updated_at)
+                model_sha, evidence_path, status, updated_at,
+                skill_id, response_source, feedback_source, learning_target,
+                capability_state)
                 VALUES (:capability_id,:task_family,:attempts,:verified_successes,
                 :failures,:heldout_score,:outcome_source,:tool_invocations,
                 :network_invocations,:weight_update_steps,:model_sha,:evidence_path,
-                :status,:updated_at)
+                :status,:updated_at,:skill_id,:response_source,:feedback_source,
+                :learning_target,:capability_state)
                 ON CONFLICT(capability_id) DO UPDATE SET
                 attempts=excluded.attempts, verified_successes=excluded.verified_successes,
                 failures=excluded.failures, heldout_score=excluded.heldout_score,
@@ -105,7 +123,11 @@ class BotStore:
                 network_invocations=excluded.network_invocations,
                 weight_update_steps=excluded.weight_update_steps,
                 model_sha=excluded.model_sha, evidence_path=excluded.evidence_path,
-                status=excluded.status, updated_at=excluded.updated_at""", merged)
+                status=excluded.status, updated_at=excluded.updated_at,
+                skill_id=excluded.skill_id, response_source=excluded.response_source,
+                feedback_source=excluded.feedback_source,
+                learning_target=excluded.learning_target,
+                capability_state=excluded.capability_state""", merged)
 
     def capabilities(self) -> list[dict[str, Any]]:
         return [dict(r) for r in self.conn.execute(

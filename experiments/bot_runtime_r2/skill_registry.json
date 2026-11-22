@@ -1,0 +1,440 @@
+{
+  "gate": "GATE_A",
+  "generated_at": "2026-11-22T17:28:12+0800",
+  "stable_sha256_state": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+  "format": "nmind-skill-registry/1",
+  "source": "code",
+  "counts": {
+    "skills": 10,
+    "rejected": 0,
+    "by_tier": {
+      "A": 1,
+      "B": 3,
+      "C": 2,
+      "X": 1,
+      "TOOL": 3
+    }
+  },
+  "vocabularies": {
+    "response_source": [
+      "neural",
+      "tool",
+      "retrieval",
+      "rule",
+      "abstain"
+    ],
+    "selection_source": [
+      "neural",
+      "rule",
+      "user",
+      "scheduler"
+    ],
+    "feedback_source": [
+      "deterministic_oracle",
+      "externally_verified",
+      "user_approved",
+      "unverified"
+    ],
+    "learning_target": [
+      "neural_generation",
+      "neural_tool_selection",
+      "memory_only",
+      "none"
+    ],
+    "capability_state": [
+      "NEURAL_MASTERED",
+      "NEURAL_PARTIAL",
+      "TOOL_VERIFIED",
+      "MEMORY_ONLY",
+      "RULE_ONLY",
+      "UNSUPPORTED",
+      "UNTESTED",
+      "ABSTAIN"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "skill.binding.position_qa",
+      "label": "单实体位置问答（已知技能）",
+      "tier": "A",
+      "task_family": "position_qa",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 1,
+      "prerequisite_skill_ids": [],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "tool",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "A 组只用于复现与遗忘检查；父模型已掌握，重复训练只会制造虚假收益"
+    },
+    {
+      "skill_id": "skill.binding.paraphrase",
+      "label": "同义问法位置问答",
+      "tier": "B",
+      "task_family": "position_qa_paraphrase",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 2,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": true,
+      "learning_target": "neural_generation",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "相对 A 只改问句形式；问句字符须全在 stable 词表内"
+    },
+    {
+      "skill_id": "skill.binding.unseen_entity",
+      "label": "第二实体位置绑定",
+      "tier": "B",
+      "task_family": "unseen_entity_qa",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 2,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": true,
+      "learning_target": "neural_generation",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "相对 A 只改实体值（小红）；父模型 S0 阶段没见过小红被陈述"
+    },
+    {
+      "skill_id": "skill.binding.latest_update",
+      "label": "两次陈述取最新",
+      "tier": "B",
+      "task_family": "latest_statement_update",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 3,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": true,
+      "learning_target": "neural_generation",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "词表内写法的事实更新（不用 把/移动）；答案取最后一条陈述"
+    },
+    {
+      "skill_id": "skill.binding.two_entity_swap",
+      "label": "两实体绑定+近因陷阱",
+      "tier": "C",
+      "task_family": "binding_swap",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 4,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa",
+        "skill.binding.unseen_entity"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "tool",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "诊断族：除 EM 外必须报反事实跟随率；未经单独许可不得训练"
+    },
+    {
+      "skill_id": "skill.binding.combo_probe",
+      "label": "跨族组合泛化探针",
+      "tier": "C",
+      "task_family": "combo_probe",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 5,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "tool",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "neural",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "多变量同时变化，只用于诊断 unseen 组合，不作学习目标"
+    },
+    {
+      "skill_id": "skill.binding.unseen_position",
+      "label": "未见位置取值",
+      "tier": "X",
+      "task_family": "unseen_position_qa",
+      "input_schema": {
+        "context": "str(陈述句：实体+位置)",
+        "question": "str(位置问句)",
+        "format": "用户：{context}\\n{question}\\n助手："
+      },
+      "output_schema": {
+        "answer": "str(“{实体}在{位置}。”)",
+        "stop": "eos|newline|budget"
+      },
+      "difficulty": 3,
+      "prerequisite_skill_ids": [
+        "skill.binding.position_qa"
+      ],
+      "verifier_id": "binding_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "neural",
+        "tool",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "abstain",
+      "max_input_chars": 64,
+      "max_response_tokens": 24,
+      "capability_state": "UNTESTED",
+      "notes": "词表只有数字 1-4：5-8 号位置必然出现 <unk>，保留为分布错配对照"
+    },
+    {
+      "skill_id": "skill.tool.arithmetic",
+      "label": "算术（计算器工具）",
+      "tier": "TOOL",
+      "task_family": "arithmetic",
+      "input_schema": {
+        "question": "str"
+      },
+      "output_schema": {
+        "answer": "str"
+      },
+      "difficulty": 2,
+      "prerequisite_skill_ids": [],
+      "verifier_id": "arithmetic_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "tool",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [
+        "calculator"
+      ],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "tool",
+      "max_input_chars": 160,
+      "max_response_tokens": 24,
+      "capability_state": "TOOL_VERIFIED",
+      "notes": "R1 练习族：题面含大量词表外字符（阿拉伯多位数、拉丁标识符、英文标点），父模型读到的是 <unk> 流。有可信外部工具/程序时可验证成功，但其 verified 经验只允许写 memory_only，不得作为神经生成学习目标（任务书 §3.4/§6.4）。"
+    },
+    {
+      "skill_id": "skill.tool.json_extract",
+      "label": "JSON 字段抽取",
+      "tier": "TOOL",
+      "task_family": "json_extract",
+      "input_schema": {
+        "question": "str"
+      },
+      "output_schema": {
+        "answer": "str"
+      },
+      "difficulty": 2,
+      "prerequisite_skill_ids": [],
+      "verifier_id": "json_field_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "tool",
+        "retrieval",
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [
+        "json_extractor"
+      ],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "tool",
+      "max_input_chars": 160,
+      "max_response_tokens": 24,
+      "capability_state": "TOOL_VERIFIED",
+      "notes": "R1 练习族：题面含大量词表外字符（阿拉伯多位数、拉丁标识符、英文标点），父模型读到的是 <unk> 流。有可信外部工具/程序时可验证成功，但其 verified 经验只允许写 memory_only，不得作为神经生成学习目标（任务书 §3.4/§6.4）。"
+    },
+    {
+      "skill_id": "skill.tool.grid_rules",
+      "label": "网格规则（只读程序）",
+      "tier": "TOOL",
+      "task_family": "grid_rules",
+      "input_schema": {
+        "question": "str"
+      },
+      "output_schema": {
+        "answer": "str"
+      },
+      "difficulty": 2,
+      "prerequisite_skill_ids": [],
+      "verifier_id": "grid_rules_program_oracle_v1",
+      "verifier_standalone": true,
+      "allowed_response_sources": [
+        "rule",
+        "abstain"
+      ],
+      "allowed_tools": [],
+      "safe_online_sources": [],
+      "neural_evaluation_enabled": true,
+      "neural_training_allowed": false,
+      "learning_target": "none",
+      "response_source_expected": "tool",
+      "max_input_chars": 160,
+      "max_response_tokens": 24,
+      "capability_state": "TOOL_VERIFIED",
+      "notes": "R1 练习族：题面含大量词表外字符（阿拉伯多位数、拉丁标识符、英文标点），父模型读到的是 <unk> 流。有可信外部工具/程序时可验证成功，但其 verified 经验只允许写 memory_only，不得作为神经生成学习目标（任务书 §3.4/§6.4）。"
+    }
+  ],
+  "rejected": [],
+  "trainable_skill_ids": [
+    "skill.binding.paraphrase",
+    "skill.binding.unseen_entity",
+    "skill.binding.latest_update"
+  ],
+  "selector_config": {
+    "min_gap_pp": 10.0,
+    "exploration_fraction": 0.2,
+    "max_attempts_per_skill": 8,
+    "min_dataset_rows": 16,
+    "expected_cycle_seconds": 20.0,
+    "weights": {
+      "learning_gap": 0.35,
+      "prerequisite_ready": 0.2,
+      "verifier_available": 0.15,
+      "dataset_quality": 0.1,
+      "novelty": 0.1,
+      "expected_cost": 0.05,
+      "forgetting_risk": 0.05
+    }
+  },
+  "capability_states_observed": {
+    "skill.binding.unseen_entity": "ELIGIBLE_NEW_SKILL",
+    "skill.binding.unseen_position": "UNSUPPORTED_VOCAB",
+    "skill.tool.arithmetic": "UNSUPPORTED_VOCAB",
+    "skill.tool.grid_rules": "UNSUPPORTED_VOCAB",
+    "skill.tool.json_extract": "UNSUPPORTED_VOCAB",
+    "skill.binding.combo_probe": "DIAGNOSTIC_ONLY",
+    "skill.binding.latest_update": "ELIGIBLE_NEW_SKILL",
+    "skill.binding.two_entity_swap": "DIAGNOSTIC_ONLY",
+    "skill.binding.paraphrase": "ALREADY_MASTERED",
+    "skill.binding.position_qa": "REPRODUCED_KNOWN_SKILL"
+  }
+}

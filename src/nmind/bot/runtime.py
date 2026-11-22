@@ -34,6 +34,7 @@ import os
 import random
 import time
 import traceback
+from types import SimpleNamespace
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -48,10 +49,13 @@ from ..online.scheduler import SchedulerConfig
 from . import resources
 from .capability_tracker import CapabilityTracker
 from .experience_bridge import VerifiedExperience, build_experience
+from .curriculum import CurriculumConfig, SkillSelector, dataset_stats
 from .goal_manager import GoalManager
 from .policy import BotPolicy
-from .practice import execute_tool, make_sealed_set, make_task, verify
+from .practice import (execute_tool, feedback_state, make_sealed_set, make_task,
+                     program_oracle, verify)
 from .scheduler import BotScheduler
+from .skill_registry import default_registry
 from .status import build_snapshot
 from .store import BotStore
 
@@ -150,6 +154,20 @@ class BotRuntime:
                                                     "rss_peak_mb": 0.0, "cycles": 0},
                                                   **self.store.get_state("resource_totals", {})}
         self.exhausted_families: set[str] = set()
+        # ---- R2：技能注册表 + 能力匹配选择器（Gate-A 产物只读加载，绝不在循环里重算）----
+        self.registry = default_registry()
+        allow = tuple(self.policy.practice_skill_allowlist) or tuple(
+            sk.skill_id for sk in self.registry.trainable())
+        self.selector = SkillSelector(
+            CurriculumConfig(exploration_fraction=self.policy.idle_exploration_fraction),
+            allowed_skill_ids=allow)
+        self._gate_a: dict[str, Any] | None = None
+        self._gate_a_note: str = ""
+        self._dataset_stats_cache: dict[str, Any] | None = None
+        self._recent_skills: list[str] = list(self.store.get_state("recent_skills", []))
+        self._skill_row_cursor = int(self.store.get_state("skill_row_cursor", 0))
+        self.skill_cycles = int(self.store.get_state("skill_cycles", 0))
+        self.dormant_cycles = int(self.store.get_state("dormant_cycles", 0))
         self.cpu_cap: dict[str, Any] = {}
         self._heldout_done: set[str] = set(self.store.get_state("heldout_done", []))
 
@@ -455,6 +473,183 @@ class BotRuntime:
                  "arm": tag, "model_sha": sha or self.stable_sha}
 
 
+    # ---- R2 技能级练习：Gate-A 产物 → 选择器 → 学习流轮换 ----
+    def _capability_matrix(self) -> dict[str, Any] | None:
+        """只读加载 Gate-A 产物。缺失/权重不符就如实返回 None 并说明原因，绝不自行重测基线。"""
+        if self._model is None or self._tokenizer is None:
+            self._gate_a_note = "无 stable 语言权重：技能级练习不可用（只有工具/规则练习）"
+            return None
+        if self._gate_a is not None:
+            return self._gate_a
+        from ..online.promotion import file_sha256
+        repo = Path(__file__).resolve().parents[3]
+        cand = ([Path(self.policy.capability_matrix_path)] if self.policy.capability_matrix_path
+                else [self.root / "baseline_capability_matrix.json",
+                      repo / "results" / "bot_r2" / "baseline_capability_matrix.json"])
+        for path in cand:
+            if not path.exists():
+                continue
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                self._gate_a_note = f"Gate-A 产物不可解析：{type(exc).__name__}: {exc}"
+                return None
+            if data.get("gate") != "GATE_A":
+                self._gate_a_note = f"{path.name} 不是 Gate-A 产物（gate={data.get('gate')!r}）"
+                return None
+            sha = data.get("stable_sha256_state")
+            if self.stable_sha and sha and sha != self.stable_sha:
+                self._gate_a_note = (f"Gate-A 基线已过期：产物 state_hash={sha}，"
+                                     f"当前 stable={self.stable_sha}，必须重跑 Gate-A")
+                return None
+            data["_source_path"] = str(path)
+            data["_source_file_sha256"] = file_sha256(path)[:16]
+            self._gate_a = data
+            self._gate_a_note = f"loaded:{path.name}"
+            return data
+        self._gate_a_note = ("Gate-A 产物不存在：先运行 experiments/bot_runtime_r2/run_gate_a.py"
+                             "（本轮不在 Bot 内重测基线）")
+        return None
+
+    def _select_practice_target(self) -> dict[str, Any] | None:
+        """问选择器"现在该练什么"。返回 None 表示问都没法问（缺权重或缺基线产物）。"""
+        gate = self._capability_matrix()
+        if gate is None:
+            return None
+        if self._dataset_stats_cache is None:
+            per_item = float(gate.get("wall_s") or 0.0) / max(1, int(gate.get("n_measured") or 1))
+            self._dataset_stats_cache = dataset_stats(
+                self._tokenizer, gate, per_item_s=per_item or 0.06)
+        assessments = self.selector.assess(
+            gate_a=gate, registry=self.registry, dataset_stats=self._dataset_stats_cache,
+            recent_families=tuple(self._recent_skills[-3:]))
+        return {"gate_a_verdict": gate.get("verdict"), "assessments": assessments,
+                "pick": self.selector.pick(assessments, cycle_index=self.cycles_done),
+                "matrix_source": self._gate_a_note}
+
+    def _skill_cycle(self, target: dict[str, Any], *, dry_run: bool = False
+                     ) -> dict[str, Any]:
+        """练 Gate-A 认定"独立 oracle + 真实缺口"的相邻技能：只喂学习流行，绝不喂评测集。"""
+        pick = target["pick"]
+        if dry_run:
+            return {"ran": False, "dry_run": True, "practice_kind": "neural_skill",
+                    "skill_plan": {
+                        "status": pick["status"], "selected": pick.get("selected"),
+                        "reason": pick["reason"], "exploration": pick.get("exploration"),
+                        "gate_a_verdict": target["gate_a_verdict"],
+                        "matrix_source": target["matrix_source"],
+                        "rows_per_cycle": self.policy.skill_tasks_per_idle_cycle,
+                        "candidate": self._candidate_plan()}}
+        from ..language import binding_data as bd
+        from . import task_capability_bridge as bridge
+        self._transition("IDLE_PRACTICE", f"技能练习 {pick['selected']['family']}")
+        fam, sid = pick["selected"]["family"], pick["selected"]["skill_id"]
+        rows = bd.build_family(fam, "train")          # 预登记规模；n 覆盖会制造模板饱和假象
+        if not rows:
+            self.store.event(self.run_id, "skill_stream_empty", {"family": fam})
+            return {"ran": False, "early_exit": True, "reason": f"{fam} 学习流为空"}
+        want = max(1, int(self.policy.skill_tasks_per_idle_cycle))
+        picked = [rows[(self._skill_row_cursor + i) % len(rows)] for i in range(want)]
+        specs = {t.fingerprint: t for t in
+                 bridge.binding_specs(self._tokenizer, splits=("train",)) if t.family == fam}
+        attempts: list[dict[str, Any]] = []
+        verified: list[VerifiedExperience] = []
+        for i, task in enumerate(picked):
+            ctrl = self._check_control()
+            if ctrl in ("stop", "pause"):
+                return {**self._control_exit(ctrl, attempts, goal=f"skill:{sid}"),
+                        "early_exit": True}
+            if self.inbox_len():
+                out = self._preempt_for_user(
+                    SimpleNamespace(goal_id=f"skill:{sid}", task_family=fam),
+                    i, attempts, want)
+                out["early_exit"] = True
+                return out
+            spec = specs.get(task.fingerprint)
+            if spec is None:
+                attempts.append({"family": fam, "fingerprint": task.fingerprint,
+                                  "verification": "uncertain", "feedback_source": "unverified",
+                                  "reason": "学习流行缺少对应 TaskSpec（输入桥接漏洞，如实记录）"})
+                continue
+            rec = bridge.attempt(self._model, self._tokenizer, spec)
+            verdict = "verified" if rec["em"] else "rejected"
+            fstate = feedback_state({"family": fam}, verdict, source="deterministic_oracle")
+            exp = build_experience(
+                {"question": task.prompt, "answer": task.target, "family": fam},
+                neural_attempt=rec["predicted"], tool_result=None, verification=verdict,
+                validator_id=bd.ORACLE_ID, model_sha=self.stable_sha,
+                exp_id=f"exp-{self.run_id}-{self.cycles_done}-s{i}",
+                skill_id=sid, response_source="neural", feedback_source=fstate,
+                learning_target="neural_generation")
+            attempts.append({"task_id": task.key(), "fingerprint": task.fingerprint,
+                              "family": fam, "skill_id": sid, "tier": task.tier,
+                              "question": task.prompt, "oracle": bd.oracle_for(task),
+                              "neural_attempt": rec["predicted"], "em": rec["em"],
+                              "verification": verdict, "feedback_source": fstate,
+                              "response_source": "neural",
+                              "learning_target": "neural_generation",
+                              "format": rec["format"], "stop_reason": rec["stop_reason"],
+                              "prompt_unk_rate": rec["prompt_unk_rate"], "sealed": False})
+            verified.append(exp)
+            self._append(self.root / EXPERIENCE_FILE, asdict(exp))
+            self.store.mark_task_done(task.key(), fam, verdict, fingerprint=task.fingerprint)
+            # 逐行记账：一次练习轮里有 4 条题面就该留 4 条实测，
+            # 不能一轮只记 1 次再靠 all() 取与——那样"练了 4 条、台账说测了 1 条"。
+            self.tracker.record_attempt(
+                capability_id=f"{fam}:neural", task_family=fam,
+                success=bool(rec["em"]), path="neural",
+                evidence_id=f"{self.run_id}:c{self.cycles_done}:s{i}",
+                model_sha=self.stable_sha, skill_id=sid,
+                response_source="neural", feedback_source=fstate,
+                learning_target="neural_generation")
+        n_ok = sum(1 for a in attempts if a.get("verification") == "verified")
+        self.cycles_done += 1
+        self.skill_cycles += 1
+        self._recent_skills.append(fam)
+        usage = self.res_window.stop("skill_practice")
+        self._accumulate_resource(usage)
+        result = {"ran": True, "practice_kind": "neural_skill", "goal": f"skill:{sid}",
+                  "task_family": fam, "skill_id": sid, "tier": picked[0].tier,
+                  "gate_a_verdict": target["gate_a_verdict"],
+                  "selection": {"status": pick["status"], "reason": pick["reason"],
+                                 "selection_source": pick["selection_source"],
+                                 "exploration": pick.get("exploration")},
+                  "attempts": attempts, "verified_count": n_ok,
+                  "rejected_count": len(attempts) - n_ok,
+                  "neural_growth_claim": "none（本轮零 optimizer.step，练习只产生候选经验）",
+                  "practice_resource": usage, "capabilities": self.tracker.summary()}
+        self.last_result = f"skill:{sid} verified={n_ok}/{len(attempts)}"
+        return self._finish_cycle(verified, result)
+
+    def _finish_cycle(self, verified: list[VerifiedExperience],
+                      result: dict[str, Any]) -> dict[str, Any]:
+        """技能练习与工具练习共用的收尾：候选计划→日志→资源闸→冷却→落库。"""
+        result["candidate"] = self._maybe_candidate(verified, result)
+        self._append(self.root / "autonomous_cycles.jsonl",
+                     {**{k: v for k, v in result.items() if k != "capabilities"},
+                      "run_id": self.run_id})
+        throttled = self._resource_guard(result.get("practice_resource") or {})
+        if self.state == BotState.AWAITING_APPROVAL:
+            self._transition("COOLDOWN", "候选已进人工审批队列（stable 未变），Bot 继续空闲练习")
+        if self.state == BotState.IDLE_PRACTICE:
+            self._transition("COOLDOWN", "练习完成进入冷却" +
+                             ("（资源超限已加长冷却）" if throttled else ""))
+        self.scheduler.mark_idle_done(now=self.monotonic())
+        self._trim_store()
+        self._persist()
+        self.write_status()
+        result["state"] = self.state.name
+        return result
+
+    def _control_exit(self, ctrl: str, attempts: list[dict[str, Any]], *,
+                      goal: str) -> dict[str, Any]:
+        if ctrl == "stop":
+            (self.root / STOP_FLAG).unlink(missing_ok=True)
+            self.stop("控制文件请求停止")
+            return {"ran": True, "stopped_early": True, "goal": goal, "attempts": attempts}
+        self._transition("PAUSED", "控制文件请求暂停")
+        return {"ran": True, "paused": True, "goal": goal, "attempts": attempts}
+
     def _rotation_exclude(self) -> tuple[str, ...]:
         """只排除最近 rotation_exclude 个族：排除过多会把目标池排空、轮转失效。"""
         k = max(1, int(getattr(self.goals, "rotation_exclude", 2)))
@@ -478,9 +673,21 @@ class BotRuntime:
         if self.state == BotState.ERROR_SAFE:
             return {"ran": False, "reason": "ERROR_SAFE：需显式 nmind bot resume（或 stop）"
                                             "才继续，绝不自动重试可能损坏权重的动作"}
+        target = self._select_practice_target() if self.policy.skill_practice_enabled else None
         if dry_run:
             goal = self.goals.next_goal(self.tracker, exclude=self._rotation_exclude())
+            if target is not None and target["pick"]["status"] == "SELECTED":
+                preview = self._skill_cycle(target, dry_run=True)
+                preview["fallback_goal"] = {"goal": goal.goal_id, "family": goal.task_family,
+                                            "reason": goal.selection_reason}
+                return preview
             return {"ran": False, "dry_run": True,
+                    "skill_target": ({"status": target["pick"]["status"],
+                                       "reason": target["pick"]["reason"],
+                                       "rejected_evidence":
+                                       target["pick"]["rejected_evidence"]}
+                                      if target else {"status": "GATE_A_UNAVAILABLE",
+                                                      "reason": self._gate_a_note}),
                     "plan": {"goal": goal.goal_id, "family": goal.task_family,
                              "reason": goal.selection_reason,
                              "tasks_per_cycle": self.policy.max_tasks_per_idle_cycle,
@@ -497,6 +704,23 @@ class BotRuntime:
         if self.state == BotState.COOLDOWN:
             self._transition("READY", "冷却结束，回到就绪")
         self._transition("IDLE_EXPLORE", "空闲：自主选择练习目标")
+        # R2：先问"有没有与当前能力匹配、且验证器独立的新技能"。没有就如实休眠
+        # （NO_ELIGIBLE_TASK），再退回工具/规则练习——那条路 learning_target=memory_only，
+        # 永不冒充神经成长；这是 R1"练了 81 次却把工具成功记在神经账上"的正解。
+        if target is not None and target["pick"]["status"] == "SELECTED":
+            return self._skill_cycle(target)
+        dormancy: dict[str, Any] | None = None
+        if target is not None:
+            self.dormant_cycles += 1
+            dormancy = {"gate_a_verdict": target["gate_a_verdict"],
+                        "reason": target["pick"]["reason"],
+                        "rejected_evidence": target["pick"]["rejected_evidence"],
+                        "note": "NO_ELIGIBLE_TASK 休眠：对齐没问题，只是暂时没有可学的"
+                                "相邻技能，这不等于神经学习失败"}
+            self.store.event(self.run_id, "no_eligible_task", dormancy)
+        elif self.policy.skill_practice_enabled:
+            self.store.event(self.run_id, "skill_practice_unavailable",
+                              {"reason": self._gate_a_note})
         goal = self.goals.next_goal(self.tracker, exclude=self._rotation_exclude())
         self.store.event(self.run_id, "goal_selected",
                           {"goal_id": goal.goal_id, "family": goal.task_family,
@@ -541,12 +765,24 @@ class BotRuntime:
                 tool_calls = 1
             v_neural = verify(task, neural_attempt)
             v_tool = verify(task, tool_result) if tool_result is not None else None
-            verification = "verified" if "verified" in (v_neural, v_tool) else "rejected"
+            # 拿不到独立基准（program_oracle=None）一律 uncertain：不许写进任何成功账
+            if program_oracle(task) is None:
+                verification, fstate = "uncertain", "unverified"
+            elif "verified" in (v_neural, v_tool):
+                verification, fstate = "verified", "deterministic_oracle"
+            else:
+                verification, fstate = "rejected", "deterministic_oracle"
+            source = ("neural" if v_neural == "verified" else
+                      "rule" if task.get("tool") == "grid_rules" else
+                      "tool" if v_tool == "verified" else
+                      "abstain" if not neural_attempt else "neural")
             exp = build_experience(task, neural_attempt=neural_attempt, tool_result=tool_result,
                                    verification=verification,
                                    validator_id=f"oracle-{goal.task_family}",
                                    model_sha=self.stable_sha,
-                                   exp_id=f"exp-{self.run_id}-{self.cycles_done}-{i}")
+                                   exp_id=f"exp-{self.run_id}-{self.cycles_done}-{i}",
+                                   skill_id=goal.task_family, response_source=source,
+                                   feedback_source=fstate, learning_target="memory_only")
             verified.append(exp)
             self._append(self.root / EXPERIENCE_FILE, asdict(exp))
             self.store.mark_task_done(task["task_id"], goal.task_family, verification,
@@ -556,19 +792,25 @@ class BotRuntime:
                               "oracle": task["answer"], "neural_attempt": neural_attempt,
                               "tool_result": tool_result, "verified_neural": v_neural,
                               "verified_tool": v_tool, "verification": verification,
-                              "sealed": False,
+                              "sealed": False, "feedback_source": fstate,
+                              "response_source": source, "skill_id": goal.task_family,
+                              "learning_target": "memory_only",
                               "outcome_source": ("neural" if v_neural == "verified" else
                                                  "tool" if v_tool == "verified" else "none")})
             self.tracker.record_attempt(
                 capability_id=f"{goal.task_family}:neural", task_family=goal.task_family,
                 success=(v_neural == "verified"), path="neural",
-                evidence_id=exp.experience_id, cost_s=0.0, model_sha=self.stable_sha)
+                evidence_id=exp.experience_id, cost_s=0.0, model_sha=self.stable_sha,
+                skill_id=goal.task_family, response_source="neural",
+                feedback_source=fstate, learning_target="memory_only")
             if tool_result is not None:
                 self.tracker.record_attempt(
                     capability_id=f"{goal.task_family}:tool", task_family=goal.task_family,
                     success=(v_tool == "verified"), path="tool",
                     evidence_id=exp.experience_id, cost_s=0.0, tool_calls=tool_calls,
-                    model_sha=self.stable_sha)
+                    model_sha=self.stable_sha, skill_id=goal.task_family,
+                    response_source=("rule" if task.get("tool") == "grid_rules" else "tool"),
+                    feedback_source=fstate, learning_target="memory_only")
         self.cycles_done += 1
         self._recent_families.append(goal.task_family)
         usage = self.res_window.stop("idle_practice")
@@ -580,6 +822,7 @@ class BotRuntime:
                   "task_space_exhausted": exhausted,
                   "sealed_pool_size": len(self.sealed_set(goal.task_family)),
                   "heldout": heldout,
+                  "skill_dormancy": dormancy,
                   "practice_resource": usage,
                   "capabilities": self.tracker.summary()}
         self.last_result = (f"{goal.task_family} verified="
@@ -805,10 +1048,12 @@ class BotRuntime:
                       ) -> tuple[list[str], list[str]] | None:
         """旧任务重放：从**其他任务族**的 verified 经验里取，用于测遗忘（任务书 §8）。"""
         from .experience_bridge import to_learning_rows
-        old = [e for e in pool if e.task_family != exclude_family]
+        # 重放行只取"当初就是拿来训神经"的经验；工具/规则经验进重放=用非神经数据冒充持续训练
+        old = [e for e in pool if e.task_family != exclude_family
+               and e.learning_target == "neural_generation"]
         if not old:
             return None
-        prompts, answers = to_learning_rows(old[:8])
+        prompts, answers, _skipped = to_learning_rows(old[:8])
         return (prompts, answers) if prompts else None
 
     # ---- 驻留循环（真实 Windows 后台运行）----

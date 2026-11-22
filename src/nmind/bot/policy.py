@@ -40,6 +40,12 @@ class BotPolicy:
     candidate_arms: tuple[str, ...] = ("frozen", "memory", "neural", "negative")
     heldout_per_family: int = 8                  # 每族封存集大小（独立随机流，永不进学习流）
     lambda_replay: float = 0.15
+    # ---- R2：技能级自主练习（能力匹配选择器）----
+    skill_practice_enabled: bool = True          # 关掉就退回 R1 的工具练习-only
+    capability_matrix_path: str = ""             # Gate-A 产物；空=results/bot_r2/baseline_capability_matrix.json
+    practice_skill_allowlist: tuple[str, ...] = ()   # 空=用注册表里 trainable() 的全部技能
+    idle_exploration_fraction: float = 0.2       # 有界确定性探索比例（外部文本不得修改）
+    skill_tasks_per_idle_cycle: int = 8          # 每轮练几条学习流行（不含任何评测集行）
     # 触发阈值（online.scheduler.SchedulerConfig 的 Bot 侧镜像）：实验前预登记，不在跑动中调
     scheduler_verified_threshold: int = 32
     scheduler_max_updates_per_batch: int = 120

@@ -1,0 +1,3270 @@
+{
+  "gate": "GATE_A",
+  "no_training": true,
+  "verdict": "TASK_CAPABILITY_ALIGNED",
+  "summary": "A 复现 EM=1.0；2 个相邻技能有独立 oracle 且缺口达标：latest_statement_update, unseen_entity_qa",
+  "verdicts_vocab": [
+    "TASK_CAPABILITY_ALIGNED",
+    "NEURAL_BASELINE_NOT_REPRODUCED",
+    "INPUT_BRIDGING_UNVERIFIED",
+    "VERIFIER_NOT_STANDALONE",
+    "NO_ELIGIBLE_LEARNING_TASK",
+    "TRAINING_PRECONDITION_FAILED"
+  ],
+  "family_verdicts_vocab": [
+    "ELIGIBLE_NEW_SKILL",
+    "NO_MEASURABLE_GAP",
+    "ALREADY_MASTERED",
+    "REPRODUCED_KNOWN_SKILL",
+    "TOOL_ONLY",
+    "UNSUPPORTED_VOCAB",
+    "DIAGNOSTIC_ONLY",
+    "NO_STANDALONE_ORACLE"
+  ],
+  "stable_sha256_state": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+  "stable_file_sha256": "4165ab3a11e2304217a9cf4f83db255921d891c390a6056c05247c6f8652328a",
+  "a_reproduced": true,
+  "a_sealed_em": 1.0,
+  "eligible_families": [
+    "latest_statement_update",
+    "unseen_entity_qa"
+  ],
+  "families": {
+    "position_qa": {
+      "family": "position_qa",
+      "tier": "A",
+      "skill_id": "skill.binding.position_qa",
+      "neural_em": 1.0,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "REPRODUCED_KNOWN_SKILL",
+      "reason": "已知技能复现 EM=1.0 ≥ 0.9"
+    },
+    "position_qa_paraphrase": {
+      "family": "position_qa_paraphrase",
+      "tier": "B",
+      "skill_id": "skill.binding.paraphrase",
+      "neural_em": 1.0,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": true,
+      "verdict": "ALREADY_MASTERED",
+      "reason": "相邻技能 EM=1.0，缺口 0.0pp < 10.0pp"
+    },
+    "unseen_entity_qa": {
+      "family": "unseen_entity_qa",
+      "tier": "B",
+      "skill_id": "skill.binding.unseen_entity",
+      "neural_em": 0.0,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": true,
+      "verdict": "ELIGIBLE_NEW_SKILL",
+      "reason": "独立 oracle + 缺口 100.0pp ≥ 10.0pp→ 可进 Gate-B 小预算实验"
+    },
+    "unseen_position_qa": {
+      "family": "unseen_position_qa",
+      "tier": "X",
+      "skill_id": "skill.binding.unseen_position",
+      "neural_em": 0.0,
+      "in_vocab": false,
+      "oov_tokens": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "UNSUPPORTED_VOCAB",
+      "reason": "题面/答案含词表外字符，模型只能读到 <unk>；不得作为神经生成学习目标"
+    },
+    "latest_statement_update": {
+      "family": "latest_statement_update",
+      "tier": "B",
+      "skill_id": "skill.binding.latest_update",
+      "neural_em": 0.5,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": true,
+      "verdict": "ELIGIBLE_NEW_SKILL",
+      "reason": "独立 oracle + 缺口 50.0pp ≥ 10.0pp→ 可进 Gate-B 小预算实验"
+    },
+    "binding_swap": {
+      "family": "binding_swap",
+      "tier": "C",
+      "skill_id": "skill.binding.two_entity_swap",
+      "neural_em": 0.3,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "DIAGNOSTIC_ONLY",
+      "reason": "困难技能仅诊断（两实体绑定/组合泛化），未经单独许可不训练"
+    },
+    "combo_probe": {
+      "family": "combo_probe",
+      "tier": "C",
+      "skill_id": "skill.binding.combo_probe",
+      "neural_em": 0.125,
+      "in_vocab": true,
+      "oov_tokens": [],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "DIAGNOSTIC_ONLY",
+      "reason": "困难技能仅诊断（两实体绑定/组合泛化），未经单独许可不训练"
+    },
+    "arithmetic": {
+      "family": "arithmetic",
+      "tier": "TOOL",
+      "skill_id": "skill.tool.arithmetic",
+      "neural_em": 0.0,
+      "in_vocab": false,
+      "oov_tokens": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "于",
+        "加",
+        "多",
+        "少",
+        "等",
+        "算",
+        "计",
+        "请"
+      ],
+      "label_leak": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "UNSUPPORTED_VOCAB",
+      "reason": "题面/答案含词表外字符，模型只能读到 <unk>；不得作为神经生成学习目标",
+      "tool_exec_em": 0.0
+    },
+    "json_extract": {
+      "family": "json_extract",
+      "tier": "TOOL",
+      "skill_id": "skill.tool.json_extract",
+      "neural_em": 0.0,
+      "in_vocab": false,
+      "oov_tokens": [
+        "\"",
+        ",",
+        "18",
+        "19",
+        "21",
+        "27",
+        "29",
+        "30",
+        "31",
+        "32",
+        "37",
+        "44",
+        "46",
+        "47",
+        "49",
+        "51",
+        "53",
+        "58",
+        "59",
+        "60",
+        ":",
+        "JSON",
+        "age",
+        "city",
+        "name",
+        "{",
+        "}",
+        "三",
+        "上",
+        "中",
+        "五",
+        "京",
+        "值",
+        "六",
+        "北",
+        "取",
+        "四",
+        "圳",
+        "多",
+        "字",
+        "少",
+        "州",
+        "广",
+        "张",
+        "提",
+        "是",
+        "李",
+        "段",
+        "海",
+        "深",
+        "王",
+        "赵"
+      ],
+      "label_leak": 24,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "UNSUPPORTED_VOCAB",
+      "reason": "题面/答案含词表外字符，模型只能读到 <unk>；不得作为神经生成学习目标",
+      "tool_exec_em": 1.0
+    },
+    "grid_rules": {
+      "family": "grid_rules",
+      "tier": "TOOL",
+      "skill_id": "skill.tool.grid_rules",
+      "neural_em": 0.0,
+      "in_vocab": false,
+      "oov_tokens": [
+        "(",
+        ")",
+        ",",
+        "0",
+        "3x3",
+        "4x4",
+        "5x5",
+        "上",
+        "下",
+        "从",
+        "则",
+        "动",
+        "只",
+        "后",
+        "向",
+        "回",
+        "坐",
+        "多",
+        "字",
+        "少",
+        "形",
+        "数",
+        "是",
+        "标",
+        "格",
+        "步",
+        "环",
+        "移",
+        "答",
+        "纵",
+        "网",
+        "规",
+        "走"
+      ],
+      "label_leak": 9,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "neural_training_allowed": false,
+      "verdict": "UNSUPPORTED_VOCAB",
+      "reason": "题面/答案含词表外字符，模型只能读到 <unk>；不得作为神经生成学习目标",
+      "tool_exec_em": 1.0
+    }
+  },
+  "matrix": {
+    "position_qa": {
+      "tier": "A",
+      "skill_id": "skill.binding.position_qa",
+      "splits": {
+        "sealed": {
+          "n": 80,
+          "em_hits": 80,
+          "em": 1.0,
+          "ci95": [
+            0.9542,
+            1.0
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 80
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在2号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在3号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小明在4号位置。",
+              "em": 1
+            }
+          ]
+        }
+      },
+      "n_specs": 80,
+      "neural_training_allowed": false
+    },
+    "position_qa_paraphrase": {
+      "tier": "B",
+      "skill_id": "skill.binding.paraphrase",
+      "splits": {
+        "train": {
+          "n": 48,
+          "em_hits": 48,
+          "em": 1.0,
+          "ci95": [
+            0.9259,
+            1.0
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 48
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在2号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在3号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小明在4号位置。",
+              "em": 1
+            }
+          ]
+        },
+        "sealed": {
+          "n": 40,
+          "em_hits": 40,
+          "em": 1.0,
+          "ci95": [
+            0.9124,
+            1.0
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 40
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在2号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在3号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小明在4号位置。",
+              "em": 1
+            }
+          ]
+        }
+      },
+      "n_specs": 88,
+      "neural_training_allowed": true
+    },
+    "unseen_entity_qa": {
+      "tier": "B",
+      "skill_id": "skill.binding.unseen_entity",
+      "splits": {
+        "train": {
+          "n": 48,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.0741
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 48
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小红在1号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小红在2号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小红在1号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小红在2号位置。",
+              "em": 0
+            }
+          ]
+        },
+        "sealed": {
+          "n": 40,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.0876
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 40
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小红在3号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小红在4号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小红在3号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小红在4号位置。",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 88,
+      "neural_training_allowed": true
+    },
+    "unseen_position_qa": {
+      "tier": "X",
+      "skill_id": "skill.binding.unseen_position",
+      "splits": {
+        "train": {
+          "n": 48,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.0741
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 48
+          },
+          "prompt_unk_rate_mean": 0.037,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在5号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在6号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在7号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在8号位置。",
+              "em": 0
+            }
+          ]
+        },
+        "sealed": {
+          "n": 40,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.0876
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 40
+          },
+          "prompt_unk_rate_mean": 0.037,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在5号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在6号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在7号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在8号位置。",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 88,
+      "neural_training_allowed": false
+    },
+    "latest_statement_update": {
+      "tier": "B",
+      "skill_id": "skill.binding.latest_update",
+      "splits": {
+        "train": {
+          "n": 48,
+          "em_hits": 24,
+          "em": 0.5,
+          "ci95": [
+            0.3639,
+            0.6361
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 48
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在2号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在3号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在4号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            }
+          ]
+        },
+        "sealed": {
+          "n": 40,
+          "em_hits": 20,
+          "em": 0.5,
+          "ci95": [
+            0.352,
+            0.648
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 40
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在2号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在3号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小明在4号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            }
+          ]
+        },
+        "unseen_combo": {
+          "n": 24,
+          "em_hits": 7,
+          "em": 0.2917,
+          "ci95": [
+            0.1491,
+            0.4917
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 24
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在2号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在3号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "小明在4号位置。",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 112,
+      "neural_training_allowed": true
+    },
+    "binding_swap": {
+      "tier": "C",
+      "skill_id": "skill.binding.two_entity_swap",
+      "splits": {
+        "sealed": {
+          "n": 60,
+          "em_hits": 18,
+          "em": 0.3,
+          "ci95": [
+            0.199,
+            0.4251
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 60
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在2号位置。",
+              "em": 0
+            }
+          ]
+        },
+        "counterfactual": {
+          "n": 60,
+          "em_hits": 18,
+          "em": 0.3,
+          "ci95": [
+            0.199,
+            0.4251
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 60
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在1号位置。",
+              "em": 1
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小明在2号位置。",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 120,
+      "neural_training_allowed": false
+    },
+    "combo_probe": {
+      "tier": "C",
+      "skill_id": "skill.binding.combo_probe",
+      "splits": {
+        "unseen_combo": {
+          "n": 32,
+          "em_hits": 4,
+          "em": 0.125,
+          "ci95": [
+            0.0497,
+            0.2807
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 1.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 32
+          },
+          "prompt_unk_rate_mean": 0.0,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小红在3号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在3号位置。",
+              "target": "小红在3号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "小红在2号位置。",
+              "em": 0
+            },
+            {
+              "predicted": "小明在1号位置。",
+              "target": "小红在1号位置。",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 32,
+      "neural_training_allowed": false
+    },
+    "arithmetic": {
+      "tier": "TOOL",
+      "skill_id": "skill.tool.arithmetic",
+      "splits": {
+        "sealed": {
+          "n": 24,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.138
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 0.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 24
+          },
+          "prompt_unk_rate_mean": 0.5131,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在2号位置。",
+              "target": "35",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "10",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "25",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "23",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 24,
+      "neural_training_allowed": false
+    },
+    "json_extract": {
+      "tier": "TOOL",
+      "skill_id": "skill.tool.json_extract",
+      "splits": {
+        "sealed": {
+          "n": 24,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.138
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 0.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 24
+          },
+          "prompt_unk_rate_mean": 0.8214,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在2号位置。",
+              "target": "赵六",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "广州",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "上海",
+              "em": 0
+            },
+            {
+              "predicted": "小明在2号位置。",
+              "target": "49",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 24,
+      "neural_training_allowed": false
+    },
+    "grid_rules": {
+      "tier": "TOOL",
+      "skill_id": "skill.tool.grid_rules",
+      "splits": {
+        "sealed": {
+          "n": 24,
+          "em_hits": 0,
+          "em": 0.0,
+          "ci95": [
+            0.0,
+            0.138
+          ],
+          "format_pass": {
+            "nonempty": 1.0,
+            "valid_answer_shape": 0.0,
+            "replaced_char_present": 0.0
+          },
+          "stop_reasons": {
+            "eos": 24
+          },
+          "prompt_unk_rate_mean": 0.7334,
+          "mean_tokens": 8.0,
+          "examples": [
+            {
+              "predicted": "小明在4号位置。",
+              "target": "0",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "0",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "0",
+              "em": 0
+            },
+            {
+              "predicted": "小明在4号位置。",
+              "target": "0",
+              "em": 0
+            }
+          ]
+        }
+      },
+      "n_specs": 24,
+      "neural_training_allowed": false
+    }
+  },
+  "baselines": {
+    "position_qa": {
+      "n": 80,
+      "answer_space_size": 4,
+      "distinct_targets": 4,
+      "random": {
+        "n": 80,
+        "hits": 14,
+        "em": 0.175,
+        "ci95": [
+          0.1072,
+          0.2726
+        ]
+      },
+      "fixed_target": {
+        "n": 80,
+        "hits": 20,
+        "em": 0.25,
+        "ci95": [
+          0.1681,
+          0.3548
+        ]
+      },
+      "rule_binding": {
+        "n": 80,
+        "hits": 80,
+        "em": 1.0,
+        "ci95": [
+          0.9542,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 80,
+        "hits": 80,
+        "em": 1.0,
+        "ci95": [
+          0.9542,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 80,
+        "hits": 80,
+        "em": 1.0,
+        "ci95": [
+          0.9542,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "position_qa_paraphrase": {
+      "n": 88,
+      "answer_space_size": 4,
+      "distinct_targets": 4,
+      "random": {
+        "n": 88,
+        "hits": 22,
+        "em": 0.25,
+        "ci95": [
+          0.1713,
+          0.3496
+        ]
+      },
+      "fixed_target": {
+        "n": 88,
+        "hits": 22,
+        "em": 0.25,
+        "ci95": [
+          0.1713,
+          0.3496
+        ]
+      },
+      "rule_binding": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "unseen_entity_qa": {
+      "n": 88,
+      "answer_space_size": 8,
+      "distinct_targets": 4,
+      "random": {
+        "n": 88,
+        "hits": 11,
+        "em": 0.125,
+        "ci95": [
+          0.0713,
+          0.2101
+        ]
+      },
+      "fixed_target": {
+        "n": 88,
+        "hits": 24,
+        "em": 0.2727,
+        "ci95": [
+          0.1907,
+          0.3738
+        ]
+      },
+      "rule_binding": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "unseen_position_qa": {
+      "n": 88,
+      "answer_space_size": 4,
+      "distinct_targets": 4,
+      "random": {
+        "n": 88,
+        "hits": 28,
+        "em": 0.3182,
+        "ci95": [
+          0.2302,
+          0.4213
+        ]
+      },
+      "fixed_target": {
+        "n": 88,
+        "hits": 22,
+        "em": 0.25,
+        "ci95": [
+          0.1713,
+          0.3496
+        ]
+      },
+      "rule_binding": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 88,
+        "hits": 88,
+        "em": 1.0,
+        "ci95": [
+          0.9582,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "latest_statement_update": {
+      "n": 112,
+      "answer_space_size": 4,
+      "distinct_targets": 4,
+      "random": {
+        "n": 112,
+        "hits": 34,
+        "em": 0.3036,
+        "ci95": [
+          0.2261,
+          0.3941
+        ]
+      },
+      "fixed_target": {
+        "n": 112,
+        "hits": 31,
+        "em": 0.2768,
+        "ci95": [
+          0.2024,
+          0.366
+        ]
+      },
+      "rule_binding": {
+        "n": 112,
+        "hits": 112,
+        "em": 1.0,
+        "ci95": [
+          0.9668,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 112,
+        "hits": 112,
+        "em": 1.0,
+        "ci95": [
+          0.9668,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 112,
+        "hits": 112,
+        "em": 1.0,
+        "ci95": [
+          0.9668,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "binding_swap": {
+      "n": 120,
+      "answer_space_size": 8,
+      "distinct_targets": 8,
+      "random": {
+        "n": 120,
+        "hits": 14,
+        "em": 0.1167,
+        "ci95": [
+          0.0708,
+          0.1863
+        ]
+      },
+      "fixed_target": {
+        "n": 120,
+        "hits": 18,
+        "em": 0.15,
+        "ci95": [
+          0.097,
+          0.2247
+        ]
+      },
+      "rule_binding": {
+        "n": 120,
+        "hits": 120,
+        "em": 1.0,
+        "ci95": [
+          0.969,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 120,
+        "hits": 48,
+        "em": 0.4,
+        "ci95": [
+          0.3168,
+          0.4894
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 120,
+        "hits": 120,
+        "em": 1.0,
+        "ci95": [
+          0.969,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "combo_probe": {
+      "n": 32,
+      "answer_space_size": 4,
+      "distinct_targets": 8,
+      "random": {
+        "n": 32,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.1072
+        ]
+      },
+      "fixed_target": {
+        "n": 32,
+        "hits": 7,
+        "em": 0.2188,
+        "ci95": [
+          0.1102,
+          0.3876
+        ]
+      },
+      "rule_binding": {
+        "n": 32,
+        "hits": 32,
+        "em": 1.0,
+        "ci95": [
+          0.8928,
+          1.0
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 32,
+        "hits": 32,
+        "em": 1.0,
+        "ci95": [
+          0.8928,
+          1.0
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 32,
+        "hits": 32,
+        "em": 1.0,
+        "ci95": [
+          0.8928,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 1.0
+    },
+    "arithmetic": {
+      "n": 24,
+      "answer_space_size": 18,
+      "distinct_targets": 18,
+      "random": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "fixed_target": {
+        "n": 24,
+        "hits": 1,
+        "em": 0.0417,
+        "ci95": [
+          0.0074,
+          0.2024
+        ]
+      },
+      "rule_binding": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 24,
+        "hits": 24,
+        "em": 1.0,
+        "ci95": [
+          0.862,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 0.0
+    },
+    "json_extract": {
+      "n": 24,
+      "answer_space_size": 14,
+      "distinct_targets": 14,
+      "random": {
+        "n": 24,
+        "hits": 1,
+        "em": 0.0417,
+        "ci95": [
+          0.0074,
+          0.2024
+        ]
+      },
+      "fixed_target": {
+        "n": 24,
+        "hits": 2,
+        "em": 0.0833,
+        "ci95": [
+          0.0232,
+          0.2585
+        ]
+      },
+      "rule_binding": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 24,
+        "hits": 24,
+        "em": 1.0,
+        "ci95": [
+          0.862,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 0.0
+    },
+    "grid_rules": {
+      "n": 24,
+      "answer_space_size": 5,
+      "distinct_targets": 5,
+      "random": {
+        "n": 24,
+        "hits": 1,
+        "em": 0.0417,
+        "ci95": [
+          0.0074,
+          0.2024
+        ]
+      },
+      "fixed_target": {
+        "n": 24,
+        "hits": 11,
+        "em": 0.4583,
+        "ci95": [
+          0.2789,
+          0.6493
+        ]
+      },
+      "rule_binding": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "rule_recency_shortcut": {
+        "n": 24,
+        "hits": 0,
+        "em": 0.0,
+        "ci95": [
+          0.0,
+          0.138
+        ]
+      },
+      "ceiling_oracle": {
+        "n": 24,
+        "hits": 24,
+        "em": 1.0,
+        "ci95": [
+          0.862,
+          1.0
+        ]
+      },
+      "rule_binding_coverage": 0.0
+    }
+  },
+  "tool_ledger": {
+    "arithmetic": {
+      "n": 24,
+      "tool_available": 24,
+      "tool_exec_correct": 0,
+      "neural_selected_tool": 24,
+      "label_leak": 0,
+      "skill_id": "skill.tool.arithmetic",
+      "oracle_id": "arithmetic_oracle_v1",
+      "learning_target": "none",
+      "tool_errors": [],
+      "samples": [
+        {
+          "question": "请计算：16加19等于多少？",
+          "target": "35",
+          "selection_source": "rule"
+        },
+        {
+          "question": "请计算：6加4等于多少？",
+          "target": "10",
+          "selection_source": "rule"
+        }
+      ],
+      "tool_exec_em": 0.0,
+      "attribution_note": "神经决策账≠工具执行账：selection_source=rule 的固定绑定只证明路由存在，不证明模型学会选工具；工具算对也不等于神经能力增长"
+    },
+    "json_extract": {
+      "n": 24,
+      "tool_available": 24,
+      "tool_exec_correct": 24,
+      "neural_selected_tool": 24,
+      "label_leak": 24,
+      "skill_id": "skill.tool.json_extract",
+      "oracle_id": "json_field_oracle_v1",
+      "learning_target": "none",
+      "tool_errors": [],
+      "samples": [
+        {
+          "question": "JSON字段提取：{\"name\": \"赵六\", \"city\": \"广州\", \"age\": 27} 中字段 name 的值是多少？",
+          "target": "赵六",
+          "selection_source": "rule"
+        },
+        {
+          "question": "JSON字段提取：{\"name\": \"李四\", \"city\": \"广州\", \"age\": 31} 中字段 city 的值是多少？",
+          "target": "广州",
+          "selection_source": "rule"
+        }
+      ],
+      "tool_exec_em": 1.0,
+      "attribution_note": "神经决策账≠工具执行账：selection_source=rule 的固定绑定只证明路由存在，不证明模型学会选工具；工具算对也不等于神经能力增长"
+    },
+    "grid_rules": {
+      "n": 24,
+      "tool_available": 24,
+      "tool_exec_correct": 24,
+      "neural_selected_tool": 24,
+      "label_leak": 9,
+      "skill_id": "skill.tool.grid_rules",
+      "oracle_id": "grid_rules_program_oracle_v1",
+      "learning_target": "none",
+      "tool_errors": [],
+      "samples": [
+        {
+          "question": "网格规则：4x4 网格环形上下移动。从坐标 (2,1) 向上走 1 步后的纵坐标是多少？只回答数字。",
+          "target": "0",
+          "selection_source": "rule"
+        },
+        {
+          "question": "网格规则：5x5 网格环形上下移动。从坐标 (4,2) 向上走 2 步后的纵坐标是多少？只回答数字。",
+          "target": "0",
+          "selection_source": "rule"
+        }
+      ],
+      "tool_exec_em": 1.0,
+      "attribution_note": "神经决策账≠工具执行账：selection_source=rule 的固定绑定只证明路由存在，不证明模型学会选工具；工具算对也不等于神经能力增长"
+    }
+  },
+  "counterfactual": {
+    "n_pairs": 12,
+    "n_items": 24,
+    "follow_rate": 0.0,
+    "follow_hits": 0,
+    "ci95": [
+      0.0,
+      0.2425
+    ],
+    "recency_shortcut_items": 0,
+    "shortcut_item_rate": 0.0,
+    "mechanism": {
+      "counts": {
+        "correct_binding": 6,
+        "recency_shortcut": 0,
+        "first_statement_shortcut": 8,
+        "other": 10
+      },
+      "n": 24,
+      "rates": {
+        "correct_binding": 0.25,
+        "recency_shortcut": 0.0,
+        "first_statement_shortcut": 0.3333,
+        "other": 0.4167
+      },
+      "examples": [
+        {
+          "query_entity": "小红",
+          "target": "小红在2号位置。",
+          "predicted": "小明在1号位置。",
+          "kind": "first_statement_shortcut"
+        },
+        {
+          "query_entity": "小红",
+          "target": "小红在3号位置。",
+          "predicted": "小明在1号位置。",
+          "kind": "first_statement_shortcut"
+        },
+        {
+          "query_entity": "小红",
+          "target": "小红在4号位置。",
+          "predicted": "小明在1号位置。",
+          "kind": "first_statement_shortcut"
+        },
+        {
+          "query_entity": "小明",
+          "target": "小明在2号位置。",
+          "predicted": "小明在1号位置。",
+          "kind": "other"
+        },
+        {
+          "query_entity": "小红",
+          "target": "小红在1号位置。",
+          "predicted": "小明在1号位置。",
+          "kind": "other"
+        },
+        {
+          "query_entity": "小明",
+          "target": "小明在2号位置。",
+          "predicted": "小明在3号位置。",
+          "kind": "other"
+        }
+      ]
+    },
+    "per_pair_example": [
+      {
+        "context": "用户：小明在1号位置。小红在2号位置。",
+        "items": [
+          {
+            "query_entity": "小明",
+            "target": "小明在1号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": true,
+            "recency_shortcut": false
+          },
+          {
+            "query_entity": "小红",
+            "target": "小红在2号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": false,
+            "recency_shortcut": false
+          }
+        ],
+        "followed_query_entity": false
+      },
+      {
+        "context": "用户：小明在1号位置。小红在3号位置。",
+        "items": [
+          {
+            "query_entity": "小明",
+            "target": "小明在1号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": true,
+            "recency_shortcut": false
+          },
+          {
+            "query_entity": "小红",
+            "target": "小红在3号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": false,
+            "recency_shortcut": false
+          }
+        ],
+        "followed_query_entity": false
+      },
+      {
+        "context": "用户：小明在1号位置。小红在4号位置。",
+        "items": [
+          {
+            "query_entity": "小明",
+            "target": "小明在1号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": true,
+            "recency_shortcut": false
+          },
+          {
+            "query_entity": "小红",
+            "target": "小红在4号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": false,
+            "recency_shortcut": false
+          }
+        ],
+        "followed_query_entity": false
+      },
+      {
+        "context": "用户：小明在2号位置。小红在1号位置。",
+        "items": [
+          {
+            "query_entity": "小明",
+            "target": "小明在2号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": false,
+            "recency_shortcut": false
+          },
+          {
+            "query_entity": "小红",
+            "target": "小红在1号位置。",
+            "predicted": "小明在1号位置。",
+            "correct": false,
+            "recency_shortcut": false
+          }
+        ],
+        "followed_query_entity": false
+      }
+    ],
+    "note": "EM 达标但 follow_rate 低 = 走了某条捷径，不算绑定能力（任务书 §3.2 第 6 项）"
+  },
+  "leakage_and_vocab": {
+    "arithmetic": {
+      "vocab": {
+        "n_tasks": 24,
+        "oov_tokens": [
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "于",
+          "加",
+          "多",
+          "少",
+          "等",
+          "算",
+          "计",
+          "请"
+        ],
+        "in_vocab": false,
+        "tasks_with_any_oov": 24,
+        "prompt_unk_rate_mean": 0.5131
+      },
+      "leakage": {
+        "n_tasks": 24,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 24
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 160,
+      "longest_prompt_chars": 21
+    },
+    "binding_swap": {
+      "vocab": {
+        "n_tasks": 120,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 120,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 24,
+        "distinct_targets": 8,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 30
+    },
+    "combo_probe": {
+      "vocab": {
+        "n_tasks": 32,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 32,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 32,
+        "distinct_targets": 8,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 40
+    },
+    "grid_rules": {
+      "vocab": {
+        "n_tasks": 24,
+        "oov_tokens": [
+          "(",
+          ")",
+          ",",
+          "0",
+          "3x3",
+          "4x4",
+          "5x5",
+          "上",
+          "下",
+          "从",
+          "则",
+          "动",
+          "只",
+          "后",
+          "向",
+          "回",
+          "坐",
+          "多",
+          "字",
+          "少",
+          "形",
+          "数",
+          "是",
+          "标",
+          "格",
+          "步",
+          "环",
+          "移",
+          "答",
+          "纵",
+          "网",
+          "规",
+          "走"
+        ],
+        "in_vocab": false,
+        "tasks_with_any_oov": 24,
+        "prompt_unk_rate_mean": 0.7334
+      },
+      "leakage": {
+        "n_tasks": 24,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 24
+      },
+      "label_leak_from_input": 9,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 160,
+      "longest_prompt_chars": 57
+    },
+    "json_extract": {
+      "vocab": {
+        "n_tasks": 24,
+        "oov_tokens": [
+          "\"",
+          ",",
+          "18",
+          "19",
+          "21",
+          "27",
+          "29",
+          "30",
+          "31",
+          "32",
+          "37",
+          "44",
+          "46",
+          "47",
+          "49",
+          "51",
+          "53",
+          "58",
+          "59",
+          "60",
+          ":",
+          "JSON",
+          "age",
+          "city",
+          "name",
+          "{",
+          "}",
+          "三",
+          "上",
+          "中",
+          "五",
+          "京",
+          "值",
+          "六",
+          "北",
+          "取",
+          "四",
+          "圳",
+          "多",
+          "字",
+          "少",
+          "州",
+          "广",
+          "张",
+          "提",
+          "是",
+          "李",
+          "段",
+          "海",
+          "深",
+          "王",
+          "赵"
+        ],
+        "in_vocab": false,
+        "tasks_with_any_oov": 24,
+        "prompt_unk_rate_mean": 0.8214
+      },
+      "leakage": {
+        "n_tasks": 24,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 24
+      },
+      "label_leak_from_input": 24,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 160,
+      "longest_prompt_chars": 71
+    },
+    "latest_statement_update": {
+      "vocab": {
+        "n_tasks": 64,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 64,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 28,
+        "distinct_targets": 4,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 37
+    },
+    "position_qa": {
+      "vocab": {
+        "n_tasks": 80,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 80,
+        "n_prompts_in_parent_train": 80,
+        "overlap_rate": 1.0,
+        "distinct_prompts": 16,
+        "distinct_targets": 4,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 29
+    },
+    "position_qa_paraphrase": {
+      "vocab": {
+        "n_tasks": 40,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 40,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 15,
+        "distinct_targets": 4,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 32
+    },
+    "unseen_entity_qa": {
+      "vocab": {
+        "n_tasks": 40,
+        "oov_tokens": [],
+        "tasks_with_any_oov": 0,
+        "prompt_unk_rate_mean": 0.0,
+        "target_unk_rate_mean": 0.0,
+        "in_vocab": true,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 40,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 8,
+        "distinct_targets": 2,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 29
+    },
+    "unseen_position_qa": {
+      "vocab": {
+        "n_tasks": 40,
+        "oov_tokens": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "tasks_with_any_oov": 40,
+        "prompt_unk_rate_mean": 0.037,
+        "target_unk_rate_mean": 0.125,
+        "in_vocab": false,
+        "vocab_tokens": [
+          "\n",
+          "1",
+          "2",
+          "3",
+          "4",
+          "。",
+          "了",
+          "位",
+          "到",
+          "助",
+          "号",
+          "哪",
+          "在",
+          "好",
+          "小",
+          "户",
+          "手",
+          "收",
+          "明",
+          "用",
+          "白",
+          "的",
+          "红",
+          "置",
+          "里",
+          "：",
+          "？"
+        ],
+        "vocab_size": 31,
+        "vocab_hash": "08387866cef10d83",
+        "unsupported_vocab_families": {
+          "unseen_position_values": {
+            "required_chars": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
+            "oov_in_this_vocab": [
+              "5",
+              "6",
+              "7",
+              "8"
+            ]
+          },
+          "update_command": {
+            "required_chars": [
+              "动",
+              "把",
+              "移"
+            ],
+            "oov_in_this_vocab": [
+              "动",
+              "把",
+              "移"
+            ]
+          },
+          "coreference_pronoun": {
+            "required_chars": [
+              "他"
+            ],
+            "oov_in_this_vocab": [
+              "他"
+            ]
+          },
+          "negation_query": {
+            "required_chars": [
+              "不",
+              "是"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "是"
+            ]
+          },
+          "unmentioned_abstain": {
+            "required_chars": [
+              "不",
+              "知",
+              "道"
+            ],
+            "oov_in_this_vocab": [
+              "不",
+              "知",
+              "道"
+            ]
+          }
+        }
+      },
+      "leakage": {
+        "n_tasks": 40,
+        "n_prompts_in_parent_train": 0,
+        "overlap_rate": 0.0,
+        "distinct_prompts": 15,
+        "distinct_targets": 4,
+        "distinct_parent_prompts": 16,
+        "note": "A 组模板空间只有 4 位置×4 确认语=16 条，必然与父模型训练文本重叠；因此 A 的封存集只证明复现，泛化证据来自未见取值/未见实体的 B 组探针"
+      },
+      "label_leak_from_input": 0,
+      "oracle_standalone": true,
+      "oracle_agrees_with_labels": true,
+      "max_input_chars": 64,
+      "longest_prompt_chars": 29
+    }
+  },
+  "thresholds": {
+    "a_reproduced_em_min": 0.9,
+    "mastered_em": 0.9,
+    "eligible_gap_pp": 10.0
+  },
+  "n_specs": 680,
+  "n_measured": 680,
+  "wall_s": 58.15,
+  "ts": "2026-11-22T17:28:12+0800",
+  "gate_a_eligibility": {
+    "note": "bridge 的 ELIGIBLE_NEW_SKILL 只看缺口与 oracle；P2 选择器再查“学习流与未见测试集在输入指纹层面是否互斥”。两者都过才算可进 Gate-B。",
+    "bridge_eligible_families": [
+      "latest_statement_update",
+      "unseen_entity_qa"
+    ],
+    "bridge_eligible_skills": [
+      "skill.binding.unseen_entity",
+      "skill.binding.latest_update"
+    ],
+    "eligible_gap_set": [
+      "skill.binding.unseen_entity"
+    ],
+    "blocked_by_selector": [
+      {
+        "skill_id": "skill.binding.latest_update",
+        "family": "latest_statement_update",
+        "tier": "B",
+        "gate_a_verdict": "ELIGIBLE_NEW_SKILL",
+        "neural_em": 0.5,
+        "gap_pp": 50.0,
+        "score": 0.7083,
+        "rejections": [
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 4 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练"
+        ]
+      }
+    ],
+    "all_assessments": [
+      {
+        "skill_id": "skill.binding.unseen_entity",
+        "family": "unseen_entity_qa",
+        "tier": "B",
+        "eligible": true,
+        "gate_a_verdict": "ELIGIBLE_NEW_SKILL",
+        "neural_em": 0.0,
+        "gap_pp": 100.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 1.0,
+        "novelty": 1.0,
+        "expected_cost": 0.1026,
+        "forgetting_risk": 0.1111,
+        "template_space": 16,
+        "stream_disjoint": true,
+        "reasons": [
+          "Gate-A=ELIGIBLE_NEW_SKILL",
+          "实测 EM=0.0",
+          "缺口 100.0pp"
+        ],
+        "rejections": [],
+        "components": {
+          "learning_gap": 0.35,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.1,
+          "novelty": 0.1,
+          "expected_cost": 0.04487,
+          "forgetting_risk": 0.044445000000000005
+        },
+        "score": 0.9893
+      },
+      {
+        "skill_id": "skill.binding.unseen_position",
+        "family": "unseen_position_qa",
+        "tier": "X",
+        "eligible": false,
+        "gate_a_verdict": "UNSUPPORTED_VOCAB",
+        "neural_em": 0.0,
+        "gap_pp": 100.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0625,
+        "novelty": 1.0,
+        "expected_cost": 0.1026,
+        "forgetting_risk": 0.1852,
+        "template_space": 16,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=UNSUPPORTED_VOCAB",
+          "实测 EM=0.0",
+          "缺口 100.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.binding.unseen_position",
+          "题面含词表外字符（UNK 流），不能作神经目标",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 16 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=X ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.35,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.00625,
+          "novelty": 0.1,
+          "expected_cost": 0.04487,
+          "forgetting_risk": 0.04074
+        },
+        "score": 0.8919
+      },
+      {
+        "skill_id": "skill.tool.arithmetic",
+        "family": "arithmetic",
+        "tier": "TOOL",
+        "eligible": false,
+        "gate_a_verdict": "UNSUPPORTED_VOCAB",
+        "neural_em": 0.0,
+        "gap_pp": 100.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 1.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.2,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=UNSUPPORTED_VOCAB",
+          "实测 EM=0.0",
+          "缺口 100.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.tool.arithmetic",
+          "题面含词表外字符（UNK 流），不能作神经目标",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=TOOL ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.35,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.1,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.04000000000000001
+        },
+        "score": 0.89
+      },
+      {
+        "skill_id": "skill.tool.grid_rules",
+        "family": "grid_rules",
+        "tier": "TOOL",
+        "eligible": false,
+        "gate_a_verdict": "UNSUPPORTED_VOCAB",
+        "neural_em": 0.0,
+        "gap_pp": 100.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 1.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.2,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=UNSUPPORTED_VOCAB",
+          "实测 EM=0.0",
+          "缺口 100.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.tool.grid_rules",
+          "题面含词表外字符（UNK 流），不能作神经目标",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=TOOL ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.35,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.1,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.04000000000000001
+        },
+        "score": 0.89
+      },
+      {
+        "skill_id": "skill.tool.json_extract",
+        "family": "json_extract",
+        "tier": "TOOL",
+        "eligible": false,
+        "gate_a_verdict": "UNSUPPORTED_VOCAB",
+        "neural_em": 0.0,
+        "gap_pp": 100.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 1.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.2,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=UNSUPPORTED_VOCAB",
+          "实测 EM=0.0",
+          "缺口 100.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.tool.json_extract",
+          "题面含词表外字符（UNK 流），不能作神经目标",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=TOOL ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.35,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.1,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.04000000000000001
+        },
+        "score": 0.89
+      },
+      {
+        "skill_id": "skill.binding.combo_probe",
+        "family": "combo_probe",
+        "tier": "C",
+        "eligible": false,
+        "gate_a_verdict": "DIAGNOSTIC_ONLY",
+        "neural_em": 0.125,
+        "gap_pp": 87.5,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 0.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.0,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=DIAGNOSTIC_ONLY",
+          "实测 EM=0.125",
+          "缺口 87.5pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.binding.combo_probe",
+          "困难技能仅诊断，未经单独许可不得训练",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=C ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.30624999999999997,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.0,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.05
+        },
+        "score": 0.7562
+      },
+      {
+        "skill_id": "skill.binding.latest_update",
+        "family": "latest_statement_update",
+        "tier": "B",
+        "eligible": false,
+        "gate_a_verdict": "ELIGIBLE_NEW_SKILL",
+        "neural_em": 0.5,
+        "gap_pp": 50.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 1.0,
+        "expected_cost": 0.1026,
+        "forgetting_risk": 0.2308,
+        "template_space": 4,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=ELIGIBLE_NEW_SKILL",
+          "实测 EM=0.5",
+          "缺口 50.0pp"
+        ],
+        "rejections": [
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 4 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练"
+        ],
+        "components": {
+          "learning_gap": 0.175,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.1,
+          "expected_cost": 0.04487,
+          "forgetting_risk": 0.03846
+        },
+        "score": 0.7083
+      },
+      {
+        "skill_id": "skill.binding.two_entity_swap",
+        "family": "binding_swap",
+        "tier": "C",
+        "eligible": false,
+        "gate_a_verdict": "DIAGNOSTIC_ONLY",
+        "neural_em": 0.3,
+        "gap_pp": 70.0,
+        "prerequisite_ready": 0.5,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 0.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.0,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=DIAGNOSTIC_ONLY",
+          "实测 EM=0.3",
+          "缺口 70.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.binding.two_entity_swap",
+          "困难技能仅诊断，未经单独许可不得训练",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "tier=C ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.24499999999999997,
+          "prerequisite_ready": 0.1,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.0,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.05
+        },
+        "score": 0.595
+      },
+      {
+        "skill_id": "skill.binding.paraphrase",
+        "family": "position_qa_paraphrase",
+        "tier": "B",
+        "eligible": false,
+        "gate_a_verdict": "ALREADY_MASTERED",
+        "neural_em": 1.0,
+        "gap_pp": 0.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0625,
+        "novelty": 1.0,
+        "expected_cost": 0.1026,
+        "forgetting_risk": 0.0,
+        "template_space": 16,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=ALREADY_MASTERED",
+          "实测 EM=1.0",
+          "缺口 0.0pp"
+        ],
+        "rejections": [
+          "相邻技能已掌握（EM=1.0），无可靠缺口",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 16 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "缺口 0.0pp < 预登记阈值 10.0pp"
+        ],
+        "components": {
+          "learning_gap": 0.0,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.00625,
+          "novelty": 0.1,
+          "expected_cost": 0.04487,
+          "forgetting_risk": 0.05
+        },
+        "score": 0.5511
+      },
+      {
+        "skill_id": "skill.binding.position_qa",
+        "family": "position_qa",
+        "tier": "A",
+        "eligible": false,
+        "gate_a_verdict": "REPRODUCED_KNOWN_SKILL",
+        "neural_em": 1.0,
+        "gap_pp": 0.0,
+        "prerequisite_ready": 1.0,
+        "verifier_available": 1.0,
+        "dataset_quality": 0.0,
+        "novelty": 0.0,
+        "expected_cost": 0.0,
+        "forgetting_risk": 0.0,
+        "template_space": 0,
+        "stream_disjoint": false,
+        "reasons": [
+          "Gate-A=REPRODUCED_KNOWN_SKILL",
+          "实测 EM=1.0",
+          "缺口 0.0pp"
+        ],
+        "rejections": [
+          "skill_id 不在策略白名单：skill.binding.position_qa",
+          "A 组是已知技能，重复训练只会制造虚假收益",
+          "学习流数据不足（预登记 train 行为 0 或与未见测试集完全重叠）",
+          "学习流与未见测试集在输入指纹层面不互斥（模板空间仅 0 个不同输入）→ 无法区分'泛化'与'背过'，本轮不训练",
+          "缺口 0.0pp < 预登记阈值 10.0pp",
+          "tier=A ≠ B（只有相邻新技能允许自主训练）",
+          "注册表声明该技能不允许神经训练"
+        ],
+        "components": {
+          "learning_gap": 0.0,
+          "prerequisite_ready": 0.2,
+          "verifier_available": 0.15,
+          "dataset_quality": 0.0,
+          "novelty": 0.0,
+          "expected_cost": 0.05,
+          "forgetting_risk": 0.05
+        },
+        "score": 0.45
+      }
+    ],
+    "dataset_stats": {
+      "position_qa": {
+        "n_train": 0,
+        "train_sealed_overlap_rate": 1.0,
+        "parent_overlap_rate": 1.0,
+        "est_cycle_s": 0.0,
+        "distribution_distance": 0.0,
+        "stream_disjoint": false,
+        "no_dataset_reason": "KeyError: '族 position_qa 未预登记 split=train'"
+      },
+      "position_qa_paraphrase": {
+        "n_train": 48,
+        "n_unique_train": 16,
+        "n_eval": 40,
+        "n_unique_eval": 15,
+        "eval_split": "sealed",
+        "template_space": 16,
+        "stream_disjoint": false,
+        "train_sealed_overlap_rate": 0.9375,
+        "parent_overlap_rate": 0.0,
+        "distinct_combos": 4,
+        "distribution_distance": 0.0,
+        "distribution_metric": "jaccard_token_distance_vs_parent_train(estimate)",
+        "est_cycle_s": 2.052,
+        "per_item_s": 0.08551
+      },
+      "unseen_entity_qa": {
+        "n_train": 48,
+        "n_unique_train": 8,
+        "n_eval": 40,
+        "n_unique_eval": 8,
+        "eval_split": "sealed",
+        "template_space": 16,
+        "stream_disjoint": true,
+        "train_sealed_overlap_rate": 0.0,
+        "parent_overlap_rate": 0.0,
+        "distinct_combos": 2,
+        "distribution_distance": 0.1111,
+        "distribution_metric": "jaccard_token_distance_vs_parent_train(estimate)",
+        "est_cycle_s": 2.052,
+        "per_item_s": 0.08551
+      },
+      "unseen_position_qa": {
+        "n_train": 48,
+        "n_unique_train": 16,
+        "n_eval": 40,
+        "n_unique_eval": 15,
+        "eval_split": "sealed",
+        "template_space": 16,
+        "stream_disjoint": false,
+        "train_sealed_overlap_rate": 0.9375,
+        "parent_overlap_rate": 0.0,
+        "distinct_combos": 4,
+        "distribution_distance": 0.1852,
+        "distribution_metric": "jaccard_token_distance_vs_parent_train(estimate)",
+        "est_cycle_s": 2.052,
+        "per_item_s": 0.08551
+      },
+      "latest_statement_update": {
+        "n_train": 48,
+        "n_unique_train": 4,
+        "n_eval": 40,
+        "n_unique_eval": 4,
+        "eval_split": "sealed",
+        "template_space": 4,
+        "stream_disjoint": false,
+        "train_sealed_overlap_rate": 1.0,
+        "parent_overlap_rate": 0.0,
+        "distinct_combos": 4,
+        "distribution_distance": 0.2308,
+        "distribution_metric": "jaccard_token_distance_vs_parent_train(estimate)",
+        "est_cycle_s": 2.052,
+        "per_item_s": 0.08551
+      },
+      "binding_swap": {
+        "n_train": 0,
+        "train_sealed_overlap_rate": 1.0,
+        "parent_overlap_rate": 1.0,
+        "est_cycle_s": 0.0,
+        "distribution_distance": 0.0,
+        "stream_disjoint": false,
+        "no_dataset_reason": "KeyError: '族 binding_swap 未预登记 split=train'"
+      },
+      "combo_probe": {
+        "n_train": 0,
+        "train_sealed_overlap_rate": 1.0,
+        "parent_overlap_rate": 1.0,
+        "est_cycle_s": 0.0,
+        "distribution_distance": 0.0,
+        "stream_disjoint": false,
+        "no_dataset_reason": "KeyError: '族 combo_probe 未预登记 split=train'"
+      }
+    },
+    "per_item_s": 0.08551,
+    "thresholds_preregistered": {
+      "min_gap_pp": 10.0,
+      "min_dataset_rows": 16,
+      "exploration_fraction": 0.2,
+      "max_attempts_per_skill": 8
+    }
+  },
+  "lm_manifest": {
+    "steps": 600,
+    "seed": 20261402,
+    "parent_checkpoint_sha256": "random-init",
+    "saved_at": "2026-11-22T13:48:34+0800",
+    "data_manifest_hash": "[[\"用户：小明在1号位置。\\n"
+  }
+}

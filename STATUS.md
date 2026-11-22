@@ -121,6 +121,16 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **未做**：P4 真实联网（默认关闭，需单独授权）、P5 开机自启/GUI 面板/exe 打包；grid_rules 仍没有程序 oracle 工具路径（该族 27/27 rejected，tool 侧记 null）。
 - **环境实测提醒**：本会话解释器 `torch 2.10.0+cpu`（本文上方 11-21 记录的 cu128 + RTX 5070 与本轮实测不一致）；R1 全程 CPU、零网络、零外部模型 API。
 
+## Agent Runtime R2：任务-能力对齐审计与技能级练习改造（2026-11-22 第七轮）
+
+- **P0 审计先行**：`docs/bot_r2_code_map.md` 在任何 R2 代码改动前落盘（基线 commit `291a263`，工作树干净），确认 R1 神经零增长的机制是**任务分布与词表不匹配**——stable checkpoint（m52_s0）词表仅 31 token（中文绑定域），R1 三族题面（算术/JSON/网格规则）字符集与之几乎不相交，每字符退化为 UNK；验证器把"工具算对"当"神经学会"的监督目标；台账把工具/规则/神经成功混记同一族。结论：不是训练不足，是"喂错了"。
+- **新增四模块**：`language/binding_data.py`（A/B/C 绑定任务数据层，A 组模板与 M5.2 `run_m52` 同源逐字节一致）；`bot/task_capability_bridge.py`（TaskSpec 统一视图 + `run_gate_a`）；`bot/skill_registry.py`（SkillSpec + 与桥接/选择器共享归因词表）；`bot/curriculum.py`（SkillSelector 技能级可学资格评分，与 GoalManager 族级选择分工，各自写 selection_source）。
+- **Gate-A（只测零训练）判定 `TASK_CAPABILITY_ALIGNED`**（`experiments/bot_runtime_r2/` 三工件 + `results/bot_r2/` 运行时镜像）：A 组复现 sealed free-gen EM=**1.0**（神经基线可用，Gate-B 抗遗忘锚点成立）；`unseen_entity_qa` 缺口 50pp 且有独立 oracle、学习流/未见测试集输入指纹互斥 → 可进 Gate-B；`latest_statement_update` 被选择器拦截（模板空间仅 4 个不同输入，无法区分泛化与背诵）；R1 三族改按 TOOL 记账；C 组仅诊断、未经单独许可不训练。
+- **旧实现收口（R2 必须改，非重写）**：`capability_tracker` 升六级口径 + response_source/feedback_source/learning_target/capability_state 四列归因（词表校验，缺一按最保守记账）；`experience_bridge.to_learning_rows` 代码级拦截（只收 `learning_target=neural_generation`，返回 skipped 明细）；`learning_loop` 空学习流 `NO_NEURAL_ELIGIBLE_EXPERIENCE` 如实报因；`practice.py` 新增 `grid_answer()` 独立可复算（verify 重算比对，不再信自报答案）+ 反馈四态词表；`runtime.py` 技能练习循环（Gate-A 产物只读加载、缺口驱动、轮换游标持久化）；`store.py` capabilities 表五列 ALTER 迁移（旧行可读）；`decoder.py` 新增 `free_generation()` 统一自由生成口径（收敛 neural_attempt/free_gen_em/eval_free 三处重复实现）。
+- **测试 108 项全绿**（R1 回归 16 项适配新签名，显式指向不存在的矩阵路径做隔离；本机实测 2026-11-22）。
+- **清理**：删除并行会话遗留 `chat_session.py`（幻觉产物：引用 4 个不存在的类，import 必崩，与 `language/session.py` 正式实现重复）、`cli.py.bak-20261122-parallelstub`、`__tmp/`、根目录 `_smoke_r2.py`。
+- **未做**：`online/resource_manager.py`（§7 五档链路）未建；`bot skills/capability-report/learn-status/curriculum/eval` 五个子命令未注册；Gate-B（对 unseen_entity 受控候选训练）需预登记预算待批准；`fetcher.py` 传输硬化未动。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

@@ -63,9 +63,10 @@
 - [x] **P1 运行时与 CLI ✅**：`src/nmind/bot/` 状态机（12 态 + 合法转移表，非法转移即 ERROR_SAFE）、单实例锁、可中断休眠、跨进程 pause/resume/stop/ask、`bot doctor/run/once/status/goals/logs/audit/eval/candidate/approve/rollback`；无 Codex/Ollama/第三方模型依赖（探针：真实循环内 socket 出网 0 次 + 源码扫描 0 处调用点）。
 - [x] **P2 无人值守离线自主练习 ✅**：20 轮 ×3 实例、三任务族、oracle 独立判分、能力台账按 `{family}:neural` 与 `{family}:tool` 分列；81 实例 81 唯一指纹、0 封存泄漏；用户消息真抢占；重启不重复任务。
 - [x] **P3 候选学习集成 ✅（闭环验收 / 能力判定 REJECTED）**：显式授权 48 步（neural 24 + negative 24，硬闸用满）、四臂对照、buffer 复位取证、逐位继承、预登记门槛（+0.10 / ≤3pp）、REJECTED→隔离、stable 逐位不变、晋升仅 `--i-approve`。**真实能力增长未证明**（封存 EM 0.0→0.0，单 seed 诊断级）。
+- 🔶 **R2（2026-11-22 第七轮，当前活跃）**：P0 审计 + 代码地图先行落盘，实锤 R1 零增长 = 任务分布与词表不匹配（31 token 词表 vs OOV 题面），"喂错了"而非"练得不够"；新增 `binding_data` / `task_capability_bridge` / `skill_registry` / `curriculum` 四模块；**Gate-A 判定 `TASK_CAPABILITY_ALIGNED`**——A 组复现 EM=1.0、`unseen_entity_qa` 缺口 50pp 合格进 Gate-B、R1 三族改按 TOOL 记账；旧实现收口（归因四列 / learning_target 代码级拦截 / grid_answer 可复算 / 反馈四态 / free_generation 统一口径 / SQLite 五列迁移）；测试 108 全绿。待办：Gate-B（需批准）、resource_manager.py、bot CLI 五子命令、fetcher 传输硬化
 - [ ] **P4 只读联网探索 ⬜**：默认关闭，需单独授权 + allowlist/私网/重定向逐跳/流量硬限审计后才能开。
 - [ ] **P5 Windows 体验 ⬜**：开机自启（显式安装动作）、本地面板、exe 打包均未开发。
-- [ ] **能力缺口**：三类任务的神经基线为 0（M5.2 权重不会答这些题面），`grid_rules` 还没有程序 oracle 工具路径；"越练越聪明"目前只有机制、没有证据。
+- [ ] **能力缺口**：R1 三类任务神经基线 0 的机制已由 R2 定案（词表 31 token 与题面 OOV 错配，R2 起按 TOOL 记账）；`grid_rules` 已补 `grid_answer()` 可复算 oracle（practice.py）；"越练越聪明"待 Gate-B 给出首个可判定证据。
 
 ## 已知阻塞
 

@@ -50,9 +50,50 @@ def free_gen_em(model, tok: CharTokenizer, prompts: list[str], answers: list[str
     return round(hits / len(answers), 4)
 
 
-def _memory_only_answer(question: str, answer: str) -> str:
-    """memory 臂：外部记忆直接命中该题面（零权重更新），用于分离"检索变强"与"参数变强"。"""
-    return answer
+def _norm(text: str) -> str:
+    return "".join(ch for ch in str(text) if not ch.isspace())
+
+
+def memory_retrieval(question: str,
+                     index: tuple[list[str], list[str]] | None) -> str | None:
+    """memory 臂的真口径：只允许在**学习流已经存下的** (题面 → 答案) 里精确检索，命不中就弃权。
+
+    老实现 `_memory_only_answer()` 直接把评测集标签原样返回，EM 按构造恒为 1.0；
+    那只能当"如果字典里恰好有考卷答案"的上界，不能当能力证据（任务书 §6.2 明确要求
+    memory 臂要与 neural 臂可比，可比的前提是它拿不到 unseen 行的标签）。
+    """
+    if not index:
+        return None
+    q = _norm(question)
+    for prompt, answer in zip(index[0], index[1]):
+        if _norm(prompt) == q:
+            return answer
+    return None
+
+
+def memory_arm_em(prompts: list[str], answers: list[str],
+                  index: tuple[list[str], list[str]] | None) -> dict[str, Any]:
+    """检索臂：命中/弃权分开计数，弃权算错（外部记忆不是无限好的兜底）。"""
+    if not prompts:
+        return {"sealed_em": None, "steps": 0, "note": "NOT_RUN：无评测行"}
+    if not index:
+        return {"sealed_em": None, "steps": 0,
+                 "note": "NOT_RUN：未提供检索索引（memory 臂只能读学习流，不许读标签）"}
+    hit = abstain = 0
+    for p, a in zip(prompts, answers):
+        got = memory_retrieval(p, index)
+        if got is None:
+            abstain += 1
+        elif str(got).strip() == str(a).strip():
+            hit += 1
+    n = len(prompts)
+    return {"sealed_em": round(hit / n, 4), "steps": 0, "hit": hit, "abstain": abstain,
+            "n": n, "index_size": len(index[0]),
+            "upper_bound_if_labels_were_memoized": 1.0,
+            "note": "索引只含学习流（train）已存条目。未见测试集按构造题面不同，"
+                    "所以命中率低/为 0 是**预期结果**——这一臂的存在就是为了证明"
+                    "'背过的题'与'参数学到的能力'是两件事"}
+
 
 
 def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str | Path,
@@ -60,6 +101,8 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                          sealed_answers: list[str], dev: torch.device,
                          updates: int = 48, lr: float = 3e-3, seed: int = 20261601,
                          replay_pairs: tuple[list[str], list[str]] | None = None,
+                         retention_pairs: tuple[list[str], list[str]] | None = None,
+                         memory_index: tuple[list[str], list[str]] | None = None,
                          replay_ratio: float = 0.15, trainable: str = "all",
                          arms: tuple[str, ...] = ("frozen", "neural"),
                          wall_limit_s: float = 60.0,
@@ -77,7 +120,15 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         return {"executed": False, "status": "INCONCLUSIVE",
                  "reason": "无 verified 经验：rejected/uncertain 不得触发神经更新（任务书 §9.7）",
                  "arms": {a: "NOT_RUN" for a in arms}}
-    prompts, answers = to_learning_rows(verified)
+    prompts, answers, skipped = to_learning_rows(verified)
+    if not prompts:
+        # R1 的真实卡点在这里：verified 一堆，但没有一条是"拿来训神经"的。
+        # 必须把原因吐出来，而不是静默少训或直接开训。
+        return {"executed": False, "status": "NO_NEURAL_ELIGIBLE_EXPERIENCE",
+                 "reason": f"{len(verified)} 条 verified 经验里，0 条 learning_target="
+                            "neural_generation；被过滤明细=" + json.dumps(skipped, ensure_ascii=False),
+                 "n_verified_in": len(verified), "skipped_reasons": skipped,
+                 "arms": {a: "NOT_RUN" for a in arms}}
     rows = encode_rows(tok, prompts, answers)
     replay_rows = encode_rows(tok, *replay_pairs) if replay_pairs else None
 
@@ -95,17 +146,18 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     old_prompts = [p for p, _a in list(zip(prompts, answers))[:8]]
     old_answers = [a for _p, a in list(zip(prompts, answers))[:8]]
     base_old = free_gen_em(child, tok, old_prompts, old_answers, max_new_tokens=max_new_tokens)
+    # 抗遗忘锚点必须是"父模型已经会做的事"（A 组封存集），不是训练集自己：
+    # R1 用训练行前 8 条当"旧任务"，那测的是背没背住，测不出旧技能有没有被冲掉。
+    ret_prompts, ret_answers = (retention_pairs if retention_pairs
+                                 else (old_prompts, old_answers))
+    base_ret = free_gen_em(child, tok, ret_prompts, ret_answers,
+                            max_new_tokens=max_new_tokens)
 
     budget = budget or AdaptationBudget(updates, label="bot-candidate")
     arm_reports: dict[str, Any] = {"frozen": {"sealed_em": base, "steps": 0,
                                                "note": "同权重基线，零更新"}}
     if "memory" in arms:
-        mem_hits = sum(1 for q, a in zip(sealed_prompts, sealed_answers)
-                       if _memory_only_answer(q, a).strip() == a.strip())
-        arm_reports["memory"] = {"sealed_em": round(mem_hits / len(sealed_answers), 4)
-                                  if sealed_answers else None, "steps": 0,
-                                  "note": "外部记忆命中，非神经学习；该臂按构造恒为 1.0，"
-                                          "只用于把'检索变强'从'参数变强'里减掉，不作为能力证据"}
+        arm_reports["memory"] = memory_arm_em(sealed_prompts, sealed_answers, memory_index)
     else:
         arm_reports["memory"] = "NOT_RUN"
 

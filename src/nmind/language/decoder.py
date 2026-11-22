@@ -79,3 +79,23 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
     rec.finish_reason = finish
     rec.text = tokenizer.decode(produced, skip_special=True)
     return rec, st
+
+
+def free_generation(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
+                    anchor: str = "助手：", max_new_tokens: int = 24,
+                    greedy: bool = True) -> GenerationRecord:
+    """自由生成的唯一口径（R2 收口）：整段 prompt 前向拿递归状态，再从 anchor 续写。
+
+    同一段逻辑原来在 `bot.runtime.neural_attempt`、`bot.learning_loop.free_gen_em`、
+    `experiments/m5_language/run_m52.eval_free` 各写了一遍，三处容易走偏（忘了先前向
+    prompt、或把 anchor 也算进生成结果）。集中在这里，其他调用方统一复用。
+    不读标签、不 teacher forcing；`model.eval()` + `no_grad` 由 `generate` 内部保证。
+    """
+    if not prompt.endswith(anchor):
+        raise ValueError(f"prompt 必须以锚点 {anchor!r} 结尾：{prompt!r}")
+    ids = tokenizer.encode(prompt)
+    with torch.no_grad():
+        _logits, state = model(torch.tensor([ids], dtype=torch.long))
+    rec, _st = generate(model, tokenizer, tokenizer.encode(anchor), state=state,
+                         max_new_tokens=max_new_tokens, greedy=greedy)
+    return rec

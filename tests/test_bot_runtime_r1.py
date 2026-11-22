@@ -80,7 +80,11 @@ def make_bot(tmp_path: Path, *, policy: BotPolicy | None = None, clock=None,
              stable: Path | None = None, tok: Path | None = None,
              authorized_steps: int = 0, root_name: str = "bot") -> BotRuntime:
     pol = policy or BotPolicy(practice_task_allowlist=FAMILIES, min_cooldown_seconds=60.0,
-                              max_tasks_per_idle_cycle=2)
+                              max_tasks_per_idle_cycle=2,
+                              # R1 回归测的是工具/规则练习路径：显式指向不存在的 Gate-A 产物，
+                              # 避免仓库里将来生成的矩阵把这条路径切成技能练习（测试隔离）
+                              capability_matrix_path=str(
+                                  tmp_path / "absent_baseline_capability_matrix.json"))
     bot = BotRuntime(root_dir=tmp_path / root_name, policy=pol,
                      stable_checkpoint=stable, tokenizer_path=tok,
                      clock=clock or FakeClock(), run_id=f"test-{root_name}",
@@ -98,7 +102,10 @@ def _verified_exps(bot: BotRuntime, family: str, n: int, *, seed: int = 3,
         ans = str(int(t["answer"]) + 7) if wrong else t["answer"]
         out.append(build_experience(t, neural_attempt=ans, tool_result=None,
                                      verification=status, validator_id=f"oracle-{family}",
-                                     model_sha=bot.stable_sha, exp_id=f"u{i}-{family}"))
+                                     model_sha=bot.stable_sha, exp_id=f"u{i}-{family}",
+                                     response_source="neural",
+                                     feedback_source="deterministic_oracle",
+                                     learning_target="neural_generation"))
     return out
 
 
@@ -329,7 +336,7 @@ def test_06_sealed_samples_never_enter_learning_or_replay(tmp_path: Path):
     other = _verified_exps(bot, "json_extract", 3)
     pairs = bot._replay_pairs(pool + other, exclude_family="arithmetic")
     assert pairs and all("JSON字段提取" in p for p in pairs[0])
-    prompts, _a = to_learning_rows(pool + other)
+    prompts, _a, _skipped = to_learning_rows(pool + other)
     assert not ({p for p in prompts} & {f"用户：{q}\n助手：" for q in sealed_q})
     bot.stop("测试结束")
 
@@ -343,7 +350,9 @@ def test_07_rejected_or_uncertain_cannot_trigger_neural_update(tmp_path: Path, t
     bot = make_bot(tmp_path, clock=clock, stable=stable, tok=tok, root_name="rej")
     bad = _verified_exps(bot, "arithmetic", 4, status="rejected") \
         + _verified_exps(bot, "arithmetic", 4, status="uncertain", wrong=True)
-    assert to_learning_rows(bad) == ([], [])
+    bad_p, bad_a, bad_skip = to_learning_rows(bad)
+    assert bad_p == [] and bad_a == [], (bad_p, bad_a)
+    assert bad_skip.get("not_verified") == 8, bad_skip   # 八条全被"非 verified"挡在门外
     sealed = make_sealed_set("arithmetic", 3, seed=7)
     rep = run_candidate_update(stable_checkpoint=stable, tokenizer_path=tok, verified=bad,
                                 sealed_prompts=[f"用户：{s['question']}\n助手：" for s in sealed],
@@ -365,8 +374,13 @@ def test_07_rejected_or_uncertain_cannot_trigger_neural_update(tmp_path: Path, t
     pool = bot._verified_pool()
     assert pool and all(e.verification_status == "verified" for e in pool)
     assert len(pool) == sum(1 for r in recs if r["verification_status"] == "verified")
-    prompts, answers = to_learning_rows(pool)
-    assert prompts and all(p.startswith("用户：") for p in prompts)
+    prompts, answers, skip = to_learning_rows(pool)
+    # R2 契约（任务书 §2/§4）：Bot 自主练习收集到的工具/规则经验 learning_target=memory_only，
+    # 一条都不许变成神经训练行。R1 之所以"练了 81 次、神经 0 成长"，正是这些行被当神经样本喂
+    # 给了词表都表达不了的任务。这里断言的是**新契约**，不是把老断言放宽。
+    assert prompts == [] and answers == [], prompts[:3]
+    assert skip.get("wrong_learning_target", 0) == len(pool), (skip, len(pool))
+    assert all(e.learning_target == "memory_only" for e in pool)
     bot.stop("测试结束")
 
 
@@ -424,7 +438,10 @@ def test_09_buffer_drift_is_separate_from_neural_gain(tiny_lm, tmp_path: Path):
         t = make_task("arithmetic", rng, index=i)
         exps.append(build_experience(t, neural_attempt=t["answer"], tool_result=None,
                                       verification="verified", validator_id="o",
-                                      model_sha="x", exp_id=f"drift{i}"))
+                                      model_sha="x", exp_id=f"drift{i}",
+                                      response_source="neural",
+                                      feedback_source="deterministic_oracle",
+                                      learning_target="neural_generation"))
     sealed = make_sealed_set("arithmetic", 6, seed=4242)
     base = free_gen_em(b, tk, [f"用户：{s['question']}\n助手：" for s in sealed],
                         [s["answer"] for s in sealed])
@@ -504,7 +521,7 @@ def _cli(root: Path, *args: str, timeout: int = 90) -> subprocess.CompletedProce
     env = dict(os.environ, PYTHONPATH=str(REPO / "src"), PYTHONIOENCODING="utf-8")
     return subprocess.run([sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", *args,
                            "--root", str(root)], cwd=str(REPO), env=env,
-                          capture_output=True, text=True, timeout=timeout)
+                          capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
 
 
 def _snap(root: Path) -> dict:
@@ -543,7 +560,8 @@ def test_11_pause_resume_stop_reach_a_separate_process(tmp_path: Path):
     proc = subprocess.Popen(
         [sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", "run", "--profile", "demo",
          "--root", str(root), "--deadline", "180"], cwd=str(REPO), env=env,
-        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+            encoding="utf-8", errors="replace")
     try:
         s = _wait(root, lambda d: d.get("idle_cycles_done", 0) >= 1, timeout=30)
         assert s.get("idle_cycles_done", 0) >= 1, f"常驻进程未自主练习：{s}"
@@ -553,7 +571,7 @@ def test_11_pause_resume_stop_reach_a_separate_process(tmp_path: Path):
         # 第二个实例必须被单实例硬约束拒绝
         dup = subprocess.run(
             [sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", "once", "--root", str(root)],
-            cwd=str(REPO), env=env, capture_output=True, text=True, timeout=60)
+            cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60)
         assert dup.returncode != 0 and "另一 Bot 实例" in (dup.stdout + dup.stderr)
 
         _cli(root, "pause")
@@ -719,14 +737,14 @@ def test_15_legacy_cli_and_regression_suite_still_intact(tmp_path: Path):
     """§9.15 与现有 M4/M5.1 回归测试兼容，不破坏旧 CLI（bot 只是增量注册）。"""
     env = dict(os.environ, PYTHONPATH=str(REPO / "src"), PYTHONIOENCODING="utf-8")
     out = subprocess.run([sys.executable, "-X", "utf8", "-m", "nmind.cli", "--help"],
-                          cwd=str(REPO), env=env, capture_output=True, text=True, timeout=180)
+                          cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
     assert out.returncode == 0, out.stderr[-400:]
     for legacy in ("doctor", "train", "evaluate", "memory", "benchmark",
                    "train-language", "evaluate-language", "chat"):
         assert legacy in out.stdout, f"旧 CLI 子命令 {legacy} 丢失"
     assert "bot" in out.stdout
     out2 = subprocess.run([sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", "--help"],
-                          cwd=str(REPO), env=env, capture_output=True, text=True, timeout=180)
+                          cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
     assert out2.returncode == 0, out2.stderr[-400:]
     for cmd in ("run", "once", "status", "logs", "audit", "candidate", "approve", "doctor"):
         assert cmd in out2.stdout, f"bot 子命令 {cmd} 未注册"
@@ -736,7 +754,7 @@ def test_15_legacy_cli_and_regression_suite_still_intact(tmp_path: Path):
     # 用户照着文档敲就 SystemExit"找不到 profile 配置"。
     out3 = subprocess.run([sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", "doctor",
                            "--help"],
-                          cwd=str(REPO), env=env, capture_output=True, text=True, timeout=180)
+                          cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
     assert out3.returncode == 0, out3.stderr[-400:]
     seg = out3.stdout.split("--profile", 1)[1]
     choices = seg.split("{", 1)[1].split("}", 1)[0].split(",")
@@ -747,21 +765,21 @@ def test_15_legacy_cli_and_regression_suite_still_intact(tmp_path: Path):
         run = subprocess.run(
             [sys.executable, "-X", "utf8", "-m", "nmind.cli", "bot", "doctor",
              "--profile", ch.strip(), "--root", str(tmp_path / f"profile_{ch.strip()}")],
-            cwd=str(REPO), env=env, capture_output=True, text=True, timeout=300)
+            cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
         assert run.returncode == 0, f"--profile {ch.strip()} 执行失败：{run.stdout[-300:]}{run.stderr[-300:]}"
 
     # 全局开关写在叶子子命令后面也必须能跑（文档里的命令就是这个写法）。
     for probe in (["bot", "doctor", "--offline", "--root", str(tmp_path / "flag_after_leaf")],
                   ["bot", "status", "--offline", "--json", "--root", str(tmp_path / "flag_after_leaf2")]):
         run = subprocess.run([sys.executable, "-X", "utf8", "-m", "nmind.cli", *probe],
-                             cwd=str(REPO), env=env, capture_output=True, text=True, timeout=300)
+                             cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300)
         assert run.returncode == 0, f"{' '.join(probe)} 失败：{run.stderr[-300:]}"
         assert "unrecognized arguments" not in run.stderr
     collect = subprocess.run(
         [sys.executable, "-m", "pytest", "--collect-only", "-q",
          "tests/test_online_learning.py", "tests/test_language_m5.py",
          "tests/test_true_continual.py"],
-        cwd=str(REPO), env=env, capture_output=True, text=True, timeout=600)
+        cwd=str(REPO), env=env, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600)
     assert collect.returncode == 0, (collect.stdout[-600:] + collect.stderr[-600:])
     assert "error" not in collect.stderr.lower(), collect.stderr[-600:]
 

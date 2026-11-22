@@ -3,6 +3,16 @@
 * 每个任务实例由程序生成、由独立 oracle 判分——成功/失败/无法验证三态；
 * 神经尝试与工具执行**分开计量**（任务书 §5 分层量化）；
 * 工具仅调用白名单实现（skills.toolbox），模型文本永不拼入 shell。
+
+R2 在本模块补两处 R1 复盘出来的漏洞：
+
+1. `grid_rules` 原来只有 `make_task` 内联算出的 answer，`tool=None` 导致
+   `execute_tool` 直接抛异常 ⇒ 工具账户永远 0 条，而"答案"只是生成器顺手写的数字。
+   现在把网格规则抽成**独立可复算函数** `grid_answer()`，`verify` 会拿 meta 重算再比对，
+   判分不再依赖 task["answer"] 这一份"自报答案"。
+2. 反馈必须分四态（`deterministic_oracle` / `externally_verified` / `user_approved` /
+   `unverified`）。R1 把三态压成 verified/rejected，于是"没人验过"和"验过但错了"
+   在台账里长得一样，0 次神经成长就被读成"练习次数不够"。见 `feedback_state()`。
 """
 
 from __future__ import annotations
@@ -15,6 +25,26 @@ from typing import Any
 from ..skills.toolbox import calculator, json_extractor
 
 GRID = 3
+
+# 任务书 §5：一次练习的反馈只有这四种来源，写进台账与候选账本，不许自创第五种
+FEEDBACK_DETERMINISTIC = "deterministic_oracle"
+FEEDBACK_EXTERNAL = "externally_verified"
+FEEDBACK_USER = "user_approved"
+FEEDBACK_UNVERIFIED = "unverified"
+FEEDBACK_STATES = (FEEDBACK_DETERMINISTIC, FEEDBACK_EXTERNAL, FEEDBACK_USER, FEEDBACK_UNVERIFIED)
+
+
+def grid_answer(size: int, x: int, y: int, k: int, direction: str) -> int:
+    """环形网格规则的独立实现：只依赖 (size,x,y,k,direction)，不读任何任务字段。
+
+    verify() 用它**重算**答案，因此判分器与出题器虽然同源，但至少是"可复算的规则"，
+    而不是把模型输出再跟一句自报文本比对的空壳。
+    """
+    if direction == "下":
+        return (y + k) % size
+    if direction == "上":
+        return (y - k) % size
+    raise ValueError(f"未知方向 {direction!r}")
 
 
 def task_fingerprint(task: dict[str, Any]) -> str:
@@ -57,12 +87,13 @@ def make_task(family: str, rng: random.Random, *, index: int = 0) -> dict[str, A
         x, y = rng.randint(0, size - 1), rng.randint(0, size - 1)
         k = rng.randint(1, size - 1)
         direction = rng.choice(["下", "上"])
-        ny = (y + k) % size if direction == "下" else (y - k) % size
+        ny = grid_answer(size, x, y, k, direction)          # 独立规则函数，不再内联算
         q = (f"网格规则：{size}x{size} 网格环形上下移动。"
              f"从坐标 ({x},{y}) 向{direction}走 {k} 步后的纵坐标是多少？只回答数字。")
         task = {"task_id": f"grid-{size}-{x}{y}-{direction}{k}-{tag}",
                  "family": family, "question": q, "answer": str(ny),
-                 "tool": None, "tool_args": {},
+                 "tool": "grid_rules", "tool_args": {"size": size, "x": x, "y": y,
+                                                       "k": k, "direction": direction},
                  "meta": {"size": size, "x": x, "y": y, "k": k, "direction": direction}}
     else:
         raise ValueError(f"未知任务族 {family!r}")
@@ -93,18 +124,50 @@ def make_sealed_set(family: str, n: int, *, seed: int) -> list[dict[str, Any]]:
 
 
 def execute_tool(task: dict[str, Any]) -> str:
-    """工具执行（白名单实现，独立于神经尝试；贡献单独计量）。"""
+    """工具执行（白名单实现，独立于神经尝试；贡献单独计量）。
+
+    grid_rules 走的是**程序 oracle**（不是外部工具），但它的性质与工具相同：
+    答案由确定性程序产生，神经是否"学会"与程序答对无关，所以仍计入工具/程序账户。
+    """
     tool = task.get("tool")
     if tool == "calculator":
         return str(calculator(**task["tool_args"]))
     if tool == "json_extractor":
         return str(json_extractor(**task["tool_args"]))
+    if tool == "grid_rules":
+        return str(grid_answer(**task["tool_args"]))
     raise ValueError(f"任务族 {task['family']} 没有注册工具（仅神经可尝试，验证仍由 oracle）")
 
 
+def program_oracle(task: dict[str, Any]) -> str | None:
+    """不依赖模型输出的独立判分基准：能算出来就给答案，算不出来如实返回 None。
+
+    None 会一路传导成 `unverified` —— 这正是 R1 缺的口径：没有独立基准时，
+    任何"成功"都不许写进神经成长账本。
+    """
+    fam = task.get("family")
+    if fam == "grid_rules":
+        meta = task.get("meta") or {}
+        try:
+            return str(grid_answer(**meta))
+        except (TypeError, ValueError):
+            return None
+    if fam == "arithmetic":
+        exp = task.get("answer")
+        return str(exp) if exp is not None else None
+    if fam == "json_extract":
+        exp = task.get("answer")
+        return str(exp) if exp is not None else None
+    return None
+
+
 def verify(task: dict[str, Any], attempt: str) -> str:
-    """独立 oracle 判分：verified | rejected | uncertain。"""
-    exp = task.get("answer")
+    """独立 oracle 判分：verified | rejected | uncertain。
+
+    grid_rules 用 `program_oracle` 重算的期望值比对，而不是信 task["answer"] 自报数字；
+    其余两族的答案同样先过 `program_oracle`（拿不到基准就返回 uncertain，不许猜）。
+    """
+    exp = program_oracle(task)
     if exp is None:
         return "uncertain"
     a = attempt.strip()
@@ -114,3 +177,24 @@ def verify(task: dict[str, Any], attempt: str) -> str:
         return "verified" if abs(float(a) - float(exp)) < 1e-9 else "rejected"
     except (TypeError, ValueError):
         return "rejected"
+
+
+def feedback_state(task: dict[str, Any], verdict: str, *,
+                   source: str = FEEDBACK_DETERMINISTIC) -> str:
+    """把 oracle 判分收敛成任务书 §5 的四态反馈（谁验的 + 验出什么）。
+
+    uncertain（没有独立基准）无论来自哪条路径都只能落 `unverified`：
+    这一态**不计入任何成功**，也不能进候选学习流。
+    """
+    if source not in FEEDBACK_STATES:
+        raise ValueError(f"非法反馈来源 {source!r}，只能是 {FEEDBACK_STATES}")
+    if verdict == "uncertain":
+        return FEEDBACK_UNVERIFIED
+    return source
+
+
+def verified_for_learning(task: dict[str, Any], verdict: str, *,
+                          source: str = FEEDBACK_DETERMINISTIC) -> bool:
+    """只有拿到独立基准且判为 verified 的经验，才允许进入候选学习流。"""
+    return verdict == "verified" and \
+        feedback_state(task, verdict, source=source) != FEEDBACK_UNVERIFIED
