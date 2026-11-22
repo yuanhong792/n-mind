@@ -2,7 +2,7 @@
 
 ## Gate-1 实际结果（2026-11-22）
 
-用户已明确批准本阶段后，已完成一次串行真实采集：4 次 GET（robots.txt + 3 个固定页面），4/4 返回 HTTP 200，重定向 0，未授权请求 0。robots SHA-256 为 `ddf15edaeea82d5097df61da8e6f59ccdf66de0c20820f1367d0d076f5a9fd63`；页面原始响应累计 236,883 bytes，单页最大 132,338 bytes。知识库已写入 3 documents、165 chunks、1 host，全部 READY，信任级别 `public-read-only`。查询 `range 5` 已命中 `controlflow.html` 并返回来源 URL/片段。optimizer.step=0，stable checkpoint 未修改。Gate-2/3 和 30 题评测仍为 NOT_RUN。
+用户已明确批准本阶段后，已完成串行真实采集：5 次 GET（robots.txt 初次获取 + 3 个固定页面 + 1 次 robots 策略解析），5/5 返回 HTTP 200，重定向 0，未授权请求 0。robots SHA-256 为 `ddf15edaeea82d5097df61da8e6f59ccdf66de0c20820f1367d0d076f5a9fd63`；robots 解析确认3个页面均允许访问。页面原始响应累计 236,883 bytes，单页最大 132,338 bytes。知识库已写入 3 documents、165 chunks、1 host，全部 READY，信任级别 `public-read-only`。查询 `range 5` 已命中 `controlflow.html` 并返回来源 URL/片段。optimizer.step=0，stable checkpoint 未修改。Gate-2/3 和 30 题评测仍为 NOT_RUN。
 
 日期：2026-11-22（Asia/Shanghai）
 
