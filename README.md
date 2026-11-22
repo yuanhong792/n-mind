@@ -147,6 +147,17 @@ R1 当前基线模型约 **282,589** 参数，M3 微型语言实验模型约 **2
 - **诚实结论**：本轮证明的是运行时、预算、取证与防自欺机制可靠，**不证明**"Bot 越练越聪明"。能力增长需要 M5 语言线先把可判分任务的神经基线抬离 0。
 - CPU 占用 42.5 %（政策 50 %，线程由代码夹紧 20→13）、RSS 峰值 216 MB；安全探针 11/11 PASS；全仓测试 108 项通过。
 
+### Agent Runtime R2：自主技能成长与神经学习（2026-11-22）
+
+> 证据：`experiments/bot_runtime_r2/`——Gate-A 三工件（`baseline_capability_matrix.json` / `task_alignment_audit.json` / `skill_registry.json`）+ `gateb_pre_registration.json` + `gateb_result_001.json` + `gateb001_retention_diagnosis.json`。
+
+- **R1 "81 次练习、神经 0 增长" 的机制定案**：不是练得不够，是**喂错了**。stable 词表只有 31 token，与三族练习任务题面几乎不相交（23-52 个 OOV 字符），而 oracle 又把"工具算对"记在同一账户里。
+- **Gate-A（只测量、零 `optimizer.step`）判定 `TASK_CAPABILITY_ALIGNED`**：A 组位置问答复现 sealed 自由生成 EM **1.0**（抗遗忘锚点成立）；`unseen_entity_qa` EM 0.0（缺口 100pp）、有独立 oracle、学习流与未见测试集按位置轴对半切且输入指纹互斥 → 本轮唯一有全资格的新技能；`latest_statement_update` 被选择器拦住（模板空间只有 4 个不同输入，分不清"泛化"与"背过"）；R1 三族改按 `TOOL` 记账，C 组仅诊断。
+- **归因写进代码而不是注释**：`response_source / feedback_source / learning_target / capability_state` 四列词表贯穿注册表→台账→SQLite；`to_learning_rows()` 只收 `neural_generation`，工具/规则经验一律 `memory_only`，冒充神经成长这条路被硬拦。
+- **Gate-B 001（首个受控候选训练）判定 REJECTED**：预登记预算 96 步（neural 48 + 标签置换负对照 48，跨臂硬总闸用满）、lr 3e-3、全参更新、replay 0.15、单 seed 20261601、22.5 s CPU。训练行 loss 2.05→0.19（题背下来了），但未见位置 3/4 号 sealed EM **0.0→0.0**，未达预登记 +10pp；负对照 0.0，memory 臂 40/40 弃权，stable 逐位未动、候选隔离、未晋升。
+- **抓出一个会让结论造假的指标 bug**：遗忘指标原本拿"训练行前 8 条"当旧任务，报出 +50pp 的假阳性 PASS。补测真实 A 组 80 行保持率 **1.0→0.6875 = −31.25pp**（门槛 −3pp）——灾难性遗忘实锤；修复后 `old_task_forgetting_pp` 与 A 组同口径，训练行记忆化降级为不参与闸的诊断列。
+- **诚实结论**：R2 本轮交付的是能力对齐判定、资格硬门槛与可证伪的四臂/遗忘取证，**尚未**拿到神经能力增长的证据。按 no_retry 条款，002 必须另行预登记（候选方向：收窄 trainable 范围做局部更新）并再次取得批准。
+
 ## 快速开始
 
 ### 系统要求
