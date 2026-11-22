@@ -1,0 +1,12 @@
+{
+  "experiment": "N-MIND Memory V2",
+  "arms": ["no_memory", "episodic_only", "full_memory", "wrong_memory"],
+  "tasks": 60,
+  "neural_training_steps": 0,
+  "stable_checkpoint_mutation": false,
+  "external_llm": false,
+  "primary_metric": "unseen_task_success",
+  "secondary_metrics": ["retrieval_hit", "cross_restart_accuracy", "deletion_leakage", "negative_transfer"],
+  "sealed_before_run": true,
+  "status": "IMPLEMENTED_OFFLINE_HARNESS"
+}

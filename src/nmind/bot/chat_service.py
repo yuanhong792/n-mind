@@ -22,7 +22,7 @@ from typing import Any
 
 from ..skills.toolbox import calculator
 
-RESPONSE_SOURCES = ("neural", "retrieval", "tool", "rule", "none")
+RESPONSE_SOURCES = ("neural", "retrieval", "memory", "tool", "rule", "none")
 GENERATION_PROTOCOL_ID = "freegen-v2-direct-continuation"
 
 def _looks_explicitly_out_of_scope(query: str) -> bool:
@@ -98,6 +98,7 @@ class ChatResponse:
     finish_reason: str | None = None
     status: str = "DONE"
     note: str = ""                       # 中文可读说明（来源边界/局限提示）
+    memory_hits: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
@@ -199,12 +200,13 @@ class ChatService:
     """把一条中文消息路由到正确的来源，并给出可核对的引用与说明。"""
 
     def __init__(self, *, model=None, tokenizer=None, model_sha: str = "",
-                 knowledge=None, unk_reject_threshold: float = DEFAULT_UNK_REJECT_THRESHOLD,
+                 knowledge=None, memory_service=None, unk_reject_threshold: float = DEFAULT_UNK_REJECT_THRESHOLD,
                  max_new_tokens: int = 32) -> None:
         self.model = model
         self.tok = tokenizer
         self.model_sha = model_sha
         self.knowledge = knowledge            # KnowledgeSearch 或 None（P3 接入）
+        self.memory_service = memory_service
         self.unk_reject_threshold = float(unk_reject_threshold)
         self.max_new_tokens = int(max_new_tokens)
         self._sessions: dict[str, _V2ChatSession] = {}
@@ -238,6 +240,9 @@ class ChatService:
         ret_hit = self._try_retrieval(req, text, t0)
         if ret_hit is not None:
             return ret_hit
+        mem_hit = self._try_memory(req, text, t0)
+        if mem_hit is not None:
+            return mem_hit
         # 3) 神经生成（原样保留 + 未验证标注）
         if self.model_loaded:
             sess = self._session(req.session_id)
@@ -291,6 +296,19 @@ class ChatService:
             text=f"计算结果：{val:g}。", response_source="tool",
             latency_ms=round((time.perf_counter() - t0) * 1000, 2),
             note=f"确定性工具 calculator：{expr} = {val:g}（程序计算，非神经输出）。")
+
+    def _try_memory(self, req: ChatRequest, text: str, t0: float) -> ChatResponse | None:
+        if self.memory_service is None:
+            return None
+        from ..memory import MemoryQuery
+        context = self.memory_service.recall(MemoryQuery(text, session_id=req.session_id, limit=4))
+        if not context.hits:
+            return None
+        body = "\n".join(f"〔记忆{n + 1}〕{h['text']}" for n, h in enumerate(context.hits))
+        return ChatResponse(message_id=req.message_id, session_id=req.session_id, text=body,
+                             response_source="memory", memory_hits=context.hits,
+                             latency_ms=round((time.perf_counter() - t0) * 1000, 2),
+                             note="历史记忆辅助：仅展示可追溯记忆片段，不冒充神经模型能力。")
 
     def _try_retrieval(self, req: ChatRequest, text: str, t0: float) -> ChatResponse | None:
         if self.knowledge is None:

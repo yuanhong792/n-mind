@@ -19,7 +19,7 @@ from __future__ import annotations
 import sqlite3
 from typing import Callable
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 DDL_V1 = """
 CREATE TABLE IF NOT EXISTS schema_version (
@@ -115,7 +115,53 @@ CREATE VIRTUAL TABLE IF NOT EXISTS facts_fts USING fts5(
 );
 """
 
-MIGRATIONS: dict[int, Callable[[sqlite3.Connection], None]] = {}
+def _migration_v2(conn: sqlite3.Connection) -> None:
+    """Memory V2 metadata is additive and deliberately separate from training data."""
+    conn.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS memory_meta (
+            kind TEXT NOT NULL,
+            memory_id INTEGER NOT NULL,
+            memory_kind TEXT NOT NULL DEFAULT 'episodic',
+            importance REAL NOT NULL DEFAULT 0.5,
+            retention TEXT NOT NULL DEFAULT 'standard',
+            verification_state TEXT NOT NULL DEFAULT 'unverified',
+            source_uri TEXT NOT NULL DEFAULT '',
+            trust REAL NOT NULL DEFAULT 0.5,
+            observed_at TEXT NOT NULL,
+            expires_at TEXT,
+            deleted_at TEXT,
+            tags_json TEXT NOT NULL DEFAULT '[]',
+            explanation TEXT NOT NULL DEFAULT '',
+            PRIMARY KEY (kind, memory_id)
+        );
+        CREATE INDEX IF NOT EXISTS idx_memory_meta_kind ON memory_meta(memory_kind, importance DESC);
+        CREATE INDEX IF NOT EXISTS idx_memory_meta_expiry ON memory_meta(expires_at);
+        CREATE TABLE IF NOT EXISTS memory_feedback (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            kind TEXT NOT NULL,
+            memory_id INTEGER NOT NULL,
+            task_id TEXT NOT NULL DEFAULT '',
+            value REAL NOT NULL,
+            source TEXT NOT NULL DEFAULT 'user',
+            created_at TEXT NOT NULL,
+            note TEXT NOT NULL DEFAULT ''
+        );
+        CREATE TABLE IF NOT EXISTS procedures (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            method TEXT NOT NULL,
+            preconditions TEXT NOT NULL DEFAULT '',
+            evidence_json TEXT NOT NULL DEFAULT '[]',
+            confidence REAL NOT NULL DEFAULT 0.0,
+            verification_state TEXT NOT NULL DEFAULT 'candidate',
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        );
+        """)
+
+
+MIGRATIONS: dict[int, Callable[[sqlite3.Connection], None]] = {2: _migration_v2}
 
 
 def _install_ep_triggers(conn: sqlite3.Connection) -> None:
@@ -179,6 +225,15 @@ def ensure_schema(conn: sqlite3.Connection) -> dict[str, object]:
                     "INSERT OR IGNORE INTO schema_version (version, applied_at) VALUES (?, datetime('now'))", (v,))
                 conn.commit()          # 每级迁移单独提交，失败可定位到具体版本
 
+    # Apply any migrations for both fresh and existing databases.  The explicit
+    # second pass keeps fresh databases at the latest schema too.
+    current = int(conn.execute("SELECT COALESCE(MAX(version),0) FROM schema_version").fetchone()[0])
+    for v in sorted(MIGRATIONS):
+        if v > current:
+            MIGRATIONS[v](conn)
+            conn.execute("INSERT OR IGNORE INTO schema_version (version, applied_at) VALUES (?, datetime('now'))", (v,))
+            conn.commit()
+            current = v
     has_fts = fts_available(conn)
     if has_fts:
         conn.executescript(DDL_FTS)
