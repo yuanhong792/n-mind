@@ -172,6 +172,16 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **产出**：GATEB004_REPORT.md（因果答案+方案 A/B/C 接口草案）、gateb_pre_registration_005_DRAFT.json（技能残差适配器方案 B 草案，DRAFT 未批准）；gate_3 代码化缺口已补。
 - **005 起待办**：残差模块代码+测试 → 用户批准 005 预登记（含反事实门槛确认）→ 单变量审计 → 执行。
 
+## Gate-B 005 方案 C 启动：课程呈现配对对照（2026-11-22 第十二轮，PENDING_APPROVAL）
+
+- **方向确认（用户批准）**：方案 C——A+B 混合课程，验证"连续训练顺序是否是神经遗忘主要因素"；反事实跟随率阶段门槛 50% 且必须同时优于冻结父模型与近因捷径基线；方案 B 草案单独保留（gateb_pre_registration_005_planB_DRAFT.json），005 结果出来后再决定是否进入。
+- **实现**：lm_update 新增 batch_mix（交错精确占比）/phase_pool（顺序分相）双模式（互斥校验，默认行为不变）；learning_loop 新增 curriculum 解析（与 replay_ratio>0 互斥——005 指令⑤回放权重不作变量）、free_gen_em_v2（005 起统一 v2 直续协议，新基线独立建立，001-003 v1 仅历史参考）、cf 双基线 gate（门槛 + 优于父模型基线 + 优于近因捷径基线三方比较，counterfactual_follow_min 参数化）。
+- **反事实封存集**：build_binding_swap_wide（新增宽域 builder）——12 位置组合 × 2 陈述顺序 × 4 确认语 = 96 上下文上限，80 对/160 项（seed 20261711），oracle 重算零不一致，C 诊断族永不进学习流。原 build_binding_swap context 上限 12 对的结构性不足如实记录。
+- **预登记（PENDING_APPROVAL）**：gateb_pre_registration_005_planC.json + 程序化派生子轮 005c-seq（A→B 两阶段）/005c-int（每步两池各半）——**合计 192 步超此前授权范围（96/轮）**，按指令暂停等待预算批准，未执行任何训练。
+- **一致性审计 PASS**（gateb005c_consistency_audit.json）：两组预算/父/数据/门槛/seed 全一致，budget 差异仅 curriculum 字段；唯一变量=呈现顺序确认；A/B 行次等价设计（每行训练 16 次，两组精确相等）；B 学习流/封存集指纹与 001 实跑记录逐字节一致；001-003 数据与方案 B 草案保留验证。
+- **测试**：全仓 **131 项全绿**（+6 curriculum：互斥/白名单/步数和/双组可执行/cf 双基线/lm_update 层互斥）。
+- **待用户批准后执行**：`run_gate_b.py --run 005c-seq` 与 `--run 005c-int`（run_gate_b 已支持 curriculum/反事实集/门槛从预登记读取）；结果出来后配对判读"顺序敏感/顺序不敏感/证据不足"，再决定是否进入方案 B。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

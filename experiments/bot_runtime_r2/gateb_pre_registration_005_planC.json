@@ -1,0 +1,100 @@
+{
+  "experiment_family": "gate-b-005c-curriculum-paired",
+  "design": "PLAN_C_PAIRED_CURRICULUM",
+  "status": "PENDING_APPROVAL",
+  "preregistered_at": "2026-11-22",
+  "note": "方案 C 配对对照：A+B 顺序训练 vs 交错混合训练。唯一主要实验变量 = 任务呈现顺序；两组共享父 checkpoint/数据/seed/优化器/学习率/总步数/A-B 行次占比。反事实评测统一 004 修复后的 freegen-v2 协议并独立建立新基线（001-003 的 v1 结果仅作历史参考）。两组合计 192 optimizer 步，**超过此前授权范围（001-003 每轮 96 步）**——按指令暂停在本状态等待训练预算批准，不自行开跑。",
+  "budget_over_budget_note": {
+    "previous_authorized_per_round": 96,
+    "this_design_per_group": 96,
+    "this_design_total": 192,
+    "over_range": true,
+    "action": "PENDING_APPROVAL：需用户批准 192 步（2×96）与 2×120s 墙钟后方可执行"
+  },
+
+  "hypothesis": "若 sequential（A→B）组遗忘显著小于 interleaved（混合）组，或反之，则任务呈现顺序是神经遗忘的主要因素之一；若两组遗忘均 ≥3pp 且无显著差异，则序列范式假设被削弱，指向架构级方案（方案 B）。判读口径：两组同为 REJECTED 且遗忘差异 < 2pp 视为'顺序不敏感'。",
+
+  "groups": [
+    {
+      "experiment": "gate-b-005c-seq",
+      "run_id": "005c-seq",
+      "curriculum": {
+        "mode": "sequential",
+        "phases": [
+          {"steps": 48, "source": "replay_pairs(A组学习流 48 行)"},
+          {"steps": 48, "source": "learning_rows(B组学习流 48 行)"}
+        ]
+      },
+      "preregistration_file": "gateb_pre_registration_005c-seq.json"
+    },
+    {
+      "experiment": "gate-b-005c-int",
+      "run_id": "005c-int",
+      "curriculum": {
+        "mode": "interleaved",
+        "note": "每步 batch 从 A 池与 B 池各采一半（batch_mix），A/B 行次精确对半"
+      },
+      "preregistration_file": "gateb_pre_registration_005c-int.json"
+    }
+  ],
+
+  "pairing_invariants": {
+    "parent_checkpoint": "experiments/m5_language/m52_s0_checkpoint.pt（state_sha 6404f453…，两组同）",
+    "data": "B 学习流 48 行（seed 20261621）/ A 学习流 48 行（seed 20261401）/ A 封存锚点 80 条（seed 20261403）/ B 封存评测 40 条（seed 20261622）——两组逐项相同",
+    "seed": "init 20261601 / label_permutation 20261601+1,+2（两组同）",
+    "optimizer": "AdamW lr=0.003，单次调用内连续过程（两组同构）",
+    "total_steps_per_group": 96,
+    "ab_ratio": "A 行次 768 / B 行次 768（每行训练 16 次，两组精确相等）",
+    "replay_ratio": "两组均 0（curriculum 与 replay 互斥，回放权重不作为变量——005 指令⑤）",
+    "protocol": "freegen-v2-direct-continuation（评测与反事实全部 v2；新基线在本轮独立建立）",
+    "wall_clock_per_group_s": 120
+  },
+
+  "counterfactual_sealed_set": {
+    "builder": "build_binding_swap_wide(80, 20261711, 'counterfactual') 直调（不修改 SPLIT_TABLE）",
+    "n_pairs": 80,
+    "n_items": 160,
+    "oracle_mismatch": 0,
+    "context_space": "12 位置组合 × 2 陈述顺序 × 4 确认语 = 96 上限",
+    "checks": ["实体选择（答对被查询实体）", "位置交换跟随（答对陈述位置）", "近因捷径率"],
+    "items_file": "gateb005_cf_items.json",
+    "tier": "C 诊断族：永不进入学习流"
+  },
+
+  "gates_preregistered": {
+    "new_skill_gain_min": 0.10,
+    "old_task_forgetting_max_pp": 3.0,
+    "counterfactual_follow_min": 0.5,
+    "counterfactual_double_baseline": "follow_rate >= 0.5 且 > 冻结父模型基线 且 > 近因捷径基线（三方比较）",
+    "negative_control": "negative 臂 sealed EM < neural 臂 sealed EM（已代码化）",
+    "weight_and_freeze": "可训练范围外张量逐位不变（本轮 trainable=adapter 固定 head+block_to_ws——与 002 同口径，架构零修改）",
+    "integrity": "逐位继承 + buffer 复位 + stable 只读 + 候选隔离",
+    "missing_metric_rule": "任一必需指标缺失 → INCONCLUSIVE（learning_loop 004 契约自动生效）",
+    "no_threshold_change": "B/A 门槛与 001-003 一字不动；cf 0.5 为新指标的新门槛（经用户确认）"
+  },
+
+  "architectural_constraints": {
+    "no_arch_change": "不修改 N-Cell / Workspace / Head 结构（本轮 trainables 与 002 完全一致：head.+block_to_ws.）",
+    "preserved": "004 全部诊断成果与 001-003 历史数据原样保留；方案 B 草案单独存档 gateb_pre_registration_005_planB_DRAFT.json"
+  },
+
+  "verdict_rules": {
+    "per_group": "每组独立走 PROPOSED/REJECTED/INCONCLUSIVE 判定（learning_loop 契约）",
+    "paired_conclusion": "配对结论在两组终判后于报告层给出：顺序敏感 / 顺序不敏感 / 证据不足",
+    "promotion": "任何组 PROPOSED 均不自动晋升，等 --i-approve；REJECTED 隔离 candidates/rejected/"
+  },
+
+  "estimated_cost": {
+    "total_gradient_steps": 192,
+    "wall_clock_total_s": 240,
+    "per_group": "96 步 / ≤120s（与 001-003 同量级）"
+  },
+
+  "execution": {
+    "commands": [
+      "python experiments/bot_runtime_r2/run_gate_b.py --run 005c-seq",
+      "python experiments/bot_runtime_r2/run_gate_b.py --run 005c-int"
+    ],
+    "gate": "两组预登记 status=APPROVED 且用户批准 192 步预算后才可运行"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "audit": "gateb005c-consistency",
+  "checks": {
+    "两组预算数值一致": true,
+    "两组父checkpoint一致": true,
+    "两组数据计划一致": true,
+    "两组门槛一致": true,
+    "两组seed一致": true,
+    "budget差异字段(应仅为curriculum相关)": [
+      "curriculum"
+    ],
+    "seq模式": "sequential",
+    "int模式": "interleaved",
+    "唯一变量确认": true,
+    "A/B占比设计": {
+      "seq": "阶段1=48步A池, 阶段2=48步B池",
+      "int": "每步batch两池各半，96步"
+    },
+    "每行训练次数相等": "seq: A行48/48池x16步batch16=16次, B行同; int: 每步8+8, 96步→A768/B768行次→每行16次；两组等价",
+    "授权范围检查": {
+      "此前授权每轮": 96,
+      "005每组": 96,
+      "005合计": 192,
+      "超范围": true,
+      "处置": "预登记保持 PENDING_APPROVAL，未执行任何训练"
+    },
+    "B学习流指纹=001实跑记录": true,
+    "B封存集指纹=001实跑记录": true,
+    "cf配对数>=80": true,
+    "cf oracle零不一致": true,
+    "cf与训练流族隔离": "binding_swap 为 C 诊断族，永不进入学习流",
+    "001-003数据保留": true,
+    "方案B草案保留": true,
+    "预登记状态": {
+      "seq": "PENDING_APPROVAL",
+      "int": "PENDING_APPROVAL"
+    }
+  },
+  "verdict": "PASS"
+}

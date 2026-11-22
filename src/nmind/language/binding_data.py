@@ -233,6 +233,48 @@ def build_binding_swap(n: int, seed: int, split: str = "sealed") -> list[Binding
     return out
 
 
+def build_binding_swap_wide(n_pairs: int, seed: int, split: str = "counterfactual"
+                             ) -> list[BindingTask]:
+    """C 族宽域反事实封存集（Gate-B 005 方案 C）：上下文空间扩到 96 个唯一组合。
+
+    为什么需要：build_binding_swap 的 context 由 (位置对) 决定，空间上限 12 ⇒
+    counterfactual_pairs 最多 12 对，达不到 005 的"≥80 个封存配对"要求。宽域在
+    **不改动 oracle 口径**的前提下扩上下文维度：12 位置组合 × 2 陈述顺序 × 4 确认语
+    变体（好的/明白了/收到/无）= 96 个唯一上下文，每上下文先后按两个实体各查一次
+    → 每上下文恰好 1 个反事实对，上限 96 对。
+
+    slot 语义与 counterfactual_pairs 的 recency 计算对齐：entity_a/position_a =
+    **先陈述**实体与其位置，entity_b/position_b = **后陈述**实体与其位置
+    （recency_target = entity_b 在 position_b，由 counterfactual_pairs 统一计算）。
+    oracle 与 build_binding_swap 同一公式（bd.oracle("binding_swap", **slots)）。
+    """
+    if n_pairs > 96:
+        raise ValueError(f"宽域上下文空间上限 96 对，n_pairs={n_pairs} 超限")
+    combos = [(a, b) for a in POSITIONS for b in POSITIONS if a != b]
+    acks = ("好的。", "明白了。", "收到。", "")
+    contexts = []
+    for p1, p2 in combos:
+        for order in ("ab", "ba"):
+            for ack in acks:
+                contexts.append((p1, p2, order, ack))
+    rng = random.Random(seed)
+    rng.shuffle(contexts)
+    contexts = contexts[:n_pairs]
+    out: list[BindingTask] = []
+    for p_a, p_b, order, ack in contexts:
+        first_ent, second_ent = ("小明", "小红") if order == "ab" else ("小红", "小明")
+        stmts = f"{first_ent}在{p_a}。{second_ent}在{p_b}。"
+        ctx = f"用户：{stmts}\n{ack}"
+        for q_ent in ENTITIES:
+            q = f"{q_ent}在哪里？"
+            prompt = f"{ctx}用户：{q}\n助手："
+            slots = {"entity_a": first_ent, "position_a": p_a,
+                      "entity_b": second_ent, "position_b": p_b, "query_entity": q_ent}
+            out.append(_mk("binding_swap", split, prompt, ctx, q,
+                            oracle("binding_swap", **slots), **slots))
+    return out
+
+
 def build_combo_probe(n: int, seed: int, split: str = "unseen_combo", *,
                       exclude: list[BindingTask]) -> list[BindingTask]:
     """跨族组合泛化探针（等价于 build_unseen_combo("combo_probe", …)）：

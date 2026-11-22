@@ -122,11 +122,21 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
                          adapter_prefixes: tuple[str, ...] | None = None,
                          label_permutation_seed: int | None = None,
                          budget: AdaptationBudget | None = None,
-                         record_grad_norms: bool = False) -> dict[str, Any]:
+                         record_grad_norms: bool = False,
+                         batch_mix: tuple[list, list] | None = None,
+                         phase_pool: list[tuple[int, list]] | None = None) -> dict[str, Any]:
     """有界流更新：最多 `updates` 次 optimizer.step 且不超过 wall_limit_s。
 
     adapter_prefixes：None=沿用 set_trainable 默认（head.+block_to_ws.）；传入自定义
     前缀元组可进一步收窄 adapter 范围（Gate-B 003 冻结输出头实验用），默认行为不变。
+
+    课程呈现模式（Gate-B 005 方案 C，两者互斥，同时提供直接报错；默认 None=None=
+    既有随机采样行为完全不变）：
+      * batch_mix=(pool_a, pool_b)：交错混合——每步 batch 从 pool_a 采一半、pool_b
+        采另一半，A/B 行次占比精确可控；
+      * phase_pool=[(steps, pool), ...]：顺序分相——按累计步数切换采样池（A→B 两阶段）。
+    两种模式下 `rows` 不再参与采样（校验非空仍保留），label_permutation_seed 不生效——
+    负对照臂的乱标签置换由调用方对池预先完成（learning_loop 负责）。
 
     步数口径（Gate-B 004 拆分）：`attempted_steps` = 尝试的梯度步数（含非有限 loss
     跳过，预算按尝试计防止无限循环）；`optimizer_steps_executed` = **真实完成**
@@ -135,6 +145,8 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
     可训练参数的梯度范数（诊断接口，默认关闭，不影响默认训练行为）。"""
     if not rows:
         raise ValueError("空 rows：没有 verified 经验不得触发更新")
+    if batch_mix is not None and phase_pool is not None:
+        raise ValueError("batch_mix 与 phase_pool 互斥：课程呈现模式只能二选一")
     budget = budget or AdaptationBudget(updates, label=label)
     if label_permutation_seed is not None:
         rows = permuted_answer_rows(rows, seed=label_permutation_seed)
@@ -173,7 +185,24 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
             stopped_by = "wall_limit"
             break
         budget.spend(1, label)
-        batch = [rows[i] for i in rng.sample(range(len(rows)), min(batch_size, len(rows)))]
+        if batch_mix is not None:
+            pool_a, pool_b = batch_mix
+            half_a = min(len(pool_a), max(1, batch_size // 2))
+            half_b = min(len(pool_b), max(1, batch_size - half_a))
+            batch = ([pool_a[i] for i in rng.sample(range(len(pool_a)), half_a)] +
+                     [pool_b[i] for i in rng.sample(range(len(pool_b)), half_b)])
+        elif phase_pool is not None:
+            cur = budget.used - used0
+            pool = phase_pool[-1][1]
+            acc = 0
+            for ph_steps, ph_rows in phase_pool:
+                if cur < acc + ph_steps:
+                    pool = ph_rows
+                    break
+                acc += ph_steps
+            batch = [pool[i] for i in rng.sample(range(len(pool)), min(batch_size, len(pool)))]
+        else:
+            batch = [rows[i] for i in rng.sample(range(len(rows)), min(batch_size, len(rows)))]
         loss, h, n = answer_masked_loss(model, batch, dev)
         if replay_rows and replay_ratio > 0:
             rbatch = [replay_rows[i] for i in

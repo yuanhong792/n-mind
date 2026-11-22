@@ -135,9 +135,20 @@ def main() -> int:
     # 4. 四臂候选更新（预算全部读自预登记：002 起 trainable/lr/steps/seed 均由预登记锁定，
     #    脚本本身冻结——预登记差异即实验差异，001(all)/002(adapter) 走同一代码路径）
     b = pre["budget"]
-    # 003 起预登记可声明 adapter_prefixes（进一步收窄 adapter 范围，如冻结输出头只训
+    # 005 起预登记可声明 adapter_prefixes（进一步收窄 adapter 范围，如冻结输出头只训
     # block_to_ws）；未声明沿用 set_trainable 默认（head.+block_to_ws.），001/002 口径不变
     apx = b.get("adapter_prefixes")
+    # 005 方案 C：课程呈现（sequential/interleaved）与反事实封存集、跟随率门槛均由预登记锁定
+    curriculum = b.get("curriculum")
+    cf_min = pre.get("gates_preregistered", {}).get("counterfactual_follow_min")
+    cf_items = None
+    cf_file = pre.get("counterfactual_items_file")
+    if cf_file:
+        cf_path = OUT / cf_file
+        if not cf_path.exists():
+            print(f"[GATE-B] 反事实封存集不存在：{cf_path}")
+            return 3
+        cf_items = json.loads(cf_path.read_text(encoding="utf-8"))["items"]
     cand_tmp = OUT / "candidates" / f"_pending_{run_id}.pt"
     cand_tmp.parent.mkdir(parents=True, exist_ok=True)
     report = run_candidate_update(
@@ -149,6 +160,9 @@ def main() -> int:
         memory_index=(train_p, train_a), replay_ratio=float(b["replay_ratio"]),
         trainable=str(b["trainable"]),
         adapter_prefixes=(tuple(apx) if apx else None),
+        curriculum=curriculum,
+        counterfactual_items=cf_items,
+        counterfactual_follow_min=cf_min,
         arms=("frozen", "memory", "neural", "negative"),
         wall_limit_s=float(b["wall_limit_s_total"]), candidate_path=str(cand_tmp),
         max_new_tokens=int(b["max_new_tokens"]))

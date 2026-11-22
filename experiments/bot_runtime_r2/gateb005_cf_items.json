@@ -1,0 +1,1128 @@
+{
+  "seed": 20261711,
+  "n_pairs": 80,
+  "n_items": 160,
+  "oracle_mismatch": 0,
+  "items": [
+    {
+      "fingerprint": "52230337b74ac235",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp0"
+    },
+    {
+      "fingerprint": "858c940088034cd2",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp0"
+    },
+    {
+      "fingerprint": "57afae9b79c29964",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp1"
+    },
+    {
+      "fingerprint": "717b588ef3de1555",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp1"
+    },
+    {
+      "fingerprint": "eee3b4d42dd520b6",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp2"
+    },
+    {
+      "fingerprint": "739045ccf87e79d5",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp2"
+    },
+    {
+      "fingerprint": "c7464381e1edf9d6",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp3"
+    },
+    {
+      "fingerprint": "1fe7b28c5c861667",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp3"
+    },
+    {
+      "fingerprint": "6d29084a696e0b61",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp4"
+    },
+    {
+      "fingerprint": "9e62ec63ba367c7a",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp4"
+    },
+    {
+      "fingerprint": "053d2cc2fd49d3cb",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp5"
+    },
+    {
+      "fingerprint": "2243925e0e5f4a0f",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp5"
+    },
+    {
+      "fingerprint": "a0b0ffbb7fc88fe7",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp6"
+    },
+    {
+      "fingerprint": "61dc5e56be45f51d",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp6"
+    },
+    {
+      "fingerprint": "841824c8ea062edc",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp7"
+    },
+    {
+      "fingerprint": "076e67c7e9949217",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp7"
+    },
+    {
+      "fingerprint": "f0bc4315e0814cca",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp8"
+    },
+    {
+      "fingerprint": "76b382e87dd109d0",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp8"
+    },
+    {
+      "fingerprint": "8251fc9feecef924",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp9"
+    },
+    {
+      "fingerprint": "e215f616ff6abf36",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp9"
+    },
+    {
+      "fingerprint": "f55c593def3b5193",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp10"
+    },
+    {
+      "fingerprint": "b52b42ba82330c40",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp10"
+    },
+    {
+      "fingerprint": "dee92a761f7802a7",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp11"
+    },
+    {
+      "fingerprint": "328ea7ac56ce2313",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp11"
+    },
+    {
+      "fingerprint": "5493675a47712316",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp12"
+    },
+    {
+      "fingerprint": "e87a9bc3037fbcbb",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp12"
+    },
+    {
+      "fingerprint": "b195bd0e07abb651",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp13"
+    },
+    {
+      "fingerprint": "e063346d42c8b068",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp13"
+    },
+    {
+      "fingerprint": "7dcc81292689a852",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp14"
+    },
+    {
+      "fingerprint": "8ec9dfee40e9e4c3",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp14"
+    },
+    {
+      "fingerprint": "ec46666e8fb8d576",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp15"
+    },
+    {
+      "fingerprint": "8adabf9d7f7430f2",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp15"
+    },
+    {
+      "fingerprint": "42ec2269b0d6fa44",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp16"
+    },
+    {
+      "fingerprint": "59533358e4bf7c47",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp16"
+    },
+    {
+      "fingerprint": "3903803b67343730",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp17"
+    },
+    {
+      "fingerprint": "56182ac26a2fdf96",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp17"
+    },
+    {
+      "fingerprint": "9e5e4ab4c352a449",
+      "prompt": "用户：小红在1号位置。小明在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp18"
+    },
+    {
+      "fingerprint": "de9469a7f7d7ae94",
+      "prompt": "用户：小红在1号位置。小明在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp18"
+    },
+    {
+      "fingerprint": "865b5b387cda003d",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp19"
+    },
+    {
+      "fingerprint": "0eebc8fdb2babd0c",
+      "prompt": "用户：小红在1号位置。小明在3号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp19"
+    },
+    {
+      "fingerprint": "1faf3ffc9461fdd3",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp20"
+    },
+    {
+      "fingerprint": "5b2551dee9da07f1",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp20"
+    },
+    {
+      "fingerprint": "273293608ab7e2ec",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp21"
+    },
+    {
+      "fingerprint": "d7859ed8163d2504",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp21"
+    },
+    {
+      "fingerprint": "fdc55e1859f85dcd",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp22"
+    },
+    {
+      "fingerprint": "41457ec1eb5a163a",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp22"
+    },
+    {
+      "fingerprint": "8cb1b1d2f8bbbd0c",
+      "prompt": "用户：小明在3号位置。小红在2号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp23"
+    },
+    {
+      "fingerprint": "b423814856cfc4f3",
+      "prompt": "用户：小明在3号位置。小红在2号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp23"
+    },
+    {
+      "fingerprint": "733b861a1f0aff85",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp24"
+    },
+    {
+      "fingerprint": "d27ac939a3bae73c",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp24"
+    },
+    {
+      "fingerprint": "cd6e286ddea5d9f1",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp25"
+    },
+    {
+      "fingerprint": "4b1f622f20b0fe23",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp25"
+    },
+    {
+      "fingerprint": "a8cadc9696a36e75",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp26"
+    },
+    {
+      "fingerprint": "5b3b704a6d5daf92",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp26"
+    },
+    {
+      "fingerprint": "85cc918a8aa3b7d0",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp27"
+    },
+    {
+      "fingerprint": "f8a8e672c44533d9",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp27"
+    },
+    {
+      "fingerprint": "1f3dce0d3cc992bf",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp28"
+    },
+    {
+      "fingerprint": "7eceb79716b59d13",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp28"
+    },
+    {
+      "fingerprint": "c931fe5c54c190c3",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp29"
+    },
+    {
+      "fingerprint": "e6f5a889e56153ae",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp29"
+    },
+    {
+      "fingerprint": "7b75a140592e24d6",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp30"
+    },
+    {
+      "fingerprint": "99e17d393242457d",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp30"
+    },
+    {
+      "fingerprint": "fa2bdb1bdfd43a46",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp31"
+    },
+    {
+      "fingerprint": "97af155db543da54",
+      "prompt": "用户：小明在4号位置。小红在3号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp31"
+    },
+    {
+      "fingerprint": "6a4c361e056185a2",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp32"
+    },
+    {
+      "fingerprint": "5d320f9c0d91b228",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp32"
+    },
+    {
+      "fingerprint": "beccdd857967402a",
+      "prompt": "用户：小红在1号位置。小明在2号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp33"
+    },
+    {
+      "fingerprint": "e802b702efad8e77",
+      "prompt": "用户：小红在1号位置。小明在2号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp33"
+    },
+    {
+      "fingerprint": "d2c23f923119c5e9",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp34"
+    },
+    {
+      "fingerprint": "7e724a32b1d221f7",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp34"
+    },
+    {
+      "fingerprint": "9bf614a301553b00",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp35"
+    },
+    {
+      "fingerprint": "1e3c43e0d7abe3aa",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp35"
+    },
+    {
+      "fingerprint": "c2cfb39f919b87b9",
+      "prompt": "用户：小明在3号位置。小红在4号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp36"
+    },
+    {
+      "fingerprint": "ef859dbd7a346cc5",
+      "prompt": "用户：小明在3号位置。小红在4号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp36"
+    },
+    {
+      "fingerprint": "702d1a87bfc982fa",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp37"
+    },
+    {
+      "fingerprint": "1f1ef8ca12f6d74e",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp37"
+    },
+    {
+      "fingerprint": "ffe3cd396d2e99a0",
+      "prompt": "用户：小明在2号位置。小红在1号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp38"
+    },
+    {
+      "fingerprint": "887c45b41f9c1390",
+      "prompt": "用户：小明在2号位置。小红在1号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp38"
+    },
+    {
+      "fingerprint": "bb744b3be8dcca4e",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp39"
+    },
+    {
+      "fingerprint": "1f69517169acfbfa",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp39"
+    },
+    {
+      "fingerprint": "c0fb1a3a3994b12b",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp40"
+    },
+    {
+      "fingerprint": "00e22f8fd7234b37",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp40"
+    },
+    {
+      "fingerprint": "7a181b3d76c624f5",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp41"
+    },
+    {
+      "fingerprint": "ff4c525ba9e5ba79",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp41"
+    },
+    {
+      "fingerprint": "5fa48e7fc62da213",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp42"
+    },
+    {
+      "fingerprint": "61ff8a6b77e296fb",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp42"
+    },
+    {
+      "fingerprint": "f670cc82a22851a7",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp43"
+    },
+    {
+      "fingerprint": "ac1c21f841d8ae31",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp43"
+    },
+    {
+      "fingerprint": "a14f8dcd851f2598",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp44"
+    },
+    {
+      "fingerprint": "65bb50072c9f554a",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp44"
+    },
+    {
+      "fingerprint": "1ca93a2e7d077712",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp45"
+    },
+    {
+      "fingerprint": "662aa644577af877",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp45"
+    },
+    {
+      "fingerprint": "e9e4b688d0f75a72",
+      "prompt": "用户：小明在3号位置。小红在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp46"
+    },
+    {
+      "fingerprint": "fe52e1aae32345f4",
+      "prompt": "用户：小明在3号位置。小红在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp46"
+    },
+    {
+      "fingerprint": "1e072d0f9cf8e913",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp47"
+    },
+    {
+      "fingerprint": "00332d89501fcad9",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp47"
+    },
+    {
+      "fingerprint": "a79a04f83e043214",
+      "prompt": "用户：小明在3号位置。小红在2号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp48"
+    },
+    {
+      "fingerprint": "71d40fa25dda5e6c",
+      "prompt": "用户：小明在3号位置。小红在2号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp48"
+    },
+    {
+      "fingerprint": "b3a48662eeef217c",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp49"
+    },
+    {
+      "fingerprint": "433a3fd6a301cc45",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp49"
+    },
+    {
+      "fingerprint": "7e09d9ecceb3877c",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp50"
+    },
+    {
+      "fingerprint": "05d7ab6fd96c09b6",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp50"
+    },
+    {
+      "fingerprint": "1505ffdecb37aff5",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp51"
+    },
+    {
+      "fingerprint": "915d6600f63b9cea",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp51"
+    },
+    {
+      "fingerprint": "ea8deb79b48e64ad",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp52"
+    },
+    {
+      "fingerprint": "25c3adb44ede4f07",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp52"
+    },
+    {
+      "fingerprint": "826212395e9d0bc6",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp53"
+    },
+    {
+      "fingerprint": "5c72c06af9269cf5",
+      "prompt": "用户：小红在4号位置。小明在2号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp53"
+    },
+    {
+      "fingerprint": "be84208986948041",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp54"
+    },
+    {
+      "fingerprint": "12919da18ecb056a",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp54"
+    },
+    {
+      "fingerprint": "3876a7c72b167b57",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp55"
+    },
+    {
+      "fingerprint": "597709fb3055b6f3",
+      "prompt": "用户：小明在4号位置。小红在1号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp55"
+    },
+    {
+      "fingerprint": "39c7e8a0e29c8bc1",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp56"
+    },
+    {
+      "fingerprint": "d0dea860a84f5adb",
+      "prompt": "用户：小红在3号位置。小明在2号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在2号位置。",
+      "group": "grp56"
+    },
+    {
+      "fingerprint": "9331b5db55dbdcc1",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp57"
+    },
+    {
+      "fingerprint": "8f3841290858b3ae",
+      "prompt": "用户：小红在4号位置。小明在1号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp57"
+    },
+    {
+      "fingerprint": "3a00321556cc54b8",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp58"
+    },
+    {
+      "fingerprint": "e563adf5de7b7a33",
+      "prompt": "用户：小明在1号位置。小红在2号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp58"
+    },
+    {
+      "fingerprint": "dc1313738fa673f0",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp59"
+    },
+    {
+      "fingerprint": "4d8d2c151b02eb01",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp59"
+    },
+    {
+      "fingerprint": "3d3ea494081f1c85",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp60"
+    },
+    {
+      "fingerprint": "48b8d4eb843dbc7a",
+      "prompt": "用户：小明在4号位置。小红在2号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小红在2号位置。",
+      "group": "grp60"
+    },
+    {
+      "fingerprint": "d5047ba41bdf049f",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp61"
+    },
+    {
+      "fingerprint": "8ba72bfd73a04a89",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp61"
+    },
+    {
+      "fingerprint": "3d3e4904cc43c8dc",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp62"
+    },
+    {
+      "fingerprint": "c096d967f6121f83",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp62"
+    },
+    {
+      "fingerprint": "b2053ff11c83ee20",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp63"
+    },
+    {
+      "fingerprint": "6d2b54972aad7c63",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp63"
+    },
+    {
+      "fingerprint": "b51963da2144617d",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp64"
+    },
+    {
+      "fingerprint": "3b54ece9c586931b",
+      "prompt": "用户：小明在1号位置。小红在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp64"
+    },
+    {
+      "fingerprint": "6843e24bd26a3363",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp65"
+    },
+    {
+      "fingerprint": "a1b8b4315736af55",
+      "prompt": "用户：小明在2号位置。小红在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小红在3号位置。",
+      "group": "grp65"
+    },
+    {
+      "fingerprint": "4c15260c3125ae6d",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp66"
+    },
+    {
+      "fingerprint": "56bc28c2fb370a34",
+      "prompt": "用户：小红在1号位置。小明在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp66"
+    },
+    {
+      "fingerprint": "cc9410bbfb6606cd",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp67"
+    },
+    {
+      "fingerprint": "4ee9c5d8e30a640d",
+      "prompt": "用户：小红在2号位置。小明在1号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp67"
+    },
+    {
+      "fingerprint": "267f3499bf7fc241",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp68"
+    },
+    {
+      "fingerprint": "cc303b3fcd2bfe31",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp68"
+    },
+    {
+      "fingerprint": "2cad688cb614d34e",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp69"
+    },
+    {
+      "fingerprint": "f091921e5d70ef66",
+      "prompt": "用户：小红在3号位置。小明在1号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在1号位置。",
+      "group": "grp69"
+    },
+    {
+      "fingerprint": "9a49170793ff3a67",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp70"
+    },
+    {
+      "fingerprint": "670ecb56cc26de62",
+      "prompt": "用户：小红在4号位置。小明在3号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp70"
+    },
+    {
+      "fingerprint": "044d3da05827b4f6",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp71"
+    },
+    {
+      "fingerprint": "aa649358377ec038",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp71"
+    },
+    {
+      "fingerprint": "8ddde23b391ab1e4",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp72"
+    },
+    {
+      "fingerprint": "57c3b72e2eef24ce",
+      "prompt": "用户：小明在2号位置。小红在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp72"
+    },
+    {
+      "fingerprint": "744dcf6964a907b0",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n收到。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp73"
+    },
+    {
+      "fingerprint": "99dcfa789a085226",
+      "prompt": "用户：小红在2号位置。小明在3号位置。\n收到。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在3号位置。",
+      "group": "grp73"
+    },
+    {
+      "fingerprint": "7c0e5c3f45c4ac79",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在3号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp74"
+    },
+    {
+      "fingerprint": "4324a5197e728ca3",
+      "prompt": "用户：小明在3号位置。小红在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp74"
+    },
+    {
+      "fingerprint": "5c2417d9e014a0f5",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp75"
+    },
+    {
+      "fingerprint": "8f0d4616d372fa83",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp75"
+    },
+    {
+      "fingerprint": "ade6063096fdc958",
+      "prompt": "用户：小明在2号位置。小红在1号位置。\n好的。用户：小明在哪里？\n助手：",
+      "target": "小明在2号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp76"
+    },
+    {
+      "fingerprint": "b73f0752e50070b6",
+      "prompt": "用户：小明在2号位置。小红在1号位置。\n好的。用户：小红在哪里？\n助手：",
+      "target": "小红在1号位置。",
+      "recency_target": "小红在1号位置。",
+      "group": "grp76"
+    },
+    {
+      "fingerprint": "f8c43815edb73ea9",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp77"
+    },
+    {
+      "fingerprint": "ca4094726f58ac22",
+      "prompt": "用户：小红在2号位置。小明在4号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在2号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp77"
+    },
+    {
+      "fingerprint": "4610a9c889e2e6e0",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n用户：小明在哪里？\n助手：",
+      "target": "小明在4号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp78"
+    },
+    {
+      "fingerprint": "946c5978e89e85fc",
+      "prompt": "用户：小红在3号位置。小明在4号位置。\n用户：小红在哪里？\n助手：",
+      "target": "小红在3号位置。",
+      "recency_target": "小明在4号位置。",
+      "group": "grp78"
+    },
+    {
+      "fingerprint": "2ddab38d53e2fca6",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n明白了。用户：小明在哪里？\n助手：",
+      "target": "小明在1号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp79"
+    },
+    {
+      "fingerprint": "3fb9107a6b6df8d4",
+      "prompt": "用户：小明在1号位置。小红在4号位置。\n明白了。用户：小红在哪里？\n助手：",
+      "target": "小红在4号位置。",
+      "recency_target": "小红在4号位置。",
+      "group": "grp79"
+    }
+  ]
+}

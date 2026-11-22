@@ -1,0 +1,136 @@
+{
+  "experiment": "gate-b-005c-int",
+  "task_book": "Agent Runtime R2 任务书 §6（Gate-B 005 方案 C：课程呈现顺序配对对照）",
+  "status": "PENDING_APPROVAL",
+  "preregistered_at": "2026-11-22",
+  "note": "本文件由 gateb_pre_registration_005_planC.json 程序化派生（保证配对一致性）；唯一实验变量=任务呈现顺序，两组其余字段逐项相同。合计 192 步超此前授权范围（96/轮），需用户批准预算后改 APPROVED。",
+  "pairing": {
+    "family_plan": "gateb_pre_registration_005_planC.json",
+    "paired_group": "gate-b-005c-seq"
+  },
+  "target_skill": {
+    "skill_id": "skill.binding.unseen_entity",
+    "family": "unseen_entity_qa",
+    "tier": "B",
+    "baseline_neural_em": 0.0,
+    "gap_pp": 100.0,
+    "stream_disjoint": true,
+    "unchanged_from_001": true
+  },
+  "parent": {
+    "checkpoint": "experiments/m5_language/m52_s0_checkpoint.pt",
+    "expected_state_sha256": "6404f453b0aa722a660f16d534ffe7543e2f015e25c7e6a2bb9fafc042fdd529",
+    "tokenizer": "experiments/m5_language/tokenizer_m52.json",
+    "invariants": [
+      "stable 文件逐位不写回",
+      "词表不换（load_lm 哈希校验）",
+      "零网络调用"
+    ]
+  },
+  "data_plan": {
+    "note": "与 001-003 逐项相同（同 builder/同 n/同 seed）；A 组学习流经 replay_pairs 通道作为 curriculum 数据源",
+    "learning_stream": {
+      "family": "unseen_entity_qa",
+      "split": "train",
+      "n": 48,
+      "seed": 20261621,
+      "positions": [
+        "1号位置",
+        "2号位置"
+      ],
+      "entity": "小红"
+    },
+    "sealed_eval": {
+      "family": "unseen_entity_qa",
+      "split": "sealed",
+      "n": 40,
+      "seed": 20261622,
+      "positions": [
+        "3号位置",
+        "4号位置"
+      ],
+      "train_sealed_overlap_rate": 0.0
+    },
+    "retention_anchor": {
+      "family": "position_qa(A组)",
+      "split": "sealed",
+      "n": 80,
+      "seed": 20261403
+    },
+    "replay_pairs": {
+      "family": "position_qa(A组)",
+      "split": "train",
+      "n": 48,
+      "seed": 20261401,
+      "construction_note": "直调 build_position_qa(48, 20261401, 'train')"
+    },
+    "memory_index": "仅学习流 48 行；封存标签永不入索引"
+  },
+  "budget": {
+    "single_variable": "trainable: all -> adapter（R1 smoke Neural-Head 成功口径；set_trainable adapter_prefixes=('head.','block_to_ws.')）",
+    "total_gradient_steps": 96,
+    "per_arm": {
+      "neural": 48,
+      "negative": 48
+    },
+    "lr": 0.003,
+    "trainable": "adapter",
+    "replay_ratio": 0,
+    "wall_limit_s_total": 120,
+    "init_seed": 20261601,
+    "label_permutation_seed": 20261602,
+    "max_new_tokens": 24,
+    "arms": [
+      "frozen",
+      "memory",
+      "neural",
+      "negative"
+    ],
+    "rationale": "seed/lr/步数/replay 全部与 001 相同——若 002 仍 REJECTED，003 再单动 lr 或步数结构，保持消融链干净",
+    "wall_limit_s_per_arm": 60,
+    "budget_enforcement": "AdaptationBudget 跨臂硬总闸（learning_loop 既有实现，超限抛 BudgetExceeded）",
+    "per_arm_note": "neural 48 步 = 学习流 48 行恰好 1 epoch 全覆盖（与 001 相同口径）",
+    "curriculum": {
+      "mode": "interleaved",
+      "note": "每步 batch 从 A 池与 B 池各采一半（batch_mix），A/B 行次精确对半"
+    },
+    "curriculum_note": "curriculum 与 replay 互斥（005 指令⑤）：本轮回放权重两组一致为 0，A/B 行次按占比进入 batch",
+    "ab_ratio_note": "每行训练 16 次，A/B 行次各 768，两组精确相等"
+  },
+  "gates_preregistered": {
+    "new_skill_gain_min": 0.1,
+    "gate_1_new_skill": "sealed_after_em - sealed_baseline_em >= +0.10（代码常量不可调）",
+    "gate_2_retention": "A组封存 80 条 EM 下降 <= 3pp（retention 同口径）",
+    "gate_3_negative_control": "negative 臂（乱标签）sealed EM < neural 臂 sealed EM",
+    "gate_4_weight_changed": "named_parameters 中可训练范围内 tensors_changed > 0，且 trainable 范围外的参数逐位不变（adapter 收窄的取证要求：非 head./block_to_ws. 前缀张量必须 0 变化）",
+    "gate_5_integrity": "逐位继承断言 + seal_eval_state 复位取证 + stable 文件 sha 前后一致",
+    "gate_6_frozen_untouched": "frozen 臂 sealed EM 与基线一致",
+    "extra_report": "per-position 分解（3号/4号位各自 EM）+ trainable_params 数量记录",
+    "counterfactual_follow_min": 0.5,
+    "counterfactual_double_baseline": "follow_rate >= 0.5 且 > 冻结父模型基线 且 > 近因捷径基线（三方比较）"
+  },
+  "counterfactual_items_file": "gateb005_cf_items.json",
+  "counterfactual_sealed_set": {
+    "builder": "build_binding_swap_wide(80, 20261711, 'counterfactual') 直调（不修改 SPLIT_TABLE）",
+    "n_pairs": 80,
+    "n_items": 160,
+    "oracle_mismatch": 0,
+    "context_space": "12 位置组合 × 2 陈述顺序 × 4 确认语 = 96 上限",
+    "checks": [
+      "实体选择（答对被查询实体）",
+      "位置交换跟随（答对陈述位置）",
+      "近因捷径率"
+    ],
+    "items_file": "gateb005_cf_items.json",
+    "tier": "C 诊断族：永不进入学习流"
+  },
+  "verdict_rules": {
+    "PASS": "全部 6 闸通过 → PROPOSED，候选存 candidates/proposed/，晋升需 --i-approve",
+    "FAIL": "任一闸不过 → REJECTED，候选存 candidates/rejected/，stable 逐位不变",
+    "no_retry": "REJECTED 后本轮不追加预算；003 必须新预登记（候选方向：lr 降档 3e-3→1e-3 或步数结构调整，仍单变量）"
+  },
+  "execution": {
+    "command": "python experiments/bot_runtime_r2/run_gate_b.py --run 005c-int",
+    "result_file": "experiments/bot_runtime_r2/gateb_result_005c-int.json"
+  }
+}

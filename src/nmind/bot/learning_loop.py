@@ -23,8 +23,9 @@ import torch
 from ..learning.online_adaptation import (AdaptationBudget, clone_snapshot,
                                            seal_eval_state, state_hash,
                                            verify_bitwise_inheritance)
-from ..language.decoder import free_generation, generate
-from ..language.lm_update import encode_rows, masked_stream_update, parameter_audit
+from ..language.decoder import (FREEGEN_PROTOCOL_V2, free_generation_v2, generate)
+from ..language.lm_update import (encode_rows, masked_stream_update, parameter_audit,
+                                   permuted_answer_rows)
 from ..language.neural_dialogue import load_lm, save_lm
 from ..language.tokenizer import CharTokenizer
 from .experience_bridge import VerifiedExperience, to_learning_rows
@@ -33,6 +34,23 @@ NEW_SKILL_GAIN_THRESHOLD = 0.10          # 预登记阈值：不可为过门槛�
 FORGETTING_LIMIT_PP = 3.0
 COUNTERFACTUAL_FOLLOW_MIN: float | None = None   # 反事实跟随率门槛：预登记声明后生效
 REQUIRED_ARMS = ("frozen", "memory", "neural", "negative")
+
+
+def free_gen_em_v2(model, tok: CharTokenizer, prompts: list[str], answers: list[str],
+                   *, max_new_tokens: int = 24) -> float | None:
+    """v2 口径（freegen-v2-direct-continuation）的自由生成 EM：prompt 单次前向直续。
+
+    Gate-B 005 起新实验统一使用本协议；001—003 的 v1 口径（free_gen_em）仅作历史参考，
+    两者绝对值不可直接互比（条件状态不同），各自内部比较有效。"""
+    if not prompts:
+        return None
+    model.eval()
+    hits = 0
+    with torch.no_grad():
+        for p, a in zip(prompts, answers):
+            rec = free_generation_v2(model, tok, p, max_new_tokens=max_new_tokens)
+            hits += int(rec.text.strip() == a.strip())
+    return round(hits / len(answers), 4)
 
 
 def free_gen_em(model, tok: CharTokenizer, prompts: list[str], answers: list[str],
@@ -108,6 +126,8 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                          replay_ratio: float = 0.15, trainable: str = "all",
                          adapter_prefixes: tuple[str, ...] | None = None,
                          counterfactual_items: list[dict[str, str]] | None = None,
+                         counterfactual_follow_min: float | None = None,
+                         curriculum: dict[str, Any] | None = None,
                          record_grad_norms: bool = False,
                          arms: tuple[str, ...] = ("frozen", "neural"),
                          wall_limit_s: float = 60.0,
@@ -157,23 +177,79 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                  "reason": "候选逐位继承断言失败",
                  "detail": chk["mismatched_keys"][:5], "arms": {}}
 
-    base = free_gen_em(child, tok, sealed_prompts, sealed_answers,
-                        max_new_tokens=max_new_tokens)
+    base = free_gen_em_v2(child, tok, sealed_prompts, sealed_answers,
+                           max_new_tokens=max_new_tokens)
     old_prompts = [p for p, _a in list(zip(prompts, answers))[:8]]
     old_answers = [a for _p, a in list(zip(prompts, answers))[:8]]
-    base_old = free_gen_em(child, tok, old_prompts, old_answers, max_new_tokens=max_new_tokens)
+    base_old = free_gen_em_v2(child, tok, old_prompts, old_answers,
+                               max_new_tokens=max_new_tokens)
     # 抗遗忘锚点必须是"父模型已经会做的事"（A 组封存集），不是训练集自己：
     # R1 用训练行前 8 条当"旧任务"，那测的是背没背住，测不出旧技能有没有被冲掉。
     # Gate-B 004 契约：retention_pairs 缺失时 base_ret=None（遗忘不评测 → INCONCLUSIVE），
     # 绝不回退到训练行——宁可缺证据，不造假证据。
     if retention_pairs is not None:
         ret_prompts, ret_answers = retention_pairs
-        base_ret = free_gen_em(child, tok, ret_prompts, ret_answers,
-                                max_new_tokens=max_new_tokens)
+        base_ret = free_gen_em_v2(child, tok, ret_prompts, ret_answers,
+                                   max_new_tokens=max_new_tokens)
     else:
         ret_prompts, ret_answers, base_ret = [], [], None
 
+    # 反事实评测（Gate-B 005：v2 协议 + 双基线）。helper 在训练前/后各跑一次：
+    # base_cf_rate = 冻结父模型基线（frozen 臂同源），训练后 cf_rate 与之比较。
+    def _cf_eval(mm) -> tuple[float | None, float | None, int]:
+        if not counterfactual_items:
+            return None, None, 0
+        mm.eval()
+        preds: dict[str, str] = {}
+        with torch.no_grad():
+            for it in counterfactual_items:
+                rec = free_generation_v2(mm, tok, it["prompt"], max_new_tokens=max_new_tokens)
+                preds[it["fingerprint"]] = rec.text.strip()
+        groups: dict[str, list[bool]] = {}
+        for it in counterfactual_items:
+            groups.setdefault(it["group"], []).append(
+                _norm(preds.get(it["fingerprint"], "")) == _norm(it["target"]))
+        rate = round(sum(all(v) for v in groups.values()) / len(groups), 4) if groups else None
+        # 近因捷径基线：若模型全部走捷径（答最近陈述），能达到的"正确率"
+        shortcut_base = None
+        recency_items = [it for it in counterfactual_items if it.get("recency_target")]
+        if recency_items:
+            shortcut_base = round(sum(
+                _norm(it["recency_target"]) == _norm(it["target"])
+                for it in recency_items) / len(recency_items), 4)
+        return rate, shortcut_base, len(groups)
+
+    base_cf_rate, shortcut_base_rate, base_cf_n_groups = _cf_eval(child)  # noqa: F841（基线组数留档）
+
     budget = budget or AdaptationBudget(updates, label="bot-candidate")
+    # 课程呈现解析（Gate-B 005 方案 C）：sequential=A→B 两阶段 / interleaved=A+B 混合池。
+    # 两组共享同一 optimizer 连续过程、同一数据池、同行次占比——唯一变量是呈现顺序。
+    # 与 replay 互斥：回放权重必须保持两组一致（用户指令⑤：不得同时改变回放权重），
+    # curriculum 模式下 A 组行次已按占比进入 batch，replay 加权会破坏占比控制。
+    batch_mix = None
+    phase_pool = None
+    curriculum_mode = None
+    if curriculum is not None:
+        mode = curriculum.get("mode")
+        if mode not in ("sequential", "interleaved"):
+            raise ValueError(f"curriculum.mode={mode!r} 不在 {{sequential, interleaved}}")
+        if replay_ratio not in (0, None) and replay_rows is not None:
+            raise ValueError("curriculum 与 replay_ratio>0 互斥：任务呈现顺序是唯一实验变量，"
+                              "回放权重必须两组一致（005 指令⑤）")
+        if not replay_rows:
+            raise ValueError("curriculum 需要 replay_pairs 提供 A 组学习流（顺序/交错的 A 相数据源）")
+        a_rows = replay_rows
+        b_rows = rows
+        if mode == "interleaved":
+            curriculum_mode = "interleaved"
+            batch_mix = (a_rows, b_rows)          # 每步 batch 两池各半，A/B 行次精确对半
+        else:
+            curriculum_mode = "sequential"
+            ph = curriculum.get("phases")
+            if (not isinstance(ph, list) or len(ph) != 2
+                    or sum(p["steps"] for p in ph) != int(updates)):
+                raise ValueError("sequential 需要 phases=[{steps,source},{steps,source}] 且步数和=updates")
+            phase_pool = [(int(ph[0]["steps"]), a_rows), (int(ph[1]["steps"]), b_rows)]
     arm_reports: dict[str, Any] = {"frozen": {"sealed_em": base, "steps": 0,
                                                "note": "同权重基线，零更新"}}
     if "memory" in arms:
@@ -193,41 +269,30 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         upd = masked_stream_update(child, rows, updates=per_arm, dev=dev, lr=lr, seed=seed,
                                     label="bot-neural", wall_limit_s=arm_wall,
                                     replay_rows=replay_rows,
-                                    replay_ratio=(replay_ratio if replay_rows else 0.0),
-                                trainable=trainable, budget=budget,
-                                adapter_prefixes=adapter_prefixes,
-                                record_grad_norms=record_grad_norms)
+                                    replay_ratio=(0.0 if curriculum_mode else
+                                                   (replay_ratio if replay_rows else 0.0)),
+                                    trainable=trainable, budget=budget,
+                                    adapter_prefixes=adapter_prefixes,
+                                    record_grad_norms=record_grad_norms,
+                                    batch_mix=batch_mix, phase_pool=phase_pool)
     else:
         upd = {"optimizer_steps_executed": 0, "stopped_by": "arm_not_selected"}
     after_state = {k: v.detach().clone() for k, v in child.state_dict().items()}
     audit = seal_eval_state(child, {k: v.clone() for k, v in parent.state_dict().items()})
-    sealed_after = free_gen_em(child, tok, sealed_prompts, sealed_answers,
-                                max_new_tokens=max_new_tokens)
+    sealed_after = free_gen_em_v2(child, tok, sealed_prompts, sealed_answers,
+                                   max_new_tokens=max_new_tokens)
     # 遗忘指标必须与基线同口径（R2 §4 修复的完成，Gate-B 001 轮抓出）：训练后重测的
     # 必须是 retention_pairs（A 组封存集）本身。此前 old_after 仍测训练行前 8 条，
     # 那是"记忆化"不是"保持"——001 轮实测：记忆化 +50pp 掩盖了 A 组 -31.25pp 真遗忘，
     # 旧闸给出假阳性 PASS。训练行前 8 条保留为独立诊断列，不参与闸判定。
-    ret_after = free_gen_em(child, tok, ret_prompts, ret_answers,
-                             max_new_tokens=max_new_tokens)
-    memorize_after = free_gen_em(child, tok, old_prompts, old_answers,
-                                  max_new_tokens=max_new_tokens)
-    # 反事实绑定跟随率（Gate-B 004 进入候选验收）：调用方传入预构造的反事实项
-    # （fingerprint/prompt/target/group，group=同一反事实对），同组全对才算"跟随查询实体"。
-    # 生成走 v1 口径（free_generation，与 free_gen_em 的历史口径一致）；M5.2 已证明
-    # EM 会掩盖近因启发式，此指标是绑定泛化的独立证据线。门槛由预登记声明
-    # （COUNTERFACTUAL_FOLLOW_MIN，默认 None=只记录不判定，不偷设门槛）。
-    cf_rate: float | None = None
-    cf_groups: dict[str, list[bool]] = {}
-    if counterfactual_items:
-        child.eval()
-        with torch.no_grad():
-            for it in counterfactual_items:
-                rec_cf = free_generation(child, tok, it["prompt"],
-                                          max_new_tokens=max_new_tokens)
-                ok = _norm(rec_cf.text) == _norm(it["target"])
-                cf_groups.setdefault(it["group"], []).append(ok)
-        if cf_groups:
-            cf_rate = round(sum(all(v) for v in cf_groups.values()) / len(cf_groups), 4)
+    ret_after = free_gen_em_v2(child, tok, ret_prompts, ret_answers,
+                                max_new_tokens=max_new_tokens)
+    memorize_after = free_gen_em_v2(child, tok, old_prompts, old_answers,
+                                     max_new_tokens=max_new_tokens)
+    # 反事实跟随率（Gate-B 004 进入候选验收 / 005 起双基线判定）：训练后 cf_rate 与
+    # 训练前父模型基线（base_cf_rate）及近因捷径基线（shortcut_base_rate）三方比较；
+    # 门槛 counterfactual_follow_min 由预登记声明（005 方案 C=0.5）。
+    cf_rate, model_recency_shortcut_rate, cf_n_groups = _cf_eval(child)
     # before/after 快照来自 state_dict()，里面既有可训练参数也有路由计数 buffer。
     # 必须拆开报：block_load_count 在一次前向里就能跳到几千，混在"参数变化"里
     # 会让"权重到底动了多少"这个取证问题失去意义（M4 虚假增益同款陷阱的取证版本）。
@@ -253,13 +318,30 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         neg_model, _ = load_lm(stable_checkpoint, tok)
         # 负对照臂与主臂共用同一个 AdaptationBudget ⇒ 授权预算是**跨臂硬总闸**，
         # 不会因为多跑一条对照臂就把步数翻倍（老实现各建各的预算）。
+        # curriculum 模式：乱标签置换按相独立进行（同 seed 族），呈现顺序与主臂一致。
+        if curriculum_mode == "interleaved":
+            neg_batch_mix = (permuted_answer_rows(replay_rows, seed=seed + 1),
+                              permuted_answer_rows(rows, seed=seed + 2))
+            neg_phase_pool = None
+        elif curriculum_mode == "sequential":
+            neg_batch_mix = None
+            neg_phase_pool = [(phase_pool[0][0], permuted_answer_rows(replay_rows, seed=seed + 1)),
+                               (phase_pool[1][0], permuted_answer_rows(rows, seed=seed + 2))]
+        else:
+            neg_batch_mix = None
+            neg_phase_pool = None
         neg = masked_stream_update(neg_model, rows, updates=per_arm, dev=dev, lr=lr, seed=seed,
                                     label="bot-negative", wall_limit_s=arm_wall,
+                                    replay_rows=replay_rows,
+                                    replay_ratio=(0.0 if curriculum_mode else
+                                                   (replay_ratio if replay_rows else 0.0)),
                                     trainable=trainable, budget=budget,
                                     adapter_prefixes=adapter_prefixes,
-                                    label_permutation_seed=seed + 1)
-        neg_em = free_gen_em(neg_model, tok, sealed_prompts, sealed_answers,
-                              max_new_tokens=max_new_tokens)
+                                    batch_mix=neg_batch_mix, phase_pool=neg_phase_pool,
+                                    label_permutation_seed=(None if curriculum_mode
+                                                             else seed + 1))
+        neg_em = free_gen_em_v2(neg_model, tok, sealed_prompts, sealed_answers,
+                                 max_new_tokens=max_new_tokens)
         arm_reports["negative"] = {"update": {k: neg[k] for k in
                                                ("optimizer_steps_executed", "stopped_by")},
                                     "steps_cap_this_arm": per_arm,
@@ -317,21 +399,39 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
     #   * NEW_SKILL_GAIN_THRESHOLD / FORGETTING_LIMIT_PP 历史门槛一字不动。
     neg_arm = arm_reports.get("negative")
     neg_em = neg_arm.get("sealed_em_after") if isinstance(neg_arm, dict) else None
+    cf_min = (counterfactual_follow_min if counterfactual_follow_min is not None
+               else COUNTERFACTUAL_FOLLOW_MIN)
+    cf_ok = True
+    if cf_rate is not None and cf_min is not None:
+        cf_ok = cf_rate >= cf_min
+        if base_cf_rate is not None:
+            cf_ok = cf_ok and cf_rate > base_cf_rate        # 优于冻结父模型基线
+        if shortcut_base_rate is not None:
+            cf_ok = cf_ok and cf_rate > shortcut_base_rate  # 优于近因捷径基线
     gates = {"new_skill_gain": gain is not None and gain >= NEW_SKILL_GAIN_THRESHOLD,
               "old_task_retention": forget is not None and forget >= -FORGETTING_LIMIT_PP,
               "negative_control": (neg_em is not None and sealed_after is not None
                                     and neg_em < sealed_after),
               "weight_changed": param_change["tensors_changed"] > 0,
               "inheritance": True,
-              "counterfactual_follow": (True if cf_rate is None or COUNTERFACTUAL_FOLLOW_MIN is None
-                                         else cf_rate >= COUNTERFACTUAL_FOLLOW_MIN)}
+              "counterfactual_follow": cf_ok}
     report["gates"] = gates
     report["counterfactual"] = {"follow_rate": cf_rate,
-                                 "gate_enforced": COUNTERFACTUAL_FOLLOW_MIN is not None,
+                                 "frozen_parent_baseline": base_cf_rate,
+                                 "recency_shortcut_baseline": shortcut_base_rate,
+                                 "model_recency_shortcut_rate": model_recency_shortcut_rate,
+                                 "gate_enforced": cf_min is not None,
+                                 "gate_min": cf_min,
                                  "n_items": len(counterfactual_items or []),
-                                 "n_groups": len(cf_groups),
-                                 "protocol": "freegen-v1（与历史 EM 口径一致）"}
+                                 "n_groups": cf_n_groups,
+                                 "protocol": FREEGEN_PROTOCOL_V2}
     report["inconclusive_reasons"] = inconclusive_reasons
+    report["curriculum"] = {"mode": curriculum_mode,
+                             "phases": (curriculum or {}).get("phases"),
+                             "replay_ratio_used": (0.0 if curriculum_mode else
+                                                    (replay_ratio if replay_rows else 0.0))}
+    report["protocols"] = {"freegen": FREEGEN_PROTOCOL_V2,
+                            "note": "005 起统一 v2 直续协议；001-003 的 v1 历史口径仅作参考"}
     if inconclusive_reasons:
         # 缺证据 ≠ 失败 ≠ 通过：终判悬置，候选照常隔离，绝不下 PROPOSED/REJECTED
         report["status"] = "INCONCLUSIVE"

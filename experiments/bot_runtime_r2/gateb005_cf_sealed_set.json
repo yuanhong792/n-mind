@@ -1,0 +1,8 @@
+{
+  "seed": 20261711,
+  "builder": "build_binding_swap_wide(80, 20261711, counterfactual)",
+  "n_tasks": 160,
+  "n_pairs": 80,
+  "oracle_mismatch": 0,
+  "context_space": "12 位置组合 x 2 陈述顺序 x 4 确认语 = 96 上限"
+}
