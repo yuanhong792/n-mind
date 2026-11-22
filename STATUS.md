@@ -148,6 +148,14 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 - **实现缺口如实登记**：预登记 6 闸中 gate_3（负对照不反超）未代码化进 gates 判定；反事实跟随率评测未进主流程（本轮为报告阶段独立评测）。
 - **候选方向（需用户批准，未启动 003）**：a) A+B 混合课程（改变增量语义需任务书确认）；b) replay 加权 0.15→0.5+；c) 架构方案 per-task 输出头/输出残差（M6 级）；d) 接受证据暂停 003。禁止自动晋升：双双 REJECTED 隔离于 candidates/rejected/。
 
+## Gate-B 003 冻结输出头实验 REJECTED：遗忘是分布式的（2026-11-22 第十轮）
+
+- **定位性中间实验**（用户批准，002 归因的收窄探针）：单变量消融链第三格 001=all(23张量) → 002=adapter(head+block_to_ws,4张量) → 003=adapter(block_to_ws only,2张量,head冻结)。审计 PASS（gateb003_consistency_audit.json：唯一变量 adapter_prefixes，数据指纹逐字节一致，门槛数值一致，gates 文案差异均为设计内升级）。
+- **实现改动**：set_trainable/masked_stream_update/run_candidate_update 暴露 adapter_prefixes 可选参数（默认行为不变），run_gate_b.py 从预登记读取；测试 108 项全绿。
+- **实测（96/96 步，21.83s，stable 逐位未动，冻结违规 0——21/21 范围外张量逐位不变）**：sealed EM 0.0→0.0（泛化连续三轮为 0）；**A 组遗忘 −82.5pp（1.0→0.175）**——head 冻结只挽回 17.5pp（002 −100 → 003 −82.5）；训练行记忆化 0.0（loss 2.05→1.37，2 张量装不下新绑定）；负对照 0.0。
+- **三轮消融链结论（gateb_paired_report.json 已更新为三轮版）**：遗忘是**分布式**的——head 贡献 ~17.5pp、block_to_ws 承载 ~82.5pp，任何单组件的序列更新都破坏 A 组绑定表示；容量递减方向（23→4→2 张量）只会"学得更少忘得更少但不学"（记忆化 0.5→0→0）。**结构性结论：当前 NMindLM（共享 workspace 写入 + 共享 head）下，序列式单任务增量更新必然破坏旧表示，隔离式持续学习的三条红线挡得住静默重建、挡不住表示冲突本身——增量学习三轮 REJECTED 需架构级方案。**
+- **003 之后的方向（需用户批准，未启动）**：a) A+B 混合课程（验证冲突是否来自序列范式本身）；b) replay 加权 0.5+（序列语义内最后一搏）；c) 架构级 per-task 组件/输出残差（M6 级）；d) 暂停归档转投 M5 基线。反事实跟随率三轮配对报告单列（stable 0.25 / 001 0.2917 / 002 0.0833 / 003 0.0833）。
+
 ## 本次会话修复的 bug（评测层此前从未成功运行过）
 
 1. `evaluation/{baselines,benchmarks,tasks}.py` 循环导入（`from . import datasets` → `..learning`）——`baseline`/`benchmark`/`evaluate` 三条命令修复前必崩。

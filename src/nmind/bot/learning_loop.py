@@ -104,6 +104,7 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                          retention_pairs: tuple[list[str], list[str]] | None = None,
                          memory_index: tuple[list[str], list[str]] | None = None,
                          replay_ratio: float = 0.15, trainable: str = "all",
+                         adapter_prefixes: tuple[str, ...] | None = None,
                          arms: tuple[str, ...] = ("frozen", "neural"),
                          wall_limit_s: float = 60.0,
                          candidate_path: str | Path | None = None,
@@ -174,7 +175,8 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
                                     label="bot-neural", wall_limit_s=arm_wall,
                                     replay_rows=replay_rows,
                                     replay_ratio=(replay_ratio if replay_rows else 0.0),
-                                    trainable=trainable, budget=budget)
+                                    trainable=trainable, budget=budget,
+                                    adapter_prefixes=adapter_prefixes)
     else:
         upd = {"optimizer_steps_executed": 0, "stopped_by": "arm_not_selected"}
     after_state = {k: v.detach().clone() for k, v in child.state_dict().items()}
@@ -214,6 +216,7 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         neg = masked_stream_update(neg_model, rows, updates=per_arm, dev=dev, lr=lr, seed=seed,
                                     label="bot-negative", wall_limit_s=arm_wall,
                                     trainable=trainable, budget=budget,
+                                    adapter_prefixes=adapter_prefixes,
                                     label_permutation_seed=seed + 1)
         neg_em = free_gen_em(neg_model, tok, sealed_prompts, sealed_answers,
                               max_new_tokens=max_new_tokens)
@@ -232,6 +235,8 @@ def run_candidate_update(*, stable_checkpoint: str | Path, tokenizer_path: str |
         "inheritance_verified": True,
         "verified_experience_count": len(verified),
         "trainable_scope": trainable,
+        "adapter_prefixes": (list(adapter_prefixes) if adapter_prefixes is not None
+                              else ["head.", "block_to_ws."]),
         "arms": arm_reports,
         "sealed_baseline_em": base,
         "sealed_after_em": sealed_after,

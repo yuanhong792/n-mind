@@ -135,6 +135,9 @@ def main() -> int:
     # 4. 四臂候选更新（预算全部读自预登记：002 起 trainable/lr/steps/seed 均由预登记锁定，
     #    脚本本身冻结——预登记差异即实验差异，001(all)/002(adapter) 走同一代码路径）
     b = pre["budget"]
+    # 003 起预登记可声明 adapter_prefixes（进一步收窄 adapter 范围，如冻结输出头只训
+    # block_to_ws）；未声明沿用 set_trainable 默认（head.+block_to_ws.），001/002 口径不变
+    apx = b.get("adapter_prefixes")
     cand_tmp = OUT / "candidates" / f"_pending_{run_id}.pt"
     cand_tmp.parent.mkdir(parents=True, exist_ok=True)
     report = run_candidate_update(
@@ -144,7 +147,9 @@ def main() -> int:
         seed=int(b["init_seed"]),
         replay_pairs=(replay_p, replay_a), retention_pairs=(anchor_p, anchor_a),
         memory_index=(train_p, train_a), replay_ratio=float(b["replay_ratio"]),
-        trainable=str(b["trainable"]), arms=("frozen", "memory", "neural", "negative"),
+        trainable=str(b["trainable"]),
+        adapter_prefixes=(tuple(apx) if apx else None),
+        arms=("frozen", "memory", "neural", "negative"),
         wall_limit_s=float(b["wall_limit_s_total"]), candidate_path=str(cand_tmp),
         max_new_tokens=int(b["max_new_tokens"]))
 

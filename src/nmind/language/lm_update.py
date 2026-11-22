@@ -91,15 +91,23 @@ def masked_stream_update(model, rows, *, updates: int, dev: torch.device,
                          wall_limit_s: float = 60.0, batch_size: int = 16,
                          replay_rows=None, replay_ratio: float = 0.0,
                          trainable: str = "all",
+                         adapter_prefixes: tuple[str, ...] | None = None,
                          label_permutation_seed: int | None = None,
                          budget: AdaptationBudget | None = None) -> dict[str, Any]:
-    """有界流更新：最多 `updates` 次 optimizer.step 且不超过 wall_limit_s。"""
+    """有界流更新：最多 `updates` 次 optimizer.step 且不超过 wall_limit_s。
+
+    adapter_prefixes：None=沿用 set_trainable 默认（head.+block_to_ws.）；传入自定义
+    前缀元组可进一步收窄 adapter 范围（Gate-B 003 冻结输出头实验用），默认行为不变。"""
     if not rows:
         raise ValueError("空 rows：没有 verified 经验不得触发更新")
     budget = budget or AdaptationBudget(updates, label=label)
     if label_permutation_seed is not None:
         rows = permuted_answer_rows(rows, seed=label_permutation_seed)
-    trainable_names = set_trainable(model, trainable=trainable)
+    if adapter_prefixes is None:
+        trainable_names = set_trainable(model, trainable=trainable)
+    else:
+        trainable_names = set_trainable(model, trainable=trainable,
+                                        adapter_prefixes=adapter_prefixes)
     params = [p for p in model.parameters() if p.requires_grad]
     opt = torch.optim.AdamW(params, lr=lr)
     rng = random.Random(seed)

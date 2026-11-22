@@ -1,0 +1,21 @@
+{
+  "audit": "gateb003-consistency-vs-002-final",
+  "checks": {
+    "parent_一致": true,
+    "数据计划实质字段_一致": true,
+    "唯一变量确认": true,
+    "门槛数值一致": true,
+    "门槛文案差异(均为升级非数值)": [
+      "gate_2_retention",
+      "gate_3_negative_control",
+      "gate_4_weight_changed",
+      "extra_report"
+    ],
+    "训练集指纹一致": true,
+    "封存集指纹一致": true,
+    "003可训练范围": "block_to_ws.bias/weight 2张量（head.* 冻结，21 冻结）",
+    "防覆盖闸": true
+  },
+  "verdict": "PASS",
+  "note": "gates 文案差异为 003 设计内升级（head冻结取证/三轮配对报告），数值门槛一致"
+}
