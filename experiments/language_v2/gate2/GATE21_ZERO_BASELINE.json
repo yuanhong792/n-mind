@@ -1,0 +1,11 @@
+{
+  "status": "ZERO_TRAINING_BASELINE",
+  "seed": 20261123,
+  "optimizer_steps": 0,
+  "items": 240,
+  "exact_match": 0.0,
+  "counterfactual_pair_pass": 0.0,
+  "counterfactual_pairs": 80,
+  "response_source": "neural_only_random_initialization",
+  "dataset_protocol": "corrected balanced L0/L1 dataset; sealed untouched"
+}
