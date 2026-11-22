@@ -1,1 +1,1 @@
-{"status":"NOT_RUN","reason":"No formal training authorized","optimizer_step_count":0,"network_bytes":0}
+{"status":"MEASURED_RANDOM_INITIALIZATION","reason":"No formal training authorized","optimizer_step_count":0,"network_bytes":0,"tasks":["name-1","loc-1","move-1"],"exact_match":"0/3","predictions":["U","<invalid-byte>","U"],"answer_leakage":false}

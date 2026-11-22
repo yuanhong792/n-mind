@@ -41,3 +41,15 @@ def manifest(records: list[CorpusRecord]) -> dict:
 def import_approved_file(registry: DataSourceRegistry, source_id: str, path: str | Path, *, limit=1_000_000) -> list[CorpusRecord]:
     registry.require_approved(source_id)
     return build_records(source_id, Path(path).read_text(encoding="utf-8").split("\n\n"), token_limit=limit)
+
+def split_by_document(records: list[CorpusRecord], *, seed: int = 20261123) -> dict[str, list[CorpusRecord]]:
+    """Split whole records, never lines from one record, into train/dev/sealed."""
+    import random
+    groups: dict[str, list[CorpusRecord]] = {}
+    for record in records:
+        groups.setdefault(record.source_id, []).append(record)
+    ids = list(groups); random.Random(seed).shuffle(ids)
+    out = {"train": [], "dev": [], "sealed": []}
+    for i, source_id in enumerate(ids):
+        out[("sealed", "dev", "train")[i % 3]].extend(groups[source_id])
+    return out

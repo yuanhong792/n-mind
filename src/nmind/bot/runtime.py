@@ -364,8 +364,25 @@ class BotRuntime:
     def write_status(self) -> None:
         """status.json 落盘：另一终端的 `nmind bot status` 直接读它（不需要 IPC）。"""
         snap = self.status()
-        (self.root / STATUS_FILE).write_text(
-            json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
+        # Write-then-replace keeps cross-process readers from observing an
+        # empty/half-written status file while a pause or resume transition
+        # is being persisted.  The old direct write caused the intermittent
+        # `{}` snapshot in the Windows pause test.
+        target = self.root / STATUS_FILE
+        tmp = self.root / f".{STATUS_FILE}.{os.getpid()}.tmp"
+        tmp.write_text(json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
+        # Windows readers may briefly hold the old target without delete
+        # sharing.  Retry the atomic replace; a transient reader must not
+        # push the runtime into ERROR_SAFE during a user pause.
+        for attempt in range(20):
+            try:
+                os.replace(tmp, target)
+                break
+            except PermissionError:
+                if attempt == 19:
+                    tmp.unlink(missing_ok=True)
+                    return
+                time.sleep(0.05)
 
     # ---- 用户任务（优先于空闲学习）----
     def submit_user_task(self, text: str) -> dict[str, Any]:
@@ -1142,9 +1159,15 @@ class BotRuntime:
                 self.stop(stop_reason)
                 break
             if ctrl == "pause":
+                entered_pause = False
                 if self.state != BotState.PAUSED and can_transition(self.state.name, "PAUSED"):
                     self._transition("PAUSED", "控制文件 pause.flag")
-                self.write_status()                      # 让另一个终端的 bot status 看到 PAUSED
+                    entered_pause = True
+                # Do not rewrite status.json on every polling tick while the
+                # flag remains. Repeated Windows replace/read contention was
+                # the remaining intermittent pause-test failure.
+                if entered_pause:
+                    self.write_status()                  # 让另一个终端看到 PAUSED
                 if self._sleep(0.5) == "stop":
                     stop_reason = "控制文件 stop.flag"
                     self.resume()

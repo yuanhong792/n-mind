@@ -1,8 +1,10 @@
 {
   "status": "RECORDED_AFTER_TEST_RUN",
-  "language_v2_targeted": "14 passed",
+  "language_v2_targeted": "17 passed",
+  "bot_runtime_pause_resume": "passed",
+  "gate1_combined": "18 passed",
   "network_safety": "offline by configuration",
   "training_gate": "positive authorization required",
   "stable_checkpoint": "read-only",
-  "full_suite": "one pre-existing BotRuntime pause snapshot race failed; isolated rerun is required and Language V2 tests passed"
+  "full_suite": "not rerun after final patch; prior run had one pre-existing BotRuntime pause snapshot race"
 }

@@ -21,7 +21,7 @@ FineWeb-2、CulturaX、Wikimedia Wikipedia 当前只登记为待审候选源，�
 
 ## 验证状态
 
-已新增来源拒收、敏感信息清洗、重复/预算、情境状态转移、非法动作、课程 oracle 和训练权限测试；Language V2 定向测试实际为 14/14 通过。全仓回归实际再次只失败既有 `BotRuntime` 暂停/子进程快照竞态测试，未修改该旧测试；`results/language_v2/P0_AUDIT.json`、`G0_TESTS.json` 和 `BENCHMARK_NO_TRAIN.json` 保持未虚构的状态标记。
+Gate-1 新增来源拒收、敏感信息清洗、重复/预算、情境状态转移、非法动作、课程 oracle、训练权限、人工语料分集、Tokenizer round-trip 和零训练基线测试共 17/17 通过；BotRuntime 暂停/恢复独立复验通过。随机初始化神经基线对 3 个 starter 任务实际为 0/3 exact-match。全仓回归此前出现的旧 BotRuntime 快照竞态已定位并修复，但最终全仓结果尚未重新跑完；未修改旧测试。
 
 ## 未完成/未运行
 
