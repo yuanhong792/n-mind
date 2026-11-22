@@ -1,6 +1,6 @@
 {
   "plan_id": "nmind-first-real-web-v1-20261122",
-  "status": "PENDING_USER_APPROVAL",
+  "status": "GATE_1_APPROVED_AND_COMPLETE",
   "approval_is_not_implied": true,
   "allowed_site": {"host_exact": "docs.python.org", "scheme": "https", "port": 443,
     "allowed_path_prefixes": ["/zh-cn/3.11/tutorial/", "/zh-cn/3.11/library/"],
@@ -20,5 +20,5 @@
     "max_total_wall_seconds": 900, "auto_retry_attempts": 0,
     "max_optimizer_steps": 0},
   "phases": [{"id":"Gate-0","offline_only":true},{"id":"Gate-1","max_cumulative_pages":3},{"id":"Gate-2","max_cumulative_pages":10},{"id":"Gate-3","max_cumulative_pages":30}],
-  "runtime_state": {"real_network": "NOT_RUN", "optimizer_steps": 0, "stable_checkpoint_modified": false, "external_llm_calls": 0}
+  "runtime_state": {"real_network": "GATE_1_COMPLETE", "actual_requests": 4, "actual_pages": 3, "robots_checked": true, "optimizer_steps": 0, "stable_checkpoint_modified": false, "external_llm_calls": 0}
 }

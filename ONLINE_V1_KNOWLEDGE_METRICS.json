@@ -1,1 +1,11 @@
-{"status":"NOT_RUN","reason":"real network authorization pending","pages_accepted":0,"unique_content":0,"versions":0,"chunks":0,"retrieval_queries":0,"optimizer_steps":0,"unauthorized_requests":0}
+{
+  "status": "COMPLETE",
+  "robots_sha256": "ddf15edaeea82d5097df61da8e6f59ccdf66de0c20820f1367d0d076f5a9fd63",
+  "requests": 4,
+  "pages_attempted": 3,
+  "pages_ready": 3,
+  "bytes_total": 236883,
+  "optimizer_steps": 0,
+  "unauthorized_requests": 0,
+  "stable_checkpoint_modified": false
+}
