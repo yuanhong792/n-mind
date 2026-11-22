@@ -169,7 +169,7 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
   - **B 泛化三轮为 0 的定性**：新绑定从未被学会（stable+002 任何替换 B 仍 0），不存在"被换掉的 B 能力"。
   - 方法论红线：模块组合非线性相互作用，归因是最大贡献点排序非单点因果；探针监督只作表示诊断不计入自主能力成绩。
 - **测试**：全仓 **120 项全绿**（108 既有 + test_gateb004_fixes 12 + test_gateb004_diagnostics 5；test_09 终判断言按 004 契约更新为 INCONCLUSIVE 预期，drift 取证断言不变）。
-- **产出**：GATEB004_REPORT.md（因果答案+方案 A/B/C 接口草案）、gateb_pre_registration_005_DRAFT.json（技能残差适配器方案 B 草案，DRAFT 未批准）；gate_3 代码化缺口已补。
+- **产出**：GATEB004_REPORT.md（因果答案+方案 A/B/C 接口草案）、gateb_pre_registration_005_DRAFT.json（技能残差适配器方案 B 草案，DRAFT 未批准；后按方案 C 优先的决策重命名为 `gateb_pre_registration_005_planB_DRAFT.json` 单独保留）；gate_3 代码化缺口已补。
 - **005 起待办**：残差模块代码+测试 → 用户批准 005 预登记（含反事实门槛确认）→ 单变量审计 → 执行。
 
 ## Gate-B 005 方案 C 启动：课程呈现配对对照（2026-11-22 第十二轮，PENDING_APPROVAL）
@@ -207,7 +207,7 @@ dense 35.4ms/序列（P95 51.2）；sparse k=1 **21.1ms**（1.68×）；k=2 23.6
 
 ## 下次会话第一件事
 
-0. **Gate-B 005 预登记待批**（`gateb_pre_registration_005_DRAFT.json`，DRAFT 不执行）：建议次序 C 混合课程+回放 → B 技能残差适配器 → A Workspace 写入门控——**需小袁批准**；R2 剩余交付：`online/resource_manager.py` 五档链路、bot CLI 五子命令、`fetcher.py` SSRF 硬化、`BOT_R2_REPORT.md` 汇总（001-004 结论已在 STATUS/README/ROADMAP，报告文件尚未落）。
+0. **Gate-B 005c-seq / 005c-int 批准**（`gateb_pre_registration_005_planC.json` + 两个程序化派生子轮，一致性审计 PASS）：合计 **192 optimizer 步超出此前授权的 96/轮，未执行任何训练**，需小袁逐条批准预算后才跑；方案 B（技能残差适配器）目前**只有草案** `gateb_pre_registration_005_planB_DRAFT.json`，残差模块代码尚未落地（全仓 grep `residual_adapter` 零命中），按 005 指令保留待 C 结果后再定。R2 剩余交付（源码核实属实）：`src/nmind/online/` 无 `resource_manager.py`（任务书要求的 LOCAL→MEMORY→TOOL→ALLOWLISTED_WEB→ABSTAIN 五档降级链路未实现）、bot CLI 缺 `skills`/`capability-report`/`learn-status`/`curriculum` 四个扩展子命令（`bot message` 与 `bot eval` 已在 `src/nmind/bot/cli.py` 注册，任务书叫法是 `ask`；此前"缺五个含 eval"的记录有误，已更正）、`fetcher.py` 已有完整 SSRF 硬化（私网/环回/链路本地/组播拦截 + allowlist + 重定向逐跳复用校验 + 字节/跳数/时限上限，此前"缺 SSRF 硬化"的记录有误，已更正）、`reproduce_r2.ps1` 与 `BOT_R2_REPORT.md` 未落。
 1. M5.1 绑定验证预算申请：预登记 stage0/1 各 600-1000 步（约 2-5 分钟/阶段）验两实体绑定能否过 35%——**需小袁批准**。
 2. M4.1 的混合时域经验流新预注册（T=24+32 攻长度外推）——**需小袁批准**。
 3. H3b/H4b v2 10-seed 全量重训——DEFERRED_NOT_CANCELLED，**需小袁批准**；M5-Network P1-P3（CapabilityTracker/ResourceManager/SkillRegistry）待排；F10 配置封装、M3 Step5/6 排队。
