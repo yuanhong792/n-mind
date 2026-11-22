@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETE",
+  "gate1_gate2_requests_used": 13,
+  "gate3_requests": 21,
+  "cumulative_requests": 34,
+  "new_pages_attempted": 20,
+  "new_pages_ready": 20,
+  "documents": 30,
+  "all_versions": 30,
+  "chunks": 3189,
+  "deduplicated": 0,
+  "bytes_gate3": 3921079,
+  "optimizer_steps": 0,
+  "unauthorized_requests": 0,
+  "stable_checkpoint_modified": false,
+  "robots_all_allowed": true
+}

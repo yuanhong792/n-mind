@@ -28,7 +28,7 @@ GENERATION_PROTOCOL_ID = "freegen-v2-direct-continuation"
 def _looks_explicitly_out_of_scope(query: str) -> bool:
     """Avoid generic Python hits being shown as evidence for unrelated claims."""
     lowered = query.lower()
-    return any(term in lowered for term in ("n-mind", "2027", "gps", "实时位置", "电话号码"))
+    return any(term in lowered for term in ("n-mind", "2027", "gps", "实时位置", "电话号码", "银行", "密码", "个人"))
 
 def _retrieval_has_substantive_overlap(query: str, results: list[dict[str, Any]]) -> bool:
     """Reject generic keyword hits that cannot support a grounded answer."""

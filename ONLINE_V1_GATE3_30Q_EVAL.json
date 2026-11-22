@@ -1,0 +1,1327 @@
+{
+  "status": "COMPLETE",
+  "questions_total": 30,
+  "questions": [
+    {
+      "id": "F01",
+      "question": "Python表达式中 / 和 // 有什么区别？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：re --- 正则表达式操作 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档）：\n【1】绝大部分Python的标准转义字符也被正则表达式分析器支持。: \n\\ a \\ b \\ f \\ n \\ N \\ r \\ t \\ u \\ U \\ v \\ x \\\\ \n（注意 \\b 被用于表示词语的边界，它只在字符集合内表示退格，比如 [\\b] 。） \n'\\u' , '\\U' 和 '\\N' 转义序列仅在 Unicode (str) 模式中可被识别。 在字节串模式中它们会导致错误。未知的 ASCII 字母转义符被保留在未来使用并会被视为错误。 \n八进制转义包含为一个有限形式。\n【2】>>> string1 , string2 , string3 = '' , 'Trondheim' , 'Hammer Dance' >>> non_null = string1 or string2 or string3 >>> non_null 'Trondheim' \n注意，Python 与 C 不同，在表达式内部赋值必须显式使用 海象运算符 := 。 这避免了 C 程序中常见的问题：要在表达式中写 == 时，却写成了 = 。\n【3】在 3.3 版本发生变更: '_' 不再被转义。 \n在 3.7 版本发生变更: 只有在正则表达式中具有特殊含义的字符才会被转义。因此， '!' , '\"' , '%' , \"'\" , ',' , '/' , ':' , ';' , '<' , '=' , '>' , '@' 和 \"`\" 将不再会被转义。 \nre. purge ( ) ¶ 清除正则表达式的缓存。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "a8177399664da2e23fdc099d",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "绝大部分Python的标准转义字符也被正则表达式分析器支持。: \n\\ a \\ b \\ f \\ n \\ N \\ r \\ t \\ u \\ U \\ v \\ x \\\\ \n（注意 \\b 被用于表示词语的边界，它只在字符集合内表示退格，比如 [\\b] 。） \n'\\u' , '\\U' 和 '\\N' 转义序列仅在 Unicode (str) 模式中可被识别。 在字节串模式中它们会导致错误。未知的 ASCII 字母转义符被保留在未来使用并会被视为错误。 \n八进制转义包含为一个有限形式。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "1abe7c63fd29f09b5bb53506",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": ">>> string1 , string2 , string3 = '' , 'Trondheim' , 'Hammer Dance' >>> non_null = string1 or string2 or string3 >>> non_null 'Trondheim' \n注意，Python 与 C 不同，在表达式内部赋值必须显式使用 海象运算符 := 。 这避免了 C 程序中常见的问题：要在表达式中写 == 时，却写成了 = 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "332027bd1e629c65ee7ca913",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "在 3.3 版本发生变更: '_' 不再被转义。 \n在 3.7 版本发生变更: 只有在正则表达式中具有特殊含义的字符才会被转义。因此， '!' , '\"' , '%' , \"'\" , ',' , '/' , ':' , ';' , '<' , '=' , '>' , '@' 和 \"`\" 将不再会被转义。 \nre. purge ( ) ¶ 清除正则表达式的缓存。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/introduction.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 6.3,
+      "neural_called": false
+    },
+    {
+      "id": "F02",
+      "question": "Python如何进行乘方运算？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：内置函数 — Python 3.11.18 文档、内置类型 — Python 3.11.18 文档、3. Python 速览 — Python 3.11.18 文档）：\n【1】如果 mod 存在，则返回 base 的 exp 次幂对 mod 取余（比 pow(base, exp) % mod 更高效）。两参数形式 pow(base, exp) 等价于乘方运算符: base**exp 。 \n参数必须为数值类型。 对于混用的操作数类型，则适用二元算术运算符的类型强制转换规则。 对于 int 操作数，结果具有与操作数相同的类型（转换后），除非第二个参数为负值；在这种情况下，所有参数将被转换为浮点数并输出浮点数结果。\n【2】二进制按位运算的优先级全都低于数字运算，但又高于比较运算；一元运算 ~ 具有与其他一元算术运算 ( + and - ) 相同的优先级。 \n此表格是以优先级升序排序的按位运算列表： \n运算 \n结果： \n备注 \nx | y \nx 和 y 按位 或 \n(4) \nx ^ y \nx 和 y 按位 异或 \n(4) \nx & y \nx 和 y 按位 与 \n(4) \nx << n \nx 左移 n 位 \n(1)(2) \nx >> n \nx 右移 n 位 \n(1)(3) \n~x\n【3】e division 2 >>> 5 * 3 + 2 # floored quotient * divisor + remainder 17 \nPython 用 ** 运算符计算乘方 [ 1 ] ： \n>>> 5 ** 2 # 5 squared 25 >>> 2 ** 7 # 2 to the power of 7 128 \n等号 ( = ) 用于给变量赋值。 赋值后，下一个交互提示符的位置不显示任何结果：",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "d512fcf8d7c56e8f445cb353",
+          "chunk_id": "421060cd310f671b75795824",
+          "title": "内置函数 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/functions.html",
+          "fetched_at_utc": "2026-11-22T22:20:09+0800",
+          "excerpt": "如果 mod 存在，则返回 base 的 exp 次幂对 mod 取余（比 pow(base, exp) % mod 更高效）。两参数形式 pow(base, exp) 等价于乘方运算符: base**exp 。 \n参数必须为数值类型。 对于混用的操作数类型，则适用二元算术运算符的类型强制转换规则。 对于 int 操作数，结果具有与操作数相同的类型（转换后），除非第二个参数为负值；在这种情况下，所有参数将被转换为浮点数并输出浮点数结果。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "1a2fcf7979a5a406a1d82c66",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "二进制按位运算的优先级全都低于数字运算，但又高于比较运算；一元运算 ~ 具有与其他一元算术运算 ( + and - ) 相同的优先级。 \n此表格是以优先级升序排序的按位运算列表： \n运算 \n结果： \n备注 \nx | y \nx 和 y 按位 或 \n(4) \nx ^ y \nx 和 y 按位 异或 \n(4) \nx & y \nx 和 y 按位 与 \n(4) \nx << n \nx 左移 n 位 \n(1)(2) \nx >> n \nx 右移 n 位 \n(1)(3) \n~x",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "16c88baabf0267a7393f2814",
+          "chunk_id": "d4c4c20f859b5b59d0b56de1",
+          "title": "3. Python 速览 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/introduction.html",
+          "fetched_at_utc": "2026-11-22T22:00:26+0800",
+          "excerpt": "e division 2 >>> 5 * 3 + 2 # floored quotient * divisor + remainder 17 \nPython 用 ** 运算符计算乘方 [ 1 ] ： \n>>> 5 ** 2 # 5 squared 25 >>> 2 ** 7 # 2 to the power of 7 128 \n等号 ( = ) 用于给变量赋值。 赋值后，下一个交互提示符的位置不显示任何结果：",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/introduction.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 3.78,
+      "neural_called": false
+    },
+    {
+      "id": "F03",
+      "question": "Python字符串如何索引和切片？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：3. Python 速览 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档）：\n【1】列表 可以包含不同类型的元素，但一般情况下，各个元素的类型相同： \n>>> squares = [ 1 , 4 , 9 , 16 , 25 ] >>> squares [1, 4, 9, 16, 25] \n和字符串（及其他内置 sequence 类型）一样，列表也支持索引和切片：\n【2】>>> word [ - 1 ] # last character 'n' >>> word [ - 2 ] # second-last character 'o' >>> word [ - 6 ] 'P' \n注意，-0 和 0 一样，因此，负数索引从 -1 开始。 \n除了索引，字符串还支持 切片 。索引可以提取单个字符， 切片 则提取子字符串：\n【3】5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "16c88baabf0267a7393f2814",
+          "chunk_id": "739cafec54f41399710bac35",
+          "title": "3. Python 速览 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/introduction.html",
+          "fetched_at_utc": "2026-11-22T22:00:26+0800",
+          "excerpt": "列表 可以包含不同类型的元素，但一般情况下，各个元素的类型相同： \n>>> squares = [ 1 , 4 , 9 , 16 , 25 ] >>> squares [1, 4, 9, 16, 25] \n和字符串（及其他内置 sequence 类型）一样，列表也支持索引和切片：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "16c88baabf0267a7393f2814",
+          "chunk_id": "35d8e377e33f61b7eb1569d0",
+          "title": "3. Python 速览 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/introduction.html",
+          "fetched_at_utc": "2026-11-22T22:00:26+0800",
+          "excerpt": ">>> word [ - 1 ] # last character 'n' >>> word [ - 2 ] # second-last character 'o' >>> word [ - 6 ] 'P' \n注意，-0 和 0 一样，因此，负数索引从 -1 开始。 \n除了索引，字符串还支持 切片 。索引可以提取单个字符， 切片 则提取子字符串：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "12797f2c2cdb85f52c465843",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/introduction.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 5.15,
+      "neural_called": false
+    },
+    {
+      "id": "F04",
+      "question": "列表和字符串在可变性方面有什么区别？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：7. 输入与输出 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档、9. 类 — Python 3.11.18 文档）：\n【1】7.2.2. 使用 json 保存结构化数据 ¶ 字符串可以很容易地写入文件或从文件中读取。 数字则更麻烦一些，因为 read() 方法只返回字符串，而字符串必须传给 int() 这样的函数，它接受 '123' 这样的字符串并返回其数值 123。 当你想要保存嵌套列表和字典等更复杂的数据类型时，手动执行解析和序列化操作将会变得非常复杂。\n【2】5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：\n【3】正如 名称和对象 中已讨论过的，共享数据可能在涉及 mutable 对象例如列表和字典的时候导致令人惊讶的结果。 例如以下代码中的 tricks 列表不应该被用作类变量，因为所有的 Dog 实例将只共享一个单独的列表:",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "386d84f2887823974df9f0f3",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "7.2.2. 使用 json 保存结构化数据 ¶ 字符串可以很容易地写入文件或从文件中读取。 数字则更麻烦一些，因为 read() 方法只返回字符串，而字符串必须传给 int() 这样的函数，它接受 '123' 这样的字符串并返回其数值 123。 当你想要保存嵌套列表和字典等更复杂的数据类型时，手动执行解析和序列化操作将会变得非常复杂。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "12797f2c2cdb85f52c465843",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "c5944ed3d91d5387ae10fa2b",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "正如 名称和对象 中已讨论过的，共享数据可能在涉及 mutable 对象例如列表和字典的时候导致令人惊讶的结果。 例如以下代码中的 tricks 列表不应该被用作类变量，因为所有的 Dog 实例将只共享一个单独的列表:",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/introduction.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 5.29,
+      "neural_called": false
+    },
+    {
+      "id": "F05",
+      "question": "for循环通常遍历什么？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档）：\n【1】在 for 循环中， else 子句会在循环成功结束最后一次迭代之后执行。 \n在 while 循环中，它会在循环条件变为假值后执行。 \n无论哪种循环，如果因为 break 而结束，那么 else 子句就 不会 执行。 \n下面的搜索质数的 for 循环就是一个例子：\n【2】使用 sorted() 加 set() 则按排序后的顺序，循环遍历序列中的唯一元素： \n>>> basket = [ 'apple' , 'orange' , 'apple' , 'pear' , 'orange' , 'banana' ] >>> for f in sorted ( set ( basket )): ... print ( f ) ... apple banana orange pear \n一般来说，在循环中修改列表的内容时，创建新列表比较简单，且安全：\n【3】4.2. for 语句 ¶ Python 的 for 语句与 C 或 Pascal 中的不同。Python 的 for 语句不迭代算术递增数值（如 Pascal），或是给予用户定义迭代步骤和结束条件的能力（如 C），而是在列表或字符串等任意序列的元素上迭代，按它们在序列中出现的顺序。 例如（这不是有意要暗指什么）：",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "8cb5d06dcc974e4d751efb6c",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "在 for 循环中， else 子句会在循环成功结束最后一次迭代之后执行。 \n在 while 循环中，它会在循环条件变为假值后执行。 \n无论哪种循环，如果因为 break 而结束，那么 else 子句就 不会 执行。 \n下面的搜索质数的 for 循环就是一个例子：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "66ad0f785211c26a30bd053b",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "使用 sorted() 加 set() 则按排序后的顺序，循环遍历序列中的唯一元素： \n>>> basket = [ 'apple' , 'orange' , 'apple' , 'pear' , 'orange' , 'banana' ] >>> for f in sorted ( set ( basket )): ... print ( f ) ... apple banana orange pear \n一般来说，在循环中修改列表的内容时，创建新列表比较简单，且安全：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "d398e5928378447268483f38",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "4.2. for 语句 ¶ Python 的 for 语句与 C 或 Pascal 中的不同。Python 的 for 语句不迭代算术递增数值（如 Pascal），或是给予用户定义迭代步骤和结束条件的能力（如 C），而是在列表或字符串等任意序列的元素上迭代，按它们在序列中出现的顺序。 例如（这不是有意要暗指什么）：",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 2.96,
+      "neural_called": false
+    },
+    {
+      "id": "F06",
+      "question": "range(5)产生哪些数字？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：datetime --- 基本日期和时间类型 — Python 3.11.18 文档、内置类型 — Python 3.11.18 文档）：\n【1】datetime. month ¶ 1 至 12（含） \ndatetime. day ¶ 返回1到指定年月的天数间的数字。 \ndatetime. hour ¶ 取值范围是 range(24) 。 \ndatetime. minute ¶ 取值范围是 range(60) 。 \ndatetime. second ¶ 取值范围是 range(60) 。 \ndatetime. microsecond ¶ 取值范围是 range(1000000) 。\n【2】在数字字面值末尾加上 'j' 或 'J' 会生成虚数（实部为零的复数），你可以将其与整数或浮点数相加来得到具有实部和虚部的复数。 \nPython 完全支持混合运算：当一个二元算术运算符的操作数有不同数值类型时，\"较窄\"类型的操作数会拓宽到另一个操作数的类型，其中整数比浮点数窄，浮点数比复数窄。不同类型的数字之间的比较，同比较这些数字的精确值一样。 [ 2 ] \n构造函数 int() 、 float() 和 complex() 可以用来构造特定类型的数字。\n【3】数字包括十进制字符和需要特殊处理的数字，如兼容性上标数字。这包括了不能用来组成 10 进制数的数字，如 Kharosthi 数。 严格地讲，数字是指属性值为 Numeric_Type=Digit 或 Numeric_Type=Decimal 的字符。 \nstr. isidentifier ( ) ¶ 如果字符串是有效的标识符，返回 True ，依据语言定义， 标识符和关键字 节。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "fee8b129530316af3eb81fb8",
+          "chunk_id": "56b1747e30ff0493e6cc63aa",
+          "title": "datetime --- 基本日期和时间类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/datetime.html",
+          "fetched_at_utc": "2026-11-22T22:21:23+0800",
+          "excerpt": "datetime. month ¶ 1 至 12（含） \ndatetime. day ¶ 返回1到指定年月的天数间的数字。 \ndatetime. hour ¶ 取值范围是 range(24) 。 \ndatetime. minute ¶ 取值范围是 range(60) 。 \ndatetime. second ¶ 取值范围是 range(60) 。 \ndatetime. microsecond ¶ 取值范围是 range(1000000) 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "54ce56dda353cdbb73218f47",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "在数字字面值末尾加上 'j' 或 'J' 会生成虚数（实部为零的复数），你可以将其与整数或浮点数相加来得到具有实部和虚部的复数。 \nPython 完全支持混合运算：当一个二元算术运算符的操作数有不同数值类型时，\"较窄\"类型的操作数会拓宽到另一个操作数的类型，其中整数比浮点数窄，浮点数比复数窄。不同类型的数字之间的比较，同比较这些数字的精确值一样。 [ 2 ] \n构造函数 int() 、 float() 和 complex() 可以用来构造特定类型的数字。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "57c2ced012d00da2ba226492",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "数字包括十进制字符和需要特殊处理的数字，如兼容性上标数字。这包括了不能用来组成 10 进制数的数字，如 Kharosthi 数。 严格地讲，数字是指属性值为 Numeric_Type=Digit 或 Numeric_Type=Decimal 的字符。 \nstr. isidentifier ( ) ¶ 如果字符串是有效的标识符，返回 True ，依据语言定义， 标识符和关键字 节。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 3.04,
+      "neural_called": false
+    },
+    {
+      "id": "F07",
+      "question": "if语句支持哪些条件形式？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档、8. 错误和异常 — Python 3.11.18 文档）：\n【1】class urllib.request. AbstractDigestAuthHandler ( password_mgr = None ) ¶ 这是一个帮助完成 HTTP 身份认证的混合类，对远程主机和代理都适用。参数 password_mgr 应与 HTTPPasswordMgr 兼容；关于必须支持哪些接口，请参阅 HTTPPasswordMgr 对象 的章节。\n【2】class urllib.request. AbstractBasicAuthHandler ( password_mgr = None ) ¶ 这是一个帮助完成 HTTP 身份认证的混合类，对远程主机和代理都适用。参数 password_mgr 应与 HTTPPasswordMgr 兼容；关于必须支持哪些接口，请参阅 HTTPPasswordMgr 对象 对象的章节。\n【3】>>> def this_fails (): ... x = 1 / 0 ... >>> try : ... this_fails () ... except ZeroDivisionError as err : ... print ( 'Handling run-time error:' , err ) ... Handling run-time error: division by zero \n8.4. 触发异常 ¶ raise 语句支持强制触发指定的异常。例如：",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "acdb59755fab4673282f8c5d",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "class urllib.request. AbstractDigestAuthHandler ( password_mgr = None ) ¶ 这是一个帮助完成 HTTP 身份认证的混合类，对远程主机和代理都适用。参数 password_mgr 应与 HTTPPasswordMgr 兼容；关于必须支持哪些接口，请参阅 HTTPPasswordMgr 对象 的章节。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "dfe6f70ad941446503480979",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "class urllib.request. AbstractBasicAuthHandler ( password_mgr = None ) ¶ 这是一个帮助完成 HTTP 身份认证的混合类，对远程主机和代理都适用。参数 password_mgr 应与 HTTPPasswordMgr 兼容；关于必须支持哪些接口，请参阅 HTTPPasswordMgr 对象 对象的章节。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "8cd7ade4abaa1fd630912254",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": ">>> def this_fails (): ... x = 1 / 0 ... >>> try : ... this_fails () ... except ZeroDivisionError as err : ... print ( 'Handling run-time error:' , err ) ... Handling run-time error: division by zero \n8.4. 触发异常 ¶ raise 语句支持强制触发指定的异常。例如：",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 4.19,
+      "neural_called": false
+    },
+    {
+      "id": "F08",
+      "question": "Python如何定义函数？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档、内置类型 — Python 3.11.18 文档）：\n【1】print ( \"Grass is green\" ) case Color . BLUE : print ( \"I'm feeling the blues :(\" ) \n更详细的说明和更多示例，可参阅以教程格式撰写的 PEP 636 。 \n4.7. 定义函数 ¶ 下列代码创建一个可以输出限定数值内的斐波那契数列函数：\n【2】4.4. 循环中的 break 、 continue 语句及 else 子句 \n4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表\n【3】如果是从一个文件加载，则会写成 <module 'os' from '/usr/local/lib/pythonX.Y/os.pyc'> 。 \n类与类实例 ¶ 关于这些类型请参阅 对象、值与类型 和 类定义 。 \n函数 ¶ 函数对象是通过函数定义创建的。 对函数对象的唯一操作是调用它: func(argument-list) 。 \n实际上存在两种不同的函数对象：内置函数和用户自定义函数。两者支持同样的操作（调用函数），但实现方式不同，因此对象类型也不同。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "8746827599e73203aac5859d",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "print ( \"Grass is green\" ) case Color . BLUE : print ( \"I'm feeling the blues :(\" ) \n更详细的说明和更多示例，可参阅以教程格式撰写的 PEP 636 。 \n4.7. 定义函数 ¶ 下列代码创建一个可以输出限定数值内的斐波那契数列函数：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "0a2166790119401f3b67c7e6",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "4.4. 循环中的 break 、 continue 语句及 else 子句 \n4.5. pass 语句 \n4.6. match 语句 \n4.7. 定义函数 \n4.8. 函数定义详解 4.8.1. 默认值参数 \n4.8.2. 关键字参数 \n4.8.3. 特殊参数 4.8.3.1. 位置或关键字参数 \n4.8.3.2. 仅位置参数 \n4.8.3.3. 仅限关键字参数 \n4.8.3.4. 函数示例 \n4.8.3.5. 小结 \n4.8.4. 任意实参列表",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "48c439c583ea0646bb046076",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "如果是从一个文件加载，则会写成 <module 'os' from '/usr/local/lib/pythonX.Y/os.pyc'> 。 \n类与类实例 ¶ 关于这些类型请参阅 对象、值与类型 和 类定义 。 \n函数 ¶ 函数对象是通过函数定义创建的。 对函数对象的唯一操作是调用它: func(argument-list) 。 \n实际上存在两种不同的函数对象：内置函数和用户自定义函数。两者支持同样的操作（调用函数），但实现方式不同，因此对象类型也不同。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/controlflow.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 4.82,
+      "neural_called": false
+    },
+    {
+      "id": "F09",
+      "question": "列表推导式有什么用途？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：5. 数据结构 — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档）：\n【1】>>> from math import pi >>> [ str ( round ( pi , i )) for i in range ( 1 , 6 )] ['3.1', '3.14', '3.142', '3.1416', '3.14159'] \n5.1.4. 嵌套的列表推导式 ¶ 列表推导式中的初始表达式可以是任何表达式，甚至可以是另一个列表推导式。 \n下面这个 3x4 矩阵，由 3 个长度为 4 的列表组成：\n【2】ric' >>> queue . popleft () # The second to arrive now leaves 'John' >>> queue # Remaining queue in order of arrival deque(['Michael', 'Terry', 'Graham']) \n5.1.3. 列表推导式 ¶ 列表推导式创建列表的方式更简洁。常见的用法为，对序列或可迭代对象中的每个元素应用某种操作，用生成的结果创建新的列表；\n【3】4.8.5. 解包实参列表 \n4.8.6. Lambda 表达式 \n4.8.7. 文档字符串 \n4.8.8. 函数注解 \n4.9. 小插曲：编码风格 \n5. 数据结构 5.1. 列表详解 5.1.1. 用列表实现堆栈 \n5.1.2. 用列表实现队列 \n5.1.3. 列表推导式 \n5.1.4. 嵌套的列表推导式 \n5.2. del 语句 \n5.3. 元组和序列 \n5.4. 集合 \n5.5. 字典 \n5.6. 循环的技巧 \n5.7. 深入条件控制",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "89140f3cc29e6b7cf1ec0a14",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": ">>> from math import pi >>> [ str ( round ( pi , i )) for i in range ( 1 , 6 )] ['3.1', '3.14', '3.142', '3.1416', '3.14159'] \n5.1.4. 嵌套的列表推导式 ¶ 列表推导式中的初始表达式可以是任何表达式，甚至可以是另一个列表推导式。 \n下面这个 3x4 矩阵，由 3 个长度为 4 的列表组成：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "a61591be8eda3bb681923f7c",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "ric' >>> queue . popleft () # The second to arrive now leaves 'John' >>> queue # Remaining queue in order of arrival deque(['Michael', 'Terry', 'Graham']) \n5.1.3. 列表推导式 ¶ 列表推导式创建列表的方式更简洁。常见的用法为，对序列或可迭代对象中的每个元素应用某种操作，用生成的结果创建新的列表；",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "6f08252bdc29c78ebdbcf13d",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "4.8.5. 解包实参列表 \n4.8.6. Lambda 表达式 \n4.8.7. 文档字符串 \n4.8.8. 函数注解 \n4.9. 小插曲：编码风格 \n5. 数据结构 5.1. 列表详解 5.1.1. 用列表实现堆栈 \n5.1.2. 用列表实现队列 \n5.1.3. 列表推导式 \n5.1.4. 嵌套的列表推导式 \n5.2. del 语句 \n5.3. 元组和序列 \n5.4. 集合 \n5.5. 字典 \n5.6. 循环的技巧 \n5.7. 深入条件控制",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 2.35,
+      "neural_called": false
+    },
+    {
+      "id": "F10",
+      "question": "字典的主要用途是什么？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：5. 数据结构 — Python 3.11.18 文档、15. 浮点算术：争议和限制 — Python 3.11.18 文档、sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档）：\n【1】另一种初始化字典的方式是，在花括号里输入逗号分隔的键值对，这也是字典的输出方式。 \n字典的主要用途是通过关键字存储、提取值。用 del 可以删除键值对。用已存在的关键字存储值，与该关键字关联的旧值会被取代。通过不存在的键提取值，则会报错。 \n对字典执行 list(d) 操作，返回该字典中所有键的列表，按插入次序排列 (如需排序，请使用 sorted(d) )。 检查字典里是否存在某个键，使用关键字 in 。 \n以下是一些字典的简单示例：\n【2】15.1. 表示性错误 ¶ 本小节将详细解释 \"0.1\" 的例子，并说明你可以怎样亲自对此类情况进行精确分析。 假定前提是已基本熟悉二进制浮点表示法。 \n表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因。 \n为什么会这样？ 1/10 是无法用二进制小数精确表示的。\n【3】我们以以分号分隔的字符串形式在 SQLite 中存储了 x 和 y 坐标值。 \n首先，我们将定义一个转换器函数，它接受这样的字符串作为形参并根据该参数构造一个 Point 对象。 \n备注 \n转换器函数 总是 接受传入一个 bytes 对象，无论下层的 SQLite 数据类型是什么。 \ndef convert_point ( s ): x , y = map ( float , s . split ( b \";\" )) return Point ( x , y )",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "c8d3e6673ffeb77eda2ae811",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "另一种初始化字典的方式是，在花括号里输入逗号分隔的键值对，这也是字典的输出方式。 \n字典的主要用途是通过关键字存储、提取值。用 del 可以删除键值对。用已存在的关键字存储值，与该关键字关联的旧值会被取代。通过不存在的键提取值，则会报错。 \n对字典执行 list(d) 操作，返回该字典中所有键的列表，按插入次序排列 (如需排序，请使用 sorted(d) )。 检查字典里是否存在某个键，使用关键字 in 。 \n以下是一些字典的简单示例：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "aec71797aefed98e43abc79f",
+          "chunk_id": "9c15324e7bd76117d4bdb0ff",
+          "title": "15. 浮点算术：争议和限制 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/floatingpoint.html",
+          "fetched_at_utc": "2026-11-22T22:20:04+0800",
+          "excerpt": "15.1. 表示性错误 ¶ 本小节将详细解释 \"0.1\" 的例子，并说明你可以怎样亲自对此类情况进行精确分析。 假定前提是已基本熟悉二进制浮点表示法。 \n表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因。 \n为什么会这样？ 1/10 是无法用二进制小数精确表示的。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "6b9b19dace04ad0d1d1dc835",
+          "chunk_id": "f4094bf28d722b222d143c5f",
+          "title": "sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/sqlite3.html",
+          "fetched_at_utc": "2026-11-22T22:21:01+0800",
+          "excerpt": "我们以以分号分隔的字符串形式在 SQLite 中存储了 x 和 y 坐标值。 \n首先，我们将定义一个转换器函数，它接受这样的字符串作为形参并根据该参数构造一个 Point 对象。 \n备注 \n转换器函数 总是 接受传入一个 bytes 对象，无论下层的 SQLite 数据类型是什么。 \ndef convert_point ( s ): x , y = map ( float , s . split ( b \";\" )) return Point ( x , y )",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 2.31,
+      "neural_called": false
+    },
+    {
+      "id": "F11",
+      "question": "元组和列表有什么区别？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、5. 数据结构 — Python 3.11.18 文档）：\n【1】match point : case Point ( x , y ) if x == y : print ( f \"Y=X at { x } \" ) case Point ( x , y ): print ( f \"Not on the diagonal\" ) \n该语句的一些其它关键特性： \n与解包赋值类似，元组和列表模式具有完全相同的含义并且实际上都能匹配任意序列，区别是它们不能匹配迭代器或字符串。\n【2】5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：\n【3】4.8.4. 任意实参列表 ¶ 调用函数时，使用任意数量的实参是最少见的选项。这些实参包含在元组中（详见 元组和序列 ）。在可变数量的实参之前，可能有若干个普通参数： \ndef write_multiple_items ( file , separator , * args ): file . write ( separator . join ( args )) \nvariadic 参数用于采集传递给函数的所有剩余参数，因此，它们通常在形参列表的末尾。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "ac08c18aed2446156cbc7aa3",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "match point : case Point ( x , y ) if x == y : print ( f \"Y=X at { x } \" ) case Point ( x , y ): print ( f \"Not on the diagonal\" ) \n该语句的一些其它关键特性： \n与解包赋值类似，元组和列表模式具有完全相同的含义并且实际上都能匹配任意序列，区别是它们不能匹配迭代器或字符串。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "a140354a12a4951a0561ee49",
+          "chunk_id": "12797f2c2cdb85f52c465843",
+          "title": "5. 数据结构 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html",
+          "fetched_at_utc": "2026-11-22T22:09:51+0800",
+          "excerpt": "5.3. 元组和序列 ¶ 列表和字符串有很多共性，例如，索引和切片操作。 这两种数据类型是 序列 (参见 序列类型 --- list, tuple, range )。 随着 Python 语言的发展，其他的序列类型也被加入其中。 本节介绍另一种标准序列类型: 元组 。 \n元组由多个用逗号隔开的值组成，例如：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "a49e8e6b2ce5fc7a6d341c0b",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "4.8.4. 任意实参列表 ¶ 调用函数时，使用任意数量的实参是最少见的选项。这些实参包含在元组中（详见 元组和序列 ）。在可变数量的实参之前，可能有若干个普通参数： \ndef write_multiple_items ( file , separator , * args ): file . write ( separator . join ( args )) \nvariadic 参数用于采集传递给函数的所有剩余参数，因此，它们通常在形参列表的末尾。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 2.44,
+      "neural_called": false
+    },
+    {
+      "id": "F12",
+      "question": "Python模块如何导入？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：11. 标准库简介 —— 第二部分 — Python 3.11.18 文档、内置函数 — Python 3.11.18 文档、urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档）：\n【1】以下代码展示了高阶的 threading 模块如何在后台运行任务，且不影响主程序的继续运行: \nimport threading , zipfile class AsyncZip ( threading . Thread ): def __init__ ( self , infile , outfile ): threading . Thread . __init__ ( self ) self . infile = infile self . outfile = outfi\n【2】本函数会导入模块 name ，利用 globals 和 locals 来决定如何在包的上下文中解释该名称。 fromlist 给出了应从 name 模块中导入的对象或子模块的名称。标准的实现代码完全不会用到 locals 参数，只用到了 globals 用于确定 import 语句所在的包上下文。 \nlevel 指定是使用绝对还是相对导入。 0 (默认值) 意味着仅执行绝对导入。\n【3】若 Python 安装时已带了 SSL 支持（指可以导入 ssl 模块），则还会加入 HTTPSHandler 。 \nA BaseHandler subclass may also change its handler_order attribute to modify its position in the handlers list.",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "0107b69f006a7fad3a8e961c",
+          "chunk_id": "8eebb7f9e10793a4a4bf7a31",
+          "title": "11. 标准库简介 —— 第二部分 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/stdlib2.html",
+          "fetched_at_utc": "2026-11-22T22:19:44+0800",
+          "excerpt": "以下代码展示了高阶的 threading 模块如何在后台运行任务，且不影响主程序的继续运行: \nimport threading , zipfile class AsyncZip ( threading . Thread ): def __init__ ( self , infile , outfile ): threading . Thread . __init__ ( self ) self . infile = infile self . outfile = outfi",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d512fcf8d7c56e8f445cb353",
+          "chunk_id": "4758dda8fd23a53f4f386f11",
+          "title": "内置函数 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/functions.html",
+          "fetched_at_utc": "2026-11-22T22:20:09+0800",
+          "excerpt": "本函数会导入模块 name ，利用 globals 和 locals 来决定如何在包的上下文中解释该名称。 fromlist 给出了应从 name 模块中导入的对象或子模块的名称。标准的实现代码完全不会用到 locals 参数，只用到了 globals 用于确定 import 语句所在的包上下文。 \nlevel 指定是使用绝对还是相对导入。 0 (默认值) 意味着仅执行绝对导入。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "544f14be07316270927d4138",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "若 Python 安装时已带了 SSL 支持（指可以导入 ssl 模块），则还会加入 HTTPSHandler 。 \nA BaseHandler subclass may also change its handler_order attribute to modify its position in the handlers list.",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/modules.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 4.24,
+      "neural_called": false
+    },
+    {
+      "id": "F13",
+      "question": "JSON序列化和反序列化分别使用什么API？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：json --- JSON 编码和解码器 — Python 3.11.18 文档、7. 输入与输出 — Python 3.11.18 文档、sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档）：\n【1】顶级非对象，非数组值 ¶ 过时的 RFC 4627 指定的旧版本 JSON 要求 JSON 文本顶级值必须是 JSON 对象或数组（ Python dict 或 list ），并且不能是 JSON null 值，布尔值，数值或者字符串值。 RFC 7159 移除这个限制，此模块没有并且从未在序列化器和反序列化器中实现这个限制。 \n无论如何，为了最大化地获取互操作性，你可能希望自己遵守该原则。 \n实现限制 ¶ 一些 JSON 反序列化器的实现可能会在以下方面设定限制：\n【2】Python 允许你使用流行的数据交换格式 JSON (JavaScript Object Notation) ，而不是让用户持续编写和调试代码来将复杂的数据类型存入文件中。 标准库模块 json 可以接受带有层级结构的 Python 数据，并将其转换为字符串表示形式；这个过程称为 serializing 。 根据字符串表示形式重建数据则称为 deserializing 。 在序列化和反序列化之间，用于代表对象的字符串可以存储在文件或数据库中，或者通过网络连接发送到远端主机。\n【3】对于内存数据库或“临时”数据库，序列化就是当数据库备份到磁盘时要写入到磁盘的相同字节序列。 \n参数 : name ( str ) -- 要序列化的数据库名称。 默认为 \"main\" 。 \n返回类型 : bytes \n备注 \n此方法仅在下层 SQLite 库具有序列化 API 时可用。 \n在 3.11 版本加入. \ndeserialize ( data , / , * , name = 'main' ) ¶ 将一个 已序列化的 数据库反序列化至 Connection 。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "ee7a4e33ee017494fba1dfc7",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "顶级非对象，非数组值 ¶ 过时的 RFC 4627 指定的旧版本 JSON 要求 JSON 文本顶级值必须是 JSON 对象或数组（ Python dict 或 list ），并且不能是 JSON null 值，布尔值，数值或者字符串值。 RFC 7159 移除这个限制，此模块没有并且从未在序列化器和反序列化器中实现这个限制。 \n无论如何，为了最大化地获取互操作性，你可能希望自己遵守该原则。 \n实现限制 ¶ 一些 JSON 反序列化器的实现可能会在以下方面设定限制：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "a5ca35bc34d9dc42023a9fb0",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "Python 允许你使用流行的数据交换格式 JSON (JavaScript Object Notation) ，而不是让用户持续编写和调试代码来将复杂的数据类型存入文件中。 标准库模块 json 可以接受带有层级结构的 Python 数据，并将其转换为字符串表示形式；这个过程称为 serializing 。 根据字符串表示形式重建数据则称为 deserializing 。 在序列化和反序列化之间，用于代表对象的字符串可以存储在文件或数据库中，或者通过网络连接发送到远端主机。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "6b9b19dace04ad0d1d1dc835",
+          "chunk_id": "f56feb59bdd5904e11b422f4",
+          "title": "sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/sqlite3.html",
+          "fetched_at_utc": "2026-11-22T22:21:01+0800",
+          "excerpt": "对于内存数据库或“临时”数据库，序列化就是当数据库备份到磁盘时要写入到磁盘的相同字节序列。 \n参数 : name ( str ) -- 要序列化的数据库名称。 默认为 \"main\" 。 \n返回类型 : bytes \n备注 \n此方法仅在下层 SQLite 库具有序列化 API 时可用。 \n在 3.11 版本加入. \ndeserialize ( data , / , * , name = 'main' ) ¶ 将一个 已序列化的 数据库反序列化至 Connection 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/json.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 5.34,
+      "neural_called": false
+    },
+    {
+      "id": "F14",
+      "question": "pathlib.Path用于处理什么？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档、urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档）：\n【1】Path. glob ( pattern ) ¶ 解析相对于此路径的通配符 pattern ，产生所有匹配的文件: \n>>> sorted ( Path ( '.' ) . glob ( '*.py' )) [PosixPath('pathlib.py'), PosixPath('setup.py'), PosixPath('test_pathlib.py')] >>> sorted ( Path ( '.' ) . glob ( '*/*.py' )) [PosixPath\n【2】Path. rglob ( pattern ) ¶ 这就像调用 Path.glob() 并在给定的相对 pattern 前面添加了 \" **/ \": \n>>> sorted ( Path () . rglob ( \"*.py\" )) [PosixPath('build/lib/pathlib.py'), PosixPath('docs/conf.py'), PosixPath('pathlib.py'), PosixPath('setup.py'), PosixPath('t\n【3】class urllib.request. BaseHandler ¶ 这是所有已注册 handler 的基类，只做了简单的注册机制。 \nclass urllib.request. HTTPDefaultErrorHandler ¶ 为 HTTP 错误响应定义的默认 handler，所有出错响应都会转为 HTTPError 异常。 \nclass urllib.request. HTTPRedirectHandler ¶ 一个用于处理重定向的类。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "d91f0f58e77dbff9aee837c4",
+          "chunk_id": "56ab0dec6ab6724c5e7f9c19",
+          "title": "pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/pathlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:21+0800",
+          "excerpt": "Path. glob ( pattern ) ¶ 解析相对于此路径的通配符 pattern ，产生所有匹配的文件: \n>>> sorted ( Path ( '.' ) . glob ( '*.py' )) [PosixPath('pathlib.py'), PosixPath('setup.py'), PosixPath('test_pathlib.py')] >>> sorted ( Path ( '.' ) . glob ( '*/*.py' )) [PosixPath",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d91f0f58e77dbff9aee837c4",
+          "chunk_id": "1935117273dd8aa0c3e96593",
+          "title": "pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/pathlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:21+0800",
+          "excerpt": "Path. rglob ( pattern ) ¶ 这就像调用 Path.glob() 并在给定的相对 pattern 前面添加了 \" **/ \": \n>>> sorted ( Path () . rglob ( \"*.py\" )) [PosixPath('build/lib/pathlib.py'), PosixPath('docs/conf.py'), PosixPath('pathlib.py'), PosixPath('setup.py'), PosixPath('t",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "e3c62af37651fb46affaed21",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "class urllib.request. BaseHandler ¶ 这是所有已注册 handler 的基类，只做了简单的注册机制。 \nclass urllib.request. HTTPDefaultErrorHandler ¶ 为 HTTP 错误响应定义的默认 handler，所有出错响应都会转为 HTTPError 异常。 \nclass urllib.request. HTTPRedirectHandler ¶ 一个用于处理重定向的类。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/pathlib.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 3.68,
+      "neural_called": false
+    },
+    {
+      "id": "F15",
+      "question": "正则表达式模块提供什么功能？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：re --- 正则表达式操作 — Python 3.11.18 文档）：\n【1】re --- 正则表达式操作 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n文本处理服务 » \nre --- 正则表达式操作 \n| \nTheme Auto Light Dark | \nre --- 正则表达式操作 ¶ 源代码: Lib/re/ \n本模块提供了与 Perl 语言类似的正则表达式匹配操作。\n【2】第三方模块 regex , 提供了与标准库 re 模块兼容的 API 接口，同时，还提供了更多功能和更全面的 Unicode 支持。 \n正则表达式语法 ¶ 正则表达式（或 RE）指定了一组与之匹配的字符串；模块内的函数可以检查某个字符串是否与给定的正则表达式匹配（或者正则表达式是否匹配到字符串，这两种说法含义相同）。 \n正则表达式可以拼接；如果 A 和 B 都是正则表达式，则 AB 也是正则表达式。\n【3】pe = 'END' , value = ';' , line = 5 , column = 9 ) \n[ Frie09 ] Friedl, Jeffrey. Mastering Regular Expressions. 3rd ed., O'Reilly Media, 2009. 该书的第三版不再包含 Python，但第一版极详细地覆盖了正则表达式模式串的编写。 \n目录 re --- 正则表达式操作 正则表达式语法 \n模块内容 标志 \n函数 \n异常",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "d9549b43ff3c9a81cd6ea716",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "re --- 正则表达式操作 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n文本处理服务 » \nre --- 正则表达式操作 \n| \nTheme Auto Light Dark | \nre --- 正则表达式操作 ¶ 源代码: Lib/re/ \n本模块提供了与 Perl 语言类似的正则表达式匹配操作。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "577127ab61f3f342398b8da5",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "第三方模块 regex , 提供了与标准库 re 模块兼容的 API 接口，同时，还提供了更多功能和更全面的 Unicode 支持。 \n正则表达式语法 ¶ 正则表达式（或 RE）指定了一组与之匹配的字符串；模块内的函数可以检查某个字符串是否与给定的正则表达式匹配（或者正则表达式是否匹配到字符串，这两种说法含义相同）。 \n正则表达式可以拼接；如果 A 和 B 都是正则表达式，则 AB 也是正则表达式。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "61b737c57a3e3c5c398aa6bb",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "pe = 'END' , value = ';' , line = 5 , column = 9 ) \n[ Frie09 ] Friedl, Jeffrey. Mastering Regular Expressions. 3rd ed., O'Reilly Media, 2009. 该书的第三版不再包含 Python，但第一版极详细地覆盖了正则表达式模式串的编写。 \n目录 re --- 正则表达式操作 正则表达式语法 \n模块内容 标志 \n函数 \n异常",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/re.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 3.9,
+      "neural_called": false
+    },
+    {
+      "id": "F16",
+      "question": "sqlite3模块主要提供什么？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档、6. 模块 — Python 3.11.18 文档、15. 浮点算术：争议和限制 — Python 3.11.18 文档）：\n【1】sqlite3 模块由Gerhard Häring编写。它提供了 PEP 249 所描述的符合 DB-API 2.0 规范的 SQL 接口，并要求使用 SQLite 3.7.15 或更新的版本。 \n本文档包括了四个主要部分： \n教程 将教你如何使用 sqlite3 模块。 \n参考 描述了该模块定义的类与函数。 \n常用方案指引 详细介绍了如何处理一些特定的任务。 \n说明 提供了关于事务控制（transaction control）的更深一步的背景。 \n参见\n【2】最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。 \n6.4.1. 从包中导入 * ¶ 使用 from sound.effects import * 时会发生什么？你可能希望它会查找并导入包的所有子模块，但事实并非如此。因为这将花费很长的时间，并且可能会产生你不想要的副作用，如果这种副作用被你设计为只有在导入某个特定的子模块时才应该发生。 \n唯一的解决办法是提供包的显式索引。\n【3】15.1. 表示性错误 ¶ 本小节将详细解释 \"0.1\" 的例子，并说明你可以怎样亲自对此类情况进行精确分析。 假定前提是已基本熟悉二进制浮点表示法。 \n表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因。 \n为什么会这样？ 1/10 是无法用二进制小数精确表示的。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "6b9b19dace04ad0d1d1dc835",
+          "chunk_id": "445bfea3f7a2959601c195b6",
+          "title": "sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/sqlite3.html",
+          "fetched_at_utc": "2026-11-22T22:21:01+0800",
+          "excerpt": "sqlite3 模块由Gerhard Häring编写。它提供了 PEP 249 所描述的符合 DB-API 2.0 规范的 SQL 接口，并要求使用 SQLite 3.7.15 或更新的版本。 \n本文档包括了四个主要部分： \n教程 将教你如何使用 sqlite3 模块。 \n参考 描述了该模块定义的类与函数。 \n常用方案指引 详细介绍了如何处理一些特定的任务。 \n说明 提供了关于事务控制（transaction control）的更深一步的背景。 \n参见",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "8810b397daf8e2b9a7f71186",
+          "chunk_id": "04e1dbe7a7739d31976725e6",
+          "title": "6. 模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/modules.html",
+          "fetched_at_utc": "2026-11-22T22:09:56+0800",
+          "excerpt": "最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。 \n6.4.1. 从包中导入 * ¶ 使用 from sound.effects import * 时会发生什么？你可能希望它会查找并导入包的所有子模块，但事实并非如此。因为这将花费很长的时间，并且可能会产生你不想要的副作用，如果这种副作用被你设计为只有在导入某个特定的子模块时才应该发生。 \n唯一的解决办法是提供包的显式索引。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "aec71797aefed98e43abc79f",
+          "chunk_id": "9c15324e7bd76117d4bdb0ff",
+          "title": "15. 浮点算术：争议和限制 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/floatingpoint.html",
+          "fetched_at_utc": "2026-11-22T22:20:04+0800",
+          "excerpt": "15.1. 表示性错误 ¶ 本小节将详细解释 \"0.1\" 的例子，并说明你可以怎样亲自对此类情况进行精确分析。 假定前提是已基本熟悉二进制浮点表示法。 \n表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因。 \n为什么会这样？ 1/10 是无法用二进制小数精确表示的。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/sqlite3.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 3.17,
+      "neural_called": false
+    },
+    {
+      "id": "F17",
+      "question": "datetime模块表示哪些时间信息？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：datetime --- 基本日期和时间类型 — Python 3.11.18 文档）：\n【1】对于要求感知型对象的应用， datetime 和 time 对象具有一个可选的时区信息属性 tzinfo ，它可被设为抽象类 tzinfo 的子类的一个实例。 这些 tzinfo 对象会捕获与 UTC 时间的差值、时区名称以及夏令时是否生效等信息。 \ndatetime 模块只提供了一个具体的 tzinfo 类，即 timezone 类。 timezone 类可以表示具有相对于 UTC 的固定时差的简单时区，例如 UTC 本身或北美 EST 和 EDT 时区等。\n【2】此类的对象不可被用于代表某些特殊地点的时区信息，这些地点在一年的不同日期会使用不同的时差，或是在历史上对民用时间进行过调整。 \nclass datetime. timezone ( offset , name = None ) ¶ offset 参数必须指定为一个 timedelta 对象，表示本地时间与 UTC 的时差。 它必须严格限制于 -timedelta(hours=24) 和 timedelta(hours=24) 之间，否则会引发 ValueError 。\n【3】感知型的当前 UTC 日期时间可通过调用 datetime.now(timezone.utc) 来获得。 另请参阅 now() 。 \n警告 \n由于简单型 datetime 对象会被许多 datetime 方法当作本地时间来处理，最好是使用感知型日期时间对象来表示 UTC 时间。 因此，创建表示当前 UTC 时间的对象的推荐方式是通过调用 datetime.now(timezone.utc) 。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "fee8b129530316af3eb81fb8",
+          "chunk_id": "2098de644699812336a15ca2",
+          "title": "datetime --- 基本日期和时间类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/datetime.html",
+          "fetched_at_utc": "2026-11-22T22:21:23+0800",
+          "excerpt": "对于要求感知型对象的应用， datetime 和 time 对象具有一个可选的时区信息属性 tzinfo ，它可被设为抽象类 tzinfo 的子类的一个实例。 这些 tzinfo 对象会捕获与 UTC 时间的差值、时区名称以及夏令时是否生效等信息。 \ndatetime 模块只提供了一个具体的 tzinfo 类，即 timezone 类。 timezone 类可以表示具有相对于 UTC 的固定时差的简单时区，例如 UTC 本身或北美 EST 和 EDT 时区等。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "fee8b129530316af3eb81fb8",
+          "chunk_id": "46d5f833f15aefbf9c941bee",
+          "title": "datetime --- 基本日期和时间类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/datetime.html",
+          "fetched_at_utc": "2026-11-22T22:21:23+0800",
+          "excerpt": "此类的对象不可被用于代表某些特殊地点的时区信息，这些地点在一年的不同日期会使用不同的时差，或是在历史上对民用时间进行过调整。 \nclass datetime. timezone ( offset , name = None ) ¶ offset 参数必须指定为一个 timedelta 对象，表示本地时间与 UTC 的时差。 它必须严格限制于 -timedelta(hours=24) 和 timedelta(hours=24) 之间，否则会引发 ValueError 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "fee8b129530316af3eb81fb8",
+          "chunk_id": "735da032df132fe847d32572",
+          "title": "datetime --- 基本日期和时间类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/datetime.html",
+          "fetched_at_utc": "2026-11-22T22:21:23+0800",
+          "excerpt": "感知型的当前 UTC 日期时间可通过调用 datetime.now(timezone.utc) 来获得。 另请参阅 now() 。 \n警告 \n由于简单型 datetime 对象会被许多 datetime 方法当作本地时间来处理，最好是使用感知型日期时间对象来表示 UTC 时间。 因此，创建表示当前 UTC 时间的对象的推荐方式是通过调用 datetime.now(timezone.utc) 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/datetime.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 4.81,
+      "neural_called": false
+    },
+    {
+      "id": "F18",
+      "question": "hashlib主要提供什么功能？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：os --- 多种操作系统接口 — Python 3.11.18 文档、内置函数 — Python 3.11.18 文档）：\n【1】os. RWF_DSYNC ¶ 提供预写功能，等效于带 O_DSYNC 标志的 os.open() 。本标志只作用于通过系统调用写入的数据。 \n可用性 ： Linux >= 4.7。 \n在 3.7 版本加入. \nos. RWF_SYNC ¶ 提供预写功能，等效于带 O_SYNC 标志的 os.open() 。本标志只作用于通过系统调用写入的数据。 \n可用性 ： Linux >= 4.7。 \n在 3.7 版本加入.\n【2】在类 Unix 系统上，随机字节是从 /dev/urandom 设备读取的。如果 /dev/urandom 设备不可用或不可读，则抛出 NotImplementedError 异常。 \n在 Windows 上，它将使用 BCryptGenRandom() 。 \n参见 \nsecrets 模块提供了更高级的功能。所在平台会提供随机数生成器，有关其易于使用的接口，请参阅 random.SystemRandom 。\n【3】>>> s = input ( '--> ' ) --> Monty Python's Flying Circus >>> s \"Monty Python's Flying Circus\" \n如果加载了 readline 模块， input() 将使用它来提供复杂的行编辑和历史记录功能。 \n引发一个 审计事件 builtins.input 附带参数 prompt 。 \n在成功读取输入之后引发一个 审计事件 builtins.input/result 附带结果。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "754f480c502ced6e11da74ec",
+          "chunk_id": "a8c7c8bc06ddb73bd01bd3d9",
+          "title": "os --- 多种操作系统接口 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/os.html",
+          "fetched_at_utc": "2026-11-22T22:22:09+0800",
+          "excerpt": "os. RWF_DSYNC ¶ 提供预写功能，等效于带 O_DSYNC 标志的 os.open() 。本标志只作用于通过系统调用写入的数据。 \n可用性 ： Linux >= 4.7。 \n在 3.7 版本加入. \nos. RWF_SYNC ¶ 提供预写功能，等效于带 O_SYNC 标志的 os.open() 。本标志只作用于通过系统调用写入的数据。 \n可用性 ： Linux >= 4.7。 \n在 3.7 版本加入.",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "754f480c502ced6e11da74ec",
+          "chunk_id": "3e3304d8e2f61add63c399c9",
+          "title": "os --- 多种操作系统接口 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/os.html",
+          "fetched_at_utc": "2026-11-22T22:22:09+0800",
+          "excerpt": "在类 Unix 系统上，随机字节是从 /dev/urandom 设备读取的。如果 /dev/urandom 设备不可用或不可读，则抛出 NotImplementedError 异常。 \n在 Windows 上，它将使用 BCryptGenRandom() 。 \n参见 \nsecrets 模块提供了更高级的功能。所在平台会提供随机数生成器，有关其易于使用的接口，请参阅 random.SystemRandom 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d512fcf8d7c56e8f445cb353",
+          "chunk_id": "16a2db96e6ade65401cff59e",
+          "title": "内置函数 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/functions.html",
+          "fetched_at_utc": "2026-11-22T22:20:09+0800",
+          "excerpt": ">>> s = input ( '--> ' ) --> Monty Python's Flying Circus >>> s \"Monty Python's Flying Circus\" \n如果加载了 readline 模块， input() 将使用它来提供复杂的行编辑和历史记录功能。 \n引发一个 审计事件 builtins.input 附带参数 prompt 。 \n在成功读取输入之后引发一个 审计事件 builtins.input/result 附带结果。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/hashlib.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 2.52,
+      "neural_called": false
+    },
+    {
+      "id": "F19",
+      "question": "logging模块主要用于什么？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：logging --- Python 的日志记录工具 — Python 3.11.18 文档、内置类型 — Python 3.11.18 文档）：\n【1】logging --- Python 的日志记录工具 ¶ 源代码： Lib/logging/__init__.py \n这个模块为应用与库实现了灵活的事件日志系统的函数与类。 \n使用标准库提供的 logging API 最主要的好处是，所有的 Python 模块都可能参与日志输出，包括你自己的日志消息和第三方模块的日志消息。 \n这是一个惯例用法的简单示例:\n【2】logging.config 模块 日志记录模块的配置 API。 \nlogging.handlers 模块 日志记录模块附带的有用处理器。 \nPEP 282 - Logging 系统 该提案描述了将此特性纳入 Python 标准库。 \n最初的 Python logging 包 这是该 logging 包的原始来源。该站点提供的软件包版本适用于 Python 1.5.2、2.1.x 和 2.2.x，它们不被 logging 包含在标准库中。\n【3】备注 \n带有参数 typing.ParamSpec 的 GenericAlias 对象，在类型替换后其 __parameters__ 可能会不准确，因为 typing.ParamSpec 主要用于静态类型检查。 \ngenericalias. __unpacked__ ¶ 一个布尔值，如果别名已使用 * 运算符进行解包则为真值 (参见 TypeVarTuple )。 \n在 3.11 版本加入. \n参见 \nPEP 484 —— 类型注解 介绍 Python 中用于类型标注的框架。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "06ecb23bd449b069dfba4eaa",
+          "chunk_id": "a65cd32a62809f1b6cf8814b",
+          "title": "logging --- Python 的日志记录工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/logging.html",
+          "fetched_at_utc": "2026-11-22T22:22:01+0800",
+          "excerpt": "logging --- Python 的日志记录工具 ¶ 源代码： Lib/logging/__init__.py \n这个模块为应用与库实现了灵活的事件日志系统的函数与类。 \n使用标准库提供的 logging API 最主要的好处是，所有的 Python 模块都可能参与日志输出，包括你自己的日志消息和第三方模块的日志消息。 \n这是一个惯例用法的简单示例:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "06ecb23bd449b069dfba4eaa",
+          "chunk_id": "056eeea157a9332480e91df8",
+          "title": "logging --- Python 的日志记录工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/logging.html",
+          "fetched_at_utc": "2026-11-22T22:22:01+0800",
+          "excerpt": "logging.config 模块 日志记录模块的配置 API。 \nlogging.handlers 模块 日志记录模块附带的有用处理器。 \nPEP 282 - Logging 系统 该提案描述了将此特性纳入 Python 标准库。 \n最初的 Python logging 包 这是该 logging 包的原始来源。该站点提供的软件包版本适用于 Python 1.5.2、2.1.x 和 2.2.x，它们不被 logging 包含在标准库中。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "f61b108d3f3c442fd3cbc080",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "备注 \n带有参数 typing.ParamSpec 的 GenericAlias 对象，在类型替换后其 __parameters__ 可能会不准确，因为 typing.ParamSpec 主要用于静态类型检查。 \ngenericalias. __unpacked__ ¶ 一个布尔值，如果别名已使用 * 运算符进行解包则为真值 (参见 TypeVarTuple )。 \n在 3.11 版本加入. \n参见 \nPEP 484 —— 类型注解 介绍 Python 中用于类型标注的框架。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/logging.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 3.25,
+      "neural_called": false
+    },
+    {
+      "id": "F20",
+      "question": "内置len()函数有什么作用？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：9. 类 — Python 3.11.18 文档、3. Python 速览 — Python 3.11.18 文档）：\n【1】类定义在局部命名空间内再放置另一个命名空间。 \n划重点，作用域是按字面文本确定的：模块内定义的函数的全局作用域就是该模块的命名空间，无论该函数从什么地方或以什么别名被调用。另一方面，实际的名称搜索是在运行时动态完成的。但是，Python 正在朝着“编译时静态名称解析”的方向发展，因此不要过于依赖动态名称解析！（局部变量已经是被静态确定了。） \nPython 有一个特殊规定。如果不存在生效的 global 或 nonlocal 语句，则对名称的赋值总是会进入最内层作用域。\n【2】them >>> letters [ 2 : 5 ] = [] >>> letters ['a', 'b', 'f', 'g'] >>> # clear the list by replacing all the elements with an empty list >>> letters [:] = [] >>> letters [] \n内置函数 len() 也支持列表：\n【3】module> TypeError : 'str' object does not support item assignment \n要生成不同的字符串，应新建一个字符串： \n>>> 'J' + word [ 1 :] 'Jython' >>> word [: 2 ] + 'py' 'Pypy' \n内置函数 len() 返回字符串的长度： \n>>> s = 'supercalifragilisticexpialidocious' >>> len ( s ) 34 \n参见",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "011759052a586d0a14a7cea6",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "类定义在局部命名空间内再放置另一个命名空间。 \n划重点，作用域是按字面文本确定的：模块内定义的函数的全局作用域就是该模块的命名空间，无论该函数从什么地方或以什么别名被调用。另一方面，实际的名称搜索是在运行时动态完成的。但是，Python 正在朝着“编译时静态名称解析”的方向发展，因此不要过于依赖动态名称解析！（局部变量已经是被静态确定了。） \nPython 有一个特殊规定。如果不存在生效的 global 或 nonlocal 语句，则对名称的赋值总是会进入最内层作用域。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "16c88baabf0267a7393f2814",
+          "chunk_id": "b3ea0ac74cae3a5df929a525",
+          "title": "3. Python 速览 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/introduction.html",
+          "fetched_at_utc": "2026-11-22T22:00:26+0800",
+          "excerpt": "them >>> letters [ 2 : 5 ] = [] >>> letters ['a', 'b', 'f', 'g'] >>> # clear the list by replacing all the elements with an empty list >>> letters [:] = [] >>> letters [] \n内置函数 len() 也支持列表：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "16c88baabf0267a7393f2814",
+          "chunk_id": "9cb7cf983ccb97a054667a3d",
+          "title": "3. Python 速览 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/introduction.html",
+          "fetched_at_utc": "2026-11-22T22:00:26+0800",
+          "excerpt": "module> TypeError : 'str' object does not support item assignment \n要生成不同的字符串，应新建一个字符串： \n>>> 'J' + word [ 1 :] 'Jython' >>> word [: 2 ] + 'py' 'Pypy' \n内置函数 len() 返回字符串的长度： \n>>> s = 'supercalifragilisticexpialidocious' >>> len ( s ) 34 \n参见",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "library/functions.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 4.94,
+      "neural_called": false
+    },
+    {
+      "id": "X01",
+      "question": "Python教程和标准库参考如何共同解释序列类型？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：13. 接下来？ — Python 3.11.18 文档、Python 教程 — Python 3.11.18 文档、内置类型 — Python 3.11.18 文档）：\n【1】本教程是 Python 文档集的一部分。其他文档： \nPython 标准库 : \n你应当浏览一下本手册，其中提供了有关标准库中的类型、函数和模块的完整（但简洁）的参考资料。 标准 Python 分发版包括 许多 附加代码。 这些模块可以完成读取 Unix 邮箱，通过 HTTP 获取文档，生成随机数，解析命令行选项，压缩数据以及许多其他任务。 浏览标准库参考将使你了解有哪些可用的功能。 \n安装 Python 模块 解释了怎么安装由其他 Python 开发者编写的模块。\n【2】Python 解释器易于扩展，使用 C 或 C++（或其他 C 能调用的语言）即可为 Python 扩展新功能和数据类型。Python 也可用作定制软件中的扩展程序语言。 \n本教程只是简单介绍了 Python 语言概念和功能。读者在阅读本教程时最好使用 Python 解释器以便随时动手练习。本教程中的所有示例都是相互独立的并可离线阅读。 \n标准库与模块的内容详见 Python 标准库 。 Python 语言参考手册 是更正规的语言定义。\n【3】内置类型 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n内置类型 \n| \nTheme Auto Light Dark | \n内置类型 ¶ 以下部分描述了解释器中内置的标准类型。 \n主要内置类型有数字、序列、映射、类、实例和异常。 \n有些多项集类是可变的。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "bd9b0270505a85a58150f3e0",
+          "chunk_id": "9816b65260107b48a3cec45c",
+          "title": "13. 接下来？ — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/whatnow.html",
+          "fetched_at_utc": "2026-11-22T22:19:54+0800",
+          "excerpt": "本教程是 Python 文档集的一部分。其他文档： \nPython 标准库 : \n你应当浏览一下本手册，其中提供了有关标准库中的类型、函数和模块的完整（但简洁）的参考资料。 标准 Python 分发版包括 许多 附加代码。 这些模块可以完成读取 Unix 邮箱，通过 HTTP 获取文档，生成随机数，解析命令行选项，压缩数据以及许多其他任务。 浏览标准库参考将使你了解有哪些可用的功能。 \n安装 Python 模块 解释了怎么安装由其他 Python 开发者编写的模块。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b409962572d58b176a5fb556",
+          "chunk_id": "bd164d689da0a8a5bedc444b",
+          "title": "Python 教程 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/index.html",
+          "fetched_at_utc": "2026-11-22T22:00:21+0800",
+          "excerpt": "Python 解释器易于扩展，使用 C 或 C++（或其他 C 能调用的语言）即可为 Python 扩展新功能和数据类型。Python 也可用作定制软件中的扩展程序语言。 \n本教程只是简单介绍了 Python 语言概念和功能。读者在阅读本教程时最好使用 Python 解释器以便随时动手练习。本教程中的所有示例都是相互独立的并可离线阅读。 \n标准库与模块的内容详见 Python 标准库 。 Python 语言参考手册 是更正规的语言定义。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "3229837048e4331e97cb4dfc",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": "内置类型 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n内置类型 \n| \nTheme Auto Light Dark | \n内置类型 ¶ 以下部分描述了解释器中内置的标准类型。 \n主要内置类型有数字、序列、映射、类、实例和异常。 \n有些多项集类是可变的。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/datastructures.html",
+        "library/stdtypes.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 6.97,
+      "neural_called": false
+    },
+    {
+      "id": "X02",
+      "question": "如何结合教程中的模块和json文档导入JSON工具？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：4. 更多控制流工具 — Python 3.11.18 文档、json --- JSON 编码和解码器 — Python 3.11.18 文档、10. 标准库简介 — Python 3.11.18 文档）：\n【1】4. 更多控制流工具 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n4. 更多控制流工具 \n| \nTheme Auto Light Dark | \n4. 更多控制流工具 ¶ 除了刚介绍的 while 语句，Python 还用了一些别的。我们将在本章中遇到它们。 \n4.1. if 语句 ¶ 最让人耳熟能详的语句应当是 if 语句：\n【2】json --- JSON 编码和解码器 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n互联网数据处理 » \njson --- JSON 编码和解码器 \n| \nTheme Auto Light Dark | \njson --- JSON 编码和解码器 ¶ 源代码: Lib/json/__init__.py\n【3】10.11. 质量控制 ¶ 开发高质量软件的一种方法是在开发过程中为每个函数编写测试，并在开发过程中经常运行这些测试。 \ndoctest 模块提供了一个工具，用于扫描模块并验证程序文档字符串中嵌入的测试。测试构造就像将典型调用及其结果剪切并粘贴到文档字符串一样简单。这通过向用户提供示例来改进文档，并且它允许 doctest 模块确保代码与文档保持一致:",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "0430c1b49fe20669259a416c",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "4. 更多控制流工具 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n4. 更多控制流工具 \n| \nTheme Auto Light Dark | \n4. 更多控制流工具 ¶ 除了刚介绍的 while 语句，Python 还用了一些别的。我们将在本章中遇到它们。 \n4.1. if 语句 ¶ 最让人耳熟能详的语句应当是 if 语句：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "b0ee9e1e7280cc0d4dc74dda",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "json --- JSON 编码和解码器 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n互联网数据处理 » \njson --- JSON 编码和解码器 \n| \nTheme Auto Light Dark | \njson --- JSON 编码和解码器 ¶ 源代码: Lib/json/__init__.py",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "4c804b732772a119fa2f49b9",
+          "chunk_id": "a60cebe9e03a81a62b3e1883",
+          "title": "10. 标准库简介 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/stdlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:16+0800",
+          "excerpt": "10.11. 质量控制 ¶ 开发高质量软件的一种方法是在开发过程中为每个函数编写测试，并在开发过程中经常运行这些测试。 \ndoctest 模块提供了一个工具，用于扫描模块并验证程序文档字符串中嵌入的测试。测试构造就像将典型调用及其结果剪切并粘贴到文档字符串一样简单。这通过向用户提供示例来改进文档，并且它允许 doctest 模块确保代码与文档保持一致:",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/modules.html",
+        "library/json.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 7.54,
+      "neural_called": false
+    },
+    {
+      "id": "X03",
+      "question": "文件读写在教程和pathlib文档中如何分别处理？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：内置类型 — Python 3.11.18 文档、urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档、pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档）：\n【1】>>> b \"they're bill's friends from the UK\" . title () b\"They'Re Bill'S Friends From The Uk\" \n可以使用正则表达式来构建针对撇号的特别处理:\n【2】<protocol>_error() --- 表明该处理器知道如何处理来自 (非 http ) protocol 的错误。 \n<protocol>_request() --- 表明该处理器知道如何预处理 protocol 请求。 \n更多信息请参阅 BaseHandler.<protocol>_request() 。 \n<protocol>_response() --- 表明该处理器知道如何后继处理 protocol 响应。\n【3】pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n文件和目录访问 » \npathlib --- 面向对象的文件系统路径 \n| \nTheme Auto Light Dark | \npathlib --- 面向对象的文件系统路径 ¶ 在 3.4 版本加入.",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "2790c54a5f9ee2909f17e490",
+          "chunk_id": "7c3212b7ff4ab040ebfd076a",
+          "title": "内置类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/stdtypes.html",
+          "fetched_at_utc": "2026-11-22T22:20:20+0800",
+          "excerpt": ">>> b \"they're bill's friends from the UK\" . title () b\"They'Re Bill'S Friends From The Uk\" \n可以使用正则表达式来构建针对撇号的特别处理:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "50298979858ab914beedb768",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "<protocol>_error() --- 表明该处理器知道如何处理来自 (非 http ) protocol 的错误。 \n<protocol>_request() --- 表明该处理器知道如何预处理 protocol 请求。 \n更多信息请参阅 BaseHandler.<protocol>_request() 。 \n<protocol>_response() --- 表明该处理器知道如何后继处理 protocol 响应。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "d91f0f58e77dbff9aee837c4",
+          "chunk_id": "6499ca3c1f0993f17cf05f93",
+          "title": "pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/pathlib.html",
+          "fetched_at_utc": "2026-11-22T22:10:21+0800",
+          "excerpt": "pathlib --- 面向对象的文件系统路径 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 标准库 » \n文件和目录访问 » \npathlib --- 面向对象的文件系统路径 \n| \nTheme Auto Light Dark | \npathlib --- 面向对象的文件系统路径 ¶ 在 3.4 版本加入.",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/inputoutput.html",
+        "library/pathlib.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 6.43,
+      "neural_called": false
+    },
+    {
+      "id": "X04",
+      "question": "异常在教程和logging文档中的角色有何不同？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：8. 错误和异常 — Python 3.11.18 文档、collections --- 容器数据类型 — Python 3.11.18 文档、logging --- Python 的日志记录工具 — Python 3.11.18 文档）：\n【1】8. 错误和异常 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n8. 错误和异常 \n| \nTheme Auto Light Dark | \n8. 错误和异常 ¶ 至此，本教程还未深入介绍错误信息，但如果您尝试过本教程前文中的例子，应该已经看到过一些错误信息。错误可（至少）被分为两种： 语法错误 和 异常 。\n【2】elements() 方法要求整数计数。忽略零和负数计数。 \n参见 \nSmalltalk 中的 Bag class 。 \nWikipedia 链接 Multisets . \nC++ multisets 教程和例子。 \n关于多重集合的数学运算及其用例，参考 Knuth, Donald. The Art of Computer Programming Volume II, Section 4.6.3, Exercise 19 。\n【3】logging. exception ( msg , * args , ** kwargs ) ¶ 在根日志记录器上记录一条 ERROR 级别的消息。 其他参数与行为均与 debug() 的相同。 异常信息会被添加到日志记录消息中。 此函数应当仅从异常处理器中调用。 \nlogging. log ( level , msg , * args , ** kwargs ) ¶ 在根日志记录器上记录一条 level 级别的消息。 其他参数与行为均与 debug() 相同。",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "15436b0b4d3744daf282046d",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "8. 错误和异常 — Python 3.11.18 文档 \n导航 索引 \n模块 | \n下一页 | \n上一页 | \nPython » \n3.11.18 Documentation » \nPython 教程 » \n8. 错误和异常 \n| \nTheme Auto Light Dark | \n8. 错误和异常 ¶ 至此，本教程还未深入介绍错误信息，但如果您尝试过本教程前文中的例子，应该已经看到过一些错误信息。错误可（至少）被分为两种： 语法错误 和 异常 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "bee15dd04d593a0c0ee66461",
+          "chunk_id": "d08615f26939fec2843f3dbf",
+          "title": "collections --- 容器数据类型 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/collections.html",
+          "fetched_at_utc": "2026-11-22T22:21:40+0800",
+          "excerpt": "elements() 方法要求整数计数。忽略零和负数计数。 \n参见 \nSmalltalk 中的 Bag class 。 \nWikipedia 链接 Multisets . \nC++ multisets 教程和例子。 \n关于多重集合的数学运算及其用例，参考 Knuth, Donald. The Art of Computer Programming Volume II, Section 4.6.3, Exercise 19 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "06ecb23bd449b069dfba4eaa",
+          "chunk_id": "e64bdbb4a9f86b16076f7f5c",
+          "title": "logging --- Python 的日志记录工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/logging.html",
+          "fetched_at_utc": "2026-11-22T22:22:01+0800",
+          "excerpt": "logging. exception ( msg , * args , ** kwargs ) ¶ 在根日志记录器上记录一条 ERROR 级别的消息。 其他参数与行为均与 debug() 的相同。 异常信息会被添加到日志记录消息中。 此函数应当仅从异常处理器中调用。 \nlogging. log ( level , msg , * args , ** kwargs ) ¶ 在根日志记录器上记录一条 level 级别的消息。 其他参数与行为均与 debug() 相同。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/errors.html",
+        "library/logging.html"
+      ],
+      "evidence_supported": true,
+      "latency_ms": 5.9,
+      "neural_called": false
+    },
+    {
+      "id": "X05",
+      "question": "教程中的类与dataclasses模块有什么关系？",
+      "response": "在已保存的资料里找到 3 条相关摘录（来源：9. 类 — Python 3.11.18 文档、8. 错误和异常 — Python 3.11.18 文档、sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档）：\n【1】Python 有两个内置函数可被用于继承机制： \n使用 isinstance() 来检查一个实例的类型: isinstance(obj, int) 仅会在 obj.__class__ 为 int 或某个派生自 int 的类时为 True 。 \n使用 issubclass() 来检查类的继承关系: issubclass(bool, int) 为 True ，因为 bool 是 int 的子类。\n【2】如果发生的异常与 except 子句中的类是同一个类或是它的基类时，则该类与该异常相兼容（反之则不成立 --- 列出派生类的 except 子句 与基类不兼容）。 例如，下面的代码将依次打印 B, C, D:\n【3】sqlite3 模块由Gerhard Häring编写。它提供了 PEP 249 所描述的符合 DB-API 2.0 规范的 SQL 接口，并要求使用 SQLite 3.7.15 或更新的版本。 \n本文档包括了四个主要部分： \n教程 将教你如何使用 sqlite3 模块。 \n参考 描述了该模块定义的类与函数。 \n常用方案指引 详细介绍了如何处理一些特定的任务。 \n说明 提供了关于事务控制（transaction control）的更深一步的背景。 \n参见",
+      "response_source": "retrieval",
+      "top3": [
+        {
+          "doc_id": "797443c90792947371e68be5",
+          "chunk_id": "cbfb344ef8021de2304f7034",
+          "title": "9. 类 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/classes.html",
+          "fetched_at_utc": "2026-11-22T22:10:11+0800",
+          "excerpt": "Python 有两个内置函数可被用于继承机制： \n使用 isinstance() 来检查一个实例的类型: isinstance(obj, int) 仅会在 obj.__class__ 为 int 或某个派生自 int 的类时为 True 。 \n使用 issubclass() 来检查类的继承关系: issubclass(bool, int) 为 True ，因为 bool 是 int 的子类。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "b2f1bf49ce5f417573ae9c39",
+          "chunk_id": "ea3c0371775243062a3f89e0",
+          "title": "8. 错误和异常 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/errors.html",
+          "fetched_at_utc": "2026-11-22T22:10:06+0800",
+          "excerpt": "如果发生的异常与 except 子句中的类是同一个类或是它的基类时，则该类与该异常相兼容（反之则不成立 --- 列出派生类的 except 子句 与基类不兼容）。 例如，下面的代码将依次打印 B, C, D:",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "6b9b19dace04ad0d1d1dc835",
+          "chunk_id": "445bfea3f7a2959601c195b6",
+          "title": "sqlite3 --- SQLite 数据库 DB-API 2.0 接口模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/sqlite3.html",
+          "fetched_at_utc": "2026-11-22T22:21:01+0800",
+          "excerpt": "sqlite3 模块由Gerhard Häring编写。它提供了 PEP 249 所描述的符合 DB-API 2.0 规范的 SQL 接口，并要求使用 SQLite 3.7.15 或更新的版本。 \n本文档包括了四个主要部分： \n教程 将教你如何使用 sqlite3 模块。 \n参考 描述了该模块定义的类与函数。 \n常用方案指引 详细介绍了如何处理一些特定的任务。 \n说明 提供了关于事务控制（transaction control）的更深一步的背景。 \n参见",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [
+        "tutorial/classes.html",
+        "library/dataclasses.html"
+      ],
+      "evidence_supported": false,
+      "latency_ms": 4.56,
+      "neural_called": false
+    },
+    {
+      "id": "N01",
+      "question": "Python官方文档是否包含N-MIND项目2027年的实验计划？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "ec96be4fc7591431124cd0c6",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "json. loads ( s , * , cls = None , object_hook = None , parse_float = None , parse_int = None , parse_constant = None , object_pairs_hook = None , ** kw ) ¶ 使用这个 转换表 将 s (一个包含 JSON 文档的 str , bytes 或 bytearray 实例) 反序列化为 Python 对象。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "aec71797aefed98e43abc79f",
+          "chunk_id": "b1ff8af6bba6959ea70b2293",
+          "title": "15. 浮点算术：争议和限制 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/floatingpoint.html",
+          "fetched_at_utc": "2026-11-22T22:20:04+0800",
+          "excerpt": "至少从 2000 年起，几乎所有机器都使用 IEEE 754 二进制浮点运算标准，而几乎所有系统平台都将 Python 浮点数映射为 IEEE 754 binary64 \"双精度\" 值。 IEEE 754 binary64 值包含 53 位精度，因此在输入时计算机会尽量将 0.1 转换为以 J /2** N 形式所能表示的最接近的小数，其中 J 为恰好包含 53 比特位的整数。 重新将 \n1 / 10 ~= J / ( 2 ** N ) \n写为",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "ee993435f2e181ca5aba8921",
+          "chunk_id": "c37a933028c749e086514edf",
+          "title": "4. 更多控制流工具 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html",
+          "fetched_at_utc": "2026-11-22T22:00:31+0800",
+          "excerpt": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!') \n本例还使用了关键字 in ，用于确认序列中是否包含某个值。 \n默认值在 定义 作用域里的函数定义中求值，所以： \ni = 5 def f ( arg = i ): print ( arg ) i = 6 f () \n上例输出的是 5 。 \n重要警告： 默认值只计算一次。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_supported": true,
+      "latency_ms": 6.11,
+      "neural_called": false
+    },
+    {
+      "id": "N02",
+      "question": "能否从Python文档证明某人的银行密码？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "751c6a66f7004f13226084c4",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "raw_decode ( s ) ¶ 从 s 中解码出 JSON 文档（以 JSON 文档开头的一个 str 对象）并返回一个 Python 表示形式为 2 元组以及指明该文档在 s 中结束位置的序号。 \n这可以用于从一个字符串解码JSON文档，该字符串的末尾可能有无关的数据。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "764e1f4f45003530b1fc3917",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "不含方案的 URI 则匹配具有任意方案的身份认证 URI。 \n在 3.11.17 版本发生变更: 现在包含方案（scheme）的 URI 的身份认证凭据会以该方案限定其作用范围。 \nHTTPPasswordMgr. find_user_password ( realm , authuri ) ¶ 为给定 realm 和 URI 获取用户名和密码。如果没有匹配的用户名和密码，本方法将会返回 (None, None) 。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "bd9b0270505a85a58150f3e0",
+          "chunk_id": "3779679a79f96ce77c07d530",
+          "title": "13. 接下来？ — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/whatnow.html",
+          "fetched_at_utc": "2026-11-22T22:19:54+0800",
+          "excerpt": "Python 语言参考手册 : Python 的语法和语义的详细解释。读起来较为繁重，但作为语言本身的完整指南是很有用的。 \n更多 Python 资源： \nhttps://www.python.org : Python 主网站。 它包含代码、文档和指向全网 Python 相关网页的链接。 \nhttps://docs.python.org ：快速访问 Python 的文档。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_supported": true,
+      "latency_ms": 4.21,
+      "neural_called": false
+    },
+    {
+      "id": "N03",
+      "question": "Python官方教程是否包含用户的个人电话号码？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "d43662fa7c820cfc84049c9b",
+          "chunk_id": "cdcf26b4d5abfaa5c49a5f91",
+          "title": "re --- 正则表达式操作 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/re.html",
+          "fetched_at_utc": "2026-11-22T22:20:50+0800",
+          "excerpt": "9 Park Place'] \n最终，将每个条目分割为一个由名字、姓氏、电话号码和地址组成的列表。我们为 split() 使用了 maxsplit 形参，因为地址中包含有被我们作为分割模式的空格符：",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "53b971a5d086982317346406",
+          "chunk_id": "cc0afde286fdd6b79a76f6b8",
+          "title": "urllib.request --- 用于打开 URL 的可扩展库 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/urllib.request.html",
+          "fetched_at_utc": "2026-11-22T22:21:13+0800",
+          "excerpt": "不论是哪种格式，认证信息中都不能包含用户信息（因此， \"python.org\" 和 \"python.org:80\" 没问题，而 \"joe:password@python.org\" 则不行）。 \nHTTPBasicAuthHandler 对象 ¶ HTTPBasicAuthHandler. http_error_401 ( req , fp , code , msg , hdrs ) ¶ 如果可用的话，请用身份认证信息重试请求。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "bd9b0270505a85a58150f3e0",
+          "chunk_id": "9b8c76b212a88f24fcefc8ff",
+          "title": "13. 接下来？ — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/whatnow.html",
+          "fetched_at_utc": "2026-11-22T22:19:54+0800",
+          "excerpt": "特别值得注意的贡献被收集在一本同名的 Python Cookbook（O'Reilly＆Associates，ISBN 0-596-00797-3）的书中。 \nhttps://pyvideo.org 收集了来自研讨会和用户组会议的 Python 相关视频的链接。 \nhttps://scipy.org ：Scientific Python 项目包含用于快速矩阵计算和操作的模块，以及用于诸如线性代数，傅里叶变换，非线性求解器，随机数分布，统计分析等的一系列包。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_supported": true,
+      "latency_ms": 5.99,
+      "neural_called": false
+    },
+    {
+      "id": "N04",
+      "question": "这些页面能否确认N-MIND当前模型的内部测试分数？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "8810b397daf8e2b9a7f71186",
+          "chunk_id": "791331dd4c6685755a9c3473",
+          "title": "6. 模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/modules.html",
+          "fetched_at_utc": "2026-11-22T22:09:56+0800",
+          "excerpt": "你还可以编写相对导入代码，即使用 from module import name 形式的 import 语句。 这些导入使用前导点号来表示相对导入所涉及的当前包和上级包。 例如对于 surround 模块，可以使用: \nfrom . import echo from .. import formats from ..filters import equalizer \n注意，相对导入基于当前模块名。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "8810b397daf8e2b9a7f71186",
+          "chunk_id": "234ffd2dd9821bc9a2ffd1b1",
+          "title": "6. 模块 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/modules.html",
+          "fetched_at_utc": "2026-11-22T22:09:56+0800",
+          "excerpt": "在模块内部，通过全局变量 __name__ 可以获取模块名（即字符串）。例如，用文本编辑器在当前目录下创建 fibo.py 文件，输入以下内容： \n# Fibonacci numbers module def fib ( n ): # write Fibonacci series up to n a , b = 0 , 1 while a < n : print ( a , end = ' ' ) a , b = b , a + b print () def fib2 ( n",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "eb6998a436a1803a6da150f9",
+          "chunk_id": "6798332106c02972b2b22479",
+          "title": "sys --- 系统相关的形参和函数 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/sys.html",
+          "fetched_at_utc": "2026-11-22T22:22:35+0800",
+          "excerpt": "hash_info. hash_bits ¶ 哈希算法的内部输出大小 \nhash_info. seed_bits ¶ 哈希算法种子密钥的大小 \n在 3.2 版本加入. \n在 3.4 版本发生变更: 添加了 algorithm , hash_bits 和 seed_bits \nsys. hexversion ¶ 编码为单个整数的版本号。该整数会确保每个版本都自增，其中适当包括了未发布版本。举例来说，要测试 Python 解释器的版本不低于 1.5.2，请使用:",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_supported": true,
+      "latency_ms": 7.9,
+      "neural_called": false
+    },
+    {
+      "id": "N05",
+      "question": "能否从Python文档查到某人的实时GPS位置？",
+      "response": "当前没有可用的本地语言权重，N-MIND 不调用外部大模型兜底，无法对这句话做神经生成。可先在知识面板检索已保存的资料。",
+      "response_source": "none",
+      "top3": [
+        {
+          "doc_id": "eff7bfd598e3cdfcef14b757",
+          "chunk_id": "751c6a66f7004f13226084c4",
+          "title": "json --- JSON 编码和解码器 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/json.html",
+          "fetched_at_utc": "2026-11-22T22:20:45+0800",
+          "excerpt": "raw_decode ( s ) ¶ 从 s 中解码出 JSON 文档（以 JSON 文档开头的一个 str 对象）并返回一个 Python 表示形式为 2 元组以及指明该文档在 s 中结束位置的序号。 \n这可以用于从一个字符串解码JSON文档，该字符串的末尾可能有无关的数据。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "754f480c502ced6e11da74ec",
+          "chunk_id": "c5cec85ed6755fe03a47867c",
+          "title": "os --- 多种操作系统接口 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/library/os.html",
+          "fetched_at_utc": "2026-11-22T22:22:09+0800",
+          "excerpt": "os. copy_file_range ( src , dst , count , offset_src = None , offset_dst = None ) ¶ 从文件描述符 src 自偏移量 offset_src 起的位置拷贝 count 个字节到文件描述符 dst 自偏移量 offset_dst 起的位置。如果 offset_src 为 None，则从 src 的当前位置读取；对于 offset_dst 也是如此。",
+          "trust_state": "public-read-only",
+          "stale": false
+        },
+        {
+          "doc_id": "03db5bff7702fdb1769cb676",
+          "chunk_id": "1cac34cb11932935d97ea9d2",
+          "title": "7. 输入与输出 — Python 3.11.18 文档",
+          "url": "https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html",
+          "fetched_at_utc": "2026-11-22T22:10:02+0800",
+          "excerpt": "f.tell() 返回整数，给出文件对象在文件中的当前位置，表示为二进制模式下时从文件开始的字节数，以及文本模式下的意义不明的数字。 \nf.seek(offset, whence) 可以改变文件对象的位置。通过向参考点添加 offset 计算位置；参考点由 whence 参数指定。 whence 值为 0 时，表示从文件开头计算，1 表示使用当前文件位置，2 表示使用文件末尾作为参考点。省略 whence 时，其默认值为 0，即使用文件开头作为参考点。",
+          "trust_state": "public-read-only",
+          "stale": false
+        }
+      ],
+      "expected_sources": [],
+      "evidence_supported": true,
+      "latency_ms": 5.08,
+      "neural_called": false
+    }
+  ],
+  "single_page_hit_at_3": 13,
+  "cross_document_results": 1,
+  "out_of_scope_correct_abstentions": 5,
+  "supported_citation_rate": 0.56,
+  "optimizer_steps": 0,
+  "unauthorized_requests": 0
+}

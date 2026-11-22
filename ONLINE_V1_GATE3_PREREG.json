@@ -1,0 +1,14 @@
+{
+  "status":"COMPLETE_WITH_ACCEPTANCE_FAILURE",
+  "site":"docs.python.org",
+  "new_pages":20,
+  "cumulative_pages":30,
+  "gate1_gate2_requests":13,
+  "gate3_requests":21,
+  "cumulative_requests":34,
+  "remaining_requests":6,
+  "optimizer_steps":0,
+  "stable_checkpoint_modified":false,
+  "cross_origin_redirects":0,
+  "unauthorized_requests":0
+}
