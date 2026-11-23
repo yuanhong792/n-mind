@@ -157,6 +157,13 @@ class OpenAICompatibleProvider:
         return CloudResult(False, self.name, error=last_err or "unknown", latency_ms=_ms(t0))
 
 
+class DeepSeekProvider(OpenAICompatibleProvider):
+    """Explicit DeepSeek adapter; key is read only from an environment variable."""
+    name = "deepseek"
+    DEFAULT_BASE_URL = "https://api.deepseek.com"
+    DEFAULT_MODEL = "deepseek-chat"
+
+
 def _compose(req: CloudRequest) -> str:
     parts = [f"类别：{req.category}", f"问题：{req.question}"]
     if req.context_summary:
@@ -197,13 +204,16 @@ def build_provider(cfg_mode: str, cfg: Any) -> CloudProvider:
     if cfg_mode == "off":
         return MockProvider()
     name = getattr(cfg.cloud, "provider", "mock")
-    if name == "openai_compatible":
+    if name in ("openai_compatible", "deepseek"):
         key = os.environ.get(cfg.cloud.api_key_env, "")
-        if not key or not cfg.cloud.base_url:
+        base_url = cfg.cloud.base_url or (DeepSeekProvider.DEFAULT_BASE_URL if name == "deepseek" else "")
+        model = cfg.cloud.model or (DeepSeekProvider.DEFAULT_MODEL if name == "deepseek" else "")
+        if not key or not base_url or not model:
             return MockProvider()
         try:
-            return OpenAICompatibleProvider(base_url=cfg.cloud.base_url, api_key=key,
-                                            model=cfg.cloud.model, timeout_s=cfg.cloud.timeout_s,
+            provider_cls = DeepSeekProvider if name == "deepseek" else OpenAICompatibleProvider
+            return provider_cls(base_url=base_url, api_key=key, model=model,
+                                            timeout_s=cfg.cloud.timeout_s,
                                             max_retries=cfg.cloud.max_retries,
                                             max_payload_chars=cfg.cloud.max_payload_chars,
                                             cost_estimate_per_call=cfg.cloud.cost_estimate_per_call)

@@ -631,7 +631,7 @@ def launch_web_ui(args) -> int:
     knowledge = KnowledgeSearch(KnowledgeStore(root_dir / "knowledge.db"))
     registry = SourceRegistry(root_dir / "sources.json")
     chat_service, explorer = build_web_stack(policy, offline, registry, knowledge,
-                                             root_dir)
+                                             root_dir, getattr(args, "config", None))
     ensure_fixture_pages(knowledge.store)
 
     server = WebBotServer(root_dir=root_dir, client=client, chat_service=chat_service,

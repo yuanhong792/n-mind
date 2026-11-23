@@ -72,7 +72,7 @@ class CloudCfg(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     mode: CloudMode = "off"
-    provider: Literal["mock", "openai_compatible"] = "mock"
+    provider: Literal["mock", "openai_compatible", "deepseek"] = "mock"
     base_url: str = ""
     model: str = ""
     api_key_env: str = "NMIND_CLOUD_API_KEY"  # 只记变量名，绝不记值

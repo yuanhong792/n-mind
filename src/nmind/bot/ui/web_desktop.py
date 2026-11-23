@@ -15,7 +15,7 @@ from ..source_registry import SourceRegistry
 
 
 def build_web_stack(policy, offline: bool, registry: SourceRegistry,
-                    knowledge: KnowledgeSearch, root_dir: Path):
+                    knowledge: KnowledgeSearch, root_dir: Path, config_path: str | None = None):
     """返回 (ChatService, IdleWebExplorer)。
 
     stable 权重解析与 CLI run / Tkinter 完全相同：bot 根目录副本优先，
@@ -24,10 +24,17 @@ def build_web_stack(policy, offline: bool, registry: SourceRegistry,
     from ...language.neural_dialogue import load_lm
     from ...language.tokenizer import CharTokenizer
     from ...online.promotion import file_sha256
+    from ...config import load_config
+    from ...bridge.providers import build_provider
 
     from ...memory import MemoryService, MemoryStore
+    cfg = load_config(config_path)
+    if offline:
+        cfg = cfg.model_copy(update={"offline_forced": True})
+    cloud_provider = None if cfg.effective_cloud_mode() == "off" else build_provider(cfg.effective_cloud_mode(), cfg)
     memory_service = MemoryService(MemoryStore(root_dir / "memory.db"))
-    chat_service = ChatService(knowledge=knowledge, memory_service=memory_service)
+    chat_service = ChatService(knowledge=knowledge, memory_service=memory_service,
+                               cloud_provider=cloud_provider)
     stable = root_dir / "stable_model.pt"
     tok_path = root_dir / "tokenizer.json"
     if stable.exists() and tok_path.exists():
@@ -36,7 +43,8 @@ def build_web_stack(policy, offline: bool, registry: SourceRegistry,
             model, _meta = load_lm(stable, tokenizer)
             chat_service = ChatService(model=model, tokenizer=tokenizer,
                                        model_sha=file_sha256(stable),
-                                       knowledge=knowledge, memory_service=memory_service)
+                                       knowledge=knowledge, memory_service=memory_service,
+                                       cloud_provider=cloud_provider)
         except Exception as exc:                  # noqa: BLE001 - 权重损坏如实报缺
             print(f"[web] 本地语言权重加载失败（神经侧将标注不可用）：{exc}")
     explorer = IdleWebExplorer(registry=registry, knowledge_store=knowledge.store,

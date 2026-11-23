@@ -22,7 +22,7 @@ from typing import Any
 
 from ..skills.toolbox import calculator
 
-RESPONSE_SOURCES = ("neural", "retrieval", "memory", "tool", "rule", "none")
+RESPONSE_SOURCES = ("neural", "retrieval", "memory", "tool", "cloud_teacher", "rule", "none")
 GENERATION_PROTOCOL_ID = "freegen-v2-direct-continuation"
 
 def _looks_explicitly_out_of_scope(query: str) -> bool:
@@ -201,7 +201,7 @@ class ChatService:
 
     def __init__(self, *, model=None, tokenizer=None, model_sha: str = "",
                  knowledge=None, memory_service=None, unk_reject_threshold: float = DEFAULT_UNK_REJECT_THRESHOLD,
-                 max_new_tokens: int = 32) -> None:
+                 max_new_tokens: int = 32, cloud_provider=None) -> None:
         self.model = model
         self.tok = tokenizer
         self.model_sha = model_sha
@@ -209,6 +209,7 @@ class ChatService:
         self.memory_service = memory_service
         self.unk_reject_threshold = float(unk_reject_threshold)
         self.max_new_tokens = int(max_new_tokens)
+        self.cloud_provider = cloud_provider
         self._sessions: dict[str, _V2ChatSession] = {}
 
     @property
@@ -243,6 +244,9 @@ class ChatService:
         mem_hit = self._try_memory(req, text, t0)
         if mem_hit is not None:
             return mem_hit
+        cloud_hit = self._try_cloud(req, text, t0)
+        if cloud_hit is not None:
+            return cloud_hit
         # 3) 神经生成（原样保留 + 未验证标注）
         if self.model_loaded:
             sess = self._session(req.session_id)
@@ -269,6 +273,25 @@ class ChatService:
             response_source="none",
             latency_ms=round((time.perf_counter() - t0) * 1000, 2),
             note="无本地权重：神经侧不可用（如实告知，不冒充）。")
+
+    def _try_cloud(self, req: ChatRequest, text: str, t0: float) -> ChatResponse | None:
+        if self.cloud_provider is None:
+            return None
+        from ..bridge.providers import CloudRequest
+        result = self.cloud_provider.ask(CloudRequest(
+            category="public_web_query", question=text,
+            context_summary="External teacher answer; not neural capability.",
+            max_response_chars=2000))
+        if not result.ok:
+            return ChatResponse(message_id=req.message_id, session_id=req.session_id,
+                                text="外部问答服务调用失败，未生成回答。",
+                                response_source="cloud_teacher", status="ERROR",
+                                latency_ms=round((time.perf_counter() - t0) * 1000, 2),
+                                note=f"provider={result.provider}; error={result.error}")
+        return ChatResponse(message_id=req.message_id, session_id=req.session_id,
+                            text=result.text, response_source="cloud_teacher",
+                            latency_ms=round((time.perf_counter() - t0) * 1000, 2),
+                            note="外部教师/问答服务回答；不计入N-Cell神经能力。")
 
     # ---------------------------------------------------------------- 各路实现
     def _rule(self, req: ChatRequest, text: str, note: str, t0: float) -> ChatResponse:

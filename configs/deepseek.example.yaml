@@ -1,0 +1,16 @@
+cloud:
+  mode: "ask"
+  provider: "deepseek"
+  api_key_env: "NMIND_DEEPSEEK_API_KEY"
+  model: "deepseek-chat"
+  timeout_s: 20
+  max_retries: 1
+  max_payload_chars: 4000
+  cost_budget_units_total: 20
+  cost_estimate_per_call: 1
+  require_explicit_approval: false
+  allowed_categories:
+    - "public_web_query"
+
+# Never put the API key in this file. Set NMIND_DEEPSEEK_API_KEY in the
+# process environment, and omit --offline only when an external call is intended.
