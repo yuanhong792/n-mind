@@ -1,0 +1,52 @@
+# N-MIND Bot V1 配置（Bot V1 任务书 §9：关闭真实联网的安全默认配置）
+# 代码侧权威实现在 src/nmind/bot/policy.py + source_registry.py；本文件为可读镜像。
+# 真实联网需要：① 本文件 network_enabled=true；② `bot web allow <域名>` 逐站点授权；
+# ③ 非 --offline 启动。三者缺一，Bot 不会发出任何真实 socket。
+bot:
+  enabled: true
+  auto_start_with_os: false
+  idle_learning_enabled: true        # 空闲自主练习（离线、程序可验证任务，与 V1 探索独立）
+  user_task_priority: true
+  single_instance: true
+  network_enabled: false             # 真实联网默认关（任务书 §4.1：先加固，后授权）
+  auto_candidate_training: false     # 神经候选更新默认关（本轮不训练）
+  promotion_mode: manual
+  allow_external_code_execution: false
+  allow_remote_model_api: false
+  practice_task_allowlist: [arithmetic, json_extract, grid_rules]
+  max_tasks_per_idle_cycle: 3
+  min_cooldown_seconds: 60
+  max_idle_cpu_percent: 50
+  max_rss_mb: 2048
+  max_disk_mb: 512
+  max_network_requests_per_cycle: 0  # R1 语义：练习循环内真实请求数恒 0
+  max_optimizer_steps_per_cycle: 0   # 本轮不授权任何 optimizer.step
+  max_training_wall_seconds_per_cycle: 0
+  max_consecutive_failures: 3
+  stable_checkpoint_readonly: true
+  scheduler_verified_threshold: 32
+  scheduler_max_updates_per_batch: 120
+  heldout_per_family: 8
+  skill_practice_enabled: true
+
+candidate:
+  authorized: false
+  max_steps: 48
+  max_wall_s: 60
+  lambda_replay: 0.15
+  arms: [frozen, memory, neural, negative]
+
+# Bot V1 探索器配额（IdleWebExplorer 读取；值也可在 sources.json 里按站点覆盖）
+web_v1:
+  requests_per_idle_cycle: 2
+  requests_per_day: 20
+  max_bytes_per_response: 262144
+  max_total_bytes_per_day: 2097152
+  request_timeout_s: 8
+  max_redirects: 0
+  max_link_depth: 1
+  cooldown_s: 60
+
+learning:
+  auto_candidate_training: false     # 任务书 §6：神经自适应默认禁用
+  max_optimizer_steps_per_cycle: 0

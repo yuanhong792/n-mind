@@ -1,0 +1,31 @@
+# N-MIND Bot V1 允许站点样例（仅域名/路径/预算，无任何凭据）
+# 实际授权通过控制面写入：`python -m nmind.cli bot web allow docs.example.com --path /kb`
+# 或 GUI 设置页「添加允许站点」。网页内容与模型输出永远无权写这个列表。
+#
+# 把本文件内容按需改到 results/bot_v1/sources.json（GUI/CLI 管理的真实授权文件），
+# 或直接用上述命令逐条添加。启用真实联网前还必须：
+#   1) configs/bot_v1.yaml 里 network_enabled: true
+#   2) 不带 --offline 启动
+#
+# 样例（虚构域名，仅演示字段格式）：
+sites:
+  - host: docs.example.org
+    path_scope: /kb
+    enabled: true
+    created_by_user: example-owner
+    trust_state: public-read-only
+  - host: wiki.example.net
+    path_scope: ""
+    enabled: false          # 停用状态示例
+    created_by_user: example-owner
+    trust_state: public-read-only
+exploring_enabled: false
+limits:
+  requests_per_idle_cycle: 2
+  requests_per_day: 20
+  max_bytes_per_response: 262144
+  max_total_bytes_per_day: 2097152
+  request_timeout_s: 8
+  max_redirects: 0
+  max_link_depth: 1
+  cooldown_s: 60
