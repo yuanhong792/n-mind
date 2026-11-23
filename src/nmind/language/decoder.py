@@ -42,10 +42,11 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
     if max_new_tokens <= 0:
         raise ValueError("max_new_tokens 必须 > 0")
     was_training = model.training
+    model_device = next(model.parameters()).device
     model.eval()
     gen = None
     if seed is not None and not greedy:
-        gen = torch.Generator(device="cpu")
+        gen = torch.Generator(device=model_device)
         gen.manual_seed(int(seed))
     produced: list[int] = []
     logps: list[float] = []
@@ -57,7 +58,7 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
             if primed is not None:
                 logits, st = primed
             else:
-                x = torch.tensor([list(prompt_ids)], dtype=torch.long)
+                x = torch.tensor([list(prompt_ids)], dtype=torch.long, device=model_device)
                 logits, st = model(x, state)
             for _ in range(max_new_tokens):
                 last = logits[0, -1].clone()
@@ -81,7 +82,7 @@ def generate(model: NMindLM, tokenizer: CharTokenizer, prompt_ids: list[int], *,
                 produced.append(tid)
                 logps.append(logp)
                 rec.tokens.append(tokenizer.id2tok.get(tid, "<unk>"))
-                logits, st = model(torch.tensor([[tid]], dtype=torch.long), st)
+                logits, st = model(torch.tensor([[tid]], dtype=torch.long, device=model_device), st)
     finally:
         if was_training:
             model.train()
@@ -117,7 +118,7 @@ def free_generation(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
         raise ValueError(f"prompt 必须以锚点 {anchor!r} 结尾：{prompt!r}")
     ids = tokenizer.encode(prompt)
     with torch.no_grad():
-        _logits, state = model(torch.tensor([ids], dtype=torch.long))
+        _logits, state = model(torch.tensor([ids], dtype=torch.long, device=next(model.parameters()).device))
     rec, _st = generate(model, tokenizer, tokenizer.encode(anchor), state=state,
                          max_new_tokens=max_new_tokens, greedy=greedy)
     return rec
@@ -136,7 +137,7 @@ def free_generation_v2(model: NMindLM, tokenizer: CharTokenizer, prompt: str, *,
         raise ValueError(f"prompt 必须以锚点 {anchor!r} 结尾：{prompt!r}")
     ids = tokenizer.encode(prompt)
     with torch.no_grad():
-        logits, state = model(torch.tensor([ids], dtype=torch.long))
+        logits, state = model(torch.tensor([ids], dtype=torch.long, device=next(model.parameters()).device))
     rec, _st = generate(model, tokenizer, [], primed=(logits, state),
                         max_new_tokens=max_new_tokens, greedy=greedy)
     return rec
