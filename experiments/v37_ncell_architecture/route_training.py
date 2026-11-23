@@ -9,7 +9,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shlex
 from pathlib import Path
 
 # These are *conservative project policy bounds*, not GitHub's official runner limits.
@@ -83,6 +82,7 @@ def write_plan(directory: str | Path, *, steps: int, arms: list[str],
                f"--device {route['device']} --max-steps-per-arm "
                f"{LOCAL_MAX_STEPS_PER_ARM if route['device'] == 'cuda' else CLOUD_MAX_STEPS_PER_ARM} "
                "--max-seconds-per-arm 3600 "
+               "--save-candidates "
                "--output-dir experiments/v37_ncell_architecture/local_routed_run")
     if route["route"] == "LOCAL_MANUAL":
         lines = [
