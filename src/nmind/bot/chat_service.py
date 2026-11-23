@@ -227,8 +227,12 @@ class ChatService:
         self._sessions.pop(session_id, None)
 
     # ---------------------------------------------------------------- 路由
-    def reply(self, req: ChatRequest) -> ChatResponse:
+    def reply(self, req: ChatRequest, *, prefer_cloud: bool = False) -> ChatResponse:
         t0 = time.perf_counter()
+        if prefer_cloud:
+            cloud_hit = self._try_cloud(req, (req.text or '').strip(), t0)
+            if cloud_hit is not None:
+                return cloud_hit
         text = (req.text or "").strip()
         if not text:
             return self._rule(req, "（空消息）请输入中文内容。",

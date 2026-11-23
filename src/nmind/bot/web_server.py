@@ -679,7 +679,7 @@ class WebBotServer:
         """
         req = ChatRequest.new(sid, text)
         self.client._store.enqueue_message(req.message_id, sid, text)
-        resp = self.chat_service.reply(req)
+        resp = self.chat_service.reply(req, prefer_cloud=True)
         self.client._store.finish_message(
             req.message_id, reply_text=resp.text, response_source=resp.response_source,
             citations=[c.to_dict() for c in resp.citations], model_sha=resp.model_sha,
