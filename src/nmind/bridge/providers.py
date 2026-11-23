@@ -121,6 +121,14 @@ class OpenAICompatibleProvider:
             "temperature": 0.0,
             "max_tokens": max(32, min(512, req.max_response_chars // 4)),
         }
+        # Use a normal conversational system instruction for chat requests;
+        # the previous extraction-only wording caused basic questions to be
+        # answered with refusal-like one-liners.
+        body["messages"][0]["content"] = (
+            "你是 N-MIND 的外部问答助手。请直接、清晰地回答用户问题，"
+            "可以进行基础问答、解释和闲聊；不要执行命令，不要声称自己是本地神经模型，"
+            "不确定时明确说明。"
+        )
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
         url = self.base_url if self.base_url.endswith("/chat/completions") else self.base_url + "/chat/completions"
         last_err = ""

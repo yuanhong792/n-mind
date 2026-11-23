@@ -218,6 +218,7 @@ $('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(awa
     const bubble = document.createElement('div'); bubble.className = 'bubble';
     if (who !== 'user') { const meta = document.createElement('div'); meta.className = 'meta'; const tag = document.createElement('span'); tag.className = 'small-label'; tag.textContent = source || 'none'; meta.appendChild(tag); bubble.appendChild(meta); }
     const p = document.createElement('p'); p.textContent = text || ''; bubble.appendChild(p); row.appendChild(bubble); messages().appendChild(row);
+    requestAnimationFrame(() => { const stage = document.getElementById('stage'); stage.scrollTop = stage.scrollHeight; row.scrollIntoView({block:'end', behavior:'smooth'}); });
   }
   async function ensureSession() {
     if (sessionId) return sessionId;

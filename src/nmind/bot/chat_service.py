@@ -280,7 +280,7 @@ class ChatService:
         from ..bridge.providers import CloudRequest
         result = self.cloud_provider.ask(CloudRequest(
             category="public_web_query", question=text,
-            context_summary="External teacher answer; not neural capability.",
+            context_summary="请直接回答用户问题；这是外部问答服务结果，不代表 N-MIND 本地神经模型能力。",
             max_response_chars=2000))
         if not result.ok:
             return ChatResponse(message_id=req.message_id, session_id=req.session_id,
