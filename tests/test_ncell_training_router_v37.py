@@ -44,6 +44,7 @@ def test_large_training_generates_local_manual_plan_without_execution(tmp_path):
     assert "--steps 256" in commands
     assert "--device cuda" in commands
     assert "--max-steps-per-arm 2048" in commands
+    assert "--save-candidates" in commands
     assert "torch.cuda.is_available()" in commands
 
 
@@ -96,3 +97,20 @@ def test_small_cpu_train_still_works_with_explicit_device():
                        wall_seconds_per_arm=40)
     assert r["config"]["device"] == "cpu"
     assert r["arms"]["legacy"]["training"]["optimizer_steps_executed"] == 1
+
+
+def test_manual_candidate_checkpoint_export_and_roundtrip(tmp_path):
+    torch.set_num_threads(1)
+    from nmind.language.neural_dialogue import load_lm
+    from nmind.language.tokenizer import CharTokenizer
+    root = tmp_path / "candidates"
+    result = run_experiment(steps=1, batch_size=2, eval_samples=2,
+                            arms=("legacy",), device="cpu",
+                            wall_seconds_per_arm=40, checkpoint_dir=root)
+    cp = result["arms"]["legacy"]["candidate_checkpoint"]
+    assert cp and Path(cp).exists()
+    assert (root / "tokenizer.json").exists()
+    tok = CharTokenizer.load(root / "tokenizer.json")
+    loaded, meta = load_lm(cp, tok)
+    assert meta["steps"] == 1
+    assert loaded.cfg.readout_mode == "mean"
