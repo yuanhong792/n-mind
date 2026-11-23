@@ -19,7 +19,7 @@ import torch
 import torch.nn.functional as F
 
 from nmind.language.decoder import free_generation_v2
-from nmind.language.neural_dialogue import LMConfig, NMindLM
+from nmind.language.neural_dialogue import LMConfig, NMindLM, save_lm
 from nmind.language.tokenizer import EOS, PAD, UNK, CharTokenizer
 
 
@@ -317,7 +317,8 @@ def run_experiment(*, seed: int = 20261123, steps: int = 8,
                    final_sealed: bool = False,
                    d_model: int = 16, block_hidden: int = 16,
                    wall_seconds_per_arm: float = 300.0,
-                   device: str = "cpu", max_steps_per_arm: int = 128) -> dict[str, Any]:
+                   device: str = "cpu", max_steps_per_arm: int = 128,
+                   checkpoint_dir: str | Path | None = None) -> dict[str, Any]:
     if device not in ("cpu", "cuda"):
         raise ValueError("device must be cpu or cuda")
     if device == "cuda" and not torch.cuda.is_available():
@@ -331,6 +332,16 @@ def run_experiment(*, seed: int = 20261123, steps: int = 8,
     data = build_dataset(seed)
     tok = build_tokenizer(data["train"], data["dev"] + data["sealed"])
     m = manifest(data, tok, seed)
+    candidate_root = Path(checkpoint_dir) if checkpoint_dir is not None else None
+    if candidate_root is not None:
+        candidate_root.mkdir(parents=True, exist_ok=True)
+        vocab_path = candidate_root / "tokenizer.json"
+        if vocab_path.exists():
+            existing = CharTokenizer.load(vocab_path)
+            if existing.vocab_hash() != tok.vocab_hash():
+                raise ValueError("existing tokenizer in candidate directory differs")
+        else:
+            tok.save(vocab_path)
     out: dict[str, Any] = {
         "experiment": "ncell-v37-structural-ablation",
         "interpretation": "exploratory_not_verified_generalization",
@@ -359,7 +370,20 @@ def run_experiment(*, seed: int = 20261123, steps: int = 8,
         diag_after = diagnostics(model, tok, data["dev"][0])
         sealed = (evaluate(model, data["sealed"], tok, limit=eval_samples)
                   if final_sealed else {"status": "NOT_RUN", "reason": "sealed withheld"})
+        ckpt = None
+        if candidate_root is not None and train["optimizer_steps_executed"] > 0:
+            # No Stable paths are accepted or opened; only local opt-in candidates.
+            unique = train["state_sha_after"][:12]
+            ckpt_path = candidate_root / (
+                f"candidate_{arm}_seed{seed}_steps{train['optimizer_steps_executed']}_{unique}.pt")
+            if ckpt_path.exists():
+                raise FileExistsError(f"candidate already exists: {ckpt_path}")
+            save_lm(ckpt_path, model=model, tokenizer=tok, cfg=model.cfg,
+                    steps=train["optimizer_steps_executed"], seed=seed,
+                    parent_sha="random_init_v37", manifest_hash=m["split_hashes"]["train"])
+            ckpt = str(ckpt_path)
         out["arms"][arm] = {
+            "candidate_checkpoint": ckpt,
             "architecture": model.cfg.to_dict(),
             "parameters": model.n_params(), "legacy_parameters": legacy_params,
             "parameter_delta": model.n_params() - legacy_params,
