@@ -27,8 +27,10 @@ from torch import nn
 class NCell(nn.Module):
     """N 个块各自的门控循环状态转移；支持稠密与稀疏两种等价执行方式。"""
 
-    def __init__(self, z_dim: int, d_h: int, d_w: int, n_blocks: int) -> None:
+    def __init__(self, z_dim: int, d_h: int, d_w: int, n_blocks: int, *,
+                 use_reset_gate: bool = False) -> None:
         super().__init__()
+        self.use_reset_gate = bool(use_reset_gate)
         self.z_dim = z_dim
         self.d_h = d_h
         self.d_w = d_w
@@ -42,6 +44,10 @@ class NCell(nn.Module):
         self.W_h = nn.Parameter(torch.empty(n_blocks, d_h, d_h))
         self.W_w = nn.Parameter(torch.empty(n_blocks, d_w, d_h))
         self.b_c = nn.Parameter(torch.zeros(n_blocks, d_h))
+        # New candidates can add a GRU-like reset gate; legacy state_dict keys stay identical.
+        if self.use_reset_gate:
+            self.W_r = nn.Parameter(torch.empty(n_blocks, gate_in, d_h))
+            self.b_r = nn.Parameter(torch.ones(n_blocks, d_h))
         self._reset_parameters()
 
     def _reset_parameters(self) -> None:
@@ -50,7 +56,8 @@ class NCell(nn.Module):
         三维参数 [N, in, out] 不能用 xavier_uniform_ 直接套（它会拿前两维算 fan），
         所以这里显式按 in+out 计算边界，逐块等价于 Linear 的默认初始化。
         """
-        for w in (self.W_g, self.W_z, self.W_h, self.W_w):
+        for w in ((self.W_g, self.W_z, self.W_h, self.W_w, self.W_r)
+                  if self.use_reset_gate else (self.W_g, self.W_z, self.W_h, self.W_w)):
             fan_in, fan_out = w.shape[1], w.shape[2]
             bound = 1.0 / (fan_in + fan_out) ** 0.5
             nn.init.uniform_(w, -bound, bound)
@@ -72,9 +79,13 @@ class NCell(nn.Module):
         """稠密计算所有块的候选状态。z/w 已按块广播，形状 [B, N, *]。"""
         concat = torch.cat([z, h, w], dim=-1)
         g = torch.sigmoid(torch.einsum("bni,nid->bnd", concat, self.W_g) + self.b_g)
+        h_candidate = h
+        if self.use_reset_gate:
+            reset = torch.sigmoid(torch.einsum("bni,nid->bnd", concat, self.W_r) + self.b_r)
+            h_candidate = reset * h
         c = torch.tanh(
             torch.einsum("bni,nid->bnd", z, self.W_z)
-            + torch.einsum("bni,nid->bnd", h, self.W_h)
+            + torch.einsum("bni,nid->bnd", h_candidate, self.W_h)
             + torch.einsum("bni,nid->bnd", w, self.W_w)
             + self.b_c
         )
@@ -144,11 +155,17 @@ class NCell(nn.Module):
         concat = torch.cat([z_sel, h_sel, w_sel], dim=-1).unsqueeze(1)
         Wg = self.W_g.index_select(0, flat_blocks)
         g = torch.sigmoid(torch.bmm(concat, Wg).squeeze(1) + self.b_g.index_select(0, flat_blocks))
+        h_candidate = h_sel
+        if self.use_reset_gate:
+            Wr = self.W_r.index_select(0, flat_blocks)
+            reset = torch.sigmoid(torch.bmm(concat, Wr).squeeze(1)
+                                  + self.b_r.index_select(0, flat_blocks))
+            h_candidate = reset * h_sel
         # 三处都用 bmm 显式带 batch 维：matmul 对 2D×3D 会做广播，
         # 曾把 [P,d] 静默放大成 [P,P,d]，形状错了也不报错，属于最难查的那类 bug。
         c = torch.tanh(
             torch.bmm(z_sel.unsqueeze(1), self.W_z.index_select(0, flat_blocks)).squeeze(1)
-            + torch.bmm(h_sel.unsqueeze(1), self.W_h.index_select(0, flat_blocks)).squeeze(1)
+            + torch.bmm(h_candidate.unsqueeze(1), self.W_h.index_select(0, flat_blocks)).squeeze(1)
             + torch.bmm(w_sel.unsqueeze(1), self.W_w.index_select(0, flat_blocks)).squeeze(1)
             + self.b_c.index_select(0, flat_blocks)
         )
