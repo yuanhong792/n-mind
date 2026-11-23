@@ -24,6 +24,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="Candidate optimizer steps per arm, capped at 128")
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    parser.add_argument("--save-candidates", action="store_true",
+                        help="Save candidate model weights and tokenizer under output-dir only")
     parser.add_argument("--max-steps-per-arm", type=int, default=128,
                         help="Explicit budget ceiling, at most 2048 for manually launched local training")
     parser.add_argument("--eval-samples", type=int, default=8)
@@ -50,7 +52,8 @@ def main(argv: list[str] | None = None) -> int:
         eval_samples=args.eval_samples, arms=tuple(args.arms),
         final_sealed=args.final_sealed,
         wall_seconds_per_arm=args.max_seconds_per_arm,
-        device=args.device, max_steps_per_arm=args.max_steps_per_arm)
+        device=args.device, max_steps_per_arm=args.max_steps_per_arm,
+        checkpoint_dir=(Path(args.output_dir) / "candidates") if args.save_candidates else None)
     result["environment"] = {"python": sys.version.split()[0],
                              "torch": torch.__version__,
                              "platform": platform.platform(),
@@ -72,7 +75,8 @@ def main(argv: list[str] | None = None) -> int:
                                     if x["training"]["curve"] else None),
                       "grad_router_last": (x["training"]["curve"][-1]["grad"]["router"]
                                            if x["training"]["curve"] else None),
-                      "parameter_delta": x["parameter_delta"]}
+                      "parameter_delta": x["parameter_delta"],
+                      "candidate_checkpoint": x["candidate_checkpoint"]}
                  for a, x in result["arms"].items()}}
     print(json.dumps(compact, ensure_ascii=False, indent=2))
     return 0
