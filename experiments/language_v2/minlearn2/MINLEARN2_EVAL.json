@@ -1,0 +1,638 @@
+[
+  {
+    "arm": "A_HARD_TOPK_ORIGINAL",
+    "n": 16,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "tr-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-01",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-02",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-03",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-04",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-05",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-06",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-07",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-08",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-09",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-10",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-11",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-12",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-13",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-14",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-15",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "train"
+  },
+  {
+    "arm": "B_SOFT_MIXTURE_TRAINABLE",
+    "n": 16,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "tr-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-01",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-02",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-03",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-04",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-05",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-06",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-07",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-08",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-09",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-10",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-11",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-12",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-13",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-14",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-15",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "train"
+  },
+  {
+    "arm": "C_SOFT_MIXTURE_ROUTER_FROZEN",
+    "n": 16,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "tr-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-01",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-02",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-03",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-04",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-05",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-06",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-07",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-08",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-09",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-10",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-11",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-12",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-13",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-14",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-15",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "train"
+  },
+  {
+    "arm": "D_SOFT_MIXTURE_LABEL_INDEPENDENT",
+    "n": 16,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "tr-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-01",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-02",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-03",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-04",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-05",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-06",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-07",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-08",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-09",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-10",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-11",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-12",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-13",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-14",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      },
+      {
+        "item_id": "tr-15",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "train"
+  },
+  {
+    "arm": "A_HARD_TOPK_ORIGINAL",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "dev-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "dev"
+  },
+  {
+    "arm": "B_SOFT_MIXTURE_TRAINABLE",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "dev-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "dev"
+  },
+  {
+    "arm": "C_SOFT_MIXTURE_ROUTER_FROZEN",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "dev-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "dev"
+  },
+  {
+    "arm": "D_SOFT_MIXTURE_LABEL_INDEPENDENT",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "dev-00",
+        "exact": false,
+        "gold": "一号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "dev"
+  },
+  {
+    "arm": "A_HARD_TOPK_ORIGINAL",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "se-00",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "sealed"
+  },
+  {
+    "arm": "B_SOFT_MIXTURE_TRAINABLE",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "se-00",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "sealed"
+  },
+  {
+    "arm": "C_SOFT_MIXTURE_ROUTER_FROZEN",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "se-00",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "sealed"
+  },
+  {
+    "arm": "D_SOFT_MIXTURE_LABEL_INDEPENDENT",
+    "n": 1,
+    "exact": 0.0,
+    "unicode_char_accuracy": 0.0,
+    "eos_accuracy": 1.0,
+    "invalid_utf8": 1.0,
+    "rows": [
+      {
+        "item_id": "se-00",
+        "exact": false,
+        "gold": "三号位置",
+        "pred": "<invalid_utf8>",
+        "invalid_utf8": true
+      }
+    ],
+    "split": "sealed"
+  }
+]

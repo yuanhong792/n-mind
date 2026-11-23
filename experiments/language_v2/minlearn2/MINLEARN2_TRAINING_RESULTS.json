@@ -1,0 +1,41 @@
+{
+  "schema_version": "minlearn2/1",
+  "status": "COMPLETED_AUTHORIZED_TRAINING_EVAL_REPAIRED",
+  "actual_optimizer_steps": 512,
+  "wall_clock_limit_minutes": 90,
+  "network_requests": 0,
+  "stable_modified": false,
+  "sealed_used_for_training": false,
+  "arms": [
+    {
+      "arm": "A_HARD_TOPK_ORIGINAL",
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\minlearn2\\training_runs\\A_HARD_TOPK_ORIGINAL\\candidate.pt",
+      "checkpoint_sha256": "af47ddc879d8d297bac2270ea01826e3c9d5e40bf5a685de4f10bc2212323c11",
+      "steps_recorded": 128,
+      "seed": 20261130
+    },
+    {
+      "arm": "B_SOFT_MIXTURE_TRAINABLE",
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\minlearn2\\training_runs\\B_SOFT_MIXTURE_TRAINABLE\\candidate.pt",
+      "checkpoint_sha256": "e687f6c6eabbc8076df1e3c3ea58b1cacee46badac863b8f7f53c4389a5a9944",
+      "steps_recorded": 128,
+      "seed": 20261130
+    },
+    {
+      "arm": "C_SOFT_MIXTURE_ROUTER_FROZEN",
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\minlearn2\\training_runs\\C_SOFT_MIXTURE_ROUTER_FROZEN\\candidate.pt",
+      "checkpoint_sha256": "6ea2b0209022b7282dced8af1e99c493653fdeaa5ec82d482f3459e6c4dd0b2b",
+      "steps_recorded": 128,
+      "seed": 20261130
+    },
+    {
+      "arm": "D_SOFT_MIXTURE_LABEL_INDEPENDENT",
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\minlearn2\\training_runs\\D_SOFT_MIXTURE_LABEL_INDEPENDENT\\candidate.pt",
+      "checkpoint_sha256": "c489c3ddbdaaeca877f7e91d6b4a5a7b2be0b63fcb459f521868cc7a0b1c8003",
+      "steps_recorded": 128,
+      "seed": 20261130
+    }
+  ],
+  "training_loss_log": "NOT_PERSISTED: original runner crashed only after all four checkpoints were written during strict UTF-8 evaluation; no retraining performed",
+  "evaluation": "MINLEARN2_EVAL.json"
+}
