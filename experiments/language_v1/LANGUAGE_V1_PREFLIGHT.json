@@ -1,0 +1,20 @@
+{
+  "status": "PASS_ZERO_STEP_PREFLIGHT",
+  "optimizer_steps": 0,
+  "training_executed": false,
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.22621-SP0",
+  "torch": "2.15.0+cpu",
+  "cuda_available": false,
+  "cuda_device": null,
+  "tokenizer": {
+    "vocab_size": 4096,
+    "hash": "1449906f832430e6",
+    "roundtrip": true
+  },
+  "model_parameters": 279363,
+  "forward_seconds": 0.05269640000187792,
+  "stable_checkpoint_modified": false,
+  "network_requests": 0,
+  "formal_training": "PENDING_USER_APPROVAL"
+}

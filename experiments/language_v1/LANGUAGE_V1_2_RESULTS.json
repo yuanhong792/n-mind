@@ -1,0 +1,26 @@
+{
+  "status": "ZERO_STEP_DIAGNOSIS",
+  "optimizer_steps": 0,
+  "tokenizer_vocab_size": 4096,
+  "active_merge_count": 62,
+  "checkpoint_sha": {
+    "parent": "77979e45ef3722eca4cafc2cfd4896a47ce7bf2b052a7e39794b0795eee4eefa",
+    "main": "a4d4bb7c68507542a34f27ef517aa4b3253b3f951bbfc002836a4f6068c27e6b",
+    "label_permutation": "a7ee7d7442ca3f3ad2464a456e4aaebee6fe26f07a834af448280f3310da3800"
+  },
+  "loss": {
+    "parent_eval_loss": 8.31500631570816,
+    "main_eval_loss": 8.146179378032684,
+    "label_permutation_eval_loss": 8.14185893535614
+  },
+  "generation_count": 15,
+  "stable_modified": false,
+  "network_requests": 0,
+  "historical_train_loss": "HISTORICAL_TRAIN_LOSS_UNAVAILABLE",
+  "retention": "RETENTION_INCONCLUSIVE",
+  "root_cause": {
+    "invalid_ids": "undefined BPE slots selected by LM head; not tokenizer roundtrip failure",
+    "learning": "valid generation remains semantically unverified",
+    "router_gradient": 0.0
+  }
+}

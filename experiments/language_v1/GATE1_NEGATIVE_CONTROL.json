@@ -1,0 +1,26 @@
+{
+  "main": {
+    "arm": "main",
+    "attempted_steps": 32,
+    "optimizer_steps_executed": 32,
+    "loss_first": null,
+    "loss_last": null,
+    "wall_seconds": null,
+    "parameters_changed": true,
+    "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\candidate_main.pt",
+    "sha": "a4d4bb7c68507542a34f27ef517aa4b3253b3f951bbfc002836a4f6068c27e6b"
+  },
+  "permutation": {
+    "arm": "label_permutation",
+    "attempted_steps": 32,
+    "optimizer_steps_executed": 32,
+    "loss_first": null,
+    "loss_last": null,
+    "wall_seconds": null,
+    "parameters_changed": true,
+    "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\candidate_label_permutation.pt",
+    "sha": "a7ee7d7442ca3f3ad2464a456e4aaebee6fe26f07a834af448280f3310da3800"
+  },
+  "label_permutation_seed": 20261124,
+  "judgement": "INCONCLUSIVE"
+}

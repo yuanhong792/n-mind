@@ -1,0 +1,15 @@
+{"prompt": "苹果的颜色是", "expected": "红色。", "model": "parent", "output": "<invalid_token_generation:unknown token id 1149>", "source": "neural"}
+{"prompt": "苹果的颜色是", "expected": "红色。", "model": "main", "output": "<invalid_token_generation:unknown token id 3560>", "source": "neural"}
+{"prompt": "苹果的颜色是", "expected": "红色。", "model": "label_permutation", "output": "<invalid_token_generation:unknown token id 3849>", "source": "neural"}
+{"prompt": "猫在哪里？", "expected": "在桌子上。", "model": "parent", "output": "<invalid_token_generation:unknown token id 3002>", "source": "neural"}
+{"prompt": "猫在哪里？", "expected": "在桌子上。", "model": "main", "output": "<invalid_token_generation:'utf-8' codec can't decode byte 0xba in position 15: invalid start byte>", "source": "neural"}
+{"prompt": "猫在哪里？", "expected": "在桌子上。", "model": "label_permutation", "output": "<invalid_token_generation:unknown token id 332>", "source": "neural"}
+{"prompt": "三加二等于", "expected": "五。", "model": "parent", "output": "<invalid_token_generation:unknown token id 2920>", "source": "neural"}
+{"prompt": "三加二等于", "expected": "五。", "model": "main", "output": "<invalid_token_generation:unknown token id 1742>", "source": "neural"}
+{"prompt": "三加二等于", "expected": "五。", "model": "label_permutation", "output": "<invalid_token_generation:unknown token id 1742>", "source": "neural"}
+{"prompt": "鸟会做什么？", "expected": "飞翔。", "model": "parent", "output": "<invalid_token_generation:unknown token id 999>", "source": "neural"}
+{"prompt": "鸟会做什么？", "expected": "飞翔。", "model": "main", "output": "<invalid_token_generation:unknown token id 2198>", "source": "neural"}
+{"prompt": "鸟会做什么？", "expected": "飞翔。", "model": "label_permutation", "output": "<invalid_token_generation:unknown token id 2198>", "source": "neural"}
+{"prompt": "未见实体在哪里？", "expected": "未知。", "model": "parent", "output": "<invalid_token_generation:unknown token id 3002>", "source": "neural"}
+{"prompt": "未见实体在哪里？", "expected": "未知。", "model": "main", "output": "<invalid_token_generation:unknown token id 1742>", "source": "neural"}
+{"prompt": "未见实体在哪里？", "expected": "未知。", "model": "label_permutation", "output": "", "source": "neural"}

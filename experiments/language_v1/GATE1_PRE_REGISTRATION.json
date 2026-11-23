@@ -1,0 +1,21 @@
+{
+  "schema": "nmind-language-v1.1/gate1",
+  "status": "PENDING_USER_APPROVAL",
+  "training_authorized": false,
+  "optimizer_steps": {"main": 32, "label_permutation": 32, "total": 64},
+  "wall_clock_limit_seconds": 600,
+  "device_policy": "CPU preferred; GPU optional only if available",
+  "model": "random-initialized N-Cell/BlockRouter/GlobalWorkspace with ByteBPETokenizer",
+  "data": "synthetic self-authored rows only; sealed evaluation excluded from training",
+  "optimizer": {"name":"AdamW","learning_rate":0.001,"betas":[0.9,0.999],"weight_decay":0.0,"gradient_clip_norm":1.0},
+  "batch_size": 2,
+  "max_sequence_length": 128,
+  "random_seed": 20261123,
+  "label_permutation_seed": 20261124,
+  "synthetic_rows": 16,
+  "evaluation_protocol": "freegen-v2-direct-continuation",
+  "metrics": ["loss", "train_exact_match", "sealed_free_generation", "parameter_sha256", "module_grad_norms", "negative_control_gap"],
+  "stable_policy": "read-only; no promotion",
+  "network_requests": 0,
+  "external_models": false
+}

@@ -1,0 +1,144 @@
+{
+  "status": "COMPLETED_AUTHORIZED_TRAINING",
+  "optimizer_steps_total": 64,
+  "wall_seconds": 0.04567960000713356,
+  "wall_limit_seconds": 600,
+  "parent_sha": "b2050acf39c6d0e759722e2bcaf0404ead0f4a42dbe7bf83971b7983bbe170e4",
+  "arms": [
+    {
+      "arm": "main",
+      "attempted_steps": 32,
+      "optimizer_steps_executed": 32,
+      "loss_first": null,
+      "loss_last": null,
+      "wall_seconds": null,
+      "parameters_changed": true,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\candidate_main.pt",
+      "sha": "a4d4bb7c68507542a34f27ef517aa4b3253b3f951bbfc002836a4f6068c27e6b"
+    },
+    {
+      "arm": "label_permutation",
+      "attempted_steps": 32,
+      "optimizer_steps_executed": 32,
+      "loss_first": null,
+      "loss_last": null,
+      "wall_seconds": null,
+      "parameters_changed": true,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\candidate_label_permutation.pt",
+      "sha": "a7ee7d7442ca3f3ad2464a456e4aaebee6fe26f07a834af448280f3310da3800"
+    }
+  ],
+  "evaluations": [
+    {
+      "prompt": "苹果的颜色是",
+      "expected": "红色。",
+      "model": "parent",
+      "output": "<invalid_token_generation:unknown token id 1149>",
+      "source": "neural"
+    },
+    {
+      "prompt": "苹果的颜色是",
+      "expected": "红色。",
+      "model": "main",
+      "output": "<invalid_token_generation:unknown token id 3560>",
+      "source": "neural"
+    },
+    {
+      "prompt": "苹果的颜色是",
+      "expected": "红色。",
+      "model": "label_permutation",
+      "output": "<invalid_token_generation:unknown token id 3849>",
+      "source": "neural"
+    },
+    {
+      "prompt": "猫在哪里？",
+      "expected": "在桌子上。",
+      "model": "parent",
+      "output": "<invalid_token_generation:unknown token id 3002>",
+      "source": "neural"
+    },
+    {
+      "prompt": "猫在哪里？",
+      "expected": "在桌子上。",
+      "model": "main",
+      "output": "<invalid_token_generation:'utf-8' codec can't decode byte 0xba in position 15: invalid start byte>",
+      "source": "neural"
+    },
+    {
+      "prompt": "猫在哪里？",
+      "expected": "在桌子上。",
+      "model": "label_permutation",
+      "output": "<invalid_token_generation:unknown token id 332>",
+      "source": "neural"
+    },
+    {
+      "prompt": "三加二等于",
+      "expected": "五。",
+      "model": "parent",
+      "output": "<invalid_token_generation:unknown token id 2920>",
+      "source": "neural"
+    },
+    {
+      "prompt": "三加二等于",
+      "expected": "五。",
+      "model": "main",
+      "output": "<invalid_token_generation:unknown token id 1742>",
+      "source": "neural"
+    },
+    {
+      "prompt": "三加二等于",
+      "expected": "五。",
+      "model": "label_permutation",
+      "output": "<invalid_token_generation:unknown token id 1742>",
+      "source": "neural"
+    },
+    {
+      "prompt": "鸟会做什么？",
+      "expected": "飞翔。",
+      "model": "parent",
+      "output": "<invalid_token_generation:unknown token id 999>",
+      "source": "neural"
+    },
+    {
+      "prompt": "鸟会做什么？",
+      "expected": "飞翔。",
+      "model": "main",
+      "output": "<invalid_token_generation:unknown token id 2198>",
+      "source": "neural"
+    },
+    {
+      "prompt": "鸟会做什么？",
+      "expected": "飞翔。",
+      "model": "label_permutation",
+      "output": "<invalid_token_generation:unknown token id 2198>",
+      "source": "neural"
+    },
+    {
+      "prompt": "未见实体在哪里？",
+      "expected": "未知。",
+      "model": "parent",
+      "output": "<invalid_token_generation:unknown token id 3002>",
+      "source": "neural"
+    },
+    {
+      "prompt": "未见实体在哪里？",
+      "expected": "未知。",
+      "model": "main",
+      "output": "<invalid_token_generation:unknown token id 1742>",
+      "source": "neural"
+    },
+    {
+      "prompt": "未见实体在哪里？",
+      "expected": "未知。",
+      "model": "label_permutation",
+      "output": "",
+      "source": "neural"
+    }
+  ],
+  "stable_modified": false,
+  "stable_promotion": false,
+  "network_requests": 0,
+  "external_models": false,
+  "router_language_grad_norm": 0.0,
+  "judgement": "INCONCLUSIVE"
+}

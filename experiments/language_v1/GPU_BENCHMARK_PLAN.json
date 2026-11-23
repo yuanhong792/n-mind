@@ -1,0 +1,10 @@
+{
+  "status": "NOT_RUN_GPU_UNAVAILABLE",
+  "devices": ["CPU", "CUDA if torch.cuda.is_available()"],
+  "sequence_lengths": [64, 128, 256],
+  "batch_sizes": [1, 2, 4],
+  "metrics": ["tokens_per_second", "step_seconds", "peak_gpu_memory", "rss_bytes"],
+  "command": ".venv-gate24\\Scripts\\python.exe experiments\\language_v1\\gpu_benchmark.py",
+  "training": false,
+  "optimizer_steps": 0
+}
