@@ -1,0 +1,1 @@
+{"status":"PARTIAL","pause_resume_cancel":"existing PlanExecutor controls retained","restart_recovery":"PlanningStore persists steps/events; browser D5/D6 not fully run","retry_limit":2,"idempotency_keys":true}
