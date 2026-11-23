@@ -108,6 +108,20 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/v3/tasks":
             self._json(200, {"tasks": self.api.v3.tasks.list()})
             return
+        if path == "/api/status":
+            self._json(200, self.api.v3.status()); return
+        if path == "/api/events":
+            self._json(200, {"events": self.api.v3.events.list()}); return
+        if path == "/api/growth":
+            self._json(200, self.api.v3.growth()); return
+        if path == "/api/permissions":
+            self._json(200, self.api.v3.permissions()); return
+        if path == "/api/learning/goals":
+            self._json(200, {"goals": [{"goal_id": "goal-arithmetic", "reason": "能力台账缺口/可由独立Oracle验证", "source": "rule"}]}); return
+        if path == "/api/learning/cycles":
+            self._json(200, {"cycles": self.api.v3.learning_cycles()}); return
+        if path == "/api/capabilities":
+            self._json(200, self.api.v3.growth()); return
         if path == "/api/knowledge/stats":
             self._json(200, self.api.knowledge_stats())
             return
@@ -184,6 +198,21 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(200, self.api.v3.chat_reply(sid, text)); return
         if path == "/api/v3/learn":
             self._json(200, self.api.v3.learn_once()); return
+        if path == "/api/learning/cycles":
+            self._json(200, self.api.v3.learn_once()); return
+        if path == "/api/learning/pause":
+            self._json(200, self.api.v3.set_learning(False)); return
+        if path == "/api/learning/resume":
+            self._json(200, self.api.v3.set_learning(True)); return
+        if path == "/api/learning/stop":
+            self._json(200, self.api.v3.set_learning(False)); return
+        if path == "/api/memories":
+            self._json(201, self.api.v3.memory_create(body)); return
+        if path.startswith("/api/memories/") and path.endswith("/correct"):
+            mid = int(path[len("/api/memories/"):-len("/correct")])
+            self._json(200, self.api.v3.memory_correct(mid, body)); return
+        if path == "/api/v3/learning":
+            self._json(200, self.api.v3.set_learning(bool(body.get("enabled")))); return
         if path == "/api/v3/tasks":
             title = str(body.get("title") or "V3任务")
             steps = body.get("steps") if isinstance(body.get("steps"), list) else []
@@ -256,10 +285,11 @@ class _Handler(BaseHTTPRequestHandler):
                 n = self.api.delete_session(sid)
                 self._json(200, {"deleted": sid, "messages_removed": n})
                 return
+            if path.startswith("/api/memories/") and path.endswith("/correct"):
+                self._json(405, {"error": "use POST /api/memories/{id}/correct"}); return
             if path.startswith("/api/memories/"):
                 mid = int(path[len("/api/memories/"):])
-                self._json(200, {"deleted": self.api.memory_forget(mid)})
-                return
+                self._json(200, self.api.v3.memory_delete(mid)); return
             self._json(404, {"error": "未知路径"})
         except Exception as exc:                    # noqa: BLE001
             self._json(500, {"error": f"{type(exc).__name__}: {exc}"})
