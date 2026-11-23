@@ -11,7 +11,12 @@
 @media(max-width:1170px){.app{grid-template-columns:225px 1fr}.rail{display:none}.sidebar{padding:19px 12px}}@media(max-width:760px){.app{grid-template-columns:64px 1fr;min-width:320px}.sidebar{padding:18px 8px}.brand{padding:0 0 25px;justify-content:center}.brand img{width:38px;height:38px}.brand .brand-words,.new .new-label,.shortcut,.group-label,.nav-item span,.nav-badge,.recents,.nav-bottom .model-text{display:none}.new{justify-content:center;padding:11px;margin-bottom:20px}.nav-item{justify-content:center}.main{min-width:0}.topbar{padding:0 18px}.top-actions .pill{display:none}.home{padding:25px 18px}.hero h1{font-size:22px}.actions{grid-template-columns:1fr}.action{min-height:95px}.compose-area{padding:0 12px 14px}.workview{padding:25px 16px}.messages{padding:25px 14px}.cols2,.task-grid{grid-template-columns:1fr}}
 /* Chat behaves like a messenger viewport: the message list scrolls independently. */
 .stage.chat-active{overflow:hidden}
-.stage.chat-active #chat-page{display:flex!important;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}
+.stage{min-height:0}
+.stage.chat-active #chat-page{display:flex!important;flex:0 0 calc(100vh - 120px);min-height:0;height:calc(100vh - 120px);max-height:calc(100vh - 120px);overflow-y:scroll;overflow-x:hidden;scroll-behavior:smooth;scrollbar-gutter:stable}
+.stage.chat-active #chat-page::-webkit-scrollbar{width:12px}
+.stage.chat-active #chat-page::-webkit-scrollbar-track{background:#eef1f5;border-left:1px solid #e1e6ed}
+.stage.chat-active #chat-page::-webkit-scrollbar-thumb{background:#9aa8ba;border-radius:8px;border:3px solid #eef1f5}
+.stage.chat-active #chat-page::-webkit-scrollbar-thumb:hover{background:#6f8096}
 </style>
 </head>
 <body>
