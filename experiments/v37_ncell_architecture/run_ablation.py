@@ -23,6 +23,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--steps", type=int, default=8,
                         help="Candidate optimizer steps per arm, capped at 128")
     parser.add_argument("--batch-size", type=int, default=2)
+    parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    parser.add_argument("--max-steps-per-arm", type=int, default=128,
+                        help="Explicit budget ceiling, at most 2048 for manually launched local training")
     parser.add_argument("--eval-samples", type=int, default=8)
     parser.add_argument("--arms", nargs="+", choices=list(ARMS),
                         default=list(ARMS))
@@ -33,8 +36,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-dir",
                         default="experiments/v37_ncell_architecture/out")
     args = parser.parse_args(argv)
-    if args.steps < 0 or args.steps > 128:
-        parser.error("--steps must be between 0 and 128")
+    if not 1 <= args.max_steps_per_arm <= 2048:
+        parser.error("--max-steps-per-arm must be 1..2048")
+    if args.steps < 0 or args.steps > args.max_steps_per_arm:
+        parser.error("--steps must be within the explicitly declared max-steps-per-arm")
+    if args.device == "cuda" and not torch.cuda.is_available():
+        parser.error("CUDA is unavailable; refusing to silently train on CPU")
     if args.threads < 1:
         parser.error("--threads must be >= 1")
     torch.set_num_threads(args.threads)
@@ -42,12 +49,15 @@ def main(argv: list[str] | None = None) -> int:
         seed=args.seed, steps=args.steps, batch_size=args.batch_size,
         eval_samples=args.eval_samples, arms=tuple(args.arms),
         final_sealed=args.final_sealed,
-        wall_seconds_per_arm=args.max_seconds_per_arm)
+        wall_seconds_per_arm=args.max_seconds_per_arm,
+        device=args.device, max_steps_per_arm=args.max_steps_per_arm)
     result["environment"] = {"python": sys.version.split()[0],
                              "torch": torch.__version__,
                              "platform": platform.platform(),
                              "threads": torch.get_num_threads(),
-                             "device": "cpu"}
+                             "device": args.device,
+                             "gpu_name": (torch.cuda.get_device_name(0)
+                                          if args.device == "cuda" else None)}
     paths = write_report(result, Path(args.output_dir))
     compact = {
         "status": "EXPLORATORY_RESULTS_ONLY",
