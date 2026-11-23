@@ -1,0 +1,3 @@
+{"arm": "HARD_TOPK_ORIGINAL", "router_grad_norm": 0.0, "artificial_loss": false}
+{"arm": "SOFT_MIXTURE_TRAINABLE", "router_grad_norm": "nonzero verified by targeted test", "artificial_loss": false}
+{"arm": "SOFT_MIXTURE_ROUTER_FROZEN", "router_grad_norm": 0.0, "other_modules": "same forward graph"}

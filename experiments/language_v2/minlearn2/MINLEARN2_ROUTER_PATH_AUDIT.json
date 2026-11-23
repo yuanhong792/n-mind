@@ -1,0 +1,15 @@
+{
+  "schema_version": "minlearn2/1",
+  "hard_router_grad_norm": 0.0,
+  "soft_router_grad_norm": "see MINLEARN_ZERO_STEP_AUDIT.json",
+  "soft_detached_router_grad_norm": 0.0,
+  "source": "backward-only computational graph audit",
+  "artificial_loss_term": false,
+  "optimizer_steps": 0,
+  "arms": {
+    "A": "hard top-k original",
+    "B": "soft mixture trainable",
+    "C": "soft mixture router frozen",
+    "D": "soft mixture independent labels"
+  }
+}

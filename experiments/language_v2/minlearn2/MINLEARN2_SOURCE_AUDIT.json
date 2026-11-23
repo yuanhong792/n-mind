@@ -1,0 +1,15 @@
+{
+  "schema_version": "minlearn2/1",
+  "git_commit": "56dfe51870b640631635e1f65694710e5b323c3a",
+  "source_files": [
+    "src/nmind/language/neural_dialogue.py",
+    "src/nmind/core/router.py",
+    "src/nmind/core/ncell.py",
+    "src/nmind/core/workspace.py",
+    "src/nmind/language/minlearn_diagnostics.py",
+    "src/nmind/language/minlearn2.py"
+  ],
+  "gate24_training_results": "experiments/language_v2/gate24/GATE24_TRAINING_RESULTS.json",
+  "stable_checkpoint_write": false,
+  "optimizer_steps": 0
+}

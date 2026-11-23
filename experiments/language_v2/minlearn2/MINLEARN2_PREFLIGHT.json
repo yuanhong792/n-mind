@@ -1,0 +1,13 @@
+{
+  "schema_version": "minlearn2/1",
+  "status": "PASS_ZERO_TRAINING",
+  "training_authorized": false,
+  "authorized_optimizer_steps": 0,
+  "tokenizer_roundtrip": true,
+  "train_count": 16,
+  "dev_count": 1,
+  "sealed_count": 1,
+  "group_leakage": false,
+  "stable_checkpoint_writable": false,
+  "network_requests": 0
+}

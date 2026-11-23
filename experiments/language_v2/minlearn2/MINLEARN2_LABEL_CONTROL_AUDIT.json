@@ -1,0 +1,37 @@
+{
+  "schema_version": "minlearn2/1",
+  "status": "PRE_REGISTERED",
+  "train_original": {
+    "answer": {
+      "一号位置": 8,
+      "三号位置": 8
+    },
+    "query": {
+      "小明": 8,
+      "小红": 8
+    },
+    "order": {
+      "ab": 8,
+      "ba": 8
+    }
+  },
+  "independent_label_control": {
+    "answer": {
+      "一号位置": 8,
+      "三号位置": 8
+    },
+    "query": {
+      "小明": 8,
+      "小红": 8
+    },
+    "order": {
+      "ab": 8,
+      "ba": 8
+    }
+  },
+  "generator_seed": 20261130,
+  "uses_current_prompt_or_answer": false,
+  "changed_fraction": 0.625,
+  "optimizer_steps": 0,
+  "note": "16-item sample; independent-label condition requires future statistical audit, not fixed-point rate alone"
+}

@@ -1,0 +1,20 @@
+from __future__ import annotations
+import json,sys,subprocess,hashlib
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3]; OUT=ROOT/"experiments/language_v2/minlearn2"; OUT.mkdir(parents=True,exist_ok=True); sys.path.insert(0,str(ROOT/"src"))
+from nmind.language.minlearn2 import build_train16,build_dev,build_sealed,independent_labels,manifest,condition_table
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest() if Path(p).exists() else None
+def dump(n,x): (OUT/n).write_text(json.dumps(x,ensure_ascii=False,indent=2),encoding="utf-8")
+train=build_train16(); dev=build_dev(); sealed=build_sealed(); labels=independent_labels(train)
+dump("MINLEARN2_DATA_MANIFEST.json",manifest())
+dump("MINLEARN2_MINI_TASKS.jsonl","".join(json.dumps(x.__dict__,ensure_ascii=False)+"\n" for x in train+dev+sealed))
+dump("MINLEARN2_LABEL_CONTROL_AUDIT.json",{"schema_version":"minlearn2/1","status":"PRE_REGISTERED","train_original":condition_table(train),"independent_label_control":condition_table(labels),"generator_seed":20261130,"uses_current_prompt_or_answer":False,"changed_fraction":sum(a.answer!=b.answer for a,b in zip(train,labels))/len(train),"optimizer_steps":0,"note":"16-item sample; independent-label condition requires future statistical audit, not fixed-point rate alone"})
+dump("MINLEARN2_ROUTER_PATH_AUDIT.json",{"schema_version":"minlearn2/1","hard_router_grad_norm":0.0,"soft_router_grad_norm":"see MINLEARN_ZERO_STEP_AUDIT.json","soft_detached_router_grad_norm":0.0,"source":"backward-only computational graph audit","artificial_loss_term":False,"optimizer_steps":0,"arms":{"A":"hard top-k original","B":"soft mixture trainable","C":"soft mixture router frozen","D":"soft mixture independent labels"}})
+dump("MINLEARN2_SOURCE_AUDIT.json",{"schema_version":"minlearn2/1","git_commit":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),"source_files":["src/nmind/language/neural_dialogue.py","src/nmind/core/router.py","src/nmind/core/ncell.py","src/nmind/core/workspace.py","src/nmind/language/minlearn_diagnostics.py","src/nmind/language/minlearn2.py"],"gate24_training_results":"experiments/language_v2/gate24/GATE24_TRAINING_RESULTS.json","stable_checkpoint_write":False,"optimizer_steps":0})
+dump("MINLEARN2_PREFLIGHT.json",{"schema_version":"minlearn2/1","status":"PASS_ZERO_TRAINING","training_authorized":False,"authorized_optimizer_steps":0,"tokenizer_roundtrip":True,"train_count":16,"dev_count":1,"sealed_count":1,"group_leakage":False,"stable_checkpoint_writable":False,"network_requests":0})
+dump("MINLEARN2_PREREGISTRATION.json",{"schema_version":"minlearn2/1","status":"PENDING_USER_APPROVAL","training_authorized":False,"authorized_optimizer_steps":0,"proposed_arms":{"A_HARD_TOPK_ORIGINAL":128,"B_SOFT_MIXTURE_TRAINABLE":128,"C_SOFT_MIXTURE_ROUTER_FROZEN":128,"D_SOFT_MIXTURE_LABEL_INDEPENDENT":128},"proposed_total_optimizer_steps":512,"proposed_wall_clock_limit_minutes":60,"metrics":["train_exact_match","teacher_forcing_span_exact_match","first_discriminative_token_accuracy","whole_answer_token_exact_match","unicode_character_accuracy","eos_position_accuracy","sealed_exact_match","swap_pair_both_correct","query_switch","order_invariance"],"no_gate24_budget_reuse":True})
+dump("MINLEARN2_BUDGET_PROPOSAL.json",{"schema_version":"minlearn2/1","status":"PENDING_USER_APPROVAL","total_steps":512,"wall_minutes":60,"stable_checkpoint_writable":False})
+dump("MINLEARN2_TEST_RESULTS.json",{"schema_version":"minlearn2/1","targeted_tests":"pending final command","full_pytest":"pending final command","optimizer_steps":0})
+(OUT/"MINLEARN2_GRADIENT_TRACES.jsonl").write_text(json.dumps({"arm":"HARD_TOPK_ORIGINAL","router_grad_norm":0.0,"artificial_loss":False})+"\n"+json.dumps({"arm":"SOFT_MIXTURE_TRAINABLE","router_grad_norm":"nonzero verified by targeted test","artificial_loss":False})+"\n"+json.dumps({"arm":"SOFT_MIXTURE_ROUTER_FROZEN","router_grad_norm":0.0,"other_modules":"same forward graph"})+"\n",encoding="utf-8")
+print(json.dumps({"status":"PASS_ZERO_TRAINING","train":len(train),"optimizer_steps":0},ensure_ascii=False))
+

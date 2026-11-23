@@ -1,0 +1,12 @@
+{
+  "schema_version": "minlearn2/1",
+  "seed": 20261130,
+  "counts": {
+    "train": 16,
+    "dev": 1,
+    "sealed": 1
+  },
+  "sha256": "4925ebeac6a804d480618a66fb87522214994eccd73fe37b5518a7e5811b165c",
+  "group_disjoint": true,
+  "optimizer_steps": 0
+}

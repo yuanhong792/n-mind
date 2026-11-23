@@ -1,0 +1,7 @@
+{
+  "schema_version": "minlearn2/1",
+  "status": "PENDING_USER_APPROVAL",
+  "total_steps": 512,
+  "wall_minutes": 60,
+  "stable_checkpoint_writable": false
+}

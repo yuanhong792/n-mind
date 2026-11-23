@@ -57,3 +57,26 @@ def byte_to_char_metrics(pred_ids:list[int], gold_ids:list[int], tok:TokenizerV2
 def candidate_registry()->dict[str,Any]:
     return {"original":"NCell sparse route + h.mean + head","selective_block_workspace":"one selected block + workspace mean","full_block_workspace":"concatenate all block states + workspace mean","tiny_gru":"random-init GRU comparator","primary_variable_per_experiment":"readout architecture only","training_steps":0,"status":"PENDING_USER_APPROVAL"}
 
+def soft_router_gradient_audit(model: LanguageV2Model, tokens: torch.Tensor, target: torch.Tensor, *, detach_router: bool=False) -> GradientAudit:
+    """Zero-step differentiable-route smoke test; never calls an optimizer."""
+    model=copy.deepcopy(model).train(); model.zero_grad(set_to_none=True)
+    st=model.initial_state(tokens.shape[0], tokens.device); rows=[]
+    err=torch.full((tokens.shape[0],1),0.5); unc=torch.full((tokens.shape[0],1),0.5)
+    for t in range(tokens.shape[1]):
+        z=model.tok_emb(tokens[:,t]); wr=model.workspace.read(st.ws,z)
+        raw,probs=model.router.scores(z,st.h,wr.value,err,unc)
+        if detach_router: probs=probs.detach()
+        active=torch.ones(tokens.shape[0],model.cfg.n_blocks)
+        h,g,mask,p=_soft_blocks(model,z,st.h,wr.value,active,probs)
+        payload=model.block_to_ws(h).view(tokens.shape[0],model.cfg.n_blocks,-1)
+        w=probs.unsqueeze(-1); summary=(payload*w).sum(dim=1,keepdim=True)
+        written=model.workspace.write(st.ws,summary)
+        st=type(st)(h=h,ws={"content":written.state["content"],"occupied":written.occupied,"utility":written.utility})
+        rows.append(model.head(h.mean(dim=1)))
+    logits=torch.stack(rows,dim=1); loss=F.cross_entropy(logits.reshape(-1,logits.size(-1)),target.reshape(-1)); loss.backward()
+    norms={n:float(p.grad.norm()) if p.grad is not None else 0.0 for n,p in model.named_parameters()}
+    return GradientAudit(float(loss.detach()),norms,False,0,"soft probability path; backward-only")
+
+def _soft_blocks(model,z,h,w,active,soft):
+    return model.blocks(z,h,w,active,soft)
+

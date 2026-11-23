@@ -1,0 +1,6 @@
+{
+  "schema_version": "minlearn2/1",
+  "targeted_tests": "pending final command",
+  "full_pytest": "pending final command",
+  "optimizer_steps": 0
+}

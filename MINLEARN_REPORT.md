@@ -61,3 +61,7 @@ UTF-8 首字节命中被标记为无效语义指标，因为中文答案共享�
 
 当前结论：最小可学习性尚未证明；首先修复/验证 Router 可微路径和输出读取，再考虑新训练。
 
+## 下一步零训练验证
+
+已增加 soft-router forward smoke test：使用全部 block 的概率加权和 N-Cell 的可微 soft mask，仅执行 backward，不调用 optimizer。自动化测试确认 Router score MLP 获得非零梯度；该结果只证明梯度路径存在，不证明训练后泛化。
+

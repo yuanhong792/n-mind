@@ -1,0 +1,27 @@
+{
+  "schema_version": "minlearn2/1",
+  "status": "PENDING_USER_APPROVAL",
+  "training_authorized": false,
+  "authorized_optimizer_steps": 0,
+  "proposed_arms": {
+    "A_HARD_TOPK_ORIGINAL": 128,
+    "B_SOFT_MIXTURE_TRAINABLE": 128,
+    "C_SOFT_MIXTURE_ROUTER_FROZEN": 128,
+    "D_SOFT_MIXTURE_LABEL_INDEPENDENT": 128
+  },
+  "proposed_total_optimizer_steps": 512,
+  "proposed_wall_clock_limit_minutes": 60,
+  "metrics": [
+    "train_exact_match",
+    "teacher_forcing_span_exact_match",
+    "first_discriminative_token_accuracy",
+    "whole_answer_token_exact_match",
+    "unicode_character_accuracy",
+    "eos_position_accuracy",
+    "sealed_exact_match",
+    "swap_pair_both_correct",
+    "query_switch",
+    "order_invariance"
+  ],
+  "no_gate24_budget_reuse": true
+}
