@@ -1,0 +1,9 @@
+{
+  "requested_total": 1184,
+  "actual_optimizer_steps": 1152,
+  "wall_s": 629.3639519999997,
+  "within_step_budget": true,
+  "within_wall_budget": true,
+  "network_requests": 0,
+  "stable_modified": false
+}

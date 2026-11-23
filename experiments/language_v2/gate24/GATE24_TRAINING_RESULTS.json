@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETED_AUTHORIZED_TRAINING",
+  "authorization": "user Gate-2.4 approval",
+  "arms": [
+    {
+      "arm": "A_MAIN_CONTRASTIVE",
+      "steps_requested": 384,
+      "optimizer_steps": 384,
+      "lr": 0.001,
+      "loss_first": 5.567173957824707,
+      "loss_last": 0.49447208642959595,
+      "tokens": 4992,
+      "wall_s": 228.17892380000558,
+      "state_sha_before": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+      "state_sha_after": "12a2dd87a81274eef197d56ef1475ef899d76e8a3ca0b2583c7488f66f33b741",
+      "parameters_changed": true,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate24\\training_runs\\A_MAIN_CONTRASTIVE\\candidate.pt",
+      "device": "cpu"
+    },
+    {
+      "arm": "B_LABEL_BROKEN",
+      "steps_requested": 384,
+      "optimizer_steps": 384,
+      "lr": 0.001,
+      "loss_first": 5.601550102233887,
+      "loss_last": 0.5598135590553284,
+      "tokens": 4992,
+      "wall_s": 230.6291640000054,
+      "state_sha_before": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+      "state_sha_after": "61a6af4a5ae4f529fdd42274ddcf21fc8ce9220eef67f8b2cdf4e0497e35701a",
+      "parameters_changed": true,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate24\\training_runs\\B_LABEL_BROKEN\\candidate.pt",
+      "device": "cpu"
+    },
+    {
+      "arm": "C_CONTEXT_BLIND",
+      "steps_requested": 384,
+      "optimizer_steps": 384,
+      "lr": 0.001,
+      "loss_first": 5.567173957824707,
+      "loss_last": 0.4953502118587494,
+      "tokens": 4992,
+      "wall_s": 156.04054989999713,
+      "state_sha_before": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+      "state_sha_after": "d6d9bbabd1b62c33a7280d309d867b685feb710828ba5af67b64708c446c1a08",
+      "parameters_changed": true,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate24\\training_runs\\C_CONTEXT_BLIND\\candidate.pt",
+      "device": "cpu"
+    },
+    {
+      "arm": "D_ZERO_UPDATE",
+      "steps_requested": 32,
+      "optimizer_steps": 0,
+      "lr": 0.0,
+      "loss_first": 5.567173957824707,
+      "loss_last": 5.5670881271362305,
+      "tokens": 416,
+      "wall_s": 12.013722299998335,
+      "state_sha_before": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+      "state_sha_after": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+      "parameters_changed": false,
+      "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate24\\training_runs\\D_ZERO_UPDATE\\candidate.pt",
+      "device": "cpu"
+    }
+  ],
+  "total_optimizer_steps": 1152,
+  "wall_s": 629.3639519999997,
+  "wall_limit_s": 5400,
+  "network_requests": 0,
+  "stable_modified": false,
+  "sealed_used_for_training": false,
+  "gate24_status": "PENDING_USER_APPROVAL_FOR_FURTHER_TRAINING"
+}

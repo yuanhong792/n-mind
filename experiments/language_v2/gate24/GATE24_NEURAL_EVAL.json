@@ -1,0 +1,3649 @@
+{
+  "status": "COMPLETED_NEURAL_ONLY_EVAL",
+  "source": "sealed evaluation only; no sealed labels used for training",
+  "optimizer_steps": 1152,
+  "arms": [
+    {
+      "arm": "A_MAIN_CONTRASTIVE",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375
+    },
+    {
+      "arm": "B_LABEL_BROKEN",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375
+    },
+    {
+      "arm": "C_CONTEXT_BLIND",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375
+    },
+    {
+      "arm": "D_ZERO_UPDATE",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.0
+    }
+  ],
+  "detail": [
+    {
+      "arm": "A_MAIN_CONTRASTIVE",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375,
+      "rows": [
+        {
+          "item_id": "sealed-0000",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0001",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0002",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0003",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0004",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0005",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0006",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0007",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0008",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0009",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0010",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0011",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0012",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0013",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0014",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0015",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0016",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0017",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0018",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0019",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0020",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0021",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0022",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0023",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0024",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0025",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0026",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0027",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0028",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0029",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0030",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0031",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0032",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0033",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0034",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0035",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0036",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0037",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0038",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0039",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0040",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0041",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0042",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0043",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0044",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0045",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0046",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0047",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0048",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0049",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0050",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0051",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0052",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0053",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0054",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0055",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0056",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0057",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0058",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0059",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0060",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0061",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0062",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0063",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0064",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0065",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0066",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0067",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0068",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0069",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0070",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0071",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0072",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0073",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0074",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0075",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0076",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0077",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0078",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0079",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0080",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0081",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0082",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0083",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0084",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0085",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0086",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0087",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0088",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0089",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0090",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0091",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0092",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0093",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0094",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0095",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0096",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0097",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0098",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0099",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0100",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0101",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0102",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0103",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0104",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0105",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0106",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0107",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0108",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0109",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0110",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0111",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0112",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0113",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0114",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0115",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0116",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0117",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0118",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0119",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0120",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0121",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0122",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0123",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0124",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0125",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0126",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0127",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        }
+      ]
+    },
+    {
+      "arm": "B_LABEL_BROKEN",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375,
+      "rows": [
+        {
+          "item_id": "sealed-0000",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0001",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0002",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0003",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0004",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0005",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0006",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0007",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0008",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0009",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0010",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0011",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0012",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0013",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0014",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0015",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0016",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0017",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0018",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0019",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0020",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0021",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0022",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0023",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0024",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0025",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0026",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0027",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0028",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0029",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0030",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0031",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0032",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0033",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0034",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0035",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0036",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0037",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0038",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0039",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0040",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0041",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0042",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0043",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0044",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0045",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0046",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0047",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0048",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0049",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0050",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0051",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0052",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0053",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0054",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0055",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0056",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0057",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0058",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0059",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0060",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0061",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0062",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0063",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0064",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0065",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0066",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0067",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0068",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0069",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0070",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0071",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0072",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0073",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0074",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0075",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0076",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0077",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0078",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0079",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0080",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0081",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0082",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0083",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0084",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0085",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0086",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0087",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0088",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0089",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0090",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0091",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0092",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0093",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0094",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0095",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0096",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0097",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0098",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0099",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0100",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0101",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0102",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0103",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0104",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0105",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0106",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0107",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0108",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0109",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0110",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0111",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0112",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0113",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0114",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0115",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0116",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0117",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0118",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0119",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0120",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0121",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0122",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0123",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0124",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0125",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0126",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0127",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        }
+      ]
+    },
+    {
+      "arm": "C_CONTEXT_BLIND",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.7734375,
+      "rows": [
+        {
+          "item_id": "sealed-0000",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0001",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0002",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0003",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0004",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0005",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0006",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0007",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0008",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0009",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0010",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0011",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0012",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0013",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0014",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0015",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0016",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0017",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0018",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0019",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0020",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0021",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0022",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0023",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0024",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0025",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0026",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0027",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0028",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0029",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0030",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0031",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0032",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0033",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0034",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0035",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0036",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0037",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0038",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0039",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0040",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0041",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0042",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0043",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0044",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0045",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0046",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0047",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0048",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0049",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0050",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0051",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0052",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0053",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0054",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0055",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0056",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0057",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0058",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0059",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0060",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0061",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0062",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0063",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0064",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0065",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0066",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0067",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0068",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0069",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0070",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0071",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0072",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0073",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0074",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0075",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0076",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0077",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0078",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0079",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0080",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0081",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0082",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0083",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0084",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0085",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0086",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0087",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0088",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0089",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0090",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0091",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0092",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0093",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0094",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0095",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0096",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0097",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0098",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0099",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0100",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0101",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0102",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0103",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0104",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0105",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0106",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0107",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0108",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0109",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0110",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0111",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0112",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0113",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0114",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0115",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0116",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0117",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0118",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0119",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0120",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0121",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0122",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0123",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0124",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0125",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0126",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0127",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": true,
+          "answer_len": 13
+        }
+      ]
+    },
+    {
+      "arm": "D_ZERO_UPDATE",
+      "sealed_items": 128,
+      "tf_exact": 0.0,
+      "first_token_accuracy": 0.0,
+      "rows": [
+        {
+          "item_id": "sealed-0000",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0001",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0002",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0003",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0004",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0005",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0006",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0007",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0008",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0009",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0010",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0011",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0012",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0013",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0014",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0015",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0016",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0017",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0018",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0019",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0020",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0021",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0022",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0023",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0024",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0025",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0026",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0027",
+          "kind": "location",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0028",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0029",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0030",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0031",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0032",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0033",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0034",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0035",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0036",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0037",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0038",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0039",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0040",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0041",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0042",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0043",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0044",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0045",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0046",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0047",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0048",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0049",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0050",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0051",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0052",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0053",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0054",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0055",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0056",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0057",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0058",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0059",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0060",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0061",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0062",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0063",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0064",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0065",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0066",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0067",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0068",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0069",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0070",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0071",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0072",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0073",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0074",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0075",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0076",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0077",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0078",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0079",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0080",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0081",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0082",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0083",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0084",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0085",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0086",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0087",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0088",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0089",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0090",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0091",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0092",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0093",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0094",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0095",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0096",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0097",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0098",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0099",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0100",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0101",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0102",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0103",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0104",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0105",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0106",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0107",
+          "kind": "counterfactual",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0108",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0109",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0110",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0111",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0112",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0113",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0114",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0115",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0116",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0117",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0118",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0119",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0120",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0121",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0122",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0123",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0124",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0125",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0126",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        },
+        {
+          "item_id": "sealed-0127",
+          "kind": "update",
+          "tf_exact": false,
+          "first_token": false,
+          "answer_len": 13
+        }
+      ]
+    }
+  ]
+}
