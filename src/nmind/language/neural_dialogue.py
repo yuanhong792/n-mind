@@ -44,11 +44,22 @@ class LMConfig:
     workspace_dim: int = 64
     workspace_slots: int = 4
     top_k: int = 2
+    # Opt-in architecture experiments. Defaults preserve old checkpoints and output exactly.
+    use_reset_gate: bool = False
+    use_router_ste: bool = False
+    readout_mode: str = "mean"  # "mean" (legacy) or "query_attention"
+
+    def __post_init__(self) -> None:
+        if not 1 <= self.top_k <= self.n_blocks:
+            raise ValueError("top_k must be between 1 and n_blocks")
+        if self.readout_mode not in ("mean", "query_attention"):
+            raise ValueError("readout_mode must be mean or query_attention")
 
     def to_dict(self) -> dict[str, Any]:
         return {k: getattr(self, k) for k in
                 ("vocab_size", "d_model", "n_blocks", "block_hidden",
-                 "workspace_dim", "workspace_slots", "top_k")}
+                 "workspace_dim", "workspace_slots", "top_k",
+                 "use_reset_gate", "use_router_ste", "readout_mode")}
 
 
 class NMindLM(nn.Module):
@@ -58,7 +69,8 @@ class NMindLM(nn.Module):
         super().__init__()
         self.cfg = cfg
         self.tok_emb = nn.Embedding(cfg.vocab_size, cfg.d_model)
-        self.blocks = NCell(cfg.d_model, cfg.block_hidden, cfg.workspace_dim, cfg.n_blocks)
+        self.blocks = NCell(cfg.d_model, cfg.block_hidden, cfg.workspace_dim, cfg.n_blocks,
+                            use_reset_gate=cfg.use_reset_gate)
         self.router = BlockRouter(z_dim=cfg.d_model, d_h=cfg.block_hidden,
                                    d_w=cfg.workspace_dim, n_blocks=cfg.n_blocks,
                                    hidden=max(16, cfg.d_model // 2))
@@ -66,6 +78,13 @@ class NMindLM(nn.Module):
                                           slots=cfg.workspace_slots)
         self.block_to_ws = nn.Linear(cfg.block_hidden, cfg.workspace_dim)
         self.head = nn.Linear(cfg.block_hidden, cfg.vocab_size)
+        # Only create new parameters when this new architecture is explicitly requested.
+        # This makes old nmind-lm/1 checkpoints strict-loadable in the legacy mode.
+        if cfg.readout_mode == "query_attention":
+            self.readout_query = nn.Linear(cfg.d_model + cfg.workspace_dim,
+                                           cfg.block_hidden, bias=False)
+            self.readout_key = nn.Linear(cfg.block_hidden, cfg.block_hidden, bias=False)
+            self.readout_ws = nn.Linear(cfg.workspace_dim, cfg.block_hidden, bias=False)
         self.register_buffer("block_load_count", torch.zeros(cfg.n_blocks))  # 训练态统计
         self.top_k = cfg.top_k
 
@@ -89,7 +108,9 @@ class NMindLM(nn.Module):
             z = self.tok_emb(tokens[:, t])
             w_read = self.workspace.read(ws, z)
             route = self.router.route(z, h, w_read.value, err, unc, k=self.top_k)
-            h, _g, _m, _p, _n = self.blocks.forward_sparse(z, h, w_read.value, route.indices)
+            h, _g, _m, _p, _n = self.blocks.forward_sparse(
+                z, h, w_read.value, route.indices,
+                weights=route.weights if self.cfg.use_router_ste else None)
             sel = route.indices.reshape(-1)
             payload = self.block_to_ws(h[rows, sel]).view(B, self.top_k, -1)
             wr = self.workspace.write(ws, payload)
@@ -106,7 +127,20 @@ class NMindLM(nn.Module):
                         0, route.indices.reshape(-1),
                         torch.ones_like(route.indices.reshape(-1),
                                          dtype=self.block_load_count.dtype))
-            logits.append(self.head(h.mean(dim=1)))
+            if self.cfg.readout_mode == "query_attention":
+                # Query-dependent block readout; unlike a uniform mean this lets the
+                # current token attend to different recurrent blocks. Attention has
+                # access to the previous workspace read, never to the target answer.
+                query = self.readout_query(torch.cat((z, w_read.value), dim=-1))
+                keys = self.readout_key(h)
+                weights = torch.softmax(
+                    (keys * query[:, None, :]).sum(dim=-1)
+                    / (self.cfg.block_hidden ** 0.5), dim=-1)
+                decoded = (h * weights[:, :, None]).sum(dim=1)
+                decoded = decoded + self.readout_ws(w_read.value)
+            else:
+                decoded = h.mean(dim=1)
+            logits.append(self.head(decoded))
         return torch.stack(logits, dim=1), LMState(h=h, ws=ws)
 
     use_router_load_update: bool = True      # 类属性开关（评测/训练态由调用方控制 training flag）
