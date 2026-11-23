@@ -35,6 +35,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
+from .chat_service import ChatRequest
+
 WEB_DIR = Path(__file__).resolve().parent / "ui" / "web"
 MAX_BODY = 64 * 1024                              # 请求体上限（防超大 POST）
 
@@ -224,6 +226,12 @@ class _Handler(BaseHTTPRequestHandler):
             if not text:
                 self._json(400, {"error": "text 不能为空"}); return
             self._json(200, self.api.v3.chat_reply(sid, text)); return
+        if path.startswith("/api/chat/sessions/") and path.endswith("/direct"):
+            sid = path[len("/api/chat/sessions/"):-len("/direct")]
+            text = str(body.get("text") or "").strip()
+            if not text:
+                self._json(400, {"error": "text cannot be empty"}); return
+            self._json(200, self.api.direct_message(sid, text)); return
         if path == "/api/v3/learn":
             self._json(200, self.api.v3.learn_once()); return
         if path == "/api/learning/cycles":
@@ -661,6 +669,28 @@ class WebBotServer:
 
     def submit_message(self, sid: str, text: str) -> dict[str, Any]:
         return self.client.submit(text, session_id=sid)
+
+    def direct_message(self, sid: str, text: str) -> dict[str, Any]:
+        """Run one answer in this server's ChatService, including the selected cloud provider.
+
+        The legacy queue can be serviced by a runtime created before cloud configuration.
+        This synchronous, bounded path keeps model selection and the configured provider in
+        the same process, then persists the paired user/assistant rows for reload recovery.
+        """
+        req = ChatRequest.new(sid, text)
+        self.client._store.enqueue_message(req.message_id, sid, text)
+        resp = self.chat_service.reply(req)
+        self.client._store.finish_message(
+            req.message_id, reply_text=resp.text, response_source=resp.response_source,
+            citations=[c.to_dict() for c in resp.citations], model_sha=resp.model_sha,
+            protocol_id=resp.protocol_id, latency_ms=resp.latency_ms, note=resp.note,
+            extra={"unk_rate": resp.unk_rate, "finish_reason": resp.finish_reason,
+                   "memory_hits": resp.memory_hits},
+        )
+        return {"message_id": req.message_id, "status": "DONE", "text": resp.text,
+                "response_source": resp.response_source,
+                "citations": [c.to_dict() for c in resp.citations],
+                "latency_ms": resp.latency_ms, "note": resp.note}
 
     def poll_reply(self, message_id: str) -> dict[str, Any] | None:
         rec = self.client.message(message_id)

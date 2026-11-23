@@ -248,13 +248,20 @@ $('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(awa
     const waiting = '正在处理…'; render(waiting, 'assistant', 'pending', false);
     try {
       const sid = await ensureSession();
-      const accepted = await request('/api/chat/sessions/' + encodeURIComponent(sid) + '/messages', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text:text})});
-      const mid = accepted.message_id;
+      const selectedModel = document.getElementById('chat-model-select')?.value || 'local';
       let result = null;
-      for (let i = 0; i < 200; i++) {
-        await new Promise(r => setTimeout(r, 300));
-        result = await request('/api/chat/messages/' + encodeURIComponent(mid));
-        if (result.status && result.status !== 'PENDING') break;
+      if (selectedModel === 'deepseek-chat' || selectedModel === 'deepseek-reasoner') {
+        // Use the same process that holds the configured provider/key. This avoids
+        // an old queue worker answering with the local `none` fallback.
+        result = await request('/api/chat/sessions/' + encodeURIComponent(sid) + '/direct', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text:text})});
+      } else {
+        const accepted = await request('/api/chat/sessions/' + encodeURIComponent(sid) + '/messages', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text:text})});
+        const mid = accepted.message_id;
+        for (let i = 0; i < 200; i++) {
+          await new Promise(r => setTimeout(r, 300));
+          result = await request('/api/chat/messages/' + encodeURIComponent(mid));
+          if (result.status && result.status !== 'PENDING') break;
+        }
       }
       const pending = Array.from(messages().querySelectorAll('.message')).find(x => x.textContent.includes(waiting));
       if (pending) pending.remove();
