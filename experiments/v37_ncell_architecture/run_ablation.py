@@ -55,7 +55,14 @@ def main(argv: list[str] | None = None) -> int:
         "arms": {a: {"params": x["parameters"],
                       "optimizer_steps_executed": x["training"]["optimizer_steps_executed"],
                       "dev_full_answer_exact_count": x["after_dev"]["full_answer_exact_count"],
-                      "dev_n": x["after_dev"]["evaluated"]}
+                      "dev_n": x["after_dev"]["evaluated"],
+                      "dev_paired_both_correct": x["after_dev"]["pair_both_correct"],
+                      "dev_pairs": x["after_dev"]["paired_contexts"],
+                      "loss_last": (round(x["training"]["curve"][-1]["loss_answer_eos"], 5)
+                                    if x["training"]["curve"] else None),
+                      "grad_router_last": (x["training"]["curve"][-1]["grad"]["router"]
+                                           if x["training"]["curve"] else None),
+                      "parameter_delta": x["parameter_delta"]}
                  for a, x in result["arms"].items()}}
     print(json.dumps(compact, ensure_ascii=False, indent=2))
     return 0
