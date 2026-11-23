@@ -55,12 +55,12 @@ def build_dataset(seed: int = 20261123) -> dict[str, list[Item]]:
             a, b, order, ack = groups[idx]
             first, second = NAMES if order == 0 else tuple(reversed(NAMES))
             loc = {first: a, second: b}
-            context = f"用户：{first}在{a}。{second}在{b}。\\n{ack}"
+            context = f"用户：{first}在{a}。{second}在{b}。\n{ack}"
             group = f"{first}:{a}|{second}:{b}|{ack}"
             for who in NAMES:
                 q = f"{who}在哪里？"
                 result[split].append(Item(
-                    group, context + f"用户：{q}\\n助手：",
+                    group, context + f"用户：{q}\n助手：",
                     f"{who}在{loc[who]}。", who, split))
     validate_splits(result)
     return result
