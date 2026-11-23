@@ -55,7 +55,7 @@ const api = {
 let currentSession=null;
 const titles={home:'工作台',chat:'聊天会话',explore:'联网探索',knowledge:'知识库',skills:'技能中心',automation:'自动任务',settings:'设置'};let activePage='home';let activeMode='chat';let toastTimer;
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2700)}
-function go(page){if(!titles[page])return;activePage=page;document.getElementById('crumb').textContent=titles[page];document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===page));Object.keys(titles).forEach(k=>{document.getElementById(k+'-page').classList.toggle('hide',page!==k)});document.getElementById('stage').scrollTop=0;refreshPage(page)}
+function go(page){if(!titles[page])return;activePage=page;document.getElementById('crumb').textContent=titles[page];document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===page));Object.keys(titles).forEach(k=>{document.getElementById(k+'-page').classList.toggle('hide',page!==k)});document.getElementById('stage').scrollTop=0;if(typeof refreshPage==='function')refreshPage(page)}
 function toggleTheme(){const dark=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=dark?'light':'dark'}
 function modeChange(m){activeMode=m;document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));document.getElementById('prompt').placeholder=m==='chat'?'向 N-MIND 提问…':m==='explore'?'输入需要检索的知识主题或URL…':'描述你想让 N-MIND 执行的任务…'}
 function newTask(){go('home');document.getElementById('prompt').value='';document.getElementById('prompt').focus();toast('已打开新任务输入框')}
