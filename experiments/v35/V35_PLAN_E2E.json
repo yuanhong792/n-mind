@@ -1,0 +1,1 @@
+{"status":"API_VERIFIED","steps":2,"preview_status":"AWAITING_APPROVAL","unapproved_execution":"PERMISSION_BLOCKED","approved_execution":"SUCCEEDED","step_statuses":["VERIFIED_SUCCESS","VERIFIED_SUCCESS"],"request":"计算 2+3 并生成报告","network_requests":0,"optimizer_steps":0}

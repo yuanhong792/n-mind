@@ -1,8 +1,8 @@
 from __future__ import annotations
 from .contracts import Plan
 
-ALLOWED_KINDS = {"knowledge_search", "memory_search", "calculator", "compare_evidence", "synthesize_extract", "verify", "record_experience"}
-ALLOWED_TOOLS = {"knowledge_search", "memory_search", "calculator", "evidence_compare", "citation_verify", "record_verified_episode"}
+ALLOWED_KINDS = {"knowledge_search", "memory_search", "calculator", "compare_evidence", "synthesize_extract", "verify", "record_experience", "read_file", "knowledge_query", "experience_search", "structured_report"}
+ALLOWED_TOOLS = {"knowledge_search", "memory_search", "calculator", "evidence_compare", "citation_verify", "record_verified_episode", "read_local_file", "knowledge_query", "experience_search", "structured_report"}
 
 def validate_plan(plan: Plan, *, max_steps: int = 8) -> list[str]:
     errors: list[str] = []

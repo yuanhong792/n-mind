@@ -121,6 +121,9 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/v34/knowledge/query": self._json(200,self.api.v3.graph.query((query or {}).get("q", [""])[0])); return
         if path == "/api/v34/experiences": self._json(200,{"experiences":self.api.v3.graph.experiences()}); return
         if path == "/api/v34/knowledge/events": self._json(200,{"events":self.api.v3.events.list()}); return
+        if path == "/api/v35/plans": self._json(200,{"plans":self.api.v35_store.list()}); return
+        if path.startswith("/api/v35/plans/") and path.endswith("/events"):
+            pid=path[len("/api/v35/plans/"):-len("/events")]; self._json(200,{"plan_id":pid,"events":self.api.planning_store.events(pid)}); return
         if path == "/api/status":
             self._json(200, self.api.v3.status()); return
         if path == "/api/events":
@@ -238,6 +241,11 @@ class _Handler(BaseHTTPRequestHandler):
             cid=path[len("/api/v34/knowledge/conflicts/"):-len("/resolve")]; self._json(200,self.api.v3.graph.resolve_conflict(cid,str(body.get("resolution") or ""))); return
         if path.startswith("/api/v34/experiences/") and path.endswith("/revoke"):
             eid=path[len("/api/v34/experiences/"):-len("/revoke")]; self._json(200,self.api.v3.graph.revoke_experience(eid)); return
+        if path == "/api/v35/plans/preview": self._json(201,self.api.v35_preview(str(body.get("request") or ""))); return
+        if path.startswith("/api/v35/plans/") and path.endswith("/approve"):
+            pid=path[len("/api/v35/plans/"):-len("/approve")]; self._json(200,self.api.v35_approve(pid)); return
+        if path.startswith("/api/v35/plans/") and path.endswith("/execute"):
+            pid=path[len("/api/v35/plans/"):-len("/execute")]; self._json(200,self.api.v35_execute(pid)); return
         if path == "/api/v3/tasks":
             title = str(body.get("title") or "V3任务")
             steps = body.get("steps") if isinstance(body.get("steps"), list) else []
@@ -368,6 +376,12 @@ class WebBotServer:
         self.planning_store = PlanningStore(Path(root_dir) / "planning.db")
         self.planner = RulePlanner()
         self.planning_executor = PlanExecutor(self.planning_store, build_tools(knowledge=knowledge, memory=getattr(chat_service, "memory_service", None)), memory=getattr(chat_service, "memory_service", None))
+        from ..planning.v35_store import V35PlanStore
+        from ..planning.safe_actions import SafeActionRegistry
+        self.v35_store = V35PlanStore(Path(root_dir) / "v35_plans.db")
+        self.v35_actions = SafeActionRegistry(workspace=Path(root_dir), graph=getattr(self.v3, "graph", None), knowledge=knowledge, experiences=getattr(self.v3, "graph", None).experiences if getattr(self.v3, "graph", None) else None)
+        self.v35_tools = self.v35_actions.tools()
+        self.v35_tools.update(build_tools(knowledge=knowledge, memory=getattr(chat_service, "memory_service", None)))
         self._build_runtime(root_dir, offline)
 
     def _build_runtime(self, root_dir, offline) -> None:
@@ -418,6 +432,8 @@ class WebBotServer:
             self._httpd.shutdown()
             self._httpd.server_close()
             self._httpd = None
+        if hasattr(self, "v35_store"):
+            self.v35_store.close()
         if self.runtime is not None and self.runtime.state.name != "STOPPED":
             # 先发停止信号让驻留循环在安全边界退出，再关库——
             # 顺序颠倒会触发"Cannot operate on a closed database"
@@ -532,6 +548,32 @@ class WebBotServer:
         result = self.planning_executor.run(goal, plan)
         return {"goal_id": goal.goal_id, "plan_source": plan.source,
                 "steps": [s.__dict__ for s in plan.steps], "result": result}
+
+    def v35_preview(self, request: str) -> dict[str, Any]:
+        from ..planning import GoalSpec
+        from ..planning.contracts import Plan, PlanStep
+        import uuid, hashlib
+        goal=GoalSpec.create(request, budget={"max_steps":5,"max_tool_calls":8,"max_replans":1})
+        tid=goal.goal_id; steps=[]
+        def add(n,kind,obj,tool,deps=(),approval=False): steps.append(PlanStep(f"{tid[:8]}-{n}",tid,kind,obj,tuple(deps),tool,verifier_id="deterministic_oracle",idempotency_key=hashlib.sha256(f"{tid}:{n}".encode()).hexdigest()[:16],max_attempts=2,requires_approval=approval))
+        low=request.casefold()
+        calc = any(x in request for x in ("计算", "+", "-", "*", "/"))
+        if calc: add(1,"calculator","执行确定性计算","calculator")
+        elif "读取" in request or "read" in low: add(1,"read_file","读取授权工作区文件","read_local_file",approval=False)
+        if not calc:
+            add(len(steps)+1,"knowledge_query","查询本地知识与证据","knowledge_query",tuple(s.step_id for s in steps))
+            add(len(steps)+1,"experience_search","检索经过验证的历史经验","experience_search",tuple(s.step_id for s in steps))
+        add(len(steps)+1,"structured_report","生成结构化报告","structured_report",tuple(s.step_id for s in steps))
+        plan=Plan(tid,goal.goal_id,1,"v35_rule",tuple(steps)); payload={"goal":goal.__dict__,"plan":{"task_id":plan.task_id,"goal_id":plan.goal_id,"version":1,"source":plan.source,"steps":[s.__dict__ for s in plan.steps]},"approval_scope":"local read/query/report only","side_effects":[]}
+        self.v35_store.save(tid,payload); self.planning_store.event(tid,"v35_plan_preview",payload); return {"plan_id":tid,"status":"AWAITING_APPROVAL","requires_approval":True,**payload}
+    def v35_approve(self, plan_id: str): return self.v35_store.set_status(plan_id,"APPROVED",True)
+    def v35_execute(self, plan_id: str):
+        rec=self.v35_store.get(plan_id)
+        if not rec: return {"status":"NOT_FOUND"}
+        if not rec["approved"]: return {"status":"PERMISSION_BLOCKED","reason":"USER_APPROVAL_REQUIRED"}
+        from ..planning import GoalSpec, Plan, PlanStep, PlanExecutor
+        g=GoalSpec(**rec["payload"]["goal"]); p=rec["payload"]["plan"]; plan=Plan(p["task_id"],p["goal_id"],p["version"],p["source"],tuple(PlanStep(**s) for s in p["steps"]))
+        ex=PlanExecutor(self.planning_store,self.v35_tools,max_replans=1,memory=getattr(self.chat_service,"memory_service",None)); result=ex.run(g,plan); self.v35_store.set_status(plan_id,result.get("status","UNKNOWN")); return {"plan_id":plan_id,"status":result.get("status"),"result":result}
 
     def planning_control(self, action: str) -> dict[str, Any]:
         if action == "pause": self.planning_executor.pause()
