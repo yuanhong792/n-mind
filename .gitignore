@@ -47,3 +47,9 @@ data/v*/
 # 浏览器调试与临时脚本
 .playwright-cli/
 _dbg_st.py
+
+# V1.6 云端权重包：公开仓库禁止提交模型权重与压缩包（安全底线）
+# 整个包仅作本地交付与安全传输，不入库（含权重/manifest/README）
+cloud_training_package/
+N-MIND-V16-Cloud-Checkpoint.zip
+*.zip

@@ -1,0 +1,71 @@
+{
+  "status": "VALIDATION_PASSED",
+  "tiers": {
+    "structural": {
+      "torch_available": {
+        "pass": true,
+        "detail": "2.15.0+cpu"
+      },
+      "cpu_device": {
+        "pass": true,
+        "detail": ""
+      },
+      "tokenizer_hash_match": {
+        "pass": true,
+        "detail": "26af116ebd13ff00"
+      },
+      "prereg_same_seed": {
+        "pass": true,
+        "detail": ""
+      },
+      "prereg_single_variable": {
+        "pass": true,
+        "detail": ""
+      },
+      "counterfactual_hash_match": {
+        "pass": true,
+        "detail": "cf27543ea05e3495fa36a0c73d43399cc05163e153751b03ed9f1b29fa94721d"
+      },
+      "train_script_importable_no_autostart": {
+        "pass": true,
+        "detail": ""
+      }
+    },
+    "weight_dependent": {
+      "parent_sha256_match": {
+        "pass": true,
+        "detail": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611"
+      },
+      "strict_load": {
+        "pass": true,
+        "detail": ""
+      },
+      "param_count_279363": {
+        "pass": true,
+        "detail": 279363
+      },
+      "no_query_readout": {
+        "pass": true,
+        "detail": ""
+      },
+      "all_finite_weights": {
+        "pass": true,
+        "detail": []
+      },
+      "arm_A_router_no_grad": {
+        "pass": true,
+        "detail": 0
+      },
+      "arm_B_router_has_grad": {
+        "pass": true,
+        "detail": 0.09372174681629986
+      }
+    }
+  },
+  "weights_available": true,
+  "passed_structural": 7,
+  "total_structural": 7,
+  "optimizer_steps": 0,
+  "training_gate": "READY_PENDING_AUTHORIZATION",
+  "note": "校验脚本永不执行 optimizer.step; 真实训练须单独显式授权"
+}

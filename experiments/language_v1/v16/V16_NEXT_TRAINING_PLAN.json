@@ -1,56 +1,102 @@
 {
   "status": "PRE_REGISTERED_NOT_EXECUTED_AWAITING_AUTHORIZATION",
-  "note": "本轮未执行任何 optimizer.step；以下为下一轮最小实验预登记，需明确授权后方可执行",
-  "rationale": "根因已定位为工程缺陷(Router STE 权重未接线, 已修复) + 学习机制限制(答案判别首字 CE≈ln2, 仅4训练样本, 冻结表示线性探针50%)。修复后需验证: 让 Router 收到梯度是否能学会实体绑定。只改变一个关键变量: 是否启用已修复的 Router 梯度路径。",
+  "revision": "V1.6.1 - single-seed A/B correction + independent counterfactual + zero-step validation",
+  "note": "本轮未执行任何 optimizer.step；零步梯度验证除外(仅 backward 无 step)。需明确授权后方可执行真实训练。",
+  "rationale": "根因=工程缺陷(Router STE 权重未接线, 已修复) + 学习机制限制(答案判别首字 CE≈ln2)。唯一实验变量: router_gradient_path_enabled。A/B 必须完全同种子同配置, 只切换 Router 梯度路径开关。",
   "single_key_variable": "router_gradient_path_enabled",
+  "shared_random_seed": 20261123,
+  "seed_rationale": "修正 V1.6 初版缺陷: 原 A=20261159/B=20261160 使用不同种子, 违反单变量原则; 现两组统一为 20261123, torch.cuda 与 python random 在 train_v16_ab.py 每组重建前显式设同值",
   "arms": [
     {
       "name": "baseline_frozen_router",
-      "description": "Router 梯度屏蔽(模拟修复前)，其余与 V1.5 相同；作为负对照",
-      "router_gradient_enabled": false,
-      "max_steps": 256,
-      "seed": 20261160
+      "description": "Router 梯度路径关闭(router_gradient_path_enabled=False)，等价修复前行为，作为负对照",
+      "router_gradient_path_enabled": false,
+      "seed": 20261123,
+      "max_steps": 256
     },
     {
       "name": "fixed_router",
-      "description": "启用本轮修复后的 Router STE 梯度路径，唯一变量",
-      "router_gradient_enabled": true,
-      "max_steps": 256,
-      "seed": 20261161
+      "description": "Router 梯度路径开启(router_gradient_path_enabled=True)，启用 STE 软权重，唯一变量",
+      "router_gradient_path_enabled": true,
+      "seed": 20261123,
+      "max_steps": 256
     }
   ],
-  "shared_config": {
+  "controlled_constants": {
+    "random_seed": 20261123,
     "parent_checkpoint": "experiments/language_v1/v15/candidate_v15_baseline.pt",
     "parent_checkpoint_sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
     "tokenizer": "ByteBPETokenizer trained on V1.5 LEGACY, vocab_size=4096, hash=26af116ebd13ff00",
-    "learning_rate": 0.0005,
+    "tokenizer_hash": "26af116ebd13ff00",
+    "initial_model_parameters": "两组从同一父 checkpoint 严格加载，零步验证已确认逐参数相等",
+    "training_data": "train_v15.py TRAIN (4 samples), 指纹 6d87c2d232c833df29e75278afdd31cceb64acb8a6bf1ab4bd34b77dee6c07bb",
+    "sample_order": "(batch=[TRAIN[(step*2+i)%4] for i in range(2)])，两组完全相同",
     "batch_size": 2,
+    "learning_rate": 0.0005,
     "optimizer": "AdamW",
+    "grad_clip": 1.0,
+    "max_steps_per_arm": 256,
     "total_optimizer_steps": 512,
-    "max_wall_seconds_per_arm": 180,
     "device": "cpu",
     "network_requests": 0,
-    "stable_modified": false
+    "stable_modified": false,
+    "evaluation_protocol": "V16 train_v16_ab.py 内 evaluate: 分类别首token CE / 实体绑定 / 反事实 / 自由生成 / Router梯度"
+  },
+  "only_variable_detail": {
+    "switch": "NMindLM.router_gradient_path_enabled",
+    "implementation": "forward_sparse 是否接收 weights=route.weights；STE 前向恒为 h_upd，故仅改反向梯度路径不改前向数值",
+    "forbidden_changes": ["N-Cell", "Workspace", "LM Head", "tokenizer", "training_data", "test_sets", "learning_rate", "seed"]
+  },
+  "zero_step_validation": {
+    "file": "experiments/language_v1/v16/V16_AB_ZERO_STEP.json",
+    "optimizer_steps": 0,
+    "all_five_conditions_met": true,
+    "conditions": {
+      "initial_weights_identical": true,
+      "forward_outputs_identical": true,
+      "arm_A_router_no_task_gradient": true,
+      "arm_B_router_nonzero_task_gradient": true,
+      "active_modules_receive_gradient": true
+    },
+    "router_grad_abs_sum": {"arm_A": 0.0, "arm_B": 0.09372174681629986},
+    "disclosed_non_gradient_component": "workspace.utility_mlp (预留未接线, 两组均无梯度, 与变量无关)"
+  },
+  "data_integrity": {
+    "audit_file": "experiments/language_v1/v16/V16_DATA_SPLIT_AUDIT.json",
+    "historical_data_preserved": true,
+    "TRAIN_vs_SEALED_overlap": 0,
+    "TRAIN_vs_COUNTER_overlap": 4,
+    "COUNTER_reusable_as_independent": false,
+    "new_independent_counterfactual": {
+      "file": "experiments/language_v1/v16/V16_COUNTERFACTUAL.json",
+      "sha256": "cf27543ea05e3495fa36a0c73d43399cc05163e153751b03ed9f1b29fa94721d",
+      "overlap_with_TRAIN": 0,
+      "frozen_before_training": true
+    },
+    "fixed_answer_baseline_best": 0.375
   },
   "training_data_fingerprint": {
     "source": "train_v15.py TRAIN (4 sealed entity-binding samples)",
+    "sha256": "6d87c2d232c833df29e75278afdd31cceb64acb8a6bf1ab4bd34b77dee6c07bb",
     "answer_frequency": {"红色": 2, "绿色": 2},
     "note": "数据与 V1.5 完全一致，不修改测试题或验收标准"
   },
   "acceptance_protocol": {
+    "metrics": ["A_answer_first_token_CE_by_color", "B_entity_binding_accuracy", "C_counterfactual_follow_rate", "D_unseen_combination_generalization", "E_free_generation", "F_router_gradient_and_weight_change", "G_old_skill_retention"],
     "sealed_accuracy_min": 0.75,
-    "must_exceed_fixed_answer_baseline": 0.5,
+    "must_exceed_fixed_answer_baseline": true,
     "counterfactual_follow_rate_min": 0.75,
     "answer_first_token_ce_max": 0.35,
     "eos_completion_rate_min": 0.75,
     "free_generation_accuracy_min": 0.75,
+    "old_skill_retention": "RETENTION_INCONCLUSIVE unless reliable historical baseline supplied",
     "frozen_probe_note": "线性探针只作诊断，不计入自主语言能力成绩",
-    "decision_rule": "只有 fixed_router 臂在封存题、反事实题、自由生成三项同时达标且显著超过 baseline_frozen_router 臂，才可判定 Router 梯度修复带来实体绑定能力；否则需进入架构/学习机制假设排查，不得宣称成功"
+    "decision_rule": "只有 fixed_router 臂在封存题、独立反事实题、自由生成三项同时达标且显著超过 baseline_frozen_router 臂，才可判定 Router 梯度修复带来实体绑定能力；否则进入架构/学习机制假设排查，不得宣称成功"
   },
   "cost_estimate": {
     "cpu_seconds": 360,
     "optimizer_steps": 512,
-    "note": "沿用 V1.5 已批准同类预算规模；不得自动套用历史预算，须单独授权"
+    "note": "后续单独授权预算；不得自动套用历史预算"
   },
   "authorization_required": true,
   "do_not_execute_without_explicit_approval": true

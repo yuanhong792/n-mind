@@ -1,0 +1,92 @@
+{
+  "fingerprints": {
+    "TRAIN": "6d87c2d232c833df29e75278afdd31cceb64acb8a6bf1ab4bd34b77dee6c07bb",
+    "SEALED": "4629abf3a3a915e0c3cca15e8cac6667e70e00a0c7c0d516d815319796dd9708",
+    "COUNTER": "6d87c2d232c833df29e75278afdd31cceb64acb8a6bf1ab4bd34b77dee6c07bb"
+  },
+  "sizes": {
+    "TRAIN": 4,
+    "SEALED": 4,
+    "COUNTER": 4
+  },
+  "internal_duplicate_prompts": {
+    "TRAIN": 0,
+    "SEALED": 0,
+    "COUNTER": 0
+  },
+  "cross_overlap_count": {
+    "TRAIN_vs_SEALED": 0,
+    "TRAIN_vs_COUNTER": 4,
+    "SEALED_vs_COUNTER": 0
+  },
+  "TRAIN_vs_COUNTER_identical": true,
+  "counter_is_independent": false,
+  "counter_independence_note": "历史 V1.5 的 COUNTER 与 TRAIN 逐条完全相同（4/4 重合），不能作为独立未见反事实测试；已创建新的独立集 V16_COUNTERFACTUAL。",
+  "answer_frequency": {
+    "TRAIN": {
+      "红色": 2,
+      "绿色": 2
+    },
+    "SEALED": {
+      "黄色": 3,
+      "蓝色": 1
+    },
+    "COUNTER": {
+      "红色": 2,
+      "绿色": 2
+    }
+  },
+  "answer_frequency_eval_combined": {
+    "黄色": 3,
+    "蓝色": 1,
+    "红色": 2,
+    "绿色": 2
+  },
+  "fixed_answer_baseline": {
+    "黄色": 0.375,
+    "蓝色": 0.125,
+    "红色": 0.25,
+    "绿色": 0.25
+  },
+  "best_fixed_answer": "黄色",
+  "best_fixed_answer_accuracy": 0.375,
+  "new_independent_counterfactual": {
+    "file": "experiments/language_v1/v16/V16_COUNTERFACTUAL.json",
+    "sha256": "cf27543ea05e3495fa36a0c73d43399cc05163e153751b03ed9f1b29fa94721d",
+    "rows": [
+      {
+        "prompt": "用户：小强有红色笔，小美有黄色笔。\n用户：小强的笔是什么颜色？\n助手：",
+        "answer": "红色"
+      },
+      {
+        "prompt": "用户：小强有黄色笔，小美有红色笔。\n用户：小强的笔是什么颜色？\n助手：",
+        "answer": "黄色"
+      },
+      {
+        "prompt": "用户：小强有红色笔，小美有黄色笔。\n用户：小美的笔是什么颜色？\n助手：",
+        "answer": "黄色"
+      },
+      {
+        "prompt": "用户：小强有黄色笔，小美有红色笔。\n用户：小美的笔是什么颜色？\n助手：",
+        "answer": "红色"
+      }
+    ],
+    "n_pairs": 2,
+    "design": "未见人物(小强/小美)+未见物品(笔)，交换两人物颜色后问同一人，答案必须翻转；答案色(红/黄)为训练已见词",
+    "overlap_with_TRAIN_prompts": 0,
+    "overlap_with_SEALED_prompts": 0,
+    "fixed_answer_baseline": {
+      "红色": 0.5,
+      "黄色": 0.5
+    },
+    "pre_registered_before_training": true,
+    "mutable_after_freeze": false,
+    "written_file_sha256": "cf27543ea05e3495fa36a0c73d43399cc05163e153751b03ed9f1b29fa94721d"
+  },
+  "verdict": {
+    "historical_data_preserved": true,
+    "counter_unusable_as_independent": true,
+    "new_independent_cf_created": true,
+    "fixed_answer_baseline_on_eval": 0.375
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "status": "ZERO_STEP_VALIDATION_COMPLETED",
+  "optimizer_steps": 0,
+  "seed_both_arms": 20261123,
+  "parent_checkpoint_sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+  "conditions": {
+    "1_initial_weights_identical": true,
+    "2_forward_outputs_identical": true,
+    "3_arm_A_router_no_task_gradient": true,
+    "4_arm_B_router_nonzero_task_gradient": true,
+    "5_other_modules_receive_gradient": true
+  },
+  "router_grad_abs_sum": {
+    "arm_A_baseline_frozen_router": 0.0,
+    "arm_B_fixed_router": 0.09372174681629986
+  },
+  "router_score_mlp_grads": {
+    "arm_A": {
+      "router.score_mlp.0.weight": 0.0,
+      "router.score_mlp.0.bias": 0.0,
+      "router.score_mlp.2.weight": 0.0,
+      "router.score_mlp.2.bias": 0.0
+    },
+    "arm_B": {
+      "router.score_mlp.0.weight": 0.07955344021320343,
+      "router.score_mlp.0.bias": 0.0015999128809198737,
+      "router.score_mlp.2.weight": 0.010451635345816612,
+      "router.score_mlp.2.bias": 0.0021167583763599396
+    }
+  },
+  "loss": {
+    "arm_A": 0.24498820304870605,
+    "arm_B": 0.24498820304870605
+  },
+  "active_modules_zero_grad_A": [],
+  "active_modules_zero_grad_B": [],
+  "known_unwired_component": {
+    "keys": [
+      "workspace.utility_mlp.weight",
+      "workspace.utility_mlp.bias"
+    ],
+    "grad_A": {
+      "workspace.utility_mlp.weight": 0.0,
+      "workspace.utility_mlp.bias": 0.0
+    },
+    "grad_B": {
+      "workspace.utility_mlp.weight": 0.0,
+      "workspace.utility_mlp.bias": 0.0
+    },
+    "reason": "V1.6 根因报告 secondary finding: workspace.utility_mlp 计算 utility 但 write() 未被 forward 消费；两组均无梯度，与 A/B 变量无关，不计入主动模块梯度判定，据实披露"
+  },
+  "note": "条件5的主动模块 = 除 router.score_mlp 与已知未接线 utility_mlp 外的所有含参模块；零梯度项据实列出，不掩盖",
+  "all_five_conditions_met": true
+}

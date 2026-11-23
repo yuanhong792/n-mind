@@ -1,0 +1,94 @@
+name: N-MIND V1.6 CPU A/B Validation & Training
+
+# MANUAL TRIGGER ONLY. Code push / PR must NEVER auto-start 512-step training.
+# Default mode = validate (no weight, no optimizer.step).
+# Real training requires: mode=train AND explicit authorization phrase AND secure weight transfer configured.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "validate = 仅校验(默认,无训练) | train = 真实A/B训练(需授权+权重)"
+        required: true
+        default: "validate"
+        type: choice
+        options:
+          - validate
+          - train
+      authorization:
+        description: '训练授权口令。选择 train 时必须精确输入: I_AUTHORIZE_512_STEPS'
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read   # 只读代码；不写仓库、不发 Release、不传权重
+
+jobs:
+  validate:
+    name: 1. 环境与模型校验 (无 optimizer.step)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install CPU torch
+        run: pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Run validation (structure always; weights if present)
+        run: python experiments/language_v1/v16/validate_v16_cloud.py | tee v16_validation.json
+      - name: Upload validation report artifact (text only, no weights)
+        uses: actions/upload-artifact@v4
+        with:
+          name: v16-validation-report
+          path: experiments/language_v1/v16/V16_CLOUD_VALIDATION.json
+
+  train:
+    name: 2. 授权后真实 A/B 训练 (512步)
+    needs: validate
+    if: ${{ github.event.inputs.mode == 'train' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Enforce explicit authorization phrase
+        run: |
+          if [ "${{ github.event.inputs.authorization }}" != "I_AUTHORIZE_512_STEPS" ]; then
+            echo "BLOCKED: 训练授权口令不正确。真实训练需精确输入 I_AUTHORIZE_512_STEPS"
+            exit 1
+          fi
+          echo "AUTHORIZATION_OK"
+      - name: Secure parent weight transfer (MUST be configured before training)
+        env:
+          CKPT_B64: ${{ secrets.NMIND_V15_PARENT_CKPT_B64 }}
+          CKPT_SHA_EXPECT: "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611"
+        run: |
+          if [ -z "$CKPT_B64" ]; then
+            echo "BLOCKED: 未配置安全权重传输机制 (缺少 secret NMIND_V15_PARENT_CKPT_B64)。"
+            echo "公开仓库禁止上传父权重；禁止用随机模型替代父 checkpoint。请先通过安全渠道传输并配置 secret。"
+            exit 1
+          fi
+          echo "$CKPT_B64" | base64 -d > experiments/language_v1/v15/candidate_v15_baseline.pt
+          ACTUAL=$(sha256sum experiments/language_v1/v15/candidate_v15_baseline.pt | cut -d' ' -f1)
+          echo "父权重 SHA-256(实际)=$ACTUAL"
+          echo "父权重 SHA-256(期望)=$CKPT_SHA_EXPECT"
+          if [ "$ACTUAL" != "$CKPT_SHA_EXPECT" ]; then
+            echo "BLOCKED: 父权重 SHA-256 不匹配，拒绝训练。"
+            rm -f experiments/language_v1/v15/candidate_v15_baseline.pt
+            exit 1
+          fi
+          echo "WEIGHT_TRANSFER_OK_AND_VERIFIED"
+      - name: Install CPU torch
+        run: pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Re-validate weights before training
+        run: python experiments/language_v1/v16/validate_v16_cloud.py
+      - name: Run authorized A/B training (512 steps total)
+        run: python experiments/language_v1/v16/train_v16_ab.py --execute-train --authorized
+      - name: Upload training report + candidates (NOT to public release)
+        uses: actions/upload-artifact@v4
+        with:
+          name: v16-training-results
+          path: |
+            experiments/language_v1/v16/V16_TRAINING_REPORT.json
+            experiments/language_v1/v16/candidate_v16_*.pt

@@ -1,0 +1,11 @@
+{
+  "status": "CLOUD_PACKAGE_BUILT",
+  "package_dir": "cloud_training_package/",
+  "zip_file": "N-MIND-V16-Cloud-Checkpoint.zip",
+  "zip_size_bytes": 1039972,
+  "zip_sha256": "7b34644c098d4e6f47e4164bc7514e79b4bc50b8aac0d40b3c639b9b5a5ba620",
+  "zip_integrity_ok": true,
+  "zip_member_weight_sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+  "weight_matches_manifest": true,
+  "git_tracked": "(none - correctly untracked)"
+}

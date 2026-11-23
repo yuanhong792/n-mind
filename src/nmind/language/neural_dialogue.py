@@ -96,8 +96,13 @@ class NMindLM(nn.Module):
             z = self.tok_emb(tokens[:, t])
             w_read = self.workspace.read(ws, z)
             route = self.router.route(z, h, w_read.value, err, unc, k=self.top_k)
+            # V1.6 A/B 显式开关：False 时不传 weights（模拟修复前，Router 无语言梯度）；
+            # True 时传 STE 软权重（修复路径，Router 收到任务梯度）。
+            # STE 前向值恒为 h_upd，故开关只改反向梯度路径，不改任何前向数值，
+            # 旧 checkpoint 加载与推理完全兼容。
+            w_arg = route.weights if self.router_gradient_path_enabled else None
             h, _g, _m, _p, _n = self.blocks.forward_sparse(
-                z, h, w_read.value, route.indices, weights=route.weights
+                z, h, w_read.value, route.indices, weights=w_arg
             )
             sel = route.indices.reshape(-1)
             payload = self.block_to_ws(h[rows, sel]).view(B, self.top_k, -1)
@@ -124,6 +129,7 @@ class NMindLM(nn.Module):
         return torch.stack(logits, dim=1), LMState(h=h, ws=ws)
 
     use_router_load_update: bool = True      # 类属性开关（评测/训练态由调用方控制 training flag）
+    router_gradient_path_enabled: bool = True  # V1.6 A/B: True=修复(传STE weights); False=修复前(无Router梯度)
 
     def n_params(self) -> int:
         return sum(p.numel() for p in self.parameters())
