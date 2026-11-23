@@ -7,6 +7,7 @@ on:
       - 'src/nmind/language/neural_dialogue.py'
       - 'tests/test_ncell_architecture_v37.py'
       - 'tests/test_ncell_v37_ablation.py'
+      - 'tests/test_ncell_training_router_v37.py'
       - 'src/nmind/evaluation/ncell_ablation.py'
       - 'experiments/v37_ncell_architecture/**'
       - '.github/workflows/ncell-v37-check.yml'
@@ -31,7 +32,7 @@ jobs:
           python -m pip install -e '.[dev]'
       - name: Architecture and prior neural regression tests
         run: |
-          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
+          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell_training_router_v37.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
       - name: Full repository tests
         run: python -m pytest tests -q
       - name: Minimal real neural-only ablation and report
@@ -43,6 +44,19 @@ jobs:
       - name: Extended neural candidate comparison (cloud CPU, dev only)
         run: |
           python experiments/v37_ncell_architecture/run_ablation.py --steps 128 --batch-size 4 --eval-samples 40 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 300 --output-dir experiments/v37_ncell_architecture/ci_extended
+      - name: Route cloud and oversized experiments (never start user's PC)
+        run: |
+          python experiments/v37_ncell_architecture/route_training.py --steps 128 --arms legacy router_ste attention router_attention reset all --estimated-ram-gb 2 --output-dir experiments/v37_ncell_architecture/route_cloud
+          python experiments/v37_ncell_architecture/route_training.py --steps 256 --arms legacy router_ste attention router_attention reset all --estimated-ram-gb 4 --output-dir experiments/v37_ncell_architecture/route_local
+      - name: Upload manual local offload contract
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-training-route
+          path: |
+            experiments/v37_ncell_architecture/route_cloud/
+            experiments/v37_ncell_architecture/route_local/
+          if-no-files-found: warn
       - name: Upload extended candidate comparison
         if: always()
         uses: actions/upload-artifact@v4
