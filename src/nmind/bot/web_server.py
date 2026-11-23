@@ -99,6 +99,9 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/runtime/status":
             self._json(200, self.api.health_payload())
             return
+        if path == "/api/cloud/status":
+            self._json(200, self.api.cloud_status())
+            return
         if path == "/api/v3/status":
             self._json(200, self.api.v3.status())
             return
@@ -155,6 +158,9 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/activity":
             self._json(200, self.api.activity())
             return
+        if path == "/api/chat/sessions":
+            self._json(200, {"sessions": self.api.sessions_list()})
+            return
         if path.startswith("/api/chat/sessions/"):
             tail = path[len("/api/chat/sessions/"):]
             if tail.endswith("/messages"):
@@ -206,6 +212,8 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(500, {"error": f"{type(exc).__name__}: {exc}"})
 
     def _route_post(self, path: str, body: dict[str, Any]) -> None:
+        if path == "/api/cloud/configure":
+            self._json(200, self.api.configure_cloud(body)); return
         if path == "/api/v3/chat":
             sid = str(body.get("session_id") or "v3-default")
             text = str(body.get("text") or "").strip()
@@ -382,6 +390,7 @@ class WebBotServer:
         self.v35_actions = SafeActionRegistry(workspace=Path(root_dir), graph=getattr(self.v3, "graph", None), knowledge=knowledge, experiences=getattr(self.v3, "graph", None).experiences if getattr(self.v3, "graph", None) else None)
         self.v35_tools = self.v35_actions.tools()
         self.v35_tools.update(build_tools(knowledge=knowledge, memory=getattr(chat_service, "memory_service", None)))
+        self.cloud_config = {"enabled": False, "provider": "off", "model": "", "key_configured": False}
         self._build_runtime(root_dir, offline)
 
     def _build_runtime(self, root_dir, offline) -> None:
@@ -468,6 +477,30 @@ class WebBotServer:
             print(f"[web] 知识统计刷新失败（状态页降级显示）：{type(exc).__name__}")
         st["quota"] = self.explorer.quota_snapshot()
         return st
+
+    def cloud_status(self) -> dict[str, Any]:
+        return {**self.cloud_config, "network_enabled": not self.offline,
+                "source": "in_memory_only", "training_target": False}
+
+    def configure_cloud(self, body: dict[str, Any]) -> dict[str, Any]:
+        if self.offline:
+            return {"ok": False, "error": "offline_mode_enabled"}
+        from ..bridge.providers import DeepSeekProvider
+        enabled = bool(body.get("enabled"))
+        key = str(body.get("api_key") or "")
+        model = str(body.get("model") or "deepseek-chat")
+        if not enabled:
+            self.chat_service.cloud_provider = None
+            self.cloud_config = {"enabled": False, "provider": "off", "model": "", "key_configured": False}
+            return {"ok": True, **self.cloud_config}
+        if not key:
+            return {"ok": False, "error": "api_key_required"}
+        self.chat_service.cloud_provider = DeepSeekProvider(
+            base_url="https://api.deepseek.com", api_key=key, model=model,
+            timeout_s=20.0, max_retries=1, max_payload_chars=4000)
+        self.cloud_config = {"enabled": True, "provider": "deepseek", "model": model,
+                             "key_configured": True}
+        return {"ok": True, **self.cloud_config}
 
     def knowledge_stats(self) -> dict[str, Any]:
         return self.knowledge.stats()
@@ -621,7 +654,11 @@ def launch_web_ui(args) -> int:
 
     root_dir = _root(args)
     policy = _policy(args)
-    offline = bool(getattr(args, "offline", False)) or not policy.network_enabled
+    cloud_explicit = __import__("os").environ.get("NMIND_ENABLE_CLOUD") == "1"
+    if cloud_explicit:
+        policy.network_enabled = True
+        policy.allow_remote_model_api = True
+    offline = bool(getattr(args, "offline", False)) or (not policy.network_enabled and not cloud_explicit)
     if offline:
         policy.network_enabled = False
     if getattr(args, "no_idle", False):
