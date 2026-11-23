@@ -6,6 +6,9 @@ on:
       - 'src/nmind/core/ncell.py'
       - 'src/nmind/language/neural_dialogue.py'
       - 'tests/test_ncell_architecture_v37.py'
+      - 'tests/test_ncell_v37_ablation.py'
+      - 'src/nmind/evaluation/ncell_ablation.py'
+      - 'experiments/v37_ncell_architecture/**'
       - '.github/workflows/ncell-v37-check.yml'
   workflow_dispatch:
 
@@ -28,6 +31,18 @@ jobs:
           python -m pip install -e '.[dev]'
       - name: Architecture and prior neural regression tests
         run: |
-          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
+          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
       - name: Full repository tests
         run: python -m pytest tests -q
+      - name: Minimal real neural-only ablation and report
+        run: |
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 1 --batch-size 2 --eval-samples 2 --arms legacy router_ste --threads 1 --max-seconds-per-arm 90 --output-dir experiments/v37_ncell_architecture/out
+      - name: Upload exploratory JSON and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-ablation-report
+          path: |
+            experiments/v37_ncell_architecture/out/V37_ABLATION_RESULTS.json
+            experiments/v37_ncell_architecture/out/V37_ABLATION_REPORT.md
+          if-no-files-found: warn
