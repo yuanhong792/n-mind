@@ -42,3 +42,7 @@ powershell -ExecutionPolicy Bypass -File .\route_local\V37_RUN_LOCAL.ps1
 - GitHub 工件有保留期限；这不等于长期模型发布。仅为可下载的隔离候选产物，不自动提交二进制权重到仓库、也不替换 Stable。
 - 本地离线工作流保持 `LOCAL_MANUAL`，只能用户在 Windows 主动执行。未获得新的超额训练授权，不扩大训练预算。
 - 估计 RAM 若为 NaN/Inf 则直接拒绝分流，避免无效预算被误判为免费 CPU 任务。
+
+## 远程 Windows GPU 训练（2026-11-23 授权）
+
+远程训练需 Windows 主动安装和启动受限轮询代理；无入站端口或 GitHub 自托管 Runner，且只能训练 Candidate。请见 REMOTE_GPU.md。本地代理未连接之前，GPU 不会远程启动。

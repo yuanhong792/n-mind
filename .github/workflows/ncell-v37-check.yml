@@ -8,6 +8,8 @@ on:
       - 'tests/test_ncell_architecture_v37.py'
       - 'tests/test_ncell_v37_ablation.py'
       - 'tests/test_ncell_training_router_v37.py'
+      - 'tests/test_nmind_gpu_remote_agent.py'
+      - 'scripts/nmind_gpu_remote_agent.py'
       - 'src/nmind/evaluation/ncell_ablation.py'
       - 'experiments/v37_ncell_architecture/**'
       - '.github/workflows/ncell-v37-check.yml'
@@ -32,7 +34,7 @@ jobs:
           python -m pip install -e '.[dev]'
       - name: Architecture and prior neural regression tests
         run: |
-          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell_training_router_v37.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
+          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell_training_router_v37.py tests/test_nmind_gpu_remote_agent.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
       - name: Full repository tests
         run: python -m pytest tests -q
       - name: Minimal real neural-only ablation and report
