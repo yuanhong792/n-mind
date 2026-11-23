@@ -173,5 +173,20 @@ $('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(awa
   refresh();
 })();
 </script>
+<script>
+(()=>{
+  const settings=document.getElementById('settings-page');
+  if(!settings || document.getElementById('settings-cloud-card')) return;
+  const card=document.createElement('div'); card.className='content-card'; card.id='settings-cloud-card';
+  card.innerHTML='<h3>DeepSeek / 第三方 LLM API</h3><p class="section-desc">用于基础问答的外部服务。回答会标记为 cloud_teacher，不计入 N-Cell 神经能力。密钥只保存在当前进程内。</p><div class="inline-controls"><input class="field" id="settings-cloud-key" type="password" placeholder="粘贴 DeepSeek API Key"><input class="field" id="settings-cloud-model" value="deepseek-chat" placeholder="模型"></div><div class="inline-controls"><button class="primary" id="settings-cloud-enable">保存并启用</button><button class="toggle" id="settings-cloud-disable">关闭接口</button><span class="small-label" id="settings-cloud-status">读取状态中…</span></div>';
+  settings.appendChild(card);
+  const status=document.getElementById('settings-cloud-status');
+  const call=(u,o)=>fetch(u,o).then(r=>r.json());
+  const refresh=()=>call('/api/cloud/status').then(x=>{status.textContent=x.enabled?'已启用：'+x.provider+' / '+x.model:'未启用（默认关闭）';const rows=settings.querySelectorAll('.list-data');if(rows[2])rows[2].querySelector('b').textContent=x.enabled?'已接入：'+x.provider:'未接入'}).catch(()=>status.textContent='后端不可用');
+  document.getElementById('settings-cloud-enable').onclick=()=>call('/api/cloud/configure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled:true,api_key:document.getElementById('settings-cloud-key').value,model:document.getElementById('settings-cloud-model').value})}).then(x=>{status.textContent=x.ok?'已启用：'+x.provider+' / '+x.model:'启用失败：'+(x.error||'未知错误');document.getElementById('settings-cloud-key').value=''});
+  document.getElementById('settings-cloud-disable').onclick=()=>call('/api/cloud/configure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled:false})}).then(refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
