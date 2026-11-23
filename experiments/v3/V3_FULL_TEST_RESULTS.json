@@ -1,0 +1,6 @@
+{
+  "pytest": {"passed": 254, "failed": 0, "skipped": 3, "warnings": 1, "duration_seconds": 205.92},
+  "v3_targeted": {"passed": 3, "failed": 0},
+  "environment": {"python": ".venv-gate24\\Scripts\\python.exe", "torch": "2.15.0+cpu", "cuda": false},
+  "optimizer_steps": 0
+}

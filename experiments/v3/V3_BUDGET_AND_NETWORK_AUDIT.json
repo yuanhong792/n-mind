@@ -1,0 +1,6 @@
+{
+  "network": {"default_enabled": false, "requests_this_run": 0, "external_sites_requested": 0},
+  "training": {"optimizer_steps": 0, "stable_checkpoint_modified": false, "candidate_promotion": false},
+  "autonomy": {"max_tasks_per_call": 1, "unbounded_loop": false, "authorization_expansion": false},
+  "ui": {"bind": "127.0.0.1", "cdn": false}
+}

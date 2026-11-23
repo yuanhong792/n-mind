@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETED_OFFLINE_DEMO",
+  "network_requests": 0,
+  "optimizer_steps": 0,
+  "training_started": false,
+  "chat_source_contract": ["neural", "retrieval", "memory", "tool", "rule", "none"],
+  "task_state_machine": "PASS",
+  "event_log_persistence": "PASS",
+  "demo_scope": "facade_and_local_services"
+}

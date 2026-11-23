@@ -99,6 +99,15 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/runtime/status":
             self._json(200, self.api.health_payload())
             return
+        if path == "/api/v3/status":
+            self._json(200, self.api.v3.status())
+            return
+        if path == "/api/v3/events":
+            self._json(200, {"events": self.api.v3.events.list()})
+            return
+        if path == "/api/v3/tasks":
+            self._json(200, {"tasks": self.api.v3.tasks.list()})
+            return
         if path == "/api/knowledge/stats":
             self._json(200, self.api.knowledge_stats())
             return
@@ -167,6 +176,21 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(500, {"error": f"{type(exc).__name__}: {exc}"})
 
     def _route_post(self, path: str, body: dict[str, Any]) -> None:
+        if path == "/api/v3/chat":
+            sid = str(body.get("session_id") or "v3-default")
+            text = str(body.get("text") or "").strip()
+            if not text:
+                self._json(400, {"error": "text 不能为空"}); return
+            self._json(200, self.api.v3.chat_reply(sid, text)); return
+        if path == "/api/v3/learn":
+            self._json(200, self.api.v3.learn_once()); return
+        if path == "/api/v3/tasks":
+            title = str(body.get("title") or "V3任务")
+            steps = body.get("steps") if isinstance(body.get("steps"), list) else []
+            self._json(201, self.api.v3.tasks.create(title, steps).to_dict()); return
+        if path.startswith("/api/v3/tasks/") and path.endswith("/transition"):
+            tid = path[len("/api/v3/tasks/"):-len("/transition")]
+            self._json(200, self.api.v3.tasks.transition(tid, str(body.get("status") or ""), str(body.get("error") or "")).to_dict()); return
         if path == "/api/chat/sessions":
             title = str(body.get("title") or "新会话")[:40]
             self._json(201, {"session_id": self.api.create_session(title)})
@@ -269,6 +293,10 @@ class WebBotServer:
         self._service_thread: threading.Thread | None = None
         self._url: str = ""
         self.runtime: Any = None
+        from ..v3 import V3Facade
+        self.v3 = V3Facade(root_dir, chat=chat_service,
+                           memory=getattr(chat_service, "memory_service", None),
+                           knowledge=knowledge, runtime=self.runtime)
         from ..planning import PlanningStore, PlanExecutor, RulePlanner
         from ..planning.tool_adapter import build_tools
         self.planning_store = PlanningStore(Path(root_dir) / "planning.db")
@@ -291,6 +319,8 @@ class WebBotServer:
         if offline:
             policy.network_enabled = False
         self.runtime = BotRuntime(root_dir=root_dir, policy=policy)
+        if hasattr(self, "v3"):
+            self.v3.runtime = self.runtime
 
     # ---------------------------------------------------------------- 生命周期
     def start(self) -> str:
