@@ -1,0 +1,114 @@
+name: N-Cell V3.7 architecture checks
+
+on:
+  pull_request:
+    paths:
+      - 'src/nmind/core/ncell.py'
+      - 'src/nmind/language/neural_dialogue.py'
+      - 'tests/test_ncell_architecture_v37.py'
+      - 'tests/test_ncell_v37_ablation.py'
+      - 'tests/test_ncell_training_router_v37.py'
+      - 'tests/test_nmind_gpu_remote_agent.py'
+      - 'scripts/nmind_gpu_remote_agent.py'
+      - 'src/nmind/evaluation/ncell_ablation.py'
+      - 'experiments/v37_ncell_architecture/**'
+      - '.github/workflows/ncell-v37-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ncell-architecture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU PyTorch and tests
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[dev]'
+      - name: Architecture and prior neural regression tests
+        run: |
+          python -m pytest tests/test_ncell_architecture_v37.py tests/test_ncell_v37_ablation.py tests/test_ncell_training_router_v37.py tests/test_nmind_gpu_remote_agent.py tests/test_ncell.py tests/test_router.py tests/test_router_ste.py tests/test_language_m5.py tests/test_gateb004_fixes.py -q
+      - name: Full repository tests
+        run: python -m pytest tests -q
+      - name: Minimal real neural-only ablation and report
+        run: |
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 1 --batch-size 2 --eval-samples 2 --arms legacy router_ste --threads 1 --max-seconds-per-arm 90 --output-dir experiments/v37_ncell_architecture/out
+      - name: Six-arm neural architecture comparison (cloud CPU, dev only)
+        run: |
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 16 --batch-size 2 --eval-samples 16 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 240 --output-dir experiments/v37_ncell_architecture/ci_six_arm
+      - name: Extended neural candidate comparison (cloud CPU, dev only)
+        run: |
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 128 --batch-size 4 --eval-samples 40 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 300 --save-candidates --output-dir experiments/v37_ncell_architecture/ci_extended
+      - name: Verify cloud Candidate weights and tokenizer (no Stable promotion)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from nmind.language.neural_dialogue import load_lm
+          from nmind.language.tokenizer import CharTokenizer
+          root = Path("experiments/v37_ncell_architecture/ci_extended/candidates")
+          tok = CharTokenizer.load(root / "tokenizer.json")
+          expected = ("legacy", "router_ste", "attention", "router_attention", "reset", "all")
+          weights = sorted(root.glob("candidate_*.pt"))
+          assert len(weights) == len(expected), f"Expected {len(expected)} candidates, got {len(weights)}"
+          for arm in expected:
+              matches = [f for f in weights if f.name.startswith(f"candidate_{arm}_seed")]
+              assert len(matches) == 1, f"Missing or duplicate candidate: {arm}"
+              model, meta = load_lm(matches[0], tok)
+              assert meta["steps"] == 128, (arm, meta["steps"])
+              assert model.n_params() > 0
+          print("Verified 6 isolated Candidate checkpoints; no Stable promotion")
+          PY
+      - name: Route cloud and oversized experiments (never start user's PC)
+        run: |
+          python experiments/v37_ncell_architecture/route_training.py --steps 128 --arms legacy router_ste attention router_attention reset all --estimated-ram-gb 2 --output-dir experiments/v37_ncell_architecture/route_cloud
+          python experiments/v37_ncell_architecture/route_training.py --steps 256 --arms legacy router_ste attention router_attention reset all --estimated-ram-gb 4 --output-dir experiments/v37_ncell_architecture/route_local
+      - name: Upload manual local offload contract
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-training-route
+          path: |
+            experiments/v37_ncell_architecture/route_cloud/
+            experiments/v37_ncell_architecture/route_local/
+          if-no-files-found: warn
+      - name: Upload extended candidate comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-extended-dev-report
+          path: |
+            experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_RESULTS.json
+            experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_REPORT.md
+          if-no-files-found: warn
+      - name: Upload cloud Candidate models (isolated; no Stable promotion)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-cloud-candidates
+          path: experiments/v37_ncell_architecture/ci_extended/candidates/
+          if-no-files-found: error
+      - name: Upload six-arm comparison JSON and Markdown
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-six-arm-report
+          path: |
+            experiments/v37_ncell_architecture/ci_six_arm/V37_ABLATION_RESULTS.json
+            experiments/v37_ncell_architecture/ci_six_arm/V37_ABLATION_REPORT.md
+          if-no-files-found: warn
+      - name: Upload exploratory JSON and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-ablation-report
+          path: |
+            experiments/v37_ncell_architecture/out/V37_ABLATION_RESULTS.json
+            experiments/v37_ncell_architecture/out/V37_ABLATION_REPORT.md
+          if-no-files-found: warn
