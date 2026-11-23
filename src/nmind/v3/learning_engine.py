@@ -81,7 +81,10 @@ class V33LearningEngine:
         if not verified: self.db.execute("INSERT INTO v33_failures VALUES(?,?,?)", (uuid.uuid4().hex, json.dumps(result, ensure_ascii=False), datetime.now(timezone.utc).isoformat()))
         due = datetime.now(timezone.utc) + timedelta(seconds=60 if verified else 10)
         self.db.execute("INSERT INTO v33_reviews VALUES(?,?,?)", (uuid.uuid4().hex, json.dumps({"goal": goal, "task_id": task["task_id"], "status": "DUE"}, ensure_ascii=False), due.isoformat())); self.db.commit()
-        self._set("state", "idle"); self.facade.events.append("learning.cycle_completed", result); return result
+        self._set("state", "idle"); self.facade.events.append("learning.cycle_completed", result)
+        try: result["experience"] = self.facade.v34_experience_from_cycle(result)
+        except Exception: result["experience"] = {"status": "NOT_RECORDED"}
+        return result
 
     def pause(self): self._set("state", "paused"); self.facade.events.append("learning.session_paused", {}); return self.policy()
     def resume(self): self._set("state", "idle"); self.facade.events.append("learning.session_resumed", {}); return self.policy()

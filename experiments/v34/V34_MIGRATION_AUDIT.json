@@ -1,0 +1,1 @@
+{"status":"PASS","migration":"additive tables with IF NOT EXISTS","wal":true,"foreign_keys":true,"original_memory_tables_modified":false,"test_database":"temporary per-test database"}

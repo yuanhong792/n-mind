@@ -112,6 +112,15 @@ class _Handler(BaseHTTPRequestHandler):
             action = path[len("/api/v33/learning/"):]
             handlers = {"status": self.api.v3.v33_status, "goals": self.api.v3.v33_goals, "decision-explanation": self.api.v3.v33_decision, "reviews": self.api.v3.v33_reviews, "failures": self.api.v3.v33_failures, "growth": self.api.v3.growth, "events": self.api.v3.v33_events, "policy": self.api.v3.v33_policy}
             if action in handlers: self._json(200, handlers[action]()); return
+        if path == "/api/v34/knowledge/status": self._json(200, self.api.v3.v34_status()); return
+        if path == "/api/v34/knowledge/entities": self._json(200, {"entities": self.api.v3.graph.entities((query or {}).get("q", [""])[0])}); return
+        if path.startswith("/api/v34/knowledge/entities/") and path.endswith("/relations"):
+            eid=path[len("/api/v34/knowledge/entities/"):-len("/relations")]; self._json(200,{"entity_id":eid,"relations":self.api.v3.graph.relations(eid,2)}); return
+        if path == "/api/v34/knowledge/assertions": self._json(200,{"assertions":self.api.v3.graph.assertions()}); return
+        if path == "/api/v34/knowledge/conflicts": self._json(200,{"conflicts":self.api.v3.graph.conflicts()}); return
+        if path == "/api/v34/knowledge/query": self._json(200,self.api.v3.graph.query((query or {}).get("q", [""])[0])); return
+        if path == "/api/v34/experiences": self._json(200,{"experiences":self.api.v3.graph.experiences()}); return
+        if path == "/api/v34/knowledge/events": self._json(200,{"events":self.api.v3.events.list()}); return
         if path == "/api/status":
             self._json(200, self.api.v3.status()); return
         if path == "/api/events":
@@ -222,6 +231,13 @@ class _Handler(BaseHTTPRequestHandler):
             handlers = {"run-once": self.api.v3.v33_run_once, "pause": self.api.v3.v33_pause, "resume": self.api.v3.v33_resume, "stop": self.api.v3.v33_stop}
             if action == "start-session": self._json(200, self.api.v3.set_learning(True)); return
             if action in handlers: self._json(200, handlers[action]()); return
+        if path == "/api/v34/knowledge/entities": self._json(201,self.api.v3.v34_add_entity(body)); return
+        if path == "/api/v34/knowledge/sources/import-local": self._json(201,self.api.v3.v34_add_evidence(body)); return
+        if path == "/api/v34/knowledge/assertions": self._json(201,self.api.v3.v34_add_assertion(body)); return
+        if path.startswith("/api/v34/knowledge/conflicts/") and path.endswith("/resolve"):
+            cid=path[len("/api/v34/knowledge/conflicts/"):-len("/resolve")]; self._json(200,self.api.v3.graph.resolve_conflict(cid,str(body.get("resolution") or ""))); return
+        if path.startswith("/api/v34/experiences/") and path.endswith("/revoke"):
+            eid=path[len("/api/v34/experiences/"):-len("/revoke")]; self._json(200,self.api.v3.graph.revoke_experience(eid)); return
         if path == "/api/v3/tasks":
             title = str(body.get("title") or "V3任务")
             steps = body.get("steps") if isinstance(body.get("steps"), list) else []
@@ -281,6 +297,16 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(200, self.api.control(action))
             return
         self._json(404, {"error": "未知路径"})
+
+    def do_PATCH(self) -> None:
+        try:
+            path = urlparse(self.path).path; body = self._read_body()
+            if path.startswith("/api/v34/knowledge/assertions/"):
+                aid = path[len("/api/v34/knowledge/assertions/"):]
+                if body.get("revoked") is True:
+                    self._json(200, self.api.v3.graph.revoke_assertion(aid, "user_patch")); return
+            self._json(404, {"error": "unknown path"})
+        except Exception as exc: self._json(400, {"error": f"{type(exc).__name__}: {exc}"})
 
     def do_DELETE(self) -> None:
         path = urlparse(self.path).path

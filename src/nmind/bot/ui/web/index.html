@@ -151,5 +151,8 @@ function post(path){return api(path,{method:'POST',headers:{'Content-Type':'appl
 $('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(await post('/api/v33/learning/run-once'),null,2);refresh()};$('#v33-pause').onclick=async()=>{await post('/api/v33/learning/pause');refresh()};$('#v33-resume').onclick=async()=>{await post('/api/v33/learning/resume');refresh()};$('#v33-stop').onclick=async()=>{await post('/api/v33/learning/stop');refresh()};refresh();
 })();
 </script>
+<script>
+(()=>{const r=document.querySelector('.rail')||document.body;const p=document.createElement('section');p.id='v34-panel';p.innerHTML='<h3>知识与长期经验</h3><input id="v34-q" placeholder="查询实体或关系"><button id="v34-search">查询</button><button id="v34-status">状态</button><pre id="v34-out"></pre>';r.appendChild(p);const out=document.getElementById('v34-out');async function j(u,o){return (await fetch(u,o)).json()}document.getElementById('v34-search').onclick=async()=>{out.textContent=JSON.stringify(await j('/api/v34/knowledge/query?q='+encodeURIComponent(document.getElementById('v34-q').value)),null,2)};document.getElementById('v34-status').onclick=async()=>{out.textContent=JSON.stringify(await j('/api/v34/knowledge/status'),null,2)};})();
+</script>
 </body>
 </html>

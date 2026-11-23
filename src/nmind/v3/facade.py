@@ -13,6 +13,8 @@ class V3Facade:
         self.events = EventLog(root / "v3_events.db"); self.tasks = TaskService(root / "v3_tasks.db", self.events)
         from .learning_engine import V33LearningEngine
         self.learning_engine = V33LearningEngine(root / "v33_learning.db", self)
+        from .knowledge_graph import KnowledgeGraphService
+        self.graph = KnowledgeGraphService(root / "v34_knowledge.db", self.events)
         self.learning_enabled = self.learning_engine.policy()["enabled"]
         self.learning_state = self.learning_engine.policy()["state"]
         self.learning_enabled = False; self.learning_state = "idle"; self.cycles: list[dict[str, Any]] = []
@@ -44,7 +46,15 @@ class V3Facade:
     def growth(self) -> dict[str, Any]:
         tracker = getattr(self.runtime, "tracker", None); return {"capabilities": tracker.summary() if tracker else {}, "learning_cycles": len(self.cycles), "sources": {"neural": 0, "tool": sum(c.get("source") == "tool/oracle" for c in self.cycles), "memory": 0, "retrieval": 0}, "optimizer_steps": 0}
     def permissions(self) -> dict[str, Any]: return {"network_enabled": False, "training_enabled": False, "optimizer_steps": 0, "autonomous_learning": self.learning_enabled, "external_llm": False}
-    def close(self) -> None: self.learning_engine.close(); self.tasks.close(); self.events.close()
+    def close(self) -> None: self.graph.close(); self.learning_engine.close(); self.tasks.close(); self.events.close()
+
+    # V3.4 structured knowledge and verified experience API
+    def v34_status(self): return {**self.graph.stats(), "network_enabled": False, "optimizer_steps": 0}
+    def v34_add_entity(self, body): return self.graph.add_entity(body.get("canonical_name", ""), body.get("kind", "concept"), body.get("aliases", []))
+    def v34_add_evidence(self, body): return self.graph.add_evidence(body.get("source_kind", "user"), body.get("locator", "user://local"), body.get("title", ""), body.get("excerpt", ""), body.get("license_state", "USER_AUTHORIZED"), body.get("verification_status", "UNVERIFIED"))
+    def v34_add_assertion(self, body): return self.graph.add_assertion(body["subject_id"], body["predicate"], body["object_value"], object_entity_id=body.get("object_entity_id"), evidence_ids=body.get("evidence_ids", []), verification_status=body.get("verification_status", "UNVERIFIED"), confidence=body.get("confidence"), effective_from=body.get("effective_from"), effective_to=body.get("effective_to"))
+    def v34_experience_from_cycle(self, result):
+        return self.graph.add_experience({"task_family": result.get("goal", {}).get("task_family", ""), "skill_id": result.get("goal", {}).get("skill_id", ""), "task_fingerprint": result.get("task_id", ""), "action_or_method": "existing Practice tool", "observed_outcome": result.get("oracle_result"), "verification_source": "deterministic_oracle", "verification_status": "VERIFIED_WITHIN_SCOPE" if result.get("oracle_result")=="verified" else "UNVERIFIED", "applicability_constraints": ["offline", "registered task family"], "evidence_ids": []})
 
     # V3.3 decision engine API: all state is persisted by the existing facade root.
     def v33_status(self): return self.learning_engine.status()
