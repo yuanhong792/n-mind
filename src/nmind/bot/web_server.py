@@ -685,7 +685,9 @@ class WebBotServer:
             citations=[c.to_dict() for c in resp.citations], model_sha=resp.model_sha,
             protocol_id=resp.protocol_id, latency_ms=resp.latency_ms, note=resp.note,
             extra={"unk_rate": resp.unk_rate, "finish_reason": resp.finish_reason,
-                   "memory_hits": resp.memory_hits},
+                   "memory_hits": resp.memory_hits,
+                   "learning_target": "external_teacher_candidate" if resp.response_source == "cloud_teacher" else "none",
+                   "training_applied": False},
         )
         return {"message_id": req.message_id, "status": "DONE", "text": resp.text,
                 "response_source": resp.response_source,
