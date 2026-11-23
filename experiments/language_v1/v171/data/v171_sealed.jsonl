@@ -1,0 +1,902 @@
+{"task": "C_counter", "prompt": "原：魏然有紫色皮球，汪峰有橙色皮球。\n改：把魏然和汪峰的皮球颜色对调。\n问：魏然的皮球现在是什么颜色？\n答：", "answer": "橙色", "key": "C|魏然|紫色|皮球|汪峰|橙色|魏然", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：魏然有紫色皮球，汪峰有橙色皮球。\n问：魏然的皮球是什么颜色？\n答：", "answer": "紫色", "key": "C|魏然|紫色|皮球|汪峰|橙色|魏然", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：贾玲有黄色香蕉，黄敏有紫色香蕉。\n改：把贾玲和黄敏的香蕉颜色对调。\n问：黄敏的香蕉现在是什么颜色？\n答：", "answer": "黄色", "key": "C|贾玲|黄色|香蕉|黄敏|紫色|黄敏", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：贾玲有黄色香蕉，黄敏有紫色香蕉。\n问：黄敏的香蕉是什么颜色？\n答：", "answer": "紫色", "key": "C|贾玲|黄色|香蕉|黄敏|紫色|黄敏", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：张刚有蓝色杯子，萧然有绿色杯子。\n改：把张刚和萧然的杯子颜色对调。\n问：张刚的杯子现在是什么颜色？\n答：", "answer": "绿色", "key": "C|张刚|蓝色|杯子|萧然|绿色|张刚", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：张刚有蓝色杯子，萧然有绿色杯子。\n问：张刚的杯子是什么颜色？\n答：", "answer": "蓝色", "key": "C|张刚|蓝色|杯子|萧然|绿色|张刚", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：于洋有绿色苹果，马琳有黄色苹果。\n改：把于洋和马琳的苹果颜色对调。\n问：于洋的苹果现在是什么颜色？\n答：", "answer": "黄色", "key": "C|于洋|绿色|苹果|马琳|黄色|于洋", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：于洋有绿色苹果，马琳有黄色苹果。\n问：于洋的苹果是什么颜色？\n答：", "answer": "绿色", "key": "C|于洋|绿色|苹果|马琳|黄色|于洋", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：袁泉有黄色橘子，梁静有绿色橘子。\n改：把袁泉和梁静的橘子颜色对调。\n问：袁泉的橘子现在是什么颜色？\n答：", "answer": "绿色", "key": "C|袁泉|黄色|橘子|梁静|绿色|袁泉", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：袁泉有黄色橘子，梁静有绿色橘子。\n问：袁泉的橘子是什么颜色？\n答：", "answer": "黄色", "key": "C|袁泉|黄色|橘子|梁静|绿色|袁泉", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：周美有橙色香蕉，何欣有黄色香蕉。\n改：把周美和何欣的香蕉颜色对调。\n问：周美的香蕉现在是什么颜色？\n答：", "answer": "黄色", "key": "C|周美|橙色|香蕉|何欣|黄色|周美", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有橙色香蕉，何欣有黄色香蕉。\n问：周美的香蕉是什么颜色？\n答：", "answer": "橙色", "key": "C|周美|橙色|香蕉|何欣|黄色|周美", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：刘杰有白色书包，戴军有红色书包。\n问：刘杰的书包是什么颜色？\n答：", "answer": "白色", "key": "C|刘杰|白色|书包|戴军|红色|刘杰", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：刘杰有白色书包，戴军有红色书包。\n改：把刘杰和戴军的书包颜色对调。\n问：刘杰的书包现在是什么颜色？\n答：", "answer": "红色", "key": "C|刘杰|白色|书包|戴军|红色|刘杰", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：陆瑶有白色书包，魏然有黄色书包。\n改：把陆瑶和魏然的书包颜色对调。\n问：陆瑶的书包现在是什么颜色？\n答：", "answer": "黄色", "key": "C|陆瑶|白色|书包|魏然|黄色|陆瑶", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：陆瑶有白色书包，魏然有黄色书包。\n问：陆瑶的书包是什么颜色？\n答：", "answer": "白色", "key": "C|陆瑶|白色|书包|魏然|黄色|陆瑶", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：姜涛有白色杯子，孙华有黑色杯子。\n改：把姜涛和孙华的杯子颜色对调。\n问：姜涛的杯子现在是什么颜色？\n答：", "answer": "黑色", "key": "C|姜涛|白色|杯子|孙华|黑色|姜涛", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：姜涛有白色杯子，孙华有黑色杯子。\n问：姜涛的杯子是什么颜色？\n答：", "answer": "白色", "key": "C|姜涛|白色|杯子|孙华|黑色|姜涛", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：邓超有橙色苹果，贾玲有黄色苹果。\n改：把邓超和贾玲的苹果颜色对调。\n问：邓超的苹果现在是什么颜色？\n答：", "answer": "黄色", "key": "C|邓超|橙色|苹果|贾玲|黄色|邓超", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：邓超有橙色苹果，贾玲有黄色苹果。\n问：邓超的苹果是什么颜色？\n答：", "answer": "橙色", "key": "C|邓超|橙色|苹果|贾玲|黄色|邓超", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：钟磊有绿色杯子，吴军有红色杯子。\n改：把钟磊和吴军的杯子颜色对调。\n问：钟磊的杯子现在是什么颜色？\n答：", "answer": "红色", "key": "C|钟磊|绿色|杯子|吴军|红色|钟磊", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：钟磊有绿色杯子，吴军有红色杯子。\n问：钟磊的杯子是什么颜色？\n答：", "answer": "绿色", "key": "C|钟磊|绿色|杯子|吴军|红色|钟磊", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：程亮有紫色书包，苏晴有白色书包。\n改：把程亮和苏晴的书包颜色对调。\n问：程亮的书包现在是什么颜色？\n答：", "answer": "白色", "key": "C|程亮|紫色|书包|苏晴|白色|程亮", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：程亮有紫色书包，苏晴有白色书包。\n问：程亮的书包是什么颜色？\n答：", "answer": "紫色", "key": "C|程亮|紫色|书包|苏晴|白色|程亮", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：于洋有白色铅笔，赵强有紫色铅笔。\n问：于洋的铅笔是什么颜色？\n答：", "answer": "白色", "key": "C|于洋|白色|铅笔|赵强|紫色|于洋", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：于洋有白色铅笔，赵强有紫色铅笔。\n改：把于洋和赵强的铅笔颜色对调。\n问：于洋的铅笔现在是什么颜色？\n答：", "answer": "紫色", "key": "C|于洋|白色|铅笔|赵强|紫色|于洋", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：任杰有黑色苹果，杜江有绿色苹果。\n问：杜江的苹果是什么颜色？\n答：", "answer": "绿色", "key": "C|任杰|黑色|苹果|杜江|绿色|杜江", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：任杰有黑色苹果，杜江有绿色苹果。\n改：把任杰和杜江的苹果颜色对调。\n问：杜江的苹果现在是什么颜色？\n答：", "answer": "黑色", "key": "C|任杰|黑色|苹果|杜江|绿色|杜江", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：林彤有绿色铅笔，崔健有黄色铅笔。\n问：林彤的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "C|林彤|绿色|铅笔|崔健|黄色|林彤", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：林彤有绿色铅笔，崔健有黄色铅笔。\n改：把林彤和崔健的铅笔颜色对调。\n问：林彤的铅笔现在是什么颜色？\n答：", "answer": "黄色", "key": "C|林彤|绿色|铅笔|崔健|黄色|林彤", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有白色橘子，钟磊有橙色橘子。\n改：把周美和钟磊的橘子颜色对调。\n问：周美的橘子现在是什么颜色？\n答：", "answer": "橙色", "key": "C|周美|白色|橘子|钟磊|橙色|周美", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有白色橘子，钟磊有橙色橘子。\n问：周美的橘子是什么颜色？\n答：", "answer": "白色", "key": "C|周美|白色|橘子|钟磊|橙色|周美", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：梁静有蓝色苹果，宋佳有黄色苹果。\n改：把梁静和宋佳的苹果颜色对调。\n问：梁静的苹果现在是什么颜色？\n答：", "answer": "黄色", "key": "C|梁静|蓝色|苹果|宋佳|黄色|梁静", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：梁静有蓝色苹果，宋佳有黄色苹果。\n问：梁静的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "C|梁静|蓝色|苹果|宋佳|黄色|梁静", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：刘杰有紫色皮球，田甜有橙色皮球。\n改：把刘杰和田甜的皮球颜色对调。\n问：刘杰的皮球现在是什么颜色？\n答：", "answer": "橙色", "key": "C|刘杰|紫色|皮球|田甜|橙色|刘杰", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：刘杰有紫色皮球，田甜有橙色皮球。\n问：刘杰的皮球是什么颜色？\n答：", "answer": "紫色", "key": "C|刘杰|紫色|皮球|田甜|橙色|刘杰", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：唐勇有蓝色香蕉，朱婷有白色香蕉。\n问：唐勇的香蕉是什么颜色？\n答：", "answer": "蓝色", "key": "C|唐勇|蓝色|香蕉|朱婷|白色|唐勇", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：唐勇有蓝色香蕉，朱婷有白色香蕉。\n改：把唐勇和朱婷的香蕉颜色对调。\n问：唐勇的香蕉现在是什么颜色？\n答：", "answer": "白色", "key": "C|唐勇|蓝色|香蕉|朱婷|白色|唐勇", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：唐勇有紫色铅笔，宋佳有白色铅笔。\n改：把唐勇和宋佳的铅笔颜色对调。\n问：宋佳的铅笔现在是什么颜色？\n答：", "answer": "紫色", "key": "C|唐勇|紫色|铅笔|宋佳|白色|宋佳", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：唐勇有紫色铅笔，宋佳有白色铅笔。\n问：宋佳的铅笔是什么颜色？\n答：", "answer": "白色", "key": "C|唐勇|紫色|铅笔|宋佳|白色|宋佳", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：邓超有黄色本子，任杰有黑色本子。\n问：任杰的本子是什么颜色？\n答：", "answer": "黑色", "key": "C|邓超|黄色|本子|任杰|黑色|任杰", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：邓超有黄色本子，任杰有黑色本子。\n改：把邓超和任杰的本子颜色对调。\n问：任杰的本子现在是什么颜色？\n答：", "answer": "黄色", "key": "C|邓超|黄色|本子|任杰|黑色|任杰", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：陆瑶有绿色橘子，黄敏有黑色橘子。\n改：把陆瑶和黄敏的橘子颜色对调。\n问：陆瑶的橘子现在是什么颜色？\n答：", "answer": "黑色", "key": "C|陆瑶|绿色|橘子|黄敏|黑色|陆瑶", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：陆瑶有绿色橘子，黄敏有黑色橘子。\n问：陆瑶的橘子是什么颜色？\n答：", "answer": "绿色", "key": "C|陆瑶|绿色|橘子|黄敏|黑色|陆瑶", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：何欣有黑色香蕉，杜江有橙色香蕉。\n改：把何欣和杜江的香蕉颜色对调。\n问：何欣的香蕉现在是什么颜色？\n答：", "answer": "橙色", "key": "C|何欣|黑色|香蕉|杜江|橙色|何欣", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：何欣有黑色香蕉，杜江有橙色香蕉。\n问：何欣的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "C|何欣|黑色|香蕉|杜江|橙色|何欣", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：沈冰有蓝色苹果，魏然有黄色苹果。\n问：魏然的苹果是什么颜色？\n答：", "answer": "黄色", "key": "C|沈冰|蓝色|苹果|魏然|黄色|魏然", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：沈冰有蓝色苹果，魏然有黄色苹果。\n改：把沈冰和魏然的苹果颜色对调。\n问：魏然的苹果现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|沈冰|蓝色|苹果|魏然|黄色|魏然", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：曾志有绿色本子，蒋雯有紫色本子。\n问：曾志的本子是什么颜色？\n答：", "answer": "绿色", "key": "C|曾志|绿色|本子|蒋雯|紫色|曾志", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：曾志有绿色本子，蒋雯有紫色本子。\n改：把曾志和蒋雯的本子颜色对调。\n问：曾志的本子现在是什么颜色？\n答：", "answer": "紫色", "key": "C|曾志|绿色|本子|蒋雯|紫色|曾志", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：范冰有紫色苹果，萧然有橙色苹果。\n问：萧然的苹果是什么颜色？\n答：", "answer": "橙色", "key": "C|范冰|紫色|苹果|萧然|橙色|萧然", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：范冰有紫色苹果，萧然有橙色苹果。\n改：把范冰和萧然的苹果颜色对调。\n问：萧然的苹果现在是什么颜色？\n答：", "answer": "紫色", "key": "C|范冰|紫色|苹果|萧然|橙色|萧然", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：韩雪有蓝色苹果，张刚有白色苹果。\n改：把韩雪和张刚的苹果颜色对调。\n问：张刚的苹果现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|韩雪|蓝色|苹果|张刚|白色|张刚", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：韩雪有蓝色苹果，张刚有白色苹果。\n问：张刚的苹果是什么颜色？\n答：", "answer": "白色", "key": "C|韩雪|蓝色|苹果|张刚|白色|张刚", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：杜江有绿色杯子，赵强有白色杯子。\n问：赵强的杯子是什么颜色？\n答：", "answer": "白色", "key": "C|杜江|绿色|杯子|赵强|白色|赵强", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：杜江有绿色杯子，赵强有白色杯子。\n改：把杜江和赵强的杯子颜色对调。\n问：赵强的杯子现在是什么颜色？\n答：", "answer": "绿色", "key": "C|杜江|绿色|杯子|赵强|白色|赵强", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：唐勇有红色书包，余波有紫色书包。\n问：唐勇的书包是什么颜色？\n答：", "answer": "红色", "key": "C|唐勇|红色|书包|余波|紫色|唐勇", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：唐勇有红色书包，余波有紫色书包。\n改：把唐勇和余波的书包颜色对调。\n问：唐勇的书包现在是什么颜色？\n答：", "answer": "紫色", "key": "C|唐勇|红色|书包|余波|紫色|唐勇", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：苏晴有黄色香蕉，谭凯有绿色香蕉。\n改：把苏晴和谭凯的香蕉颜色对调。\n问：谭凯的香蕉现在是什么颜色？\n答：", "answer": "黄色", "key": "C|苏晴|黄色|香蕉|谭凯|绿色|谭凯", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：苏晴有黄色香蕉，谭凯有绿色香蕉。\n问：谭凯的香蕉是什么颜色？\n答：", "answer": "绿色", "key": "C|苏晴|黄色|香蕉|谭凯|绿色|谭凯", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：陈丽有绿色苹果，胡宇有黄色苹果。\n改：把陈丽和胡宇的苹果颜色对调。\n问：胡宇的苹果现在是什么颜色？\n答：", "answer": "绿色", "key": "C|陈丽|绿色|苹果|胡宇|黄色|胡宇", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：陈丽有绿色苹果，胡宇有黄色苹果。\n问：胡宇的苹果是什么颜色？\n答：", "answer": "黄色", "key": "C|陈丽|绿色|苹果|胡宇|黄色|胡宇", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：黄敏有白色铅笔，赵强有蓝色铅笔。\n问：赵强的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "C|黄敏|白色|铅笔|赵强|蓝色|赵强", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：黄敏有白色铅笔，赵强有蓝色铅笔。\n改：把黄敏和赵强的铅笔颜色对调。\n问：赵强的铅笔现在是什么颜色？\n答：", "answer": "白色", "key": "C|黄敏|白色|铅笔|赵强|蓝色|赵强", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：许薇有绿色书包，范冰有橙色书包。\n改：把许薇和范冰的书包颜色对调。\n问：许薇的书包现在是什么颜色？\n答：", "answer": "橙色", "key": "C|许薇|绿色|书包|范冰|橙色|许薇", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：许薇有绿色书包，范冰有橙色书包。\n问：许薇的书包是什么颜色？\n答：", "answer": "绿色", "key": "C|许薇|绿色|书包|范冰|橙色|许薇", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：蒋雯有黑色苹果，林彤有蓝色苹果。\n改：把蒋雯和林彤的苹果颜色对调。\n问：蒋雯的苹果现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|蒋雯|黑色|苹果|林彤|蓝色|蒋雯", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：蒋雯有黑色苹果，林彤有蓝色苹果。\n问：蒋雯的苹果是什么颜色？\n答：", "answer": "黑色", "key": "C|蒋雯|黑色|苹果|林彤|蓝色|蒋雯", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：张刚有紫色橘子，王明有绿色橘子。\n问：王明的橘子是什么颜色？\n答：", "answer": "绿色", "key": "C|张刚|紫色|橘子|王明|绿色|王明", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：张刚有紫色橘子，王明有绿色橘子。\n改：把张刚和王明的橘子颜色对调。\n问：王明的橘子现在是什么颜色？\n答：", "answer": "紫色", "key": "C|张刚|紫色|橘子|王明|绿色|王明", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：崔健有红色本子，张刚有蓝色本子。\n改：把崔健和张刚的本子颜色对调。\n问：张刚的本子现在是什么颜色？\n答：", "answer": "红色", "key": "C|崔健|红色|本子|张刚|蓝色|张刚", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：崔健有红色本子，张刚有蓝色本子。\n问：张刚的本子是什么颜色？\n答：", "answer": "蓝色", "key": "C|崔健|红色|本子|张刚|蓝色|张刚", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：孙华有白色皮球，宋佳有蓝色皮球。\n问：孙华的皮球是什么颜色？\n答：", "answer": "白色", "key": "C|孙华|白色|皮球|宋佳|蓝色|孙华", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：孙华有白色皮球，宋佳有蓝色皮球。\n改：把孙华和宋佳的皮球颜色对调。\n问：孙华的皮球现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|孙华|白色|皮球|宋佳|蓝色|孙华", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：袁泉有绿色香蕉，吴军有黑色香蕉。\n问：袁泉的香蕉是什么颜色？\n答：", "answer": "绿色", "key": "C|袁泉|绿色|香蕉|吴军|黑色|袁泉", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：袁泉有绿色香蕉，吴军有黑色香蕉。\n改：把袁泉和吴军的香蕉颜色对调。\n问：袁泉的香蕉现在是什么颜色？\n答：", "answer": "黑色", "key": "C|袁泉|绿色|香蕉|吴军|黑色|袁泉", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：汪峰有黄色香蕉，魏然有绿色香蕉。\n改：把汪峰和魏然的香蕉颜色对调。\n问：汪峰的香蕉现在是什么颜色？\n答：", "answer": "绿色", "key": "C|汪峰|黄色|香蕉|魏然|绿色|汪峰", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：汪峰有黄色香蕉，魏然有绿色香蕉。\n问：汪峰的香蕉是什么颜色？\n答：", "answer": "黄色", "key": "C|汪峰|黄色|香蕉|魏然|绿色|汪峰", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：邓超有蓝色苹果，潘婷有橙色苹果。\n问：邓超的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "C|邓超|蓝色|苹果|潘婷|橙色|邓超", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：邓超有蓝色苹果，潘婷有橙色苹果。\n改：把邓超和潘婷的苹果颜色对调。\n问：邓超的苹果现在是什么颜色？\n答：", "answer": "橙色", "key": "C|邓超|蓝色|苹果|潘婷|橙色|邓超", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：余波有红色书包，韩雪有白色书包。\n问：韩雪的书包是什么颜色？\n答：", "answer": "白色", "key": "C|余波|红色|书包|韩雪|白色|韩雪", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：余波有红色书包，韩雪有白色书包。\n改：把余波和韩雪的书包颜色对调。\n问：韩雪的书包现在是什么颜色？\n答：", "answer": "红色", "key": "C|余波|红色|书包|韩雪|白色|韩雪", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：黄敏有黄色铅笔，许薇有蓝色铅笔。\n问：许薇的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "C|黄敏|黄色|铅笔|许薇|蓝色|许薇", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：黄敏有黄色铅笔，许薇有蓝色铅笔。\n改：把黄敏和许薇的铅笔颜色对调。\n问：许薇的铅笔现在是什么颜色？\n答：", "answer": "黄色", "key": "C|黄敏|黄色|铅笔|许薇|蓝色|许薇", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：冯刚有蓝色橘子，郑芳有橙色橘子。\n问：郑芳的橘子是什么颜色？\n答：", "answer": "橙色", "key": "C|冯刚|蓝色|橘子|郑芳|橙色|郑芳", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：冯刚有蓝色橘子，郑芳有橙色橘子。\n改：把冯刚和郑芳的橘子颜色对调。\n问：郑芳的橘子现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|冯刚|蓝色|橘子|郑芳|橙色|郑芳", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：冯刚有蓝色橘子，许薇有黑色橘子。\n改：把冯刚和许薇的橘子颜色对调。\n问：许薇的橘子现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|冯刚|蓝色|橘子|许薇|黑色|许薇", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：冯刚有蓝色橘子，许薇有黑色橘子。\n问：许薇的橘子是什么颜色？\n答：", "answer": "黑色", "key": "C|冯刚|蓝色|橘子|许薇|黑色|许薇", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：何欣有黄色书包，王明有橙色书包。\n问：王明的书包是什么颜色？\n答：", "answer": "橙色", "key": "C|何欣|黄色|书包|王明|橙色|王明", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：何欣有黄色书包，王明有橙色书包。\n改：把何欣和王明的书包颜色对调。\n问：王明的书包现在是什么颜色？\n答：", "answer": "黄色", "key": "C|何欣|黄色|书包|王明|橙色|王明", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：朱婷有黑色本子，沈冰有蓝色本子。\n问：沈冰的本子是什么颜色？\n答：", "answer": "蓝色", "key": "C|朱婷|黑色|本子|沈冰|蓝色|沈冰", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：朱婷有黑色本子，沈冰有蓝色本子。\n改：把朱婷和沈冰的本子颜色对调。\n问：沈冰的本子现在是什么颜色？\n答：", "answer": "黑色", "key": "C|朱婷|黑色|本子|沈冰|蓝色|沈冰", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：魏然有紫色皮球，萧然有蓝色皮球。\n改：把魏然和萧然的皮球颜色对调。\n问：魏然的皮球现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|魏然|紫色|皮球|萧然|蓝色|魏然", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：魏然有紫色皮球，萧然有蓝色皮球。\n问：魏然的皮球是什么颜色？\n答：", "answer": "紫色", "key": "C|魏然|紫色|皮球|萧然|蓝色|魏然", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：孙华有黄色苹果，吴军有紫色苹果。\n改：把孙华和吴军的苹果颜色对调。\n问：孙华的苹果现在是什么颜色？\n答：", "answer": "紫色", "key": "C|孙华|黄色|苹果|吴军|紫色|孙华", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：孙华有黄色苹果，吴军有紫色苹果。\n问：孙华的苹果是什么颜色？\n答：", "answer": "黄色", "key": "C|孙华|黄色|苹果|吴军|紫色|孙华", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：董浩有绿色本子，丁宁有白色本子。\n改：把董浩和丁宁的本子颜色对调。\n问：董浩的本子现在是什么颜色？\n答：", "answer": "白色", "key": "C|董浩|绿色|本子|丁宁|白色|董浩", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：董浩有绿色本子，丁宁有白色本子。\n问：董浩的本子是什么颜色？\n答：", "answer": "绿色", "key": "C|董浩|绿色|本子|丁宁|白色|董浩", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：蔡明有白色皮球，崔健有蓝色皮球。\n改：把蔡明和崔健的皮球颜色对调。\n问：崔健的皮球现在是什么颜色？\n答：", "answer": "白色", "key": "C|蔡明|白色|皮球|崔健|蓝色|崔健", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：蔡明有白色皮球，崔健有蓝色皮球。\n问：崔健的皮球是什么颜色？\n答：", "answer": "蓝色", "key": "C|蔡明|白色|皮球|崔健|蓝色|崔健", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：张刚有黑色书包，丁宁有紫色书包。\n问：丁宁的书包是什么颜色？\n答：", "answer": "紫色", "key": "C|张刚|黑色|书包|丁宁|紫色|丁宁", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：张刚有黑色书包，丁宁有紫色书包。\n改：把张刚和丁宁的书包颜色对调。\n问：丁宁的书包现在是什么颜色？\n答：", "answer": "黑色", "key": "C|张刚|黑色|书包|丁宁|紫色|丁宁", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：丁宁有黑色皮球，董浩有白色皮球。\n问：丁宁的皮球是什么颜色？\n答：", "answer": "黑色", "key": "C|丁宁|黑色|皮球|董浩|白色|丁宁", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：丁宁有黑色皮球，董浩有白色皮球。\n改：把丁宁和董浩的皮球颜色对调。\n问：丁宁的皮球现在是什么颜色？\n答：", "answer": "白色", "key": "C|丁宁|黑色|皮球|董浩|白色|丁宁", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：彭丽有绿色苹果，林彤有白色苹果。\n问：彭丽的苹果是什么颜色？\n答：", "answer": "绿色", "key": "C|彭丽|绿色|苹果|林彤|白色|彭丽", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：彭丽有绿色苹果，林彤有白色苹果。\n改：把彭丽和林彤的苹果颜色对调。\n问：彭丽的苹果现在是什么颜色？\n答：", "answer": "白色", "key": "C|彭丽|绿色|苹果|林彤|白色|彭丽", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：董浩有绿色香蕉，于洋有白色香蕉。\n改：把董浩和于洋的香蕉颜色对调。\n问：于洋的香蕉现在是什么颜色？\n答：", "answer": "绿色", "key": "C|董浩|绿色|香蕉|于洋|白色|于洋", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：董浩有绿色香蕉，于洋有白色香蕉。\n问：于洋的香蕉是什么颜色？\n答：", "answer": "白色", "key": "C|董浩|绿色|香蕉|于洋|白色|于洋", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：朱婷有黑色铅笔，戴军有蓝色铅笔。\n改：把朱婷和戴军的铅笔颜色对调。\n问：戴军的铅笔现在是什么颜色？\n答：", "answer": "黑色", "key": "C|朱婷|黑色|铅笔|戴军|蓝色|戴军", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：朱婷有黑色铅笔，戴军有蓝色铅笔。\n问：戴军的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "C|朱婷|黑色|铅笔|戴军|蓝色|戴军", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：程亮有紫色铅笔，蔡明有绿色铅笔。\n改：把程亮和蔡明的铅笔颜色对调。\n问：程亮的铅笔现在是什么颜色？\n答：", "answer": "绿色", "key": "C|程亮|紫色|铅笔|蔡明|绿色|程亮", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：程亮有紫色铅笔，蔡明有绿色铅笔。\n问：程亮的铅笔是什么颜色？\n答：", "answer": "紫色", "key": "C|程亮|紫色|铅笔|蔡明|绿色|程亮", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：徐磊有紫色本子，余波有白色本子。\n改：把徐磊和余波的本子颜色对调。\n问：余波的本子现在是什么颜色？\n答：", "answer": "紫色", "key": "C|徐磊|紫色|本子|余波|白色|余波", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：徐磊有紫色本子，余波有白色本子。\n问：余波的本子是什么颜色？\n答：", "answer": "白色", "key": "C|徐磊|紫色|本子|余波|白色|余波", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：赵强有红色书包，张刚有白色书包。\n改：把赵强和张刚的书包颜色对调。\n问：赵强的书包现在是什么颜色？\n答：", "answer": "白色", "key": "C|赵强|红色|书包|张刚|白色|赵强", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：赵强有红色书包，张刚有白色书包。\n问：赵强的书包是什么颜色？\n答：", "answer": "红色", "key": "C|赵强|红色|书包|张刚|白色|赵强", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：冯刚有紫色本子，蒋雯有红色本子。\n改：把冯刚和蒋雯的本子颜色对调。\n问：冯刚的本子现在是什么颜色？\n答：", "answer": "红色", "key": "C|冯刚|紫色|本子|蒋雯|红色|冯刚", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：冯刚有紫色本子，蒋雯有红色本子。\n问：冯刚的本子是什么颜色？\n答：", "answer": "紫色", "key": "C|冯刚|紫色|本子|蒋雯|红色|冯刚", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：蒋雯有白色杯子，于洋有红色杯子。\n问：于洋的杯子是什么颜色？\n答：", "answer": "红色", "key": "C|蒋雯|白色|杯子|于洋|红色|于洋", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：蒋雯有白色杯子，于洋有红色杯子。\n改：把蒋雯和于洋的杯子颜色对调。\n问：于洋的杯子现在是什么颜色？\n答：", "answer": "白色", "key": "C|蒋雯|白色|杯子|于洋|红色|于洋", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有蓝色苹果，蔡明有黑色苹果。\n问：周美的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "C|周美|蓝色|苹果|蔡明|黑色|周美", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：周美有蓝色苹果，蔡明有黑色苹果。\n改：把周美和蔡明的苹果颜色对调。\n问：周美的苹果现在是什么颜色？\n答：", "answer": "黑色", "key": "C|周美|蓝色|苹果|蔡明|黑色|周美", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：余波有黄色书包，徐磊有橙色书包。\n问：余波的书包是什么颜色？\n答：", "answer": "黄色", "key": "C|余波|黄色|书包|徐磊|橙色|余波", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：余波有黄色书包，徐磊有橙色书包。\n改：把余波和徐磊的书包颜色对调。\n问：余波的书包现在是什么颜色？\n答：", "answer": "橙色", "key": "C|余波|黄色|书包|徐磊|橙色|余波", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：王明有白色铅笔，孙华有红色铅笔。\n问：孙华的铅笔是什么颜色？\n答：", "answer": "红色", "key": "C|王明|白色|铅笔|孙华|红色|孙华", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：王明有白色铅笔，孙华有红色铅笔。\n改：把王明和孙华的铅笔颜色对调。\n问：孙华的铅笔现在是什么颜色？\n答：", "answer": "白色", "key": "C|王明|白色|铅笔|孙华|红色|孙华", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：黄敏有蓝色橘子，程亮有红色橘子。\n问：黄敏的橘子是什么颜色？\n答：", "answer": "蓝色", "key": "C|黄敏|蓝色|橘子|程亮|红色|黄敏", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：黄敏有蓝色橘子，程亮有红色橘子。\n改：把黄敏和程亮的橘子颜色对调。\n问：黄敏的橘子现在是什么颜色？\n答：", "answer": "红色", "key": "C|黄敏|蓝色|橘子|程亮|红色|黄敏", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：朱婷有蓝色杯子，叶青有紫色杯子。\n问：朱婷的杯子是什么颜色？\n答：", "answer": "蓝色", "key": "C|朱婷|蓝色|杯子|叶青|紫色|朱婷", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：朱婷有蓝色杯子，叶青有紫色杯子。\n改：把朱婷和叶青的杯子颜色对调。\n问：朱婷的杯子现在是什么颜色？\n答：", "answer": "紫色", "key": "C|朱婷|蓝色|杯子|叶青|紫色|朱婷", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：李红有黑色铅笔，田甜有白色铅笔。\n改：把李红和田甜的铅笔颜色对调。\n问：李红的铅笔现在是什么颜色？\n答：", "answer": "白色", "key": "C|李红|黑色|铅笔|田甜|白色|李红", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：李红有黑色铅笔，田甜有白色铅笔。\n问：李红的铅笔是什么颜色？\n答：", "answer": "黑色", "key": "C|李红|黑色|铅笔|田甜|白色|李红", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：刘杰有紫色香蕉，苏晴有黄色香蕉。\n问：刘杰的香蕉是什么颜色？\n答：", "answer": "紫色", "key": "C|刘杰|紫色|香蕉|苏晴|黄色|刘杰", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：刘杰有紫色香蕉，苏晴有黄色香蕉。\n改：把刘杰和苏晴的香蕉颜色对调。\n问：刘杰的香蕉现在是什么颜色？\n答：", "answer": "黄色", "key": "C|刘杰|紫色|香蕉|苏晴|黄色|刘杰", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：梁静有橙色铅笔，朱婷有黑色铅笔。\n改：把梁静和朱婷的铅笔颜色对调。\n问：朱婷的铅笔现在是什么颜色？\n答：", "answer": "橙色", "key": "C|梁静|橙色|铅笔|朱婷|黑色|朱婷", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：梁静有橙色铅笔，朱婷有黑色铅笔。\n问：朱婷的铅笔是什么颜色？\n答：", "answer": "黑色", "key": "C|梁静|橙色|铅笔|朱婷|黑色|朱婷", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：郑芳有橙色铅笔，萧然有黄色铅笔。\n改：把郑芳和萧然的铅笔颜色对调。\n问：郑芳的铅笔现在是什么颜色？\n答：", "answer": "黄色", "key": "C|郑芳|橙色|铅笔|萧然|黄色|郑芳", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：郑芳有橙色铅笔，萧然有黄色铅笔。\n问：郑芳的铅笔是什么颜色？\n答：", "answer": "橙色", "key": "C|郑芳|橙色|铅笔|萧然|黄色|郑芳", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：袁泉有白色杯子，谭凯有橙色杯子。\n改：把袁泉和谭凯的杯子颜色对调。\n问：袁泉的杯子现在是什么颜色？\n答：", "answer": "橙色", "key": "C|袁泉|白色|杯子|谭凯|橙色|袁泉", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：袁泉有白色杯子，谭凯有橙色杯子。\n问：袁泉的杯子是什么颜色？\n答：", "answer": "白色", "key": "C|袁泉|白色|杯子|谭凯|橙色|袁泉", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：郑芳有橙色书包，潘婷有红色书包。\n改：把郑芳和潘婷的书包颜色对调。\n问：郑芳的书包现在是什么颜色？\n答：", "answer": "红色", "key": "C|郑芳|橙色|书包|潘婷|红色|郑芳", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：郑芳有橙色书包，潘婷有红色书包。\n问：郑芳的书包是什么颜色？\n答：", "answer": "橙色", "key": "C|郑芳|橙色|书包|潘婷|红色|郑芳", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：姜涛有紫色皮球，黄敏有黄色皮球。\n改：把姜涛和黄敏的皮球颜色对调。\n问：姜涛的皮球现在是什么颜色？\n答：", "answer": "黄色", "key": "C|姜涛|紫色|皮球|黄敏|黄色|姜涛", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：姜涛有紫色皮球，黄敏有黄色皮球。\n问：姜涛的皮球是什么颜色？\n答：", "answer": "紫色", "key": "C|姜涛|紫色|皮球|黄敏|黄色|姜涛", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：谭凯有紫色橘子，周美有绿色橘子。\n问：周美的橘子是什么颜色？\n答：", "answer": "绿色", "key": "C|谭凯|紫色|橘子|周美|绿色|周美", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：谭凯有紫色橘子，周美有绿色橘子。\n改：把谭凯和周美的橘子颜色对调。\n问：周美的橘子现在是什么颜色？\n答：", "answer": "紫色", "key": "C|谭凯|紫色|橘子|周美|绿色|周美", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：何欣有绿色皮球，马琳有橙色皮球。\n改：把何欣和马琳的皮球颜色对调。\n问：马琳的皮球现在是什么颜色？\n答：", "answer": "绿色", "key": "C|何欣|绿色|皮球|马琳|橙色|马琳", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：何欣有绿色皮球，马琳有橙色皮球。\n问：马琳的皮球是什么颜色？\n答：", "answer": "橙色", "key": "C|何欣|绿色|皮球|马琳|橙色|马琳", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：彭丽有黄色皮球，杜江有绿色皮球。\n问：杜江的皮球是什么颜色？\n答：", "answer": "绿色", "key": "C|彭丽|黄色|皮球|杜江|绿色|杜江", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：彭丽有黄色皮球，杜江有绿色皮球。\n改：把彭丽和杜江的皮球颜色对调。\n问：杜江的皮球现在是什么颜色？\n答：", "answer": "黄色", "key": "C|彭丽|黄色|皮球|杜江|绿色|杜江", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：卢俊有紫色橘子，胡宇有蓝色橘子。\n改：把卢俊和胡宇的橘子颜色对调。\n问：卢俊的橘子现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|卢俊|紫色|橘子|胡宇|蓝色|卢俊", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：卢俊有紫色橘子，胡宇有蓝色橘子。\n问：卢俊的橘子是什么颜色？\n答：", "answer": "紫色", "key": "C|卢俊|紫色|橘子|胡宇|蓝色|卢俊", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：马琳有黄色书包，金石有红色书包。\n问：马琳的书包是什么颜色？\n答：", "answer": "黄色", "key": "C|马琳|黄色|书包|金石|红色|马琳", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：马琳有黄色书包，金石有红色书包。\n改：把马琳和金石的书包颜色对调。\n问：马琳的书包现在是什么颜色？\n答：", "answer": "红色", "key": "C|马琳|黄色|书包|金石|红色|马琳", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：邓超有黑色杯子，卢俊有黄色杯子。\n改：把邓超和卢俊的杯子颜色对调。\n问：邓超的杯子现在是什么颜色？\n答：", "answer": "黄色", "key": "C|邓超|黑色|杯子|卢俊|黄色|邓超", "meta": {"answer": "黄色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：邓超有黑色杯子，卢俊有黄色杯子。\n问：邓超的杯子是什么颜色？\n答：", "answer": "黑色", "key": "C|邓超|黑色|杯子|卢俊|黄色|邓超", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：李红有紫色杯子，汪峰有绿色杯子。\n改：把李红和汪峰的杯子颜色对调。\n问：李红的杯子现在是什么颜色？\n答：", "answer": "绿色", "key": "C|李红|紫色|杯子|汪峰|绿色|李红", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：李红有紫色杯子，汪峰有绿色杯子。\n问：李红的杯子是什么颜色？\n答：", "answer": "紫色", "key": "C|李红|紫色|杯子|汪峰|绿色|李红", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：崔健有黑色杯子，曾志有绿色杯子。\n问：曾志的杯子是什么颜色？\n答：", "answer": "绿色", "key": "C|崔健|黑色|杯子|曾志|绿色|曾志", "meta": {"answer": "绿色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：崔健有黑色杯子，曾志有绿色杯子。\n改：把崔健和曾志的杯子颜色对调。\n问：曾志的杯子现在是什么颜色？\n答：", "answer": "黑色", "key": "C|崔健|黑色|杯子|曾志|绿色|曾志", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：任杰有黄色橘子，于洋有白色橘子。\n改：把任杰和于洋的橘子颜色对调。\n问：任杰的橘子现在是什么颜色？\n答：", "answer": "白色", "key": "C|任杰|黄色|橘子|于洋|白色|任杰", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：任杰有黄色橘子，于洋有白色橘子。\n问：任杰的橘子是什么颜色？\n答：", "answer": "黄色", "key": "C|任杰|黄色|橘子|于洋|白色|任杰", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：戴军有紫色铅笔，金石有黄色铅笔。\n改：把戴军和金石的铅笔颜色对调。\n问：金石的铅笔现在是什么颜色？\n答：", "answer": "紫色", "key": "C|戴军|紫色|铅笔|金石|黄色|金石", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：戴军有紫色铅笔，金石有黄色铅笔。\n问：金石的铅笔是什么颜色？\n答：", "answer": "黄色", "key": "C|戴军|紫色|铅笔|金石|黄色|金石", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：唐勇有紫色皮球，潘婷有黑色皮球。\n问：潘婷的皮球是什么颜色？\n答：", "answer": "黑色", "key": "C|唐勇|紫色|皮球|潘婷|黑色|潘婷", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：唐勇有紫色皮球，潘婷有黑色皮球。\n改：把唐勇和潘婷的皮球颜色对调。\n问：潘婷的皮球现在是什么颜色？\n答：", "answer": "紫色", "key": "C|唐勇|紫色|皮球|潘婷|黑色|潘婷", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：胡宇有蓝色香蕉，姚明有黑色香蕉。\n问：姚明的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "C|胡宇|蓝色|香蕉|姚明|黑色|姚明", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：胡宇有蓝色香蕉，姚明有黑色香蕉。\n改：把胡宇和姚明的香蕉颜色对调。\n问：姚明的香蕉现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|胡宇|蓝色|香蕉|姚明|黑色|姚明", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：丁宁有绿色铅笔，于洋有黄色铅笔。\n改：把丁宁和于洋的铅笔颜色对调。\n问：于洋的铅笔现在是什么颜色？\n答：", "answer": "绿色", "key": "C|丁宁|绿色|铅笔|于洋|黄色|于洋", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：丁宁有绿色铅笔，于洋有黄色铅笔。\n问：于洋的铅笔是什么颜色？\n答：", "answer": "黄色", "key": "C|丁宁|绿色|铅笔|于洋|黄色|于洋", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：萧然有白色皮球，叶青有蓝色皮球。\n问：叶青的皮球是什么颜色？\n答：", "answer": "蓝色", "key": "C|萧然|白色|皮球|叶青|蓝色|叶青", "meta": {"answer": "蓝色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：萧然有白色皮球，叶青有蓝色皮球。\n改：把萧然和叶青的皮球颜色对调。\n问：叶青的皮球现在是什么颜色？\n答：", "answer": "白色", "key": "C|萧然|白色|皮球|叶青|蓝色|叶青", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：高睿有红色书包，郑芳有橙色书包。\n问：郑芳的书包是什么颜色？\n答：", "answer": "橙色", "key": "C|高睿|红色|书包|郑芳|橙色|郑芳", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：高睿有红色书包，郑芳有橙色书包。\n改：把高睿和郑芳的书包颜色对调。\n问：郑芳的书包现在是什么颜色？\n答：", "answer": "红色", "key": "C|高睿|红色|书包|郑芳|橙色|郑芳", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：朱婷有绿色苹果，黄敏有黄色苹果。\n问：黄敏的苹果是什么颜色？\n答：", "answer": "黄色", "key": "C|朱婷|绿色|苹果|黄敏|黄色|黄敏", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：朱婷有绿色苹果，黄敏有黄色苹果。\n改：把朱婷和黄敏的苹果颜色对调。\n问：黄敏的苹果现在是什么颜色？\n答：", "answer": "绿色", "key": "C|朱婷|绿色|苹果|黄敏|黄色|黄敏", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：田甜有蓝色香蕉，崔健有紫色香蕉。\n问：崔健的香蕉是什么颜色？\n答：", "answer": "紫色", "key": "C|田甜|蓝色|香蕉|崔健|紫色|崔健", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：田甜有蓝色香蕉，崔健有紫色香蕉。\n改：把田甜和崔健的香蕉颜色对调。\n问：崔健的香蕉现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|田甜|蓝色|香蕉|崔健|紫色|崔健", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有黑色橘子，贾玲有红色橘子。\n改：把周美和贾玲的橘子颜色对调。\n问：贾玲的橘子现在是什么颜色？\n答：", "answer": "黑色", "key": "C|周美|黑色|橘子|贾玲|红色|贾玲", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：周美有黑色橘子，贾玲有红色橘子。\n问：贾玲的橘子是什么颜色？\n答：", "answer": "红色", "key": "C|周美|黑色|橘子|贾玲|红色|贾玲", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：林彤有黑色本子，潘婷有蓝色本子。\n问：林彤的本子是什么颜色？\n答：", "answer": "黑色", "key": "C|林彤|黑色|本子|潘婷|蓝色|林彤", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：林彤有黑色本子，潘婷有蓝色本子。\n改：把林彤和潘婷的本子颜色对调。\n问：林彤的本子现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|林彤|黑色|本子|潘婷|蓝色|林彤", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：蒋雯有蓝色铅笔，于洋有黄色铅笔。\n改：把蒋雯和于洋的铅笔颜色对调。\n问：于洋的铅笔现在是什么颜色？\n答：", "answer": "蓝色", "key": "C|蒋雯|蓝色|铅笔|于洋|黄色|于洋", "meta": {"answer": "蓝色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：蒋雯有蓝色铅笔，于洋有黄色铅笔。\n问：于洋的铅笔是什么颜色？\n答：", "answer": "黄色", "key": "C|蒋雯|蓝色|铅笔|于洋|黄色|于洋", "meta": {"answer": "黄色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：范冰有紫色苹果，余波有黑色苹果。\n问：范冰的苹果是什么颜色？\n答：", "answer": "紫色", "key": "C|范冰|紫色|苹果|余波|黑色|范冰", "meta": {"answer": "紫色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：范冰有紫色苹果，余波有黑色苹果。\n改：把范冰和余波的苹果颜色对调。\n问：范冰的苹果现在是什么颜色？\n答：", "answer": "黑色", "key": "C|范冰|紫色|苹果|余波|黑色|范冰", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：钟磊有红色铅笔，戴军有白色铅笔。\n问：戴军的铅笔是什么颜色？\n答：", "answer": "白色", "key": "C|钟磊|红色|铅笔|戴军|白色|戴军", "meta": {"answer": "白色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：钟磊有红色铅笔，戴军有白色铅笔。\n改：把钟磊和戴军的铅笔颜色对调。\n问：戴军的铅笔现在是什么颜色？\n答：", "answer": "红色", "key": "C|钟磊|红色|铅笔|戴军|白色|戴军", "meta": {"answer": "红色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：钟磊有黑色橘子，吕布有绿色橘子。\n问：钟磊的橘子是什么颜色？\n答：", "answer": "黑色", "key": "C|钟磊|黑色|橘子|吕布|绿色|钟磊", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：钟磊有黑色橘子，吕布有绿色橘子。\n改：把钟磊和吕布的橘子颜色对调。\n问：钟磊的橘子现在是什么颜色？\n答：", "answer": "绿色", "key": "C|钟磊|黑色|橘子|吕布|绿色|钟磊", "meta": {"answer": "绿色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：何欣有黑色橘子，程亮有白色橘子。\n改：把何欣和程亮的橘子颜色对调。\n问：何欣的橘子现在是什么颜色？\n答：", "answer": "白色", "key": "C|何欣|黑色|橘子|程亮|白色|何欣", "meta": {"answer": "白色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：何欣有黑色橘子，程亮有白色橘子。\n问：何欣的橘子是什么颜色？\n答：", "answer": "黑色", "key": "C|何欣|黑色|橘子|程亮|白色|何欣", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：丁宁有黑色香蕉，范冰有红色香蕉。\n改：把丁宁和范冰的香蕉颜色对调。\n问：范冰的香蕉现在是什么颜色？\n答：", "answer": "黑色", "key": "C|丁宁|黑色|香蕉|范冰|红色|范冰", "meta": {"answer": "黑色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：丁宁有黑色香蕉，范冰有红色香蕉。\n问：范冰的香蕉是什么颜色？\n答：", "answer": "红色", "key": "C|丁宁|黑色|香蕉|范冰|红色|范冰", "meta": {"answer": "红色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：于洋有黑色皮球，郭浩有橙色皮球。\n改：把于洋和郭浩的皮球颜色对调。\n问：于洋的皮球现在是什么颜色？\n答：", "answer": "橙色", "key": "C|于洋|黑色|皮球|郭浩|橙色|于洋", "meta": {"answer": "橙色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：于洋有黑色皮球，郭浩有橙色皮球。\n问：于洋的皮球是什么颜色？\n答：", "answer": "黑色", "key": "C|于洋|黑色|皮球|郭浩|橙色|于洋", "meta": {"answer": "黑色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：袁泉有紫色书包，曾志有橙色书包。\n改：把袁泉和曾志的书包颜色对调。\n问：曾志的书包现在是什么颜色？\n答：", "answer": "紫色", "key": "C|袁泉|紫色|书包|曾志|橙色|曾志", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：袁泉有紫色书包，曾志有橙色书包。\n问：曾志的书包是什么颜色？\n答：", "answer": "橙色", "key": "C|袁泉|紫色|书包|曾志|橙色|曾志", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "C_counter", "prompt": "原：朱婷有橙色皮球，沈冰有紫色皮球。\n改：把朱婷和沈冰的皮球颜色对调。\n问：朱婷的皮球现在是什么颜色？\n答：", "answer": "紫色", "key": "C|朱婷|橙色|皮球|沈冰|紫色|朱婷", "meta": {"answer": "紫色", "pair_role": "swap"}}
+{"task": "C_counter", "prompt": "原：朱婷有橙色皮球，沈冰有紫色皮球。\n问：朱婷的皮球是什么颜色？\n答：", "answer": "橙色", "key": "C|朱婷|橙色|皮球|沈冰|紫色|朱婷", "meta": {"answer": "橙色", "pair_role": "orig"}}
+{"task": "D_position", "prompt": "朱婷把杯子放在柜子，于洋把香蕉放在椅子。\n问：椅子上的香蕉是谁的？\n答：", "answer": "于洋", "key": "D|朱婷|杯子|柜子|于洋|香蕉|椅子|who", "meta": {"answer": "于洋"}}
+{"task": "B_bind", "prompt": "已知：姚明有红色橘子，田甜有绿色橘子。\n问：田甜手里的橘子什么颜色？\n答：", "answer": "绿色", "key": "B|田甜|绿色|橘子|姚明|红色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "余波把本子放在床边，何欣把杯子放在桌上。\n问：余波放在床边的是什么？\n答：", "answer": "本子", "key": "D|余波|本子|床边|何欣|杯子|桌上|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "高睿把杯子放在柜子，蔡明把橘子放在椅子。\n问：谁把橘子放在椅子？\n答：", "answer": "蔡明", "key": "D|高睿|杯子|柜子|蔡明|橘子|椅子|who", "meta": {"answer": "蔡明"}}
+{"task": "B_bind", "prompt": "已知：曾志有蓝色铅笔，吕布有红色铅笔。\n问：吕布手里的铅笔什么颜色？\n答：", "answer": "红色", "key": "B|吕布|红色|铅笔|曾志|蓝色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "丁宁把书包放在椅子，曾志把苹果放在床边。\n问：床边上的苹果是谁的？\n答：", "answer": "曾志", "key": "D|丁宁|书包|椅子|曾志|苹果|床边|who", "meta": {"answer": "曾志"}}
+{"task": "D_position", "prompt": "蔡明把铅笔放在椅子，韩雪把书包放在床边。\n问：床边上的书包是谁的？\n答：", "answer": "韩雪", "key": "D|蔡明|铅笔|椅子|韩雪|书包|床边|who", "meta": {"answer": "韩雪"}}
+{"task": "B_bind", "prompt": "已知：吴军有黄色书包，姚明有白色书包。\n问：姚明手里的书包什么颜色？\n答：", "answer": "白色", "key": "B|姚明|白色|书包|吴军|黄色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "许薇把本子放在柜子，于洋把橘子放在椅子。\n问：许薇把什么放在柜子？\n答：", "answer": "本子", "key": "D|许薇|本子|柜子|于洋|橘子|椅子|what", "meta": {"answer": "本子"}}
+{"task": "B_bind", "prompt": "已知：韩雪有红色本子，王明有紫色本子。\n问：王明手里的本子什么颜色？\n答：", "answer": "紫色", "key": "B|韩雪|红色|本子|王明|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：曹阳有黑色杯子；林彤有橙色杯子。\n问：曹阳的杯子是什么颜色？\n答：", "answer": "黑色", "key": "B|林彤|橙色|杯子|曹阳|黑色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：谭凯有绿色本子；唐勇有蓝色本子。\n问：谭凯手里的本子什么颜色？\n答：", "answer": "绿色", "key": "B|谭凯|绿色|本子|唐勇|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：董浩有红色杯子，赵强有蓝色杯子。\n问：董浩手里的杯子什么颜色？\n答：", "answer": "红色", "key": "B|董浩|红色|杯子|赵强|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：程亮有橙色香蕉，彭丽有黑色香蕉。\n问：程亮的香蕉是什么颜色？\n答：", "answer": "橙色", "key": "B|彭丽|黑色|香蕉|程亮|橙色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "马琳把香蕉放在柜子，戴军把橘子放在椅子。\n问：马琳放在柜子的是什么？\n答：", "answer": "香蕉", "key": "D|马琳|香蕉|柜子|戴军|橘子|椅子|what", "meta": {"answer": "香蕉"}}
+{"task": "B_bind", "prompt": "已知：周美有黄色橘子，于洋有绿色橘子。\n问：周美手里的橘子什么颜色？\n答：", "answer": "黄色", "key": "B|周美|黄色|橘子|于洋|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：程亮有黄色皮球，张刚有蓝色皮球。\n问：张刚手里的皮球什么颜色？\n答：", "answer": "蓝色", "key": "B|张刚|蓝色|皮球|程亮|黄色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "D_position", "prompt": "林彤把皮球放在椅子，孙华把橘子放在床边。\n问：谁把橘子放在床边？\n答：", "answer": "孙华", "key": "D|林彤|皮球|椅子|孙华|橘子|床边|who", "meta": {"answer": "孙华"}}
+{"task": "B_bind", "prompt": "已知：宋佳有白色香蕉，范冰有蓝色香蕉。\n问：范冰手里的香蕉什么颜色？\n答：", "answer": "蓝色", "key": "B|范冰|蓝色|香蕉|宋佳|白色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：董浩有橙色橘子；胡宇有蓝色橘子。\n问：胡宇手里的橘子什么颜色？\n答：", "answer": "蓝色", "key": "B|董浩|橙色|橘子|胡宇|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：卢俊有紫色铅笔；姜涛有红色铅笔。\n问：姜涛的铅笔是什么颜色？\n答：", "answer": "红色", "key": "B|卢俊|紫色|铅笔|姜涛|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：董浩有红色苹果；卢俊有蓝色苹果。\n问：卢俊的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "B|董浩|红色|苹果|卢俊|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：董浩有紫色皮球，韩雪有黑色皮球。\n问：董浩手里的皮球什么颜色？\n答：", "answer": "紫色", "key": "B|董浩|紫色|皮球|韩雪|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：杜江有蓝色本子；余波有白色本子。\n问：余波手里的本子什么颜色？\n答：", "answer": "白色", "key": "B|余波|白色|本子|杜江|蓝色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：苏晴有绿色苹果，许薇有紫色苹果。\n问：苏晴手里的苹果什么颜色？\n答：", "answer": "绿色", "key": "B|许薇|紫色|苹果|苏晴|绿色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：董浩有蓝色香蕉；金石有紫色香蕉。\n问：金石的香蕉是什么颜色？\n答：", "answer": "紫色", "key": "B|金石|紫色|香蕉|董浩|蓝色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：胡宇有红色铅笔；马琳有白色铅笔。\n问：胡宇手里的铅笔什么颜色？\n答：", "answer": "红色", "key": "B|马琳|白色|铅笔|胡宇|红色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有黄色橘子；丁宁有红色橘子。\n问：黄敏手里的橘子什么颜色？\n答：", "answer": "黄色", "key": "B|丁宁|红色|橘子|黄敏|黄色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：袁泉有绿色橘子；萧然有黄色橘子。\n问：袁泉手里的橘子什么颜色？\n答：", "answer": "绿色", "key": "B|萧然|黄色|橘子|袁泉|绿色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：陈丽有橙色香蕉；张刚有紫色香蕉。\n问：张刚手里的香蕉什么颜色？\n答：", "answer": "紫色", "key": "B|陈丽|橙色|香蕉|张刚|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：请问我是谁？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 5}}
+{"task": "D_position", "prompt": "唐勇把铅笔放在桌上，姜涛把皮球放在椅子。\n问：椅子上的皮球是谁的？\n答：", "answer": "姜涛", "key": "D|唐勇|铅笔|桌上|姜涛|皮球|椅子|who", "meta": {"answer": "姜涛"}}
+{"task": "D_position", "prompt": "萧然把香蕉放在桌上，丁宁把杯子放在床边。\n问：谁把杯子放在床边？\n答：", "answer": "丁宁", "key": "D|萧然|香蕉|桌上|丁宁|杯子|床边|who", "meta": {"answer": "丁宁"}}
+{"task": "E_context", "prompt": "用户：记住我叫陆瑶\n助手：好的，陆瑶\n用户：我是谁？\n助手：", "answer": "陆瑶", "key": "E|陆瑶|style6", "meta": {"answer": "陆瑶", "ask_idx": 2}}
+{"task": "B_bind", "prompt": "已知：韩雪有紫色皮球；萧然有绿色皮球。\n问：韩雪手里的皮球什么颜色？\n答：", "answer": "紫色", "key": "B|韩雪|紫色|皮球|萧然|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "苏晴把杯子放在桌上，钟磊把皮球放在椅子。\n问：椅子上的皮球是谁的？\n答：", "answer": "钟磊", "key": "D|苏晴|杯子|桌上|钟磊|皮球|椅子|who", "meta": {"answer": "钟磊"}}
+{"task": "B_bind", "prompt": "已知：黄敏有黑色橘子，于洋有红色橘子。\n问：于洋的橘子是什么颜色？\n答：", "answer": "红色", "key": "B|黄敏|黑色|橘子|于洋|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：程亮有红色书包，郑芳有白色书包。\n问：程亮的书包是什么颜色？\n答：", "answer": "红色", "key": "B|郑芳|白色|书包|程亮|红色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：孙华有黑色杯子；邓超有蓝色杯子。\n问：孙华手里的杯子什么颜色？\n答：", "answer": "黑色", "key": "B|邓超|蓝色|杯子|孙华|黑色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：徐磊有黄色皮球；韩雪有蓝色皮球。\n问：韩雪手里的皮球什么颜色？\n答：", "answer": "蓝色", "key": "B|韩雪|蓝色|皮球|徐磊|黄色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：宋佳有橙色皮球，马琳有白色皮球。\n问：宋佳的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|宋佳|橙色|皮球|马琳|白色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：金石有橙色铅笔；朱婷有黄色铅笔。\n问：朱婷手里的铅笔什么颜色？\n答：", "answer": "黄色", "key": "B|金石|橙色|铅笔|朱婷|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：贾玲有绿色本子，蒋雯有橙色本子。\n问：贾玲手里的本子什么颜色？\n答：", "answer": "绿色", "key": "B|贾玲|绿色|本子|蒋雯|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：郑芳有白色香蕉；叶青有绿色香蕉。\n问：叶青的香蕉是什么颜色？\n答：", "answer": "绿色", "key": "B|叶青|绿色|香蕉|郑芳|白色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "E_context", "prompt": "用户：我是新来的沈冰\n助手：欢迎沈冰\n用户：还记得我叫什么吗？\n助手：", "answer": "沈冰", "key": "E|沈冰|style5", "meta": {"answer": "沈冰", "ask_idx": 7}}
+{"task": "B_bind", "prompt": "已知：曾志有紫色书包，范冰有黑色书包。\n问：曾志手里的书包什么颜色？\n答：", "answer": "紫色", "key": "B|曾志|紫色|书包|范冰|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "马琳把苹果放在床边，邓超把本子放在桌上。\n问：马琳放在床边的是什么？\n答：", "answer": "苹果", "key": "D|马琳|苹果|床边|邓超|本子|桌上|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：吴军有橙色皮球；钟磊有红色皮球。\n问：吴军手里的皮球什么颜色？\n答：", "answer": "橙色", "key": "B|吴军|橙色|皮球|钟磊|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：魏然有紫色苹果；冯刚有黄色苹果。\n问：冯刚手里的苹果什么颜色？\n答：", "answer": "黄色", "key": "B|魏然|紫色|苹果|冯刚|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：曹阳有蓝色书包；郑芳有红色书包。\n问：郑芳的书包是什么颜色？\n答：", "answer": "红色", "key": "B|曹阳|蓝色|书包|郑芳|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：程亮有红色书包；钟磊有橙色书包。\n问：钟磊手里的书包什么颜色？\n答：", "answer": "橙色", "key": "B|程亮|红色|书包|钟磊|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：周美有蓝色皮球，罗凯有白色皮球。\n问：罗凯手里的皮球什么颜色？\n答：", "answer": "白色", "key": "B|周美|蓝色|皮球|罗凯|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：钟磊有白色橘子；吴军有黄色橘子。\n问：吴军手里的橘子什么颜色？\n答：", "answer": "黄色", "key": "B|吴军|黄色|橘子|钟磊|白色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：钟磊有蓝色杯子，黄敏有红色杯子。\n问：黄敏的杯子是什么颜色？\n答：", "answer": "红色", "key": "B|钟磊|蓝色|杯子|黄敏|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：杜江有红色橘子；梁静有紫色橘子。\n问：杜江手里的橘子什么颜色？\n答：", "answer": "红色", "key": "B|杜江|红色|橘子|梁静|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：郭浩有紫色铅笔；梁静有黄色铅笔。\n问：梁静的铅笔是什么颜色？\n答：", "answer": "黄色", "key": "B|郭浩|紫色|铅笔|梁静|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "谭凯把杯子放在椅子，曾志把橘子放在桌上。\n问：谭凯放在椅子的是什么？\n答：", "answer": "杯子", "key": "D|谭凯|杯子|椅子|曾志|橘子|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "叶青把橘子放在柜子，贾玲把杯子放在桌上。\n问：叶青放在柜子的是什么？\n答：", "answer": "橘子", "key": "D|叶青|橘子|柜子|贾玲|杯子|桌上|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：李红有白色苹果；陈丽有黄色苹果。\n问：陈丽手里的苹果什么颜色？\n答：", "answer": "黄色", "key": "B|李红|白色|苹果|陈丽|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "E_context", "prompt": "用户：我叫蒋雯\n助手：你好，蒋雯\n用户：我是谁？\n助手：", "answer": "蒋雯", "key": "E|蒋雯|style0", "meta": {"answer": "蒋雯", "ask_idx": 2}}
+{"task": "D_position", "prompt": "赵强把橘子放在柜子，吕布把香蕉放在椅子。\n问：赵强放在柜子的是什么？\n答：", "answer": "橘子", "key": "D|赵强|橘子|柜子|吕布|香蕉|椅子|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：萧然有紫色橘子，蔡明有白色橘子。\n问：萧然的橘子是什么颜色？\n答：", "answer": "紫色", "key": "B|蔡明|白色|橘子|萧然|紫色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：何欣有蓝色本子，马琳有黄色本子。\n问：何欣的本子是什么颜色？\n答：", "answer": "蓝色", "key": "B|何欣|蓝色|本子|马琳|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：何欣有橙色书包，周美有蓝色书包。\n问：周美手里的书包什么颜色？\n答：", "answer": "蓝色", "key": "B|何欣|橙色|书包|周美|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有紫色皮球；范冰有白色皮球。\n问：范冰的皮球是什么颜色？\n答：", "answer": "白色", "key": "B|范冰|白色|皮球|韩雪|紫色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：叶青有红色香蕉，梁静有蓝色香蕉。\n问：梁静的香蕉是什么颜色？\n答：", "answer": "蓝色", "key": "B|叶青|红色|香蕉|梁静|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：邓超有黑色书包，陈丽有红色书包。\n问：邓超的书包是什么颜色？\n答：", "answer": "黑色", "key": "B|陈丽|红色|书包|邓超|黑色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：程亮有紫色苹果，杜江有黄色苹果。\n问：杜江的苹果是什么颜色？\n答：", "answer": "黄色", "key": "B|程亮|紫色|苹果|杜江|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：姜涛有绿色香蕉，张刚有黄色香蕉。\n问：张刚手里的香蕉什么颜色？\n答：", "answer": "黄色", "key": "B|张刚|黄色|香蕉|姜涛|绿色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：梁静有黄色杯子；范冰有绿色杯子。\n问：梁静手里的杯子什么颜色？\n答：", "answer": "黄色", "key": "B|梁静|黄色|杯子|范冰|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：罗凯有白色铅笔；谭凯有红色铅笔。\n问：罗凯手里的铅笔什么颜色？\n答：", "answer": "白色", "key": "B|谭凯|红色|铅笔|罗凯|白色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有黑色铅笔；程亮有橙色铅笔。\n问：黄敏的铅笔是什么颜色？\n答：", "answer": "黑色", "key": "B|黄敏|黑色|铅笔|程亮|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：杜江有黑色书包，曾志有蓝色书包。\n问：曾志的书包是什么颜色？\n答：", "answer": "蓝色", "key": "B|杜江|黑色|书包|曾志|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：吴军有黄色书包；郑芳有紫色书包。\n问：吴军手里的书包什么颜色？\n答：", "answer": "黄色", "key": "B|吴军|黄色|书包|郑芳|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：邓超有橙色苹果，杜江有白色苹果。\n问：杜江手里的苹果什么颜色？\n答：", "answer": "白色", "key": "B|杜江|白色|苹果|邓超|橙色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有红色香蕉；杜江有蓝色香蕉。\n问：黄敏手里的香蕉什么颜色？\n答：", "answer": "红色", "key": "B|杜江|蓝色|香蕉|黄敏|红色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：刘杰有黑色橘子，袁泉有黄色橘子。\n问：刘杰手里的橘子什么颜色？\n答：", "answer": "黑色", "key": "B|袁泉|黄色|橘子|刘杰|黑色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有黑色苹果；郑芳有红色苹果。\n问：郑芳手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|郑芳|红色|苹果|韩雪|黑色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "彭丽把本子放在桌上，邓超把书包放在床边。\n问：彭丽放在桌上的是什么？\n答：", "answer": "本子", "key": "D|彭丽|本子|桌上|邓超|书包|床边|what", "meta": {"answer": "本子"}}
+{"task": "E_context", "prompt": "用户：我是新来的林彤\n助手：欢迎林彤\n用户：我叫什么？\n助手：", "answer": "林彤", "key": "E|林彤|style5", "meta": {"answer": "林彤", "ask_idx": 0}}
+{"task": "B_bind", "prompt": "已知：许薇有绿色书包，蔡明有黑色书包。\n问：许薇手里的书包什么颜色？\n答：", "answer": "绿色", "key": "B|蔡明|黑色|书包|许薇|绿色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：董浩有绿色苹果，黄敏有蓝色苹果。\n问：董浩手里的苹果什么颜色？\n答：", "answer": "绿色", "key": "B|董浩|绿色|苹果|黄敏|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：冯刚有蓝色铅笔，高睿有紫色铅笔。\n问：高睿的铅笔是什么颜色？\n答：", "answer": "紫色", "key": "B|冯刚|蓝色|铅笔|高睿|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：潘婷有黑色苹果；马琳有红色苹果。\n问：潘婷手里的苹果什么颜色？\n答：", "answer": "黑色", "key": "B|马琳|红色|苹果|潘婷|黑色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "高睿把香蕉放在桌上，彭丽把苹果放在柜子。\n问：谁把苹果放在柜子？\n答：", "answer": "彭丽", "key": "D|高睿|香蕉|桌上|彭丽|苹果|柜子|who", "meta": {"answer": "彭丽"}}
+{"task": "B_bind", "prompt": "已知：贾玲有紫色橘子，姜涛有橙色橘子。\n问：贾玲的橘子是什么颜色？\n答：", "answer": "紫色", "key": "B|贾玲|紫色|橘子|姜涛|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：董浩有紫色书包；魏然有橙色书包。\n问：董浩手里的书包什么颜色？\n答：", "answer": "紫色", "key": "B|魏然|橙色|书包|董浩|紫色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：曹阳有黑色苹果，吴军有红色苹果。\n问：吴军手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|吴军|红色|苹果|曹阳|黑色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "胡宇把杯子放在桌上，朱婷把本子放在柜子。\n问：胡宇把什么放在桌上？\n答：", "answer": "杯子", "key": "D|胡宇|杯子|桌上|朱婷|本子|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "B_bind", "prompt": "已知：汪峰有黑色本子；宋佳有蓝色本子。\n问：汪峰的本子是什么颜色？\n答：", "answer": "黑色", "key": "B|汪峰|黑色|本子|宋佳|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：于洋有紫色书包，曾志有绿色书包。\n问：于洋手里的书包什么颜色？\n答：", "answer": "紫色", "key": "B|于洋|紫色|书包|曾志|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "田甜把苹果放在椅子，郭浩把杯子放在床边。\n问：床边上的杯子是谁的？\n答：", "answer": "郭浩", "key": "D|田甜|苹果|椅子|郭浩|杯子|床边|who", "meta": {"answer": "郭浩"}}
+{"task": "D_position", "prompt": "黄敏把香蕉放在椅子，任杰把铅笔放在桌上。\n问：谁把铅笔放在桌上？\n答：", "answer": "任杰", "key": "D|黄敏|香蕉|椅子|任杰|铅笔|桌上|who", "meta": {"answer": "任杰"}}
+{"task": "D_position", "prompt": "吴军把香蕉放在桌上，彭丽把铅笔放在椅子。\n问：谁把铅笔放在椅子？\n答：", "answer": "彭丽", "key": "D|吴军|香蕉|桌上|彭丽|铅笔|椅子|who", "meta": {"answer": "彭丽"}}
+{"task": "D_position", "prompt": "孙华把书包放在椅子，程亮把杯子放在床边。\n问：床边上的杯子是谁的？\n答：", "answer": "程亮", "key": "D|孙华|书包|椅子|程亮|杯子|床边|who", "meta": {"answer": "程亮"}}
+{"task": "D_position", "prompt": "张刚把橘子放在床边，曹阳把杯子放在椅子。\n问：张刚把什么放在床边？\n答：", "answer": "橘子", "key": "D|张刚|橘子|床边|曹阳|杯子|椅子|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：曹阳有白色苹果，姜涛有黑色苹果。\n问：姜涛手里的苹果什么颜色？\n答：", "answer": "黑色", "key": "B|姜涛|黑色|苹果|曹阳|白色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：唐勇有蓝色书包，范冰有绿色书包。\n问：唐勇手里的书包什么颜色？\n答：", "answer": "蓝色", "key": "B|唐勇|蓝色|书包|范冰|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "蓝色"}}
+{"task": "D_position", "prompt": "胡宇把杯子放在床边，周美把香蕉放在椅子。\n问：谁把香蕉放在椅子？\n答：", "answer": "周美", "key": "D|胡宇|杯子|床边|周美|香蕉|椅子|who", "meta": {"answer": "周美"}}
+{"task": "B_bind", "prompt": "已知：孙华有蓝色橘子；崔健有黄色橘子。\n问：崔健手里的橘子什么颜色？\n答：", "answer": "黄色", "key": "B|孙华|蓝色|橘子|崔健|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：蔡明有红色本子；任杰有蓝色本子。\n问：蔡明手里的本子什么颜色？\n答：", "answer": "红色", "key": "B|蔡明|红色|本子|任杰|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "红色"}}
+{"task": "D_position", "prompt": "杜江把杯子放在椅子，汪峰把皮球放在床边。\n问：杜江放在椅子的是什么？\n答：", "answer": "杯子", "key": "D|杜江|杯子|椅子|汪峰|皮球|床边|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "姜涛把橘子放在柜子，唐勇把本子放在椅子。\n问：谁把本子放在椅子？\n答：", "answer": "唐勇", "key": "D|姜涛|橘子|柜子|唐勇|本子|椅子|who", "meta": {"answer": "唐勇"}}
+{"task": "D_position", "prompt": "汪峰把苹果放在桌上，曹阳把铅笔放在椅子。\n问：谁把铅笔放在椅子？\n答：", "answer": "曹阳", "key": "D|汪峰|苹果|桌上|曹阳|铅笔|椅子|who", "meta": {"answer": "曹阳"}}
+{"task": "D_position", "prompt": "李红把书包放在柜子，高睿把橘子放在桌上。\n问：李红把什么放在柜子？\n答：", "answer": "书包", "key": "D|李红|书包|柜子|高睿|橘子|桌上|what", "meta": {"answer": "书包"}}
+{"task": "B_bind", "prompt": "已知：杜江有紫色书包，崔健有蓝色书包。\n问：崔健手里的书包什么颜色？\n答：", "answer": "蓝色", "key": "B|崔健|蓝色|书包|杜江|紫色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：苏晴有绿色书包，高睿有白色书包。\n问：苏晴的书包是什么颜色？\n答：", "answer": "绿色", "key": "B|高睿|白色|书包|苏晴|绿色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：潘婷有蓝色铅笔，马琳有红色铅笔。\n问：潘婷手里的铅笔什么颜色？\n答：", "answer": "蓝色", "key": "B|马琳|红色|铅笔|潘婷|蓝色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有红色铅笔；苏晴有黑色铅笔。\n问：韩雪手里的铅笔什么颜色？\n答：", "answer": "红色", "key": "B|韩雪|红色|铅笔|苏晴|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "红色"}}
+{"task": "D_position", "prompt": "孙华把苹果放在床边，董浩把橘子放在柜子。\n问：孙华放在床边的是什么？\n答：", "answer": "苹果", "key": "D|孙华|苹果|床边|董浩|橘子|柜子|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：曹阳有橙色铅笔；杜江有黄色铅笔。\n问：杜江手里的铅笔什么颜色？\n答：", "answer": "黄色", "key": "B|杜江|黄色|铅笔|曹阳|橙色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：李红有蓝色香蕉，高睿有黑色香蕉。\n问：高睿的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "B|李红|蓝色|香蕉|高睿|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "E_context", "prompt": "用户：我叫姚明，请多关照\n助手：幸会，姚明\n用户：我的名字是什么？\n助手：", "answer": "姚明", "key": "E|姚明|style7", "meta": {"answer": "姚明", "ask_idx": 1}}
+{"task": "B_bind", "prompt": "已知：罗凯有蓝色皮球，钟磊有紫色皮球。\n问：钟磊手里的皮球什么颜色？\n答：", "answer": "紫色", "key": "B|钟磊|紫色|皮球|罗凯|蓝色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：于洋有黄色皮球，丁宁有红色皮球。\n问：丁宁的皮球是什么颜色？\n答：", "answer": "红色", "key": "B|于洋|黄色|皮球|丁宁|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：钟磊有橙色书包，何欣有紫色书包。\n问：何欣的书包是什么颜色？\n答：", "answer": "紫色", "key": "B|钟磊|橙色|书包|何欣|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：萧然有橙色本子；卢俊有蓝色本子。\n问：萧然手里的本子什么颜色？\n答：", "answer": "橙色", "key": "B|卢俊|蓝色|本子|萧然|橙色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：邓超有蓝色书包，周美有黄色书包。\n问：邓超的书包是什么颜色？\n答：", "answer": "蓝色", "key": "B|邓超|蓝色|书包|周美|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：蔡明有黑色苹果，田甜有橙色苹果。\n问：田甜的苹果是什么颜色？\n答：", "answer": "橙色", "key": "B|蔡明|黑色|苹果|田甜|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "E_context", "prompt": "用户：我是吴军\n助手：你好吴军\n用户：请问我是谁？\n助手：", "answer": "吴军", "key": "E|吴军|style1", "meta": {"answer": "吴军", "ask_idx": 5}}
+{"task": "B_bind", "prompt": "已知：郑芳有绿色橘子；林彤有白色橘子。\n问：郑芳的橘子是什么颜色？\n答：", "answer": "绿色", "key": "B|林彤|白色|橘子|郑芳|绿色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "黄敏把皮球放在柜子，陈丽把本子放在床边。\n问：黄敏把什么放在柜子？\n答：", "answer": "皮球", "key": "D|黄敏|皮球|柜子|陈丽|本子|床边|what", "meta": {"answer": "皮球"}}
+{"task": "B_bind", "prompt": "已知：郭浩有黄色皮球，冯刚有紫色皮球。\n问：郭浩的皮球是什么颜色？\n答：", "answer": "黄色", "key": "B|郭浩|黄色|皮球|冯刚|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：谭凯有橙色铅笔，高睿有绿色铅笔。\n问：谭凯的铅笔是什么颜色？\n答：", "answer": "橙色", "key": "B|高睿|绿色|铅笔|谭凯|橙色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "汪峰把香蕉放在床边，胡宇把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "胡宇", "key": "D|汪峰|香蕉|床边|胡宇|杯子|桌上|who", "meta": {"answer": "胡宇"}}
+{"task": "D_position", "prompt": "吕布把苹果放在椅子，苏晴把本子放在桌上。\n问：桌上上的本子是谁的？\n答：", "answer": "苏晴", "key": "D|吕布|苹果|椅子|苏晴|本子|桌上|who", "meta": {"answer": "苏晴"}}
+{"task": "D_position", "prompt": "董浩把杯子放在椅子，朱婷把橘子放在桌上。\n问：桌上上的橘子是谁的？\n答：", "answer": "朱婷", "key": "D|董浩|杯子|椅子|朱婷|橘子|桌上|who", "meta": {"answer": "朱婷"}}
+{"task": "D_position", "prompt": "宋佳把香蕉放在床边，程亮把铅笔放在椅子。\n问：宋佳把什么放在床边？\n答：", "answer": "香蕉", "key": "D|宋佳|香蕉|床边|程亮|铅笔|椅子|what", "meta": {"answer": "香蕉"}}
+{"task": "B_bind", "prompt": "已知：崔健有紫色铅笔，韩雪有黑色铅笔。\n问：韩雪的铅笔是什么颜色？\n答：", "answer": "黑色", "key": "B|韩雪|黑色|铅笔|崔健|紫色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "范冰把铅笔放在椅子，许薇把橘子放在柜子。\n问：范冰把什么放在椅子？\n答：", "answer": "铅笔", "key": "D|范冰|铅笔|椅子|许薇|橘子|柜子|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：马琳有黑色苹果，吴军有黄色苹果。\n问：马琳的苹果是什么颜色？\n答：", "answer": "黑色", "key": "B|马琳|黑色|苹果|吴军|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：郑芳有黄色杯子，于洋有绿色杯子。\n问：郑芳的杯子是什么颜色？\n答：", "answer": "黄色", "key": "B|郑芳|黄色|杯子|于洋|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "贾玲把书包放在床边，田甜把铅笔放在桌上。\n问：贾玲把什么放在床边？\n答：", "answer": "书包", "key": "D|贾玲|书包|床边|田甜|铅笔|桌上|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "唐勇把书包放在床边，姜涛把香蕉放在椅子。\n问：唐勇把什么放在床边？\n答：", "answer": "书包", "key": "D|唐勇|书包|床边|姜涛|香蕉|椅子|what", "meta": {"answer": "书包"}}
+{"task": "B_bind", "prompt": "已知：许薇有橙色铅笔，周美有红色铅笔。\n问：周美的铅笔是什么颜色？\n答：", "answer": "红色", "key": "B|许薇|橙色|铅笔|周美|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "谭凯把杯子放在桌上，丁宁把铅笔放在柜子。\n问：谭凯放在桌上的是什么？\n答：", "answer": "杯子", "key": "D|谭凯|杯子|桌上|丁宁|铅笔|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "吕布把皮球放在柜子，钟磊把铅笔放在床边。\n问：床边上的铅笔是谁的？\n答：", "answer": "钟磊", "key": "D|吕布|皮球|柜子|钟磊|铅笔|床边|who", "meta": {"answer": "钟磊"}}
+{"task": "B_bind", "prompt": "已知：苏晴有红色皮球，宋佳有橙色皮球。\n问：苏晴的皮球是什么颜色？\n答：", "answer": "红色", "key": "B|宋佳|橙色|皮球|苏晴|红色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：彭丽有白色铅笔，潘婷有蓝色铅笔。\n问：潘婷的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "B|彭丽|白色|铅笔|潘婷|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：曾志有橙色杯子，宋佳有红色杯子。\n问：宋佳手里的杯子什么颜色？\n答：", "answer": "红色", "key": "B|宋佳|红色|杯子|曾志|橙色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：宋佳有黑色苹果，任杰有黄色苹果。\n问：宋佳的苹果是什么颜色？\n答：", "answer": "黑色", "key": "B|宋佳|黑色|苹果|任杰|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：张刚有黄色苹果，曾志有红色苹果。\n问：曾志手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|曾志|红色|苹果|张刚|黄色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：钟磊有绿色皮球；王明有红色皮球。\n问：钟磊的皮球是什么颜色？\n答：", "answer": "绿色", "key": "B|王明|红色|皮球|钟磊|绿色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "绿色"}}
+{"task": "E_context", "prompt": "用户：我叫丁宁\n助手：你好，丁宁\n用户：我的名字是？\n助手：", "answer": "丁宁", "key": "E|丁宁|style0", "meta": {"answer": "丁宁", "ask_idx": 6}}
+{"task": "D_position", "prompt": "叶青把皮球放在柜子，蒋雯把香蕉放在床边。\n问：叶青把什么放在柜子？\n答：", "answer": "皮球", "key": "D|叶青|皮球|柜子|蒋雯|香蕉|床边|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "宋佳把橘子放在桌上，任杰把杯子放在床边。\n问：宋佳放在桌上的是什么？\n答：", "answer": "橘子", "key": "D|宋佳|橘子|桌上|任杰|杯子|床边|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：王明有黑色香蕉；汪峰有白色香蕉。\n问：王明的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "B|汪峰|白色|香蕉|王明|黑色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "汪峰把皮球放在床边，赵强把香蕉放在桌上。\n问：桌上上的香蕉是谁的？\n答：", "answer": "赵强", "key": "D|汪峰|皮球|床边|赵强|香蕉|桌上|who", "meta": {"answer": "赵强"}}
+{"task": "B_bind", "prompt": "已知：彭丽有紫色书包；杜江有白色书包。\n问：杜江手里的书包什么颜色？\n答：", "answer": "白色", "key": "B|杜江|白色|书包|彭丽|紫色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：任杰有绿色铅笔；董浩有蓝色铅笔。\n问：董浩手里的铅笔什么颜色？\n答：", "answer": "蓝色", "key": "B|董浩|蓝色|铅笔|任杰|绿色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：陈丽有紫色皮球，韩雪有黑色皮球。\n问：韩雪的皮球是什么颜色？\n答：", "answer": "黑色", "key": "B|陈丽|紫色|皮球|韩雪|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：于洋有黄色苹果，姜涛有紫色苹果。\n问：于洋手里的苹果什么颜色？\n答：", "answer": "黄色", "key": "B|姜涛|紫色|苹果|于洋|黄色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：许薇有紫色杯子；袁泉有白色杯子。\n问：袁泉的杯子是什么颜色？\n答：", "answer": "白色", "key": "B|许薇|紫色|杯子|袁泉|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：蔡明有橙色橘子，丁宁有白色橘子。\n问：蔡明手里的橘子什么颜色？\n答：", "answer": "橙色", "key": "B|丁宁|白色|橘子|蔡明|橙色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：卢俊有橙色书包，金石有白色书包。\n问：金石的书包是什么颜色？\n答：", "answer": "白色", "key": "B|金石|白色|书包|卢俊|橙色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "汪峰把本子放在柜子，程亮把皮球放在椅子。\n问：谁把皮球放在椅子？\n答：", "answer": "程亮", "key": "D|汪峰|本子|柜子|程亮|皮球|椅子|who", "meta": {"answer": "程亮"}}
+{"task": "B_bind", "prompt": "已知：孙华有黑色苹果，陆瑶有橙色苹果。\n问：陆瑶手里的苹果什么颜色？\n答：", "answer": "橙色", "key": "B|陆瑶|橙色|苹果|孙华|黑色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "E_context", "prompt": "用户：记住我叫朱婷\n助手：好的，朱婷\n用户：我叫什么？\n助手：", "answer": "朱婷", "key": "E|朱婷|style6", "meta": {"answer": "朱婷", "ask_idx": 0}}
+{"task": "B_bind", "prompt": "已知：蒋雯有白色橘子；姚明有黄色橘子。\n问：姚明的橘子是什么颜色？\n答：", "answer": "黄色", "key": "B|蒋雯|白色|橘子|姚明|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：徐磊有绿色铅笔，吴军有蓝色铅笔。\n问：徐磊的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "B|吴军|蓝色|铅笔|徐磊|绿色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有蓝色铅笔；曹阳有黑色铅笔。\n问：黄敏的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "B|黄敏|蓝色|铅笔|曹阳|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "蓝色"}}
+{"task": "E_context", "prompt": "用户：记住我叫许薇\n助手：好的，许薇\n用户：我的名字是什么？\n助手：", "answer": "许薇", "key": "E|许薇|style6", "meta": {"answer": "许薇", "ask_idx": 1}}
+{"task": "B_bind", "prompt": "已知：赵强有红色香蕉；潘婷有橙色香蕉。\n问：赵强的香蕉是什么颜色？\n答：", "answer": "红色", "key": "B|赵强|红色|香蕉|潘婷|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "红色"}}
+{"task": "D_position", "prompt": "唐勇把本子放在椅子，姚明把苹果放在桌上。\n问：唐勇放在椅子的是什么？\n答：", "answer": "本子", "key": "D|唐勇|本子|椅子|姚明|苹果|桌上|what", "meta": {"answer": "本子"}}
+{"task": "B_bind", "prompt": "已知：唐勇有绿色本子；萧然有蓝色本子。\n问：唐勇手里的本子什么颜色？\n答：", "answer": "绿色", "key": "B|萧然|蓝色|本子|唐勇|绿色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "贾玲把本子放在床边，孙华把书包放在桌上。\n问：谁把书包放在桌上？\n答：", "answer": "孙华", "key": "D|贾玲|本子|床边|孙华|书包|桌上|who", "meta": {"answer": "孙华"}}
+{"task": "B_bind", "prompt": "已知：萧然有白色铅笔，赵强有蓝色铅笔。\n问：萧然的铅笔是什么颜色？\n答：", "answer": "白色", "key": "B|赵强|蓝色|铅笔|萧然|白色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：萧然有黄色苹果；范冰有蓝色苹果。\n问：范冰手里的苹果什么颜色？\n答：", "answer": "蓝色", "key": "B|萧然|黄色|苹果|范冰|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：王明有红色橘子；吕布有黑色橘子。\n问：王明手里的橘子什么颜色？\n答：", "answer": "红色", "key": "B|王明|红色|橘子|吕布|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "红色"}}
+{"task": "D_position", "prompt": "邓超把苹果放在床边，林彤把香蕉放在椅子。\n问：椅子上的香蕉是谁的？\n答：", "answer": "林彤", "key": "D|邓超|苹果|床边|林彤|香蕉|椅子|who", "meta": {"answer": "林彤"}}
+{"task": "D_position", "prompt": "宋佳把杯子放在桌上，曹阳把香蕉放在柜子。\n问：谁把香蕉放在柜子？\n答：", "answer": "曹阳", "key": "D|宋佳|杯子|桌上|曹阳|香蕉|柜子|who", "meta": {"answer": "曹阳"}}
+{"task": "B_bind", "prompt": "已知：邓超有绿色杯子；董浩有蓝色杯子。\n问：董浩的杯子是什么颜色？\n答：", "answer": "蓝色", "key": "B|邓超|绿色|杯子|董浩|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：金石有蓝色苹果；潘婷有红色苹果。\n问：金石的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "B|潘婷|红色|苹果|金石|蓝色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：马琳有黑色橘子，范冰有紫色橘子。\n问：范冰的橘子是什么颜色？\n答：", "answer": "紫色", "key": "B|马琳|黑色|橘子|范冰|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：朱婷有绿色本子；陆瑶有紫色本子。\n问：朱婷手里的本子什么颜色？\n答：", "answer": "绿色", "key": "B|朱婷|绿色|本子|陆瑶|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "绿色"}}
+{"task": "E_context", "prompt": "用户：我是金石\n助手：你好金石\n用户：我是谁？\n助手：", "answer": "金石", "key": "E|金石|style1", "meta": {"answer": "金石", "ask_idx": 2}}
+{"task": "B_bind", "prompt": "已知：贾玲有红色橘子，陆瑶有橙色橘子。\n问：陆瑶手里的橘子什么颜色？\n答：", "answer": "橙色", "key": "B|贾玲|红色|橘子|陆瑶|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：孙华有蓝色苹果；姚明有紫色苹果。\n问：孙华手里的苹果什么颜色？\n答：", "answer": "蓝色", "key": "B|孙华|蓝色|苹果|姚明|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：曾志有绿色书包，任杰有蓝色书包。\n问：任杰手里的书包什么颜色？\n答：", "answer": "蓝色", "key": "B|任杰|蓝色|书包|曾志|绿色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：邓超有白色苹果，杜江有蓝色苹果。\n问：杜江的苹果是什么颜色？\n答：", "answer": "蓝色", "key": "B|杜江|蓝色|苹果|邓超|白色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：范冰有红色苹果，戴军有黄色苹果。\n问：范冰的苹果是什么颜色？\n答：", "answer": "红色", "key": "B|范冰|红色|苹果|戴军|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "红色"}}
+{"task": "D_position", "prompt": "唐勇把书包放在床边，高睿把苹果放在椅子。\n问：唐勇放在床边的是什么？\n答：", "answer": "书包", "key": "D|唐勇|书包|床边|高睿|苹果|椅子|what", "meta": {"answer": "书包"}}
+{"task": "B_bind", "prompt": "已知：贾玲有白色书包；蔡明有绿色书包。\n问：蔡明的书包是什么颜色？\n答：", "answer": "绿色", "key": "B|蔡明|绿色|书包|贾玲|白色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "魏然把本子放在椅子，杜江把杯子放在床边。\n问：床边上的杯子是谁的？\n答：", "answer": "杜江", "key": "D|魏然|本子|椅子|杜江|杯子|床边|who", "meta": {"answer": "杜江"}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：还记得我叫什么吗？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 7}}
+{"task": "B_bind", "prompt": "已知：彭丽有绿色书包；崔健有黄色书包。\n问：崔健的书包是什么颜色？\n答：", "answer": "黄色", "key": "B|崔健|黄色|书包|彭丽|绿色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "马琳把铅笔放在椅子，丁宁把本子放在柜子。\n问：马琳把什么放在椅子？\n答：", "answer": "铅笔", "key": "D|马琳|铅笔|椅子|丁宁|本子|柜子|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "袁泉把橘子放在柜子，郑芳把书包放在桌上。\n问：谁把书包放在桌上？\n答：", "answer": "郑芳", "key": "D|袁泉|橘子|柜子|郑芳|书包|桌上|who", "meta": {"answer": "郑芳"}}
+{"task": "D_position", "prompt": "董浩把书包放在床边，高睿把香蕉放在桌上。\n问：董浩放在床边的是什么？\n答：", "answer": "书包", "key": "D|董浩|书包|床边|高睿|香蕉|桌上|what", "meta": {"answer": "书包"}}
+{"task": "B_bind", "prompt": "已知：彭丽有黑色书包；余波有黄色书包。\n问：彭丽的书包是什么颜色？\n答：", "answer": "黑色", "key": "B|余波|黄色|书包|彭丽|黑色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：孙华有白色苹果，杜江有蓝色苹果。\n问：孙华的苹果是什么颜色？\n答：", "answer": "白色", "key": "B|杜江|蓝色|苹果|孙华|白色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "白色"}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：我是谁？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 2}}
+{"task": "B_bind", "prompt": "已知：吕布有蓝色橘子；卢俊有绿色橘子。\n问：卢俊手里的橘子什么颜色？\n答：", "answer": "绿色", "key": "B|卢俊|绿色|橘子|吕布|蓝色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：任杰有白色皮球；姚明有紫色皮球。\n问：任杰的皮球是什么颜色？\n答：", "answer": "白色", "key": "B|任杰|白色|皮球|姚明|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有蓝色书包，贾玲有绿色书包。\n问：贾玲的书包是什么颜色？\n答：", "answer": "绿色", "key": "B|贾玲|绿色|书包|蒋雯|蓝色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有绿色杯子；何欣有黄色杯子。\n问：黄敏的杯子是什么颜色？\n答：", "answer": "绿色", "key": "B|何欣|黄色|杯子|黄敏|绿色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：于洋有黑色杯子；萧然有红色杯子。\n问：于洋手里的杯子什么颜色？\n答：", "answer": "黑色", "key": "B|于洋|黑色|杯子|萧然|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：余波有蓝色本子；苏晴有橙色本子。\n问：苏晴手里的本子什么颜色？\n答：", "answer": "橙色", "key": "B|苏晴|橙色|本子|余波|蓝色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：周美有橙色本子，冯刚有紫色本子。\n问：周美的本子是什么颜色？\n答：", "answer": "橙色", "key": "B|周美|橙色|本子|冯刚|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：董浩有黄色皮球，蒋雯有橙色皮球。\n问：董浩手里的皮球什么颜色？\n答：", "answer": "黄色", "key": "B|董浩|黄色|皮球|蒋雯|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有绿色苹果；王明有白色苹果。\n问：蒋雯的苹果是什么颜色？\n答：", "answer": "绿色", "key": "B|王明|白色|苹果|蒋雯|绿色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：王明有橙色书包；程亮有蓝色书包。\n问：王明的书包是什么颜色？\n答：", "answer": "橙色", "key": "B|程亮|蓝色|书包|王明|橙色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：朱婷有橙色铅笔；丁宁有绿色铅笔。\n问：丁宁的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "B|丁宁|绿色|铅笔|朱婷|橙色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "卢俊把书包放在椅子，赵强把铅笔放在柜子。\n问：谁把铅笔放在柜子？\n答：", "answer": "赵强", "key": "D|卢俊|书包|椅子|赵强|铅笔|柜子|who", "meta": {"answer": "赵强"}}
+{"task": "B_bind", "prompt": "已知：唐勇有蓝色本子；韩雪有橙色本子。\n问：韩雪的本子是什么颜色？\n答：", "answer": "橙色", "key": "B|唐勇|蓝色|本子|韩雪|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "黄敏把皮球放在桌上，梁静把香蕉放在床边。\n问：黄敏放在桌上的是什么？\n答：", "answer": "皮球", "key": "D|黄敏|皮球|桌上|梁静|香蕉|床边|what", "meta": {"answer": "皮球"}}
+{"task": "B_bind", "prompt": "已知：魏然有紫色书包；蔡明有黑色书包。\n问：蔡明手里的书包什么颜色？\n答：", "answer": "黑色", "key": "B|蔡明|黑色|书包|魏然|紫色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：任杰有橙色本子，姜涛有蓝色本子。\n问：姜涛手里的本子什么颜色？\n答：", "answer": "蓝色", "key": "B|姜涛|蓝色|本子|任杰|橙色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：黄敏有黄色橘子；林彤有橙色橘子。\n问：林彤手里的橘子什么颜色？\n答：", "answer": "橙色", "key": "B|林彤|橙色|橘子|黄敏|黄色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：金石有蓝色皮球；马琳有紫色皮球。\n问：金石手里的皮球什么颜色？\n答：", "answer": "蓝色", "key": "B|马琳|紫色|皮球|金石|蓝色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：林彤有黑色杯子，蒋雯有黄色杯子。\n问：蒋雯手里的杯子什么颜色？\n答：", "answer": "黄色", "key": "B|蒋雯|黄色|杯子|林彤|黑色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：吕布有紫色皮球，胡宇有白色皮球。\n问：胡宇的皮球是什么颜色？\n答：", "answer": "白色", "key": "B|吕布|紫色|皮球|胡宇|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "蒋雯把书包放在床边，叶青把橘子放在椅子。\n问：谁把橘子放在椅子？\n答：", "answer": "叶青", "key": "D|蒋雯|书包|床边|叶青|橘子|椅子|who", "meta": {"answer": "叶青"}}
+{"task": "D_position", "prompt": "任杰把橘子放在桌上，宋佳把皮球放在椅子。\n问：任杰放在桌上的是什么？\n答：", "answer": "橘子", "key": "D|任杰|橘子|桌上|宋佳|皮球|椅子|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：王明有黄色本子；许薇有紫色本子。\n问：王明的本子是什么颜色？\n答：", "answer": "黄色", "key": "B|王明|黄色|本子|许薇|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：唐勇有紫色苹果；汪峰有橙色苹果。\n问：汪峰的苹果是什么颜色？\n答：", "answer": "橙色", "key": "B|唐勇|紫色|苹果|汪峰|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "梁静把杯子放在柜子，宋佳把苹果放在椅子。\n问：梁静把什么放在柜子？\n答：", "answer": "杯子", "key": "D|梁静|杯子|柜子|宋佳|苹果|椅子|what", "meta": {"answer": "杯子"}}
+{"task": "B_bind", "prompt": "已知：田甜有红色本子，邓超有黑色本子。\n问：田甜手里的本子什么颜色？\n答：", "answer": "红色", "key": "B|田甜|红色|本子|邓超|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：高睿有紫色香蕉，刘杰有绿色香蕉。\n问：刘杰手里的香蕉什么颜色？\n答：", "answer": "绿色", "key": "B|高睿|紫色|香蕉|刘杰|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：陆瑶有黑色铅笔，彭丽有紫色铅笔。\n问：彭丽手里的铅笔什么颜色？\n答：", "answer": "紫色", "key": "B|陆瑶|黑色|铅笔|彭丽|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：董浩有白色铅笔，黄敏有绿色铅笔。\n问：黄敏的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "B|董浩|白色|铅笔|黄敏|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：姚明有蓝色皮球，任杰有黑色皮球。\n问：任杰的皮球是什么颜色？\n答：", "answer": "黑色", "key": "B|姚明|蓝色|皮球|任杰|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "朱婷把杯子放在椅子，余波把书包放在床边。\n问：朱婷把什么放在椅子？\n答：", "answer": "杯子", "key": "D|朱婷|杯子|椅子|余波|书包|床边|what", "meta": {"answer": "杯子"}}
+{"task": "B_bind", "prompt": "已知：田甜有红色铅笔，杜江有黄色铅笔。\n问：田甜手里的铅笔什么颜色？\n答：", "answer": "红色", "key": "B|田甜|红色|铅笔|杜江|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：赵强有橙色书包，孙华有红色书包。\n问：赵强的书包是什么颜色？\n答：", "answer": "橙色", "key": "B|孙华|红色|书包|赵强|橙色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：萧然有黑色铅笔；姜涛有红色铅笔。\n问：姜涛的铅笔是什么颜色？\n答：", "answer": "红色", "key": "B|萧然|黑色|铅笔|姜涛|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：陈丽有紫色铅笔；陆瑶有蓝色铅笔。\n问：陆瑶手里的铅笔什么颜色？\n答：", "answer": "蓝色", "key": "B|陈丽|紫色|铅笔|陆瑶|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：郭浩有紫色书包，金石有红色书包。\n问：郭浩手里的书包什么颜色？\n答：", "answer": "紫色", "key": "B|郭浩|紫色|书包|金石|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：沈冰有红色书包；蔡明有黄色书包。\n问：沈冰手里的书包什么颜色？\n答：", "answer": "红色", "key": "B|沈冰|红色|书包|蔡明|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：周美有黑色香蕉，胡宇有白色香蕉。\n问：周美的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "B|胡宇|白色|香蕉|周美|黑色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "黑色"}}
+{"task": "E_context", "prompt": "用户：大家好，我是张刚\n助手：你好，见到你很高兴，张刚\n用户：我是谁？\n助手：", "answer": "张刚", "key": "E|张刚|style3", "meta": {"answer": "张刚", "ask_idx": 2}}
+{"task": "D_position", "prompt": "赵强把铅笔放在桌上，陈丽把香蕉放在柜子。\n问：赵强把什么放在桌上？\n答：", "answer": "铅笔", "key": "D|赵强|铅笔|桌上|陈丽|香蕉|柜子|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：许薇有蓝色苹果；谭凯有白色苹果。\n问：谭凯手里的苹果什么颜色？\n答：", "answer": "白色", "key": "B|谭凯|白色|苹果|许薇|蓝色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：邓超有白色橘子；丁宁有红色橘子。\n问：丁宁手里的橘子什么颜色？\n答：", "answer": "红色", "key": "B|丁宁|红色|橘子|邓超|白色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "E_context", "prompt": "用户：大家好，我是许薇\n助手：你好，见到你很高兴，许薇\n用户：还记得我叫什么吗？\n助手：", "answer": "许薇", "key": "E|许薇|style3", "meta": {"answer": "许薇", "ask_idx": 7}}
+{"task": "B_bind", "prompt": "已知：于洋有绿色杯子，黄敏有蓝色杯子。\n问：黄敏的杯子是什么颜色？\n答：", "answer": "蓝色", "key": "B|黄敏|蓝色|杯子|于洋|绿色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：梁静有红色书包；苏晴有蓝色书包。\n问：梁静手里的书包什么颜色？\n答：", "answer": "红色", "key": "B|苏晴|蓝色|书包|梁静|红色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "红色"}}
+{"task": "D_position", "prompt": "吴军把本子放在椅子，冯刚把铅笔放在床边。\n问：吴军放在椅子的是什么？\n答：", "answer": "本子", "key": "D|吴军|本子|椅子|冯刚|铅笔|床边|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "何欣把香蕉放在床边，陈丽把杯子放在椅子。\n问：椅子上的杯子是谁的？\n答：", "answer": "陈丽", "key": "D|何欣|香蕉|床边|陈丽|杯子|椅子|who", "meta": {"answer": "陈丽"}}
+{"task": "D_position", "prompt": "何欣把本子放在椅子，汪峰把书包放在桌上。\n问：何欣把什么放在椅子？\n答：", "answer": "本子", "key": "D|何欣|本子|椅子|汪峰|书包|桌上|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "韩雪把皮球放在床边，陈丽把本子放在桌上。\n问：韩雪放在床边的是什么？\n答：", "answer": "皮球", "key": "D|韩雪|皮球|床边|陈丽|本子|桌上|what", "meta": {"answer": "皮球"}}
+{"task": "B_bind", "prompt": "已知：沈冰有黑色香蕉，梁静有橙色香蕉。\n问：沈冰手里的香蕉什么颜色？\n答：", "answer": "黑色", "key": "B|沈冰|黑色|香蕉|梁静|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "罗凯把皮球放在床边，陆瑶把橘子放在桌上。\n问：罗凯放在床边的是什么？\n答：", "answer": "皮球", "key": "D|罗凯|皮球|床边|陆瑶|橘子|桌上|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "谭凯把苹果放在床边，郭浩把香蕉放在桌上。\n问：桌上上的香蕉是谁的？\n答：", "answer": "郭浩", "key": "D|谭凯|苹果|床边|郭浩|香蕉|桌上|who", "meta": {"answer": "郭浩"}}
+{"task": "B_bind", "prompt": "已知：杜江有绿色苹果；袁泉有黄色苹果。\n问：杜江的苹果是什么颜色？\n答：", "answer": "绿色", "key": "B|袁泉|黄色|苹果|杜江|绿色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：刘杰有紫色书包，邓超有蓝色书包。\n问：刘杰手里的书包什么颜色？\n答：", "answer": "紫色", "key": "B|邓超|蓝色|书包|刘杰|紫色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：程亮有绿色杯子，余波有黑色杯子。\n问：程亮手里的杯子什么颜色？\n答：", "answer": "绿色", "key": "B|余波|黑色|杯子|程亮|绿色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：马琳有白色皮球；程亮有紫色皮球。\n问：马琳手里的皮球什么颜色？\n答：", "answer": "白色", "key": "B|程亮|紫色|皮球|马琳|白色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "白色"}}
+{"task": "E_context", "prompt": "用户：我的名字是杜江\n助手：杜江，你好\n用户：我叫什么？\n助手：", "answer": "杜江", "key": "E|杜江|style2", "meta": {"answer": "杜江", "ask_idx": 0}}
+{"task": "D_position", "prompt": "孙华把本子放在椅子，叶青把书包放在柜子。\n问：谁把书包放在柜子？\n答：", "answer": "叶青", "key": "D|孙华|本子|椅子|叶青|书包|柜子|who", "meta": {"answer": "叶青"}}
+{"task": "B_bind", "prompt": "已知：曹阳有绿色香蕉，林彤有白色香蕉。\n问：林彤的香蕉是什么颜色？\n答：", "answer": "白色", "key": "B|林彤|白色|香蕉|曹阳|绿色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：谭凯有绿色书包，郭浩有红色书包。\n问：郭浩的书包是什么颜色？\n答：", "answer": "红色", "key": "B|郭浩|红色|书包|谭凯|绿色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "王明把书包放在柜子，唐勇把本子放在椅子。\n问：谁把本子放在椅子？\n答：", "answer": "唐勇", "key": "D|王明|书包|柜子|唐勇|本子|椅子|who", "meta": {"answer": "唐勇"}}
+{"task": "B_bind", "prompt": "已知：戴军有蓝色皮球；萧然有橙色皮球。\n问：萧然的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|戴军|蓝色|皮球|萧然|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "程亮把橘子放在椅子，李红把香蕉放在柜子。\n问：谁把香蕉放在柜子？\n答：", "answer": "李红", "key": "D|程亮|橘子|椅子|李红|香蕉|柜子|who", "meta": {"answer": "李红"}}
+{"task": "B_bind", "prompt": "已知：余波有蓝色皮球，许薇有黄色皮球。\n问：许薇的皮球是什么颜色？\n答：", "answer": "黄色", "key": "B|余波|蓝色|皮球|许薇|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：陈丽有紫色书包；金石有橙色书包。\n问：金石的书包是什么颜色？\n答：", "answer": "橙色", "key": "B|陈丽|紫色|书包|金石|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：刘杰有黄色皮球；唐勇有白色皮球。\n问：刘杰的皮球是什么颜色？\n答：", "answer": "黄色", "key": "B|刘杰|黄色|皮球|唐勇|白色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：任杰有白色苹果；韩雪有红色苹果。\n问：韩雪手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|任杰|白色|苹果|韩雪|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "邓超把橘子放在柜子，任杰把苹果放在桌上。\n问：邓超把什么放在柜子？\n答：", "answer": "橘子", "key": "D|邓超|橘子|柜子|任杰|苹果|桌上|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：吴军有橙色香蕉；孙华有绿色香蕉。\n问：孙华手里的香蕉什么颜色？\n答：", "answer": "绿色", "key": "B|吴军|橙色|香蕉|孙华|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：董浩有紫色香蕉；何欣有橙色香蕉。\n问：董浩的香蕉是什么颜色？\n答：", "answer": "紫色", "key": "B|何欣|橙色|香蕉|董浩|紫色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "吕布把杯子放在桌上，萧然把书包放在床边。\n问：吕布放在桌上的是什么？\n答：", "answer": "杯子", "key": "D|吕布|杯子|桌上|萧然|书包|床边|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "王明把香蕉放在椅子，戴军把杯子放在柜子。\n问：王明把什么放在椅子？\n答：", "answer": "香蕉", "key": "D|王明|香蕉|椅子|戴军|杯子|柜子|what", "meta": {"answer": "香蕉"}}
+{"task": "B_bind", "prompt": "已知：冯刚有橙色香蕉；于洋有绿色香蕉。\n问：冯刚的香蕉是什么颜色？\n答：", "answer": "橙色", "key": "B|于洋|绿色|香蕉|冯刚|橙色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：余波有蓝色香蕉；邓超有红色香蕉。\n问：余波手里的香蕉什么颜色？\n答：", "answer": "蓝色", "key": "B|邓超|红色|香蕉|余波|蓝色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：李红有白色铅笔；曹阳有橙色铅笔。\n问：李红手里的铅笔什么颜色？\n答：", "answer": "白色", "key": "B|曹阳|橙色|铅笔|李红|白色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "白色"}}
+{"task": "D_position", "prompt": "吕布把橘子放在椅子，姜涛把香蕉放在床边。\n问：吕布把什么放在椅子？\n答：", "answer": "橘子", "key": "D|吕布|橘子|椅子|姜涛|香蕉|床边|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "韩雪把香蕉放在椅子，田甜把杯子放在桌上。\n问：韩雪把什么放在椅子？\n答：", "answer": "香蕉", "key": "D|韩雪|香蕉|椅子|田甜|杯子|桌上|what", "meta": {"answer": "香蕉"}}
+{"task": "B_bind", "prompt": "已知：陆瑶有绿色铅笔；林彤有蓝色铅笔。\n问：陆瑶手里的铅笔什么颜色？\n答：", "answer": "绿色", "key": "B|陆瑶|绿色|铅笔|林彤|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "萧然把本子放在椅子，彭丽把书包放在柜子。\n问：谁把书包放在柜子？\n答：", "answer": "彭丽", "key": "D|萧然|本子|椅子|彭丽|书包|柜子|who", "meta": {"answer": "彭丽"}}
+{"task": "B_bind", "prompt": "已知：吕布有蓝色铅笔；许薇有绿色铅笔。\n问：许薇手里的铅笔什么颜色？\n答：", "answer": "绿色", "key": "B|吕布|蓝色|铅笔|许薇|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有红色杯子，郭浩有紫色杯子。\n问：韩雪的杯子是什么颜色？\n答：", "answer": "红色", "key": "B|韩雪|红色|杯子|郭浩|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "红色"}}
+{"task": "D_position", "prompt": "任杰把铅笔放在床边，叶青把杯子放在桌上。\n问：任杰把什么放在床边？\n答：", "answer": "铅笔", "key": "D|任杰|铅笔|床边|叶青|杯子|桌上|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：何欣有黑色香蕉，刘杰有绿色香蕉。\n问：何欣手里的香蕉什么颜色？\n答：", "answer": "黑色", "key": "B|何欣|黑色|香蕉|刘杰|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：曹阳有红色苹果；吴军有绿色苹果。\n问：曹阳的苹果是什么颜色？\n答：", "answer": "红色", "key": "B|曹阳|红色|苹果|吴军|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：彭丽有紫色书包，曹阳有黑色书包。\n问：曹阳的书包是什么颜色？\n答：", "answer": "黑色", "key": "B|曹阳|黑色|书包|彭丽|紫色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "梁静把苹果放在床边，程亮把香蕉放在桌上。\n问：谁把香蕉放在桌上？\n答：", "answer": "程亮", "key": "D|梁静|苹果|床边|程亮|香蕉|桌上|who", "meta": {"answer": "程亮"}}
+{"task": "B_bind", "prompt": "已知：戴军有红色橘子；刘杰有蓝色橘子。\n问：刘杰手里的橘子什么颜色？\n答：", "answer": "蓝色", "key": "B|刘杰|蓝色|橘子|戴军|红色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "D_position", "prompt": "谭凯把香蕉放在柜子，姜涛把橘子放在桌上。\n问：桌上上的橘子是谁的？\n答：", "answer": "姜涛", "key": "D|谭凯|香蕉|柜子|姜涛|橘子|桌上|who", "meta": {"answer": "姜涛"}}
+{"task": "B_bind", "prompt": "已知：曹阳有红色苹果，赵强有紫色苹果。\n问：曹阳手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|曹阳|红色|苹果|赵强|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有白色香蕉，梁静有红色香蕉。\n问：蒋雯手里的香蕉什么颜色？\n答：", "answer": "白色", "key": "B|蒋雯|白色|香蕉|梁静|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "白色"}}
+{"task": "D_position", "prompt": "许薇把橘子放在桌上，吕布把铅笔放在柜子。\n问：许薇把什么放在桌上？\n答：", "answer": "橘子", "key": "D|许薇|橘子|桌上|吕布|铅笔|柜子|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：余波有绿色苹果；卢俊有橙色苹果。\n问：余波的苹果是什么颜色？\n答：", "answer": "绿色", "key": "B|卢俊|橙色|苹果|余波|绿色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：郭浩有紫色铅笔；范冰有黄色铅笔。\n问：郭浩手里的铅笔什么颜色？\n答：", "answer": "紫色", "key": "B|范冰|黄色|铅笔|郭浩|紫色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：杜江有黑色本子；刘杰有紫色本子。\n问：杜江手里的本子什么颜色？\n答：", "answer": "黑色", "key": "B|杜江|黑色|本子|刘杰|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黑色"}}
+{"task": "E_context", "prompt": "用户：记住我叫袁泉\n助手：好的，袁泉\n用户：猜猜我叫什么？\n助手：", "answer": "袁泉", "key": "E|袁泉|style6", "meta": {"answer": "袁泉", "ask_idx": 3}}
+{"task": "D_position", "prompt": "罗凯把铅笔放在椅子，王明把苹果放在床边。\n问：罗凯把什么放在椅子？\n答：", "answer": "铅笔", "key": "D|罗凯|铅笔|椅子|王明|苹果|床边|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：罗凯有橙色铅笔，沈冰有绿色铅笔。\n问：罗凯的铅笔是什么颜色？\n答：", "answer": "橙色", "key": "B|罗凯|橙色|铅笔|沈冰|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：杜江有绿色香蕉，余波有红色香蕉。\n问：余波的香蕉是什么颜色？\n答：", "answer": "红色", "key": "B|余波|红色|香蕉|杜江|绿色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "马琳把皮球放在椅子，杜江把苹果放在柜子。\n问：柜子上的苹果是谁的？\n答：", "answer": "杜江", "key": "D|马琳|皮球|椅子|杜江|苹果|柜子|who", "meta": {"answer": "杜江"}}
+{"task": "E_context", "prompt": "用户：你可以叫我汪峰\n助手：嗨，汪峰\n用户：我的名字是什么？\n助手：", "answer": "汪峰", "key": "E|汪峰|style4", "meta": {"answer": "汪峰", "ask_idx": 1}}
+{"task": "D_position", "prompt": "谭凯把皮球放在桌上，马琳把本子放在床边。\n问：床边上的本子是谁的？\n答：", "answer": "马琳", "key": "D|谭凯|皮球|桌上|马琳|本子|床边|who", "meta": {"answer": "马琳"}}
+{"task": "D_position", "prompt": "许薇把苹果放在桌上，姚明把皮球放在柜子。\n问：许薇放在桌上的是什么？\n答：", "answer": "苹果", "key": "D|许薇|苹果|桌上|姚明|皮球|柜子|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有绿色杯子，萧然有紫色杯子。\n问：萧然的杯子是什么颜色？\n答：", "answer": "紫色", "key": "B|蒋雯|绿色|杯子|萧然|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "范冰把香蕉放在椅子，姜涛把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "姜涛", "key": "D|范冰|香蕉|椅子|姜涛|杯子|桌上|who", "meta": {"answer": "姜涛"}}
+{"task": "D_position", "prompt": "郑芳把杯子放在床边，高睿把香蕉放在柜子。\n问：柜子上的香蕉是谁的？\n答：", "answer": "高睿", "key": "D|郑芳|杯子|床边|高睿|香蕉|柜子|who", "meta": {"answer": "高睿"}}
+{"task": "E_context", "prompt": "用户：我叫任杰，请多关照\n助手：幸会，任杰\n用户：你知道我的名字吗？\n助手：", "answer": "任杰", "key": "E|任杰|style7", "meta": {"answer": "任杰", "ask_idx": 4}}
+{"task": "B_bind", "prompt": "已知：萧然有黄色苹果；沈冰有绿色苹果。\n问：萧然的苹果是什么颜色？\n答：", "answer": "黄色", "key": "B|萧然|黄色|苹果|沈冰|绿色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "E_context", "prompt": "用户：我是金石\n助手：你好金石\n用户：我叫什么？\n助手：", "answer": "金石", "key": "E|金石|style1", "meta": {"answer": "金石", "ask_idx": 0}}
+{"task": "B_bind", "prompt": "已知：袁泉有黄色书包，孙华有红色书包。\n问：袁泉手里的书包什么颜色？\n答：", "answer": "黄色", "key": "B|袁泉|黄色|书包|孙华|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：田甜有红色橘子，潘婷有白色橘子。\n问：潘婷手里的橘子什么颜色？\n答：", "answer": "白色", "key": "B|田甜|红色|橘子|潘婷|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "周美把铅笔放在床边，潘婷把苹果放在椅子。\n问：周美把什么放在床边？\n答：", "answer": "铅笔", "key": "D|周美|铅笔|床边|潘婷|苹果|椅子|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：金石有紫色书包，林彤有红色书包。\n问：林彤的书包是什么颜色？\n答：", "answer": "红色", "key": "B|金石|紫色|书包|林彤|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：于洋有黄色橘子；曹阳有黑色橘子。\n问：曹阳的橘子是什么颜色？\n答：", "answer": "黑色", "key": "B|曹阳|黑色|橘子|于洋|黄色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "郑芳把皮球放在桌上，陈丽把铅笔放在柜子。\n问：柜子上的铅笔是谁的？\n答：", "answer": "陈丽", "key": "D|郑芳|皮球|桌上|陈丽|铅笔|柜子|who", "meta": {"answer": "陈丽"}}
+{"task": "D_position", "prompt": "钟磊把书包放在床边，余波把本子放在椅子。\n问：椅子上的本子是谁的？\n答：", "answer": "余波", "key": "D|钟磊|书包|床边|余波|本子|椅子|who", "meta": {"answer": "余波"}}
+{"task": "B_bind", "prompt": "已知：马琳有黄色杯子；曹阳有绿色杯子。\n问：曹阳的杯子是什么颜色？\n答：", "answer": "绿色", "key": "B|马琳|黄色|杯子|曹阳|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：丁宁有黑色书包；程亮有红色书包。\n问：程亮手里的书包什么颜色？\n答：", "answer": "红色", "key": "B|程亮|红色|书包|丁宁|黑色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：袁泉有橙色铅笔，谭凯有绿色铅笔。\n问：谭凯手里的铅笔什么颜色？\n答：", "answer": "绿色", "key": "B|袁泉|橙色|铅笔|谭凯|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：潘婷有橙色香蕉，曹阳有蓝色香蕉。\n问：潘婷手里的香蕉什么颜色？\n答：", "answer": "橙色", "key": "B|潘婷|橙色|香蕉|曹阳|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：胡宇有紫色本子；孙华有黄色本子。\n问：胡宇手里的本子什么颜色？\n答：", "answer": "紫色", "key": "B|胡宇|紫色|本子|孙华|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：崔健有绿色铅笔，姚明有红色铅笔。\n问：崔健的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "B|崔健|绿色|铅笔|姚明|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：袁泉有绿色皮球，董浩有红色皮球。\n问：董浩手里的皮球什么颜色？\n答：", "answer": "红色", "key": "B|董浩|红色|皮球|袁泉|绿色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：钟磊有黄色铅笔；刘杰有绿色铅笔。\n问：刘杰的铅笔是什么颜色？\n答：", "answer": "绿色", "key": "B|钟磊|黄色|铅笔|刘杰|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：卢俊有紫色本子；魏然有黑色本子。\n问：卢俊手里的本子什么颜色？\n答：", "answer": "紫色", "key": "B|卢俊|紫色|本子|魏然|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：梁静有黑色橘子，王明有紫色橘子。\n问：梁静的橘子是什么颜色？\n答：", "answer": "黑色", "key": "B|梁静|黑色|橘子|王明|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有白色杯子，戴军有橙色杯子。\n问：韩雪的杯子是什么颜色？\n答：", "answer": "白色", "key": "B|戴军|橙色|杯子|韩雪|白色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有红色苹果；于洋有黑色苹果。\n问：蒋雯的苹果是什么颜色？\n答：", "answer": "红色", "key": "B|蒋雯|红色|苹果|于洋|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：李红有紫色杯子；孙华有蓝色杯子。\n问：李红的杯子是什么颜色？\n答：", "answer": "紫色", "key": "B|孙华|蓝色|杯子|李红|紫色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "紫色"}}
+{"task": "D_position", "prompt": "蔡明把本子放在柜子，黄敏把香蕉放在椅子。\n问：蔡明放在柜子的是什么？\n答：", "answer": "本子", "key": "D|蔡明|本子|柜子|黄敏|香蕉|椅子|what", "meta": {"answer": "本子"}}
+{"task": "E_context", "prompt": "用户：记住我叫姚明\n助手：好的，姚明\n用户：还记得我叫什么吗？\n助手：", "answer": "姚明", "key": "E|姚明|style6", "meta": {"answer": "姚明", "ask_idx": 7}}
+{"task": "D_position", "prompt": "赵强把铅笔放在桌上，刘杰把本子放在椅子。\n问：椅子上的本子是谁的？\n答：", "answer": "刘杰", "key": "D|赵强|铅笔|桌上|刘杰|本子|椅子|who", "meta": {"answer": "刘杰"}}
+{"task": "B_bind", "prompt": "已知：王明有橙色香蕉；钟磊有蓝色香蕉。\n问：钟磊的香蕉是什么颜色？\n答：", "answer": "蓝色", "key": "B|钟磊|蓝色|香蕉|王明|橙色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：丁宁有紫色铅笔，王明有黄色铅笔。\n问：丁宁手里的铅笔什么颜色？\n答：", "answer": "紫色", "key": "B|王明|黄色|铅笔|丁宁|紫色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：刘杰有橙色杯子；曹阳有黑色杯子。\n问：曹阳的杯子是什么颜色？\n答：", "answer": "黑色", "key": "B|曹阳|黑色|杯子|刘杰|橙色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "魏然把橘子放在柜子，谭凯把书包放在桌上。\n问：谁把书包放在桌上？\n答：", "answer": "谭凯", "key": "D|魏然|橘子|柜子|谭凯|书包|桌上|who", "meta": {"answer": "谭凯"}}
+{"task": "D_position", "prompt": "王明把苹果放在桌上，余波把橘子放在床边。\n问：王明把什么放在桌上？\n答：", "answer": "苹果", "key": "D|王明|苹果|桌上|余波|橘子|床边|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：丁宁有橙色香蕉；蒋雯有红色香蕉。\n问：丁宁手里的香蕉什么颜色？\n答：", "answer": "橙色", "key": "B|丁宁|橙色|香蕉|蒋雯|红色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：罗凯有黄色皮球，唐勇有蓝色皮球。\n问：唐勇的皮球是什么颜色？\n答：", "answer": "蓝色", "key": "B|唐勇|蓝色|皮球|罗凯|黄色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "D_position", "prompt": "林彤把苹果放在床边，魏然把香蕉放在桌上。\n问：林彤把什么放在床边？\n答：", "answer": "苹果", "key": "D|林彤|苹果|床边|魏然|香蕉|桌上|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：任杰有黄色书包，程亮有白色书包。\n问：程亮的书包是什么颜色？\n答：", "answer": "白色", "key": "B|任杰|黄色|书包|程亮|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "徐磊把皮球放在椅子，罗凯把香蕉放在柜子。\n问：柜子上的香蕉是谁的？\n答：", "answer": "罗凯", "key": "D|徐磊|皮球|椅子|罗凯|香蕉|柜子|who", "meta": {"answer": "罗凯"}}
+{"task": "B_bind", "prompt": "已知：姜涛有紫色本子；梁静有绿色本子。\n问：梁静手里的本子什么颜色？\n答：", "answer": "绿色", "key": "B|姜涛|紫色|本子|梁静|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "马琳把皮球放在椅子，蔡明把香蕉放在桌上。\n问：谁把香蕉放在桌上？\n答：", "answer": "蔡明", "key": "D|马琳|皮球|椅子|蔡明|香蕉|桌上|who", "meta": {"answer": "蔡明"}}
+{"task": "B_bind", "prompt": "已知：汪峰有蓝色香蕉；王明有黄色香蕉。\n问：汪峰的香蕉是什么颜色？\n答：", "answer": "蓝色", "key": "B|王明|黄色|香蕉|汪峰|蓝色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：徐磊有橙色皮球，郑芳有白色皮球。\n问：郑芳手里的皮球什么颜色？\n答：", "answer": "白色", "key": "B|郑芳|白色|皮球|徐磊|橙色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "D_position", "prompt": "唐勇把香蕉放在椅子，汪峰把苹果放在床边。\n问：谁把苹果放在床边？\n答：", "answer": "汪峰", "key": "D|唐勇|香蕉|椅子|汪峰|苹果|床边|who", "meta": {"answer": "汪峰"}}
+{"task": "B_bind", "prompt": "已知：王明有蓝色铅笔，周美有绿色铅笔。\n问：周美手里的铅笔什么颜色？\n答：", "answer": "绿色", "key": "B|王明|蓝色|铅笔|周美|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "王明把皮球放在柜子，田甜把杯子放在椅子。\n问：椅子上的杯子是谁的？\n答：", "answer": "田甜", "key": "D|王明|皮球|柜子|田甜|杯子|椅子|who", "meta": {"answer": "田甜"}}
+{"task": "B_bind", "prompt": "已知：田甜有橙色皮球；谭凯有紫色皮球。\n问：谭凯手里的皮球什么颜色？\n答：", "answer": "紫色", "key": "B|田甜|橙色|皮球|谭凯|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：孙华有橙色铅笔；马琳有紫色铅笔。\n问：孙华手里的铅笔什么颜色？\n答：", "answer": "橙色", "key": "B|孙华|橙色|铅笔|马琳|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "谭凯把铅笔放在床边，任杰把皮球放在柜子。\n问：谁把皮球放在柜子？\n答：", "answer": "任杰", "key": "D|谭凯|铅笔|床边|任杰|皮球|柜子|who", "meta": {"answer": "任杰"}}
+{"task": "B_bind", "prompt": "已知：田甜有蓝色皮球；李红有橙色皮球。\n问：李红的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|李红|橙色|皮球|田甜|蓝色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：吴军有黑色橘子，郭浩有绿色橘子。\n问：郭浩手里的橘子什么颜色？\n答：", "answer": "绿色", "key": "B|郭浩|绿色|橘子|吴军|黑色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "E_context", "prompt": "用户：我叫姚明，请多关照\n助手：幸会，姚明\n用户：我的名字是？\n助手：", "answer": "姚明", "key": "E|姚明|style7", "meta": {"answer": "姚明", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：你可以叫我汪峰\n助手：嗨，汪峰\n用户：还记得我叫什么吗？\n助手：", "answer": "汪峰", "key": "E|汪峰|style4", "meta": {"answer": "汪峰", "ask_idx": 7}}
+{"task": "D_position", "prompt": "郑芳把杯子放在床边，苏晴把香蕉放在柜子。\n问：郑芳把什么放在床边？\n答：", "answer": "杯子", "key": "D|郑芳|杯子|床边|苏晴|香蕉|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "B_bind", "prompt": "已知：何欣有红色本子，冯刚有紫色本子。\n问：冯刚手里的本子什么颜色？\n答：", "answer": "紫色", "key": "B|何欣|红色|本子|冯刚|紫色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：叶青有绿色皮球；林彤有白色皮球。\n问：叶青的皮球是什么颜色？\n答：", "answer": "绿色", "key": "B|叶青|绿色|皮球|林彤|白色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：汪峰有黑色杯子；林彤有绿色杯子。\n问：汪峰的杯子是什么颜色？\n答：", "answer": "黑色", "key": "B|林彤|绿色|杯子|汪峰|黑色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：曹阳有红色香蕉，苏晴有白色香蕉。\n问：苏晴的香蕉是什么颜色？\n答：", "answer": "白色", "key": "B|苏晴|白色|香蕉|曹阳|红色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：贾玲有橙色皮球，蔡明有黄色皮球。\n问：贾玲的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|贾玲|橙色|皮球|蔡明|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：杜江有蓝色铅笔；汪峰有紫色铅笔。\n问：汪峰的铅笔是什么颜色？\n答：", "answer": "紫色", "key": "B|汪峰|紫色|铅笔|杜江|蓝色", "meta": {"target_is_first": false, "nearest_attr": "紫色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：郑芳有黄色橘子，周美有黑色橘子。\n问：周美的橘子是什么颜色？\n答：", "answer": "黑色", "key": "B|周美|黑色|橘子|郑芳|黄色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "郑芳把香蕉放在床边，贾玲把本子放在椅子。\n问：郑芳放在床边的是什么？\n答：", "answer": "香蕉", "key": "D|郑芳|香蕉|床边|贾玲|本子|椅子|what", "meta": {"answer": "香蕉"}}
+{"task": "B_bind", "prompt": "已知：崔健有白色铅笔；冯刚有橙色铅笔。\n问：崔健的铅笔是什么颜色？\n答：", "answer": "白色", "key": "B|崔健|白色|铅笔|冯刚|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：于洋有白色香蕉，许薇有黑色香蕉。\n问：许薇的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "B|于洋|白色|香蕉|许薇|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：戴军有黑色香蕉，萧然有绿色香蕉。\n问：戴军手里的香蕉什么颜色？\n答：", "answer": "黑色", "key": "B|萧然|绿色|香蕉|戴军|黑色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：朱婷有橙色铅笔，崔健有黑色铅笔。\n问：朱婷的铅笔是什么颜色？\n答：", "answer": "橙色", "key": "B|朱婷|橙色|铅笔|崔健|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：高睿有黄色皮球；罗凯有橙色皮球。\n问：罗凯的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|罗凯|橙色|皮球|高睿|黄色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：蔡明有蓝色苹果；马琳有紫色苹果。\n问：蔡明手里的苹果什么颜色？\n答：", "answer": "蓝色", "key": "B|蔡明|蓝色|苹果|马琳|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：周美有橙色苹果；汪峰有黑色苹果。\n问：周美手里的苹果什么颜色？\n答：", "answer": "橙色", "key": "B|周美|橙色|苹果|汪峰|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "陈丽把苹果放在椅子，余波把本子放在柜子。\n问：柜子上的本子是谁的？\n答：", "answer": "余波", "key": "D|陈丽|苹果|椅子|余波|本子|柜子|who", "meta": {"answer": "余波"}}
+{"task": "D_position", "prompt": "郭浩把皮球放在床边，范冰把香蕉放在椅子。\n问：椅子上的香蕉是谁的？\n答：", "answer": "范冰", "key": "D|郭浩|皮球|床边|范冰|香蕉|椅子|who", "meta": {"answer": "范冰"}}
+{"task": "B_bind", "prompt": "已知：叶青有紫色书包；许薇有白色书包。\n问：许薇的书包是什么颜色？\n答：", "answer": "白色", "key": "B|叶青|紫色|书包|许薇|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：蔡明有蓝色香蕉，董浩有橙色香蕉。\n问：蔡明的香蕉是什么颜色？\n答：", "answer": "蓝色", "key": "B|董浩|橙色|香蕉|蔡明|蓝色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "蓝色"}}
+{"task": "E_context", "prompt": "用户：我叫梁静\n助手：你好，梁静\n用户：请问我是谁？\n助手：", "answer": "梁静", "key": "E|梁静|style0", "meta": {"answer": "梁静", "ask_idx": 5}}
+{"task": "B_bind", "prompt": "已知：陈丽有白色杯子，金石有黑色杯子。\n问：陈丽的杯子是什么颜色？\n答：", "answer": "白色", "key": "B|陈丽|白色|杯子|金石|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：高睿有红色书包，陆瑶有橙色书包。\n问：高睿的书包是什么颜色？\n答：", "answer": "红色", "key": "B|陆瑶|橙色|书包|高睿|红色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "红色"}}
+{"task": "D_position", "prompt": "周美把书包放在柜子，谭凯把苹果放在桌上。\n问：桌上上的苹果是谁的？\n答：", "answer": "谭凯", "key": "D|周美|书包|柜子|谭凯|苹果|桌上|who", "meta": {"answer": "谭凯"}}
+{"task": "B_bind", "prompt": "已知：谭凯有绿色香蕉，汪峰有黄色香蕉。\n问：汪峰手里的香蕉什么颜色？\n答：", "answer": "黄色", "key": "B|谭凯|绿色|香蕉|汪峰|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：李红有红色铅笔；高睿有黄色铅笔。\n问：高睿手里的铅笔什么颜色？\n答：", "answer": "黄色", "key": "B|李红|红色|铅笔|高睿|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "E_context", "prompt": "用户：我叫任杰，请多关照\n助手：幸会，任杰\n用户：我的名字是？\n助手：", "answer": "任杰", "key": "E|任杰|style7", "meta": {"answer": "任杰", "ask_idx": 6}}
+{"task": "B_bind", "prompt": "已知：戴军有蓝色杯子；赵强有黄色杯子。\n问：赵强手里的杯子什么颜色？\n答：", "answer": "黄色", "key": "B|戴军|蓝色|杯子|赵强|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：何欣有紫色苹果，戴军有绿色苹果。\n问：戴军手里的苹果什么颜色？\n答：", "answer": "绿色", "key": "B|戴军|绿色|苹果|何欣|紫色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "D_position", "prompt": "张刚把杯子放在椅子，蔡明把本子放在桌上。\n问：谁把本子放在桌上？\n答：", "answer": "蔡明", "key": "D|张刚|杯子|椅子|蔡明|本子|桌上|who", "meta": {"answer": "蔡明"}}
+{"task": "B_bind", "prompt": "已知：董浩有紫色本子；蒋雯有红色本子。\n问：蒋雯的本子是什么颜色？\n答：", "answer": "红色", "key": "B|蒋雯|红色|本子|董浩|紫色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "E_context", "prompt": "用户：你可以叫我袁泉\n助手：嗨，袁泉\n用户：我是谁？\n助手：", "answer": "袁泉", "key": "E|袁泉|style4", "meta": {"answer": "袁泉", "ask_idx": 2}}
+{"task": "D_position", "prompt": "魏然把橘子放在床边，潘婷把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "潘婷", "key": "D|魏然|橘子|床边|潘婷|杯子|桌上|who", "meta": {"answer": "潘婷"}}
+{"task": "B_bind", "prompt": "已知：罗凯有绿色书包；潘婷有蓝色书包。\n问：罗凯的书包是什么颜色？\n答：", "answer": "绿色", "key": "B|潘婷|蓝色|书包|罗凯|绿色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：崔健有黄色皮球；何欣有绿色皮球。\n问：崔健手里的皮球什么颜色？\n答：", "answer": "黄色", "key": "B|何欣|绿色|皮球|崔健|黄色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：林彤有紫色书包；马琳有橙色书包。\n问：马琳手里的书包什么颜色？\n答：", "answer": "橙色", "key": "B|林彤|紫色|书包|马琳|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "赵强把苹果放在桌上，高睿把香蕉放在柜子。\n问：赵强把什么放在桌上？\n答：", "answer": "苹果", "key": "D|赵强|苹果|桌上|高睿|香蕉|柜子|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：吴军有橙色杯子；沈冰有红色杯子。\n问：沈冰手里的杯子什么颜色？\n答：", "answer": "红色", "key": "B|吴军|橙色|杯子|沈冰|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：朱婷有黄色铅笔，周美有白色铅笔。\n问：周美的铅笔是什么颜色？\n答：", "answer": "白色", "key": "B|朱婷|黄色|铅笔|周美|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：徐磊有绿色香蕉，陆瑶有黑色香蕉。\n问：陆瑶的香蕉是什么颜色？\n答：", "answer": "黑色", "key": "B|陆瑶|黑色|香蕉|徐磊|绿色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "D_position", "prompt": "田甜把皮球放在柜子，杜江把铅笔放在床边。\n问：田甜放在柜子的是什么？\n答：", "answer": "皮球", "key": "D|田甜|皮球|柜子|杜江|铅笔|床边|what", "meta": {"answer": "皮球"}}
+{"task": "B_bind", "prompt": "已知：沈冰有红色书包；胡宇有蓝色书包。\n问：沈冰的书包是什么颜色？\n答：", "answer": "红色", "key": "B|胡宇|蓝色|书包|沈冰|红色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：刘杰有紫色皮球；崔健有绿色皮球。\n问：崔健手里的皮球什么颜色？\n答：", "answer": "绿色", "key": "B|崔健|绿色|皮球|刘杰|紫色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：沈冰有红色本子，蔡明有绿色本子。\n问：沈冰手里的本子什么颜色？\n答：", "answer": "红色", "key": "B|蔡明|绿色|本子|沈冰|红色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "红色"}}
+{"task": "D_position", "prompt": "曾志把书包放在床边，姜涛把皮球放在柜子。\n问：柜子上的皮球是谁的？\n答：", "answer": "姜涛", "key": "D|曾志|书包|床边|姜涛|皮球|柜子|who", "meta": {"answer": "姜涛"}}
+{"task": "D_position", "prompt": "蒋雯把杯子放在床边，吕布把橘子放在椅子。\n问：谁把橘子放在椅子？\n答：", "answer": "吕布", "key": "D|蒋雯|杯子|床边|吕布|橘子|椅子|who", "meta": {"answer": "吕布"}}
+{"task": "D_position", "prompt": "姚明把皮球放在椅子，于洋把香蕉放在柜子。\n问：姚明把什么放在椅子？\n答：", "answer": "皮球", "key": "D|姚明|皮球|椅子|于洋|香蕉|柜子|what", "meta": {"answer": "皮球"}}
+{"task": "B_bind", "prompt": "已知：许薇有蓝色铅笔；孙华有紫色铅笔。\n问：许薇的铅笔是什么颜色？\n答：", "answer": "蓝色", "key": "B|孙华|紫色|铅笔|许薇|蓝色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "蓝色"}}
+{"task": "E_context", "prompt": "用户：你可以叫我钟磊\n助手：嗨，钟磊\n用户：我的名字是什么？\n助手：", "answer": "钟磊", "key": "E|钟磊|style4", "meta": {"answer": "钟磊", "ask_idx": 1}}
+{"task": "D_position", "prompt": "郭浩把杯子放在桌上，汪峰把本子放在床边。\n问：床边上的本子是谁的？\n答：", "answer": "汪峰", "key": "D|郭浩|杯子|桌上|汪峰|本子|床边|who", "meta": {"answer": "汪峰"}}
+{"task": "D_position", "prompt": "朱婷把苹果放在椅子，梁静把杯子放在柜子。\n问：柜子上的杯子是谁的？\n答：", "answer": "梁静", "key": "D|朱婷|苹果|椅子|梁静|杯子|柜子|who", "meta": {"answer": "梁静"}}
+{"task": "D_position", "prompt": "姚明把香蕉放在椅子，沈冰把皮球放在床边。\n问：谁把皮球放在床边？\n答：", "answer": "沈冰", "key": "D|姚明|香蕉|椅子|沈冰|皮球|床边|who", "meta": {"answer": "沈冰"}}
+{"task": "B_bind", "prompt": "已知：梁静有黄色橘子；戴军有橙色橘子。\n问：戴军手里的橘子什么颜色？\n答：", "answer": "橙色", "key": "B|戴军|橙色|橘子|梁静|黄色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "任杰把皮球放在椅子，田甜把橘子放在柜子。\n问：柜子上的橘子是谁的？\n答：", "answer": "田甜", "key": "D|任杰|皮球|椅子|田甜|橘子|柜子|who", "meta": {"answer": "田甜"}}
+{"task": "B_bind", "prompt": "已知：汪峰有黄色书包；魏然有红色书包。\n问：魏然手里的书包什么颜色？\n答：", "answer": "红色", "key": "B|汪峰|黄色|书包|魏然|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：潘婷有绿色苹果；陈丽有白色苹果。\n问：陈丽的苹果是什么颜色？\n答：", "answer": "白色", "key": "B|陈丽|白色|苹果|潘婷|绿色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：崔健有蓝色橘子；陈丽有红色橘子。\n问：陈丽的橘子是什么颜色？\n答：", "answer": "红色", "key": "B|陈丽|红色|橘子|崔健|蓝色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：崔健有绿色书包，谭凯有黑色书包。\n问：谭凯手里的书包什么颜色？\n答：", "answer": "黑色", "key": "B|谭凯|黑色|书包|崔健|绿色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：邓超有紫色橘子，陈丽有蓝色橘子。\n问：陈丽的橘子是什么颜色？\n答：", "answer": "蓝色", "key": "B|陈丽|蓝色|橘子|邓超|紫色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "E_context", "prompt": "用户：我是新来的林彤\n助手：欢迎林彤\n用户：我的名字是？\n助手：", "answer": "林彤", "key": "E|林彤|style5", "meta": {"answer": "林彤", "ask_idx": 6}}
+{"task": "B_bind", "prompt": "已知：魏然有蓝色杯子；卢俊有橙色杯子。\n问：卢俊的杯子是什么颜色？\n答：", "answer": "橙色", "key": "B|卢俊|橙色|杯子|魏然|蓝色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：姜涛有橙色皮球，王明有黑色皮球。\n问：王明的皮球是什么颜色？\n答：", "answer": "黑色", "key": "B|姜涛|橙色|皮球|王明|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：蒋雯有紫色皮球；郭浩有橙色皮球。\n问：蒋雯的皮球是什么颜色？\n答：", "answer": "紫色", "key": "B|蒋雯|紫色|皮球|郭浩|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：王明有黑色皮球，周美有绿色皮球。\n问：周美手里的皮球什么颜色？\n答：", "answer": "绿色", "key": "B|周美|绿色|皮球|王明|黑色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：陆瑶有黑色本子，范冰有蓝色本子。\n问：陆瑶的本子是什么颜色？\n答：", "answer": "黑色", "key": "B|陆瑶|黑色|本子|范冰|蓝色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：戴军有黄色书包，冯刚有紫色书包。\n问：戴军的书包是什么颜色？\n答：", "answer": "黄色", "key": "B|戴军|黄色|书包|冯刚|紫色", "meta": {"target_is_first": true, "nearest_attr": "紫色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "唐勇把本子放在柜子，梁静把橘子放在桌上。\n问：唐勇放在柜子的是什么？\n答：", "answer": "本子", "key": "D|唐勇|本子|柜子|梁静|橘子|桌上|what", "meta": {"answer": "本子"}}
+{"task": "B_bind", "prompt": "已知：高睿有黑色皮球，袁泉有红色皮球。\n问：高睿的皮球是什么颜色？\n答：", "answer": "黑色", "key": "B|袁泉|红色|皮球|高睿|黑色", "meta": {"target_is_first": true, "nearest_attr": "红色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：贾玲有黑色本子；朱婷有绿色本子。\n问：贾玲的本子是什么颜色？\n答：", "answer": "黑色", "key": "B|朱婷|绿色|本子|贾玲|黑色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黑色"}}
+{"task": "E_context", "prompt": "用户：大家好，我是许薇\n助手：你好，见到你很高兴，许薇\n用户：我是谁？\n助手：", "answer": "许薇", "key": "E|许薇|style3", "meta": {"answer": "许薇", "ask_idx": 2}}
+{"task": "B_bind", "prompt": "已知：朱婷有蓝色铅笔；黄敏有橙色铅笔。\n问：黄敏手里的铅笔什么颜色？\n答：", "answer": "橙色", "key": "B|朱婷|蓝色|铅笔|黄敏|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：徐磊有白色香蕉，崔健有红色香蕉。\n问：崔健手里的香蕉什么颜色？\n答：", "answer": "红色", "key": "B|徐磊|白色|香蕉|崔健|红色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：萧然有红色书包，袁泉有黄色书包。\n问：袁泉手里的书包什么颜色？\n答：", "answer": "黄色", "key": "B|萧然|红色|书包|袁泉|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "孙华把书包放在椅子，周美把苹果放在柜子。\n问：柜子上的苹果是谁的？\n答：", "answer": "周美", "key": "D|孙华|书包|椅子|周美|苹果|柜子|who", "meta": {"answer": "周美"}}
+{"task": "D_position", "prompt": "徐磊把橘子放在桌上，刘杰把皮球放在床边。\n问：徐磊放在桌上的是什么？\n答：", "answer": "橘子", "key": "D|徐磊|橘子|桌上|刘杰|皮球|床边|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "韩雪把本子放在桌上，田甜把铅笔放在椅子。\n问：椅子上的铅笔是谁的？\n答：", "answer": "田甜", "key": "D|韩雪|本子|桌上|田甜|铅笔|椅子|who", "meta": {"answer": "田甜"}}
+{"task": "B_bind", "prompt": "已知：吕布有蓝色橘子；林彤有黄色橘子。\n问：吕布手里的橘子什么颜色？\n答：", "answer": "蓝色", "key": "B|林彤|黄色|橘子|吕布|蓝色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "蓝色"}}
+{"task": "B_bind", "prompt": "已知：汪峰有紫色杯子；钟磊有蓝色杯子。\n问：钟磊的杯子是什么颜色？\n答：", "answer": "蓝色", "key": "B|汪峰|紫色|杯子|钟磊|蓝色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "E_context", "prompt": "用户：我叫蒋雯\n助手：你好，蒋雯\n用户：还记得我叫什么吗？\n助手：", "answer": "蒋雯", "key": "E|蒋雯|style0", "meta": {"answer": "蒋雯", "ask_idx": 7}}
+{"task": "B_bind", "prompt": "已知：于洋有紫色香蕉，崔健有橙色香蕉。\n问：崔健的香蕉是什么颜色？\n答：", "answer": "橙色", "key": "B|崔健|橙色|香蕉|于洋|紫色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：韩雪有白色皮球，苏晴有黑色皮球。\n问：韩雪手里的皮球什么颜色？\n答：", "answer": "白色", "key": "B|苏晴|黑色|皮球|韩雪|白色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：田甜有黑色皮球；萧然有橙色皮球。\n问：萧然的皮球是什么颜色？\n答：", "answer": "橙色", "key": "B|田甜|黑色|皮球|萧然|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：魏然有黄色橘子；张刚有橙色橘子。\n问：张刚手里的橘子什么颜色？\n答：", "answer": "橙色", "key": "B|魏然|黄色|橘子|张刚|橙色", "meta": {"target_is_first": false, "nearest_attr": "橙色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "徐磊把书包放在柜子，余波把本子放在床边。\n问：徐磊放在柜子的是什么？\n答：", "answer": "书包", "key": "D|徐磊|书包|柜子|余波|本子|床边|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "朱婷把杯子放在柜子，郭浩把铅笔放在椅子。\n问：椅子上的铅笔是谁的？\n答：", "answer": "郭浩", "key": "D|朱婷|杯子|柜子|郭浩|铅笔|椅子|who", "meta": {"answer": "郭浩"}}
+{"task": "D_position", "prompt": "张刚把书包放在椅子，谭凯把皮球放在柜子。\n问：张刚放在椅子的是什么？\n答：", "answer": "书包", "key": "D|张刚|书包|椅子|谭凯|皮球|柜子|what", "meta": {"answer": "书包"}}
+{"task": "B_bind", "prompt": "已知：田甜有紫色皮球；冯刚有黑色皮球。\n问：田甜手里的皮球什么颜色？\n答：", "answer": "紫色", "key": "B|田甜|紫色|皮球|冯刚|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：郑芳有绿色香蕉；胡宇有黑色香蕉。\n问：郑芳手里的香蕉什么颜色？\n答：", "answer": "绿色", "key": "B|胡宇|黑色|香蕉|郑芳|绿色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "绿色"}}
+{"task": "B_bind", "prompt": "已知：张刚有黑色橘子，钟磊有白色橘子。\n问：钟磊手里的橘子什么颜色？\n答：", "answer": "白色", "key": "B|张刚|黑色|橘子|钟磊|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：胡宇有红色铅笔；何欣有绿色铅笔。\n问：何欣手里的铅笔什么颜色？\n答：", "answer": "绿色", "key": "B|胡宇|红色|铅笔|何欣|绿色", "meta": {"target_is_first": false, "nearest_attr": "绿色", "answer": "绿色"}}
+{"task": "E_context", "prompt": "用户：记住我叫韩雪\n助手：好的，韩雪\n用户：我叫什么？\n助手：", "answer": "韩雪", "key": "E|韩雪|style6", "meta": {"answer": "韩雪", "ask_idx": 0}}
+{"task": "B_bind", "prompt": "已知：许薇有黑色苹果，汪峰有红色苹果。\n问：汪峰手里的苹果什么颜色？\n答：", "answer": "红色", "key": "B|汪峰|红色|苹果|许薇|黑色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "B_bind", "prompt": "已知：袁泉有红色皮球；叶青有白色皮球。\n问：叶青手里的皮球什么颜色？\n答：", "answer": "白色", "key": "B|袁泉|红色|皮球|叶青|白色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：潘婷有黄色橘子，萧然有蓝色橘子。\n问：潘婷手里的橘子什么颜色？\n答：", "answer": "黄色", "key": "B|萧然|蓝色|橘子|潘婷|黄色", "meta": {"target_is_first": true, "nearest_attr": "蓝色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "汪峰把杯子放在床边，叶青把本子放在桌上。\n问：谁把本子放在桌上？\n答：", "answer": "叶青", "key": "D|汪峰|杯子|床边|叶青|本子|桌上|who", "meta": {"answer": "叶青"}}
+{"task": "B_bind", "prompt": "已知：丁宁有蓝色本子，戴军有黑色本子。\n问：戴军的本子是什么颜色？\n答：", "answer": "黑色", "key": "B|丁宁|蓝色|本子|戴军|黑色", "meta": {"target_is_first": false, "nearest_attr": "黑色", "answer": "黑色"}}
+{"task": "B_bind", "prompt": "已知：沈冰有橙色本子，余波有黑色本子。\n问：沈冰手里的本子什么颜色？\n答：", "answer": "橙色", "key": "B|沈冰|橙色|本子|余波|黑色", "meta": {"target_is_first": true, "nearest_attr": "黑色", "answer": "橙色"}}
+{"task": "D_position", "prompt": "袁泉把橘子放在椅子，刘杰把苹果放在柜子。\n问：袁泉把什么放在椅子？\n答：", "answer": "橘子", "key": "D|袁泉|橘子|椅子|刘杰|苹果|柜子|what", "meta": {"answer": "橘子"}}
+{"task": "B_bind", "prompt": "已知：余波有紫色书包，程亮有黄色书包。\n问：余波的书包是什么颜色？\n答：", "answer": "紫色", "key": "B|余波|紫色|书包|程亮|黄色", "meta": {"target_is_first": true, "nearest_attr": "黄色", "answer": "紫色"}}
+{"task": "B_bind", "prompt": "已知：姜涛有黄色本子；蒋雯有绿色本子。\n问：姜涛的本子是什么颜色？\n答：", "answer": "黄色", "key": "B|蒋雯|绿色|本子|姜涛|黄色", "meta": {"target_is_first": true, "nearest_attr": "绿色", "answer": "黄色"}}
+{"task": "B_bind", "prompt": "已知：孙华有绿色橘子；杜江有蓝色橘子。\n问：杜江的橘子是什么颜色？\n答：", "answer": "蓝色", "key": "B|杜江|蓝色|橘子|孙华|绿色", "meta": {"target_is_first": false, "nearest_attr": "蓝色", "answer": "蓝色"}}
+{"task": "D_position", "prompt": "王明把杯子放在桌上，彭丽把皮球放在柜子。\n问：王明把什么放在桌上？\n答：", "answer": "杯子", "key": "D|王明|杯子|桌上|彭丽|皮球|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "林彤把皮球放在桌上，钟磊把香蕉放在椅子。\n问：谁把香蕉放在椅子？\n答：", "answer": "钟磊", "key": "D|林彤|皮球|桌上|钟磊|香蕉|椅子|who", "meta": {"answer": "钟磊"}}
+{"task": "D_position", "prompt": "朱婷把橘子放在柜子，曾志把皮球放在椅子。\n问：椅子上的皮球是谁的？\n答：", "answer": "曾志", "key": "D|朱婷|橘子|柜子|曾志|皮球|椅子|who", "meta": {"answer": "曾志"}}
+{"task": "B_bind", "prompt": "已知：金石有绿色杯子；姜涛有白色杯子。\n问：姜涛的杯子是什么颜色？\n答：", "answer": "白色", "key": "B|姜涛|白色|杯子|金石|绿色", "meta": {"target_is_first": false, "nearest_attr": "白色", "answer": "白色"}}
+{"task": "B_bind", "prompt": "已知：马琳有橙色皮球；蒋雯有白色皮球。\n问：马琳手里的皮球什么颜色？\n答：", "answer": "橙色", "key": "B|马琳|橙色|皮球|蒋雯|白色", "meta": {"target_is_first": true, "nearest_attr": "白色", "answer": "橙色"}}
+{"task": "B_bind", "prompt": "已知：杜江有白色杯子；胡宇有橙色杯子。\n问：杜江的杯子是什么颜色？\n答：", "answer": "白色", "key": "B|杜江|白色|杯子|胡宇|橙色", "meta": {"target_is_first": true, "nearest_attr": "橙色", "answer": "白色"}}
+{"task": "D_position", "prompt": "贾玲把铅笔放在椅子，韩雪把皮球放在床边。\n问：贾玲放在椅子的是什么？\n答：", "answer": "铅笔", "key": "D|贾玲|铅笔|椅子|韩雪|皮球|床边|what", "meta": {"answer": "铅笔"}}
+{"task": "B_bind", "prompt": "已知：许薇有紫色皮球，邓超有红色皮球。\n问：邓超的皮球是什么颜色？\n答：", "answer": "红色", "key": "B|邓超|红色|皮球|许薇|紫色", "meta": {"target_is_first": false, "nearest_attr": "红色", "answer": "红色"}}
+{"task": "D_position", "prompt": "罗凯把苹果放在柜子，冯刚把香蕉放在床边。\n问：罗凯把什么放在柜子？\n答：", "answer": "苹果", "key": "D|罗凯|苹果|柜子|冯刚|香蕉|床边|what", "meta": {"answer": "苹果"}}
+{"task": "B_bind", "prompt": "已知：林彤有绿色书包，朱婷有黄色书包。\n问：朱婷手里的书包什么颜色？\n答：", "answer": "黄色", "key": "B|林彤|绿色|书包|朱婷|黄色", "meta": {"target_is_first": false, "nearest_attr": "黄色", "answer": "黄色"}}
+{"task": "D_position", "prompt": "陆瑶把香蕉放在椅子，董浩把皮球放在床边。\n问：谁把皮球放在床边？\n答：", "answer": "董浩", "key": "D|陆瑶|香蕉|椅子|董浩|皮球|床边|who", "meta": {"answer": "董浩"}}
+{"task": "D_position", "prompt": "沈冰把杯子放在柜子，苏晴把橘子放在床边。\n问：沈冰把什么放在柜子？\n答：", "answer": "杯子", "key": "D|沈冰|杯子|柜子|苏晴|橘子|床边|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "董浩把皮球放在柜子，姜涛把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "姜涛", "key": "D|董浩|皮球|柜子|姜涛|杯子|桌上|who", "meta": {"answer": "姜涛"}}
+{"task": "D_position", "prompt": "周美把铅笔放在桌上，苏晴把皮球放在床边。\n问：周美放在桌上的是什么？\n答：", "answer": "铅笔", "key": "D|周美|铅笔|桌上|苏晴|皮球|床边|what", "meta": {"answer": "铅笔"}}
+{"task": "E_context", "prompt": "用户：记住我叫姚明\n助手：好的，姚明\n用户：我的名字是？\n助手：", "answer": "姚明", "key": "E|姚明|style6", "meta": {"answer": "姚明", "ask_idx": 6}}
+{"task": "D_position", "prompt": "于洋把皮球放在桌上，沈冰把香蕉放在柜子。\n问：于洋放在桌上的是什么？\n答：", "answer": "皮球", "key": "D|于洋|皮球|桌上|沈冰|香蕉|柜子|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "于洋把杯子放在柜子，姚明把橘子放在椅子。\n问：于洋放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|于洋|杯子|柜子|姚明|橘子|椅子|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "崔健把皮球放在柜子，林彤把书包放在床边。\n问：崔健把什么放在柜子？\n答：", "answer": "皮球", "key": "D|崔健|皮球|柜子|林彤|书包|床边|what", "meta": {"answer": "皮球"}}
+{"task": "E_context", "prompt": "用户：记住我叫陆瑶\n助手：好的，陆瑶\n用户：请问我是谁？\n助手：", "answer": "陆瑶", "key": "E|陆瑶|style6", "meta": {"answer": "陆瑶", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫萧然，请多关照\n助手：幸会，萧然\n用户：我的名字是？\n助手：", "answer": "萧然", "key": "E|萧然|style7", "meta": {"answer": "萧然", "ask_idx": 6}}
+{"task": "D_position", "prompt": "冯刚把本子放在桌上，刘杰把苹果放在柜子。\n问：谁把苹果放在柜子？\n答：", "answer": "刘杰", "key": "D|冯刚|本子|桌上|刘杰|苹果|柜子|who", "meta": {"answer": "刘杰"}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：你知道我的名字吗？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 4}}
+{"task": "D_position", "prompt": "叶青把杯子放在桌上，周美把铅笔放在柜子。\n问：叶青把什么放在桌上？\n答：", "answer": "杯子", "key": "D|叶青|杯子|桌上|周美|铅笔|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "崔健把橘子放在椅子，周美把苹果放在柜子。\n问：柜子上的苹果是谁的？\n答：", "answer": "周美", "key": "D|崔健|橘子|椅子|周美|苹果|柜子|who", "meta": {"answer": "周美"}}
+{"task": "E_context", "prompt": "用户：大家好，我是刘杰\n助手：你好，见到你很高兴，刘杰\n用户：我的名字是？\n助手：", "answer": "刘杰", "key": "E|刘杰|style3", "meta": {"answer": "刘杰", "ask_idx": 6}}
+{"task": "D_position", "prompt": "刘杰把橘子放在床边，金石把本子放在椅子。\n问：刘杰放在床边的是什么？\n答：", "answer": "橘子", "key": "D|刘杰|橘子|床边|金石|本子|椅子|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "袁泉把香蕉放在柜子，贾玲把杯子放在床边。\n问：袁泉把什么放在柜子？\n答：", "answer": "香蕉", "key": "D|袁泉|香蕉|柜子|贾玲|杯子|床边|what", "meta": {"answer": "香蕉"}}
+{"task": "E_context", "prompt": "用户：我的名字是许薇\n助手：许薇，你好\n用户：你知道我的名字吗？\n助手：", "answer": "许薇", "key": "E|许薇|style2", "meta": {"answer": "许薇", "ask_idx": 4}}
+{"task": "D_position", "prompt": "许薇把杯子放在柜子，唐勇把书包放在床边。\n问：谁把书包放在床边？\n答：", "answer": "唐勇", "key": "D|许薇|杯子|柜子|唐勇|书包|床边|who", "meta": {"answer": "唐勇"}}
+{"task": "D_position", "prompt": "余波把橘子放在桌上，贾玲把本子放在柜子。\n问：余波放在桌上的是什么？\n答：", "answer": "橘子", "key": "D|余波|橘子|桌上|贾玲|本子|柜子|what", "meta": {"answer": "橘子"}}
+{"task": "E_context", "prompt": "用户：我叫叶青\n助手：你好，叶青\n用户：猜猜我叫什么？\n助手：", "answer": "叶青", "key": "E|叶青|style0", "meta": {"answer": "叶青", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：我是新来的罗凯\n助手：欢迎罗凯\n用户：我的名字是？\n助手：", "answer": "罗凯", "key": "E|罗凯|style5", "meta": {"answer": "罗凯", "ask_idx": 6}}
+{"task": "D_position", "prompt": "潘婷把皮球放在柜子，戴军把苹果放在桌上。\n问：谁把苹果放在桌上？\n答：", "answer": "戴军", "key": "D|潘婷|皮球|柜子|戴军|苹果|桌上|who", "meta": {"answer": "戴军"}}
+{"task": "D_position", "prompt": "吴军把苹果放在柜子，余波把杯子放在床边。\n问：谁把杯子放在床边？\n答：", "answer": "余波", "key": "D|吴军|苹果|柜子|余波|杯子|床边|who", "meta": {"answer": "余波"}}
+{"task": "D_position", "prompt": "卢俊把苹果放在椅子，于洋把书包放在桌上。\n问：卢俊把什么放在椅子？\n答：", "answer": "苹果", "key": "D|卢俊|苹果|椅子|于洋|书包|桌上|what", "meta": {"answer": "苹果"}}
+{"task": "D_position", "prompt": "冯刚把香蕉放在柜子，吴军把苹果放在床边。\n问：床边上的苹果是谁的？\n答：", "answer": "吴军", "key": "D|冯刚|香蕉|柜子|吴军|苹果|床边|who", "meta": {"answer": "吴军"}}
+{"task": "D_position", "prompt": "姚明把铅笔放在椅子，苏晴把杯子放在柜子。\n问：姚明把什么放在椅子？\n答：", "answer": "铅笔", "key": "D|姚明|铅笔|椅子|苏晴|杯子|柜子|what", "meta": {"answer": "铅笔"}}
+{"task": "E_context", "prompt": "用户：大家好，我是徐磊\n助手：你好，见到你很高兴，徐磊\n用户：我叫什么？\n助手：", "answer": "徐磊", "key": "E|徐磊|style3", "meta": {"answer": "徐磊", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：记住我叫郭浩\n助手：好的，郭浩\n用户：我是谁？\n助手：", "answer": "郭浩", "key": "E|郭浩|style6", "meta": {"answer": "郭浩", "ask_idx": 2}}
+{"task": "D_position", "prompt": "邓超把橘子放在柜子，林彤把书包放在桌上。\n问：邓超把什么放在柜子？\n答：", "answer": "橘子", "key": "D|邓超|橘子|柜子|林彤|书包|桌上|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "蒋雯把书包放在桌上，吕布把铅笔放在椅子。\n问：谁把铅笔放在椅子？\n答：", "answer": "吕布", "key": "D|蒋雯|书包|桌上|吕布|铅笔|椅子|who", "meta": {"answer": "吕布"}}
+{"task": "D_position", "prompt": "王明把香蕉放在床边，丁宁把杯子放在柜子。\n问：王明把什么放在床边？\n答：", "answer": "香蕉", "key": "D|王明|香蕉|床边|丁宁|杯子|柜子|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "汪峰把书包放在桌上，范冰把杯子放在床边。\n问：床边上的杯子是谁的？\n答：", "answer": "范冰", "key": "D|汪峰|书包|桌上|范冰|杯子|床边|who", "meta": {"answer": "范冰"}}
+{"task": "D_position", "prompt": "胡宇把本子放在柜子，罗凯把杯子放在桌上。\n问：胡宇把什么放在柜子？\n答：", "answer": "本子", "key": "D|胡宇|本子|柜子|罗凯|杯子|桌上|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "王明把香蕉放在桌上，陆瑶把苹果放在床边。\n问：床边上的苹果是谁的？\n答：", "answer": "陆瑶", "key": "D|王明|香蕉|桌上|陆瑶|苹果|床边|who", "meta": {"answer": "陆瑶"}}
+{"task": "D_position", "prompt": "黄敏把香蕉放在柜子，郭浩把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "郭浩", "key": "D|黄敏|香蕉|柜子|郭浩|杯子|桌上|who", "meta": {"answer": "郭浩"}}
+{"task": "D_position", "prompt": "许薇把苹果放在桌上，林彤把香蕉放在柜子。\n问：柜子上的香蕉是谁的？\n答：", "answer": "林彤", "key": "D|许薇|苹果|桌上|林彤|香蕉|柜子|who", "meta": {"answer": "林彤"}}
+{"task": "D_position", "prompt": "贾玲把橘子放在床边，叶青把铅笔放在桌上。\n问：桌上上的铅笔是谁的？\n答：", "answer": "叶青", "key": "D|贾玲|橘子|床边|叶青|铅笔|桌上|who", "meta": {"answer": "叶青"}}
+{"task": "D_position", "prompt": "宋佳把橘子放在柜子，冯刚把本子放在床边。\n问：宋佳放在柜子的是什么？\n答：", "answer": "橘子", "key": "D|宋佳|橘子|柜子|冯刚|本子|床边|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "崔健把皮球放在桌上，戴军把苹果放在柜子。\n问：崔健放在桌上的是什么？\n答：", "answer": "皮球", "key": "D|崔健|皮球|桌上|戴军|苹果|柜子|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "金石把杯子放在床边，叶青把皮球放在桌上。\n问：谁把皮球放在桌上？\n答：", "answer": "叶青", "key": "D|金石|杯子|床边|叶青|皮球|桌上|who", "meta": {"answer": "叶青"}}
+{"task": "D_position", "prompt": "任杰把皮球放在椅子，袁泉把本子放在柜子。\n问：柜子上的本子是谁的？\n答：", "answer": "袁泉", "key": "D|任杰|皮球|椅子|袁泉|本子|柜子|who", "meta": {"answer": "袁泉"}}
+{"task": "D_position", "prompt": "马琳把皮球放在床边，孙华把本子放在柜子。\n问：马琳放在床边的是什么？\n答：", "answer": "皮球", "key": "D|马琳|皮球|床边|孙华|本子|柜子|what", "meta": {"answer": "皮球"}}
+{"task": "E_context", "prompt": "用户：我是吴军\n助手：你好吴军\n用户：我的名字是什么？\n助手：", "answer": "吴军", "key": "E|吴军|style1", "meta": {"answer": "吴军", "ask_idx": 1}}
+{"task": "D_position", "prompt": "宋佳把橘子放在桌上，姜涛把皮球放在床边。\n问：宋佳把什么放在桌上？\n答：", "answer": "橘子", "key": "D|宋佳|橘子|桌上|姜涛|皮球|床边|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "陆瑶把皮球放在椅子，马琳把本子放在床边。\n问：床边上的本子是谁的？\n答：", "answer": "马琳", "key": "D|陆瑶|皮球|椅子|马琳|本子|床边|who", "meta": {"answer": "马琳"}}
+{"task": "E_context", "prompt": "用户：大家好，我是张刚\n助手：你好，见到你很高兴，张刚\n用户：猜猜我叫什么？\n助手：", "answer": "张刚", "key": "E|张刚|style3", "meta": {"answer": "张刚", "ask_idx": 3}}
+{"task": "D_position", "prompt": "郑芳把杯子放在床边，叶青把橘子放在柜子。\n问：柜子上的橘子是谁的？\n答：", "answer": "叶青", "key": "D|郑芳|杯子|床边|叶青|橘子|柜子|who", "meta": {"answer": "叶青"}}
+{"task": "D_position", "prompt": "唐勇把本子放在桌上，吴军把书包放在柜子。\n问：谁把书包放在柜子？\n答：", "answer": "吴军", "key": "D|唐勇|本子|桌上|吴军|书包|柜子|who", "meta": {"answer": "吴军"}}
+{"task": "D_position", "prompt": "黄敏把香蕉放在椅子，程亮把铅笔放在床边。\n问：谁把铅笔放在床边？\n答：", "answer": "程亮", "key": "D|黄敏|香蕉|椅子|程亮|铅笔|床边|who", "meta": {"answer": "程亮"}}
+{"task": "D_position", "prompt": "董浩把书包放在床边，孙华把香蕉放在椅子。\n问：董浩放在床边的是什么？\n答：", "answer": "书包", "key": "D|董浩|书包|床边|孙华|香蕉|椅子|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "董浩把皮球放在床边，曾志把铅笔放在椅子。\n问：谁把铅笔放在椅子？\n答：", "answer": "曾志", "key": "D|董浩|皮球|床边|曾志|铅笔|椅子|who", "meta": {"answer": "曾志"}}
+{"task": "D_position", "prompt": "何欣把书包放在柜子，叶青把苹果放在桌上。\n问：桌上上的苹果是谁的？\n答：", "answer": "叶青", "key": "D|何欣|书包|柜子|叶青|苹果|桌上|who", "meta": {"answer": "叶青"}}
+{"task": "D_position", "prompt": "潘婷把杯子放在柜子，周美把铅笔放在椅子。\n问：潘婷放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|潘婷|杯子|柜子|周美|铅笔|椅子|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：你知道我的名字吗？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 4}}
+{"task": "D_position", "prompt": "陆瑶把橘子放在柜子，宋佳把书包放在椅子。\n问：谁把书包放在椅子？\n答：", "answer": "宋佳", "key": "D|陆瑶|橘子|柜子|宋佳|书包|椅子|who", "meta": {"answer": "宋佳"}}
+{"task": "D_position", "prompt": "金石把本子放在柜子，丁宁把皮球放在桌上。\n问：谁把皮球放在桌上？\n答：", "answer": "丁宁", "key": "D|金石|本子|柜子|丁宁|皮球|桌上|who", "meta": {"answer": "丁宁"}}
+{"task": "D_position", "prompt": "宋佳把杯子放在椅子，姜涛把本子放在桌上。\n问：宋佳放在椅子的是什么？\n答：", "answer": "杯子", "key": "D|宋佳|杯子|椅子|姜涛|本子|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "田甜把苹果放在椅子，萧然把杯子放在床边。\n问：谁把杯子放在床边？\n答：", "answer": "萧然", "key": "D|田甜|苹果|椅子|萧然|杯子|床边|who", "meta": {"answer": "萧然"}}
+{"task": "D_position", "prompt": "周美把杯子放在柜子，唐勇把本子放在椅子。\n问：周美放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|周美|杯子|柜子|唐勇|本子|椅子|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：我是唐勇\n助手：你好唐勇\n用户：你知道我的名字吗？\n助手：", "answer": "唐勇", "key": "E|唐勇|style1", "meta": {"answer": "唐勇", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：记住我叫姚明\n助手：好的，姚明\n用户：你知道我的名字吗？\n助手：", "answer": "姚明", "key": "E|姚明|style6", "meta": {"answer": "姚明", "ask_idx": 4}}
+{"task": "D_position", "prompt": "许薇把铅笔放在椅子，吕布把苹果放在桌上。\n问：许薇放在椅子的是什么？\n答：", "answer": "铅笔", "key": "D|许薇|铅笔|椅子|吕布|苹果|桌上|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "袁泉把香蕉放在椅子，黄敏把书包放在床边。\n问：袁泉把什么放在椅子？\n答：", "answer": "香蕉", "key": "D|袁泉|香蕉|椅子|黄敏|书包|床边|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "苏晴把本子放在桌上，谭凯把杯子放在柜子。\n问：苏晴把什么放在桌上？\n答：", "answer": "本子", "key": "D|苏晴|本子|桌上|谭凯|杯子|柜子|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "钟磊把本子放在椅子，马琳把苹果放在床边。\n问：谁把苹果放在床边？\n答：", "answer": "马琳", "key": "D|钟磊|本子|椅子|马琳|苹果|床边|who", "meta": {"answer": "马琳"}}
+{"task": "D_position", "prompt": "韩雪把杯子放在柜子，陈丽把本子放在桌上。\n问：韩雪放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|韩雪|杯子|柜子|陈丽|本子|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：还记得我叫什么吗？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 7}}
+{"task": "D_position", "prompt": "叶青把香蕉放在桌上，赵强把杯子放在椅子。\n问：叶青放在桌上的是什么？\n答：", "answer": "香蕉", "key": "D|叶青|香蕉|桌上|赵强|杯子|椅子|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "姜涛把书包放在椅子，任杰把杯子放在桌上。\n问：姜涛放在椅子的是什么？\n答：", "answer": "书包", "key": "D|姜涛|书包|椅子|任杰|杯子|桌上|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "丁宁把香蕉放在桌上，马琳把本子放在柜子。\n问：谁把本子放在柜子？\n答：", "answer": "马琳", "key": "D|丁宁|香蕉|桌上|马琳|本子|柜子|who", "meta": {"answer": "马琳"}}
+{"task": "D_position", "prompt": "张刚把苹果放在床边，戴军把本子放在桌上。\n问：谁把本子放在桌上？\n答：", "answer": "戴军", "key": "D|张刚|苹果|床边|戴军|本子|桌上|who", "meta": {"answer": "戴军"}}
+{"task": "D_position", "prompt": "陆瑶把皮球放在桌上，郑芳把本子放在柜子。\n问：柜子上的本子是谁的？\n答：", "answer": "郑芳", "key": "D|陆瑶|皮球|桌上|郑芳|本子|柜子|who", "meta": {"answer": "郑芳"}}
+{"task": "D_position", "prompt": "蔡明把皮球放在桌上，杜江把本子放在椅子。\n问：蔡明把什么放在桌上？\n答：", "answer": "皮球", "key": "D|蔡明|皮球|桌上|杜江|本子|椅子|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "萧然把苹果放在桌上，冯刚把香蕉放在柜子。\n问：谁把香蕉放在柜子？\n答：", "answer": "冯刚", "key": "D|萧然|苹果|桌上|冯刚|香蕉|柜子|who", "meta": {"answer": "冯刚"}}
+{"task": "D_position", "prompt": "吕布把本子放在椅子，汪峰把书包放在桌上。\n问：谁把书包放在桌上？\n答：", "answer": "汪峰", "key": "D|吕布|本子|椅子|汪峰|书包|桌上|who", "meta": {"answer": "汪峰"}}
+{"task": "D_position", "prompt": "任杰把铅笔放在柜子，曹阳把本子放在桌上。\n问：桌上上的本子是谁的？\n答：", "answer": "曹阳", "key": "D|任杰|铅笔|柜子|曹阳|本子|桌上|who", "meta": {"answer": "曹阳"}}
+{"task": "D_position", "prompt": "林彤把本子放在椅子，刘杰把杯子放在柜子。\n问：柜子上的杯子是谁的？\n答：", "answer": "刘杰", "key": "D|林彤|本子|椅子|刘杰|杯子|柜子|who", "meta": {"answer": "刘杰"}}
+{"task": "D_position", "prompt": "魏然把皮球放在桌上，许薇把杯子放在床边。\n问：谁把杯子放在床边？\n答：", "answer": "许薇", "key": "D|魏然|皮球|桌上|许薇|杯子|床边|who", "meta": {"answer": "许薇"}}
+{"task": "D_position", "prompt": "高睿把铅笔放在床边，梁静把苹果放在椅子。\n问：高睿把什么放在床边？\n答：", "answer": "铅笔", "key": "D|高睿|铅笔|床边|梁静|苹果|椅子|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "蔡明把铅笔放在床边，贾玲把橘子放在桌上。\n问：蔡明放在床边的是什么？\n答：", "answer": "铅笔", "key": "D|蔡明|铅笔|床边|贾玲|橘子|桌上|what", "meta": {"answer": "铅笔"}}
+{"task": "E_context", "prompt": "用户：我是新来的彭丽\n助手：欢迎彭丽\n用户：你知道我的名字吗？\n助手：", "answer": "彭丽", "key": "E|彭丽|style5", "meta": {"answer": "彭丽", "ask_idx": 4}}
+{"task": "D_position", "prompt": "曾志把皮球放在床边，刘杰把橘子放在桌上。\n问：曾志放在床边的是什么？\n答：", "answer": "皮球", "key": "D|曾志|皮球|床边|刘杰|橘子|桌上|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "马琳把本子放在床边，王明把橘子放在柜子。\n问：谁把橘子放在柜子？\n答：", "answer": "王明", "key": "D|马琳|本子|床边|王明|橘子|柜子|who", "meta": {"answer": "王明"}}
+{"task": "D_position", "prompt": "李红把本子放在椅子，潘婷把橘子放在桌上。\n问：李红放在椅子的是什么？\n答：", "answer": "本子", "key": "D|李红|本子|椅子|潘婷|橘子|桌上|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "杜江把本子放在桌上，袁泉把皮球放在床边。\n问：杜江放在桌上的是什么？\n答：", "answer": "本子", "key": "D|杜江|本子|桌上|袁泉|皮球|床边|what", "meta": {"answer": "本子"}}
+{"task": "E_context", "prompt": "用户：我的名字是杜江\n助手：杜江，你好\n用户：我的名字是什么？\n助手：", "answer": "杜江", "key": "E|杜江|style2", "meta": {"answer": "杜江", "ask_idx": 1}}
+{"task": "D_position", "prompt": "沈冰把香蕉放在柜子，李红把苹果放在桌上。\n问：桌上上的苹果是谁的？\n答：", "answer": "李红", "key": "D|沈冰|香蕉|柜子|李红|苹果|桌上|who", "meta": {"answer": "李红"}}
+{"task": "D_position", "prompt": "王明把书包放在桌上，冯刚把苹果放在椅子。\n问：椅子上的苹果是谁的？\n答：", "answer": "冯刚", "key": "D|王明|书包|桌上|冯刚|苹果|椅子|who", "meta": {"answer": "冯刚"}}
+{"task": "E_context", "prompt": "用户：我是金石\n助手：你好金石\n用户：我的名字是？\n助手：", "answer": "金石", "key": "E|金石|style1", "meta": {"answer": "金石", "ask_idx": 6}}
+{"task": "D_position", "prompt": "程亮把杯子放在椅子，贾玲把本子放在柜子。\n问：柜子上的本子是谁的？\n答：", "answer": "贾玲", "key": "D|程亮|杯子|椅子|贾玲|本子|柜子|who", "meta": {"answer": "贾玲"}}
+{"task": "D_position", "prompt": "谭凯把皮球放在桌上，余波把铅笔放在椅子。\n问：谭凯把什么放在桌上？\n答：", "answer": "皮球", "key": "D|谭凯|皮球|桌上|余波|铅笔|椅子|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "田甜把苹果放在柜子，魏然把书包放在床边。\n问：田甜把什么放在柜子？\n答：", "answer": "苹果", "key": "D|田甜|苹果|柜子|魏然|书包|床边|what", "meta": {"answer": "苹果"}}
+{"task": "D_position", "prompt": "卢俊把书包放在椅子，谭凯把香蕉放在柜子。\n问：卢俊把什么放在椅子？\n答：", "answer": "书包", "key": "D|卢俊|书包|椅子|谭凯|香蕉|柜子|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "高睿把本子放在椅子，曹阳把杯子放在桌上。\n问：高睿把什么放在椅子？\n答：", "answer": "本子", "key": "D|高睿|本子|椅子|曹阳|杯子|桌上|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "姚明把杯子放在柜子，郑芳把橘子放在床边。\n问：姚明把什么放在柜子？\n答：", "answer": "杯子", "key": "D|姚明|杯子|柜子|郑芳|橘子|床边|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：我是新来的曹阳\n助手：欢迎曹阳\n用户：你知道我的名字吗？\n助手：", "answer": "曹阳", "key": "E|曹阳|style5", "meta": {"answer": "曹阳", "ask_idx": 4}}
+{"task": "D_position", "prompt": "朱婷把书包放在桌上，高睿把杯子放在椅子。\n问：谁把杯子放在椅子？\n答：", "answer": "高睿", "key": "D|朱婷|书包|桌上|高睿|杯子|椅子|who", "meta": {"answer": "高睿"}}
+{"task": "D_position", "prompt": "钟磊把书包放在桌上，丁宁把杯子放在床边。\n问：钟磊放在桌上的是什么？\n答：", "answer": "书包", "key": "D|钟磊|书包|桌上|丁宁|杯子|床边|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "冯刚把杯子放在柜子，姚明把香蕉放在桌上。\n问：冯刚放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|冯刚|杯子|柜子|姚明|香蕉|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "贾玲把橘子放在床边，姜涛把皮球放在桌上。\n问：桌上上的皮球是谁的？\n答：", "answer": "姜涛", "key": "D|贾玲|橘子|床边|姜涛|皮球|桌上|who", "meta": {"answer": "姜涛"}}
+{"task": "D_position", "prompt": "王明把书包放在床边，卢俊把杯子放在桌上。\n问：谁把杯子放在桌上？\n答：", "answer": "卢俊", "key": "D|王明|书包|床边|卢俊|杯子|桌上|who", "meta": {"answer": "卢俊"}}
+{"task": "D_position", "prompt": "沈冰把杯子放在桌上，曹阳把铅笔放在椅子。\n问：沈冰把什么放在桌上？\n答：", "answer": "杯子", "key": "D|沈冰|杯子|桌上|曹阳|铅笔|椅子|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：你可以叫我张刚\n助手：嗨，张刚\n用户：你知道我的名字吗？\n助手：", "answer": "张刚", "key": "E|张刚|style4", "meta": {"answer": "张刚", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我叫梁静\n助手：你好，梁静\n用户：你知道我的名字吗？\n助手：", "answer": "梁静", "key": "E|梁静|style0", "meta": {"answer": "梁静", "ask_idx": 4}}
+{"task": "D_position", "prompt": "戴军把香蕉放在椅子，陈丽把杯子放在桌上。\n问：桌上上的杯子是谁的？\n答：", "answer": "陈丽", "key": "D|戴军|香蕉|椅子|陈丽|杯子|桌上|who", "meta": {"answer": "陈丽"}}
+{"task": "D_position", "prompt": "吕布把苹果放在床边，苏晴把铅笔放在椅子。\n问：吕布放在床边的是什么？\n答：", "answer": "苹果", "key": "D|吕布|苹果|床边|苏晴|铅笔|椅子|what", "meta": {"answer": "苹果"}}
+{"task": "D_position", "prompt": "姜涛把书包放在桌上，蒋雯把香蕉放在椅子。\n问：姜涛把什么放在桌上？\n答：", "answer": "书包", "key": "D|姜涛|书包|桌上|蒋雯|香蕉|椅子|what", "meta": {"answer": "书包"}}
+{"task": "E_context", "prompt": "用户：我叫萧然，请多关照\n助手：幸会，萧然\n用户：还记得我叫什么吗？\n助手：", "answer": "萧然", "key": "E|萧然|style7", "meta": {"answer": "萧然", "ask_idx": 7}}
+{"task": "D_position", "prompt": "宋佳把铅笔放在床边，郭浩把书包放在椅子。\n问：宋佳放在床边的是什么？\n答：", "answer": "铅笔", "key": "D|宋佳|铅笔|床边|郭浩|书包|椅子|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "张刚把香蕉放在柜子，马琳把本子放在椅子。\n问：椅子上的本子是谁的？\n答：", "answer": "马琳", "key": "D|张刚|香蕉|柜子|马琳|本子|椅子|who", "meta": {"answer": "马琳"}}
+{"task": "D_position", "prompt": "戴军把苹果放在柜子，黄敏把皮球放在椅子。\n问：椅子上的皮球是谁的？\n答：", "answer": "黄敏", "key": "D|戴军|苹果|柜子|黄敏|皮球|椅子|who", "meta": {"answer": "黄敏"}}
+{"task": "D_position", "prompt": "赵强把香蕉放在床边，田甜把书包放在椅子。\n问：赵强把什么放在床边？\n答：", "answer": "香蕉", "key": "D|赵强|香蕉|床边|田甜|书包|椅子|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "曹阳把皮球放在椅子，蒋雯把苹果放在床边。\n问：床边上的苹果是谁的？\n答：", "answer": "蒋雯", "key": "D|曹阳|皮球|椅子|蒋雯|苹果|床边|who", "meta": {"answer": "蒋雯"}}
+{"task": "E_context", "prompt": "用户：我的名字是许薇\n助手：许薇，你好\n用户：我叫什么？\n助手：", "answer": "许薇", "key": "E|许薇|style2", "meta": {"answer": "许薇", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：我是袁泉\n助手：你好袁泉\n用户：我叫什么？\n助手：", "answer": "袁泉", "key": "E|袁泉|style1", "meta": {"answer": "袁泉", "ask_idx": 0}}
+{"task": "D_position", "prompt": "姜涛把本子放在柜子，曾志把杯子放在床边。\n问：姜涛放在柜子的是什么？\n答：", "answer": "本子", "key": "D|姜涛|本子|柜子|曾志|杯子|床边|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "罗凯把苹果放在桌上，苏晴把铅笔放在柜子。\n问：谁把铅笔放在柜子？\n答：", "answer": "苏晴", "key": "D|罗凯|苹果|桌上|苏晴|铅笔|柜子|who", "meta": {"answer": "苏晴"}}
+{"task": "D_position", "prompt": "谭凯把书包放在床边，丁宁把香蕉放在柜子。\n问：谭凯把什么放在床边？\n答：", "answer": "书包", "key": "D|谭凯|书包|床边|丁宁|香蕉|柜子|what", "meta": {"answer": "书包"}}
+{"task": "D_position", "prompt": "范冰把香蕉放在柜子，郭浩把苹果放在桌上。\n问：谁把苹果放在桌上？\n答：", "answer": "郭浩", "key": "D|范冰|香蕉|柜子|郭浩|苹果|桌上|who", "meta": {"answer": "郭浩"}}
+{"task": "E_context", "prompt": "用户：我叫姚明，请多关照\n助手：幸会，姚明\n用户：猜猜我叫什么？\n助手：", "answer": "姚明", "key": "E|姚明|style7", "meta": {"answer": "姚明", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：我的名字是许薇\n助手：许薇，你好\n用户：我的名字是？\n助手：", "answer": "许薇", "key": "E|许薇|style2", "meta": {"answer": "许薇", "ask_idx": 6}}
+{"task": "D_position", "prompt": "汪峰把铅笔放在柜子，蔡明把书包放在床边。\n问：汪峰把什么放在柜子？\n答：", "answer": "铅笔", "key": "D|汪峰|铅笔|柜子|蔡明|书包|床边|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "魏然把香蕉放在椅子，陆瑶把橘子放在桌上。\n问：魏然放在椅子的是什么？\n答：", "answer": "香蕉", "key": "D|魏然|香蕉|椅子|陆瑶|橘子|桌上|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "田甜把香蕉放在椅子，韩雪把铅笔放在桌上。\n问：谁把铅笔放在桌上？\n答：", "answer": "韩雪", "key": "D|田甜|香蕉|椅子|韩雪|铅笔|桌上|who", "meta": {"answer": "韩雪"}}
+{"task": "D_position", "prompt": "黄敏把橘子放在桌上，彭丽把书包放在柜子。\n问：柜子上的书包是谁的？\n答：", "answer": "彭丽", "key": "D|黄敏|橘子|桌上|彭丽|书包|柜子|who", "meta": {"answer": "彭丽"}}
+{"task": "D_position", "prompt": "崔健把本子放在椅子，萧然把杯子放在柜子。\n问：崔健放在椅子的是什么？\n答：", "answer": "本子", "key": "D|崔健|本子|椅子|萧然|杯子|柜子|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "李红把橘子放在柜子，郭浩把皮球放在床边。\n问：床边上的皮球是谁的？\n答：", "answer": "郭浩", "key": "D|李红|橘子|柜子|郭浩|皮球|床边|who", "meta": {"answer": "郭浩"}}
+{"task": "D_position", "prompt": "卢俊把苹果放在椅子，苏晴把杯子放在床边。\n问：床边上的杯子是谁的？\n答：", "answer": "苏晴", "key": "D|卢俊|苹果|椅子|苏晴|杯子|床边|who", "meta": {"answer": "苏晴"}}
+{"task": "D_position", "prompt": "苏晴把铅笔放在桌上，韩雪把橘子放在柜子。\n问：柜子上的橘子是谁的？\n答：", "answer": "韩雪", "key": "D|苏晴|铅笔|桌上|韩雪|橘子|柜子|who", "meta": {"answer": "韩雪"}}
+{"task": "D_position", "prompt": "胡宇把杯子放在柜子，曾志把铅笔放在桌上。\n问：胡宇放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|胡宇|杯子|柜子|曾志|铅笔|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "杜江把杯子放在床边，朱婷把皮球放在柜子。\n问：杜江把什么放在床边？\n答：", "answer": "杯子", "key": "D|杜江|杯子|床边|朱婷|皮球|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "戴军把铅笔放在柜子，姜涛把皮球放在椅子。\n问：戴军放在柜子的是什么？\n答：", "answer": "铅笔", "key": "D|戴军|铅笔|柜子|姜涛|皮球|椅子|what", "meta": {"answer": "铅笔"}}
+{"task": "D_position", "prompt": "钟磊把苹果放在柜子，田甜把橘子放在床边。\n问：床边上的橘子是谁的？\n答：", "answer": "田甜", "key": "D|钟磊|苹果|柜子|田甜|橘子|床边|who", "meta": {"answer": "田甜"}}
+{"task": "D_position", "prompt": "邓超把香蕉放在床边，于洋把本子放在椅子。\n问：谁把本子放在椅子？\n答：", "answer": "于洋", "key": "D|邓超|香蕉|床边|于洋|本子|椅子|who", "meta": {"answer": "于洋"}}
+{"task": "A_dialogue", "prompt": "用户：谢谢你的帮助", "answer": "不客气！", "key": "A|谢谢你的帮助", "meta": {}}
+{"task": "D_position", "prompt": "苏晴把橘子放在桌上，刘杰把本子放在床边。\n问：苏晴把什么放在桌上？\n答：", "answer": "橘子", "key": "D|苏晴|橘子|桌上|刘杰|本子|床边|what", "meta": {"answer": "橘子"}}
+{"task": "D_position", "prompt": "余波把苹果放在桌上，谭凯把杯子放在柜子。\n问：余波放在桌上的是什么？\n答：", "answer": "苹果", "key": "D|余波|苹果|桌上|谭凯|杯子|柜子|what", "meta": {"answer": "苹果"}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：我的名字是什么？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 1}}
+{"task": "D_position", "prompt": "姜涛把皮球放在桌上，谭凯把铅笔放在柜子。\n问：姜涛放在桌上的是什么？\n答：", "answer": "皮球", "key": "D|姜涛|皮球|桌上|谭凯|铅笔|柜子|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "郑芳把书包放在床边，张刚把本子放在柜子。\n问：柜子上的本子是谁的？\n答：", "answer": "张刚", "key": "D|郑芳|书包|床边|张刚|本子|柜子|who", "meta": {"answer": "张刚"}}
+{"task": "D_position", "prompt": "朱婷把香蕉放在柜子，孙华把书包放在桌上。\n问：朱婷把什么放在柜子？\n答：", "answer": "香蕉", "key": "D|朱婷|香蕉|柜子|孙华|书包|桌上|what", "meta": {"answer": "香蕉"}}
+{"task": "E_context", "prompt": "用户：记住我叫姚明\n助手：好的，姚明\n用户：猜猜我叫什么？\n助手：", "answer": "姚明", "key": "E|姚明|style6", "meta": {"answer": "姚明", "ask_idx": 3}}
+{"task": "D_position", "prompt": "钟磊把书包放在桌上，吕布把橘子放在椅子。\n问：钟磊把什么放在桌上？\n答：", "answer": "书包", "key": "D|钟磊|书包|桌上|吕布|橘子|椅子|what", "meta": {"answer": "书包"}}
+{"task": "E_context", "prompt": "用户：记住我叫陆瑶\n助手：好的，陆瑶\n用户：我叫什么？\n助手：", "answer": "陆瑶", "key": "E|陆瑶|style6", "meta": {"answer": "陆瑶", "ask_idx": 0}}
+{"task": "D_position", "prompt": "吕布把杯子放在桌上，彭丽把香蕉放在床边。\n问：吕布放在桌上的是什么？\n答：", "answer": "杯子", "key": "D|吕布|杯子|桌上|彭丽|香蕉|床边|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "汪峰把苹果放在椅子，丁宁把杯子放在床边。\n问：汪峰放在椅子的是什么？\n答：", "answer": "苹果", "key": "D|汪峰|苹果|椅子|丁宁|杯子|床边|what", "meta": {"answer": "苹果"}}
+{"task": "D_position", "prompt": "周美把苹果放在桌上，潘婷把书包放在柜子。\n问：柜子上的书包是谁的？\n答：", "answer": "潘婷", "key": "D|周美|苹果|桌上|潘婷|书包|柜子|who", "meta": {"answer": "潘婷"}}
+{"task": "D_position", "prompt": "许薇把本子放在床边，李红把皮球放在椅子。\n问：许薇把什么放在床边？\n答：", "answer": "本子", "key": "D|许薇|本子|床边|李红|皮球|椅子|what", "meta": {"answer": "本子"}}
+{"task": "D_position", "prompt": "余波把杯子放在柜子，梁静把苹果放在桌上。\n问：余波放在柜子的是什么？\n答：", "answer": "杯子", "key": "D|余波|杯子|柜子|梁静|苹果|桌上|what", "meta": {"answer": "杯子"}}
+{"task": "D_position", "prompt": "杜江把书包放在桌上，冯刚把香蕉放在柜子。\n问：谁把香蕉放在柜子？\n答：", "answer": "冯刚", "key": "D|杜江|书包|桌上|冯刚|香蕉|柜子|who", "meta": {"answer": "冯刚"}}
+{"task": "D_position", "prompt": "高睿把皮球放在床边，冯刚把本子放在桌上。\n问：高睿把什么放在床边？\n答：", "answer": "皮球", "key": "D|高睿|皮球|床边|冯刚|本子|桌上|what", "meta": {"answer": "皮球"}}
+{"task": "D_position", "prompt": "冯刚把香蕉放在椅子，姜涛把杯子放在桌上。\n问：冯刚放在椅子的是什么？\n答：", "answer": "香蕉", "key": "D|冯刚|香蕉|椅子|姜涛|杯子|桌上|what", "meta": {"answer": "香蕉"}}
+{"task": "D_position", "prompt": "高睿把杯子放在椅子，金石把橘子放在柜子。\n问：高睿把什么放在椅子？\n答：", "answer": "杯子", "key": "D|高睿|杯子|椅子|金石|橘子|柜子|what", "meta": {"answer": "杯子"}}
+{"task": "E_context", "prompt": "用户：我叫梁静\n助手：你好，梁静\n用户：我是谁？\n助手：", "answer": "梁静", "key": "E|梁静|style0", "meta": {"answer": "梁静", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：大家好，我是许薇\n助手：你好，见到你很高兴，许薇\n用户：你知道我的名字吗？\n助手：", "answer": "许薇", "key": "E|许薇|style3", "meta": {"answer": "许薇", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我叫姚明，请多关照\n助手：幸会，姚明\n用户：还记得我叫什么吗？\n助手：", "answer": "姚明", "key": "E|姚明|style7", "meta": {"answer": "姚明", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：你可以叫我郭浩\n助手：嗨，郭浩\n用户：猜猜我叫什么？\n助手：", "answer": "郭浩", "key": "E|郭浩|style4", "meta": {"answer": "郭浩", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：你可以叫我钟磊\n助手：嗨，钟磊\n用户：请问我是谁？\n助手：", "answer": "钟磊", "key": "E|钟磊|style4", "meta": {"answer": "钟磊", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫叶青\n助手：你好，叶青\n用户：请问我是谁？\n助手：", "answer": "叶青", "key": "E|叶青|style0", "meta": {"answer": "叶青", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：你可以叫我袁泉\n助手：嗨，袁泉\n用户：我的名字是？\n助手：", "answer": "袁泉", "key": "E|袁泉|style4", "meta": {"answer": "袁泉", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：你可以叫我郭浩\n助手：嗨，郭浩\n用户：你知道我的名字吗？\n助手：", "answer": "郭浩", "key": "E|郭浩|style4", "meta": {"answer": "郭浩", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：猜猜我叫什么？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：大家好，我是范冰\n助手：你好，见到你很高兴，范冰\n用户：还记得我叫什么吗？\n助手：", "answer": "范冰", "key": "E|范冰|style3", "meta": {"answer": "范冰", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我是吴军\n助手：你好吴军\n用户：还记得我叫什么吗？\n助手：", "answer": "吴军", "key": "E|吴军|style1", "meta": {"answer": "吴军", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我是新来的姜涛\n助手：欢迎姜涛\n用户：猜猜我叫什么？\n助手：", "answer": "姜涛", "key": "E|姜涛|style5", "meta": {"answer": "姜涛", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：记住我叫许薇\n助手：好的，许薇\n用户：我是谁？\n助手：", "answer": "许薇", "key": "E|许薇|style6", "meta": {"answer": "许薇", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：大家好，我是任杰\n助手：你好，见到你很高兴，任杰\n用户：请问我是谁？\n助手：", "answer": "任杰", "key": "E|任杰|style3", "meta": {"answer": "任杰", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫郭浩，请多关照\n助手：幸会，郭浩\n用户：还记得我叫什么吗？\n助手：", "answer": "郭浩", "key": "E|郭浩|style7", "meta": {"answer": "郭浩", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：大家好，我是任杰\n助手：你好，见到你很高兴，任杰\n用户：你知道我的名字吗？\n助手：", "answer": "任杰", "key": "E|任杰|style3", "meta": {"answer": "任杰", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我是新来的彭丽\n助手：欢迎彭丽\n用户：我的名字是什么？\n助手：", "answer": "彭丽", "key": "E|彭丽|style5", "meta": {"answer": "彭丽", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是新来的姜涛\n助手：欢迎姜涛\n用户：我叫什么？\n助手：", "answer": "姜涛", "key": "E|姜涛|style5", "meta": {"answer": "姜涛", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：记住我叫陆瑶\n助手：好的，陆瑶\n用户：我的名字是什么？\n助手：", "answer": "陆瑶", "key": "E|陆瑶|style6", "meta": {"answer": "陆瑶", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是新来的彭丽\n助手：欢迎彭丽\n用户：我叫什么？\n助手：", "answer": "彭丽", "key": "E|彭丽|style5", "meta": {"answer": "彭丽", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：记住我叫袁泉\n助手：好的，袁泉\n用户：我是谁？\n助手：", "answer": "袁泉", "key": "E|袁泉|style6", "meta": {"answer": "袁泉", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我叫蒋雯\n助手：你好，蒋雯\n用户：我的名字是什么？\n助手：", "answer": "蒋雯", "key": "E|蒋雯|style0", "meta": {"answer": "蒋雯", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是新来的姜涛\n助手：欢迎姜涛\n用户：请问我是谁？\n助手：", "answer": "姜涛", "key": "E|姜涛|style5", "meta": {"answer": "姜涛", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫郭浩，请多关照\n助手：幸会，郭浩\n用户：我叫什么？\n助手：", "answer": "郭浩", "key": "E|郭浩|style7", "meta": {"answer": "郭浩", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：我是新来的罗凯\n助手：欢迎罗凯\n用户：请问我是谁？\n助手：", "answer": "罗凯", "key": "E|罗凯|style5", "meta": {"answer": "罗凯", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫丁宁\n助手：你好，丁宁\n用户：猜猜我叫什么？\n助手：", "answer": "丁宁", "key": "E|丁宁|style0", "meta": {"answer": "丁宁", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：我叫王明\n助手：你好，王明\n用户：我叫什么？\n助手：", "answer": "王明", "key": "E|王明|style0", "meta": {"answer": "王明", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：大家好，我是刘杰\n助手：你好，见到你很高兴，刘杰\n用户：请问我是谁？\n助手：", "answer": "刘杰", "key": "E|刘杰|style3", "meta": {"answer": "刘杰", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：大家好，我是张刚\n助手：你好，见到你很高兴，张刚\n用户：你知道我的名字吗？\n助手：", "answer": "张刚", "key": "E|张刚|style3", "meta": {"answer": "张刚", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我是吴军\n助手：你好吴军\n用户：我叫什么？\n助手：", "answer": "吴军", "key": "E|吴军|style1", "meta": {"answer": "吴军", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：我的名字是胡宇\n助手：胡宇，你好\n用户：我是谁？\n助手：", "answer": "胡宇", "key": "E|胡宇|style2", "meta": {"answer": "胡宇", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我的名字是胡宇\n助手：胡宇，你好\n用户：我的名字是什么？\n助手：", "answer": "胡宇", "key": "E|胡宇|style2", "meta": {"answer": "胡宇", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：记住我叫韩雪\n助手：好的，韩雪\n用户：我的名字是什么？\n助手：", "answer": "韩雪", "key": "E|韩雪|style6", "meta": {"answer": "韩雪", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是新来的林彤\n助手：欢迎林彤\n用户：请问我是谁？\n助手：", "answer": "林彤", "key": "E|林彤|style5", "meta": {"answer": "林彤", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我叫萧然，请多关照\n助手：幸会，萧然\n用户：我是谁？\n助手：", "answer": "萧然", "key": "E|萧然|style7", "meta": {"answer": "萧然", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我是新来的郭浩\n助手：欢迎郭浩\n用户：你知道我的名字吗？\n助手：", "answer": "郭浩", "key": "E|郭浩|style5", "meta": {"answer": "郭浩", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：大家好，我是范冰\n助手：你好，见到你很高兴，范冰\n用户：我叫什么？\n助手：", "answer": "范冰", "key": "E|范冰|style3", "meta": {"answer": "范冰", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：我是吴军\n助手：你好吴军\n用户：我的名字是？\n助手：", "answer": "吴军", "key": "E|吴军|style1", "meta": {"answer": "吴军", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我是新来的姜涛\n助手：欢迎姜涛\n用户：我的名字是？\n助手：", "answer": "姜涛", "key": "E|姜涛|style5", "meta": {"answer": "姜涛", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：你可以叫我袁泉\n助手：嗨，袁泉\n用户：猜猜我叫什么？\n助手：", "answer": "袁泉", "key": "E|袁泉|style4", "meta": {"answer": "袁泉", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：我是新来的孙华\n助手：欢迎孙华\n用户：我叫什么？\n助手：", "answer": "孙华", "key": "E|孙华|style5", "meta": {"answer": "孙华", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：你可以叫我张刚\n助手：嗨，张刚\n用户：我是谁？\n助手：", "answer": "张刚", "key": "E|张刚|style4", "meta": {"answer": "张刚", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：你可以叫我郑芳\n助手：嗨，郑芳\n用户：还记得我叫什么吗？\n助手：", "answer": "郑芳", "key": "E|郑芳|style4", "meta": {"answer": "郑芳", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：我的名字是？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：大家好，我是张刚\n助手：你好，见到你很高兴，张刚\n用户：还记得我叫什么吗？\n助手：", "answer": "张刚", "key": "E|张刚|style3", "meta": {"answer": "张刚", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：记住我叫李红\n助手：好的，李红\n用户：你知道我的名字吗？\n助手：", "answer": "李红", "key": "E|李红|style6", "meta": {"answer": "李红", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：我叫什么？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：大家好，我是徐磊\n助手：你好，见到你很高兴，徐磊\n用户：还记得我叫什么吗？\n助手：", "answer": "徐磊", "key": "E|徐磊|style3", "meta": {"answer": "徐磊", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我是唐勇\n助手：你好唐勇\n用户：我的名字是？\n助手：", "answer": "唐勇", "key": "E|唐勇|style1", "meta": {"answer": "唐勇", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我的名字是郑芳\n助手：郑芳，你好\n用户：猜猜我叫什么？\n助手：", "answer": "郑芳", "key": "E|郑芳|style2", "meta": {"answer": "郑芳", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：你可以叫我郭浩\n助手：嗨，郭浩\n用户：我的名字是？\n助手：", "answer": "郭浩", "key": "E|郭浩|style4", "meta": {"answer": "郭浩", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我叫王明\n助手：你好，王明\n用户：还记得我叫什么吗？\n助手：", "answer": "王明", "key": "E|王明|style0", "meta": {"answer": "王明", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：记住我叫李红\n助手：好的，李红\n用户：猜猜我叫什么？\n助手：", "answer": "李红", "key": "E|李红|style6", "meta": {"answer": "李红", "ask_idx": 3}}
+{"task": "A_dialogue", "prompt": "用户：你好", "answer": "你好！", "key": "A|你好", "meta": {}}
+{"task": "E_context", "prompt": "用户：大家好，我是刘杰\n助手：你好，见到你很高兴，刘杰\n用户：我是谁？\n助手：", "answer": "刘杰", "key": "E|刘杰|style3", "meta": {"answer": "刘杰", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我叫郭浩，请多关照\n助手：幸会，郭浩\n用户：请问我是谁？\n助手：", "answer": "郭浩", "key": "E|郭浩|style7", "meta": {"answer": "郭浩", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：大家好，我是许薇\n助手：你好，见到你很高兴，许薇\n用户：请问我是谁？\n助手：", "answer": "许薇", "key": "E|许薇|style3", "meta": {"answer": "许薇", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我是袁泉\n助手：你好袁泉\n用户：还记得我叫什么吗？\n助手：", "answer": "袁泉", "key": "E|袁泉|style1", "meta": {"answer": "袁泉", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我是新来的谭凯\n助手：欢迎谭凯\n用户：我的名字是什么？\n助手：", "answer": "谭凯", "key": "E|谭凯|style5", "meta": {"answer": "谭凯", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我叫丁宁\n助手：你好，丁宁\n用户：你知道我的名字吗？\n助手：", "answer": "丁宁", "key": "E|丁宁|style0", "meta": {"answer": "丁宁", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我叫萧然\n助手：你好，萧然\n用户：你知道我的名字吗？\n助手：", "answer": "萧然", "key": "E|萧然|style0", "meta": {"answer": "萧然", "ask_idx": 4}}
+{"task": "E_context", "prompt": "用户：我的名字是许薇\n助手：许薇，你好\n用户：我的名字是什么？\n助手：", "answer": "许薇", "key": "E|许薇|style2", "meta": {"answer": "许薇", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：你可以叫我袁泉\n助手：嗨，袁泉\n用户：还记得我叫什么吗？\n助手：", "answer": "袁泉", "key": "E|袁泉|style4", "meta": {"answer": "袁泉", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我是新来的曹阳\n助手：欢迎曹阳\n用户：我的名字是？\n助手：", "answer": "曹阳", "key": "E|曹阳|style5", "meta": {"answer": "曹阳", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我叫萧然，请多关照\n助手：幸会，萧然\n用户：我的名字是什么？\n助手：", "answer": "萧然", "key": "E|萧然|style7", "meta": {"answer": "萧然", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是新来的谭凯\n助手：欢迎谭凯\n用户：还记得我叫什么吗？\n助手：", "answer": "谭凯", "key": "E|谭凯|style5", "meta": {"answer": "谭凯", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我叫姚明，请多关照\n助手：幸会，姚明\n用户：我是谁？\n助手：", "answer": "姚明", "key": "E|姚明|style7", "meta": {"answer": "姚明", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：记住我叫汪峰\n助手：好的，汪峰\n用户：我是谁？\n助手：", "answer": "汪峰", "key": "E|汪峰|style6", "meta": {"answer": "汪峰", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我是新来的谭凯\n助手：欢迎谭凯\n用户：我是谁？\n助手：", "answer": "谭凯", "key": "E|谭凯|style5", "meta": {"answer": "谭凯", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：大家好，我是刘杰\n助手：你好，见到你很高兴，刘杰\n用户：还记得我叫什么吗？\n助手：", "answer": "刘杰", "key": "E|刘杰|style3", "meta": {"answer": "刘杰", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：我的名字是韩雪\n助手：韩雪，你好\n用户：我叫什么？\n助手：", "answer": "韩雪", "key": "E|韩雪|style2", "meta": {"answer": "韩雪", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：你可以叫我钟磊\n助手：嗨，钟磊\n用户：猜猜我叫什么？\n助手：", "answer": "钟磊", "key": "E|钟磊|style4", "meta": {"answer": "钟磊", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：你可以叫我钟磊\n助手：嗨，钟磊\n用户：我叫什么？\n助手：", "answer": "钟磊", "key": "E|钟磊|style4", "meta": {"answer": "钟磊", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：记住我叫李红\n助手：好的，李红\n用户：还记得我叫什么吗？\n助手：", "answer": "李红", "key": "E|李红|style6", "meta": {"answer": "李红", "ask_idx": 7}}
+{"task": "E_context", "prompt": "用户：你可以叫我袁泉\n助手：嗨，袁泉\n用户：我叫什么？\n助手：", "answer": "袁泉", "key": "E|袁泉|style4", "meta": {"answer": "袁泉", "ask_idx": 0}}
+{"task": "E_context", "prompt": "用户：记住我叫陆瑶\n助手：好的，陆瑶\n用户：猜猜我叫什么？\n助手：", "answer": "陆瑶", "key": "E|陆瑶|style6", "meta": {"answer": "陆瑶", "ask_idx": 3}}
+{"task": "E_context", "prompt": "用户：大家好，我是任杰\n助手：你好，见到你很高兴，任杰\n用户：我是谁？\n助手：", "answer": "任杰", "key": "E|任杰|style3", "meta": {"answer": "任杰", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：我叫任杰，请多关照\n助手：幸会，任杰\n用户：我的名字是什么？\n助手：", "answer": "任杰", "key": "E|任杰|style7", "meta": {"answer": "任杰", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：记住我叫李红\n助手：好的，李红\n用户：请问我是谁？\n助手：", "answer": "李红", "key": "E|李红|style6", "meta": {"answer": "李红", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：我是金石\n助手：你好金石\n用户：我的名字是什么？\n助手：", "answer": "金石", "key": "E|金石|style1", "meta": {"answer": "金石", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：记住我叫李红\n助手：好的，李红\n用户：我是谁？\n助手：", "answer": "李红", "key": "E|李红|style6", "meta": {"answer": "李红", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：记住我叫郭浩\n助手：好的，郭浩\n用户：请问我是谁？\n助手：", "answer": "郭浩", "key": "E|郭浩|style6", "meta": {"answer": "郭浩", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：大家好，我是许薇\n助手：你好，见到你很高兴，许薇\n用户：我的名字是什么？\n助手：", "answer": "许薇", "key": "E|许薇|style3", "meta": {"answer": "许薇", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：记住我叫汪峰\n助手：好的，汪峰\n用户：我的名字是什么？\n助手：", "answer": "汪峰", "key": "E|汪峰|style6", "meta": {"answer": "汪峰", "ask_idx": 1}}
+{"task": "E_context", "prompt": "用户：我是萧然\n助手：你好萧然\n用户：我是谁？\n助手：", "answer": "萧然", "key": "E|萧然|style1", "meta": {"answer": "萧然", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：你可以叫我张刚\n助手：嗨，张刚\n用户：请问我是谁？\n助手：", "answer": "张刚", "key": "E|张刚|style4", "meta": {"answer": "张刚", "ask_idx": 5}}
+{"task": "E_context", "prompt": "用户：记住我叫郭浩\n助手：好的，郭浩\n用户：我的名字是？\n助手：", "answer": "郭浩", "key": "E|郭浩|style6", "meta": {"answer": "郭浩", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我是袁泉\n助手：你好袁泉\n用户：我的名字是？\n助手：", "answer": "袁泉", "key": "E|袁泉|style1", "meta": {"answer": "袁泉", "ask_idx": 6}}
+{"task": "E_context", "prompt": "用户：我叫宋佳，请多关照\n助手：幸会，宋佳\n用户：我是谁？\n助手：", "answer": "宋佳", "key": "E|宋佳|style7", "meta": {"answer": "宋佳", "ask_idx": 2}}
+{"task": "E_context", "prompt": "用户：你可以叫我汪峰\n助手：嗨，汪峰\n用户：我是谁？\n助手：", "answer": "汪峰", "key": "E|汪峰|style4", "meta": {"answer": "汪峰", "ask_idx": 2}}

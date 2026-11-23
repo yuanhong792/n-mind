@@ -1,0 +1,35 @@
+{
+  "purpose": "V171 P6 real pytest results; no test marked passed unless actually executed",
+  "targeted_suite": {
+    "log": "_pytest_run1.log",
+    "passed": 35,
+    "failed": 0,
+    "errors": 0,
+    "failed_tests": [],
+    "error_tests": [],
+    "exit_marker": false,
+    "tail": "...................................                                      [100%]"
+  },
+  "full_suite": {
+    "log": "_pytest_full.log",
+    "passed": 298,
+    "failed": 0,
+    "errors": 0,
+    "failed_tests": [],
+    "error_tests": [],
+    "exit_marker": false,
+    "tail": "  D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\tests\\test_pred_next_mode.py:49: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n  Consider using tensor.detach() first. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\torch\\csrc\\autograd\\generated\\python_variable_methods.cpp:821.)\n    assert float(diff) > 1e-4, \"next 模式下 z_hat 必须对当前动作敏感\"\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html"
+  },
+  "coverage": {
+    "checkpoint_save_load": "tests/test_v171_checkpoint.py",
+    "best_final_distinction": "tests/test_v171_checkpoint.py",
+    "router_gradient": "tests/test_router_language_grad.py, tests/test_router_ste.py, tests/test_router.py",
+    "bpe_vocab_compat": "tests/test_bpe_utf8_decoder.py, tests/test_language_v13_vocab.py",
+    "answer_mask": "tests/test_v171_protocol.py::test_answer_mask_includes_eos",
+    "full_answer_scoring": "tests/test_v171_protocol.py",
+    "free_generation_eos": "tests/test_v171_protocol.py",
+    "utf8": "tests/test_bpe_utf8_decoder.py",
+    "fact_level_dedup": "tests/test_v171_data.py",
+    "counterfactual_pairing": "tests/test_v171_data.py"
+  }
+}

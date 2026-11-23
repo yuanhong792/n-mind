@@ -53,6 +53,12 @@ data/v*/
 !experiments/language_v1/v17/V17_CHAT_TRANSCRIPT.jsonl
 !experiments/language_v1/v17/V17_CHAT_TRANSCRIPT2.jsonl
 
+# V1.7.1 交付：新数据集与冻结SHA是可复现交付物(jsonl)，解除排除；权重仍排除
+!experiments/language_v1/v171/data/v171_train.jsonl
+!experiments/language_v1/v171/data/v171_val.jsonl
+!experiments/language_v1/v171/data/v171_sealed.jsonl
+!experiments/language_v1/v171/data/v171_counter.jsonl
+
 # 浏览器调试与临时脚本
 .playwright-cli/
 _dbg_st.py

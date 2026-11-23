@@ -1,0 +1,992 @@
+{
+  "purpose": "V171 P0 read-only checkpoint audit; FINAL_WEIGHTS_LOST determination",
+  "no_weight_written": true,
+  "code_root_cause": "train_v17.py line ~220-228: m.load_state_dict(best_state) executed BEFORE building final_state, so final_state is the restored best weights. best_step=0 => both best.pt and final.pt are the V1.5 parent weights.",
+  "files": [
+    {
+      "name": "V1.5_Parent",
+      "path": "experiments/language_v1/v15/candidate_v15_baseline.pt",
+      "sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 256,
+        "seed": 20261150,
+        "manifest_hash": "v15-preregistered",
+        "saved_at": "2026-11-23T21:15:41+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.6_Baseline",
+      "path": "experiments/language_v1/v16/candidate_v16_baseline_frozen_router.pt",
+      "sha256": "7102a19a00f4f808f8607d3a4bcb015df2d88c528b8cc66fa13de3367a6a6875",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 256,
+        "seed": 20261123,
+        "manifest_hash": "v16-preregistered",
+        "saved_at": "2026-11-23T22:27:41+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.6_FixedRouter",
+      "path": "experiments/language_v1/v16/candidate_v16_fixed_router.pt",
+      "sha256": "174b2ba6ffd624a037cfcdaf80fc16e9bc8f72af5526f10c31b97f99ffe1ec89",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 256,
+        "seed": 20261123,
+        "manifest_hash": "v16-preregistered",
+        "saved_at": "2026-11-23T22:28:40+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.7_Best",
+      "path": "experiments/language_v1/v17/candidate_v17_best.pt",
+      "sha256": "72cde8a7c1b94e1f62d9a4529d9c7e200c61266ea118a28d340093dd52ab36c3",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 0,
+        "seed": 20261123,
+        "manifest_hash": "v17-preregistered",
+        "saved_at": "2026-11-23T23:42:40+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.7_Final",
+      "path": "experiments/language_v1/v17/candidate_v17_final.pt",
+      "sha256": "1e352f6b01273815f6ee94c6155c8f336e073a91c3a55206ccbdc1df835b1d38",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 1536,
+        "seed": 20261123,
+        "manifest_hash": "v17-preregistered",
+        "saved_at": "2026-11-23T23:42:40+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.3_Main",
+      "path": "experiments/language_v1/candidate_main.pt",
+      "sha256": "8aa90e37f64cec48ab2e0908621276401709e81189a0ae5b7430b5641a53f87a",
+      "size_bytes": 1125400,
+      "load_ok": false,
+      "error": "ValueError: Language V2 checkpoint/tokenizer mismatch"
+    },
+    {
+      "name": "V1.4_Main",
+      "path": "experiments/language_v1/candidate_v14_main.pt",
+      "sha256": "33703b768499eaf73d8672f83869d31728b0fc5d6031daccc04add0e76e0acc1",
+      "size_bytes": 1125400,
+      "meta": {
+        "steps": 256,
+        "seed": 20261140,
+        "manifest_hash": "v14-balanced",
+        "saved_at": "2026-11-23T20:34:01+0800"
+      },
+      "load_ok": true
+    },
+    {
+      "name": "V1.5_QueryAttn",
+      "path": "experiments/language_v1/v15/candidate_v15_query_attention.pt",
+      "sha256": "93c209f86c45a0f1af4cd7975b0d757f4285207e7de454504568665a8061444e",
+      "size_bytes": 1136338,
+      "meta": {
+        "steps": 256,
+        "seed": 20261151,
+        "manifest_hash": "v15-preregistered",
+        "saved_at": "2026-11-23T21:15:41+0800"
+      },
+      "load_ok": true
+    }
+  ],
+  "pairwise": {
+    "V1.7_Best_vs_V1.5_Parent": {
+      "identical": true,
+      "num_tensors": 25,
+      "changed_tensors": 0,
+      "total_l1": 0.0,
+      "max_abs_diff": 0.0,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 0,
+        "router_l1": 0.0,
+        "router_max_abs": 0.0
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_h": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_w": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_z": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_c": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "tok_emb.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.k_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.slot_keys": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.write_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        }
+      }
+    },
+    "V1.7_Final_vs_V1.5_Parent": {
+      "identical": true,
+      "num_tensors": 25,
+      "changed_tensors": 0,
+      "total_l1": 0.0,
+      "max_abs_diff": 0.0,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 0,
+        "router_l1": 0.0,
+        "router_max_abs": 0.0
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_h": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_w": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_z": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_c": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "tok_emb.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.k_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.slot_keys": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.write_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        }
+      }
+    },
+    "V1.7_Final_vs_V1.7_Best": {
+      "identical": true,
+      "num_tensors": 25,
+      "changed_tensors": 0,
+      "total_l1": 0.0,
+      "max_abs_diff": 0.0,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 0,
+        "router_l1": 0.0,
+        "router_max_abs": 0.0
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_h": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_w": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.W_z": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_c": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "blocks.b_g": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "head.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "tok_emb.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.k_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.q_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.slot_keys": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.write_proj.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        }
+      }
+    },
+    "V1.7_Final_vs_V1.6_FixedRouter": {
+      "identical": false,
+      "num_tensors": 25,
+      "changed_tensors": 21,
+      "total_l1": 1163.78423541,
+      "max_abs_diff": 0.18447241,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 4,
+        "router_l1": 19.54696785,
+        "router_max_abs": 0.09280573
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.16111399,
+          "max_abs": 0.01945626,
+          "identical": false
+        },
+        "block_to_ws.weight": {
+          "l1": 9.53626251,
+          "max_abs": 0.12523203,
+          "identical": false
+        },
+        "blocks.W_g": {
+          "l1": 127.86168671,
+          "max_abs": 0.1359804,
+          "identical": false
+        },
+        "blocks.W_h": {
+          "l1": 41.29568863,
+          "max_abs": 0.09721537,
+          "identical": false
+        },
+        "blocks.W_w": {
+          "l1": 13.9004488,
+          "max_abs": 0.11707972,
+          "identical": false
+        },
+        "blocks.W_z": {
+          "l1": 46.19226837,
+          "max_abs": 0.1065339,
+          "identical": false
+        },
+        "blocks.b_c": {
+          "l1": 0.86988008,
+          "max_abs": 0.05540694,
+          "identical": false
+        },
+        "blocks.b_g": {
+          "l1": 1.6278038,
+          "max_abs": 0.0592528,
+          "identical": false
+        },
+        "head.bias": {
+          "l1": 25.04452705,
+          "max_abs": 0.0945721,
+          "identical": false
+        },
+        "head.weight": {
+          "l1": 695.59210205,
+          "max_abs": 0.18447241,
+          "identical": false
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.28292391,
+          "max_abs": 0.03835719,
+          "identical": false
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 18.45061302,
+          "max_abs": 0.09280573,
+          "identical": false
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0365379,
+          "max_abs": 0.01833014,
+          "identical": false
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.77689302,
+          "max_abs": 0.06587042,
+          "identical": false
+        },
+        "tok_emb.weight": {
+          "l1": 149.08937073,
+          "max_abs": 0.09977478,
+          "identical": false
+        },
+        "workspace.k_proj.weight": {
+          "l1": 8.88942719,
+          "max_abs": 0.11182114,
+          "identical": false
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.36078447,
+          "max_abs": 0.04311635,
+          "identical": false
+        },
+        "workspace.q_proj.weight": {
+          "l1": 13.70121765,
+          "max_abs": 0.09206151,
+          "identical": false
+        },
+        "workspace.slot_keys": {
+          "l1": 0.78944206,
+          "max_abs": 0.04606259,
+          "identical": false
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 4.51841211,
+          "max_abs": 0.10568191,
+          "identical": false
+        },
+        "workspace.write_proj.weight": {
+          "l1": 4.80683136,
+          "max_abs": 0.08479249,
+          "identical": false
+        }
+      }
+    },
+    "V1.7_Best_vs_V1.6_FixedRouter": {
+      "identical": false,
+      "num_tensors": 25,
+      "changed_tensors": 21,
+      "total_l1": 1163.78423541,
+      "max_abs_diff": 0.18447241,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 4,
+        "router_l1": 19.54696785,
+        "router_max_abs": 0.09280573
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.16111399,
+          "max_abs": 0.01945626,
+          "identical": false
+        },
+        "block_to_ws.weight": {
+          "l1": 9.53626251,
+          "max_abs": 0.12523203,
+          "identical": false
+        },
+        "blocks.W_g": {
+          "l1": 127.86168671,
+          "max_abs": 0.1359804,
+          "identical": false
+        },
+        "blocks.W_h": {
+          "l1": 41.29568863,
+          "max_abs": 0.09721537,
+          "identical": false
+        },
+        "blocks.W_w": {
+          "l1": 13.9004488,
+          "max_abs": 0.11707972,
+          "identical": false
+        },
+        "blocks.W_z": {
+          "l1": 46.19226837,
+          "max_abs": 0.1065339,
+          "identical": false
+        },
+        "blocks.b_c": {
+          "l1": 0.86988008,
+          "max_abs": 0.05540694,
+          "identical": false
+        },
+        "blocks.b_g": {
+          "l1": 1.6278038,
+          "max_abs": 0.0592528,
+          "identical": false
+        },
+        "head.bias": {
+          "l1": 25.04452705,
+          "max_abs": 0.0945721,
+          "identical": false
+        },
+        "head.weight": {
+          "l1": 695.59210205,
+          "max_abs": 0.18447241,
+          "identical": false
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.28292391,
+          "max_abs": 0.03835719,
+          "identical": false
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 18.45061302,
+          "max_abs": 0.09280573,
+          "identical": false
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0365379,
+          "max_abs": 0.01833014,
+          "identical": false
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.77689302,
+          "max_abs": 0.06587042,
+          "identical": false
+        },
+        "tok_emb.weight": {
+          "l1": 149.08937073,
+          "max_abs": 0.09977478,
+          "identical": false
+        },
+        "workspace.k_proj.weight": {
+          "l1": 8.88942719,
+          "max_abs": 0.11182114,
+          "identical": false
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.36078447,
+          "max_abs": 0.04311635,
+          "identical": false
+        },
+        "workspace.q_proj.weight": {
+          "l1": 13.70121765,
+          "max_abs": 0.09206151,
+          "identical": false
+        },
+        "workspace.slot_keys": {
+          "l1": 0.78944206,
+          "max_abs": 0.04606259,
+          "identical": false
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 4.51841211,
+          "max_abs": 0.10568191,
+          "identical": false
+        },
+        "workspace.write_proj.weight": {
+          "l1": 4.80683136,
+          "max_abs": 0.08479249,
+          "identical": false
+        }
+      }
+    },
+    "V1.6_FixedRouter_vs_V1.5_Parent": {
+      "identical": false,
+      "num_tensors": 25,
+      "changed_tensors": 21,
+      "total_l1": 1163.78423541,
+      "max_abs_diff": 0.18447241,
+      "shape_mismatch": [],
+      "router": {
+        "score_mlp_changed_tensors": 4,
+        "router_l1": 19.54696785,
+        "router_max_abs": 0.09280573
+      },
+      "per_tensor": {
+        "block_load_count": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "block_to_ws.bias": {
+          "l1": 0.16111399,
+          "max_abs": 0.01945626,
+          "identical": false
+        },
+        "block_to_ws.weight": {
+          "l1": 9.53626251,
+          "max_abs": 0.12523203,
+          "identical": false
+        },
+        "blocks.W_g": {
+          "l1": 127.86168671,
+          "max_abs": 0.1359804,
+          "identical": false
+        },
+        "blocks.W_h": {
+          "l1": 41.29568863,
+          "max_abs": 0.09721537,
+          "identical": false
+        },
+        "blocks.W_w": {
+          "l1": 13.9004488,
+          "max_abs": 0.11707972,
+          "identical": false
+        },
+        "blocks.W_z": {
+          "l1": 46.19226837,
+          "max_abs": 0.1065339,
+          "identical": false
+        },
+        "blocks.b_c": {
+          "l1": 0.86988008,
+          "max_abs": 0.05540694,
+          "identical": false
+        },
+        "blocks.b_g": {
+          "l1": 1.6278038,
+          "max_abs": 0.0592528,
+          "identical": false
+        },
+        "head.bias": {
+          "l1": 25.04452705,
+          "max_abs": 0.0945721,
+          "identical": false
+        },
+        "head.weight": {
+          "l1": 695.59210205,
+          "max_abs": 0.18447241,
+          "identical": false
+        },
+        "router.load_bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "router.score_mlp.0.bias": {
+          "l1": 0.28292391,
+          "max_abs": 0.03835719,
+          "identical": false
+        },
+        "router.score_mlp.0.weight": {
+          "l1": 18.45061302,
+          "max_abs": 0.09280573,
+          "identical": false
+        },
+        "router.score_mlp.2.bias": {
+          "l1": 0.0365379,
+          "max_abs": 0.01833014,
+          "identical": false
+        },
+        "router.score_mlp.2.weight": {
+          "l1": 0.77689302,
+          "max_abs": 0.06587042,
+          "identical": false
+        },
+        "tok_emb.weight": {
+          "l1": 149.08937073,
+          "max_abs": 0.09977478,
+          "identical": false
+        },
+        "workspace.k_proj.weight": {
+          "l1": 8.88942719,
+          "max_abs": 0.11182114,
+          "identical": false
+        },
+        "workspace.q_proj.bias": {
+          "l1": 0.36078447,
+          "max_abs": 0.04311635,
+          "identical": false
+        },
+        "workspace.q_proj.weight": {
+          "l1": 13.70121765,
+          "max_abs": 0.09206151,
+          "identical": false
+        },
+        "workspace.slot_keys": {
+          "l1": 0.78944206,
+          "max_abs": 0.04606259,
+          "identical": false
+        },
+        "workspace.utility_mlp.bias": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.utility_mlp.weight": {
+          "l1": 0.0,
+          "max_abs": 0.0,
+          "identical": true
+        },
+        "workspace.v_proj.weight": {
+          "l1": 4.51841211,
+          "max_abs": 0.10568191,
+          "identical": false
+        },
+        "workspace.write_proj.weight": {
+          "l1": 4.80683136,
+          "max_abs": 0.08479249,
+          "identical": false
+        }
+      }
+    }
+  },
+  "determination": {
+    "best_identical_to_parent": true,
+    "final_identical_to_parent": true,
+    "final_identical_to_best": true,
+    "best_step_recorded": 0,
+    "final_step_recorded": 1536,
+    "FINAL_WEIGHTS_LOST": true
+  },
+  "recovery_search": {
+    "searched_paths": [
+      "experiments/language_v1/v17/*.pt",
+      "experiments/language_v1/v15/*.pt",
+      "experiments/language_v1/v16/*.pt",
+      "experiments/language_v1/*.pt",
+      "cloud_training_package/*.pt",
+      "Windows %TEMP% / %TMP% pt files"
+    ],
+    "optimizer_state_files_found": 0,
+    "autosave_files_found": 0,
+    "v17_intermediate_checkpoints_found": 0,
+    "any_non_parent_weight_found": [
+      {
+        "name": "V1.6_Baseline",
+        "diff_vs_parent_total_l1": 1136.58932552,
+        "meta_steps": 256
+      },
+      {
+        "name": "V1.6_FixedRouter",
+        "diff_vs_parent_total_l1": 1163.78423541,
+        "meta_steps": 256
+      },
+      {
+        "name": "V1.4_Main",
+        "diff_vs_parent_total_l1": 1139.43063562,
+        "meta_steps": 256
+      },
+      {
+        "name": "V1.5_QueryAttn",
+        "diff_vs_parent_total_l1": null,
+        "meta_steps": 256
+      }
+    ],
+    "conclusion": "No 1536-step tail weight copy exists. Only best.pt/final.pt were saved, both equal to parent. Weights are irrecoverable from files; not reconstructed."
+  }
+}

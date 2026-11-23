@@ -1,0 +1,80 @@
+{
+  "purpose": "V171 P5 EOS degeneracy audit",
+  "root_cause": "V1.7 旧评测把 finish_reason=eos 当作 UTF-8 合法与成功结束, 但 592/600 样本是首步即 EOS 的空串输出; 模型(实际=父模型)未学会在答案后结束, 而是把 EOS 当成对任意 prompt 的默认响应。",
+  "historical_v17_old_metric": {
+    "n": 600,
+    "eos_count": 593,
+    "empty_free_count": 592,
+    "eos_and_empty_count": 592,
+    "immediate_eos_rate_old_criteria": 0.9867,
+    "old_claimed_utf8_legal_rate": {
+      "C_counter": 1.0,
+      "B_bind": 1.0,
+      "D_position": 1.0,
+      "E_context": 1.0
+    },
+    "old_claimed_eos_rate": {
+      "C_counter": 1.0,
+      "B_bind": 1.0,
+      "D_position": 0.9573,
+      "E_context": 1.0
+    },
+    "problem": "旧指标把立即EOS空串计为 utf8 合法 + eos 成功, 掩盖退化。"
+  },
+  "unified_protocol_results": {
+    "V1.5_Parent": {
+      "n": 600,
+      "immediate_eos_rate": 0.9867,
+      "immediate_eos_count": 592,
+      "non_empty_answer_rate": 0.0133,
+      "valid_utf8_non_empty_rate": 0.0133,
+      "correct_eos_rate": 0.0017,
+      "utf8_complete_rate": 1.0,
+      "free_acc": 0.0,
+      "finish_reason_counts": {
+        "eos": 593,
+        "max_tokens": 7
+      }
+    },
+    "V1.7_Best": {
+      "n": 600,
+      "immediate_eos_rate": 0.9867,
+      "immediate_eos_count": 592,
+      "non_empty_answer_rate": 0.0133,
+      "valid_utf8_non_empty_rate": 0.0133,
+      "correct_eos_rate": 0.0017,
+      "utf8_complete_rate": 1.0,
+      "free_acc": 0.0,
+      "finish_reason_counts": {
+        "eos": 593,
+        "max_tokens": 7
+      }
+    },
+    "V1.7_Final": {
+      "n": 600,
+      "immediate_eos_rate": 0.9867,
+      "immediate_eos_count": 592,
+      "non_empty_answer_rate": 0.0133,
+      "valid_utf8_non_empty_rate": 0.0133,
+      "correct_eos_rate": 0.0017,
+      "utf8_complete_rate": 1.0,
+      "free_acc": 0.0,
+      "finish_reason_counts": {
+        "eos": 593,
+        "max_tokens": 7
+      }
+    }
+  },
+  "eos_supervision_check": {
+    "eos_token_id": 2,
+    "eos_target_in_answer_mask": true,
+    "eos_loss_weight": 0.25,
+    "mask_loop_upper_bound": "range(ans_start, len(s))  # V1.7 修复后含 EOS",
+    "conclusion": "EOS 已进入监督掩码(低权重 0.25)。但权重文件实际=父模型, 1536 步训练权重丢失, 无法验证训练是否学会正确 EOS 位置; 当前观察到的立即 EOS 是父模型本身的行为。"
+  },
+  "decoder_min_token_control": {
+    "main_evaluation_uses_min_tokens": false,
+    "note": "主评测未启用任何最小输出 Token 规则; 若需用最小 Token 抑制立即EOS, 只能作为单独对照配置, 不得伪装为模型能力提升。本轮不启用。"
+  },
+  "rules_used_to_emit_correct_answers": false
+}

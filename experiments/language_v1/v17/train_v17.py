@@ -12,6 +12,7 @@ import torch
 from nmind.language.tokenizer_v2 import ByteBPETokenizer, EOS
 from nmind.language.neural_language_v2 import load_language_v2, save_language_v2
 from nmind.language.bpe_decoder import effective_token_ids, generate_bpe
+from checkpoint_v17 import capture_state, save_periodic, save_final_and_best
 
 V17 = ROOT / "experiments/language_v1/v17"
 PARENT = ROOT / "experiments/language_v1/v15/candidate_v15_baseline.pt"
@@ -168,7 +169,7 @@ def main():
     parent.eval()
     base_eval = evaluate(parent, val)
     best_score = base_eval["per_task_score_acc"].get("B_bind",0)
-    best_state = {k:v.detach().clone() for k,v in parent.state_dict().items()}
+    best_state = capture_state(parent)
     best_step = 0
     # 训练模型
     torch.manual_seed(SEED)
@@ -206,7 +207,9 @@ def main():
                 history.append({"step":step,"eval":ev,"wall":round(time.perf_counter()-t0,1),"phase":"phase1" if step<=64 else "phase2" if step<=512 else "phase3"})
                 if b_acc > best_score:
                     best_score = b_acc; best_step = step
-                    best_state = {k:v.detach().clone() for k,v in m.state_dict().items()}
+                    best_state = capture_state(m)
+                # [V171 FIX] 每个评测点原子落盘"最近有效权重"; 异常中断也能保留。
+                save_periodic(m, tok, V17, step=step, seed=SEED, manifest_hash="v17-preregistered-v171")
                 print(json.dumps({"step":step,"b_acc":b_acc,"free":ev["free_acc"],"cf":ev["counter_paired_correct"],"wall":round(time.perf_counter()-t0,1)},ensure_ascii=False),flush=True)
                 # 阶段检查: 64步后必须参数变化+router梯度+loss有限
                 if step == 64:
@@ -216,16 +219,17 @@ def main():
         if (time.perf_counter()-t0) > MAX_WALL:
             stop_reason = "time_budget"; break
     wall = time.perf_counter()-t0
-    # 恢复最佳 checkpoint, 封存集只评一次
+    # [V171 FIX] 训练循环刚结束, m 仍是最后一步权重。必须在恢复 best_state 之前抓取。
+    final_state = capture_state(m)          # 真正的 1536 步末尾权重(CPU clone, 与后续 restore 解耦)
+    router_delta = float(sum((final_state[k].detach()-router_init[k]).abs().sum()
+                             for k in final_state if k.startswith("router.score_mlp")))
+    # 先落盘 FINAL(最后步), 再恢复 BEST 并落盘, 顺序不可颠倒。
+    saved = save_final_and_best(
+        m, tok, V17, final_state=final_state, best_state=best_state,
+        final_step=step, best_step=best_step, seed=SEED, manifest_hash="v17-preregistered-v171")
+    # 恢复最佳 checkpoint, 封存集只评一次(在 best 权重上评)
     m.load_state_dict(best_state); m.eval()
     sealed_eval = evaluate(m, sealed, score_limit=600, free_n=120)
-    router_delta = float(sum((v.detach()-router_init[k]).abs().sum() for k,v in m.named_parameters() if k.startswith("router.score_mlp")))
-    # 保存两个候选
-    final_state = {k:v.detach().clone() for k,v in m.state_dict().items()}
-    save_language_v2(V17/"candidate_v17_best.pt", m, tok, steps=best_step, seed=SEED, manifest_hash="v17-preregistered")
-    # final = 最后一步权重
-    m.load_state_dict(final_state)
-    save_language_v2(V17/"candidate_v17_final.pt", m, tok, steps=step, seed=SEED, manifest_hash="v17-preregistered")
     result = {
         "status":"COMPLETED_AUTHORIZED_TRAINING", "optimizer_steps_actual":step,
         "wall_seconds":round(wall,1), "stop_reason":stop_reason,
@@ -237,8 +241,12 @@ def main():
         "parent_baseline_eval":base_eval, "history":history,
         "sealed_final_eval":sealed_eval,
         "router_weight_delta_l1":router_delta,
-        "candidate_best_sha256":sha(V17/"candidate_v17_best.pt"),
-        "candidate_final_sha256":sha(V17/"candidate_v17_final.pt"),
+        "checkpoint_save_order":"final_before_best (V171 fix)",
+        "candidate_best_sha256":saved["best_sha256"],
+        "candidate_final_sha256":saved["final_sha256"],
+        "candidate_best_steps_meta":saved["best_steps"],
+        "candidate_final_steps_meta":saved["final_steps"],
+        "final_equals_best_weights":all(torch.equal(final_state[k], best_state[k]) for k in final_state),
         "loss_first":raw_weighted_losses[0] if raw_weighted_losses else None,
         "loss_last":raw_weighted_losses[-1] if raw_weighted_losses else None,
         "stable_modified":False,"network_requests":0,"external_models":0,
