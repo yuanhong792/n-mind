@@ -1,7 +1,7 @@
 {
-  "status": "PRE_REGISTERED_NOT_EXECUTED_AWAITING_AUTHORIZATION",
-  "revision": "V1.6.1 - single-seed A/B correction + independent counterfactual + zero-step validation",
-  "note": "本轮未执行任何 optimizer.step；零步梯度验证除外(仅 backward 无 step)。需明确授权后方可执行真实训练。",
+  "status": "EXECUTED_20261123_HYPOTHESIS_FALSIFIED",
+  "revision": "V1.6.2 - executed with explicit authorization; Router-gradient hypothesis FALSIFIED",
+  "note": "已于 2026-11-23 经用户明确授权执行 512 步(两组各256)。结果: 两组能力指标完全一致且全部未达标(封存0.5/自由生成0.0/反事实跟随0.0)。Router修复生效(权重变化19.547 vs 0.0)但未带来实体绑定能力。详见 V16_TRAINING_RESULT_REPORT.md。预登记内容保持不变，仅状态更新。",
   "rationale": "根因=工程缺陷(Router STE 权重未接线, 已修复) + 学习机制限制(答案判别首字 CE≈ln2)。唯一实验变量: router_gradient_path_enabled。A/B 必须完全同种子同配置, 只切换 Router 梯度路径开关。",
   "single_key_variable": "router_gradient_path_enabled",
   "shared_random_seed": 20261123,
