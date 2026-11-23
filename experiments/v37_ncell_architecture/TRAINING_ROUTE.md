@@ -34,3 +34,11 @@ powershell -ExecutionPolicy Bypass -File .\route_local\V37_RUN_LOCAL.ps1
 转本地：6臂 × 256步，总计最多1536步，由本地CUDA手动启动；CI只生成任务文件，不代用户操作本地电脑。
 
 **需要单独继续研发的事项：** 优化器和随机数状态断点续训、可复用的模型发布、自动识别峰值内存和运行时、GPU实际吞吐量与显存估算、多seed新鲜封存验收、结果经审批后上传GitHub。现有脚本不能自动保证大模型在12GB GPU上可运行。
+
+## GitHub CPU Candidate 工件（2026-11-23 补强）
+
+- 仅在现有预算内的云端 6 臂 × 128 步开发集训练中启用 `--save-candidates`，在 CI 工作空间输出 `ci_extended/candidates/tokenizer.json` 和六个独立 `candidate_*.pt`。
+- CI 在上传前逐个重新加载模型，验证架构可加载、每臂 128 步、文件数与训练臂一致。工件名 `ncell-v37-cloud-candidates`，训练报告继续单独保留为 `ncell-v37-extended-dev-report`。
+- GitHub 工件有保留期限；这不等于长期模型发布。仅为可下载的隔离候选产物，不自动提交二进制权重到仓库、也不替换 Stable。
+- 本地离线工作流保持 `LOCAL_MANUAL`，只能用户在 Windows 主动执行。未获得新的超额训练授权，不扩大训练预算。
+- 估计 RAM 若为 NaN/Inf 则直接拒绝分流，避免无效预算被误判为免费 CPU 任务。

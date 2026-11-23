@@ -43,7 +43,26 @@ jobs:
           python experiments/v37_ncell_architecture/run_ablation.py --steps 16 --batch-size 2 --eval-samples 16 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 240 --output-dir experiments/v37_ncell_architecture/ci_six_arm
       - name: Extended neural candidate comparison (cloud CPU, dev only)
         run: |
-          python experiments/v37_ncell_architecture/run_ablation.py --steps 128 --batch-size 4 --eval-samples 40 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 300 --output-dir experiments/v37_ncell_architecture/ci_extended
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 128 --batch-size 4 --eval-samples 40 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 300 --save-candidates --output-dir experiments/v37_ncell_architecture/ci_extended
+      - name: Verify cloud Candidate weights and tokenizer (no Stable promotion)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from nmind.language.neural_dialogue import load_lm
+          from nmind.language.tokenizer import CharTokenizer
+          root = Path("experiments/v37_ncell_architecture/ci_extended/candidates")
+          tok = CharTokenizer.load(root / "tokenizer.json")
+          expected = ("legacy", "router_ste", "attention", "router_attention", "reset", "all")
+          weights = sorted(root.glob("candidate_*.pt"))
+          assert len(weights) == len(expected), f"Expected {len(expected)} candidates, got {len(weights)}"
+          for arm in expected:
+              matches = [f for f in weights if f.name.startswith(f"candidate_{arm}_seed")]
+              assert len(matches) == 1, f"Missing or duplicate candidate: {arm}"
+              model, meta = load_lm(matches[0], tok)
+              assert meta["steps"] == 128, (arm, meta["steps"])
+              assert model.n_params() > 0
+          print("Verified 6 isolated Candidate checkpoints; no Stable promotion")
+          PY
       - name: Route cloud and oversized experiments (never start user's PC)
         run: |
           python experiments/v37_ncell_architecture/route_training.py --steps 128 --arms legacy router_ste attention router_attention reset all --estimated-ram-gb 2 --output-dir experiments/v37_ncell_architecture/route_cloud
@@ -66,6 +85,13 @@ jobs:
             experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_RESULTS.json
             experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_REPORT.md
           if-no-files-found: warn
+      - name: Upload cloud Candidate models (isolated; no Stable promotion)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-cloud-candidates
+          path: experiments/v37_ncell_architecture/ci_extended/candidates/
+          if-no-files-found: error
       - name: Upload six-arm comparison JSON and Markdown
         if: always()
         uses: actions/upload-artifact@v4

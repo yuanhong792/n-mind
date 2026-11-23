@@ -77,6 +77,23 @@ def test_invalid_job_refused(kw):
         router.decide_route(**kw)
 
 
+def test_nonfinite_ram_estimates_never_route_to_free_cpu():
+    for estimate in (float("nan"), float("inf"), float("-inf")):
+        with pytest.raises(ValueError, match="finite"):
+            router.decide_route(steps=8, arms=["legacy"], estimated_ram_gb=estimate)
+
+
+def test_cloud_cpu_candidate_export_is_wired_into_actions():
+    workflow = (PROJECT / ".github" / "workflows" / "ncell-v37-check.yml").read_text(
+        encoding="utf-8")
+    extended = workflow.split("- name: Extended neural candidate comparison", 1)[1]
+    extended = extended.split("- name:", 1)[0]
+    assert "--save-candidates" in extended
+    assert "Verify cloud Candidate weights and tokenizer" in workflow
+    assert "ncell-v37-cloud-candidates" in workflow
+    assert "ci_extended/candidates/" in workflow
+
+
 def test_cloud_cpu_neural_experiment_rejects_unapproved_larger_steps():
     with pytest.raises(ValueError):
         run_experiment(steps=129, arms=("legacy",), eval_samples=2)

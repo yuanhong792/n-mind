@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
 # These are *conservative project policy bounds*, not GitHub's official runner limits.
@@ -25,8 +26,8 @@ def decide_route(*, steps: int, arms: list[str], estimated_ram_gb: float,
         raise ValueError("arms must be nonempty, distinct registered candidates")
     if not 0 <= steps <= LOCAL_MAX_STEPS_PER_ARM:
         raise ValueError(f"steps must be in 0..{LOCAL_MAX_STEPS_PER_ARM}")
-    if estimated_ram_gb <= 0:
-        raise ValueError("estimated RAM must be positive")
+    if not math.isfinite(estimated_ram_gb) or estimated_ram_gb <= 0:
+        raise ValueError("estimated RAM must be finite and positive")
     total = steps * len(arms)
     reasons = []
     if requires_gpu:
