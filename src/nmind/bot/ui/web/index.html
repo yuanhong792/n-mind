@@ -194,5 +194,82 @@ $('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(awa
   refresh();
 })();
 </script>
+<script>
+// Final chat persistence layer. It replaces the legacy demo handlers and keeps
+// the visible transcript backed by the real session API.
+(function () {
+  const prompt = document.getElementById('prompt');
+  const oldSend = document.querySelector('.send');
+  if (!prompt || !oldSend) return;
+  const send = oldSend.cloneNode(true);
+  oldSend.replaceWith(send);
+  let sessionId = null;
+  const request = (url, options) => fetch(url, options || {}).then(r => r.json());
+  const messages = () => document.getElementById('chat-page');
+  const clearDynamic = () => messages().querySelectorAll('.message[data-persisted="1"]').forEach(x => x.remove());
+  function render(text, who, source, persisted) {
+    const row = document.createElement('div');
+    row.className = 'message' + (who === 'user' ? ' user' : '');
+    row.dataset.persisted = persisted ? '1' : '0';
+    if (who !== 'user') {
+      const avatar = document.createElement('div'); avatar.className = 'avatar';
+      const img = document.createElement('img'); img.src = 'assets/nmind-brain.png'; avatar.appendChild(img); row.appendChild(avatar);
+    }
+    const bubble = document.createElement('div'); bubble.className = 'bubble';
+    if (who !== 'user') { const meta = document.createElement('div'); meta.className = 'meta'; const tag = document.createElement('span'); tag.className = 'small-label'; tag.textContent = source || 'none'; meta.appendChild(tag); bubble.appendChild(meta); }
+    const p = document.createElement('p'); p.textContent = text || ''; bubble.appendChild(p); row.appendChild(bubble); messages().appendChild(row);
+  }
+  async function ensureSession() {
+    if (sessionId) return sessionId;
+    const list = await request('/api/chat/sessions');
+    sessionId = list.sessions && list.sessions.length ? list.sessions[0].session_id : null;
+    if (!sessionId) sessionId = (await request('/api/chat/sessions', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({title:'新会话'})})).session_id;
+    return sessionId;
+  }
+  async function loadHistory() {
+    try {
+      const sid = await ensureSession();
+      const data = await request('/api/chat/sessions/' + encodeURIComponent(sid) + '/messages');
+      clearDynamic();
+      (data.messages || []).forEach(m => {
+        // The API returns paired rows with the same message_id. Use role,
+        // rather than field presence, so the user's message is never shown
+        // as an assistant response or dropped during reload.
+        if (m.role === 'user') render(m.text || '', 'user', 'user', true);
+        else if (m.role === 'assistant') render(m.text || '', 'assistant', m.response_source || 'none', true);
+      });
+    } catch (_) {}
+  }
+  async function sendMessage() {
+    const text = prompt.value.trim(); if (!text) return;
+    prompt.value = '';
+    if (typeof go === 'function') go('chat');
+    render(text, 'user', 'user', false);
+    const waiting = '正在处理…'; render(waiting, 'assistant', 'pending', false);
+    try {
+      const sid = await ensureSession();
+      const accepted = await request('/api/chat/sessions/' + encodeURIComponent(sid) + '/messages', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text:text})});
+      const mid = accepted.message_id;
+      let result = null;
+      for (let i = 0; i < 200; i++) {
+        await new Promise(r => setTimeout(r, 300));
+        result = await request('/api/chat/messages/' + encodeURIComponent(mid));
+        if (result.status && result.status !== 'PENDING') break;
+      }
+      const pending = Array.from(messages().querySelectorAll('.message')).find(x => x.textContent.includes(waiting));
+      if (pending) pending.remove();
+      render(result && result.text ? result.text : '当前没有可用回复。', 'assistant', result && result.response_source || 'none', false);
+    } catch (e) {
+      const pending = Array.from(messages().querySelectorAll('.message')).find(x => x.textContent.includes(waiting));
+      if (pending) pending.remove();
+      render('发送失败：' + (e.message || e), 'assistant', 'error', false);
+    }
+  }
+  send.onclick = sendMessage;
+  prompt.onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
+  window.nmindChat = {loadHistory, sendMessage};
+  loadHistory();
+})();
+</script>
 </body>
 </html>
