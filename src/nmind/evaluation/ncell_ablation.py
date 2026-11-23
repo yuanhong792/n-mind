@@ -192,9 +192,10 @@ def gradient_norms(model: NMindLM) -> dict[str, float]:
 
 def train_candidate(model: NMindLM, rows: list[Item], tok: CharTokenizer,
                     *, steps: int, batch_size: int, seed: int,
-                    max_seconds: float = 300.0, lr: float = 0.003) -> dict[str, Any]:
-    if steps < 0 or steps > 128 or not 1 <= batch_size <= len(rows):
-        raise ValueError("invalid candidate training budget (0..128 steps)")
+                    max_seconds: float = 300.0, lr: float = 0.003,
+                    max_steps: int = 128) -> dict[str, Any]:
+    if steps < 0 or steps > max_steps or not 1 <= batch_size <= len(rows):
+        raise ValueError(f"invalid candidate training budget (0..{max_steps} steps)")
     if max_seconds <= 0:
         raise ValueError("invalid wall-time budget")
     before = state_hash(model)
@@ -210,6 +211,8 @@ def train_candidate(model: NMindLM, rows: list[Item], tok: CharTokenizer,
             break
         batch = rng.sample(rows, batch_size)
         inputs, targets, supervised = encode_batch(batch, tok)
+        device = next(model.parameters()).device
+        inputs, targets = inputs.to(device), targets.to(device)
         model.zero_grad(set_to_none=True)
         logits, _ = model(inputs)
         loss = F.cross_entropy(logits.reshape(-1, tok.vocab_size),
@@ -237,13 +240,14 @@ def train_candidate(model: NMindLM, rows: list[Item], tok: CharTokenizer,
 
 def diagnostics(model: NMindLM, tok: CharTokenizer, item: Item) -> dict[str, Any]:
     model.eval()
-    x = torch.tensor([tok.encode(item.prompt)], dtype=torch.long)
+    device = next(model.parameters()).device
+    x = torch.tensor([tok.encode(item.prompt)], dtype=torch.long, device=device)
     with torch.no_grad():
         logits, state = model(x)
         z = model.tok_emb(x[:, 0])
         ws = model.workspace.initial_state(1, x.device)
         wr = model.workspace.read(ws, z)
-        err = torch.full((1, 1), 0.5)
+        err = torch.full((1, 1), 0.5, device=device)
         route = model.router.route(z, model.initial_state(1, x.device).h,
                                    wr.value, err, err, k=model.top_k)
     return {
@@ -312,11 +316,16 @@ def run_experiment(*, seed: int = 20261123, steps: int = 8,
                    arms: tuple[str, ...] = tuple(ARMS),
                    final_sealed: bool = False,
                    d_model: int = 16, block_hidden: int = 16,
-                   wall_seconds_per_arm: float = 300.0) -> dict[str, Any]:
+                   wall_seconds_per_arm: float = 300.0,
+                   device: str = "cpu", max_steps_per_arm: int = 128) -> dict[str, Any]:
+    if device not in ("cpu", "cuda"):
+        raise ValueError("device must be cpu or cuda")
+    if device == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA requested but unavailable; do not silently fall back to CPU")
     if not arms or any(a not in ARMS for a in arms):
         raise ValueError("arms must be a nonempty subset of registered ablations")
-    if steps > 128 or steps < 0:
-        raise ValueError("steps must stay within a controlled 0..128 budget")
+    if steps > max_steps_per_arm or steps < 0:
+        raise ValueError(f"steps must stay within controlled 0..{max_steps_per_arm} budget")
     if eval_samples < 1:
         raise ValueError("eval_samples must be >= 1")
     data = build_dataset(seed)
@@ -332,18 +341,20 @@ def run_experiment(*, seed: int = 20261123, steps: int = 8,
         "config": {"seed": seed, "steps_per_arm": steps,
                    "batch_size": batch_size, "eval_samples": eval_samples,
                    "arms": list(arms), "d_model": d_model,
-                   "block_hidden": block_hidden,
+                   "block_hidden": block_hidden, "device": device,
                    "wall_seconds_per_arm": wall_seconds_per_arm},
         "arms": {},
     }
     for arm in arms:
         model, legacy_params = make_model(tok.vocab_size, arm, seed,
                                           d_model=d_model, block_hidden=block_hidden)
+        model = model.to(device)
         before = evaluate(model, data["dev"], tok, limit=eval_samples)
         diag_before = diagnostics(model, tok, data["dev"][0])
         train = train_candidate(model, data["train"], tok, steps=steps,
                                 batch_size=batch_size, seed=seed,
-                                max_seconds=wall_seconds_per_arm)
+                                max_seconds=wall_seconds_per_arm,
+                                max_steps=max_steps_per_arm)
         dev = evaluate(model, data["dev"], tok, limit=eval_samples)
         diag_after = diagnostics(model, tok, data["dev"][0])
         sealed = (evaluate(model, data["sealed"], tok, limit=eval_samples)
