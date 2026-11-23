@@ -364,8 +364,8 @@ def markdown_report(report: dict[str, Any]) -> str:
     lines = [
         "# N-Cell V3.7 — Structural Ablation Results",
         "",
-        f"Seed: \`{cfg['seed']}\` | Budget per arm: \`{cfg['steps_per_arm']}\` optimizer steps "
-        f"| Sealed opened: \`{report['sealed_eval_performed']}\`",
+        f"Seed: `{cfg['seed']}` | Budget per arm: `{cfg['steps_per_arm']}` optimizer steps "
+        f"| Sealed opened: `{report['sealed_eval_performed']}`",
         "",
         "These are neural-only char-tokenizer experiments. Loss reduction, nonzero "
         "gradients, and short dev gains do **not** establish language understanding.",
