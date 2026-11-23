@@ -1,0 +1,14 @@
+{
+  "python": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\.venv-gate24\\Scripts\\python.exe",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.22621-SP0",
+  "torch": "2.15.0+cpu",
+  "torch_cuda_build": null,
+  "cuda_available": false,
+  "cuda_device": null,
+  "actual_nvidia_smi": "NVIDIA GeForce GTX 1060 6GB, 560.94, 6144 MiB",
+  "cpu_smoke": "PASS",
+  "gpu_status": "CPU_READY_GPU_UNAVAILABLE",
+  "optimizer_steps": 0,
+  "network_requests": 0
+}

@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETED_CPU",
+  "arms": [
+    {
+      "arm": "main",
+      "interventions": {
+        "zero_block_to_ws_logit_l2": 17.430633544921875,
+        "zero_head_input_logit_l2": 65.83332061767578,
+        "swap_head_input_logit_l2": 2.3490961211791728e-06
+      }
+    },
+    {
+      "arm": "permutation",
+      "interventions": {
+        "zero_block_to_ws_logit_l2": 17.934144973754883,
+        "zero_head_input_logit_l2": 68.26249694824219,
+        "swap_head_input_logit_l2": 8.264436814897635e-07
+      }
+    }
+  ],
+  "interpretation": "nonzero intervention effect is sensitivity evidence, not learning proof"
+}

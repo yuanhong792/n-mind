@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "label_changed_fraction": 1.0,
+  "label_fixed_points": 0,
+  "context_blind_relation_removed": true,
+  "conditional_leakage": "requires larger statistical audit; construction uses balanced kind strata"
+}

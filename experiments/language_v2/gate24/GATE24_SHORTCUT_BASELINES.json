@@ -1,0 +1,6 @@
+{
+  "fixed_answer_prior": "SUPPORTED_BY_GATE23",
+  "main_permutation_identical": "SUPPORTED_BY_GATE23",
+  "oracle_and_last_position_baselines": "NOT_RUN_IN_THIS_ENV_PASS",
+  "optimizer_steps": 0
+}

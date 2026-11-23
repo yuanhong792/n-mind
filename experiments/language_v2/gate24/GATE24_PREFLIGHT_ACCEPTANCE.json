@@ -1,0 +1,10 @@
+{
+  "status": "PASS_WITH_GPU_LIMIT",
+  "cpu_forward": "PASS",
+  "torch_import": "PASS",
+  "causal_diagnostics": "PASS_CPU",
+  "full_pytest": "PASS",
+  "gpu": "CPU_READY_GPU_UNAVAILABLE",
+  "optimizer_steps": 0,
+  "gate24_training": "PENDING_USER_APPROVAL"
+}

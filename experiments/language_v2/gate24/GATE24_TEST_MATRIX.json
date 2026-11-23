@@ -1,0 +1,11 @@
+{
+  "collect_exit": 0,
+  "full_pytest_exit": 0,
+  "collected": 279,
+  "passed": 276,
+  "skipped": 3,
+  "failed": 0,
+  "errors": 0,
+  "warnings": 1,
+  "gate24_optimizer_steps": 0
+}
