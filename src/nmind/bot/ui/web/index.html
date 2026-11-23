@@ -114,9 +114,9 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLower
       if (lines[3]) lines[3].textContent = st.learning_enabled ? "已启用" : "默认关闭";
       if (lines[4]) lines[4].textContent = "optimizer.step = " + st.optimizer_steps;
       const note = document.querySelector(".disclaimer");
-      if (note) note.textContent = "V3.2 本地工作台 · 真实后端已连接 · 网络关闭 · 神经训练关闭";
+      if (note) note.textContent = "V3.3 本地工作台 · 真实后端已连接 · 网络关闭 · 神经训练关闭";
       const badge = document.querySelector(".pill");
-      if (badge) badge.textContent = "本地 · V3.2";
+      if (badge) badge.textContent = "本地 · V3.3";
     }).catch(() => {});
   }
   const button = document.querySelector(".send");
@@ -128,7 +128,7 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLower
     if (!rail || document.getElementById("v32-panel")) return;
     const el = document.createElement("div");
     el.id = "v32-panel"; el.className = "rail-block";
-    el.innerHTML = "<div class=\"rail-title\">V3.2 真实控制</div>" +
+    el.innerHTML = "<div class=\"rail-title\">V3.3 真实控制</div>" +
       "<button class=\"toggle\" id=\"v32-learn\">进行一次练习</button> " +
       "<button class=\"toggle\" id=\"v32-enable\">启用自主学习</button>" +
       "<button class=\"toggle\" id=\"v32-task\">创建安全任务</button>" +
