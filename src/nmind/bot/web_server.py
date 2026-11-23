@@ -214,6 +214,10 @@ class _Handler(BaseHTTPRequestHandler):
     def _route_post(self, path: str, body: dict[str, Any]) -> None:
         if path == "/api/cloud/configure":
             self._json(200, self.api.configure_cloud(body)); return
+        if path == "/api/cloud/test":
+            self._json(200, self.api.test_cloud()); return
+        if path == "/api/cloud/model":
+            self._json(200, self.api.select_cloud_model(str(body.get("model") or ""))); return
         if path == "/api/v3/chat":
             sid = str(body.get("session_id") or "v3-default")
             text = str(body.get("text") or "").strip()
@@ -501,6 +505,32 @@ class WebBotServer:
         self.cloud_config = {"enabled": True, "provider": "deepseek", "model": model,
                              "key_configured": True}
         return {"ok": True, **self.cloud_config}
+
+    def test_cloud(self) -> dict[str, Any]:
+        provider = getattr(self.chat_service, "cloud_provider", None)
+        if provider is None:
+            return {"ok": False, "stage": "configuration", "error": "not_configured"}
+        from ..bridge.providers import CloudRequest
+        started = time.perf_counter()
+        try:
+            result = provider.ask(CloudRequest(category="public_web_query", question="请只回复OK。", max_response_chars=32))
+            return {"ok": bool(result.ok), "stage": "provider", "provider": result.provider,
+                    "model": self.cloud_config.get("model", ""), "latency_ms": round((time.perf_counter()-started)*1000, 2),
+                    "error": result.error, "response_chars": len(result.text)}
+        except Exception as exc:
+            return {"ok": False, "stage": "exception", "error": f"{type(exc).__name__}: {exc}"}
+
+    def select_cloud_model(self, model: str) -> dict[str, Any]:
+        provider = getattr(self.chat_service, "cloud_provider", None)
+        if provider is None:
+            return {"ok": False, "error": "not_configured"}
+        if getattr(provider, "name", "") != "deepseek":
+            return {"ok": False, "error": "provider_not_deepseek"}
+        if model not in {"deepseek-chat", "deepseek-reasoner"}:
+            return {"ok": False, "error": "unsupported_model"}
+        provider.model = model
+        self.cloud_config["model"] = model
+        return {"ok": True, "provider": "deepseek", "model": model}
 
     def knowledge_stats(self) -> dict[str, Any]:
         return self.knowledge.stats()
