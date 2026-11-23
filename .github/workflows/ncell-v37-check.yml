@@ -40,6 +40,18 @@ jobs:
       - name: Six-arm neural architecture comparison (cloud CPU, dev only)
         run: |
           python experiments/v37_ncell_architecture/run_ablation.py --steps 16 --batch-size 2 --eval-samples 16 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 240 --output-dir experiments/v37_ncell_architecture/ci_six_arm
+      - name: Extended neural candidate comparison (cloud CPU, dev only)
+        run: |
+          python experiments/v37_ncell_architecture/run_ablation.py --steps 128 --batch-size 4 --eval-samples 40 --arms legacy router_ste attention router_attention reset all --threads 2 --max-seconds-per-arm 300 --output-dir experiments/v37_ncell_architecture/ci_extended
+      - name: Upload extended candidate comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ncell-v37-extended-dev-report
+          path: |
+            experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_RESULTS.json
+            experiments/v37_ncell_architecture/ci_extended/V37_ABLATION_REPORT.md
+          if-no-files-found: warn
       - name: Upload six-arm comparison JSON and Markdown
         if: always()
         uses: actions/upload-artifact@v4
