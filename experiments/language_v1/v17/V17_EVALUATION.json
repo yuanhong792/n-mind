@@ -1,0 +1,6057 @@
+{
+  "status": "EVALUATION_DONE",
+  "candidate": "candidate_v17_final.pt",
+  "split": "sealed",
+  "candidate_meta": {
+    "steps": 1536,
+    "seed": 20261123,
+    "manifest_hash": "v17-preregistered",
+    "saved_at": "2026-11-23T23:42:40+0800"
+  },
+  "summary": {
+    "C_counter": {
+      "n": 135,
+      "candidate_acc": 0.1259,
+      "free_acc": 0.0,
+      "utf8_legal_rate": 1.0,
+      "eos_rate": 1.0
+    },
+    "B_bind": {
+      "n": 300,
+      "candidate_acc": 0.12,
+      "free_acc": 0.0,
+      "utf8_legal_rate": 1.0,
+      "eos_rate": 1.0
+    },
+    "D_position": {
+      "n": 164,
+      "candidate_acc": 0.0244,
+      "free_acc": 0.0,
+      "utf8_legal_rate": 1.0,
+      "eos_rate": 0.9573
+    },
+    "E_context": {
+      "n": 1,
+      "candidate_acc": 1.0,
+      "free_acc": 0.0,
+      "utf8_legal_rate": 1.0,
+      "eos_rate": 1.0
+    }
+  },
+  "counterfactual_paired_correct": 0.0,
+  "cf_pairs": 1,
+  "baselines": {
+    "fixed_answer": 0.1033,
+    "nearest_attribute": 0.4833,
+    "position_first": 0.5167
+  },
+  "targets": {
+    "unseen_binding": 0.7,
+    "counterfactual_paired": 0.6,
+    "free_generation": 0.6,
+    "utf8_legal": 0.99,
+    "eos": 0.9
+  },
+  "details": [
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4389
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2476
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9775
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0281
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.982
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2607
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4553
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9569
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2532
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.792
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4471
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4228
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4509
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9788
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2178
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.96
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4562
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1877
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.5464
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.223
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.539
+    },
+    {
+      "task": "D_position",
+      "expected": "张刚",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.7117
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9483
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9744
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.976
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1667
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4515
+    },
+    {
+      "task": "D_position",
+      "expected": "高睿",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8582
+    },
+    {
+      "task": "D_position",
+      "expected": "何欣",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.9073
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9759
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3851
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7798
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9802
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6317
+    },
+    {
+      "task": "D_position",
+      "expected": "周美",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.0641
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7843
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2322
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0094
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1909
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7802
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.2705
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9751
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1507
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9646
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1685
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7676
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4277
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0149
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9652
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9613
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7811
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9471
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.332
+    },
+    {
+      "task": "D_position",
+      "expected": "马琳",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5954
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7713
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7962
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2612
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9842
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3125
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9822
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.167
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.422
+    },
+    {
+      "task": "D_position",
+      "expected": "何欣",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.9063
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.462
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9844
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3945
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2577
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4358
+    },
+    {
+      "task": "D_position",
+      "expected": "孙华",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4217
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2287
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.4137
+    },
+    {
+      "task": "D_position",
+      "expected": "孙华",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4425
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9933
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.98
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2501
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6289
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.167
+    },
+    {
+      "task": "D_position",
+      "expected": "马琳",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5864
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.443
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7772
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7699
+    },
+    {
+      "task": "D_position",
+      "expected": "林彤",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4738
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3858
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4385
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.3957
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2653
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3831
+    },
+    {
+      "task": "D_position",
+      "expected": "高睿",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8524
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1697
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4657
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9598
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3969
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7919
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4309
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.249
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3885
+    },
+    {
+      "task": "D_position",
+      "expected": "刘杰",
+      "predicted": "刘杰",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.2963
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4473
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4037
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2119
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4618
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4689
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4512
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2481
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3819
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.269
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ݣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 6.9898
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4349
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4671
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4503
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2538
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4027
+    },
+    {
+      "task": "D_position",
+      "expected": "王明",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6439
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3834
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1532
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1962
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3944
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2259
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7826
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9981
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3862
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9818
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7648
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9671
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3749
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9795
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3785
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2515
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9994
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3941
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3996
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1863
+    },
+    {
+      "task": "D_position",
+      "expected": "王明",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6465
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4459
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.98
+    },
+    {
+      "task": "D_position",
+      "expected": "何欣",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.9033
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1703
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1542
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1832
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1791
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1699
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3698
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0191
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3377
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9445
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.998
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7792
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2287
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9748
+    },
+    {
+      "task": "D_position",
+      "expected": "林彤",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5008
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9778
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9607
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0297
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2352
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9992
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.274
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3741
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3842
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9726
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.792
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.2877
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2342
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4239
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9649
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9606
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4482
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1722
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4603
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9784
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7644
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7991
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2209
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4475
+    },
+    {
+      "task": "D_position",
+      "expected": "高睿",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8561
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9941
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.951
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.942
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.014
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3406
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4593
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7826
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4499
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4268
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9613
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2318
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2094
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.463
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4275
+    },
+    {
+      "task": "E_context",
+      "expected": "张刚",
+      "predicted": "张刚",
+      "cand_ok": true,
+      "free": "绿色",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8747
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4378
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9813
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9931
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2621
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3925
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9586
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1719
+    },
+    {
+      "task": "D_position",
+      "expected": "黄敏",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.2395
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9964
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4194
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9809
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4437
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1748
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9644
+    },
+    {
+      "task": "D_position",
+      "expected": "郭浩",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7747
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2271
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9641
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9988
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2433
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1608
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4103
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7923
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3934
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7811
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4436
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9803
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3879
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1549
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9841
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9767
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.4013
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4367
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9815
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3932
+    },
+    {
+      "task": "D_position",
+      "expected": "林彤",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4658
+    },
+    {
+      "task": "D_position",
+      "expected": "张刚",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6885
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1699
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9836
+    },
+    {
+      "task": "D_position",
+      "expected": "陈丽",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4266
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1611
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5264
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7583
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4527
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1826
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.97
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4165
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7859
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9874
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9451
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4404
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.457
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7627
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9863
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9743
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3297
+    },
+    {
+      "task": "D_position",
+      "expected": "林彤",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ݣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 7.1858
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.5431
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9733
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4207
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4212
+    },
+    {
+      "task": "D_position",
+      "expected": "张刚",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.714
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4492
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.795
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9611
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4404
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9683
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.8099
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9612
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.236
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1903
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7848
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9556
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2722
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9412
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9843
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9845
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2224
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1913
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4121
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7991
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4013
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0193
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1782
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3884
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4054
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9963
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9861
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1834
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9927
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ݣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 7.1938
+    },
+    {
+      "task": "D_position",
+      "expected": "郭浩",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7965
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1604
+    },
+    {
+      "task": "D_position",
+      "expected": "马琳",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5945
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.013
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2306
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2229
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ݣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 6.6424
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6314
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.529
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2464
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9435
+    },
+    {
+      "task": "D_position",
+      "expected": "张刚",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.7112
+    },
+    {
+      "task": "D_position",
+      "expected": "张刚",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.7129
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9733
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1803
+    },
+    {
+      "task": "D_position",
+      "expected": "刘杰",
+      "predicted": "刘杰",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.305
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.783
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4396
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2724
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4131
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.172
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9906
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.2769
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4213
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5205
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7829
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9819
+    },
+    {
+      "task": "D_position",
+      "expected": "孙华",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4268
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.775
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4353
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7977
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.331
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9347
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1799
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2272
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.77
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9764
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.26
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9765
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4187
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5235
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3867
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ȣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 8.9105
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9674
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7743
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2488
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1619
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9607
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7756
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3963
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.213
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9949
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1733
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2078
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2759
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3949
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1883
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4633
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4323
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1624
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4079
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2561
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7813
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.975
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7739
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3768
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1833
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7744
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.994
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9684
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7947
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2221
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2758
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4165
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.01
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4334
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9839
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7742
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7681
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3872
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9775
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3731
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.421
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2577
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2335
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.162
+    },
+    {
+      "task": "D_position",
+      "expected": "郑芳",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2885
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.2804
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7661
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4704
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.447
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.644
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7473
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7778
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4293
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1787
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.284
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4533
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.4007
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1648
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.975
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4318
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.989
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3786
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4436
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4415
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4379
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4194
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.164
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9861
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3937
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7868
+    },
+    {
+      "task": "D_position",
+      "expected": "孙华",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.439
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.449
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0179
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7898
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4612
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9737
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4448
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4085
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.792
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1653
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4391
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9616
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4749
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1626
+    },
+    {
+      "task": "D_position",
+      "expected": "马琳",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5792
+    },
+    {
+      "task": "D_position",
+      "expected": "王明",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6452
+    },
+    {
+      "task": "D_position",
+      "expected": "高睿",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8524
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1693
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9788
+    },
+    {
+      "task": "D_position",
+      "expected": "孙华",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4386
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4391
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7499
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6308
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4225
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9805
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0021
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3198
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4409
+    },
+    {
+      "task": "D_position",
+      "expected": "陈丽",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.3983
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4572
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3921
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9725
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0022
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9737
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.408
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4462
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9639
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4108
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9818
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2483
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2438
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3473
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.346
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1913
+    },
+    {
+      "task": "D_position",
+      "expected": "刘杰",
+      "predicted": "刘杰",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.2959
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.5394
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2554
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4271
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9669
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3762
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.174
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4212
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9719
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.437
+    },
+    {
+      "task": "D_position",
+      "expected": "陈丽",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.4028
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9829
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.964
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7979
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4708
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9982
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2623
+    },
+    {
+      "task": "D_position",
+      "expected": "书包",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ȣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 7.1123
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9753
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4098
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4337
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2674
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7927
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.5431
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.4039
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3673
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4589
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7947
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9627
+    },
+    {
+      "task": "C_counter",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9785
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9963
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1856
+    },
+    {
+      "task": "D_position",
+      "expected": "橘子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.2707
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.421
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9944
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4398
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2559
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1515
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2618
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4131
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2792
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4598
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7978
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4602
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3939
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.453
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1775
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2529
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3961
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7948
+    },
+    {
+      "task": "D_position",
+      "expected": "李红",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9433
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9945
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3676
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1567
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.397
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2655
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1678
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4401
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9651
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3874
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4208
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4665
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2383
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1754
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4581
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3501
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4668
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4249
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4707
+    },
+    {
+      "task": "D_position",
+      "expected": "高睿",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.8493
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4177
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.991
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1895
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9704
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2246
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3881
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2343
+    },
+    {
+      "task": "D_position",
+      "expected": "刘杰",
+      "predicted": "刘杰",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.3053
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4384
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9826
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2466
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1694
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9801
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2365
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4655
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9527
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9737
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4685
+    },
+    {
+      "task": "D_position",
+      "expected": "郑芳",
+      "predicted": "王明",
+      "cand_ok": false,
+      "free": "ȣȣȣȣȣȣȣȣ",
+      "free_ok": false,
+      "finish": "max_tokens",
+      "tf_ce": 6.5917
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4624
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3981
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4366
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7777
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.401
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.4044
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3955
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4082
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1588
+    },
+    {
+      "task": "D_position",
+      "expected": "黄敏",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.2255
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9825
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4167
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.446
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4284
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.979
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3961
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7743
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2384
+    },
+    {
+      "task": "D_position",
+      "expected": "赵强",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2726
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2528
+    },
+    {
+      "task": "C_counter",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.171
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2564
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4288
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9786
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3963
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2369
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4493
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1859
+    },
+    {
+      "task": "D_position",
+      "expected": "徐磊",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.5415
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9673
+    },
+    {
+      "task": "D_position",
+      "expected": "黄敏",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.2253
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3876
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4167
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0002
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1716
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9605
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4456
+    },
+    {
+      "task": "D_position",
+      "expected": "本子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.7584
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4254
+    },
+    {
+      "task": "B_bind",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.803
+    },
+    {
+      "task": "C_counter",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4265
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3998
+    },
+    {
+      "task": "C_counter",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2293
+    },
+    {
+      "task": "D_position",
+      "expected": "铅笔",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9552
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4009
+    },
+    {
+      "task": "D_position",
+      "expected": "苹果",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4657
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.9756
+    },
+    {
+      "task": "C_counter",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.3709
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1901
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1891
+    },
+    {
+      "task": "B_bind",
+      "expected": "黑色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 6.4137
+    },
+    {
+      "task": "D_position",
+      "expected": "香蕉",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.4236
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5154
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9623
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4485
+    },
+    {
+      "task": "D_position",
+      "expected": "朱婷",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6676
+    },
+    {
+      "task": "C_counter",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4397
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4665
+    },
+    {
+      "task": "D_position",
+      "expected": "皮球",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.3328
+    },
+    {
+      "task": "D_position",
+      "expected": "吴军",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 9.2638
+    },
+    {
+      "task": "D_position",
+      "expected": "王明",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6379
+    },
+    {
+      "task": "B_bind",
+      "expected": "蓝色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.2685
+    },
+    {
+      "task": "D_position",
+      "expected": "何欣",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.9102
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.1745
+    },
+    {
+      "task": "C_counter",
+      "expected": "红色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.7802
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9769
+    },
+    {
+      "task": "B_bind",
+      "expected": "紫色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0034
+    },
+    {
+      "task": "D_position",
+      "expected": "胡宇",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.5259
+    },
+    {
+      "task": "D_position",
+      "expected": "王明",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.6465
+    },
+    {
+      "task": "D_position",
+      "expected": "杯子",
+      "predicted": "刘杰",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 8.0026
+    },
+    {
+      "task": "B_bind",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.9749
+    },
+    {
+      "task": "B_bind",
+      "expected": "白色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 7.177
+    },
+    {
+      "task": "C_counter",
+      "expected": "橙色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 5.97
+    },
+    {
+      "task": "B_bind",
+      "expected": "黄色",
+      "predicted": "绿色",
+      "cand_ok": false,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 4.4349
+    },
+    {
+      "task": "B_bind",
+      "expected": "绿色",
+      "predicted": "绿色",
+      "cand_ok": true,
+      "free": "",
+      "free_ok": false,
+      "finish": "eos",
+      "tf_ce": 2.393
+    }
+  ]
+}

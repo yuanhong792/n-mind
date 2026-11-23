@@ -1,0 +1,198 @@
+{
+  "status": "DECODER_COMPARE_DONE",
+  "model": "V1.6 candidate_v16_baseline_frozen_router (FROZEN, no weight update)",
+  "optimizer_steps": 0,
+  "utf8_state_machine_selftest": {
+    "empty": "complete",
+    "ascii": "complete",
+    "full_han": "complete",
+    "partial_han": "incomplete",
+    "lead_byte": "incomplete",
+    "bad_start": "invalid",
+    "overlong": "invalid",
+    "surrogate": "invalid"
+  },
+  "n_cases": 4,
+  "old_utf8_legal": 1,
+  "new_utf8_legal": 3,
+  "decoder_only_gain": "1/4 -> 3/4",
+  "attribution_note": "该提升仅来自 decoder UTF-8 过滤，模型神经权重完全未变，不代表模型学到新知识",
+  "rows": [
+    {
+      "prompt": "用户：小刚有蓝色书包，小丽有黄色书包。\n用户：小丽的书包是什么颜色？\n助手：",
+      "old": {
+        "text": "",
+        "finish": "byte_decode_error",
+        "tokens": [
+          167,
+          134,
+          128,
+          134,
+          167,
+          134,
+          167,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134
+        ],
+        "byte_hex": "a3827c82a382a3828282828282828282"
+      },
+      "new": {
+        "text": "|4|4||Ȃ|y|Ȃ||",
+        "finish": "utf8_incomplete",
+        "tokens": [
+          128,
+          56,
+          128,
+          56,
+          128,
+          128,
+          204,
+          134,
+          128,
+          125,
+          128,
+          204,
+          134,
+          128,
+          128,
+          204
+        ],
+        "byte_hex": "7c347c347c7cc8827c797cc8827c7cc8",
+        "rejected": 1982,
+        "incomplete_steps": 2
+      }
+    },
+    {
+      "prompt": "用户：小刚有黄色杯子，小丽有蓝色杯子。\n用户：小刚的杯子是什么颜色？\n助手：",
+      "old": {
+        "text": "",
+        "finish": "byte_decode_error",
+        "tokens": [
+          56,
+          56,
+          56,
+          56,
+          167,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204,
+          204
+        ],
+        "byte_hex": "34343434a3c8c8c8c8c8c8c8c8c8c8c8"
+      },
+      "new": {
+        "text": "4444ȣȂȣȂȣȂ",
+        "finish": "max_tokens",
+        "tokens": [
+          56,
+          56,
+          56,
+          56,
+          204,
+          167,
+          204,
+          134,
+          204,
+          167,
+          204,
+          134,
+          204,
+          167,
+          204,
+          134
+        ],
+        "byte_hex": "34343434c8a3c882c8a3c882c8a3c882",
+        "rejected": 2618,
+        "incomplete_steps": 6
+      }
+    },
+    {
+      "prompt": "用户：小丽有绿色苹果，小明有蓝色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "old": {
+        "text": "",
+        "finish": "byte_decode_error",
+        "tokens": [
+          134,
+          128,
+          134,
+          128,
+          134,
+          128,
+          134,
+          128,
+          134,
+          128,
+          134,
+          128,
+          134,
+          128,
+          134,
+          128
+        ],
+        "byte_hex": "827c827c827c827c827c827c827c827c"
+      },
+      "new": {
+        "text": "||Ȃ|Ȃ|Ȃ|Ȃ|Ȃ",
+        "finish": "max_tokens",
+        "tokens": [
+          128,
+          128,
+          204,
+          134,
+          128,
+          204,
+          134,
+          128,
+          204,
+          134,
+          128,
+          204,
+          134,
+          128,
+          204,
+          134
+        ],
+        "byte_hex": "7c7cc8827cc8827cc8827cc8827cc882",
+        "rejected": 2459,
+        "incomplete_steps": 5
+      }
+    },
+    {
+      "prompt": "用户：小红有黄色书包，小刚有绿色书包。\n用户：小红的书包是什么颜色？\n助手：",
+      "old": {
+        "text": "绿色",
+        "finish": "eos",
+        "tokens": [
+          326,
+          284
+        ],
+        "byte_hex": "e7bbbfe889b2"
+      },
+      "new": {
+        "text": "绿色",
+        "finish": "eos",
+        "tokens": [
+          326,
+          284
+        ],
+        "byte_hex": "e7bbbfe889b2",
+        "rejected": 312,
+        "incomplete_steps": 0
+      }
+    }
+  ]
+}

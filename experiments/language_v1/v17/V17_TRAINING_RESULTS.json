@@ -1,0 +1,344 @@
+{
+  "status": "COMPLETED_AUTHORIZED_TRAINING",
+  "optimizer_steps_actual": 1536,
+  "wall_seconds": 1829.8,
+  "stop_reason": "time_budget",
+  "config": {
+    "parent": "V1.5 candidate_v15_baseline",
+    "parent_sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+    "router_gradient_enabled": true,
+    "lr": 0.0005,
+    "batch_size": 4,
+    "clip": 1.0,
+    "seed": 20261123,
+    "max_steps": 1536,
+    "max_wall": 1800,
+    "weight_discriminative": 2.0,
+    "weight_eos": 0.25,
+    "weight_content": 1.0
+  },
+  "discriminative_positions": {
+    "红色": 0,
+    "绿色": 0,
+    "蓝色": 0,
+    "黄色": 0,
+    "紫色": 1,
+    "橙色": 0,
+    "黑色": 0,
+    "白色": 1
+  },
+  "best_checkpoint_step": 0,
+  "best_val_B_acc": 0.2569,
+  "parent_baseline_eval": {
+    "per_task_score_acc": {
+      "D_position": 0.0455,
+      "C_counter": 0.0426,
+      "B_bind": 0.2569
+    },
+    "free_acc": 0.0,
+    "utf8_legal_rate": 1.0,
+    "eos_rate": 1.0,
+    "counter_paired_correct": null,
+    "cf_pairs": 0,
+    "first_token_ce": 8.3742,
+    "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+  },
+  "history": [
+    {
+      "step": 0,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0455,
+          "C_counter": 0.0426,
+          "B_bind": 0.2569
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 8.3742,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "phase": "parent_baseline"
+    },
+    {
+      "step": 64,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.0426,
+          "B_bind": 0.2569
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 4.4221,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 94.0,
+      "phase": "phase1"
+    },
+    {
+      "step": 128,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.1064,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.9875,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 181.3,
+      "phase": "phase2"
+    },
+    {
+      "step": 256,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.1064,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.6278,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 311.6,
+      "phase": "phase2"
+    },
+    {
+      "step": 384,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.1064,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.1554,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 444.4,
+      "phase": "phase2"
+    },
+    {
+      "step": 512,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0227,
+          "C_counter": 0.1277,
+          "B_bind": 0.0826
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 2.8665,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 579.2,
+      "phase": "phase2"
+    },
+    {
+      "step": 640,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0227,
+          "C_counter": 0.1277,
+          "B_bind": 0.0826
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 2.8633,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 715.5,
+      "phase": "phase3"
+    },
+    {
+      "step": 768,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0227,
+          "C_counter": 0.1277,
+          "B_bind": 0.0826
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.1323,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 855.6,
+      "phase": "phase3"
+    },
+    {
+      "step": 896,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0227,
+          "C_counter": 0.1277,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.375,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 2.9173,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1003.3,
+      "phase": "phase3"
+    },
+    {
+      "step": 1024,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0455,
+          "C_counter": 0.1277,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.2437,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1154.6,
+      "phase": "phase3"
+    },
+    {
+      "step": 1152,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0455,
+          "C_counter": 0.1277,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.25,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.3537,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1309.9,
+      "phase": "phase3"
+    },
+    {
+      "step": 1280,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.1064,
+          "B_bind": 0.1101
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.0721,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1477.8,
+      "phase": "phase3"
+    },
+    {
+      "step": 1408,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0909,
+          "C_counter": 0.0426,
+          "B_bind": 0.2569
+        },
+        "free_acc": 0.125,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.0459,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1656.6,
+      "phase": "phase3"
+    },
+    {
+      "step": 1536,
+      "eval": {
+        "per_task_score_acc": {
+          "D_position": 0.0227,
+          "C_counter": 0.1064,
+          "B_bind": 0.0826
+        },
+        "free_acc": 0.0,
+        "utf8_legal_rate": 1.0,
+        "eos_rate": 1.0,
+        "counter_paired_correct": null,
+        "cf_pairs": 0,
+        "first_token_ce": 3.1351,
+        "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+      },
+      "wall": 1829.8,
+      "phase": "phase3"
+    }
+  ],
+  "sealed_final_eval": {
+    "per_task_score_acc": {
+      "C_counter": 0.1259,
+      "B_bind": 0.12,
+      "D_position": 0.0244,
+      "E_context": 1.0
+    },
+    "free_acc": 0.0,
+    "utf8_legal_rate": 1.0,
+    "eos_rate": 0.9917,
+    "counter_paired_correct": null,
+    "cf_pairs": 0,
+    "first_token_ce": 8.6163,
+    "note": "训练中快速评测(候选首token Lp, 限200样本); 完整评测见 V17_EVALUATION.json"
+  },
+  "router_weight_delta_l1": 0.0,
+  "candidate_best_sha256": "72cde8a7c1b94e1f62d9a4529d9c7e200c61266ea118a28d340093dd52ab36c3",
+  "candidate_final_sha256": "1e352f6b01273815f6ee94c6155c8f336e073a91c3a55206ccbdc1df835b1d38",
+  "loss_first": {
+    "step": 0,
+    "weighted": 7.37253,
+    "unweighted": 6.54375
+  },
+  "loss_last": {
+    "step": 1535,
+    "weighted": 1.20665,
+    "unweighted": 0.68619
+  },
+  "stable_modified": false,
+  "network_requests": 0,
+  "external_models": 0
+}

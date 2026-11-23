@@ -131,6 +131,29 @@ class ByteBPETokenizer:
                 raise ValueError(f"unknown token id {value}")
         return bytes(expanded).decode("utf-8", "strict")
 
+    def token_bytes(self, token_id: int) -> bytes | None:
+        """V1.7: 单个 token 展开为原始字节。特殊 token(EOS/PAD/BOS/UNK)返回 None。
+        用于增量 UTF-8 合法性检查；不在 decode() 里静默吞掉非法字节。"""
+        value = int(token_id)
+        if value in (PAD, BOS, EOS, UNK):
+            return None
+        reverse: dict[int, int | tuple[int, int]] = {BYTE_OFFSET + i: i for i in range(256)}
+        for i, pair in enumerate(self.merges):
+            reverse[BYTE_OFFSET + BYTE_COUNT + i] = pair
+        if value not in reverse:
+            return None
+        out: list[int] = []
+        # 与 decode() 完全一致的展开语义：merge token 的 children 是原始字节值(0-255)
+        # 或嵌套 merge id；用外层 value 是否为 merge 决定是否减 BYTE_OFFSET。
+        def expand(item: int) -> None:
+            if item >= BYTE_OFFSET + BYTE_COUNT:
+                for child in reverse[item]:
+                    expand(child)
+            else:
+                out.append(item if value >= BYTE_OFFSET + BYTE_COUNT else item - BYTE_OFFSET)
+        expand(value)
+        return bytes(out)
+
     def vocab_hash(self) -> str:
         payload = {"version": self.version, "vocab_size": self.vocab_size, "merges": self.merges}
         return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()[:16]
