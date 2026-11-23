@@ -1,0 +1,7 @@
+{
+  "state_traces": "GATE23_STATE_TRACES.jsonl",
+  "router_direct_trace": "NOT_IMPLEMENTED_IN_READ_ONLY_PROTOCOL",
+  "workspace_trace": "captured_after_prompt",
+  "probe_fitted": false,
+  "optimizer_steps": 0
+}

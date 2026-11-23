@@ -1,0 +1,448 @@
+{
+  "items": [
+    {
+      "item_id": "L0-sealed-0000",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537471643515997,
+      "token_count": 7,
+      "eos_nll": 0.11999544501304626,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0001",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537468014018876,
+      "token_count": 7,
+      "eos_nll": 0.11999533325433731,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0002",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537478210670608,
+      "token_count": 7,
+      "eos_nll": 0.11999628692865372,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0003",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537469344479697,
+      "token_count": 7,
+      "eos_nll": 0.11999544501304626,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0004",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166841413293565,
+      "token_count": 7,
+      "eos_nll": 0.11842253804206848,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0005",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166838656578745,
+      "token_count": 7,
+      "eos_nll": 0.11842242628335953,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0006",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.216684989631176,
+      "token_count": 7,
+      "eos_nll": 0.11842327564954758,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0007",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166841413293565,
+      "token_count": 7,
+      "eos_nll": 0.11842253804206848,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0008",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 0.9200292069997106,
+      "token_count": 7,
+      "eos_nll": 0.12057816237211227,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0009",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 0.9200290271214077,
+      "token_count": 7,
+      "eos_nll": 0.12057794630527496,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0010",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 0.9200298317841121,
+      "token_count": 7,
+      "eos_nll": 0.12057879567146301,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0011",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 0.92002912823643,
+      "token_count": 7,
+      "eos_nll": 0.12057816237211227,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0012",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2365238666534424,
+      "token_count": 7,
+      "eos_nll": 0.12131746113300323,
+      "answer_top1": 0.7142857313156128
+    },
+    {
+      "item_id": "L0-sealed-0013",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.236524019922529,
+      "token_count": 7,
+      "eos_nll": 0.12131746113300323,
+      "answer_top1": 0.7142857313156128
+    },
+    {
+      "item_id": "L0-sealed-0014",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2365230875355857,
+      "token_count": 7,
+      "eos_nll": 0.12131798267364502,
+      "answer_top1": 0.7142857313156128
+    },
+    {
+      "item_id": "L0-sealed-0015",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2365239432879858,
+      "token_count": 7,
+      "eos_nll": 0.12131746113300323,
+      "answer_top1": 0.7142857313156128
+    },
+    {
+      "item_id": "L0-sealed-0016",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537471643515997,
+      "token_count": 7,
+      "eos_nll": 0.11999544501304626,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0017",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537468014018876,
+      "token_count": 7,
+      "eos_nll": 0.11999533325433731,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0018",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537478210670608,
+      "token_count": 7,
+      "eos_nll": 0.11999628692865372,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0019",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.0537469344479697,
+      "token_count": 7,
+      "eos_nll": 0.11999544501304626,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L0-sealed-0020",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166841413293565,
+      "token_count": 7,
+      "eos_nll": 0.11842253804206848,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0021",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166838656578745,
+      "token_count": 7,
+      "eos_nll": 0.11842242628335953,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0022",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.216684989631176,
+      "token_count": 7,
+      "eos_nll": 0.11842327564954758,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L0-sealed-0023",
+      "level": "L0",
+      "type": "color",
+      "answer_nll": 1.2166841413293565,
+      "token_count": 7,
+      "eos_nll": 0.11842253804206848,
+      "answer_top1": 0.5714285969734192
+    },
+    {
+      "item_id": "L1-sealed-0080",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323971305574689,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0081",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278756618499756,
+      "token_count": 7,
+      "eos_nll": 4.553335189819336,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0082",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323971518448421,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0083",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278756141662598,
+      "token_count": 7,
+      "eos_nll": 4.553335666656494,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0084",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.719602647636618,
+      "token_count": 7,
+      "eos_nll": 0.09506232291460037,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0085",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278753416878836,
+      "token_count": 7,
+      "eos_nll": 4.553337574005127,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0086",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7196025890963418,
+      "token_count": 7,
+      "eos_nll": 0.09506210684776306,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0087",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.188278555870056,
+      "token_count": 7,
+      "eos_nll": 0.09544262290000916,
+      "answer_top1": 0.4285714328289032
+    },
+    {
+      "item_id": "L1-sealed-0088",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323970709528241,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0089",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.188279911875725,
+      "token_count": 7,
+      "eos_nll": 0.09544262290000916,
+      "answer_top1": 0.4285714328289032
+    },
+    {
+      "item_id": "L1-sealed-0090",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323970879827227,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0091",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.1882793328591754,
+      "token_count": 7,
+      "eos_nll": 0.09544262290000916,
+      "answer_top1": 0.4285714328289032
+    },
+    {
+      "item_id": "L1-sealed-0092",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.719602647636618,
+      "token_count": 7,
+      "eos_nll": 0.09506232291460037,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0093",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278753416878836,
+      "token_count": 7,
+      "eos_nll": 4.553337574005127,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0094",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7196025976112911,
+      "token_count": 7,
+      "eos_nll": 0.09506210684776306,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0095",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278755596705845,
+      "token_count": 7,
+      "eos_nll": 4.553336143493652,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0096",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323971305574689,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0097",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 5.278756618499756,
+      "token_count": 7,
+      "eos_nll": 4.553335189819336,
+      "answer_top1": 0.0
+    },
+    {
+      "item_id": "L1-sealed-0098",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7323970879827227,
+      "token_count": 7,
+      "eos_nll": 0.09524300694465637,
+      "answer_top1": 0.8571428656578064
+    },
+    {
+      "item_id": "L1-sealed-0099",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.1882793328591754,
+      "token_count": 7,
+      "eos_nll": 0.09544262290000916,
+      "answer_top1": 0.4285714328289032
+    },
+    {
+      "item_id": "L1-sealed-0100",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7196025880319732,
+      "token_count": 7,
+      "eos_nll": 0.09506232291460037,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0101",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.1882754702653204,
+      "token_count": 7,
+      "eos_nll": 0.09544283896684647,
+      "answer_top1": 0.4285714328289032
+    },
+    {
+      "item_id": "L1-sealed-0102",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 0.7196025890963418,
+      "token_count": 7,
+      "eos_nll": 0.09506210684776306,
+      "answer_top1": 1.0
+    },
+    {
+      "item_id": "L1-sealed-0103",
+      "level": "L1",
+      "type": "position",
+      "answer_nll": 3.188278555870056,
+      "token_count": 7,
+      "eos_nll": 0.09544262290000916,
+      "answer_top1": 0.4285714328289032
+    }
+  ],
+  "by_type": {
+    "color": {
+      "mean_nll": 1.1162359929155732,
+      "count": 24
+    },
+    "position": {
+      "mean_nll": 2.479758386988015,
+      "count": 24
+    }
+  },
+  "mask": "answer_span_plus_eos",
+  "optimizer_steps": 0
+}

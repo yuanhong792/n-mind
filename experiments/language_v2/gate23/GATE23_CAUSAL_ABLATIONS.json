@@ -1,0 +1,5 @@
+{
+  "status": "NOT_RUN",
+  "reason": "strict parameter-shape-preserving ablations require an additional isolated diagnostic implementation; no training performed",
+  "optimizer_steps": 0
+}

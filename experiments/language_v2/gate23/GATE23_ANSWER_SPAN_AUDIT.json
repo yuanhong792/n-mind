@@ -1,0 +1,198 @@
+{
+  "samples": [
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 39,
+      "full_input_tokens": 45,
+      "masked_answer_targets": 7,
+      "valid": true
+    },
+    {
+      "prompt_tokens": 45,
+      "full_input_tokens": 51,
+      "masked_answer_targets": 7,
+      "valid": true
+    }
+  ],
+  "all_valid": true,
+  "optimizer_steps": 0
+}

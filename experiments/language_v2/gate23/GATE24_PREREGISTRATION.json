@@ -1,0 +1,20 @@
+{
+  "status": "PENDING_USER_APPROVAL",
+  "candidates": [
+    {
+      "id": "A",
+      "hypothesis": "answer-conditioned slot head",
+      "steps": "new approval required"
+    },
+    {
+      "id": "B",
+      "hypothesis": "structured position answer target with same N-Cell",
+      "steps": "new approval required"
+    },
+    {
+      "id": "C",
+      "hypothesis": "contrastive counterfactual objective",
+      "steps": "new approval required"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "items": 240,
+  "prediction_identical_rate": 1.0,
+  "main_exact": 0.16666666666666666,
+  "permuted_exact": 0.16666666666666666,
+  "main_prediction_distribution": {
+    "盒子": 240
+  }
+}
