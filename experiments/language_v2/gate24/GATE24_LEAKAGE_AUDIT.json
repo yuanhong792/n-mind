@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "semantic_group_disjoint": true,
+  "sealed_not_used_for_training": true,
+  "answer_not_in_input_field": true,
+  "external_network": false
+}

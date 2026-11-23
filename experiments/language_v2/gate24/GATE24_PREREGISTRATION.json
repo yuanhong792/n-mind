@@ -1,0 +1,15 @@
+{
+  "status": "PENDING_USER_APPROVAL",
+  "seed": 20261123,
+  "train_split": "train",
+  "dev_split": "dev",
+  "sealed_split": "sealed",
+  "metrics": [
+    "free_generation",
+    "entity_binding",
+    "position_update",
+    "counterfactual_accuracy",
+    "control_separation"
+  ],
+  "no_training_in_this_run": true
+}

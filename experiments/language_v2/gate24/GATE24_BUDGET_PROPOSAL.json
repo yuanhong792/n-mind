@@ -1,0 +1,12 @@
+{
+  "status": "PENDING_USER_APPROVAL",
+  "arms": {
+    "A": 384,
+    "B": 384,
+    "C": 384,
+    "lr_zero_optional": 32
+  },
+  "total_max_steps": 1184,
+  "wall_clock_seconds": 5400,
+  "network_requests": 0
+}

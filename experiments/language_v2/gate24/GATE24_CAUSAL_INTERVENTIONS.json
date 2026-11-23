@@ -1,0 +1,18 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "optimizer_steps": 0,
+  "interventions": [
+    {
+      "name": "context_blind",
+      "result": "input relation removed; training not run"
+    },
+    {
+      "name": "label_derangement",
+      "result": "all train labels changed with zero fixed points"
+    },
+    {
+      "name": "state_swap",
+      "result": "requires torch runtime; Gate23 evidence only"
+    }
+  ]
+}

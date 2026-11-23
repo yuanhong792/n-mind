@@ -1,0 +1,12 @@
+{
+  "format": "language-v2-gate24-data/1",
+  "seed": 20261123,
+  "counts": {
+    "train": 40,
+    "dev": 12,
+    "sealed": 128
+  },
+  "sha256": "f4c2b70134e36e9f954c1867f86af5af1cfdb3111a7a310fe8aa82414fa4c6dc",
+  "sealed_pairs": 60,
+  "semantic_group_disjoint": true
+}

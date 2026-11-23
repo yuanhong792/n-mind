@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "gate24": "PENDING_USER_APPROVAL",
+  "optimizer_step_budget": 0,
+  "training_executed": false,
+  "stable_checkpoint": "READ_ONLY"
+}

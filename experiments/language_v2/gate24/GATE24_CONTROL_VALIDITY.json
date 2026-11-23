@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "label_broken": {
+    "fixed_points": 0,
+    "changed_fraction": 1.0,
+    "strata": {
+      "location": 40
+    },
+    "mapping_sample": [
+      {
+        "item_id": "train-0000",
+        "original": "一号位置",
+        "permuted": "三号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0001",
+        "original": "二号位置",
+        "permuted": "四号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0002",
+        "original": "三号位置",
+        "permuted": "二号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0003",
+        "original": "三号位置",
+        "permuted": "二号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0004",
+        "original": "一号位置",
+        "permuted": "三号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0005",
+        "original": "四号位置",
+        "permuted": "一号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0006",
+        "original": "三号位置",
+        "permuted": "二号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0007",
+        "original": "一号位置",
+        "permuted": "三号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0008",
+        "original": "一号位置",
+        "permuted": "三号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0009",
+        "original": "二号位置",
+        "permuted": "四号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0010",
+        "original": "三号位置",
+        "permuted": "二号位置",
+        "stratum": "location"
+      },
+      {
+        "item_id": "train-0011",
+        "original": "三号位置",
+        "permuted": "二号位置",
+        "stratum": "location"
+      }
+    ]
+  },
+  "context_blind": {
+    "count": 40,
+    "location_relation_removed": true
+  },
+  "previous_finer_stratum": "BLOCKED_BY_CONSTANT_LABELS_AND_REPAIRED"
+}

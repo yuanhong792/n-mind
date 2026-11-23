@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "gate": "2.4",
+  "optimizer_steps": 0,
+  "training_attempts": 0,
+  "network_requests": 0,
+  "stable_checkpoint_modified": false,
+  "external_model": false
+}

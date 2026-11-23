@@ -1,0 +1,9 @@
+{
+  "status": "PARTIAL",
+  "optimizer_steps": 0,
+  "h_workspace_router": "Gate23 near-identical under location swap",
+  "router": "not instrumented",
+  "workspace": "not causally isolated",
+  "block_to_ws": "not causally isolated",
+  "output_head": "fixed-output shortcut remains prior evidence"
+}

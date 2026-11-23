@@ -1,0 +1,69 @@
+{
+  "train": {
+    "target_position": {
+      "一号位置": 15,
+      "三号位置": 15,
+      "二号位置": 5,
+      "四号位置": 5
+    },
+    "order": {
+      "target_first": 20,
+      "target_last": 20
+    },
+    "kind": {
+      "location": 40
+    },
+    "answer": {
+      "一号位置": 15,
+      "三号位置": 15,
+      "二号位置": 5,
+      "四号位置": 5
+    }
+  },
+  "dev": {
+    "target_position": {
+      "一号位置": 4,
+      "三号位置": 5,
+      "二号位置": 2,
+      "四号位置": 1
+    },
+    "order": {
+      "target_first": 6,
+      "target_last": 6
+    },
+    "kind": {
+      "location": 12
+    },
+    "answer": {
+      "一号位置": 4,
+      "三号位置": 5,
+      "二号位置": 2,
+      "四号位置": 1
+    }
+  },
+  "sealed": {
+    "target_position": {
+      "一号位置": 36,
+      "三号位置": 35,
+      "二号位置": 28,
+      "四号位置": 29
+    },
+    "order": {
+      "target_first": 114,
+      "target_last": 14
+    },
+    "kind": {
+      "counterfactual": 80,
+      "location": 28,
+      "update": 20
+    },
+    "answer": {
+      "一号位置": 36,
+      "三号位置": 35,
+      "二号位置": 28,
+      "四号位置": 29
+    }
+  },
+  "counterfactual_pairs": 40,
+  "update_items": 20
+}
