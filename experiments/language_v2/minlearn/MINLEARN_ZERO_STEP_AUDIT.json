@@ -1,0 +1,52 @@
+{
+  "status": "ZERO_TRAINING_DIAGNOSTIC",
+  "optimizer_steps": 0,
+  "sample_count": 16,
+  "tokenizer_reversible": true,
+  "grad_norms": {
+    "tok_emb.weight": 0.017017798498272896,
+    "blocks.W_g": 0.047400616109371185,
+    "blocks.b_g": 0.008545208722352982,
+    "blocks.W_z": 0.22798070311546326,
+    "blocks.W_h": 0.04817962273955345,
+    "blocks.W_w": 0.0022886337246745825,
+    "blocks.b_c": 0.07598577439785004,
+    "router.score_mlp.0.weight": 0.0,
+    "router.score_mlp.0.bias": 0.0,
+    "router.score_mlp.2.weight": 0.0,
+    "router.score_mlp.2.bias": 0.0,
+    "workspace.slot_keys": 4.020961696937775e-08,
+    "workspace.q_proj.weight": 1.3992135228235725e-09,
+    "workspace.q_proj.bias": 3.074544507875032e-10,
+    "workspace.k_proj.weight": 1.1802213650824456e-09,
+    "workspace.v_proj.weight": 0.0013027279637753963,
+    "workspace.write_proj.weight": 0.002466611098498106,
+    "workspace.utility_mlp.weight": 0.0,
+    "workspace.utility_mlp.bias": 0.0,
+    "block_to_ws.weight": 0.001989898970350623,
+    "block_to_ws.bias": 0.004525214433670044,
+    "head.weight": 0.15559588372707367,
+    "head.bias": 0.20918886363506317
+  },
+  "loss": 5.604808807373047,
+  "parameter_changed": false,
+  "router_grad_norm": 0.0,
+  "head_grad_norm": 0.36478474736213684,
+  "block_to_ws_grad_norm": 0.006515113404020667,
+  "workspace_grad_norm": 0.0037693821587798104,
+  "candidate_registry": {
+    "original": "NCell sparse route + h.mean + head",
+    "selective_block_workspace": "one selected block + workspace mean",
+    "full_block_workspace": "concatenate all block states + workspace mean",
+    "tiny_gru": "random-init GRU comparator",
+    "primary_variable_per_experiment": "readout architecture only",
+    "training_steps": 0,
+    "status": "PENDING_USER_APPROVAL"
+  },
+  "baselines": {
+    "original": "NCell sparse + h.mean",
+    "selective_block_workspace": "implemented shape test",
+    "full_block_workspace": "implemented shape test",
+    "tiny_gru": "implemented shape test"
+  }
+}

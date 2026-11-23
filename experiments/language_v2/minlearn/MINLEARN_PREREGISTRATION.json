@@ -1,0 +1,34 @@
+{
+  "status": "PENDING_USER_APPROVAL",
+  "optimizer_steps": 0,
+  "sample_count": 16,
+  "future_arms": [
+    {
+      "id": "original",
+      "steps": 128
+    },
+    {
+      "id": "selective_block_workspace",
+      "steps": 128
+    },
+    {
+      "id": "full_block_workspace",
+      "steps": 128
+    },
+    {
+      "id": "tiny_gru",
+      "steps": 128
+    }
+  ],
+  "metrics": [
+    "train_full_answer_fit",
+    "unseen_composition",
+    "counterfactual_follow_rate",
+    "per_chinese_character_accuracy",
+    "eos_accuracy",
+    "router_grad_norm",
+    "parameter_update_audit"
+  ],
+  "major_variable": "one readout/architecture change per arm",
+  "no_gate24_budget_reuse": true
+}
