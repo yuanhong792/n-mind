@@ -1,0 +1,2939 @@
+{
+  "model": "candidate_v15_baseline.pt",
+  "model_sha256": "f18f53fd3a745830a5a4f5edae3d94b2426c2375a8774c32dfbe3616e6d82df2",
+  "tokenizer_hash": "26af116ebd13ff00",
+  "checkpoint_meta": {
+    "steps": 256,
+    "seed": 20261150,
+    "manifest_hash": "v15-preregistered",
+    "saved_at": "2026-11-23T21:15:41+0800"
+  },
+  "train_loss_breakdown": [
+    {
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "answer": "红色",
+      "seq_len": 30,
+      "start": 26,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.584506,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 8.515709,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 8.12446,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 8.982356,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 10.456349,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 2.47949,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 11.80615,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 2.164927,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 10.039856,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 3.880876,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.23788,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 276,
+          "target_text": "㐤ℳ븖",
+          "ce": 12.046283,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 6.504253,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 304,
+          "target_text": "㖀䇵⚘┫",
+          "ce": 3.747478,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 12.322423,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.220085,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 8.838343,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.517287,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 5.991386,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 7.910806,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.488986,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 11.895243,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.315792,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.875648,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.703308,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.016622,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009479,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 26,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.703308,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.016622,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009479,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 0.243136,
+      "supervised_texts": [
+        "㶞",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "answer": "绿色",
+      "seq_len": 30,
+      "start": 26,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.584506,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 8.515709,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 8.12446,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 8.982356,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 10.456349,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 2.47949,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 11.80615,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 2.164927,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 10.039856,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 3.880876,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.23788,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 311,
+          "target_text": "㐤ℳ븖ᬋ",
+          "ce": 11.007248,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 1.052737,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 304,
+          "target_text": "㖀䇵⚘┫",
+          "ce": 4.706677,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 12.412097,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.451593,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 9.293937,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.905509,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 6.042398,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 8.163792,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.745651,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 12.148202,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.392336,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.945972,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 0.711873,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.019362,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009287,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 26,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 0.711873,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.019362,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009287,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 0.246841,
+      "supervised_texts": [
+        "㷻",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "answer": "绿色",
+      "seq_len": 30,
+      "start": 26,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 1.747654,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 8.418234,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 7.790102,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 9.103984,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 10.37946,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 2.510767,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 11.811346,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 1.606054,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 9.685542,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 4.27618,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.177186,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 276,
+          "target_text": "㐤ℳ븖",
+          "ce": 11.887762,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 6.261973,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 304,
+          "target_text": "㖀䇵⚘┫",
+          "ce": 3.635608,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 12.329225,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.232847,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 8.827757,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.492646,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 5.984369,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 7.874354,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.505127,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 11.854718,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.320161,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.867885,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 0.714609,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.019403,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009291,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 26,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 0.714609,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.019403,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.009291,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 0.247768,
+      "supervised_texts": [
+        "㷻",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "answer": "红色",
+      "seq_len": 30,
+      "start": 26,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 1.747654,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 8.418234,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 7.790102,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 9.103984,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 10.37946,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 2.510767,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 11.811346,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 1.606054,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 9.685542,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 4.27618,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.177186,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 311,
+          "target_text": "㐤ℳ븖ᬋ",
+          "ce": 10.83181,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.9365,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 304,
+          "target_text": "㖀䇵⚘┫",
+          "ce": 4.625279,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 12.425581,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.468754,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 9.291706,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.881351,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 6.037215,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 8.125399,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.761818,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 12.102901,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.398918,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.939439,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.700468,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.017363,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.007474,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 26,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.700468,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.017363,
+          "supervised": true
+        },
+        {
+          "pos": 28,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.007474,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 0.241768,
+      "supervised_texts": [
+        "㶞",
+        "䅮",
+        "<EOS>"
+      ]
+    }
+  ],
+  "sealed_loss_breakdown": [
+    {
+      "prompt": "用户：小刚有蓝色书包，小丽有黄色书包。\n用户：小丽的书包是什么颜色？\n助手：",
+      "answer": "黄色",
+      "seq_len": 49,
+      "start": 45,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 325,
+          "target_text": "ᄖ",
+          "ce": 5.824686,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.786999,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 327,
+          "target_text": "䏙",
+          "ce": 6.279666,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 6.762826,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 5.746336,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 6.03429,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 5.589042,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.816823,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 5.760485,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 5.636163,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 6.048452,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 5.752468,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 5.980503,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 332,
+          "target_text": "ഹ",
+          "ce": 5.973775,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.880588,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 6.585089,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 7.054984,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 5.784022,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 6.02095,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 5.634378,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.002293,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 5.67157,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 5.606002,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 6.122977,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 7.55866,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 311,
+          "target_text": "㐤ℳ븖ᬋ",
+          "ce": 7.312755,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 332,
+          "target_text": "ഹ",
+          "ce": 8.514421,
+          "supervised": false
+        },
+        {
+          "pos": 27,
+          "target_id": 283,
+          "target_text": "㖀",
+          "ce": 9.542558,
+          "supervised": false
+        },
+        {
+          "pos": 28,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 9.261988,
+          "supervised": false
+        },
+        {
+          "pos": 29,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 8.607993,
+          "supervised": false
+        },
+        {
+          "pos": 30,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 9.346508,
+          "supervised": false
+        },
+        {
+          "pos": 31,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.182193,
+          "supervised": false
+        },
+        {
+          "pos": 32,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 8.416982,
+          "supervised": false
+        },
+        {
+          "pos": 33,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 10.838381,
+          "supervised": false
+        },
+        {
+          "pos": 34,
+          "target_id": 299,
+          "target_text": "┫",
+          "ce": 10.234053,
+          "supervised": false
+        },
+        {
+          "pos": 35,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 13.104226,
+          "supervised": false
+        },
+        {
+          "pos": 36,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.331772,
+          "supervised": false
+        },
+        {
+          "pos": 37,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 9.183153,
+          "supervised": false
+        },
+        {
+          "pos": 38,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.779003,
+          "supervised": false
+        },
+        {
+          "pos": 39,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 5.98261,
+          "supervised": false
+        },
+        {
+          "pos": 40,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 8.237819,
+          "supervised": false
+        },
+        {
+          "pos": 41,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.94158,
+          "supervised": false
+        },
+        {
+          "pos": 42,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 12.273715,
+          "supervised": false
+        },
+        {
+          "pos": 43,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.454795,
+          "supervised": false
+        },
+        {
+          "pos": 44,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.977039,
+          "supervised": false
+        },
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.502176,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.025437,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.008993,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.502176,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.025437,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.008993,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 2.512202,
+      "supervised_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小刚有黄色杯子，小丽有蓝色杯子。\n用户：小刚的杯子是什么颜色？\n助手：",
+      "answer": "黄色",
+      "seq_len": 49,
+      "start": 45,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 325,
+          "target_text": "ᄖ",
+          "ce": 5.824686,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.786999,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 5.84365,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 6.223803,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 234,
+          "target_text": "<id:234>",
+          "ce": 6.652065,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 161,
+          "target_text": "<id:161>",
+          "ce": 6.03395,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 179,
+          "target_text": "<id:179>",
+          "ce": 5.802285,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 5.692917,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 177,
+          "target_text": "<id:177>",
+          "ce": 6.088377,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 148,
+          "target_text": "<id:148>",
+          "ce": 7.139956,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 10.037263,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 9.554302,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 9.962186,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 332,
+          "target_text": "ഹ",
+          "ce": 10.066742,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 12.447651,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 327,
+          "target_text": "䏙",
+          "ce": 5.876214,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.478099,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 234,
+          "target_text": "<id:234>",
+          "ce": 8.776654,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 161,
+          "target_text": "<id:161>",
+          "ce": 9.944277,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 179,
+          "target_text": "<id:179>",
+          "ce": 9.565834,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.623102,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 177,
+          "target_text": "<id:177>",
+          "ce": 12.267572,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 148,
+          "target_text": "<id:148>",
+          "ce": 10.601527,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 5.149147,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.375757,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 311,
+          "target_text": "㐤ℳ븖ᬋ",
+          "ce": 10.474898,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 325,
+          "target_text": "ᄖ",
+          "ce": 9.924526,
+          "supervised": false
+        },
+        {
+          "pos": 27,
+          "target_id": 283,
+          "target_text": "㖀",
+          "ce": 10.064682,
+          "supervised": false
+        },
+        {
+          "pos": 28,
+          "target_id": 234,
+          "target_text": "<id:234>",
+          "ce": 6.362698,
+          "supervised": false
+        },
+        {
+          "pos": 29,
+          "target_id": 161,
+          "target_text": "<id:161>",
+          "ce": 9.222574,
+          "supervised": false
+        },
+        {
+          "pos": 30,
+          "target_id": 179,
+          "target_text": "<id:179>",
+          "ce": 9.413321,
+          "supervised": false
+        },
+        {
+          "pos": 31,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.503656,
+          "supervised": false
+        },
+        {
+          "pos": 32,
+          "target_id": 177,
+          "target_text": "<id:177>",
+          "ce": 12.290415,
+          "supervised": false
+        },
+        {
+          "pos": 33,
+          "target_id": 148,
+          "target_text": "<id:148>",
+          "ce": 10.551722,
+          "supervised": false
+        },
+        {
+          "pos": 34,
+          "target_id": 299,
+          "target_text": "┫",
+          "ce": 11.690454,
+          "supervised": false
+        },
+        {
+          "pos": 35,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 12.903802,
+          "supervised": false
+        },
+        {
+          "pos": 36,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.245608,
+          "supervised": false
+        },
+        {
+          "pos": 37,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 9.154983,
+          "supervised": false
+        },
+        {
+          "pos": 38,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.920066,
+          "supervised": false
+        },
+        {
+          "pos": 39,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 6.052631,
+          "supervised": false
+        },
+        {
+          "pos": 40,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 8.470039,
+          "supervised": false
+        },
+        {
+          "pos": 41,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.881136,
+          "supervised": false
+        },
+        {
+          "pos": 42,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 12.531139,
+          "supervised": false
+        },
+        {
+          "pos": 43,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.418459,
+          "supervised": false
+        },
+        {
+          "pos": 44,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 10.003243,
+          "supervised": false
+        },
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.458983,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.023047,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.010133,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.458983,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.023047,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.010133,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 2.497388,
+      "supervised_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小丽有绿色苹果，小明有蓝色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "answer": "蓝色",
+      "seq_len": 29,
+      "start": 25,
+      "supervised_positions": [
+        25,
+        26,
+        27
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 332,
+          "target_text": "ഹ",
+          "ce": 5.645978,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.928643,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 6.615824,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 6.143067,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 6.050229,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 5.867305,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 6.742166,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.896257,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 327,
+          "target_text": "䏙",
+          "ce": 6.99675,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 302,
+          "target_text": "䅮䇵⚘",
+          "ce": 6.093191,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 9.169027,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 5.897293,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 276,
+          "target_text": "㐤ℳ븖",
+          "ce": 5.700853,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 294,
+          "target_text": "ᬋ┊",
+          "ce": 6.115025,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 304,
+          "target_text": "㖀䇵⚘┫",
+          "ce": 5.619443,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 5.783558,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 6.036385,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 6.02059,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 6.020778,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 7.177571,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 5.515197,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 8.54772,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 6.258471,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 5.749457,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 5.429081,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 327,
+          "target_text": "䏙",
+          "ce": 6.408175,
+          "supervised": true
+        },
+        {
+          "pos": 26,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 7.265002,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 9.951949,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 25,
+          "target_id": 327,
+          "target_text": "䏙",
+          "ce": 6.408175,
+          "supervised": true
+        },
+        {
+          "pos": 26,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 7.265002,
+          "supervised": true
+        },
+        {
+          "pos": 27,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 9.951949,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 7.875042,
+      "supervised_texts": [
+        "䏙",
+        "䅮",
+        "<EOS>"
+      ]
+    },
+    {
+      "prompt": "用户：小红有黄色书包，小刚有绿色书包。\n用户：小红的书包是什么颜色？\n助手：",
+      "answer": "黄色",
+      "seq_len": 49,
+      "start": 45,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "all_tokens": [
+        {
+          "pos": 0,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 5.105081,
+          "supervised": false
+        },
+        {
+          "pos": 1,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 5.905569,
+          "supervised": false
+        },
+        {
+          "pos": 2,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 5.282147,
+          "supervised": false
+        },
+        {
+          "pos": 3,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.866807,
+          "supervised": false
+        },
+        {
+          "pos": 4,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 6.01666,
+          "supervised": false
+        },
+        {
+          "pos": 5,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 7.891435,
+          "supervised": false
+        },
+        {
+          "pos": 6,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 8.971262,
+          "supervised": false
+        },
+        {
+          "pos": 7,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 6.126881,
+          "supervised": false
+        },
+        {
+          "pos": 8,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 7.858529,
+          "supervised": false
+        },
+        {
+          "pos": 9,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 10.48711,
+          "supervised": false
+        },
+        {
+          "pos": 10,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 10.195366,
+          "supervised": false
+        },
+        {
+          "pos": 11,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 10.14397,
+          "supervised": false
+        },
+        {
+          "pos": 12,
+          "target_id": 264,
+          "target_text": "ᬋ",
+          "ce": 10.834485,
+          "supervised": false
+        },
+        {
+          "pos": 13,
+          "target_id": 325,
+          "target_text": "ᄖ",
+          "ce": 11.47315,
+          "supervised": false
+        },
+        {
+          "pos": 14,
+          "target_id": 297,
+          "target_text": "★",
+          "ce": 12.993535,
+          "supervised": false
+        },
+        {
+          "pos": 15,
+          "target_id": 326,
+          "target_text": "㷻",
+          "ce": 2.019102,
+          "supervised": false
+        },
+        {
+          "pos": 16,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.283104,
+          "supervised": false
+        },
+        {
+          "pos": 17,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 13.309853,
+          "supervised": false
+        },
+        {
+          "pos": 18,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 10.578667,
+          "supervised": false
+        },
+        {
+          "pos": 19,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 9.460815,
+          "supervised": false
+        },
+        {
+          "pos": 20,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 5.895524,
+          "supervised": false
+        },
+        {
+          "pos": 21,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 8.725204,
+          "supervised": false
+        },
+        {
+          "pos": 22,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 11.11137,
+          "supervised": false
+        },
+        {
+          "pos": 23,
+          "target_id": 288,
+          "target_text": "<id:288>",
+          "ce": 4.430257,
+          "supervised": false
+        },
+        {
+          "pos": 24,
+          "target_id": 14,
+          "target_text": "\n",
+          "ce": 13.106908,
+          "supervised": false
+        },
+        {
+          "pos": 25,
+          "target_id": 311,
+          "target_text": "㐤ℳ븖ᬋ",
+          "ce": 10.357427,
+          "supervised": false
+        },
+        {
+          "pos": 26,
+          "target_id": 298,
+          "target_text": "㶞",
+          "ce": 0.805883,
+          "supervised": false
+        },
+        {
+          "pos": 27,
+          "target_id": 283,
+          "target_text": "㖀",
+          "ce": 9.13703,
+          "supervised": false
+        },
+        {
+          "pos": 28,
+          "target_id": 232,
+          "target_text": "<id:232>",
+          "ce": 9.809093,
+          "supervised": false
+        },
+        {
+          "pos": 29,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.446486,
+          "supervised": false
+        },
+        {
+          "pos": 30,
+          "target_id": 170,
+          "target_text": "<id:170>",
+          "ce": 9.344373,
+          "supervised": false
+        },
+        {
+          "pos": 31,
+          "target_id": 233,
+          "target_text": "<id:233>",
+          "ce": 5.979904,
+          "supervised": false
+        },
+        {
+          "pos": 32,
+          "target_id": 144,
+          "target_text": "<id:144>",
+          "ce": 8.472686,
+          "supervised": false
+        },
+        {
+          "pos": 33,
+          "target_id": 137,
+          "target_text": "<id:137>",
+          "ce": 10.919241,
+          "supervised": false
+        },
+        {
+          "pos": 34,
+          "target_id": 299,
+          "target_text": "┫",
+          "ce": 10.193428,
+          "supervised": false
+        },
+        {
+          "pos": 35,
+          "target_id": 324,
+          "target_text": "<id:324>",
+          "ce": 13.024799,
+          "supervised": false
+        },
+        {
+          "pos": 36,
+          "target_id": 189,
+          "target_text": "<id:189>",
+          "ce": 9.248552,
+          "supervised": false
+        },
+        {
+          "pos": 37,
+          "target_id": 140,
+          "target_text": "<id:140>",
+          "ce": 9.156998,
+          "supervised": false
+        },
+        {
+          "pos": 38,
+          "target_id": 237,
+          "target_text": "<id:237>",
+          "ce": 7.842076,
+          "supervised": false
+        },
+        {
+          "pos": 39,
+          "target_id": 166,
+          "target_text": "<id:166>",
+          "ce": 6.025674,
+          "supervised": false
+        },
+        {
+          "pos": 40,
+          "target_id": 160,
+          "target_text": "<id:160>",
+          "ce": 8.408296,
+          "supervised": false
+        },
+        {
+          "pos": 41,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 2.789917,
+          "supervised": false
+        },
+        {
+          "pos": 42,
+          "target_id": 260,
+          "target_text": "<id:260>",
+          "ce": 12.470417,
+          "supervised": false
+        },
+        {
+          "pos": 43,
+          "target_id": 163,
+          "target_text": "<id:163>",
+          "ce": 10.392719,
+          "supervised": false
+        },
+        {
+          "pos": 44,
+          "target_id": 277,
+          "target_text": "\u0006ᆥⅇ븖",
+          "ce": 9.988414,
+          "supervised": false
+        },
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.450218,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.022663,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.010218,
+          "supervised": true
+        }
+      ],
+      "supervised_tokens": [
+        {
+          "pos": 45,
+          "target_id": 329,
+          "target_text": "巀",
+          "ce": 7.450218,
+          "supervised": true
+        },
+        {
+          "pos": 46,
+          "target_id": 284,
+          "target_text": "䅮",
+          "ce": 0.022663,
+          "supervised": true
+        },
+        {
+          "pos": 47,
+          "target_id": 2,
+          "target_text": "<EOS>",
+          "ce": 0.010218,
+          "supervised": true
+        }
+      ],
+      "mean_loss": 2.494366,
+      "supervised_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ]
+    }
+  ],
+  "p2": [
+    {
+      "id": "a_ming_ask_hong",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.703611,
+            -0.017114
+          ],
+          "mean_logprob": -0.360362
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.711873,
+            -0.019362
+          ],
+          "mean_logprob": -0.365617
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.365617,
+      "tf_gold_token_logprobs": [
+        -0.711873,
+        -0.019362
+      ]
+    },
+    {
+      "id": "a_ming_ask_ming",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "expected": "红色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.703308,
+            -0.016622
+          ],
+          "mean_logprob": -0.359965
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.71223,
+            -0.018845
+          ],
+          "mean_logprob": -0.365538
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": true,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.359965,
+      "tf_gold_token_logprobs": [
+        -0.703308,
+        -0.016622
+      ]
+    },
+    {
+      "id": "b_swap_color_ask_ming",
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.700801,
+            -0.017158
+          ],
+          "mean_logprob": -0.35898
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.714609,
+            -0.019403
+          ],
+          "mean_logprob": -0.367006
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.367006,
+      "tf_gold_token_logprobs": [
+        -0.714609,
+        -0.019403
+      ]
+    },
+    {
+      "id": "b_swap_color_ask_hong",
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "红色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.700468,
+            -0.017363
+          ],
+          "mean_logprob": -0.358915
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.714852,
+            -0.019636
+          ],
+          "mean_logprob": -0.367244
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": true,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.358915,
+      "tf_gold_token_logprobs": [
+        -0.700468,
+        -0.017363
+      ]
+    },
+    {
+      "id": "c_swap_order_ask_hong",
+      "prompt": "用户：小红有绿色苹果，小明有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.704457,
+            -0.017005
+          ],
+          "mean_logprob": -0.360731
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.711092,
+            -0.01924
+          ],
+          "mean_logprob": -0.365166
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.365166,
+      "tf_gold_token_logprobs": [
+        -0.711092,
+        -0.01924
+      ]
+    }
+  ],
+  "p3": [
+    {
+      "query": "小明",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "trace_last8": [
+        {
+          "step": 19,
+          "tok": "<id:140>",
+          "h_mean_abs": 0.61218,
+          "ws_content_mean_abs": 0.64598,
+          "lm_input_norm": 3.49355,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 20,
+          "tok": "<id:237>",
+          "h_mean_abs": 0.71502,
+          "ws_content_mean_abs": 0.53229,
+          "lm_input_norm": 3.74132,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 21,
+          "tok": "<id:166>",
+          "h_mean_abs": 0.7281,
+          "ws_content_mean_abs": 0.52104,
+          "lm_input_norm": 4.14736,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2102,
+              "<id:2102>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 22,
+          "tok": "<id:160>",
+          "h_mean_abs": 0.5885,
+          "ws_content_mean_abs": 0.69,
+          "lm_input_norm": 3.05909,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              298,
+              "㶞"
+            ]
+          ]
+        },
+        {
+          "step": 23,
+          "tok": "䅮",
+          "h_mean_abs": 0.8077,
+          "ws_content_mean_abs": 0.96283,
+          "lm_input_norm": 4.53509,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 24,
+          "tok": "<id:260>",
+          "h_mean_abs": 0.73401,
+          "ws_content_mean_abs": 0.89509,
+          "lm_input_norm": 4.14996,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 25,
+          "tok": "<id:163>",
+          "h_mean_abs": 0.80734,
+          "ws_content_mean_abs": 0.78827,
+          "lm_input_norm": 4.43798,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 26,
+          "tok": "\u0006ᆥⅇ븖",
+          "h_mean_abs": 0.95433,
+          "ws_content_mean_abs": 0.81126,
+          "lm_input_norm": 5.15088,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ],
+            [
+              4078,
+              "<id:4078>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "query": "小红",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "trace_last8": [
+        {
+          "step": 19,
+          "tok": "<id:140>",
+          "h_mean_abs": 0.63057,
+          "ws_content_mean_abs": 0.69419,
+          "lm_input_norm": 3.63354,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              284,
+              "䅮"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 20,
+          "tok": "<id:237>",
+          "h_mean_abs": 0.70783,
+          "ws_content_mean_abs": 0.58274,
+          "lm_input_norm": 3.76774,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 21,
+          "tok": "<id:166>",
+          "h_mean_abs": 0.73276,
+          "ws_content_mean_abs": 0.57333,
+          "lm_input_norm": 4.19215,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2102,
+              "<id:2102>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 22,
+          "tok": "<id:160>",
+          "h_mean_abs": 0.60302,
+          "ws_content_mean_abs": 0.73859,
+          "lm_input_norm": 3.22945,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              298,
+              "㶞"
+            ]
+          ]
+        },
+        {
+          "step": 23,
+          "tok": "䅮",
+          "h_mean_abs": 0.81856,
+          "ws_content_mean_abs": 0.98596,
+          "lm_input_norm": 4.61143,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 24,
+          "tok": "<id:260>",
+          "h_mean_abs": 0.73345,
+          "ws_content_mean_abs": 0.90704,
+          "lm_input_norm": 4.17258,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 25,
+          "tok": "<id:163>",
+          "h_mean_abs": 0.80872,
+          "ws_content_mean_abs": 0.79515,
+          "lm_input_norm": 4.44992,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 26,
+          "tok": "\u0006ᆥⅇ븖",
+          "h_mean_abs": 0.95406,
+          "ws_content_mean_abs": 0.56428,
+          "lm_input_norm": 5.149,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ],
+            [
+              4078,
+              "<id:4078>"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

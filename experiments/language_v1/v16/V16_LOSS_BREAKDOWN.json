@@ -1,0 +1,1653 @@
+{
+  "status": "FROZEN_EVAL_NO_OPTIMIZER_STEP",
+  "model": "candidate_v15_baseline.pt",
+  "model_sha256": "f18f53fd3a745830a5a4f5edae3d94b2426c2375a8774c32dfbe3616e6d82df2",
+  "tokenizer_hash": "26af116ebd13ff00",
+  "key_finding": "平均0.24 loss由答案首字(判别token, CE≈0.70≈ln2)与恒定的'色'/EOS(CE≈0.01)平均稀释而成; 0.24不代表学会颜色绑定",
+  "train_set_breakdown": [
+    {
+      "answer": "红色",
+      "seq_len": 30,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "supervised_token_texts": [
+        "㶞",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 0.243136,
+      "answer_first_token_ce": 0.703308,
+      "answer_first_token_text": "㶞",
+      "nons_eos_ce": [
+        0.703308,
+        0.016622
+      ],
+      "eos_ce": 0.009479,
+      "per_token": [
+        {
+          "text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.584506,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 8.515709,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 8.12446,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 8.982356,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 10.456349,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 2.47949,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 11.80615,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 2.164927,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 10.039856,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 3.880876,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.23788,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖",
+          "ce": 12.046283,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ┊",
+          "ce": 6.504253,
+          "supervised": false
+        },
+        {
+          "text": "㖀䇵⚘┫",
+          "ce": 3.747478,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 12.322423,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.220085,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 8.838343,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.517287,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 5.991386,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 7.910806,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.488986,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 11.895243,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.315792,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.875648,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.703308,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.016622,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.009479,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "绿色",
+      "seq_len": 30,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "supervised_token_texts": [
+        "㷻",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 0.246841,
+      "answer_first_token_ce": 0.711873,
+      "answer_first_token_text": "㷻",
+      "nons_eos_ce": [
+        0.711873,
+        0.019362
+      ],
+      "eos_ce": 0.009287,
+      "per_token": [
+        {
+          "text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.584506,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 8.515709,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 8.12446,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 8.982356,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 10.456349,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 2.47949,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 11.80615,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 2.164927,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 10.039856,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 3.880876,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.23788,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖ᬋ",
+          "ce": 11.007248,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 1.052737,
+          "supervised": false
+        },
+        {
+          "text": "㖀䇵⚘┫",
+          "ce": 4.706677,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 12.412097,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.451593,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 9.293937,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.905509,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 6.042398,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 8.163792,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.745651,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 12.148202,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.392336,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.945972,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 0.711873,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.019362,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.009287,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "绿色",
+      "seq_len": 30,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "supervised_token_texts": [
+        "㷻",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 0.247768,
+      "answer_first_token_ce": 0.714609,
+      "answer_first_token_text": "㷻",
+      "nons_eos_ce": [
+        0.714609,
+        0.019403
+      ],
+      "eos_ce": 0.009291,
+      "per_token": [
+        {
+          "text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 1.747654,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 8.418234,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 7.790102,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 9.103984,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 10.37946,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 2.510767,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 11.811346,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 1.606054,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 9.685542,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 4.27618,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.177186,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖",
+          "ce": 11.887762,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ┊",
+          "ce": 6.261973,
+          "supervised": false
+        },
+        {
+          "text": "㖀䇵⚘┫",
+          "ce": 3.635608,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 12.329225,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.232847,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 8.827757,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.492646,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 5.984369,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 7.874354,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.505127,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 11.854718,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.320161,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.867885,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 0.714609,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.019403,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.009291,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "红色",
+      "seq_len": 30,
+      "supervised_positions": [
+        26,
+        27,
+        28
+      ],
+      "supervised_token_texts": [
+        "㶞",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 0.241768,
+      "answer_first_token_ce": 0.700468,
+      "answer_first_token_text": "㶞",
+      "nons_eos_ce": [
+        0.700468,
+        0.017363
+      ],
+      "eos_ce": 0.007474,
+      "per_token": [
+        {
+          "text": "ᬋ┊",
+          "ce": 5.2049,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 8.052303,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 1.747654,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 8.418234,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 7.790102,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 9.103984,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 10.37946,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 2.510767,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 11.811346,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 1.606054,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 9.685542,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 4.27618,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.177186,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖ᬋ",
+          "ce": 10.83181,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.9365,
+          "supervised": false
+        },
+        {
+          "text": "㖀䇵⚘┫",
+          "ce": 4.625279,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 12.425581,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.468754,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 9.291706,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.881351,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 6.037215,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 8.125399,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.761818,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 12.102901,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.398918,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.939439,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.700468,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.017363,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.007474,
+          "supervised": true
+        }
+      ]
+    }
+  ],
+  "sealed_set_breakdown": [
+    {
+      "answer": "黄色",
+      "seq_len": 49,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "supervised_token_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 2.512202,
+      "answer_first_token_ce": 7.502176,
+      "answer_first_token_text": "巀",
+      "nons_eos_ce": [
+        7.502176,
+        0.025437
+      ],
+      "eos_ce": 0.008993,
+      "per_token": [
+        {
+          "text": "ᄖ",
+          "ce": 5.824686,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.786999,
+          "supervised": false
+        },
+        {
+          "text": "䏙",
+          "ce": 6.279666,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 6.762826,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 5.746336,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 6.03429,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 5.589042,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.816823,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 5.760485,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 5.636163,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 6.048452,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 5.752468,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 5.980503,
+          "supervised": false
+        },
+        {
+          "text": "ഹ",
+          "ce": 5.973775,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.880588,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 6.585089,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 7.054984,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 5.784022,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 6.02095,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 5.634378,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.002293,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 5.67157,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 5.606002,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 6.122977,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 7.55866,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖ᬋ",
+          "ce": 7.312755,
+          "supervised": false
+        },
+        {
+          "text": "ഹ",
+          "ce": 8.514421,
+          "supervised": false
+        },
+        {
+          "text": "㖀",
+          "ce": 9.542558,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 9.261988,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 8.607993,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 9.346508,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.182193,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 8.416982,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 10.838381,
+          "supervised": false
+        },
+        {
+          "text": "┫",
+          "ce": 10.234053,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 13.104226,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.331772,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 9.183153,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.779003,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 5.98261,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 8.237819,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.94158,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 12.273715,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.454795,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.977039,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 7.502176,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.025437,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.008993,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "黄色",
+      "seq_len": 49,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "supervised_token_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 2.497388,
+      "answer_first_token_ce": 7.458983,
+      "answer_first_token_text": "巀",
+      "nons_eos_ce": [
+        7.458983,
+        0.023047
+      ],
+      "eos_ce": 0.010133,
+      "per_token": [
+        {
+          "text": "ᄖ",
+          "ce": 5.824686,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.786999,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 5.84365,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 6.223803,
+          "supervised": false
+        },
+        {
+          "text": "<id:234>",
+          "ce": 6.652065,
+          "supervised": false
+        },
+        {
+          "text": "<id:161>",
+          "ce": 6.03395,
+          "supervised": false
+        },
+        {
+          "text": "<id:179>",
+          "ce": 5.802285,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 5.692917,
+          "supervised": false
+        },
+        {
+          "text": "<id:177>",
+          "ce": 6.088377,
+          "supervised": false
+        },
+        {
+          "text": "<id:148>",
+          "ce": 7.139956,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 10.037263,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 9.554302,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 9.962186,
+          "supervised": false
+        },
+        {
+          "text": "ഹ",
+          "ce": 10.066742,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 12.447651,
+          "supervised": false
+        },
+        {
+          "text": "䏙",
+          "ce": 5.876214,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 0.478099,
+          "supervised": false
+        },
+        {
+          "text": "<id:234>",
+          "ce": 8.776654,
+          "supervised": false
+        },
+        {
+          "text": "<id:161>",
+          "ce": 9.944277,
+          "supervised": false
+        },
+        {
+          "text": "<id:179>",
+          "ce": 9.565834,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.623102,
+          "supervised": false
+        },
+        {
+          "text": "<id:177>",
+          "ce": 12.267572,
+          "supervised": false
+        },
+        {
+          "text": "<id:148>",
+          "ce": 10.601527,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 5.149147,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.375757,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖ᬋ",
+          "ce": 10.474898,
+          "supervised": false
+        },
+        {
+          "text": "ᄖ",
+          "ce": 9.924526,
+          "supervised": false
+        },
+        {
+          "text": "㖀",
+          "ce": 10.064682,
+          "supervised": false
+        },
+        {
+          "text": "<id:234>",
+          "ce": 6.362698,
+          "supervised": false
+        },
+        {
+          "text": "<id:161>",
+          "ce": 9.222574,
+          "supervised": false
+        },
+        {
+          "text": "<id:179>",
+          "ce": 9.413321,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.503656,
+          "supervised": false
+        },
+        {
+          "text": "<id:177>",
+          "ce": 12.290415,
+          "supervised": false
+        },
+        {
+          "text": "<id:148>",
+          "ce": 10.551722,
+          "supervised": false
+        },
+        {
+          "text": "┫",
+          "ce": 11.690454,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 12.903802,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.245608,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 9.154983,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.920066,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 6.052631,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 8.470039,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.881136,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 12.531139,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.418459,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 10.003243,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 7.458983,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.023047,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.010133,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "蓝色",
+      "seq_len": 29,
+      "supervised_positions": [
+        25,
+        26,
+        27
+      ],
+      "supervised_token_texts": [
+        "䏙",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 7.875042,
+      "answer_first_token_ce": 6.408175,
+      "answer_first_token_text": "䏙",
+      "nons_eos_ce": [
+        6.408175,
+        7.265002
+      ],
+      "eos_ce": 9.951949,
+      "per_token": [
+        {
+          "text": "ഹ",
+          "ce": 5.645978,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.928643,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 6.615824,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 6.143067,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 6.050229,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 5.867305,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ┊",
+          "ce": 6.742166,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.896257,
+          "supervised": false
+        },
+        {
+          "text": "䏙",
+          "ce": 6.99675,
+          "supervised": false
+        },
+        {
+          "text": "䅮䇵⚘",
+          "ce": 6.093191,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 9.169027,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 5.897293,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖",
+          "ce": 5.700853,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ┊",
+          "ce": 6.115025,
+          "supervised": false
+        },
+        {
+          "text": "㖀䇵⚘┫",
+          "ce": 5.619443,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 5.783558,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 6.036385,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 6.02059,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 6.020778,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 7.177571,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 5.515197,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 8.54772,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 6.258471,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 5.749457,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 5.429081,
+          "supervised": false
+        },
+        {
+          "text": "䏙",
+          "ce": 6.408175,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 7.265002,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 9.951949,
+          "supervised": true
+        }
+      ]
+    },
+    {
+      "answer": "黄色",
+      "seq_len": 49,
+      "supervised_positions": [
+        45,
+        46,
+        47
+      ],
+      "supervised_token_texts": [
+        "巀",
+        "䅮",
+        "<EOS>"
+      ],
+      "mean_loss_all_supervised": 2.494366,
+      "answer_first_token_ce": 7.450218,
+      "answer_first_token_text": "巀",
+      "nons_eos_ce": [
+        7.450218,
+        0.022663
+      ],
+      "eos_ce": 0.010218,
+      "per_token": [
+        {
+          "text": "㶞",
+          "ce": 5.105081,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 5.905569,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 5.282147,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.866807,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 6.01666,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 7.891435,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 8.971262,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 6.126881,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 7.858529,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 10.48711,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 10.195366,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 10.14397,
+          "supervised": false
+        },
+        {
+          "text": "ᬋ",
+          "ce": 10.834485,
+          "supervised": false
+        },
+        {
+          "text": "ᄖ",
+          "ce": 11.47315,
+          "supervised": false
+        },
+        {
+          "text": "★",
+          "ce": 12.993535,
+          "supervised": false
+        },
+        {
+          "text": "㷻",
+          "ce": 2.019102,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 0.283104,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 13.309853,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 10.578667,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 9.460815,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 5.895524,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 8.725204,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 11.11137,
+          "supervised": false
+        },
+        {
+          "text": "<id:288>",
+          "ce": 4.430257,
+          "supervised": false
+        },
+        {
+          "text": "\n",
+          "ce": 13.106908,
+          "supervised": false
+        },
+        {
+          "text": "㐤ℳ븖ᬋ",
+          "ce": 10.357427,
+          "supervised": false
+        },
+        {
+          "text": "㶞",
+          "ce": 0.805883,
+          "supervised": false
+        },
+        {
+          "text": "㖀",
+          "ce": 9.13703,
+          "supervised": false
+        },
+        {
+          "text": "<id:232>",
+          "ce": 9.809093,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.446486,
+          "supervised": false
+        },
+        {
+          "text": "<id:170>",
+          "ce": 9.344373,
+          "supervised": false
+        },
+        {
+          "text": "<id:233>",
+          "ce": 5.979904,
+          "supervised": false
+        },
+        {
+          "text": "<id:144>",
+          "ce": 8.472686,
+          "supervised": false
+        },
+        {
+          "text": "<id:137>",
+          "ce": 10.919241,
+          "supervised": false
+        },
+        {
+          "text": "┫",
+          "ce": 10.193428,
+          "supervised": false
+        },
+        {
+          "text": "<id:324>",
+          "ce": 13.024799,
+          "supervised": false
+        },
+        {
+          "text": "<id:189>",
+          "ce": 9.248552,
+          "supervised": false
+        },
+        {
+          "text": "<id:140>",
+          "ce": 9.156998,
+          "supervised": false
+        },
+        {
+          "text": "<id:237>",
+          "ce": 7.842076,
+          "supervised": false
+        },
+        {
+          "text": "<id:166>",
+          "ce": 6.025674,
+          "supervised": false
+        },
+        {
+          "text": "<id:160>",
+          "ce": 8.408296,
+          "supervised": false
+        },
+        {
+          "text": "䅮",
+          "ce": 2.789917,
+          "supervised": false
+        },
+        {
+          "text": "<id:260>",
+          "ce": 12.470417,
+          "supervised": false
+        },
+        {
+          "text": "<id:163>",
+          "ce": 10.392719,
+          "supervised": false
+        },
+        {
+          "text": "\u0006ᆥⅇ븖",
+          "ce": 9.988414,
+          "supervised": false
+        },
+        {
+          "text": "巀",
+          "ce": 7.450218,
+          "supervised": true
+        },
+        {
+          "text": "䅮",
+          "ce": 0.022663,
+          "supervised": true
+        },
+        {
+          "text": "<EOS>",
+          "ce": 0.010218,
+          "supervised": true
+        }
+      ]
+    }
+  ],
+  "category_loss": {
+    "红色": [
+      0.243136,
+      0.241768
+    ],
+    "绿色": [
+      0.246841,
+      0.247768
+    ]
+  }
+}

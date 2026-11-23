@@ -1,0 +1,373 @@
+{
+  "status": "FROZEN_NO_PARAM_UPDATE",
+  "state_trace": [
+    {
+      "query": "小明",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "trace_last8": [
+        {
+          "step": 19,
+          "tok": "<id:140>",
+          "h_mean_abs": 0.61218,
+          "ws_content_mean_abs": 0.64598,
+          "lm_input_norm": 3.49355,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 20,
+          "tok": "<id:237>",
+          "h_mean_abs": 0.71502,
+          "ws_content_mean_abs": 0.53229,
+          "lm_input_norm": 3.74132,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 21,
+          "tok": "<id:166>",
+          "h_mean_abs": 0.7281,
+          "ws_content_mean_abs": 0.52104,
+          "lm_input_norm": 4.14736,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2102,
+              "<id:2102>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 22,
+          "tok": "<id:160>",
+          "h_mean_abs": 0.5885,
+          "ws_content_mean_abs": 0.69,
+          "lm_input_norm": 3.05909,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              298,
+              "㶞"
+            ]
+          ]
+        },
+        {
+          "step": 23,
+          "tok": "䅮",
+          "h_mean_abs": 0.8077,
+          "ws_content_mean_abs": 0.96283,
+          "lm_input_norm": 4.53509,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 24,
+          "tok": "<id:260>",
+          "h_mean_abs": 0.73401,
+          "ws_content_mean_abs": 0.89509,
+          "lm_input_norm": 4.14996,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 25,
+          "tok": "<id:163>",
+          "h_mean_abs": 0.80734,
+          "ws_content_mean_abs": 0.78827,
+          "lm_input_norm": 4.43798,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 26,
+          "tok": "\u0006ᆥⅇ븖",
+          "h_mean_abs": 0.95433,
+          "ws_content_mean_abs": 0.81126,
+          "lm_input_norm": 5.15088,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ],
+            [
+              4078,
+              "<id:4078>"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "query": "小红",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "trace_last8": [
+        {
+          "step": 19,
+          "tok": "<id:140>",
+          "h_mean_abs": 0.63057,
+          "ws_content_mean_abs": 0.69419,
+          "lm_input_norm": 3.63354,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              284,
+              "䅮"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 20,
+          "tok": "<id:237>",
+          "h_mean_abs": 0.70783,
+          "ws_content_mean_abs": 0.58274,
+          "lm_input_norm": 3.76774,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 21,
+          "tok": "<id:166>",
+          "h_mean_abs": 0.73276,
+          "ws_content_mean_abs": 0.57333,
+          "lm_input_norm": 4.19215,
+          "top3": [
+            [
+              284,
+              "䅮"
+            ],
+            [
+              2102,
+              "<id:2102>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 22,
+          "tok": "<id:160>",
+          "h_mean_abs": 0.60302,
+          "ws_content_mean_abs": 0.73859,
+          "lm_input_norm": 3.22945,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              298,
+              "㶞"
+            ]
+          ]
+        },
+        {
+          "step": 23,
+          "tok": "䅮",
+          "h_mean_abs": 0.81856,
+          "ws_content_mean_abs": 0.98596,
+          "lm_input_norm": 4.61143,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              288,
+              "<id:288>"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 24,
+          "tok": "<id:260>",
+          "h_mean_abs": 0.73345,
+          "ws_content_mean_abs": 0.90704,
+          "lm_input_norm": 4.17258,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 25,
+          "tok": "<id:163>",
+          "h_mean_abs": 0.80872,
+          "ws_content_mean_abs": 0.79515,
+          "lm_input_norm": 4.44992,
+          "top3": [
+            [
+              2,
+              "<EOS>"
+            ],
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ]
+          ]
+        },
+        {
+          "step": 26,
+          "tok": "\u0006ᆥⅇ븖",
+          "h_mean_abs": 0.95406,
+          "ws_content_mean_abs": 0.56428,
+          "lm_input_norm": 5.149,
+          "top3": [
+            [
+              298,
+              "㶞"
+            ],
+            [
+              326,
+              "㷻"
+            ],
+            [
+              4078,
+              "<id:4078>"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "frozen_linear_probe": {
+    "probe_type": "linear_on_frozen_h_mean",
+    "train_acc_on_4_samples": 0.5,
+    "note": "探针仅证明冻结表示可解码性, 不计入N-MIND自主语言能力; 4样本过拟合风险极高"
+  },
+  "router_diagnostic": {
+    "router_grad_abs_sum": {
+      "router.score_mlp.0.weight": "NO_GRAD",
+      "router.score_mlp.0.bias": "NO_GRAD",
+      "router.score_mlp.2.weight": "NO_GRAD",
+      "router.score_mlp.2.bias": "NO_GRAD"
+    },
+    "router_has_zero_grad_BEFORE_fix": true,
+    "h_mean_cosine_ming_vs_hong": 0.999995,
+    "h_mean_l2_diff": 0.015769,
+    "final_logit_cosine": 0.999999,
+    "final_logit_l2_diff": 0.134214
+  },
+  "finding": "问小明vs小红: h_mean余弦0.999995、最终logit余弦0.999999, 实体信息未改变表示与读出; 修复前Router梯度为0(STE权重未接线, 见FIX_VALIDATION); 冻结线性探针仅50%, 表示的实体可解码性未被证明",
+  "caveat": "线性探针成绩只证明表示可解码性, 不计入N-MIND自主语言能力"
+}

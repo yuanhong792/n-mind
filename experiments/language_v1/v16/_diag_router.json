@@ -1,0 +1,40 @@
+{
+  "loss_used": 0.243136,
+  "router_grad_abs_sum": {
+    "router.score_mlp.0.weight": "NO_GRAD",
+    "router.score_mlp.0.bias": "NO_GRAD",
+    "router.score_mlp.2.weight": "NO_GRAD",
+    "router.score_mlp.2.bias": "NO_GRAD"
+  },
+  "router_has_zero_grad": true,
+  "grad_abs_sum_all_layers": {
+    "tok_emb.weight": 0.42865598,
+    "blocks.W_g": 0.38460284,
+    "blocks.b_g": 0.00595502,
+    "blocks.W_z": 4.27367878,
+    "blocks.W_h": 4.57150078,
+    "blocks.W_w": 5.84652042,
+    "blocks.b_c": 0.21146615,
+    "router.score_mlp.0.weight": "NO_GRAD",
+    "router.score_mlp.0.bias": "NO_GRAD",
+    "router.score_mlp.2.weight": "NO_GRAD",
+    "router.score_mlp.2.bias": "NO_GRAD",
+    "workspace.slot_keys": 0.00640104,
+    "workspace.q_proj.weight": 0.00392065,
+    "workspace.q_proj.bias": 0.00018228,
+    "workspace.k_proj.weight": 0.00055546,
+    "workspace.v_proj.weight": 1.36302662,
+    "workspace.write_proj.weight": 0.74815995,
+    "workspace.utility_mlp.weight": "NO_GRAD",
+    "workspace.utility_mlp.bias": "NO_GRAD",
+    "block_to_ws.weight": 1.23426878,
+    "block_to_ws.bias": 0.06728209,
+    "head.weight": 9.58512115,
+    "head.bias": 0.34678042
+  },
+  "h_mean_cosine_ming_vs_hong": 0.999995,
+  "h_mean_l2_diff": 0.015769,
+  "final_logit_cosine": 0.999999,
+  "final_logit_l2_diff": 0.134214,
+  "note": "router梯度=0表示路由不接收语言监督; h/logit两查询余弦≈1、L2≈0表示查询实体完全不影响表示与读出"
+}

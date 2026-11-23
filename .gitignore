@@ -41,6 +41,8 @@ experiments/*/_pending*
 *.jsonl
 *.log
 data/v*/
+# V1.6 交付：自由生成原文是要求的交付物，解除 jsonl 排除
+!experiments/language_v1/v16/V16_FREE_GENERATION.jsonl
 
 # 浏览器调试与临时脚本
 .playwright-cli/

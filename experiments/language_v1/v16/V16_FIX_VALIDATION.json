@@ -1,0 +1,47 @@
+{
+  "status": "FIXED_ONE_ENGINEERING_DEFECT_NO_WEIGHT_UPDATE",
+  "optimizer_steps_this_round": 0,
+  "defect": {
+    "id": "ROUTER_STE_WEIGHTS_NOT_WIRED",
+    "severity": "HIGH",
+    "file": "src/nmind/language/neural_dialogue.py",
+    "method": "NMindLM.forward",
+    "line_before": 99,
+    "root_cause": "forward_sparse 已实现 STE 软权重梯度路径(NCell.forward_sparse weights 参数)，BlockRouter.route 也返回带梯度的 weights，但 NMindLM.forward 调用时只传 route.indices，漏传 weights=route.weights，导致 router.score_mlp 从未收到任务梯度，路由退化为任务盲",
+    "prior_evidence": "V1.2/V1.4 报告多次记录 'Router 语言梯度仍为 0'；本轮 _diag_router.json 用真实语言 CE 反传再次确认 router.score_mlp.* 全部无梯度",
+    "fix": "call forward_sparse(..., weights=route.weights)",
+    "fix_type": "单行调用参数补全，未改架构数学，未改 Stable"
+  },
+  "reproducible_failing_test": {
+    "test_file": "tests/test_router_language_grad.py::test_router_receives_language_gradient",
+    "before_fix": "FAIL - router.score_mlp.* grad=None (实测退出码1)",
+    "after_fix": "PASS - router.score_mlp.0.weight grad_abs_sum=0.358485 (实测)"
+  },
+  "minimal_source_change": {
+    "before": "h, _g, _m, _p, _n = self.blocks.forward_sparse(z, h, w_read.value, route.indices)",
+    "after": "h, _g, _m, _p, _n = self.blocks.forward_sparse(z, h, w_read.value, route.indices, weights=route.weights)"
+  },
+  "validation": {
+    "test_after_fix_passed": true,
+    "regression_full_suite": "260 passed, 3 skipped, 0 failed (pytest tests/ -q, 含本次新增2项)",
+    "core_language_tests": "35 passed (test_ncell/test_router/test_workspace/test_language_v2_pipeline)",
+    "old_checkpoint_compatible": true,
+    "old_checkpoint_evidence": "candidate_v15_baseline.pt 严格加载成功；eval 推理 top3=[298,326,4078] 与修复前一致，无 NaN",
+    "forward_numerics_unchanged_reason": "STE 前向为硬采纳(wk_ste*h_upd+(1-wk_ste)*h_sel 中 wk_ste 前向恒为1)，只改反向梯度路径，不改 eval 数值",
+    "no_weight_update": true,
+    "stable_modified": false
+  },
+  "impact_scope": {
+    "does_fix_alone_solve_binding": false,
+    "reason": "该修复让 Router 从训练中可学习，但当前模型权重是在旧代码下训练的(Router 从未收到梯度)，冻结评测结果不变；必须重新训练才能让 Router 学到任务相关路由。本轮禁止 optimizer.step，故只交付修复+测试+下一轮训练方案",
+    "frozen_eval_after_fix_changed": false,
+    "frozen_eval_note": "修复不改变已有权重的推理输出，V16_LOSS_BREAKDOWN / TEACHER_FORCING / ENTITY_BINDING_PROBE 均基于冻结旧权重，结论仍成立"
+  },
+  "secondary_findings_not_fixed": [
+    {
+      "id": "UTILITY_MLP_UNUSED",
+      "detail": "workspace.utility_mlp 计算 utility 但 write() 返回值未接入 NMindLM.forward 的写入强度，属预留未接线组件；影响写入的竞争/溢出策略，非本轮根因，未修改",
+      "grad_observation": "utility_mlp.weight/bias 无梯度"
+    }
+  ]
+}

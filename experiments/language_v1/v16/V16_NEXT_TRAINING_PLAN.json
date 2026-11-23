@@ -1,0 +1,57 @@
+{
+  "status": "PRE_REGISTERED_NOT_EXECUTED_AWAITING_AUTHORIZATION",
+  "note": "本轮未执行任何 optimizer.step；以下为下一轮最小实验预登记，需明确授权后方可执行",
+  "rationale": "根因已定位为工程缺陷(Router STE 权重未接线, 已修复) + 学习机制限制(答案判别首字 CE≈ln2, 仅4训练样本, 冻结表示线性探针50%)。修复后需验证: 让 Router 收到梯度是否能学会实体绑定。只改变一个关键变量: 是否启用已修复的 Router 梯度路径。",
+  "single_key_variable": "router_gradient_path_enabled",
+  "arms": [
+    {
+      "name": "baseline_frozen_router",
+      "description": "Router 梯度屏蔽(模拟修复前)，其余与 V1.5 相同；作为负对照",
+      "router_gradient_enabled": false,
+      "max_steps": 256,
+      "seed": 20261160
+    },
+    {
+      "name": "fixed_router",
+      "description": "启用本轮修复后的 Router STE 梯度路径，唯一变量",
+      "router_gradient_enabled": true,
+      "max_steps": 256,
+      "seed": 20261161
+    }
+  ],
+  "shared_config": {
+    "parent_checkpoint": "experiments/language_v1/v15/candidate_v15_baseline.pt",
+    "parent_checkpoint_sha256": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+    "tokenizer": "ByteBPETokenizer trained on V1.5 LEGACY, vocab_size=4096, hash=26af116ebd13ff00",
+    "learning_rate": 0.0005,
+    "batch_size": 2,
+    "optimizer": "AdamW",
+    "total_optimizer_steps": 512,
+    "max_wall_seconds_per_arm": 180,
+    "device": "cpu",
+    "network_requests": 0,
+    "stable_modified": false
+  },
+  "training_data_fingerprint": {
+    "source": "train_v15.py TRAIN (4 sealed entity-binding samples)",
+    "answer_frequency": {"红色": 2, "绿色": 2},
+    "note": "数据与 V1.5 完全一致，不修改测试题或验收标准"
+  },
+  "acceptance_protocol": {
+    "sealed_accuracy_min": 0.75,
+    "must_exceed_fixed_answer_baseline": 0.5,
+    "counterfactual_follow_rate_min": 0.75,
+    "answer_first_token_ce_max": 0.35,
+    "eos_completion_rate_min": 0.75,
+    "free_generation_accuracy_min": 0.75,
+    "frozen_probe_note": "线性探针只作诊断，不计入自主语言能力成绩",
+    "decision_rule": "只有 fixed_router 臂在封存题、反事实题、自由生成三项同时达标且显著超过 baseline_frozen_router 臂，才可判定 Router 梯度修复带来实体绑定能力；否则需进入架构/学习机制假设排查，不得宣称成功"
+  },
+  "cost_estimate": {
+    "cpu_seconds": 360,
+    "optimizer_steps": 512,
+    "note": "沿用 V1.5 已批准同类预算规模；不得自动套用历史预算，须单独授权"
+  },
+  "authorization_required": true,
+  "do_not_execute_without_explicit_approval": true
+}

@@ -1,0 +1,5 @@
+{"id": "a_ming_ask_hong", "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：", "expected": "绿色", "free_generation": {"text": "红色", "token_ids": [298, 284], "finish_reason": "eos"}, "candidate_pred": "红色", "correct": false}
+{"id": "a_ming_ask_ming", "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：", "expected": "红色", "free_generation": {"text": "红色", "token_ids": [298, 284], "finish_reason": "eos"}, "candidate_pred": "红色", "correct": true}
+{"id": "b_swap_color_ask_ming", "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小明的苹果是什么颜色？\n助手：", "expected": "绿色", "free_generation": {"text": "红色", "token_ids": [298, 284], "finish_reason": "eos"}, "candidate_pred": "红色", "correct": false}
+{"id": "b_swap_color_ask_hong", "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：", "expected": "红色", "free_generation": {"text": "红色", "token_ids": [298, 284], "finish_reason": "eos"}, "candidate_pred": "红色", "correct": true}
+{"id": "c_swap_order_ask_hong", "prompt": "用户：小红有绿色苹果，小明有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：", "expected": "绿色", "free_generation": {"text": "红色", "token_ids": [298, 284], "finish_reason": "eos"}, "candidate_pred": "红色", "correct": false}

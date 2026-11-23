@@ -96,7 +96,9 @@ class NMindLM(nn.Module):
             z = self.tok_emb(tokens[:, t])
             w_read = self.workspace.read(ws, z)
             route = self.router.route(z, h, w_read.value, err, unc, k=self.top_k)
-            h, _g, _m, _p, _n = self.blocks.forward_sparse(z, h, w_read.value, route.indices)
+            h, _g, _m, _p, _n = self.blocks.forward_sparse(
+                z, h, w_read.value, route.indices, weights=route.weights
+            )
             sel = route.indices.reshape(-1)
             payload = self.block_to_ws(h[rows, sel]).view(B, self.top_k, -1)
             wr = self.workspace.write(ws, payload)

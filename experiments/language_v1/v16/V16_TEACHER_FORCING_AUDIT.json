@@ -1,0 +1,228 @@
+{
+  "status": "FROZEN_EVAL_NO_OPTIMIZER_STEP",
+  "note": "三模式对比: A=Teacher-forced gold答案条件对数概率; B=自由生成; C=候选答案评分(完整答案条件对数概率)",
+  "cases": [
+    {
+      "id": "a_ming_ask_hong",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.703611,
+            -0.017114
+          ],
+          "mean_logprob": -0.360362
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.711873,
+            -0.019362
+          ],
+          "mean_logprob": -0.365617
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.365617,
+      "tf_gold_token_logprobs": [
+        -0.711873,
+        -0.019362
+      ]
+    },
+    {
+      "id": "a_ming_ask_ming",
+      "prompt": "用户：小明有红色苹果，小红有绿色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "expected": "红色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.703308,
+            -0.016622
+          ],
+          "mean_logprob": -0.359965
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.71223,
+            -0.018845
+          ],
+          "mean_logprob": -0.365538
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": true,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.359965,
+      "tf_gold_token_logprobs": [
+        -0.703308,
+        -0.016622
+      ]
+    },
+    {
+      "id": "b_swap_color_ask_ming",
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小明的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.700801,
+            -0.017158
+          ],
+          "mean_logprob": -0.35898
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.714609,
+            -0.019403
+          ],
+          "mean_logprob": -0.367006
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.367006,
+      "tf_gold_token_logprobs": [
+        -0.714609,
+        -0.019403
+      ]
+    },
+    {
+      "id": "b_swap_color_ask_hong",
+      "prompt": "用户：小明有绿色苹果，小红有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "红色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.700468,
+            -0.017363
+          ],
+          "mean_logprob": -0.358915
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.714852,
+            -0.019636
+          ],
+          "mean_logprob": -0.367244
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": true,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.358915,
+      "tf_gold_token_logprobs": [
+        -0.700468,
+        -0.017363
+      ]
+    },
+    {
+      "id": "c_swap_order_ask_hong",
+      "prompt": "用户：小红有绿色苹果，小明有红色苹果。\n用户：小红的苹果是什么颜色？\n助手：",
+      "expected": "绿色",
+      "candidate_scores": {
+        "红色": {
+          "token_ids": [
+            298,
+            284
+          ],
+          "token_logprobs": [
+            -0.704457,
+            -0.017005
+          ],
+          "mean_logprob": -0.360731
+        },
+        "绿色": {
+          "token_ids": [
+            326,
+            284
+          ],
+          "token_logprobs": [
+            -0.711092,
+            -0.01924
+          ],
+          "mean_logprob": -0.365166
+        }
+      },
+      "candidate_pred": "红色",
+      "candidate_correct": false,
+      "free_generation": {
+        "text": "红色",
+        "token_ids": [
+          298,
+          284
+        ],
+        "finish_reason": "eos"
+      },
+      "tf_gold_mean_logprob": -0.365166,
+      "tf_gold_token_logprobs": [
+        -0.711092,
+        -0.01924
+      ]
+    }
+  ],
+  "finding": "5个case中红/绿候选logprob几乎恒定(红≈-0.36,绿≈-0.365), 实体/颜色/顺序交换均不反转排序; TF gold与候选评分一致说明评分口径正确; 模型本身对问题不敏感",
+  "classification": "情形2(正确答案概率本身低/输出偏置)与情形4(模型对当前问题不敏感)同时成立; 非情形1(解码器选错), 非情形3(仅TF能预测)"
+}

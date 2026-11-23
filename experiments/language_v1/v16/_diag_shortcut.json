@@ -1,0 +1,43 @@
+{
+  "shortcut_audit": {
+    "answer_frequency": {
+      "红色": 2,
+      "绿色": 2
+    },
+    "fixed_red_accuracy_on_train": 0.5,
+    "fixed_green_accuracy_on_train": 0.5,
+    "first_fact_color_vs_answer": [
+      {
+        "answer": "红色",
+        "first_mentioned_color": "红色",
+        "equal": true
+      },
+      {
+        "answer": "绿色",
+        "first_mentioned_color": "红色",
+        "equal": false
+      },
+      {
+        "answer": "绿色",
+        "first_mentioned_color": "绿色",
+        "equal": true
+      },
+      {
+        "answer": "红色",
+        "first_mentioned_color": "绿色",
+        "equal": false
+      }
+    ],
+    "query_template_count": 1,
+    "answer_length_tokens": {
+      "绿色": 2,
+      "红色": 2
+    },
+    "note": "事实陈述顺序固定(小明在前)在两组内;答案首字候选仅红/绿两类的一个token;尾字色+EOS恒定"
+  },
+  "frozen_probe": {
+    "probe_type": "linear_on_frozen_h_mean",
+    "train_acc_on_4_samples": 0.5,
+    "note": "探针仅证明冻结表示可解码性, 不计入N-MIND自主语言能力; 4样本过拟合风险极高"
+  }
+}

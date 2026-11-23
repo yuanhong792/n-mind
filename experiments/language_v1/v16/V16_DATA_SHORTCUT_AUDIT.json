@@ -1,0 +1,43 @@
+{
+  "status": "AUDIT",
+  "train_answer_frequency": {
+    "红色": 2,
+    "绿色": 2
+  },
+  "fixed_red_baseline_accuracy": 0.5,
+  "fixed_green_baseline_accuracy": 0.5,
+  "query_template_count": 1,
+  "answer_length_tokens": {
+    "绿色": 2,
+    "红色": 2
+  },
+  "first_fact_color_vs_answer": [
+    {
+      "answer": "红色",
+      "first_mentioned_color": "红色",
+      "equal": true
+    },
+    {
+      "answer": "绿色",
+      "first_mentioned_color": "红色",
+      "equal": false
+    },
+    {
+      "answer": "绿色",
+      "first_mentioned_color": "绿色",
+      "equal": true
+    },
+    {
+      "answer": "红色",
+      "first_mentioned_color": "绿色",
+      "equal": false
+    }
+  ],
+  "checking_sha256": {
+    "candidate_v15_baseline.pt": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+    "candidate_v15_query_attention.pt": "93c209f86c45a0f1af4cd7975b0d757f4285207e7de454504568665a8061444e",
+    "candidate_v14_main.pt": "33703b768499eaf73d8672f83869d31728b0fc5d6031daccc04add0e76e0acc1",
+    "V15_TRAINING_RESULTS.json": "60a5d09fe10780d0ee749ba36fd450c1e19dffe07b1bce27657814e56ab12300"
+  },
+  "finding": "训练集红/绿完全平衡(2:2), 固定红/绿均只有50%基线; 模型固定输出红色是自身偏置而非数据偏斜; 但首字判别信号弱(CE≈ln2)+训练样本仅4条是根本限制"
+}
