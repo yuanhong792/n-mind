@@ -1,0 +1,16 @@
+{
+  "status": "PENDING_USER_APPROVAL",
+  "model": "random-initialized LanguageV2Model / N-Cell + hard Top-K Router + GlobalWorkspace",
+  "tokenizer_vocab_size": 4096,
+  "data": "5 self-authored synthetic dialogue/context rows; no sealed answers",
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "batch_size": 2,
+  "max_steps": 256,
+  "wall_clock_limit_seconds": 1800,
+  "gradient_clip_norm": 1.0,
+  "device": "CPU unless separately confirmed CUDA environment",
+  "stopping": ["non_finite_loss", "wall_clock_limit", "step_limit"],
+  "acceptance": ["L1 exact answer reproduction", "L2 unseen composition", "L3 context dependence", "EOS", "negative control", "no invalid token"],
+  "optimizer_steps_executed": 0
+}

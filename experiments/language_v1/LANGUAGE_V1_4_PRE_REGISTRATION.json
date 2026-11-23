@@ -1,0 +1,16 @@
+{
+  "status":"PENDING_USER_APPROVAL",
+  "inheritance":"candidate_v13_main.pt; tokenizer/data hash must match",
+  "arms":{"balanced_composition":256,"label_permutation":256,"frozen_parent":0},
+  "total_optimizer_steps":512,
+  "wall_clock_limit_seconds":1800,
+  "learning_rate":0.0005,
+  "batch_size":2,
+  "architecture_change":false,
+  "data":"LANGUAGE_V1_4_DATA_AUDIT.json; train/dev/sealed hashes fixed before training",
+  "acceptance":["L1 train exact answer","L2 unseen entity-attribute composition","counterfactual follow","entity binding","context sensitivity","EOS","retention"],
+  "negative_control":"fixed-seed answer permutation",
+  "stable_policy":"read-only; manual promotion only",
+  "external_models":false,
+  "network_requests":0
+}

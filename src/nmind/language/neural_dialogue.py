@@ -44,11 +44,12 @@ class LMConfig:
     workspace_dim: int = 64
     workspace_slots: int = 4
     top_k: int = 2
+    query_readout: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         return {k: getattr(self, k) for k in
                 ("vocab_size", "d_model", "n_blocks", "block_hidden",
-                 "workspace_dim", "workspace_slots", "top_k")}
+                 "workspace_dim", "workspace_slots", "top_k", "query_readout")}
 
 
 class NMindLM(nn.Module):
@@ -66,6 +67,12 @@ class NMindLM(nn.Module):
                                           slots=cfg.workspace_slots)
         self.block_to_ws = nn.Linear(cfg.block_hidden, cfg.workspace_dim)
         self.head = nn.Linear(cfg.block_hidden, cfg.vocab_size)
+        self.query_readout = bool(getattr(cfg, "query_readout", False))
+        if self.query_readout:
+            self.query_readout_proj = nn.Linear(
+                cfg.block_hidden + cfg.d_model + cfg.workspace_dim,
+                cfg.block_hidden,
+            )
         self.register_buffer("block_load_count", torch.zeros(cfg.n_blocks))  # 训练态统计
         self.top_k = cfg.top_k
 
@@ -106,7 +113,12 @@ class NMindLM(nn.Module):
                         0, route.indices.reshape(-1),
                         torch.ones_like(route.indices.reshape(-1),
                                          dtype=self.block_load_count.dtype))
-            logits.append(self.head(h.mean(dim=1)))
+            decoded = h.mean(dim=1)
+            if self.query_readout:
+                decoded = self.query_readout_proj(
+                    torch.cat([decoded, z, w_read.value], dim=-1)
+                )
+            logits.append(self.head(decoded))
         return torch.stack(logits, dim=1), LMState(h=h, ws=ws)
 
     use_router_load_update: bool = True      # 类属性开关（评测/训练态由调用方控制 training flag）

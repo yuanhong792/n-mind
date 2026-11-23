@@ -1,0 +1,74 @@
+{
+  "status": "FROZEN_BEFORE_TRAINING",
+  "train": [
+    [
+      "用户：你好\n助手：",
+      "你好！"
+    ],
+    [
+      "用户：你叫什么？\n助手：",
+      "我叫N-MIND。"
+    ],
+    [
+      "用户：谢谢\n助手：",
+      "不客气！"
+    ],
+    [
+      "用户：小明有红色苹果\n助手：",
+      "小明的苹果是红色的。"
+    ],
+    [
+      "用户：小红有绿色苹果\n助手：",
+      "小红的苹果是绿色的。"
+    ],
+    [
+      "用户：小刚有蓝色苹果\n助手：",
+      "小刚的苹果是蓝色的。"
+    ],
+    [
+      "用户：小丽有黄色苹果\n助手：",
+      "小丽的苹果是黄色的。"
+    ],
+    [
+      "用户：我叫小明\n助手：",
+      "你好，小明！"
+    ],
+    [
+      "用户：我叫什么？\n助手：",
+      "你叫小明。"
+    ]
+  ],
+  "sealed": [
+    {
+      "id": "a_ming_red",
+      "facts": "小明有红色苹果，小红有绿色苹果。",
+      "query": "小明",
+      "answer": "红色"
+    },
+    {
+      "id": "a_hong_green",
+      "facts": "小明有红色苹果，小红有绿色苹果。",
+      "query": "小红",
+      "answer": "绿色"
+    },
+    {
+      "id": "b_ming_green",
+      "facts": "小明有绿色苹果，小红有红色苹果。",
+      "query": "小明",
+      "answer": "绿色"
+    },
+    {
+      "id": "b_hong_red",
+      "facts": "小明有绿色苹果，小红有红色苹果。",
+      "query": "小红",
+      "answer": "红色"
+    }
+  ],
+  "tokenizer_hash": "26af116ebd13ff00",
+  "tokenizer_vocab_size": 4096,
+  "effective_token_count": 333,
+  "sealed_hash": "60fc60bb486047c89788323c827fc8d454be8858d71f4e82795e478c21febf04",
+  "training_steps": 0,
+  "optimizer_steps": 0,
+  "leakage": false
+}

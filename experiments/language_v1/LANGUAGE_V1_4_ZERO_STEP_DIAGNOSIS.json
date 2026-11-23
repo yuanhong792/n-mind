@@ -1,0 +1,28 @@
+{
+  "status": "ZERO_STEP_DIAGNOSIS",
+  "optimizer_steps": 0,
+  "checkpoint_meta": {
+    "steps": 256,
+    "seed": 20261123,
+    "manifest_hash": "language-v13-synthetic",
+    "saved_at": "2026-11-23T18:33:21+0800"
+  },
+  "tokenizer_vocab_size": 4096,
+  "effective_token_count": 333,
+  "train_hash": "85b832368e9b3f69e3b0c4bc61d880b728fec3503dc0c559eebef4a4e5f7e3e5",
+  "dev_hash": "0020143099b7abd7ab3286c59b56050d67b6fcc1b899de9ff6606ab049281273",
+  "sealed_hash": "45db9788218413a65c438dd96e00b99ee1a1f5e29819600a965900d120a9cffd",
+  "data_leakage": false,
+  "input_sensitivity": {
+    "entity_or_question_change": {
+      "h_max": 0.03003041446208954,
+      "ws_max": 0.0070012956857681274
+    },
+    "color_change": {
+      "h_max": 0.02116510272026062,
+      "ws_max": 0.004974648356437683
+    }
+  },
+  "stable_modified": false,
+  "network_requests": 0
+}

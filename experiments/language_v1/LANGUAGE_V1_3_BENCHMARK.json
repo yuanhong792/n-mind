@@ -1,0 +1,9 @@
+{
+  "status": "NOT_RUN_GPU_UNAVAILABLE",
+  "planned_modes": ["CPU FP32", "CUDA FP32", "CUDA BF16 if supported"],
+  "sequence_lengths": [64,128,256],
+  "batch_sizes": [1,2,4],
+  "metrics": ["step_seconds","tokens_per_second","rss_bytes","peak_gpu_memory"],
+  "optimizer_steps": 0,
+  "observed_environment": "venv-gate24 torch 2.15.0+cpu; CUDA unavailable"
+}

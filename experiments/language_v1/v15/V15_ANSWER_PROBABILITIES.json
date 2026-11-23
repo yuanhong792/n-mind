@@ -1,0 +1,271 @@
+{
+  "status": "ZERO_STEP",
+  "parent": {
+    "steps": 256,
+    "seed": 20261140,
+    "manifest_hash": "v14-balanced",
+    "saved_at": "2026-11-23T20:34:01+0800"
+  },
+  "baseline": {
+    "accuracy": 0.5,
+    "rows": [
+      {
+        "id": "a_ming_red",
+        "predicted": "红色",
+        "answer": "红色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -0.9911002516746521,
+              -0.47490110993385315
+            ],
+            "logprob_sum": -1.4660013616085052,
+            "mean_logprob": -0.7330006808042526
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -1.110999345779419,
+              -0.4455104470252991
+            ],
+            "logprob_sum": -1.556509792804718,
+            "mean_logprob": -0.778254896402359
+          }
+        }
+      },
+      {
+        "id": "a_hong_green",
+        "predicted": "红色",
+        "answer": "绿色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -0.9904361963272095,
+              -0.4757232964038849
+            ],
+            "logprob_sum": -1.4661594927310944,
+            "mean_logprob": -0.7330797463655472
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -1.1107479333877563,
+              -0.4463159441947937
+            ],
+            "logprob_sum": -1.55706387758255,
+            "mean_logprob": -0.778531938791275
+          }
+        }
+      },
+      {
+        "id": "b_ming_green",
+        "predicted": "红色",
+        "answer": "绿色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -0.9998090863227844,
+              -0.46825891733169556
+            ],
+            "logprob_sum": -1.46806800365448,
+            "mean_logprob": -0.73403400182724
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -1.1140108108520508,
+              -0.43946564197540283
+            ],
+            "logprob_sum": -1.5534764528274536,
+            "mean_logprob": -0.7767382264137268
+          }
+        }
+      },
+      {
+        "id": "b_hong_red",
+        "predicted": "红色",
+        "answer": "红色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -0.9988164305686951,
+              -0.46942368149757385
+            ],
+            "logprob_sum": -1.468240112066269,
+            "mean_logprob": -0.7341200560331345
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -1.113617181777954,
+              -0.4406084716320038
+            ],
+            "logprob_sum": -1.5542256534099579,
+            "mean_logprob": -0.7771128267049789
+          }
+        }
+      }
+    ],
+    "optimizer_steps": 0,
+    "status": "ZERO_STEP"
+  },
+  "variant": {
+    "accuracy": 0.5,
+    "rows": [
+      {
+        "id": "a_ming_red",
+        "predicted": "绿色",
+        "answer": "红色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -4.3742804527282715,
+              -5.964221954345703
+            ],
+            "logprob_sum": -10.338502407073975,
+            "mean_logprob": -5.169251203536987
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -4.512279510498047,
+              -5.024011135101318
+            ],
+            "logprob_sum": -9.536290645599365,
+            "mean_logprob": -4.768145322799683
+          }
+        }
+      },
+      {
+        "id": "a_hong_green",
+        "predicted": "绿色",
+        "answer": "绿色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -4.372763156890869,
+              -5.963677406311035
+            ],
+            "logprob_sum": -10.336440563201904,
+            "mean_logprob": -5.168220281600952
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -4.510688304901123,
+              -5.023537635803223
+            ],
+            "logprob_sum": -9.534225940704346,
+            "mean_logprob": -4.767112970352173
+          }
+        }
+      },
+      {
+        "id": "b_ming_green",
+        "predicted": "绿色",
+        "answer": "绿色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -4.382359027862549,
+              -5.966679573059082
+            ],
+            "logprob_sum": -10.34903860092163,
+            "mean_logprob": -5.174519300460815
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -4.519134521484375,
+              -5.026413440704346
+            ],
+            "logprob_sum": -9.54554796218872,
+            "mean_logprob": -4.77277398109436
+          }
+        }
+      },
+      {
+        "id": "b_hong_red",
+        "predicted": "绿色",
+        "answer": "红色",
+        "scores": {
+          "红色": {
+            "token_ids": [
+              298,
+              284
+            ],
+            "token_logprobs": [
+              -4.379993915557861,
+              -5.965775489807129
+            ],
+            "logprob_sum": -10.34576940536499,
+            "mean_logprob": -5.172884702682495
+          },
+          "绿色": {
+            "token_ids": [
+              326,
+              284
+            ],
+            "token_logprobs": [
+              -4.516599655151367,
+              -5.025636672973633
+            ],
+            "logprob_sum": -9.542236328125,
+            "mean_logprob": -4.7711181640625
+          }
+        }
+      }
+    ],
+    "optimizer_steps": 0,
+    "status": "ZERO_STEP"
+  }
+}

@@ -15,7 +15,8 @@ class LanguageV2Config:
     workspace_dim: int = 32
     workspace_slots: int = 4
     top_k: int = 2
-    def to_lm(self): return LMConfig(self.vocab_size,self.d_model,self.n_blocks,self.block_hidden,self.workspace_dim,self.workspace_slots,self.top_k)
+    query_readout: bool = False
+    def to_lm(self): return LMConfig(self.vocab_size,self.d_model,self.n_blocks,self.block_hidden,self.workspace_dim,self.workspace_slots,self.top_k,self.query_readout)
 
 class LanguageV2Model(NMindLM):
     """V2 envelope around the existing N-Cell/Router/Workspace sequence core."""

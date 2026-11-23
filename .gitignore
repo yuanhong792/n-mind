@@ -28,3 +28,20 @@ results/bot_*.json
 experiments/*/_work/
 experiments/*/candidates/
 experiments/*/_pending*
+
+# 模型权重与训练检查点（大二进制，不入库）
+*.pt
+*.pth
+*.ckpt
+
+# 数据库运行状态与生成日志（含 data/v31 v32 等版本目录）
+*.db
+*.db-wal
+*.db-shm
+*.jsonl
+*.log
+data/v*/
+
+# 浏览器调试与临时脚本
+.playwright-cli/
+_dbg_st.py

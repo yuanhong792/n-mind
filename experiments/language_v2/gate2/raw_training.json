@@ -1,0 +1,53 @@
+[
+  {
+    "arm": "main",
+    "seed": 20261123,
+    "requested_steps": 512,
+    "optimizer_steps_executed": 512,
+    "lr": 0.001,
+    "permute": false,
+    "loss_first": 5.525930404663086,
+    "loss_last": 0.7190589308738708,
+    "tokens": 25344,
+    "wall_s": 175.18175410000003,
+    "param_sha_before": "d04f762d4042d8cdd443ef3d32a2f4437f18001616af42ffedfc0efea5018cf2",
+    "param_sha_after": "7e052890d402d28b24d673aac6d1932f95a8960bda9762040d4c2a322e9905b4",
+    "parameters_changed": true,
+    "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate2\\runs\\main\\candidate.pt",
+    "device": "cpu"
+  },
+  {
+    "arm": "permute",
+    "seed": 20261124,
+    "requested_steps": 512,
+    "optimizer_steps_executed": 512,
+    "lr": 0.001,
+    "permute": true,
+    "loss_first": 5.566213130950928,
+    "loss_last": 0.6984408497810364,
+    "tokens": 25344,
+    "wall_s": 172.77112099999977,
+    "param_sha_before": "bcdba779814d9ec0a8c7885d665b3709683392f87f2a2634fa1a400cbce5b487",
+    "param_sha_after": "c5c9d3ab2be670b3386646e49469b592f1a0ac70593a28ff0f020d245a97e092",
+    "parameters_changed": true,
+    "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate2\\runs\\permute\\candidate.pt",
+    "device": "cpu"
+  },
+  {
+    "arm": "lr0",
+    "seed": 20261125,
+    "requested_steps": 32,
+    "optimizer_steps_executed": 32,
+    "lr": 0.0,
+    "permute": false,
+    "loss_first": 5.58607292175293,
+    "loss_last": 5.590318202972412,
+    "tokens": 1584,
+    "wall_s": 11.069950000000972,
+    "param_sha_before": "e9b4f89751fd74ddcdac90ed43b28735db275f34d86354e11060e891650fe7cb",
+    "param_sha_after": "e9b4f89751fd74ddcdac90ed43b28735db275f34d86354e11060e891650fe7cb",
+    "parameters_changed": false,
+    "checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v2\\gate2\\runs\\lr0\\candidate.pt",
+    "device": "cpu"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "status": "PRE_REGISTERED_NOT_TRAINED",
+  "parent_checkpoint": "D:\\脉脑\\cpu本地模型开发\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\candidate_v14_main.pt",
+  "parent_sha256": "33703b768499eaf73d8672f83869d31728b0fc5d6031daccc04add0e76e0acc1",
+  "tokenizer_sha256": "26af116ebd13ff00",
+  "sealed_sha256": "60fc60bb486047c89788323c827fc8d454be8858d71f4e82795e478c21febf04",
+  "baseline": "V1.4 architecture, mean h readout",
+  "variant": "query_readout=True; random query_readout_proj only",
+  "baseline_params": 279363,
+  "variant_params": 281955,
+  "max_steps_per_arm": 256,
+  "total_optimization_steps": 512,
+  "already_executed_steps": 0,
+  "learning_rate": 0.0005,
+  "batch_size": 2,
+  "seeds": {
+    "baseline": 20261150,
+    "variant": 20261151
+  },
+  "wall_clock_limit_seconds": 1800,
+  "thresholds": {
+    "sealed_accuracy_min": 0.75,
+    "must_exceed_fixed_answer": true,
+    "must_exceed_recent_attribute": true,
+    "eos_completion_rate_min": 0.75,
+    "old_skill_retention_min": 0.75
+  },
+  "stop_conditions": [
+    "any data leakage",
+    "non-finite loss",
+    "checkpoint incompatibility",
+    "budget exceeded",
+    "old-skill regression below threshold"
+  ],
+  "stable_modified": false
+}
