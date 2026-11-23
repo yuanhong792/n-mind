@@ -17,8 +17,14 @@ from pathlib import Path
 from typing import Any
 
 from .policy import BotPolicy
-from .runtime import (EXPERIENCE_FILE, BotRuntime, BotState, read_status,
-                      request_control, submit_user_message)
+from .runtime import (
+    EXPERIENCE_FILE,
+    BotRuntime,
+    BotState,
+    read_status,
+    request_control,
+    submit_user_message,
+)
 from .store import BotStore
 
 DEFAULT_ROOT = "results/bot_r1"
@@ -151,12 +157,13 @@ def cmd_bot_run(args: argparse.Namespace) -> int:
         out = {"cycles": bot.cycles_done, "reason": "Ctrl-C → 写 stop.flag 后退出",
                "state": bot.state.name, "resource_totals": bot.resource_summary()}
         bot.stop("Ctrl-C")
-    except Exception as exc:                              # noqa: BLE001 - 崩溃必须留下证据并解锁
+    except Exception as exc:
         try:
             bot.error_safe(f"驻留循环异常：{type(exc).__name__}: {exc}",
                            __import__("traceback").format_exc())
-        except Exception:                                 # noqa: BLE001 - 状态机本身坏了也要继续解锁
-            pass
+        except Exception as state_err:                  # noqa: BLE001 - 状态机本身坏了也要继续解锁
+            print(f"[bot] error_safe 本身失败（仍继续解锁）：{type(state_err).__name__}: "
+                  f"{state_err}", file=__import__("sys").stderr)
         (bot.root / "lock.json").unlink(missing_ok=True)  # 陈旧锁会让下次启动被拒
         raise
     if bot.state != BotState.STOPPED:
@@ -325,6 +332,131 @@ def cmd_bot_eval(args: argparse.Namespace) -> int:
     return _print_json({f: bot.measure_heldout(f) for f in fams})
 
 
+# ---------------------------------------------------------------------- Bot V1
+def _kb_store(args: argparse.Namespace):
+    from .knowledge_store import KnowledgeStore
+    return KnowledgeStore(_root(args) / "knowledge.db")
+
+
+def _kb_search(args: argparse.Namespace):
+    from .knowledge_search import KnowledgeSearch
+    return KnowledgeSearch(_kb_store(args))
+
+
+def _registry(args: argparse.Namespace):
+    from .source_registry import SourceRegistry
+    return SourceRegistry(_root(args) / "sources.json")
+
+
+def _explorer(args: argparse.Namespace):
+    """构建与 CLI/GUI 一致的 IdleWebExplorer（offline 或配置授权决定模式）。"""
+    from .idle_explorer import IdleWebExplorer
+    policy = _policy(args)
+    offline = bool(getattr(args, "offline", False)) or not policy.network_enabled
+    return IdleWebExplorer(registry=_registry(args), knowledge_store=_kb_store(args),
+                           policy=policy, offline=offline), policy, offline
+
+
+def cmd_bot_ui(args: argparse.Namespace) -> int:
+    """Bot V1 桌面界面：默认本地 Web 工作台（用户选定的新 UI 设计）；--tk 走 Tkinter。"""
+    if getattr(args, "tk", False):
+        from .ui.desktop import launch_desktop
+        return launch_desktop(args)
+    from .web_server import launch_web_ui
+    return launch_web_ui(args)
+
+
+def cmd_bot_knowledge(args: argparse.Namespace) -> int:
+    action = args.kb_cmd
+    if action == "search":
+        res = _kb_search(args).search(args.query, limit=int(args.limit))
+        return _print_json({"query": args.query, "hits": len(res), "results": res})
+    if action == "stats":
+        return _print_json(_kb_search(args).stats())
+    if action == "import-fixture":
+        from .knowledge_ingest import import_fixture_pages
+        out = import_fixture_pages(_kb_store(args))
+        return _print_json({**out, "note": "三篇中文样例均标注 fixture 来源，重复导入不增长计数"})
+    if action == "export":
+        import json as _json
+        store = _kb_store(args)
+        rows = []
+        for r in store.conn.execute(
+                "SELECT * FROM documents WHERE latest=1 ORDER BY fetched_at_utc"):
+            doc = dict(r)
+            doc["chunks"] = store.chunks_of(doc["doc_id"])
+            rows.append(doc)
+        Path(args.export_to).write_text(_json.dumps(rows, ensure_ascii=False, indent=2),
+                                        encoding="utf-8")
+        return _print_json({"exported": len(rows), "out": str(args.export_to)})
+    raise SystemExit(f"未知 knowledge 子命令 {action!r}")
+
+
+def cmd_bot_web(args: argparse.Namespace) -> int:
+    action = args.web_cmd
+    registry = _registry(args)
+    if action == "status":
+        explorer, policy, offline = _explorer(args)
+        return _print_json({"registry": {"sites": registry.list(),
+                                         "exploring_enabled": registry.exploring_enabled,
+                                         "policy_hash": registry.policy_hash()},
+                            "limits": registry.limits,
+                            "offline": offline,
+                            "network_enabled": policy.network_enabled,
+                            "quota": explorer.quota_snapshot(),
+                            "recent_fetches": _kb_store(args).fetch_events(limit=10)})
+    if action == "allow":
+        rec = registry.add(args.host, path_scope=args.path or "",
+                           created_by="cli-user")
+        return _print_json({"added": True, "site": rec,
+                            "note": "只写授权列表；真实 HTTP 仍需配置 network_enabled 且非 --offline"})
+    if action == "deny":
+        return _print_json({"removed": registry.remove(args.host)})
+    if action == "fetch":
+        explorer, policy, offline = _explorer(args)
+        rec = explorer.fetch_for_user(args.url)
+        return _print_json(rec)
+    if action == "explore":
+        """CLI 手动触发限量探索（受白名单/配额/fixture 或真实授权约束）。"""
+        from .store import BotStore  # noqa: F401 - 与 GUI 同源；运行时经 runtime 驱动
+        explorer, policy, offline = _explorer(args)
+        explorer.set_enabled(True)
+        root = _root(args)
+        runtime = BotRuntime(root_dir=root, policy=policy,
+                             stable_checkpoint=None, tokenizer_path=None)
+        runtime.start()
+        outs = []
+        try:
+            for _i in range(max(1, args.cycles)):
+                out = explorer.run_idle_exploration(runtime)
+                outs.append(out)
+                if out.get("stopped_early") or out.get("preempted"):
+                    break
+        finally:
+            runtime.stop("web explore 命令结束")
+        return _print_json({"cycles": len(outs), "results": outs})
+    if action == "test-security":
+        from .web_security_probe import run_probes
+        return _print_json(run_probes())
+    raise SystemExit(f"未知 web 子命令 {action!r}")
+
+
+def cmd_bot_sessions(args: argparse.Namespace) -> int:
+    from .client import BotClient
+    client = BotClient(_root(args))
+    try:
+        if args.sess_cmd == "list":
+            return _print_json(client.sessions())
+        if args.sess_cmd == "delete":
+            n = client.delete_session(args.session_id)
+            return _print_json({"deleted": args.session_id, "messages_removed": n})
+        if args.sess_cmd == "history":
+            return _print_json(client.history(args.session_id, limit=int(args.limit)))
+        raise SystemExit(f"未知 sessions 子命令 {args.sess_cmd!r}")
+    finally:
+        client.close()
+
+
 # ---------------------------------------------------------------------- 注册
 def register(sub: argparse.Action, parents: list[argparse.ArgumentParser]) -> None:
     bp = sub.add_parser("bot", help="Agent Runtime R1：独立 Bot（自主练习/受控候选学习）",
@@ -388,3 +520,77 @@ def register(sub: argparse.Action, parents: list[argparse.ArgumentParser]) -> No
     sp.add_argument("--candidate", default=None)
     sp.add_argument("--i-approve", action="store_true", dest="i_approve")
     add("rollback", cmd_bot_rollback, "回滚 stable 副本到上一次晋升前备份")
+
+    # ---- Bot V1：桌面窗口 / 知识库 / 受控联网 / 会话 ----
+    # 项目风格：公共开关加在叶子子命令上（否则 `bot web fetch --root ...` 无法解析）
+    def add_v1(name: str, fn, help_text: str) -> argparse.ArgumentParser:
+        sp = bsub.add_parser(name, help=help_text, parents=parents)
+        sp.set_defaults(fn=fn)
+        return sp
+
+    def v1_common(sp: argparse.ArgumentParser) -> argparse.ArgumentParser:
+        from ..cli import _add_common
+        _add_common(sp, suppress=True)
+        sp.add_argument("--root", default=None,
+                        help=f"Bot 状态目录（默认 {_repo_root() / DEFAULT_ROOT}）")
+        sp.add_argument("--config-file", default=None)
+        sp.add_argument("--profile", default=None)
+        return sp
+
+    sp = add_v1("ui", cmd_bot_ui, "打开 Windows 中文聊天桌面窗口（默认本地 Web 工作台，完全离线）")
+    sp.add_argument("--port", type=int, default=8765)
+    sp.add_argument("--root", default=None)
+    sp.add_argument("--tk", action="store_true",
+                    help="使用 Tkinter 原生窗口（默认使用新设计的 Web 工作台）")
+    kb = add_v1("knowledge", None, "中文知识库（离线检索/统计/夹具导入/导出）")
+    ksub = kb.add_subparsers(dest="kb_cmd", required=True)
+    sp = v1_common(ksub.add_parser("search", parents=parents,
+                                   help="中文关键词检索（返回摘录+来源+分数）"))
+    sp.add_argument("query")
+    sp.add_argument("--limit", type=int, default=5)
+    sp.set_defaults(fn=cmd_bot_knowledge)
+    sp = v1_common(ksub.add_parser("stats", parents=parents,
+                                   help="文档/片段/去重统计"))
+    sp.set_defaults(fn=cmd_bot_knowledge)
+    sp = v1_common(ksub.add_parser("import-fixture", parents=parents,
+                                   help="导入三篇中文测试资料（标注 fixture）"))
+    sp.set_defaults(fn=cmd_bot_knowledge)
+    sp = v1_common(ksub.add_parser("export", parents=parents,
+                                   help="导出全部最新版文档与片段为 JSON"))
+    sp.add_argument("--export-to", default="knowledge_export.json")
+    sp.set_defaults(fn=cmd_bot_knowledge)
+    web = add_v1("web", None, "受控联网（默认关；白名单+限额+审计）")
+    wsub = web.add_subparsers(dest="web_cmd", required=True)
+    sp = v1_common(wsub.add_parser("status", parents=parents,
+                                   help="网络授权状态/配额/最近抓取"))
+    sp.set_defaults(fn=cmd_bot_web)
+    sp = v1_common(wsub.add_parser("allow", parents=parents,
+                                   help="添加允许站点（精确域名，可选 /path 范围）"))
+    sp.add_argument("host")
+    sp.add_argument("--path", default="")
+    sp.set_defaults(fn=cmd_bot_web)
+    sp = v1_common(wsub.add_parser("deny", parents=parents, help="移除允许站点"))
+    sp.add_argument("host")
+    sp.set_defaults(fn=cmd_bot_web)
+    sp = v1_common(wsub.add_parser("fetch", parents=parents,
+                                   help="用户主动只读读取一个 URL（先检查白名单）"))
+    sp.add_argument("url")
+    sp.set_defaults(fn=cmd_bot_web)
+    sp = v1_common(wsub.add_parser("explore", parents=parents,
+                                   help="手动跑 N 轮限量探索（fixture/受控源）"))
+    sp.add_argument("--cycles", type=int, default=1)
+    sp.set_defaults(fn=cmd_bot_web)
+    sp = v1_common(wsub.add_parser("test-security", parents=parents,
+                                   help="运行内置网络安全探针（纯本地，零真实请求）"))
+    sp.set_defaults(fn=cmd_bot_web)
+    sess = add_v1("sessions", None, "聊天会话管理（列表/删除/历史）")
+    ssub = sess.add_subparsers(dest="sess_cmd", required=True)
+    sp = v1_common(ssub.add_parser("list", parents=parents))
+    sp.set_defaults(fn=cmd_bot_sessions)
+    sp = v1_common(ssub.add_parser("delete", parents=parents))
+    sp.add_argument("session_id")
+    sp.set_defaults(fn=cmd_bot_sessions)
+    sp = v1_common(ssub.add_parser("history", parents=parents))
+    sp.add_argument("session_id")
+    sp.add_argument("--limit", type=int, default=50)
+    sp.set_defaults(fn=cmd_bot_sessions)

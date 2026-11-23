@@ -319,6 +319,7 @@ class WebBotServer:
         self.knowledge = knowledge
         self.explorer = explorer
         self.offline = offline
+        self.host, self.port = host, int(port)
         self._httpd: ThreadingHTTPServer | None = None
         self._service_thread: threading.Thread | None = None
         self._url: str = ""
@@ -357,7 +358,7 @@ class WebBotServer:
         """启动 HTTP 服务与服务线程，返回本地访问 URL。"""
         if self._httpd is not None:
             return self._url
-        self._httpd = ThreadingHTTPServer(("127.0.0.1", 0), _Handler)   # 强制回环
+        self._httpd = ThreadingHTTPServer((self.host, self.port), _Handler)
         self._httpd.api = self                      # type: ignore[attr-defined]
         port = self._httpd.server_address[1]
         self._url = f"http://127.0.0.1:{port}/"
@@ -557,7 +558,8 @@ def launch_web_ui(args) -> int:
     ensure_fixture_pages(knowledge.store)
 
     server = WebBotServer(root_dir=root_dir, client=client, chat_service=chat_service,
-                          knowledge=knowledge, explorer=explorer, offline=offline)
+                          knowledge=knowledge, explorer=explorer, offline=offline,
+                          port=int(getattr(args, "port", 8765)))
     url = server.start()
     print(f"N-MIND Bot V1 已启动：{url}（仅绑定本机回环地址，零公网暴露）")
     print("按 Ctrl+C 或窗口标题栏关闭即可停止；真实联网默认关闭，需配置+逐站点授权。")

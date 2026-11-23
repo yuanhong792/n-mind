@@ -70,13 +70,76 @@ async function kbSearch(){const q=document.getElementById('kb-input').value.trim
 async function kbImportFixture(){const r=await api.post('/api/knowledge/import-fixture',{});toast('测试资料导入：新增 '+r.new_documents+' 篇 / 去重 '+r.deduplicated);refreshStatus();refreshKbStats()}
 async function refreshKbStats(){const st=await api.get('/api/knowledge/stats');const el=document.getElementById('kb-stats');if(el)el.textContent='文档 '+st.documents+' / 片段 '+st.chunks+' / 去重 '+st.deduplicated}
 async function refreshStatus(){try{const st=await api.get('/api/runtime/status');const lines=document.querySelectorAll('.status-line');if(lines.length>=5){lines[0].querySelector('b').textContent=st.model_loaded?'本地 NMindLM 已加载':'模型缺失（如实标注）';lines[1].querySelector('b').textContent='本地推理 · freegen-v2';lines[2].querySelector('b').textContent=st.offline?'离线':(st.network_enabled?'受控联网':'默认关闭');lines[3].querySelector('b').textContent=st.exploring_enabled?'已开启（白名单内）':'未启动';lines[4].querySelector('b').textContent='暂停（本轮不训练）';}refreshSites();refreshKbStats();}catch(e){/* 后端未就绪时保持上次状态 */}}
-async function loadSessions(){try{const r=await api.get('/api/chat/sessions');const box=document.getElementById('navigation');if(!r.sessions||!r.sessions.length){if(!currentSession){currentSession=(await api.post('/api/chat/sessions',{title:'新会话'})).session_id}return}currentSession=r.sessions[0].session_id}}catch(e){}
+async function loadSessions(){try{const r=await api.get('/api/chat/sessions');if(!r.sessions||!r.sessions.length){if(!currentSession){currentSession=(await api.post('/api/chat/sessions',{title:'新会话'})).session_id;}return;}currentSession=r.sessions[0].session_id;}catch(e){}}
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();newTask()}});
 (async function init(){
   await loadSessions();
   refreshStatus();
   setInterval(refreshStatus,5000);
   // 启动时若已有 fixture 资料，直接展示统计
+})();
+</script>
+<script>
+// V3.2 recovery layer: the legacy inline script is retained for compatibility,
+// but this valid script owns the essential real backend interactions.
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const json = (url, opts) => fetch(url, opts || {}).then(r => r.json());
+  let sid = "v32-browser-session";
+  function add(text, source) {
+    const box = $("chat-page") || $("stage");
+    const row = document.createElement("div");
+    row.className = "message";
+    row.innerHTML = "<div class=\"bubble\"><div class=\"meta\"><span class=\"small-label\">" +
+      String(source || "none") + "</span></div><p></p></div>";
+    row.querySelector("p").textContent = String(text);
+    box.appendChild(row);
+    box.classList.remove("hide");
+  }
+  function send() {
+    const p = $("prompt"), text = p && p.value.trim();
+    if (!text) return;
+    p.value = ""; add(text, "user");
+    json("/api/v3/chat", {method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({session_id:sid, text:text})})
+      .then(r => { add(r.text || "资料不足，无法可靠回答。", r.response_source || "none"); })
+      .catch(e => add("请求失败：" + e.message, "error"));
+  }
+  function refresh() {
+    json("/api/v3/status").then(st => {
+      const lines = document.querySelectorAll(".status-line b");
+      if (lines[0]) lines[0].textContent = st.runtime && st.runtime.state ? st.runtime.state : "本地服务已连接";
+      if (lines[1]) lines[1].textContent = st.training_enabled ? "训练已启用（受限）" : "训练关闭";
+      if (lines[2]) lines[2].textContent = st.network_enabled ? "受控联网" : "默认关闭";
+      if (lines[3]) lines[3].textContent = st.learning_enabled ? "已启用" : "默认关闭";
+      if (lines[4]) lines[4].textContent = "optimizer.step = " + st.optimizer_steps;
+      const note = document.querySelector(".disclaimer");
+      if (note) note.textContent = "V3.2 本地工作台 · 真实后端已连接 · 网络关闭 · 神经训练关闭";
+      const badge = document.querySelector(".pill");
+      if (badge) badge.textContent = "本地 · V3.2";
+    }).catch(() => {});
+  }
+  const button = document.querySelector(".send");
+  if (button) { button.removeAttribute("onclick"); button.addEventListener("click", send); }
+  const prompt = $("prompt");
+  if (prompt) prompt.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
+  function panel() {
+    const rail = document.querySelector(".rail");
+    if (!rail || document.getElementById("v32-panel")) return;
+    const el = document.createElement("div");
+    el.id = "v32-panel"; el.className = "rail-block";
+    el.innerHTML = "<div class=\"rail-title\">V3.2 真实控制</div>" +
+      "<button class=\"toggle\" id=\"v32-learn\">进行一次练习</button> " +
+      "<button class=\"toggle\" id=\"v32-enable\">启用自主学习</button>" +
+      "<button class=\"toggle\" id=\"v32-task\">创建安全任务</button>" +
+      "<pre id=\"v32-result\" style=\"white-space:pre-wrap;font-size:10px;color:var(--muted)\">等待操作</pre>";
+    rail.prepend(el);
+    $("v32-learn").onclick = () => { $("v32-result").textContent = "练习执行中…"; json("/api/learning/cycles",{method:"POST"}).then(r => $("v32-result").textContent = "Oracle: " + r.oracle_result + "\\n来源: " + r.source + "\\n训练步数: " + r.optimizer_steps).catch(e => $("v32-result").textContent = "失败: " + e.message); };
+    $("v32-enable").onclick = () => json("/api/v3/learning",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({enabled:true})}).then(r => { $("v32-result").textContent = "自主学习开关: " + r.enabled; refresh(); });
+    $("v32-task").onclick = () => json("/api/v3/tasks",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:"浏览器安全测试任务",steps:[{id:"inspect",depends_on:[]}]} )}).then(r => $("v32-result").textContent = "任务: " + r.task_id + "\\n状态: " + r.status);
+  }
+  panel(); window.v32 = {send:send, refresh:refresh};
+  refresh();
 })();
 </script>
 </body>

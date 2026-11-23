@@ -1,0 +1,5 @@
+{"step":"load","url":"http://127.0.0.1:8765/","assertion":"V3.2 local backend connected"}
+{"step":"chat","input":"2+3","response_source":"tool","response_text":"计算结果：5。"}
+{"step":"learning_once","oracle_result":"verified","source":"tool/oracle","optimizer_steps":0}
+{"step":"task_create","task_id":"1059e79726424d91bc577c1b26c77390","state":"queued"}
+{"step":"permission","autonomous_learning":true,"network_enabled":false}

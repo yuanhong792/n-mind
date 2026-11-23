@@ -1,0 +1,1 @@
+{"status":"PARTIAL","task_persistence":"covered by TaskService tests","chat_history":"covered by existing BotClient tests","manual_process_restart":"NOT_RUN","memory_cross_process":"existing Memory V2 tests; browser flow NOT_RUN"}

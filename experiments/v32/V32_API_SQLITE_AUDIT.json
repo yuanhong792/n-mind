@@ -1,0 +1,1 @@
+{"status":"COMPLETED","api_status":{"running":true,"offline":true,"network_enabled":false,"model_loaded":false},"sqlite_assertions":{"event_log":"learning.oracle_verified and learning.cycle observed","task_store":"queued task persisted by TaskService"},"http_4xx_5xx":0,"external_requests":0}

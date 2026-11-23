@@ -13,7 +13,7 @@ class V3Facade:
         self.events = EventLog(root / "v3_events.db"); self.tasks = TaskService(root / "v3_tasks.db", self.events)
         self.learning_enabled = False; self.learning_state = "idle"; self.cycles: list[dict[str, Any]] = []
     def status(self) -> dict[str, Any]:
-        return {"version": "V3.1", "network_enabled": False, "training_enabled": False, "optimizer_steps": 0, "runtime": self.runtime.status() if self.runtime is not None else {}, "memory": self.memory.stats() if self.memory else {"status": "DISABLED"}, "knowledge": self.knowledge.stats() if self.knowledge else {"status": "DISABLED"}, "active_tasks": self.tasks.list(20), "learning_enabled": self.learning_enabled, "learning_state": self.learning_state}
+        return {"version": "V3.2", "network_enabled": False, "training_enabled": False, "optimizer_steps": 0, "runtime": self.runtime.status() if self.runtime is not None else {}, "memory": self.memory.stats() if self.memory else {"status": "DISABLED"}, "knowledge": self.knowledge.stats() if self.knowledge else {"status": "DISABLED"}, "active_tasks": self.tasks.list(20), "learning_enabled": self.learning_enabled, "learning_state": self.learning_state}
     def chat_reply(self, session_id: str, text: str) -> dict[str, Any]:
         if self.chat is None: return {"text": "没有可用的本地聊天服务。", "response_source": "none", "citations": [], "status": "NO_SERVICE"}
         from ..bot.chat_service import ChatRequest
