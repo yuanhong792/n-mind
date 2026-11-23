@@ -108,6 +108,10 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/v3/tasks":
             self._json(200, {"tasks": self.api.v3.tasks.list()})
             return
+        if path.startswith("/api/v33/learning/"):
+            action = path[len("/api/v33/learning/"):]
+            handlers = {"status": self.api.v3.v33_status, "goals": self.api.v3.v33_goals, "decision-explanation": self.api.v3.v33_decision, "reviews": self.api.v3.v33_reviews, "failures": self.api.v3.v33_failures, "growth": self.api.v3.growth, "events": self.api.v3.v33_events, "policy": self.api.v3.v33_policy}
+            if action in handlers: self._json(200, handlers[action]()); return
         if path == "/api/status":
             self._json(200, self.api.v3.status()); return
         if path == "/api/events":
@@ -213,6 +217,11 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(200, self.api.v3.memory_correct(mid, body)); return
         if path == "/api/v3/learning":
             self._json(200, self.api.v3.set_learning(bool(body.get("enabled")))); return
+        if path.startswith("/api/v33/learning/"):
+            action = path[len("/api/v33/learning/"):]
+            handlers = {"run-once": self.api.v3.v33_run_once, "pause": self.api.v3.v33_pause, "resume": self.api.v3.v33_resume, "stop": self.api.v3.v33_stop}
+            if action == "start-session": self._json(200, self.api.v3.set_learning(True)); return
+            if action in handlers: self._json(200, handlers[action]()); return
         if path == "/api/v3/tasks":
             title = str(body.get("title") or "V3任务")
             steps = body.get("steps") if isinstance(body.get("steps"), list) else []

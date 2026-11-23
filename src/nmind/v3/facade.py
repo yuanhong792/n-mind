@@ -11,6 +11,10 @@ class V3Facade:
         root = Path(root); root.mkdir(parents=True, exist_ok=True)
         self.root, self.chat, self.memory, self.knowledge, self.runtime = root, chat, memory, knowledge, runtime
         self.events = EventLog(root / "v3_events.db"); self.tasks = TaskService(root / "v3_tasks.db", self.events)
+        from .learning_engine import V33LearningEngine
+        self.learning_engine = V33LearningEngine(root / "v33_learning.db", self)
+        self.learning_enabled = self.learning_engine.policy()["enabled"]
+        self.learning_state = self.learning_engine.policy()["state"]
         self.learning_enabled = False; self.learning_state = "idle"; self.cycles: list[dict[str, Any]] = []
     def status(self) -> dict[str, Any]:
         return {"version": "V3.2", "network_enabled": False, "training_enabled": False, "optimizer_steps": 0, "runtime": self.runtime.status() if self.runtime is not None else {}, "memory": self.memory.stats() if self.memory else {"status": "DISABLED"}, "knowledge": self.knowledge.stats() if self.knowledge else {"status": "DISABLED"}, "active_tasks": self.tasks.list(20), "learning_enabled": self.learning_enabled, "learning_state": self.learning_state}
@@ -28,7 +32,7 @@ class V3Facade:
         out = {"cycle_id": cid, "goal_id": "goal-arithmetic", "skill_id": "arithmetic", "state": "completed", "task_id": task["task_id"], "neural_attempt": None, "neural_verdict": None, "oracle_result": verdict, "verified_experience_id": evidence_id, "capability": capability, "optimizer_steps": 0, "network_requests": 0, "source": "tool/oracle", "duration_ms": round((time.perf_counter()-started)*1000)}
         self.cycles.append(out); self.learning_state = "idle"; self.events.append("learning.cycle", out); return out
     def set_learning(self, enabled: bool) -> dict[str, Any]:
-        self.learning_enabled = bool(enabled); out = {"enabled": self.learning_enabled, "state": self.learning_state}; self.events.append("learning.permission_changed", out); return out
+        self.learning_enabled = bool(enabled); out = self.learning_engine.set_enabled(self.learning_enabled); self.learning_state = out["state"]; self.events.append("learning.permission_changed", out); return out
     def learning_cycles(self) -> list[dict[str, Any]]: return list(reversed(self.cycles[-50:]))
     def memory_create(self, body: dict[str, Any]) -> dict[str, Any]:
         if self.memory is None: return {"status": "DISABLED"}
@@ -40,4 +44,17 @@ class V3Facade:
     def growth(self) -> dict[str, Any]:
         tracker = getattr(self.runtime, "tracker", None); return {"capabilities": tracker.summary() if tracker else {}, "learning_cycles": len(self.cycles), "sources": {"neural": 0, "tool": sum(c.get("source") == "tool/oracle" for c in self.cycles), "memory": 0, "retrieval": 0}, "optimizer_steps": 0}
     def permissions(self) -> dict[str, Any]: return {"network_enabled": False, "training_enabled": False, "optimizer_steps": 0, "autonomous_learning": self.learning_enabled, "external_llm": False}
-    def close(self) -> None: self.tasks.close(); self.events.close()
+    def close(self) -> None: self.learning_engine.close(); self.tasks.close(); self.events.close()
+
+    # V3.3 decision engine API: all state is persisted by the existing facade root.
+    def v33_status(self): return self.learning_engine.status()
+    def v33_goals(self): return {"goals": self.learning_engine.candidates()}
+    def v33_decision(self): return {"decision": self.learning_engine.decisions()[:1]}
+    def v33_run_once(self): return self.learning_engine.run_once()
+    def v33_pause(self): return self.learning_engine.pause()
+    def v33_resume(self): return self.learning_engine.resume()
+    def v33_stop(self): return self.learning_engine.stop()
+    def v33_reviews(self): return {"reviews": self.learning_engine.reviews()}
+    def v33_failures(self): return {"failures": self.learning_engine.failures()}
+    def v33_events(self): return {"events": self.events.list()}
+    def v33_policy(self): return self.learning_engine.policy()

@@ -1,0 +1,1 @@
+{"status":"COMPLETED_OFFLINE_SIMULATION","strategies":{"ROUND_ROBIN":{"implemented":false,"status":"DEFERRED"},"WEAKEST_FIRST":{"implemented":false,"status":"DEFERRED"},"V33_ADAPTIVE":{"implemented":true,"reason_codes":["CAPABILITY_UNTESTED","RECENT_FAILURE","REVIEW_DUE"],"deterministic_tiebreak":"skill_id"}},"claim":"未执行公平三策略对照，不宣称V33优越"}

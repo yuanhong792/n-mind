@@ -142,5 +142,14 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLower
   refresh();
 })();
 </script>
+<script>
+(()=>{const $=s=>document.querySelector(s); const root=document.querySelector('.rail')||document.body;
+const p=document.createElement('section');p.id='v33-panel';p.innerHTML='<h3>自主学习决策</h3><div id="v33-state">读取中…</div><div class="v32-actions"><button id="v33-once">按决策练习</button><button id="v33-pause">暂停</button><button id="v33-resume">恢复</button><button id="v33-stop">停止</button></div><pre id="v33-detail"></pre>';root.appendChild(p);
+async function api(path,opt){const r=await fetch(path,opt);return await r.json()}
+async function refresh(){try{const s=await api('/api/v33/learning/status');$('#v33-state').textContent=(s.enabled?'已授权':'默认关闭')+' · '+s.state+' · 候选 '+(s.goals||[]).length+' · 待复习 '+(s.reviews_due||0);$('#v33-detail').textContent=(s.decision&&s.decision[0])?JSON.stringify(s.decision[0],null,2):'暂无决策记录';}catch(e){$('#v33-state').textContent='状态读取失败: '+e}}
+function post(path){return api(path,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})}
+$('#v33-once').onclick=async()=>{$('#v33-detail').textContent=JSON.stringify(await post('/api/v33/learning/run-once'),null,2);refresh()};$('#v33-pause').onclick=async()=>{await post('/api/v33/learning/pause');refresh()};$('#v33-resume').onclick=async()=>{await post('/api/v33/learning/resume');refresh()};$('#v33-stop').onclick=async()=>{await post('/api/v33/learning/stop');refresh()};refresh();
+})();
+</script>
 </body>
 </html>

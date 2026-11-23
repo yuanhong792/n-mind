@@ -1,0 +1,1 @@
+{"status":"SCHEMA_READY","fields":["goal_id","skill_id","source","candidate_reason_codes","verification_method","estimated_cost","constraints","priority_score","created_at"]}
