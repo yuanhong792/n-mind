@@ -358,8 +358,13 @@ class BotRuntime:
     def write_status(self) -> None:
         """status.json 落盘：另一终端的 `nmind bot status` 直接读它（不需要 IPC）。"""
         snap = self.status()
-        (self.root / STATUS_FILE).write_text(
-            json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
+        # Readers in another process must never observe a half-written JSON file.
+        # This is the same-directory atomic-replace pattern used by log rotation.
+        status_path = self.root / STATUS_FILE
+        tmp_path = status_path.with_suffix(status_path.suffix + ".tmp")
+        tmp_path.write_text(json.dumps(snap, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
+        tmp_path.replace(status_path)
 
     # ---- 用户任务（优先于空闲学习）----
     def submit_user_task(self, text: str) -> dict[str, Any]:
