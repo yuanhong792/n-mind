@@ -1,0 +1,95 @@
+{
+  "status": "COMPLETE",
+  "mechanisms": {
+    "reduce_qk_dim_r4": {
+      "output_error": {
+        "relative_l2": 1.794891,
+        "max_abs_diff": 4.129267
+      },
+      "attention_error": {
+        "relative_l2": 0.55367,
+        "max_abs_diff": 0.521311
+      },
+      "score_macs": 16384,
+      "total_macs": 311296,
+      "dense_reference_macs": 786432,
+      "full_graph_reduction": 0.6042,
+      "params": 8704
+    },
+    "reduce_qk_dim_r8": {
+      "output_error": {
+        "relative_l2": 1.939049,
+        "max_abs_diff": 3.654235
+      },
+      "attention_error": {
+        "relative_l2": 0.588886,
+        "max_abs_diff": 0.554739
+      },
+      "score_macs": 32768,
+      "total_macs": 360448,
+      "dense_reference_macs": 786432,
+      "full_graph_reduction": 0.5417,
+      "params": 9216
+    },
+    "reduce_qk_dim_r16": {
+      "output_error": {
+        "relative_l2": 1.813404,
+        "max_abs_diff": 2.399788
+      },
+      "attention_error": {
+        "relative_l2": 0.666547,
+        "max_abs_diff": 0.552243
+      },
+      "score_macs": 65536,
+      "total_macs": 458752,
+      "dense_reference_macs": 786432,
+      "full_graph_reduction": 0.4167,
+      "params": 10240
+    },
+    "reduce_qk_dim_r32": {
+      "output_error": {
+        "relative_l2": 2.033907,
+        "max_abs_diff": 3.753806
+      },
+      "attention_error": {
+        "relative_l2": 0.811064,
+        "max_abs_diff": 0.713415
+      },
+      "score_macs": 131072,
+      "total_macs": 655360,
+      "dense_reference_macs": 786432,
+      "full_graph_reduction": 0.1667,
+      "params": 12288
+    },
+    "reduce_qk_dim_r64": {
+      "output_error": {
+        "relative_l2": 2.026672,
+        "max_abs_diff": 3.775673
+      },
+      "attention_error": {
+        "relative_l2": 0.811095,
+        "max_abs_diff": 0.754744
+      },
+      "score_macs": 262144,
+      "total_macs": 1048576,
+      "dense_reference_macs": 786432,
+      "full_graph_reduction": -0.3333,
+      "params": 16384
+    },
+    "factorize_projection_r16": {
+      "output_error": {
+        "relative_l2": 1.798045,
+        "max_abs_diff": 3.31695
+      },
+      "note": "输出维度仍为 d，QK 交互维度未降低；MAC 不因分解而等比例下降"
+    },
+    "approximate_score_matrix_r16": {
+      "output_note": "需先算完整 QK 再 SVD，不省 QK 成本；仅作数学对照",
+      "attention_error": {
+        "relative_l2": 0.093514,
+        "max_abs_diff": 0.049347
+      }
+    }
+  },
+  "conclusion": "reduce_qk_dim 是唯一同时降低 score MAC 的机制；但 Value/FFN/Head 不变时全图收益远低于 score 层收益；factorize_projection 与 approximate_score 不得冒充省 QK 计算。"
+}

@@ -1,0 +1,1286 @@
+{
+  "status": "COMPLETE",
+  "n_candidates": 29,
+  "n_survived": 17,
+  "note": "误差/CPU 仅为算子初筛；进入正式训练需预登记预算，当前 NOT_RUN",
+  "pareto_front_operator_stage": [
+    "F01",
+    "F17"
+  ],
+  "candidates": [
+    {
+      "id": "F01",
+      "tag": "softmax_ref",
+      "description": "标准 softmax 注意力（参考）",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.050661,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.0,
+      "static_macs": 56,
+      "median_us": 84.55,
+      "p95_us": 92.0,
+      "eliminated": null
+    },
+    {
+      "id": "F02",
+      "tag": "lowrank_score_r4",
+      "description": "对 score 矩阵做 rank-4 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=4)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 2.34137607,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F03",
+      "tag": "lowrank_score_r8",
+      "description": "对 score 矩阵做 rank-8 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=8)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 1.35358858,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F04",
+      "tag": "lowrank_score_r16",
+      "description": "对 score 矩阵做 rank-16 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=16)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 3.94e-05,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F05",
+      "tag": "lowrank_score_r32",
+      "description": "对 score 矩阵做 rank-32 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=32)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 4.309e-05,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F06",
+      "tag": "lowrank_value_r4",
+      "description": "Value 降至 rank-4",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=4))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 1.56776714,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.032509,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F07",
+      "tag": "lowrank_value_r8",
+      "description": "Value 降至 rank-8",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=8))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 1.2211374,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.042796,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F08",
+      "tag": "lowrank_value_r16",
+      "description": "Value 降至 rank-16",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=16))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 1.55e-05,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.050661,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F09",
+      "tag": "lowrank_value_r32",
+      "description": "Value 降至 rank-32",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=32))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 1.55e-05,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.050661,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F10",
+      "tag": "kernel_qrelu_kraw",
+      "description": "Q 核=relu, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.03509,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.829539,
+      "static_macs": 48,
+      "median_us": 87.6,
+      "p95_us": 96.6,
+      "eliminated": null
+    },
+    {
+      "id": "F11",
+      "tag": "kernel_qrelu_krelu",
+      "description": "Q 核=relu, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.024371,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.841883,
+      "static_macs": 56,
+      "median_us": 88.95,
+      "p95_us": 126.4,
+      "eliminated": null
+    },
+    {
+      "id": "F12",
+      "tag": "kernel_qrelu_kelu1",
+      "description": "Q 核=relu, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.030873,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.834873,
+      "static_macs": 56,
+      "median_us": 124.45,
+      "p95_us": 130.9,
+      "eliminated": null
+    },
+    {
+      "id": "F13",
+      "tag": "kernel_qelu1_kraw",
+      "description": "Q 核=elu1, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.035864,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 1.143844,
+      "static_macs": 48,
+      "median_us": 117.1,
+      "p95_us": 175.7,
+      "eliminated": null
+    },
+    {
+      "id": "F14",
+      "tag": "kernel_qelu1_krelu",
+      "description": "Q 核=elu1, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.028232,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 1.119506,
+      "static_macs": 56,
+      "median_us": 124.0,
+      "p95_us": 147.8,
+      "eliminated": null
+    },
+    {
+      "id": "F15",
+      "tag": "kernel_qelu1_kelu1",
+      "description": "Q 核=elu1, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.033134,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 1.137484,
+      "static_macs": 56,
+      "median_us": 152.35,
+      "p95_us": 160.1,
+      "eliminated": null
+    },
+    {
+      "id": "F16",
+      "tag": "kernel_qtanh_kraw",
+      "description": "Q 核=tanh, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),Input(name=K),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.034221,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.354023,
+      "static_macs": 48,
+      "median_us": 91.2,
+      "p95_us": 97.3,
+      "eliminated": null
+    },
+    {
+      "id": "F17",
+      "tag": "kernel_qtanh_krelu",
+      "description": "Q 核=tanh, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.018228,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.660377,
+      "static_macs": 56,
+      "median_us": 52.9,
+      "p95_us": 78.6,
+      "eliminated": null
+    },
+    {
+      "id": "F18",
+      "tag": "kernel_qtanh_kelu1",
+      "description": "Q 核=tanh, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.026334,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.494155,
+      "static_macs": 56,
+      "median_us": 136.8,
+      "p95_us": 144.6,
+      "eliminated": null
+    },
+    {
+      "id": "F19",
+      "tag": "normalize_q",
+      "description": "Q 做 L2 归一化",
+      "expr": "MatMul(Softmax(MatMul(Normalize(Input(name=Q)),Input(name=K),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "MatMul",
+            "Normalize",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.009155,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.599396,
+      "static_macs": 52,
+      "median_us": 115.25,
+      "p95_us": 123.5,
+      "eliminated": null
+    },
+    {
+      "id": "F20",
+      "tag": "normalize_k",
+      "description": "K 做 L2 归一化",
+      "expr": "MatMul(Softmax(MatMul(Input(name=Q),Normalize(Input(name=K)),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "MatMul",
+            "Normalize",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.007806,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.633693,
+      "static_macs": 52,
+      "median_us": 115.6,
+      "p95_us": 177.9,
+      "eliminated": null
+    },
+    {
+      "id": "F21",
+      "tag": "gate_value",
+      "description": "输出用 V 做 sigmoid 门控",
+      "expr": "Gate(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Gate",
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.016508,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.539656,
+      "static_macs": 88,
+      "median_us": 112.85,
+      "p95_us": 150.5,
+      "eliminated": null
+    },
+    {
+      "id": "F22",
+      "tag": "residual_v",
+      "description": "加 V 的低权重残差",
+      "expr": "Residual(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V),scale=0.1)",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Residual",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.051496,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.125913,
+      "static_macs": 72,
+      "median_us": 97.95,
+      "p95_us": 101.0,
+      "eliminated": null
+    },
+    {
+      "id": "F23",
+      "tag": "group_mean_interaction",
+      "description": "Q/K 按序列维求均值后交互，测试分组摘要极限",
+      "expr": "MatMul(Softmax(MatMul(Reduce(Input(name=Q),dim=-2),Reduce(Input(name=K),dim=-2),transpose_b=True)),Input(name=V))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 4,
+          "ops": [
+            "Input",
+            "MatMul",
+            "Reduce",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.0,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.894573,
+      "static_macs": 15,
+      "median_us": 106.6,
+      "p95_us": 117.7,
+      "eliminated": null
+    },
+    {
+      "id": "F24",
+      "tag": "v_then_score",
+      "description": "Value 先归一化再做聚合",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Normalize(Input(name=V)))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Normalize",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.002966,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 0.756982,
+      "static_macs": 68,
+      "median_us": 133.45,
+      "p95_us": 256.7,
+      "eliminated": null
+    },
+    {
+      "id": "F25",
+      "tag": "hadamard_gate",
+      "description": "输出与门控结果逐元素乘",
+      "expr": "Hadamard(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Gate(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V)))",
+      "verify_pass": true,
+      "verify": {
+        "static": {
+          "op_count": 6,
+          "ops": [
+            "Gate",
+            "Hadamard",
+            "Input",
+            "KernelMap",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": true,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.0,
+        "causal": true,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": 0.064125,
+        "gradient_ok": true,
+        "learning_mode": "differentiable"
+      },
+      "relative_l2": 1.278332,
+      "static_macs": 160,
+      "median_us": 179.15,
+      "p95_us": 229.1,
+      "eliminated": null
+    },
+    {
+      "id": "F26",
+      "tag": "kernel_qrelu_score_lr8",
+      "description": "核映射 + score rank-8 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True),r=8)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.58345497,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F27",
+      "tag": "kernel_qelu1_score_lr8",
+      "description": "核映射 + score rank-8 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True),r=8)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.90667892,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F28",
+      "tag": "kernel_qrelu_score_lr16",
+      "description": "核映射 + score rank-16 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True),r=16)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 3.687e-05,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    },
+    {
+      "id": "F29",
+      "tag": "kernel_qelu1_score_lr16",
+      "description": "核映射 + score rank-16 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True),r=16)),Input(name=V))",
+      "verify_pass": false,
+      "verify": {
+        "static": {
+          "op_count": 5,
+          "ops": [
+            "Input",
+            "KernelMap",
+            "LowRank",
+            "MatMul",
+            "Softmax"
+          ],
+          "forbidden_ops": [],
+          "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+          "accesses_answer": false,
+          "executes_external_code": false,
+          "pass": true
+        },
+        "pass": false,
+        "output_shape": [
+          2,
+          4,
+          32,
+          16
+        ],
+        "shape_ok": true,
+        "finite": true,
+        "nan_count": 0,
+        "causal_max_delta": 0.00015366,
+        "causal": false,
+        "sample_isolation_max_delta": 0.0,
+        "sample_isolation": true,
+        "gradient_norm": NaN,
+        "gradient_ok": false,
+        "learning_mode": "differentiable"
+      },
+      "eliminated": "FAILED_STATIC_OR_NUMERIC_CHECK"
+    }
+  ]
+}

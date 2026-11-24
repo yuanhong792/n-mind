@@ -1,0 +1,27 @@
+{
+  "status": "SELF_TEST",
+  "batch": {
+    "batch_size": 16,
+    "tensor_length": 8,
+    "valid_tokens": 128,
+    "padding_tokens": 0,
+    "supervised_tokens": 32,
+    "module_executions": {
+      "embedding": 16,
+      "attention_blocks": 2,
+      "ffn": 2,
+      "output_head": 128
+    },
+    "analytic_fwd_macs": 7127040,
+    "analytic_bwd_macs": 14254080,
+    "optimizer_macs": 159436,
+    "wall_sec": 0.0
+  },
+  "wall_inference": {
+    "n": 30,
+    "warmup": 5,
+    "median_sec": 0.001441,
+    "p95_sec": 0.001783
+  },
+  "energy": "NOT_AVAILABLE"
+}

@@ -47,3 +47,8 @@ data/v*/
 # 浏览器调试与临时脚本
 .playwright-cli/
 _dbg_st.py
+
+# M4 交付：数据与证据文件是明确要求的版本化产物
+!experiments/math_m4/data/*.jsonl
+!experiments/math_m4/M4_BUDGET_LEDGER.jsonl
+!experiments/math_m4/M4_GENERATION.jsonl

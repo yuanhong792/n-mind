@@ -1,0 +1,8 @@
+{
+  "status": "NOT_RUN_TRAINING",
+  "reason": "需明确授权",
+  "n_samples": 64,
+  "answer_only_alignment": true,
+  "note": "正控制权重不进入主实验；成绩不等于泛化",
+  "models": {}
+}

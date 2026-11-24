@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "source": "M4_FORMULA_SEARCH_RESULTS.json",
+  "objectives": [
+    "minimize_relative_l2",
+    "minimize_median_us"
+  ],
+  "n_survivors": 17,
+  "pareto_front_operator_stage": [
+    "F01",
+    "F17"
+  ],
+  "pareto_records": [
+    {
+      "id": "F01",
+      "tag": "softmax_ref",
+      "relative_l2": 0.0,
+      "median_us": 84.55,
+      "static_macs": 56
+    },
+    {
+      "id": "F17",
+      "tag": "kernel_qtanh_krelu",
+      "relative_l2": 0.660377,
+      "median_us": 52.9,
+      "static_macs": 56
+    }
+  ],
+  "note": "算子阶段 Pareto；不得替代训练后任务能力或 E1-E5 效率等级"
+}

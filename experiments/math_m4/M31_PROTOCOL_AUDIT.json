@@ -1,0 +1,62 @@
+{
+  "status": "COMPLETE",
+  "protocol": "zero_optimizer_step_audit",
+  "tokenizer_sha": "511b2a9e5ef396a515d8f50928f038e71a8018ef00cb82f5724127f160a7a885",
+  "conventions": {
+    "sequence": "prompt+[SEP]+answer+[EOS]",
+    "weight_index": "w[j] 对应目标 seq[j]，logits 在 j-1 处预测"
+  },
+  "splits": {
+    "train": {
+      "n": 5575,
+      "truncated_at_64": 0,
+      "sep_missing": 0,
+      "answer_missing": 0,
+      "eos_missing": 0,
+      "pad_in_supervision": 0,
+      "m3_prompt_supervised_positions": 118892,
+      "a_supervised_positions": 13741,
+      "a_supervised_tokens": 8166,
+      "m3_eos_weight": 0.25,
+      "a_eos_weight": 1.0,
+      "checked": 5575,
+      "m3_prompt_supervised_ratio": 0.8964
+    },
+    "val": {
+      "n": 1469,
+      "truncated_at_64": 0,
+      "sep_missing": 0,
+      "answer_missing": 0,
+      "eos_missing": 0,
+      "pad_in_supervision": 0,
+      "m3_prompt_supervised_positions": 28589,
+      "a_supervised_positions": 3898,
+      "a_supervised_tokens": 2429,
+      "m3_eos_weight": 0.25,
+      "a_eos_weight": 1.0,
+      "checked": 1469,
+      "m3_prompt_supervised_ratio": 0.88
+    },
+    "sealed": {
+      "n": 1117,
+      "truncated_at_64": 0,
+      "sep_missing": 0,
+      "answer_missing": 0,
+      "eos_missing": 0,
+      "pad_in_supervision": 0,
+      "m3_prompt_supervised_positions": 23590,
+      "a_supervised_positions": 2806,
+      "a_supervised_tokens": 1689,
+      "m3_eos_weight": 0.25,
+      "a_eos_weight": 1.0,
+      "checked": 1117,
+      "m3_prompt_supervised_ratio": 0.8937
+    }
+  },
+  "loss_normalization_check": {
+    "computed": 5.47046137,
+    "expected": 5.47046137,
+    "max_abs_diff": 0.0,
+    "pass": true
+  }
+}

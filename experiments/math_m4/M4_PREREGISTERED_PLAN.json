@@ -1,0 +1,148 @@
+{
+  "plan_name": "N-MIND M4 Minimum Sufficient Information Interaction",
+  "status": "PREREGISTERED_AWAITING_USER_AUTHORIZATION",
+  "created_before_training": true,
+  "date": "2026-11-24",
+  "note": "本方案在真实训练启动前冻结，防止事后选择偏差。4096步预算需用户明确授权；未授权时所有训练标 NOT_RUN。",
+
+  "authorization": {
+    "required": true,
+    "status": "NOT_YET_GRANTED",
+    "command": "python train_m4.py --authorize",
+    "inherits_m3_or_m2": false,
+    "note": "本轮任务书第九阶段要求确认正式训练授权；当前仅执行第一至第八阶段零梯度工作。"
+  },
+
+  "budget": {
+    "max_optimizer_steps": 4096,
+    "max_wall_seconds": 3600,
+    "breakdown": {
+      "positive_control": {"R1": 128, "R2": 128, "total": 256},
+      "main": {"R1": 960, "R2": 960, "M4-A": 960, "M4-B": 960, "total": 3840}
+    },
+    "shared": true,
+    "note": "失败训练、探针训练、性能测试中的实际梯度更新和重启共享预算；不得私自转移失败候选预算"
+  },
+
+  "supervision_protocol": {
+    "primary": "A_answer_only",
+    "sequence": "prompt_ids + [SEP] + answer_ids + [EOS]",
+    "weights": {"prompt": 0.0, "sep_as_target": 0.0, "answer": 1.0, "eos": 1.0, "pad": 0.0},
+    "normalization": "按样本有效监督权重归一化后对 batch 取平均",
+    "alternative": "B_full_sequence（仅独立消融，不与 A 跨架构混比）",
+    "no_silent_truncation": true
+  },
+
+  "training_protocol": {
+    "architectures": ["R1_gru_reference", "R2_tiny_transformer",
+                      "M4-A_low_rank_interaction", "M4-B_selective_interaction"],
+    "seeds": [1, 2],
+    "steps_per_arch_seed": 480,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "batch_size": 16,
+    "gradient_clip": 1.0,
+    "eval_interval": 64,
+    "final_eval_step": 480,
+    "fairness": {
+      "same_tokenizer": true,
+      "same_train_rows": true,
+      "same_pregenerated_batch_order": true,
+      "same_supervision_protocol": true,
+      "same_validation_panel": true,
+      "same_sealed_set": true,
+      "same_seed_set": true,
+      "equal_tuning_opportunity": true
+    },
+    "init": "random_from_scratch",
+    "forbidden": ["pretrained_weights", "llm_distillation", "interpreter_replace_neural_core",
+                  "hardcoded_answers", "post_hoc_hyperparameter_tuning_per_arch"]
+  },
+
+  "capability_gate": {
+    "iso_targets": [0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90],
+    "stability_rule": "每个 seed 独立判断；连续两个固定验证点达到标准才记初步稳定；末尾仅一次达标不算稳定",
+    "no_cross_seed_averaging_for_gate": true,
+    "macro_threshold": 0.50,
+    "critical_tasks_minimums": {
+      "A3_copyN": 0.30,
+      "A4_reverse": 0.20,
+      "A5_repeat": 0.20,
+      "B2_bind": 0.40,
+      "B4_bind": 0.30,
+      "counterfactual_same_query_fact_change": 0.40,
+      "counterfactual_unrelated_fact_invariance": 0.40,
+      "query_switch": 0.30,
+      "C_reassign": 0.30
+    },
+    "non_inferiority_tolerance": 0.0,
+    "strict_vs_noninferior_separate_reporting": true,
+    "note": "不能通过简单任务高分掩盖复杂任务失效"
+  },
+
+  "efficiency_definition": {
+    "E_train": "C_ref_train(Q) / C_candidate_train(Q)",
+    "E_infer": "C_ref_infer(Q) / C_candidate_infer(Q)",
+    "precondition": "双方在相同任务上达到约定能力门槛，且关键任务下限同时满足",
+    "grades": {"E1": 0.20, "E2": 0.50, "E3": 0.90, "E4": 0.99, "E5": 0.999},
+    "not_reached_label": "TARGET_NOT_REACHED",
+    "not_comparable_label": "NOT_COMPARABLE"
+  },
+
+  "frozen_candidates": {
+    "M4-A": {"r": 16, "selection_reason": "数学与无梯度基准筛选；见 M4_LOW_RANK_ATTENTION.json"},
+    "M4-B": {"group_size": 4, "top_k": 2, "selection_reason": "算子因果性/梯度通过；见 M4_SELECTIVE_ATTENTION.json"},
+    "NOT_RUN_candidates": ["M4-C_incremental_kernel", "M4-D_orthogonal_compression",
+                           "M4-E_query_driven", "M4-F_auto_discovered_formula"],
+    "note": "未训练候选一律 NOT_RUN，不得用算子误差替代任务能力"
+  },
+
+  "checkpoint_requirements": {
+    "atomic_save": true,
+    "per_tensor_verify": true,
+    "record": ["path", "file_sha256", "tensor_sha256", "role", "seed", "model_steps",
+               "global_steps", "optimizer", "sampler_state", "rng", "data_sha",
+               "tokenizer_sha", "code_sha", "cumulative_cost"],
+    "final_before_best_restore": true,
+    "independent_run_dir": true,
+    "weights_local_only": true
+  },
+
+  "evaluation": {
+    "strict_correct": "生成 token 与答案完全一致且自然 EOS",
+    "forbidden": ["interpreter_correction", "hardcoded_answer", "forced_output_length",
+                  "dedup_repeat_chars", "rule_rewrite", "hide_failure"],
+    "auxiliary_metrics": ["content_accuracy", "teacher_forced_position_accuracy",
+                          "free_generation_position_accuracy", "natural_eos_rate",
+                          "immediate_eos_rate", "repeat_rate", "overlong_rate",
+                          "first_token_error_rate"],
+    "both_seeds_required": true,
+    "best_and_final_separate": true,
+    "sealed_full_preferred": true,
+    "sampling_if_budget_limited": "训练前冻结：每任务前20条，明确覆盖率"
+  },
+
+  "cost_accounting": {
+    "per_batch": ["actual_batch_size", "valid_tokens", "padding_tokens", "tensor_length",
+                  "supervised_tokens", "module_executions", "model_cumulative_cost"],
+    "separate_views": ["analytic_mac", "profiler", "wall_clock"],
+    "inference": ["prefill", "first_token", "per_token", "full_task_until_eos",
+                  "kv_cache_bytes", "selection_cost", "peak_memory"],
+    "precision": "FP32",
+    "batch_sizes": [1, 8, 16],
+    "sequence_lengths": [16, 32, 64, 128, 256, 512],
+    "measurement": "model.eval()+inference_mode, warmup, median+P95",
+    "energy": "NOT_AVAILABLE"
+  },
+
+  "discipline": [
+    "不预设 Transformer 错误，也不预设低秩/选择性交互正确",
+    "不把更小参数量等同更低计算成本",
+    "不把更低 Loss 等同更强能力",
+    "不把软门成绩搭配稀疏成本",
+    "不用两个 seed 的平均值判定单 seed 达标",
+    "不把正控制成绩当未见数据泛化",
+    "不修改原 M3 报告与权重",
+    "权重仅本地保存，不上传公开仓库"
+  ]
+}

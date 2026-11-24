@@ -1,0 +1,464 @@
+{"task": "A1_copy1", "prompt": "OUT ;", "answer": ";", "fact_group": "RAW|OUT ;", "canonical": "RAW|OUT ;", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT J", "answer": "J", "fact_group": "RAW|OUT J", "canonical": "RAW|OUT J", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT 9", "answer": "9", "fact_group": "RAW|OUT 9", "canonical": "RAW|OUT 9", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT 8", "answer": "8", "fact_group": "RAW|OUT 8", "canonical": "RAW|OUT 8", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT 0", "answer": "0", "fact_group": "RAW|OUT 0", "canonical": "RAW|OUT 0", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT :", "answer": ":", "fact_group": "RAW|OUT :", "canonical": "RAW|OUT :", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT T", "answer": "T", "fact_group": "RAW|OUT T", "canonical": "RAW|OUT T", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT W", "answer": "W", "fact_group": "RAW|OUT W", "canonical": "RAW|OUT W", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT 6", "answer": "6", "fact_group": "RAW|OUT 6", "canonical": "RAW|OUT 6", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT n", "answer": "n", "fact_group": "RAW|OUT n", "canonical": "RAW|OUT n", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT Y", "answer": "Y", "fact_group": "RAW|OUT Y", "canonical": "RAW|OUT Y", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT S", "answer": "S", "fact_group": "RAW|OUT S", "canonical": "RAW|OUT S", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT .", "answer": ".", "fact_group": "RAW|OUT .", "canonical": "RAW|OUT .", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT %", "answer": "%", "fact_group": "RAW|OUT %", "canonical": "RAW|OUT %", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT V", "answer": "V", "fact_group": "RAW|OUT V", "canonical": "RAW|OUT V", "meta": {}}
+{"task": "A1_copy1", "prompt": "OUT -", "answer": "-", "fact_group": "RAW|OUT -", "canonical": "RAW|OUT -", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY j|", "answer": "j|", "fact_group": "RAW|COPY j|", "canonical": "RAW|COPY j|", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY Y$", "answer": "Y$", "fact_group": "RAW|COPY Y$", "canonical": "RAW|COPY Y$", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY ^B", "answer": "^B", "fact_group": "RAW|COPY ^B", "canonical": "RAW|COPY ^B", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY :N", "answer": ":N", "fact_group": "RAW|COPY :N", "canonical": "RAW|COPY :N", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY #]", "answer": "#]", "fact_group": "RAW|COPY #]", "canonical": "RAW|COPY #]", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY 3e", "answer": "3e", "fact_group": "RAW|COPY 3e", "canonical": "RAW|COPY 3e", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY ;*", "answer": ";*", "fact_group": "RAW|COPY ;*", "canonical": "RAW|COPY ;*", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY s'", "answer": "s'", "fact_group": "RAW|COPY s'", "canonical": "RAW|COPY s'", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY 1k", "answer": "1k", "fact_group": "RAW|COPY 1k", "canonical": "RAW|COPY 1k", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY 6x", "answer": "6x", "fact_group": "RAW|COPY 6x", "canonical": "RAW|COPY 6x", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY !K", "answer": "!K", "fact_group": "RAW|COPY !K", "canonical": "RAW|COPY !K", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY iL", "answer": "iL", "fact_group": "RAW|COPY iL", "canonical": "RAW|COPY iL", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY ;@", "answer": ";@", "fact_group": "RAW|COPY ;@", "canonical": "RAW|COPY ;@", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY uk", "answer": "uk", "fact_group": "RAW|COPY uk", "canonical": "RAW|COPY uk", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY n^", "answer": "n^", "fact_group": "RAW|COPY n^", "canonical": "RAW|COPY n^", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY vU", "answer": "vU", "fact_group": "RAW|COPY vU", "canonical": "RAW|COPY vU", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY DU", "answer": "DU", "fact_group": "RAW|COPY DU", "canonical": "RAW|COPY DU", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY Yw", "answer": "Yw", "fact_group": "RAW|COPY Yw", "canonical": "RAW|COPY Yw", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY d(", "answer": "d(", "fact_group": "RAW|COPY d(", "canonical": "RAW|COPY d(", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY dh", "answer": "dh", "fact_group": "RAW|COPY dh", "canonical": "RAW|COPY dh", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY 0q", "answer": "0q", "fact_group": "RAW|COPY 0q", "canonical": "RAW|COPY 0q", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY Mm", "answer": "Mm", "fact_group": "RAW|COPY Mm", "canonical": "RAW|COPY Mm", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY j`", "answer": "j`", "fact_group": "RAW|COPY j`", "canonical": "RAW|COPY j`", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY K)", "answer": "K)", "fact_group": "RAW|COPY K)", "canonical": "RAW|COPY K)", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY va", "answer": "va", "fact_group": "RAW|COPY va", "canonical": "RAW|COPY va", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY `)", "answer": "`)", "fact_group": "RAW|COPY `)", "canonical": "RAW|COPY `)", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY @[", "answer": "@[", "fact_group": "RAW|COPY @[", "canonical": "RAW|COPY @[", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY *?", "answer": "*?", "fact_group": "RAW|COPY *?", "canonical": "RAW|COPY *?", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY G{", "answer": "G{", "fact_group": "RAW|COPY G{", "canonical": "RAW|COPY G{", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY u(", "answer": "u(", "fact_group": "RAW|COPY u(", "canonical": "RAW|COPY u(", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY wE", "answer": "wE", "fact_group": "RAW|COPY wE", "canonical": "RAW|COPY wE", "meta": {}}
+{"task": "A2_copy2", "prompt": "COPY wM", "answer": "wM", "fact_group": "RAW|COPY wM", "canonical": "RAW|COPY wM", "meta": {}}
+{"task": "A3_copyN", "prompt": "COPY oN2jf5", "answer": "oN2jf5", "fact_group": "RAW|COPY oN2jf5", "canonical": "RAW|COPY oN2jf5", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY A~jz", "answer": "A~jz", "fact_group": "RAW|COPY A~jz", "canonical": "RAW|COPY A~jz", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY :_+p", "answer": ":_+p", "fact_group": "RAW|COPY :_+p", "canonical": "RAW|COPY :_+p", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY r4ZG", "answer": "r4ZG", "fact_group": "RAW|COPY r4ZG", "canonical": "RAW|COPY r4ZG", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY N1wx<y", "answer": "N1wx<y", "fact_group": "RAW|COPY N1wx<y", "canonical": "RAW|COPY N1wx<y", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY 3L3}P#", "answer": "3L3}P#", "fact_group": "RAW|COPY 3L3}P#", "canonical": "RAW|COPY 3L3}P#", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY 91I", "answer": "91I", "fact_group": "RAW|COPY 91I", "canonical": "RAW|COPY 91I", "meta": {"length": 3}}
+{"task": "A3_copyN", "prompt": "COPY 1xEiQ\\", "answer": "1xEiQ\\", "fact_group": "RAW|COPY 1xEiQ\\", "canonical": "RAW|COPY 1xEiQ\\", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY _thLSQ", "answer": "_thLSQ", "fact_group": "RAW|COPY _thLSQ", "canonical": "RAW|COPY _thLSQ", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY X(_", "answer": "X(_", "fact_group": "RAW|COPY X(_", "canonical": "RAW|COPY X(_", "meta": {"length": 3}}
+{"task": "A3_copyN", "prompt": "COPY wjF", "answer": "wjF", "fact_group": "RAW|COPY wjF", "canonical": "RAW|COPY wjF", "meta": {"length": 3}}
+{"task": "A3_copyN", "prompt": "COPY N(q@", "answer": "N(q@", "fact_group": "RAW|COPY N(q@", "canonical": "RAW|COPY N(q@", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY m%jM!", "answer": "m%jM!", "fact_group": "RAW|COPY m%jM!", "canonical": "RAW|COPY m%jM!", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY #4T3", "answer": "#4T3", "fact_group": "RAW|COPY #4T3", "canonical": "RAW|COPY #4T3", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY +{@>eL", "answer": "+{@>eL", "fact_group": "RAW|COPY +{@>eL", "canonical": "RAW|COPY +{@>eL", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY igo{{L", "answer": "igo{{L", "fact_group": "RAW|COPY igo{{L", "canonical": "RAW|COPY igo{{L", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY VsXt", "answer": "VsXt", "fact_group": "RAW|COPY VsXt", "canonical": "RAW|COPY VsXt", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY [:Q\"", "answer": "[:Q\"", "fact_group": "RAW|COPY [:Q\"", "canonical": "RAW|COPY [:Q\"", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY Sx$;", "answer": "Sx$;", "fact_group": "RAW|COPY Sx$;", "canonical": "RAW|COPY Sx$;", "meta": {"length": 4}}
+{"task": "A3_copyN", "prompt": "COPY efZO3c", "answer": "efZO3c", "fact_group": "RAW|COPY efZO3c", "canonical": "RAW|COPY efZO3c", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY ;/c05", "answer": ";/c05", "fact_group": "RAW|COPY ;/c05", "canonical": "RAW|COPY ;/c05", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY ]-,e)", "answer": "]-,e)", "fact_group": "RAW|COPY ]-,e)", "canonical": "RAW|COPY ]-,e)", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY Asukv&", "answer": "Asukv&", "fact_group": "RAW|COPY Asukv&", "canonical": "RAW|COPY Asukv&", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY ooZW*P", "answer": "ooZW*P", "fact_group": "RAW|COPY ooZW*P", "canonical": "RAW|COPY ooZW*P", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY &KyrW", "answer": "&KyrW", "fact_group": "RAW|COPY &KyrW", "canonical": "RAW|COPY &KyrW", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY 0Xm", "answer": "0Xm", "fact_group": "RAW|COPY 0Xm", "canonical": "RAW|COPY 0Xm", "meta": {"length": 3}}
+{"task": "A3_copyN", "prompt": "COPY {(b#Y>", "answer": "{(b#Y>", "fact_group": "RAW|COPY {(b#Y>", "canonical": "RAW|COPY {(b#Y>", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY A6rl*", "answer": "A6rl*", "fact_group": "RAW|COPY A6rl*", "canonical": "RAW|COPY A6rl*", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY /t5jp", "answer": "/t5jp", "fact_group": "RAW|COPY /t5jp", "canonical": "RAW|COPY /t5jp", "meta": {"length": 5}}
+{"task": "A3_copyN", "prompt": "COPY }.L", "answer": "}.L", "fact_group": "RAW|COPY }.L", "canonical": "RAW|COPY }.L", "meta": {"length": 3}}
+{"task": "A3_copyN", "prompt": "COPY :]9-yg", "answer": ":]9-yg", "fact_group": "RAW|COPY :]9-yg", "canonical": "RAW|COPY :]9-yg", "meta": {"length": 6}}
+{"task": "A3_copyN", "prompt": "COPY r.:", "answer": "r.:", "fact_group": "RAW|COPY r.:", "canonical": "RAW|COPY r.:", "meta": {"length": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT 0 4", "answer": "0000", "fact_group": "RAW|REPEAT 0 4", "canonical": "RAW|REPEAT 0 4", "meta": {"unit": "0", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT y 3", "answer": "yyy", "fact_group": "RAW|REPEAT y 3", "canonical": "RAW|REPEAT y 3", "meta": {"unit": "y", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT M( 4", "answer": "M(M(M(M(", "fact_group": "RAW|REPEAT M( 4", "canonical": "RAW|REPEAT M( 4", "meta": {"unit": "M(", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT C1 5", "answer": "C1C1C1C1C1", "fact_group": "RAW|REPEAT C1 5", "canonical": "RAW|REPEAT C1 5", "meta": {"unit": "C1", "n": 5}}
+{"task": "A5_repeat", "prompt": "REPEAT x 3", "answer": "xxx", "fact_group": "RAW|REPEAT x 3", "canonical": "RAW|REPEAT x 3", "meta": {"unit": "x", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT C 4", "answer": "CCCC", "fact_group": "RAW|REPEAT C 4", "canonical": "RAW|REPEAT C 4", "meta": {"unit": "C", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT J1 3", "answer": "J1J1J1", "fact_group": "RAW|REPEAT J1 3", "canonical": "RAW|REPEAT J1 3", "meta": {"unit": "J1", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT R2 5", "answer": "R2R2R2R2R2", "fact_group": "RAW|REPEAT R2 5", "canonical": "RAW|REPEAT R2 5", "meta": {"unit": "R2", "n": 5}}
+{"task": "A5_repeat", "prompt": "REPEAT [t 4", "answer": "[t[t[t[t", "fact_group": "RAW|REPEAT [t 4", "canonical": "RAW|REPEAT [t 4", "meta": {"unit": "[t", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT u} 3", "answer": "u}u}u}", "fact_group": "RAW|REPEAT u} 3", "canonical": "RAW|REPEAT u} 3", "meta": {"unit": "u}", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT \\5 4", "answer": "\\5\\5\\5\\5", "fact_group": "RAW|REPEAT \\5 4", "canonical": "RAW|REPEAT \\5 4", "meta": {"unit": "\\5", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT (_ 2", "answer": "(_(_", "fact_group": "RAW|REPEAT (_ 2", "canonical": "RAW|REPEAT (_ 2", "meta": {"unit": "(_", "n": 2}}
+{"task": "A5_repeat", "prompt": "REPEAT /V 2", "answer": "/V/V", "fact_group": "RAW|REPEAT /V 2", "canonical": "RAW|REPEAT /V 2", "meta": {"unit": "/V", "n": 2}}
+{"task": "A5_repeat", "prompt": "REPEAT h` 4", "answer": "h`h`h`h`", "fact_group": "RAW|REPEAT h` 4", "canonical": "RAW|REPEAT h` 4", "meta": {"unit": "h`", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT + 4", "answer": "++++", "fact_group": "RAW|REPEAT + 4", "canonical": "RAW|REPEAT + 4", "meta": {"unit": "+", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT , 4", "answer": ",,,,", "fact_group": "RAW|REPEAT , 4", "canonical": "RAW|REPEAT , 4", "meta": {"unit": ",", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT ]b 4", "answer": "]b]b]b]b", "fact_group": "RAW|REPEAT ]b 4", "canonical": "RAW|REPEAT ]b 4", "meta": {"unit": "]b", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT w 4", "answer": "wwww", "fact_group": "RAW|REPEAT w 4", "canonical": "RAW|REPEAT w 4", "meta": {"unit": "w", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT @F 4", "answer": "@F@F@F@F", "fact_group": "RAW|REPEAT @F 4", "canonical": "RAW|REPEAT @F 4", "meta": {"unit": "@F", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT H 5", "answer": "HHHHH", "fact_group": "RAW|REPEAT H 5", "canonical": "RAW|REPEAT H 5", "meta": {"unit": "H", "n": 5}}
+{"task": "A5_repeat", "prompt": "REPEAT Xg 3", "answer": "XgXgXg", "fact_group": "RAW|REPEAT Xg 3", "canonical": "RAW|REPEAT Xg 3", "meta": {"unit": "Xg", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT zh 4", "answer": "zhzhzhzh", "fact_group": "RAW|REPEAT zh 4", "canonical": "RAW|REPEAT zh 4", "meta": {"unit": "zh", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT C\" 2", "answer": "C\"C\"", "fact_group": "RAW|REPEAT C\" 2", "canonical": "RAW|REPEAT C\" 2", "meta": {"unit": "C\"", "n": 2}}
+{"task": "A5_repeat", "prompt": "REPEAT 3- 4", "answer": "3-3-3-3-", "fact_group": "RAW|REPEAT 3- 4", "canonical": "RAW|REPEAT 3- 4", "meta": {"unit": "3-", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT 6e 3", "answer": "6e6e6e", "fact_group": "RAW|REPEAT 6e 3", "canonical": "RAW|REPEAT 6e 3", "meta": {"unit": "6e", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT p 3", "answer": "ppp", "fact_group": "RAW|REPEAT p 3", "canonical": "RAW|REPEAT p 3", "meta": {"unit": "p", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT k; 2", "answer": "k;k;", "fact_group": "RAW|REPEAT k; 2", "canonical": "RAW|REPEAT k; 2", "meta": {"unit": "k;", "n": 2}}
+{"task": "A5_repeat", "prompt": "REPEAT A 2", "answer": "AA", "fact_group": "RAW|REPEAT A 2", "canonical": "RAW|REPEAT A 2", "meta": {"unit": "A", "n": 2}}
+{"task": "A5_repeat", "prompt": "REPEAT j 4", "answer": "jjjj", "fact_group": "RAW|REPEAT j 4", "canonical": "RAW|REPEAT j 4", "meta": {"unit": "j", "n": 4}}
+{"task": "A5_repeat", "prompt": "REPEAT n[ 3", "answer": "n[n[n[", "fact_group": "RAW|REPEAT n[ 3", "canonical": "RAW|REPEAT n[ 3", "meta": {"unit": "n[", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT \\E 3", "answer": "\\E\\E\\E", "fact_group": "RAW|REPEAT \\E 3", "canonical": "RAW|REPEAT \\E 3", "meta": {"unit": "\\E", "n": 3}}
+{"task": "A5_repeat", "prompt": "REPEAT ]% 3", "answer": "]%]%]%", "fact_group": "RAW|REPEAT ]% 3", "canonical": "RAW|REPEAT ]% 3", "meta": {"unit": "]%", "n": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE F(53^q", "answer": "q^35(F", "fact_group": "RAW|REVERSE F(53^q", "canonical": "RAW|REVERSE F(53^q", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE 9$b?G", "answer": "G?b$9", "fact_group": "RAW|REVERSE 9$b?G", "canonical": "RAW|REVERSE 9$b?G", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE .%H%|*", "answer": "*|%H%.", "fact_group": "RAW|REVERSE .%H%|*", "canonical": "RAW|REVERSE .%H%|*", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE $vSs", "answer": "sSv$", "fact_group": "RAW|REVERSE $vSs", "canonical": "RAW|REVERSE $vSs", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE &NQs?", "answer": "?sQN&", "fact_group": "RAW|REVERSE &NQs?", "canonical": "RAW|REVERSE &NQs?", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE leQ", "answer": "Qel", "fact_group": "RAW|REVERSE leQ", "canonical": "RAW|REVERSE leQ", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE w3j", "answer": "j3w", "fact_group": "RAW|REVERSE w3j", "canonical": "RAW|REVERSE w3j", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE ?Hm:hc", "answer": "ch:mH?", "fact_group": "RAW|REVERSE ?Hm:hc", "canonical": "RAW|REVERSE ?Hm:hc", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE W\\4e", "answer": "e4\\W", "fact_group": "RAW|REVERSE W\\4e", "canonical": "RAW|REVERSE W\\4e", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE /Yn", "answer": "nY/", "fact_group": "RAW|REVERSE /Yn", "canonical": "RAW|REVERSE /Yn", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE `;s", "answer": "s;`", "fact_group": "RAW|REVERSE `;s", "canonical": "RAW|REVERSE `;s", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE [O!dR1", "answer": "1Rd!O[", "fact_group": "RAW|REVERSE [O!dR1", "canonical": "RAW|REVERSE [O!dR1", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE 4~rK'e", "answer": "e'Kr~4", "fact_group": "RAW|REVERSE 4~rK'e", "canonical": "RAW|REVERSE 4~rK'e", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE \\Y2ew", "answer": "we2Y\\", "fact_group": "RAW|REVERSE \\Y2ew", "canonical": "RAW|REVERSE \\Y2ew", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE \"F1j", "answer": "j1F\"", "fact_group": "RAW|REVERSE \"F1j", "canonical": "RAW|REVERSE \"F1j", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE M^7\"", "answer": "\"7^M", "fact_group": "RAW|REVERSE M^7\"", "canonical": "RAW|REVERSE M^7\"", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE MS7", "answer": "7SM", "fact_group": "RAW|REVERSE MS7", "canonical": "RAW|REVERSE MS7", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE T^0rY", "answer": "Yr0^T", "fact_group": "RAW|REVERSE T^0rY", "canonical": "RAW|REVERSE T^0rY", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE l6<VoW", "answer": "WoV<6l", "fact_group": "RAW|REVERSE l6<VoW", "canonical": "RAW|REVERSE l6<VoW", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE `V50", "answer": "05V`", "fact_group": "RAW|REVERSE `V50", "canonical": "RAW|REVERSE `V50", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE O{J", "answer": "J{O", "fact_group": "RAW|REVERSE O{J", "canonical": "RAW|REVERSE O{J", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE CjW", "answer": "WjC", "fact_group": "RAW|REVERSE CjW", "canonical": "RAW|REVERSE CjW", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE 6+ri", "answer": "ir+6", "fact_group": "RAW|REVERSE 6+ri", "canonical": "RAW|REVERSE 6+ri", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE 5Q(In;", "answer": ";nI(Q5", "fact_group": "RAW|REVERSE 5Q(In;", "canonical": "RAW|REVERSE 5Q(In;", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE Ky*", "answer": "*yK", "fact_group": "RAW|REVERSE Ky*", "canonical": "RAW|REVERSE Ky*", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE /6ow", "answer": "wo6/", "fact_group": "RAW|REVERSE /6ow", "canonical": "RAW|REVERSE /6ow", "meta": {"length": 4}}
+{"task": "A4_reverse", "prompt": "REVERSE -A*Dg", "answer": "gD*A-", "fact_group": "RAW|REVERSE -A*Dg", "canonical": "RAW|REVERSE -A*Dg", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE VA|", "answer": "|AV", "fact_group": "RAW|REVERSE VA|", "canonical": "RAW|REVERSE VA|", "meta": {"length": 3}}
+{"task": "A4_reverse", "prompt": "REVERSE |1gJ4Z", "answer": "Z4Jg1|", "fact_group": "RAW|REVERSE |1gJ4Z", "canonical": "RAW|REVERSE |1gJ4Z", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE &,#SN", "answer": "NS#,&", "fact_group": "RAW|REVERSE &,#SN", "canonical": "RAW|REVERSE &,#SN", "meta": {"length": 5}}
+{"task": "A4_reverse", "prompt": "REVERSE {m>feL", "answer": "Lef>m{", "fact_group": "RAW|REVERSE {m>feL", "canonical": "RAW|REVERSE {m>feL", "meta": {"length": 6}}
+{"task": "A4_reverse", "prompt": "REVERSE \\)J", "answer": "J)\\", "fact_group": "RAW|REVERSE \\)J", "canonical": "RAW|REVERSE \\)J", "meta": {"length": 3}}
+{"task": "A6_index", "prompt": "INDEX Y:;<{u 6", "answer": "u", "fact_group": "RAW|INDEX Y:;<{u 6", "canonical": "RAW|INDEX Y:;<{u 6", "meta": {"index": 6, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX FmTb[~ 1", "answer": "F", "fact_group": "RAW|INDEX FmTb[~ 1", "canonical": "RAW|INDEX FmTb[~ 1", "meta": {"index": 1, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX uf[U 2", "answer": "f", "fact_group": "RAW|INDEX uf[U 2", "canonical": "RAW|INDEX uf[U 2", "meta": {"index": 2, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX E$P4 1", "answer": "E", "fact_group": "RAW|INDEX E$P4 1", "canonical": "RAW|INDEX E$P4 1", "meta": {"index": 1, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX SbFP 2", "answer": "b", "fact_group": "RAW|INDEX SbFP 2", "canonical": "RAW|INDEX SbFP 2", "meta": {"index": 2, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX +^\",@ 1", "answer": "+", "fact_group": "RAW|INDEX +^\",@ 1", "canonical": "RAW|INDEX +^\",@ 1", "meta": {"index": 1, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX K2%~u 5", "answer": "u", "fact_group": "RAW|INDEX K2%~u 5", "canonical": "RAW|INDEX K2%~u 5", "meta": {"index": 5, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX `3.hk 2", "answer": "3", "fact_group": "RAW|INDEX `3.hk 2", "canonical": "RAW|INDEX `3.hk 2", "meta": {"index": 2, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX -9<sz 4", "answer": "s", "fact_group": "RAW|INDEX -9<sz 4", "canonical": "RAW|INDEX -9<sz 4", "meta": {"index": 4, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX G[B> 1", "answer": "G", "fact_group": "RAW|INDEX G[B> 1", "canonical": "RAW|INDEX G[B> 1", "meta": {"index": 1, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX DpWhBi 1", "answer": "D", "fact_group": "RAW|INDEX DpWhBi 1", "canonical": "RAW|INDEX DpWhBi 1", "meta": {"index": 1, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX @.%\"_ 2", "answer": ".", "fact_group": "RAW|INDEX @.%\"_ 2", "canonical": "RAW|INDEX @.%\"_ 2", "meta": {"index": 2, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX D4&#% 3", "answer": "&", "fact_group": "RAW|INDEX D4&#% 3", "canonical": "RAW|INDEX D4&#% 3", "meta": {"index": 3, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX RA/3Mn 3", "answer": "/", "fact_group": "RAW|INDEX RA/3Mn 3", "canonical": "RAW|INDEX RA/3Mn 3", "meta": {"index": 3, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX r{vYV/ 3", "answer": "v", "fact_group": "RAW|INDEX r{vYV/ 3", "canonical": "RAW|INDEX r{vYV/ 3", "meta": {"index": 3, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX 00gH,< 3", "answer": "g", "fact_group": "RAW|INDEX 00gH,< 3", "canonical": "RAW|INDEX 00gH,< 3", "meta": {"index": 3, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX l{D/w 2", "answer": "{", "fact_group": "RAW|INDEX l{D/w 2", "canonical": "RAW|INDEX l{D/w 2", "meta": {"index": 2, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX hq.}% 1", "answer": "h", "fact_group": "RAW|INDEX hq.}% 1", "canonical": "RAW|INDEX hq.}% 1", "meta": {"index": 1, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX <bkx 4", "answer": "x", "fact_group": "RAW|INDEX <bkx 4", "canonical": "RAW|INDEX <bkx 4", "meta": {"index": 4, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX L%#:;p 6", "answer": "p", "fact_group": "RAW|INDEX L%#:;p 6", "canonical": "RAW|INDEX L%#:;p 6", "meta": {"index": 6, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX }'^w 1", "answer": "}", "fact_group": "RAW|INDEX }'^w 1", "canonical": "RAW|INDEX }'^w 1", "meta": {"index": 1, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX MQc0 1", "answer": "M", "fact_group": "RAW|INDEX MQc0 1", "canonical": "RAW|INDEX MQc0 1", "meta": {"index": 1, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX a7b6 4", "answer": "6", "fact_group": "RAW|INDEX a7b6 4", "canonical": "RAW|INDEX a7b6 4", "meta": {"index": 4, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX UKAh 3", "answer": "A", "fact_group": "RAW|INDEX UKAh 3", "canonical": "RAW|INDEX UKAh 3", "meta": {"index": 3, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX \\8,dN 5", "answer": "N", "fact_group": "RAW|INDEX \\8,dN 5", "canonical": "RAW|INDEX \\8,dN 5", "meta": {"index": 5, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX /!a^ 3", "answer": "a", "fact_group": "RAW|INDEX /!a^ 3", "canonical": "RAW|INDEX /!a^ 3", "meta": {"index": 3, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX R7yD 4", "answer": "D", "fact_group": "RAW|INDEX R7yD 4", "canonical": "RAW|INDEX R7yD 4", "meta": {"index": 4, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX .t`XF 5", "answer": "F", "fact_group": "RAW|INDEX .t`XF 5", "canonical": "RAW|INDEX .t`XF 5", "meta": {"index": 5, "length": 5}}
+{"task": "A6_index", "prompt": "INDEX pM/*45 1", "answer": "p", "fact_group": "RAW|INDEX pM/*45 1", "canonical": "RAW|INDEX pM/*45 1", "meta": {"index": 1, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX /oi~_d 2", "answer": "o", "fact_group": "RAW|INDEX /oi~_d 2", "canonical": "RAW|INDEX /oi~_d 2", "meta": {"index": 2, "length": 6}}
+{"task": "A6_index", "prompt": "INDEX V_yP 4", "answer": "P", "fact_group": "RAW|INDEX V_yP 4", "canonical": "RAW|INDEX V_yP 4", "meta": {"index": 4, "length": 4}}
+{"task": "A6_index", "prompt": "INDEX !+GfGV 5", "answer": "G", "fact_group": "RAW|INDEX !+GfGV 5", "canonical": "RAW|INDEX !+GfGV 5", "meta": {"index": 5, "length": 6}}
+{"task": "B2_bind", "prompt": "p=7\nf=0\nGET p", "answer": "7", "fact_group": "f=0|p=7|GET:p", "canonical": "f=0|p=7|GET:p", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "a=0\nh=7\nGET h", "answer": "7", "fact_group": "a=0|h=7|GET:h", "canonical": "a=0|h=7|GET:h", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "d=3\ne=3\nGET d", "answer": "3", "fact_group": "d=3|e=3|GET:d", "canonical": "d=3|e=3|GET:d", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "c=4\nm=0\nGET c", "answer": "4", "fact_group": "c=4|m=0|GET:c", "canonical": "c=4|m=0|GET:c", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "g=5\nn=5\nGET n", "answer": "5", "fact_group": "g=5|n=5|GET:n", "canonical": "g=5|n=5|GET:n", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "k=9\nl=0\nGET l", "answer": "0", "fact_group": "k=9|l=0|GET:l", "canonical": "k=9|l=0|GET:l", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "l=8\ng=4\nGET l", "answer": "8", "fact_group": "g=4|l=8|GET:l", "canonical": "g=4|l=8|GET:l", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "d=3\nk=7\nGET d", "answer": "3", "fact_group": "d=3|k=7|GET:d", "canonical": "d=3|k=7|GET:d", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "d=9\no=7\nGET d", "answer": "9", "fact_group": "d=9|o=7|GET:d", "canonical": "d=9|o=7|GET:d", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "l=6\ne=0\nGET l", "answer": "6", "fact_group": "e=0|l=6|GET:l", "canonical": "e=0|l=6|GET:l", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "f=6\na=4\nGET f", "answer": "6", "fact_group": "a=4|f=6|GET:f", "canonical": "a=4|f=6|GET:f", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "i=8\nd=5\nGET i", "answer": "8", "fact_group": "d=5|i=8|GET:i", "canonical": "d=5|i=8|GET:i", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "k=1\nl=5\nGET l", "answer": "5", "fact_group": "k=1|l=5|GET:l", "canonical": "k=1|l=5|GET:l", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "m=3\na=3\nGET a", "answer": "3", "fact_group": "a=3|m=3|GET:a", "canonical": "a=3|m=3|GET:a", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "b=2\nm=0\nGET b", "answer": "2", "fact_group": "b=2|m=0|GET:b", "canonical": "b=2|m=0|GET:b", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "a=3\nm=8\nGET a", "answer": "3", "fact_group": "a=3|m=8|GET:a", "canonical": "a=3|m=8|GET:a", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "k=2\nb=9\nGET k", "answer": "2", "fact_group": "b=9|k=2|GET:k", "canonical": "b=9|k=2|GET:k", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "d=3\nj=5\nGET d", "answer": "3", "fact_group": "d=3|j=5|GET:d", "canonical": "d=3|j=5|GET:d", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "o=9\na=9\nGET a", "answer": "9", "fact_group": "a=9|o=9|GET:a", "canonical": "a=9|o=9|GET:a", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "g=6\nb=5\nGET g", "answer": "6", "fact_group": "b=5|g=6|GET:g", "canonical": "b=5|g=6|GET:g", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "p=7\ne=5\nGET p", "answer": "7", "fact_group": "e=5|p=7|GET:p", "canonical": "e=5|p=7|GET:p", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "j=3\np=1\nGET j", "answer": "3", "fact_group": "j=3|p=1|GET:j", "canonical": "j=3|p=1|GET:j", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "p=0\nj=7\nGET j", "answer": "7", "fact_group": "j=7|p=0|GET:j", "canonical": "j=7|p=0|GET:j", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "j=7\nh=0\nGET h", "answer": "0", "fact_group": "h=0|j=7|GET:h", "canonical": "h=0|j=7|GET:h", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "i=9\nd=0\nGET d", "answer": "0", "fact_group": "d=0|i=9|GET:d", "canonical": "d=0|i=9|GET:d", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "h=4\nf=9\nGET f", "answer": "9", "fact_group": "f=9|h=4|GET:f", "canonical": "f=9|h=4|GET:f", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "e=1\nd=1\nGET d", "answer": "1", "fact_group": "d=1|e=1|GET:d", "canonical": "d=1|e=1|GET:d", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "p=9\nn=4\nGET n", "answer": "4", "fact_group": "n=4|p=9|GET:n", "canonical": "n=4|p=9|GET:n", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B2_bind", "prompt": "b=3\ng=4\nGET b", "answer": "3", "fact_group": "b=3|g=4|GET:b", "canonical": "b=3|g=4|GET:b", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "o=6\ni=8\nGET o", "answer": "6", "fact_group": "i=8|o=6|GET:o", "canonical": "i=8|o=6|GET:o", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "c=8\np=6\nGET c", "answer": "8", "fact_group": "c=8|p=6|GET:c", "canonical": "c=8|p=6|GET:c", "meta": {"n_vars": 2, "query_pos": 0}}
+{"task": "B2_bind", "prompt": "k=6\nl=2\nGET l", "answer": "2", "fact_group": "k=6|l=2|GET:l", "canonical": "k=6|l=2|GET:l", "meta": {"n_vars": 2, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "h=5\no=2\ng=3\np=1\nGET g", "answer": "3", "fact_group": "g=3|h=5|o=2|p=1|GET:g", "canonical": "g=3|h=5|o=2|p=1|GET:g", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "f=6\nl=5\nk=7\na=8\nGET l", "answer": "5", "fact_group": "a=8|f=6|k=7|l=5|GET:l", "canonical": "a=8|f=6|k=7|l=5|GET:l", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "n=9\nb=7\ni=4\nd=2\nGET i", "answer": "4", "fact_group": "b=7|d=2|i=4|n=9|GET:i", "canonical": "b=7|d=2|i=4|n=9|GET:i", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "n=2\ne=2\np=7\nc=0\nGET n", "answer": "2", "fact_group": "c=0|e=2|n=2|p=7|GET:n", "canonical": "c=0|e=2|n=2|p=7|GET:n", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "m=6\ng=6\nc=5\nf=8\nGET m", "answer": "6", "fact_group": "c=5|f=8|g=6|m=6|GET:m", "canonical": "c=5|f=8|g=6|m=6|GET:m", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "k=2\np=8\nj=8\ng=3\nGET g", "answer": "3", "fact_group": "g=3|j=8|k=2|p=8|GET:g", "canonical": "g=3|j=8|k=2|p=8|GET:g", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "n=3\np=0\ng=1\ni=3\nGET n", "answer": "3", "fact_group": "g=1|i=3|n=3|p=0|GET:n", "canonical": "g=1|i=3|n=3|p=0|GET:n", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "o=4\nh=0\np=6\nf=2\nGET o", "answer": "4", "fact_group": "f=2|h=0|o=4|p=6|GET:o", "canonical": "f=2|h=0|o=4|p=6|GET:o", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "c=7\ni=8\nn=4\nf=4\nGET n", "answer": "4", "fact_group": "c=7|f=4|i=8|n=4|GET:n", "canonical": "c=7|f=4|i=8|n=4|GET:n", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "d=2\no=7\nc=8\ne=9\nGET o", "answer": "7", "fact_group": "c=8|d=2|e=9|o=7|GET:o", "canonical": "c=8|d=2|e=9|o=7|GET:o", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "k=9\no=1\na=7\nd=2\nGET a", "answer": "7", "fact_group": "a=7|d=2|k=9|o=1|GET:a", "canonical": "a=7|d=2|k=9|o=1|GET:a", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "h=8\ni=3\ng=7\nn=8\nGET i", "answer": "3", "fact_group": "g=7|h=8|i=3|n=8|GET:i", "canonical": "g=7|h=8|i=3|n=8|GET:i", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "g=4\nl=6\nk=8\nc=2\nGET l", "answer": "6", "fact_group": "c=2|g=4|k=8|l=6|GET:l", "canonical": "c=2|g=4|k=8|l=6|GET:l", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "e=2\nl=3\nb=1\np=2\nGET e", "answer": "2", "fact_group": "b=1|e=2|l=3|p=2|GET:e", "canonical": "b=1|e=2|l=3|p=2|GET:e", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "l=0\ng=7\nc=3\nf=0\nGET f", "answer": "0", "fact_group": "c=3|f=0|g=7|l=0|GET:f", "canonical": "c=3|f=0|g=7|l=0|GET:f", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "j=0\ng=2\nk=2\ni=8\nGET j", "answer": "0", "fact_group": "g=2|i=8|j=0|k=2|GET:j", "canonical": "g=2|i=8|j=0|k=2|GET:j", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "e=2\nm=1\na=2\nf=7\nGET a", "answer": "2", "fact_group": "a=2|e=2|f=7|m=1|GET:a", "canonical": "a=2|e=2|f=7|m=1|GET:a", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "d=2\nb=2\ni=1\na=1\nGET b", "answer": "2", "fact_group": "a=1|b=2|d=2|i=1|GET:b", "canonical": "a=1|b=2|d=2|i=1|GET:b", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "j=1\ng=1\nm=6\np=7\nGET p", "answer": "7", "fact_group": "g=1|j=1|m=6|p=7|GET:p", "canonical": "g=1|j=1|m=6|p=7|GET:p", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "m=9\no=8\nh=2\nf=4\nGET f", "answer": "4", "fact_group": "f=4|h=2|m=9|o=8|GET:f", "canonical": "f=4|h=2|m=9|o=8|GET:f", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "j=5\ne=4\nk=1\nb=2\nGET e", "answer": "4", "fact_group": "b=2|e=4|j=5|k=1|GET:e", "canonical": "b=2|e=4|j=5|k=1|GET:e", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "m=8\np=9\nj=7\na=7\nGET j", "answer": "7", "fact_group": "a=7|j=7|m=8|p=9|GET:j", "canonical": "a=7|j=7|m=8|p=9|GET:j", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "g=1\na=1\nb=7\nk=6\nGET a", "answer": "1", "fact_group": "a=1|b=7|g=1|k=6|GET:a", "canonical": "a=1|b=7|g=1|k=6|GET:a", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B4_bind", "prompt": "p=9\ne=0\nf=4\nh=1\nGET f", "answer": "4", "fact_group": "e=0|f=4|h=1|p=9|GET:f", "canonical": "e=0|f=4|h=1|p=9|GET:f", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "g=2\nc=5\no=0\nm=5\nGET m", "answer": "5", "fact_group": "c=5|g=2|m=5|o=0|GET:m", "canonical": "c=5|g=2|m=5|o=0|GET:m", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "m=1\ni=4\nd=5\nk=6\nGET d", "answer": "5", "fact_group": "d=5|i=4|k=6|m=1|GET:d", "canonical": "d=5|i=4|k=6|m=1|GET:d", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "l=0\nc=2\nb=8\nj=1\nGET l", "answer": "0", "fact_group": "b=8|c=2|j=1|l=0|GET:l", "canonical": "b=8|c=2|j=1|l=0|GET:l", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "f=7\na=8\no=5\np=3\nGET f", "answer": "7", "fact_group": "a=8|f=7|o=5|p=3|GET:f", "canonical": "a=8|f=7|o=5|p=3|GET:f", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "n=4\nf=7\na=2\ng=2\nGET n", "answer": "4", "fact_group": "a=2|f=7|g=2|n=4|GET:n", "canonical": "a=2|f=7|g=2|n=4|GET:n", "meta": {"n_vars": 4, "query_pos": 0}}
+{"task": "B4_bind", "prompt": "o=1\nc=3\ne=1\nf=9\nGET f", "answer": "9", "fact_group": "c=3|e=1|f=9|o=1|GET:f", "canonical": "c=3|e=1|f=9|o=1|GET:f", "meta": {"n_vars": 4, "query_pos": 3}}
+{"task": "B4_bind", "prompt": "l=1\na=3\nh=2\nj=0\nGET h", "answer": "2", "fact_group": "a=3|h=2|j=0|l=1|GET:h", "canonical": "a=3|h=2|j=0|l=1|GET:h", "meta": {"n_vars": 4, "query_pos": 2}}
+{"task": "B4_bind", "prompt": "c=8\nb=7\nd=6\nn=7\nGET b", "answer": "7", "fact_group": "b=7|c=8|d=6|n=7|GET:b", "canonical": "b=7|c=8|d=6|n=7|GET:b", "meta": {"n_vars": 4, "query_pos": 1}}
+{"task": "B8_bind", "prompt": "o=2\nm=6\np=1\nd=7\nc=7\na=6\ng=7\ne=6\nGET d", "answer": "7", "fact_group": "a=6|c=7|d=7|e=6|g=7|m=6|o=2|p=1|GET:d", "canonical": "a=6|c=7|d=7|e=6|g=7|m=6|o=2|p=1|GET:d", "meta": {"n_vars": 8, "query_pos": 3}}
+{"task": "B8_bind", "prompt": "l=6\np=1\no=7\nf=6\nj=7\ng=0\nc=9\nd=5\nGET c", "answer": "9", "fact_group": "c=9|d=5|f=6|g=0|j=7|l=6|o=7|p=1|GET:c", "canonical": "c=9|d=5|f=6|g=0|j=7|l=6|o=7|p=1|GET:c", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "a=7\np=7\nk=2\nj=9\nf=6\ne=6\ng=3\nh=3\nGET h", "answer": "3", "fact_group": "a=7|e=6|f=6|g=3|h=3|j=9|k=2|p=7|GET:h", "canonical": "a=7|e=6|f=6|g=3|h=3|j=9|k=2|p=7|GET:h", "meta": {"n_vars": 8, "query_pos": 7}}
+{"task": "B8_bind", "prompt": "p=5\nm=6\nd=6\nh=8\ng=4\nf=9\nl=8\nj=6\nGET d", "answer": "6", "fact_group": "d=6|f=9|g=4|h=8|j=6|l=8|m=6|p=5|GET:d", "canonical": "d=6|f=9|g=4|h=8|j=6|l=8|m=6|p=5|GET:d", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "o=7\ni=0\ne=3\np=1\nh=3\na=5\nk=3\nj=2\nGET j", "answer": "2", "fact_group": "a=5|e=3|h=3|i=0|j=2|k=3|o=7|p=1|GET:j", "canonical": "a=5|e=3|h=3|i=0|j=2|k=3|o=7|p=1|GET:j", "meta": {"n_vars": 8, "query_pos": 7}}
+{"task": "B8_bind", "prompt": "a=8\nl=2\ne=9\nc=5\nb=5\nj=0\no=0\ng=3\nGET o", "answer": "0", "fact_group": "a=8|b=5|c=5|e=9|g=3|j=0|l=2|o=0|GET:o", "canonical": "a=8|b=5|c=5|e=9|g=3|j=0|l=2|o=0|GET:o", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "e=3\no=9\np=5\nj=4\nl=5\nf=0\nc=3\nn=2\nGET l", "answer": "5", "fact_group": "c=3|e=3|f=0|j=4|l=5|n=2|o=9|p=5|GET:l", "canonical": "c=3|e=3|f=0|j=4|l=5|n=2|o=9|p=5|GET:l", "meta": {"n_vars": 8, "query_pos": 4}}
+{"task": "B8_bind", "prompt": "f=6\np=2\nj=8\ng=9\na=4\nl=3\nh=5\nc=6\nGET a", "answer": "4", "fact_group": "a=4|c=6|f=6|g=9|h=5|j=8|l=3|p=2|GET:a", "canonical": "a=4|c=6|f=6|g=9|h=5|j=8|l=3|p=2|GET:a", "meta": {"n_vars": 8, "query_pos": 4}}
+{"task": "B8_bind", "prompt": "b=1\nm=7\ne=9\nj=0\na=4\nf=0\nc=0\ng=2\nGET m", "answer": "7", "fact_group": "a=4|b=1|c=0|e=9|f=0|g=2|j=0|m=7|GET:m", "canonical": "a=4|b=1|c=0|e=9|f=0|g=2|j=0|m=7|GET:m", "meta": {"n_vars": 8, "query_pos": 1}}
+{"task": "B8_bind", "prompt": "e=7\nh=6\no=7\nk=3\nn=4\nm=0\nj=8\nf=1\nGET n", "answer": "4", "fact_group": "e=7|f=1|h=6|j=8|k=3|m=0|n=4|o=7|GET:n", "canonical": "e=7|f=1|h=6|j=8|k=3|m=0|n=4|o=7|GET:n", "meta": {"n_vars": 8, "query_pos": 4}}
+{"task": "B8_bind", "prompt": "e=7\nf=3\nn=0\nb=8\nc=6\ni=9\no=2\na=9\nGET c", "answer": "6", "fact_group": "a=9|b=8|c=6|e=7|f=3|i=9|n=0|o=2|GET:c", "canonical": "a=9|b=8|c=6|e=7|f=3|i=9|n=0|o=2|GET:c", "meta": {"n_vars": 8, "query_pos": 4}}
+{"task": "B8_bind", "prompt": "h=4\nd=9\ni=6\nf=6\no=7\nl=7\nj=2\nc=1\nGET j", "answer": "2", "fact_group": "c=1|d=9|f=6|h=4|i=6|j=2|l=7|o=7|GET:j", "canonical": "c=1|d=9|f=6|h=4|i=6|j=2|l=7|o=7|GET:j", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "m=9\no=8\nc=7\nj=1\nk=2\nf=6\nh=9\ni=8\nGET c", "answer": "7", "fact_group": "c=7|f=6|h=9|i=8|j=1|k=2|m=9|o=8|GET:c", "canonical": "c=7|f=6|h=9|i=8|j=1|k=2|m=9|o=8|GET:c", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "d=7\np=9\nm=0\nl=0\nk=4\nb=2\ne=3\nf=4\nGET b", "answer": "2", "fact_group": "b=2|d=7|e=3|f=4|k=4|l=0|m=0|p=9|GET:b", "canonical": "b=2|d=7|e=3|f=4|k=4|l=0|m=0|p=9|GET:b", "meta": {"n_vars": 8, "query_pos": 5}}
+{"task": "B8_bind", "prompt": "g=6\ne=2\na=1\nl=3\nh=6\ni=0\nf=4\nc=0\nGET a", "answer": "1", "fact_group": "a=1|c=0|e=2|f=4|g=6|h=6|i=0|l=3|GET:a", "canonical": "a=1|c=0|e=2|f=4|g=6|h=6|i=0|l=3|GET:a", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "c=7\np=3\nm=0\ni=7\nk=3\nf=0\nh=1\ng=2\nGET m", "answer": "0", "fact_group": "c=7|f=0|g=2|h=1|i=7|k=3|m=0|p=3|GET:m", "canonical": "c=7|f=0|g=2|h=1|i=7|k=3|m=0|p=3|GET:m", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "l=1\no=3\nf=8\nd=4\na=6\nm=3\nc=0\nn=5\nGET o", "answer": "3", "fact_group": "a=6|c=0|d=4|f=8|l=1|m=3|n=5|o=3|GET:o", "canonical": "a=6|c=0|d=4|f=8|l=1|m=3|n=5|o=3|GET:o", "meta": {"n_vars": 8, "query_pos": 1}}
+{"task": "B8_bind", "prompt": "p=4\nb=0\nk=2\nf=1\ng=4\nd=6\nm=0\ne=0\nGET m", "answer": "0", "fact_group": "b=0|d=6|e=0|f=1|g=4|k=2|m=0|p=4|GET:m", "canonical": "b=0|d=6|e=0|f=1|g=4|k=2|m=0|p=4|GET:m", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "b=1\np=8\ng=8\nn=4\nd=4\nj=0\ne=2\nf=7\nGET n", "answer": "4", "fact_group": "b=1|d=4|e=2|f=7|g=8|j=0|n=4|p=8|GET:n", "canonical": "b=1|d=4|e=2|f=7|g=8|j=0|n=4|p=8|GET:n", "meta": {"n_vars": 8, "query_pos": 3}}
+{"task": "B8_bind", "prompt": "i=4\no=9\nh=0\na=6\nb=4\nj=8\nl=6\nm=9\nGET m", "answer": "9", "fact_group": "a=6|b=4|h=0|i=4|j=8|l=6|m=9|o=9|GET:m", "canonical": "a=6|b=4|h=0|i=4|j=8|l=6|m=9|o=9|GET:m", "meta": {"n_vars": 8, "query_pos": 7}}
+{"task": "B8_bind", "prompt": "i=2\nf=2\no=4\ng=6\nc=1\nl=1\ne=2\nd=9\nGET g", "answer": "6", "fact_group": "c=1|d=9|e=2|f=2|g=6|i=2|l=1|o=4|GET:g", "canonical": "c=1|d=9|e=2|f=2|g=6|i=2|l=1|o=4|GET:g", "meta": {"n_vars": 8, "query_pos": 3}}
+{"task": "B8_bind", "prompt": "k=7\nl=5\nm=1\nn=2\nb=9\na=7\ng=9\np=1\nGET m", "answer": "1", "fact_group": "a=7|b=9|g=9|k=7|l=5|m=1|n=2|p=1|GET:m", "canonical": "a=7|b=9|g=9|k=7|l=5|m=1|n=2|p=1|GET:m", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "e=2\nk=8\np=2\nl=6\nf=0\ni=9\ng=8\nn=3\nGET i", "answer": "9", "fact_group": "e=2|f=0|g=8|i=9|k=8|l=6|n=3|p=2|GET:i", "canonical": "e=2|f=0|g=8|i=9|k=8|l=6|n=3|p=2|GET:i", "meta": {"n_vars": 8, "query_pos": 5}}
+{"task": "B8_bind", "prompt": "k=1\nb=0\ng=2\na=4\ne=0\nc=7\no=3\nj=9\nGET g", "answer": "2", "fact_group": "a=4|b=0|c=7|e=0|g=2|j=9|k=1|o=3|GET:g", "canonical": "a=4|b=0|c=7|e=0|g=2|j=9|k=1|o=3|GET:g", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "h=3\nb=7\ne=0\nm=8\nd=4\nk=9\nl=8\na=3\nGET l", "answer": "8", "fact_group": "a=3|b=7|d=4|e=0|h=3|k=9|l=8|m=8|GET:l", "canonical": "a=3|b=7|d=4|e=0|h=3|k=9|l=8|m=8|GET:l", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "j=7\na=6\ni=0\np=4\nn=2\nf=0\nm=1\nc=9\nGET i", "answer": "0", "fact_group": "a=6|c=9|f=0|i=0|j=7|m=1|n=2|p=4|GET:i", "canonical": "a=6|c=9|f=0|i=0|j=7|m=1|n=2|p=4|GET:i", "meta": {"n_vars": 8, "query_pos": 2}}
+{"task": "B8_bind", "prompt": "k=2\no=1\nf=5\nd=3\ne=0\na=2\nc=9\nn=0\nGET c", "answer": "9", "fact_group": "a=2|c=9|d=3|e=0|f=5|k=2|n=0|o=1|GET:c", "canonical": "a=2|c=9|d=3|e=0|f=5|k=2|n=0|o=1|GET:c", "meta": {"n_vars": 8, "query_pos": 6}}
+{"task": "B8_bind", "prompt": "m=4\np=7\na=3\ne=7\nc=4\ng=3\nh=3\nj=6\nGET e", "answer": "7", "fact_group": "a=3|c=4|e=7|g=3|h=3|j=6|m=4|p=7|GET:e", "canonical": "a=3|c=4|e=7|g=3|h=3|j=6|m=4|p=7|GET:e", "meta": {"n_vars": 8, "query_pos": 3}}
+{"task": "B8_bind", "prompt": "o=5\ne=2\nf=1\nb=6\nk=6\nh=7\nj=5\nm=4\nGET o", "answer": "5", "fact_group": "b=6|e=2|f=1|h=7|j=5|k=6|m=4|o=5|GET:o", "canonical": "b=6|e=2|f=1|h=7|j=5|k=6|m=4|o=5|GET:o", "meta": {"n_vars": 8, "query_pos": 0}}
+{"task": "B8_bind", "prompt": "k=4\ne=6\nm=8\np=5\nc=3\na=0\ng=8\no=3\nGET k", "answer": "4", "fact_group": "a=0|c=3|e=6|g=8|k=4|m=8|o=3|p=5|GET:k", "canonical": "a=0|c=3|e=6|g=8|k=4|m=8|o=3|p=5|GET:k", "meta": {"n_vars": 8, "query_pos": 0}}
+{"task": "B8_bind", "prompt": "d=6\nb=7\ne=7\ni=2\ng=7\nn=9\nf=9\np=7\nGET d", "answer": "6", "fact_group": "b=7|d=6|e=7|f=9|g=7|i=2|n=9|p=7|GET:d", "canonical": "b=7|d=6|e=7|f=9|g=7|i=2|n=9|p=7|GET:d", "meta": {"n_vars": 8, "query_pos": 0}}
+{"task": "B8_bind", "prompt": "i=4\nd=4\ne=0\na=5\nh=1\nm=6\ng=0\nj=7\nGET h", "answer": "1", "fact_group": "a=5|d=4|e=0|g=0|h=1|i=4|j=7|m=6|GET:h", "canonical": "a=5|d=4|e=0|g=0|h=1|i=4|j=7|m=6|GET:h", "meta": {"n_vars": 8, "query_pos": 4}}
+{"task": "B_rename", "prompt": "m=9\nm=4\ni=7\nm=0\nGET i", "answer": "7", "fact_group": "i=7|m=0|GET:i", "canonical": "i=7|m=0|GET:i", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "g=1\nk=5\ne=7\nk=0\nGET g", "answer": "1", "fact_group": "e=7|g=1|k=0|GET:g", "canonical": "e=7|g=1|k=0|GET:g", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "a=7\nf=0\nn=4\ne=0\nGET a", "answer": "7", "fact_group": "a=7|e=0|f=0|n=4|GET:a", "canonical": "a=7|e=0|f=0|n=4|GET:a", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "k=9\nh=3\nn=4\nj=0\nGET k", "answer": "9", "fact_group": "h=3|j=0|k=9|n=4|GET:k", "canonical": "h=3|j=0|k=9|n=4|GET:k", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "d=7\no=2\no=9\ng=7\nGET o", "answer": "9", "fact_group": "d=7|g=7|o=9|GET:o", "canonical": "d=7|g=7|o=9|GET:o", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "e=8\ne=9\np=5\nk=5\nGET e", "answer": "8", "fact_group": "e=9|k=5|p=5|GET:e", "canonical": "e=9|k=5|p=5|GET:e", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "m=7\nj=8\nb=5\nm=9\nGET j", "answer": "8", "fact_group": "b=5|j=8|m=9|GET:j", "canonical": "b=5|j=8|m=9|GET:j", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "b=7\nb=8\na=5\np=6\nGET b", "answer": "7", "fact_group": "a=5|b=8|p=6|GET:b", "canonical": "a=5|b=8|p=6|GET:b", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "a=8\nf=4\nh=6\nl=1\nGET f", "answer": "4", "fact_group": "a=8|f=4|h=6|l=1|GET:f", "canonical": "a=8|f=4|h=6|l=1|GET:f", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "j=0\nb=6\nk=8\nn=5\nGET j", "answer": "0", "fact_group": "b=6|j=0|k=8|n=5|GET:j", "canonical": "b=6|j=0|k=8|n=5|GET:j", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "f=2\nd=4\nb=2\nd=3\nGET d", "answer": "3", "fact_group": "b=2|d=3|f=2|GET:d", "canonical": "b=2|d=3|f=2|GET:d", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "g=9\na=8\nk=6\ne=1\nGET e", "answer": "1", "fact_group": "a=8|e=1|g=9|k=6|GET:e", "canonical": "a=8|e=1|g=9|k=6|GET:e", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "a=8\ng=0\na=6\nd=9\nGET d", "answer": "9", "fact_group": "a=6|d=9|g=0|GET:d", "canonical": "a=6|d=9|g=0|GET:d", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "h=5\nc=3\nc=2\no=2\nGET c", "answer": "2", "fact_group": "c=2|h=5|o=2|GET:c", "canonical": "c=2|h=5|o=2|GET:c", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "o=8\nm=2\nm=0\nd=9\nGET m", "answer": "0", "fact_group": "d=9|m=0|o=8|GET:m", "canonical": "d=9|m=0|o=8|GET:m", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "h=7\nj=4\np=0\nl=1\nGET h", "answer": "7", "fact_group": "h=7|j=4|l=1|p=0|GET:h", "canonical": "h=7|j=4|l=1|p=0|GET:h", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "l=7\nb=8\na=4\nj=2\nGET l", "answer": "7", "fact_group": "a=4|b=8|j=2|l=7|GET:l", "canonical": "a=4|b=8|j=2|l=7|GET:l", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "f=3\nj=6\no=7\nl=7\nGET j", "answer": "6", "fact_group": "f=3|j=6|l=7|o=7|GET:j", "canonical": "f=3|j=6|l=7|o=7|GET:j", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "g=6\ne=7\np=9\np=1\nGET g", "answer": "6", "fact_group": "e=7|g=6|p=1|GET:g", "canonical": "e=7|g=6|p=1|GET:g", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "p=5\ni=1\ne=5\nn=2\nGET p", "answer": "5", "fact_group": "e=5|i=1|n=2|p=5|GET:p", "canonical": "e=5|i=1|n=2|p=5|GET:p", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "d=8\ne=7\nd=4\nk=1\nGET e", "answer": "7", "fact_group": "d=4|e=7|k=1|GET:e", "canonical": "d=4|e=7|k=1|GET:e", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "c=7\nn=5\nk=0\nh=4\nGET c", "answer": "7", "fact_group": "c=7|h=4|k=0|n=5|GET:c", "canonical": "c=7|h=4|k=0|n=5|GET:c", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "p=5\nb=7\nd=6\no=7\nGET o", "answer": "7", "fact_group": "b=7|d=6|o=7|p=5|GET:o", "canonical": "b=7|d=6|o=7|p=5|GET:o", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "p=5\ne=1\ne=3\nh=6\nGET e", "answer": "1", "fact_group": "e=3|h=6|p=5|GET:e", "canonical": "e=3|h=6|p=5|GET:e", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "h=1\nh=8\nn=0\ng=3\nGET h", "answer": "1", "fact_group": "g=3|h=8|n=0|GET:h", "canonical": "g=3|h=8|n=0|GET:h", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "c=6\nc=9\nf=5\nd=0\nGET c", "answer": "9", "fact_group": "c=9|d=0|f=5|GET:c", "canonical": "c=9|d=0|f=5|GET:c", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "o=2\nd=2\nn=2\ne=4\nGET d", "answer": "2", "fact_group": "d=2|e=4|n=2|o=2|GET:d", "canonical": "d=2|e=4|n=2|o=2|GET:d", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "k=7\nn=4\nb=8\nj=7\nGET k", "answer": "7", "fact_group": "b=8|j=7|k=7|n=4|GET:k", "canonical": "b=8|j=7|k=7|n=4|GET:k", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "f=4\nn=9\nk=5\nl=0\nGET n", "answer": "9", "fact_group": "f=4|k=5|l=0|n=9|GET:n", "canonical": "f=4|k=5|l=0|n=9|GET:n", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "d=3\nl=1\nj=3\no=0\nGET j", "answer": "3", "fact_group": "d=3|j=3|l=1|o=0|GET:j", "canonical": "d=3|j=3|l=1|o=0|GET:j", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "o=4\ng=5\no=1\nl=8\nGET l", "answer": "8", "fact_group": "g=5|l=8|o=1|GET:l", "canonical": "g=5|l=8|o=1|GET:l", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "B_rename", "prompt": "i=4\ni=0\nj=8\nl=3\nGET l", "answer": "3", "fact_group": "i=0|j=8|l=3|GET:l", "canonical": "i=0|j=8|l=3|GET:l", "meta": {"n_vars": 4, "renamed": true}}
+{"task": "C_history_current", "prompt": "j=9\nc=5\nm=4\nf=2\nj=0\nGET j", "answer": "0", "fact_group": "c=5|f=2|j=0|m=4|GET:j", "canonical": "c=5|f=2|j=0|m=4|GET:j", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "e=6\na=5\ng=6\nf=0\ne=4\nGET e", "answer": "4", "fact_group": "a=5|e=4|f=0|g=6|GET:e", "canonical": "a=5|e=4|f=0|g=6|GET:e", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "f=2\nm=4\nl=2\na=7\nf=1\nGET f", "answer": "1", "fact_group": "a=7|f=1|l=2|m=4|GET:f", "canonical": "a=7|f=1|l=2|m=4|GET:f", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "k=8\nm=2\ni=2\np=1\nk=0\nGET k", "answer": "0", "fact_group": "i=2|k=0|m=2|p=1|GET:k", "canonical": "i=2|k=0|m=2|p=1|GET:k", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "e=4\nh=5\nc=2\nj=2\ne=2\nGET e", "answer": "2", "fact_group": "c=2|e=2|h=5|j=2|GET:e", "canonical": "c=2|e=2|h=5|j=2|GET:e", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "m=8\np=9\nn=1\no=5\nm=1\nGET m", "answer": "1", "fact_group": "m=1|n=1|o=5|p=9|GET:m", "canonical": "m=1|n=1|o=5|p=9|GET:m", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "n=0\nk=8\nf=1\ne=4\nn=4\nGET n", "answer": "4", "fact_group": "e=4|f=1|k=8|n=4|GET:n", "canonical": "e=4|f=1|k=8|n=4|GET:n", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "f=0\nc=7\ng=5\ni=7\nf=5\nGET f", "answer": "5", "fact_group": "c=7|f=5|g=5|i=7|GET:f", "canonical": "c=7|f=5|g=5|i=7|GET:f", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "p=8\nk=0\nf=7\na=1\np=7\nGET p", "answer": "7", "fact_group": "a=1|f=7|k=0|p=7|GET:p", "canonical": "a=1|f=7|k=0|p=7|GET:p", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "h=7\nf=4\nb=2\nc=6\nh=8\nGET h", "answer": "8", "fact_group": "b=2|c=6|f=4|h=8|GET:h", "canonical": "b=2|c=6|f=4|h=8|GET:h", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "i=0\na=1\no=2\ng=3\ni=8\nGET i", "answer": "8", "fact_group": "a=1|g=3|i=8|o=2|GET:i", "canonical": "a=1|g=3|i=8|o=2|GET:i", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "i=1\np=3\na=7\nf=3\ni=2\nGET i", "answer": "2", "fact_group": "a=7|f=3|i=2|p=3|GET:i", "canonical": "a=7|f=3|i=2|p=3|GET:i", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "e=9\nb=3\nm=3\na=3\ne=8\nGET e", "answer": "8", "fact_group": "a=3|b=3|e=8|m=3|GET:e", "canonical": "a=3|b=3|e=8|m=3|GET:e", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "h=4\nm=8\ng=0\ne=5\nh=5\nGET h", "answer": "5", "fact_group": "e=5|g=0|h=5|m=8|GET:h", "canonical": "e=5|g=0|h=5|m=8|GET:h", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "g=5\nn=8\ni=1\nk=0\ng=0\nGET g", "answer": "0", "fact_group": "g=0|i=1|k=0|n=8|GET:g", "canonical": "g=0|i=1|k=0|n=8|GET:g", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "o=0\nf=8\np=0\nk=1\no=1\nGET o", "answer": "1", "fact_group": "f=8|k=1|o=1|p=0|GET:o", "canonical": "f=8|k=1|o=1|p=0|GET:o", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "m=6\no=5\nn=8\na=1\nm=5\nGET m", "answer": "5", "fact_group": "a=1|m=5|n=8|o=5|GET:m", "canonical": "a=1|m=5|n=8|o=5|GET:m", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "l=3\no=3\ni=8\nh=4\nl=1\nGET l", "answer": "1", "fact_group": "h=4|i=8|l=1|o=3|GET:l", "canonical": "h=4|i=8|l=1|o=3|GET:l", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "o=4\nj=3\na=8\nf=3\no=8\nGET o", "answer": "8", "fact_group": "a=8|f=3|j=3|o=8|GET:o", "canonical": "a=8|f=3|j=3|o=8|GET:o", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "n=2\ni=7\nc=2\nd=7\nn=6\nGET n", "answer": "6", "fact_group": "c=2|d=7|i=7|n=6|GET:n", "canonical": "c=2|d=7|i=7|n=6|GET:n", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "k=8\nb=2\nn=4\no=8\nk=6\nGET k", "answer": "6", "fact_group": "b=2|k=6|n=4|o=8|GET:k", "canonical": "b=2|k=6|n=4|o=8|GET:k", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "c=0\nm=2\nj=0\no=5\nc=6\nGET c", "answer": "6", "fact_group": "c=6|j=0|m=2|o=5|GET:c", "canonical": "c=6|j=0|m=2|o=5|GET:c", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "m=2\np=2\nb=0\ne=1\nm=4\nGET m", "answer": "4", "fact_group": "b=0|e=1|m=4|p=2|GET:m", "canonical": "b=0|e=1|m=4|p=2|GET:m", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "c=8\nj=1\nm=8\nh=9\nc=0\nGET c", "answer": "0", "fact_group": "c=0|h=9|j=1|m=8|GET:c", "canonical": "c=0|h=9|j=1|m=8|GET:c", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "j=1\nc=0\np=8\na=7\nj=2\nGET j", "answer": "2", "fact_group": "a=7|c=0|j=2|p=8|GET:j", "canonical": "a=7|c=0|j=2|p=8|GET:j", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "h=7\nn=2\na=9\ni=3\nh=5\nGET h", "answer": "5", "fact_group": "a=9|h=5|i=3|n=2|GET:h", "canonical": "a=9|h=5|i=3|n=2|GET:h", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "k=1\nl=6\nm=0\ng=7\nk=9\nGET k", "answer": "9", "fact_group": "g=7|k=9|l=6|m=0|GET:k", "canonical": "g=7|k=9|l=6|m=0|GET:k", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "p=0\nl=6\nb=7\ng=9\np=2\nGET p", "answer": "2", "fact_group": "b=7|g=9|l=6|p=2|GET:p", "canonical": "b=7|g=9|l=6|p=2|GET:p", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "n=1\nf=8\nm=6\nk=8\nn=6\nGET n", "answer": "6", "fact_group": "f=8|k=8|m=6|n=6|GET:n", "canonical": "f=8|k=8|m=6|n=6|GET:n", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "p=0\ne=3\nm=1\nj=8\np=3\nGET p", "answer": "3", "fact_group": "e=3|j=8|m=1|p=3|GET:p", "canonical": "e=3|j=8|m=1|p=3|GET:p", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "k=9\nb=7\nd=8\nm=9\nk=2\nGET k", "answer": "2", "fact_group": "b=7|d=8|k=2|m=9|GET:k", "canonical": "b=7|d=8|k=2|m=9|GET:k", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_history_current", "prompt": "p=5\na=4\nh=9\nf=2\np=3\nGET p", "answer": "3", "fact_group": "a=4|f=2|h=9|p=3|GET:p", "canonical": "a=4|f=2|h=9|p=3|GET:p", "meta": {"n_vars": 4, "current": true}}
+{"task": "C_reassign", "prompt": "o=3\ne=8\nj=8\nd=1\no=0\nGET o", "answer": "0", "fact_group": "d=1|e=8|j=8|o=0|GET:o", "canonical": "d=1|e=8|j=8|o=0|GET:o", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "c=8\nh=4\nj=0\nd=7\nc=8\nGET c", "answer": "8", "fact_group": "c=8|d=7|h=4|j=0|GET:c", "canonical": "c=8|d=7|h=4|j=0|GET:c", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "m=1\nc=5\np=0\no=3\nm=7\nGET m", "answer": "7", "fact_group": "c=5|m=7|o=3|p=0|GET:m", "canonical": "c=5|m=7|o=3|p=0|GET:m", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "l=9\nm=8\na=5\nk=0\nl=8\nGET l", "answer": "8", "fact_group": "a=5|k=0|l=8|m=8|GET:l", "canonical": "a=5|k=0|l=8|m=8|GET:l", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "k=1\nb=7\ne=1\na=5\nk=7\nGET k", "answer": "7", "fact_group": "a=5|b=7|e=1|k=7|GET:k", "canonical": "a=5|b=7|e=1|k=7|GET:k", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "o=2\nb=9\nl=8\na=3\no=0\nGET o", "answer": "0", "fact_group": "a=3|b=9|l=8|o=0|GET:o", "canonical": "a=3|b=9|l=8|o=0|GET:o", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "h=0\nd=0\nm=9\nk=7\nh=8\nGET h", "answer": "8", "fact_group": "d=0|h=8|k=7|m=9|GET:h", "canonical": "d=0|h=8|k=7|m=9|GET:h", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "a=7\nm=5\nj=3\nb=7\na=9\nGET a", "answer": "9", "fact_group": "a=9|b=7|j=3|m=5|GET:a", "canonical": "a=9|b=7|j=3|m=5|GET:a", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "k=4\np=0\nm=1\na=7\nk=5\nGET k", "answer": "5", "fact_group": "a=7|k=5|m=1|p=0|GET:k", "canonical": "a=7|k=5|m=1|p=0|GET:k", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "m=8\ng=0\nl=0\no=7\nm=6\nGET m", "answer": "6", "fact_group": "g=0|l=0|m=6|o=7|GET:m", "canonical": "g=0|l=0|m=6|o=7|GET:m", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "g=8\no=6\nd=8\nn=6\ng=0\nGET g", "answer": "0", "fact_group": "d=8|g=0|n=6|o=6|GET:g", "canonical": "d=8|g=0|n=6|o=6|GET:g", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "d=3\nk=3\ng=5\na=1\nd=7\nGET d", "answer": "7", "fact_group": "a=1|d=7|g=5|k=3|GET:d", "canonical": "a=1|d=7|g=5|k=3|GET:d", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "a=9\nn=9\nh=5\nf=6\na=4\nGET a", "answer": "4", "fact_group": "a=4|f=6|h=5|n=9|GET:a", "canonical": "a=4|f=6|h=5|n=9|GET:a", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "g=6\np=1\nh=5\ne=4\ng=7\nGET g", "answer": "7", "fact_group": "e=4|g=7|h=5|p=1|GET:g", "canonical": "e=4|g=7|h=5|p=1|GET:g", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "c=7\np=0\nl=6\nm=2\nc=9\nGET c", "answer": "9", "fact_group": "c=9|l=6|m=2|p=0|GET:c", "canonical": "c=9|l=6|m=2|p=0|GET:c", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "n=5\ni=3\nc=1\nf=2\nn=5\nGET n", "answer": "5", "fact_group": "c=1|f=2|i=3|n=5|GET:n", "canonical": "c=1|f=2|i=3|n=5|GET:n", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "a=9\nk=0\nc=8\nf=8\na=4\nGET a", "answer": "4", "fact_group": "a=4|c=8|f=8|k=0|GET:a", "canonical": "a=4|c=8|f=8|k=0|GET:a", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "a=9\ni=1\nh=3\no=0\na=5\nGET a", "answer": "5", "fact_group": "a=5|h=3|i=1|o=0|GET:a", "canonical": "a=5|h=3|i=1|o=0|GET:a", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "o=9\nd=8\nj=4\ng=3\no=0\nGET o", "answer": "0", "fact_group": "d=8|g=3|j=4|o=0|GET:o", "canonical": "d=8|g=3|j=4|o=0|GET:o", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "f=2\nc=4\no=1\ng=9\nf=2\nGET f", "answer": "2", "fact_group": "c=4|f=2|g=9|o=1|GET:f", "canonical": "c=4|f=2|g=9|o=1|GET:f", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "j=4\nf=4\na=8\nk=3\nj=5\nGET j", "answer": "5", "fact_group": "a=8|f=4|j=5|k=3|GET:j", "canonical": "a=8|f=4|j=5|k=3|GET:j", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "i=3\nf=9\nh=6\nl=0\ni=4\nGET i", "answer": "4", "fact_group": "f=9|h=6|i=4|l=0|GET:i", "canonical": "f=9|h=6|i=4|l=0|GET:i", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "g=6\nb=4\nl=7\ni=7\ng=7\nGET g", "answer": "7", "fact_group": "b=4|g=7|i=7|l=7|GET:g", "canonical": "b=4|g=7|i=7|l=7|GET:g", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "l=9\no=0\nc=6\nj=2\nl=3\nGET l", "answer": "3", "fact_group": "c=6|j=2|l=3|o=0|GET:l", "canonical": "c=6|j=2|l=3|o=0|GET:l", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "b=5\np=8\ng=0\ne=9\nb=0\nGET b", "answer": "0", "fact_group": "b=0|e=9|g=0|p=8|GET:b", "canonical": "b=0|e=9|g=0|p=8|GET:b", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "n=5\nf=7\nm=1\nh=5\nn=7\nGET n", "answer": "7", "fact_group": "f=7|h=5|m=1|n=7|GET:n", "canonical": "f=7|h=5|m=1|n=7|GET:n", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "g=6\nf=8\nb=9\nl=9\ng=8\nGET g", "answer": "8", "fact_group": "b=9|f=8|g=8|l=9|GET:g", "canonical": "b=9|f=8|g=8|l=9|GET:g", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "b=4\np=1\nn=0\no=5\nb=7\nGET b", "answer": "7", "fact_group": "b=7|n=0|o=5|p=1|GET:b", "canonical": "b=7|n=0|o=5|p=1|GET:b", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "c=9\nf=0\nb=8\nl=7\nc=8\nGET c", "answer": "8", "fact_group": "b=8|c=8|f=0|l=7|GET:c", "canonical": "b=8|c=8|f=0|l=7|GET:c", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "h=3\nf=2\na=0\ne=8\nh=6\nGET h", "answer": "6", "fact_group": "a=0|e=8|f=2|h=6|GET:h", "canonical": "a=0|e=8|f=2|h=6|GET:h", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "d=9\nc=2\nj=0\np=2\nd=4\nGET d", "answer": "4", "fact_group": "c=2|d=4|j=0|p=2|GET:d", "canonical": "c=2|d=4|j=0|p=2|GET:d", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_reassign", "prompt": "d=1\ni=9\na=2\ng=4\nd=5\nGET d", "answer": "5", "fact_group": "a=2|d=5|g=4|i=9|GET:d", "canonical": "a=2|d=5|g=4|i=9|GET:d", "meta": {"n_vars": 5, "reassign": true}}
+{"task": "C_indirect", "prompt": "l=6\ni=5\np=6\nk=0\nGET l", "answer": "6", "fact_group": "i=5|k=0|l=6|p=6|GET:l", "canonical": "i=5|k=0|l=6|p=6|GET:l", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "f=7\nm=8\nd=1\nc=4\nGET f", "answer": "7", "fact_group": "c=4|d=1|f=7|m=8|GET:f", "canonical": "c=4|d=1|f=7|m=8|GET:f", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "f=7\nh=7\na=7\nj=8\nGET f", "answer": "7", "fact_group": "a=7|f=7|h=7|j=8|GET:f", "canonical": "a=7|f=7|h=7|j=8|GET:f", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "d=3\nc=4\no=3\np=0\nGET d", "answer": "3", "fact_group": "c=4|d=3|o=3|p=0|GET:d", "canonical": "c=4|d=3|o=3|p=0|GET:d", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "g=6\nf=4\nn=9\nj=2\nGET g", "answer": "6", "fact_group": "f=4|g=6|j=2|n=9|GET:g", "canonical": "f=4|g=6|j=2|n=9|GET:g", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=0\nk=1\ni=7\nd=4\nGET c", "answer": "0", "fact_group": "c=0|d=4|i=7|k=1|GET:c", "canonical": "c=0|d=4|i=7|k=1|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=4\nb=0\nm=9\nk=2\nGET c", "answer": "4", "fact_group": "b=0|c=4|k=2|m=9|GET:c", "canonical": "b=0|c=4|k=2|m=9|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "a=9\ni=4\ng=3\nm=5\nGET a", "answer": "9", "fact_group": "a=9|g=3|i=4|m=5|GET:a", "canonical": "a=9|g=3|i=4|m=5|GET:a", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "k=8\ne=1\na=0\nb=5\nGET k", "answer": "8", "fact_group": "a=0|b=5|e=1|k=8|GET:k", "canonical": "a=0|b=5|e=1|k=8|GET:k", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=4\nn=1\nb=9\na=9\nGET c", "answer": "4", "fact_group": "a=9|b=9|c=4|n=1|GET:c", "canonical": "a=9|b=9|c=4|n=1|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=7\nj=5\nb=0\nk=7\nGET c", "answer": "7", "fact_group": "b=0|c=7|j=5|k=7|GET:c", "canonical": "b=0|c=7|j=5|k=7|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=0\nn=9\nl=8\nh=3\nGET c", "answer": "0", "fact_group": "c=0|h=3|l=8|n=9|GET:c", "canonical": "c=0|h=3|l=8|n=9|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "o=7\nd=4\nl=1\nb=6\nGET o", "answer": "7", "fact_group": "b=6|d=4|l=1|o=7|GET:o", "canonical": "b=6|d=4|l=1|o=7|GET:o", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "e=7\nj=7\nl=8\nd=1\nGET e", "answer": "7", "fact_group": "d=1|e=7|j=7|l=8|GET:e", "canonical": "d=1|e=7|j=7|l=8|GET:e", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "f=3\nb=4\np=0\nh=8\nGET f", "answer": "3", "fact_group": "b=4|f=3|h=8|p=0|GET:f", "canonical": "b=4|f=3|h=8|p=0|GET:f", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "e=0\nb=4\nj=9\nd=6\nGET e", "answer": "0", "fact_group": "b=4|d=6|e=0|j=9|GET:e", "canonical": "b=4|d=6|e=0|j=9|GET:e", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "p=1\nc=9\no=4\ni=4\nGET p", "answer": "1", "fact_group": "c=9|i=4|o=4|p=1|GET:p", "canonical": "c=9|i=4|o=4|p=1|GET:p", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "f=0\ng=0\nb=6\nn=9\nGET f", "answer": "0", "fact_group": "b=6|f=0|g=0|n=9|GET:f", "canonical": "b=6|f=0|g=0|n=9|GET:f", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=9\nk=0\nh=6\nn=0\nGET c", "answer": "9", "fact_group": "c=9|h=6|k=0|n=0|GET:c", "canonical": "c=9|h=6|k=0|n=0|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=4\nn=2\na=0\nf=3\nGET c", "answer": "4", "fact_group": "a=0|c=4|f=3|n=2|GET:c", "canonical": "a=0|c=4|f=3|n=2|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "n=0\nh=5\nl=5\ng=5\nGET n", "answer": "0", "fact_group": "g=5|h=5|l=5|n=0|GET:n", "canonical": "g=5|h=5|l=5|n=0|GET:n", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "e=7\nf=1\nh=7\na=4\nGET e", "answer": "7", "fact_group": "a=4|e=7|f=1|h=7|GET:e", "canonical": "a=4|e=7|f=1|h=7|GET:e", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "k=4\nb=1\nn=4\nh=3\nGET k", "answer": "4", "fact_group": "b=1|h=3|k=4|n=4|GET:k", "canonical": "b=1|h=3|k=4|n=4|GET:k", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "a=6\nn=4\nb=5\nj=7\nGET a", "answer": "6", "fact_group": "a=6|b=5|j=7|n=4|GET:a", "canonical": "a=6|b=5|j=7|n=4|GET:a", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "d=4\nl=0\nj=3\nf=7\nGET d", "answer": "4", "fact_group": "d=4|f=7|j=3|l=0|GET:d", "canonical": "d=4|f=7|j=3|l=0|GET:d", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "p=3\nf=3\nb=7\na=2\nGET p", "answer": "3", "fact_group": "a=2|b=7|f=3|p=3|GET:p", "canonical": "a=2|b=7|f=3|p=3|GET:p", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "p=7\nd=7\ne=7\ni=9\nGET p", "answer": "7", "fact_group": "d=7|e=7|i=9|p=7|GET:p", "canonical": "d=7|e=7|i=9|p=7|GET:p", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "l=6\ng=2\ne=5\nk=4\nGET l", "answer": "6", "fact_group": "e=5|g=2|k=4|l=6|GET:l", "canonical": "e=5|g=2|k=4|l=6|GET:l", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "d=7\nc=7\nn=0\np=9\nGET d", "answer": "7", "fact_group": "c=7|d=7|n=0|p=9|GET:d", "canonical": "c=7|d=7|n=0|p=9|GET:d", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "c=3\nj=8\nm=4\ni=1\nGET c", "answer": "3", "fact_group": "c=3|i=1|j=8|m=4|GET:c", "canonical": "c=3|i=1|j=8|m=4|GET:c", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "j=4\nf=6\na=6\no=7\nGET j", "answer": "4", "fact_group": "a=6|f=6|j=4|o=7|GET:j", "canonical": "a=6|f=6|j=4|o=7|GET:j", "meta": {"indirect": true}}
+{"task": "C_indirect", "prompt": "b=5\nl=4\na=9\ni=3\nGET b", "answer": "5", "fact_group": "a=9|b=5|i=3|l=4|GET:b", "canonical": "a=9|b=5|i=3|l=4|GET:b", "meta": {"indirect": true}}
+{"task": "D_distance", "prompt": "k=4\na=2\nb=0\nf=3\nm=8\nd=1\np=5\nc=4\nGET p", "answer": "5", "fact_group": "a=2|b=0|c=4|d=1|f=3|k=4|m=8|p=5|GET:p", "canonical": "a=2|b=0|c=4|d=1|f=3|k=4|m=8|p=5|GET:p", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "m=5\ni=6\nl=9\nc=0\nf=9\np=1\nb=5\ne=7\nGET p", "answer": "1", "fact_group": "b=5|c=0|e=7|f=9|i=6|l=9|m=5|p=1|GET:p", "canonical": "b=5|c=0|e=7|f=9|i=6|l=9|m=5|p=1|GET:p", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "i=0\nm=6\na=9\ng=9\np=7\nj=5\nf=5\nh=5\nGET m", "answer": "6", "fact_group": "a=9|f=5|g=9|h=5|i=0|j=5|m=6|p=7|GET:m", "canonical": "a=9|f=5|g=9|h=5|i=0|j=5|m=6|p=7|GET:m", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "n=1\ng=8\ne=0\nb=4\no=5\nc=8\nh=5\ni=5\nGET i", "answer": "5", "fact_group": "b=4|c=8|e=0|g=8|h=5|i=5|n=1|o=5|GET:i", "canonical": "b=4|c=8|e=0|g=8|h=5|i=5|n=1|o=5|GET:i", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "f=4\nh=4\nl=6\ne=3\nj=6\nk=7\ng=3\no=5\nGET g", "answer": "3", "fact_group": "e=3|f=4|g=3|h=4|j=6|k=7|l=6|o=5|GET:g", "canonical": "e=3|f=4|g=3|h=4|j=6|k=7|l=6|o=5|GET:g", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "g=0\nc=1\nn=3\nj=6\np=5\ni=6\nm=7\nd=6\nGET j", "answer": "6", "fact_group": "c=1|d=6|g=0|i=6|j=6|m=7|n=3|p=5|GET:j", "canonical": "c=1|d=6|g=0|i=6|j=6|m=7|n=3|p=5|GET:j", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "g=6\nh=3\nd=3\nk=3\ne=8\nc=2\nl=1\na=2\nGET d", "answer": "3", "fact_group": "a=2|c=2|d=3|e=8|g=6|h=3|k=3|l=1|GET:d", "canonical": "a=2|c=2|d=3|e=8|g=6|h=3|k=3|l=1|GET:d", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "i=8\nb=8\nj=7\nl=2\nn=5\no=1\nk=3\nd=0\nGET i", "answer": "8", "fact_group": "b=8|d=0|i=8|j=7|k=3|l=2|n=5|o=1|GET:i", "canonical": "b=8|d=0|i=8|j=7|k=3|l=2|n=5|o=1|GET:i", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "l=8\no=3\nf=2\np=5\na=7\nm=6\nd=8\nk=7\nGET k", "answer": "7", "fact_group": "a=7|d=8|f=2|k=7|l=8|m=6|o=3|p=5|GET:k", "canonical": "a=7|d=8|f=2|k=7|l=8|m=6|o=3|p=5|GET:k", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "o=8\np=2\ne=2\nm=4\nc=5\nf=6\nk=8\nb=2\nGET c", "answer": "5", "fact_group": "b=2|c=5|e=2|f=6|k=8|m=4|o=8|p=2|GET:c", "canonical": "b=2|c=5|e=2|f=6|k=8|m=4|o=8|p=2|GET:c", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "b=6\np=7\nl=6\no=6\nm=4\nk=6\nj=7\na=0\nGET p", "answer": "7", "fact_group": "a=0|b=6|j=7|k=6|l=6|m=4|o=6|p=7|GET:p", "canonical": "a=0|b=6|j=7|k=6|l=6|m=4|o=6|p=7|GET:p", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "k=6\nm=1\na=4\nd=0\nj=7\no=8\nb=9\ni=4\nGET m", "answer": "1", "fact_group": "a=4|b=9|d=0|i=4|j=7|k=6|m=1|o=8|GET:m", "canonical": "a=4|b=9|d=0|i=4|j=7|k=6|m=1|o=8|GET:m", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "e=8\no=3\nh=3\nj=9\nm=9\np=9\nn=9\nf=1\nGET h", "answer": "3", "fact_group": "e=8|f=1|h=3|j=9|m=9|n=9|o=3|p=9|GET:h", "canonical": "e=8|f=1|h=3|j=9|m=9|n=9|o=3|p=9|GET:h", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "j=9\no=4\nk=5\nn=6\nGET j", "answer": "9", "fact_group": "j=9|k=5|n=6|o=4|GET:j", "canonical": "j=9|k=5|n=6|o=4|GET:j", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "j=3\np=6\na=8\ng=7\nk=5\nl=1\nh=7\nb=2\nGET h", "answer": "7", "fact_group": "a=8|b=2|g=7|h=7|j=3|k=5|l=1|p=6|GET:h", "canonical": "a=8|b=2|g=7|h=7|j=3|k=5|l=1|p=6|GET:h", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "i=0\no=5\nb=7\nl=8\ne=3\nc=1\nn=3\nd=5\nGET c", "answer": "1", "fact_group": "b=7|c=1|d=5|e=3|i=0|l=8|n=3|o=5|GET:c", "canonical": "b=7|c=1|d=5|e=3|i=0|l=8|n=3|o=5|GET:c", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "b=1\ne=0\nm=6\nd=4\nGET b", "answer": "1", "fact_group": "b=1|d=4|e=0|m=6|GET:b", "canonical": "b=1|d=4|e=0|m=6|GET:b", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "p=6\nj=5\nc=3\nh=5\nGET j", "answer": "5", "fact_group": "c=3|h=5|j=5|p=6|GET:j", "canonical": "c=3|h=5|j=5|p=6|GET:j", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "n=1\np=2\nl=5\na=8\nGET p", "answer": "2", "fact_group": "a=8|l=5|n=1|p=2|GET:p", "canonical": "a=8|l=5|n=1|p=2|GET:p", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "e=0\nn=8\nl=7\nh=9\ni=3\ng=8\nm=1\nk=9\nGET i", "answer": "3", "fact_group": "e=0|g=8|h=9|i=3|k=9|l=7|m=1|n=8|GET:i", "canonical": "e=0|g=8|h=9|i=3|k=9|l=7|m=1|n=8|GET:i", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "k=3\ni=2\nm=1\ne=9\nGET e", "answer": "9", "fact_group": "e=9|i=2|k=3|m=1|GET:e", "canonical": "e=9|i=2|k=3|m=1|GET:e", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "k=9\nh=3\na=6\ni=4\nGET i", "answer": "4", "fact_group": "a=6|h=3|i=4|k=9|GET:i", "canonical": "a=6|h=3|i=4|k=9|GET:i", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "d=9\ne=7\ni=7\nb=4\nGET i", "answer": "7", "fact_group": "b=4|d=9|e=7|i=7|GET:i", "canonical": "b=4|d=9|e=7|i=7|GET:i", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "n=4\ng=3\nj=0\nf=7\np=2\nd=4\nm=4\no=9\nGET j", "answer": "0", "fact_group": "d=4|f=7|g=3|j=0|m=4|n=4|o=9|p=2|GET:j", "canonical": "d=4|f=7|g=3|j=0|m=4|n=4|o=9|p=2|GET:j", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "c=4\nf=6\nm=1\ng=5\nGET f", "answer": "6", "fact_group": "c=4|f=6|g=5|m=1|GET:f", "canonical": "c=4|f=6|g=5|m=1|GET:f", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "i=5\nh=5\np=7\nc=3\nGET p", "answer": "7", "fact_group": "c=3|h=5|i=5|p=7|GET:p", "canonical": "c=3|h=5|i=5|p=7|GET:p", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "k=4\nj=3\np=3\nf=3\nm=2\nc=2\nh=4\nn=5\nGET m", "answer": "2", "fact_group": "c=2|f=3|h=4|j=3|k=4|m=2|n=5|p=3|GET:m", "canonical": "c=2|f=3|h=4|j=3|k=4|m=2|n=5|p=3|GET:m", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "m=5\nd=9\na=8\no=3\nn=8\ng=9\np=2\ni=8\nGET p", "answer": "2", "fact_group": "a=8|d=9|g=9|i=8|m=5|n=8|o=3|p=2|GET:p", "canonical": "a=8|d=9|g=9|i=8|m=5|n=8|o=3|p=2|GET:p", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "m=1\ni=9\ne=3\nd=6\nGET i", "answer": "9", "fact_group": "d=6|e=3|i=9|m=1|GET:i", "canonical": "d=6|e=3|i=9|m=1|GET:i", "meta": {"distance": 4, "in_dist": true}}
+{"task": "D_distance", "prompt": "i=4\nd=8\nj=9\np=9\nb=7\ne=1\nk=3\nn=6\nGET k", "answer": "3", "fact_group": "b=7|d=8|e=1|i=4|j=9|k=3|n=6|p=9|GET:k", "canonical": "b=7|d=8|e=1|i=4|j=9|k=3|n=6|p=9|GET:k", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "g=3\no=0\nc=3\ne=4\na=3\nf=9\ni=5\nn=0\nGET n", "answer": "0", "fact_group": "a=3|c=3|e=4|f=9|g=3|i=5|n=0|o=0|GET:n", "canonical": "a=3|c=3|e=4|f=9|g=3|i=5|n=0|o=0|GET:n", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_distance", "prompt": "g=8\nb=1\no=8\na=9\ne=9\np=5\nm=0\ni=0\nGET e", "answer": "9", "fact_group": "a=9|b=1|e=9|g=8|i=0|m=0|o=8|p=5|GET:e", "canonical": "a=9|b=1|e=9|g=8|i=0|m=0|o=8|p=5|GET:e", "meta": {"distance": 8, "in_dist": true}}
+{"task": "D_interference", "prompt": "o=0\nj=2\nl=0\nn=6\nh=9\ni=8\ne=7\nb=9\nGET i", "answer": "8", "fact_group": "b=9|e=7|h=9|i=8|j=2|l=0|n=6|o=0|GET:i", "canonical": "b=9|e=7|h=9|i=8|j=2|l=0|n=6|o=0|GET:i", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "k=3\nh=9\nd=2\no=8\nf=9\na=1\nb=4\ne=4\nGET b", "answer": "4", "fact_group": "a=1|b=4|d=2|e=4|f=9|h=9|k=3|o=8|GET:b", "canonical": "a=1|b=4|d=2|e=4|f=9|h=9|k=3|o=8|GET:b", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "i=9\ng=0\np=6\ne=5\nGET p", "answer": "6", "fact_group": "e=5|g=0|i=9|p=6|GET:p", "canonical": "e=5|g=0|i=9|p=6|GET:p", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "h=3\nm=4\np=4\nb=8\nk=7\na=3\nc=0\nn=1\nGET h", "answer": "3", "fact_group": "a=3|b=8|c=0|h=3|k=7|m=4|n=1|p=4|GET:h", "canonical": "a=3|b=8|c=0|h=3|k=7|m=4|n=1|p=4|GET:h", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "m=2\na=1\np=3\ng=8\ni=4\nl=1\nb=6\nj=7\nGET b", "answer": "6", "fact_group": "a=1|b=6|g=8|i=4|j=7|l=1|m=2|p=3|GET:b", "canonical": "a=1|b=6|g=8|i=4|j=7|l=1|m=2|p=3|GET:b", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "k=0\np=2\nb=3\nf=6\nGET k", "answer": "0", "fact_group": "b=3|f=6|k=0|p=2|GET:k", "canonical": "b=3|f=6|k=0|p=2|GET:k", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "o=9\na=9\ni=0\ng=1\nf=1\nh=3\nc=6\nb=1\nGET h", "answer": "3", "fact_group": "a=9|b=1|c=6|f=1|g=1|h=3|i=0|o=9|GET:h", "canonical": "a=9|b=1|c=6|f=1|g=1|h=3|i=0|o=9|GET:h", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "h=4\nl=7\na=5\ng=2\nGET h", "answer": "4", "fact_group": "a=5|g=2|h=4|l=7|GET:h", "canonical": "a=5|g=2|h=4|l=7|GET:h", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "m=7\nc=1\ne=3\nk=4\nGET k", "answer": "4", "fact_group": "c=1|e=3|k=4|m=7|GET:k", "canonical": "c=1|e=3|k=4|m=7|GET:k", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "c=3\nm=8\na=6\nb=5\nGET m", "answer": "8", "fact_group": "a=6|b=5|c=3|m=8|GET:m", "canonical": "a=6|b=5|c=3|m=8|GET:m", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "a=5\nj=7\nc=8\nh=6\nGET h", "answer": "6", "fact_group": "a=5|c=8|h=6|j=7|GET:h", "canonical": "a=5|c=8|h=6|j=7|GET:h", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "j=7\np=6\nh=6\nn=9\nGET n", "answer": "9", "fact_group": "h=6|j=7|n=9|p=6|GET:n", "canonical": "h=6|j=7|n=9|p=6|GET:n", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "o=1\nk=0\nb=6\nn=3\ni=5\nl=6\nc=7\np=7\nGET c", "answer": "7", "fact_group": "b=6|c=7|i=5|k=0|l=6|n=3|o=1|p=7|GET:c", "canonical": "b=6|c=7|i=5|k=0|l=6|n=3|o=1|p=7|GET:c", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "b=9\nc=9\ne=5\np=9\no=2\nm=8\nl=6\nn=6\nGET m", "answer": "8", "fact_group": "b=9|c=9|e=5|l=6|m=8|n=6|o=2|p=9|GET:m", "canonical": "b=9|c=9|e=5|l=6|m=8|n=6|o=2|p=9|GET:m", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "c=4\np=6\nk=9\na=6\ne=0\ng=1\nh=5\nm=5\nGET e", "answer": "0", "fact_group": "a=6|c=4|e=0|g=1|h=5|k=9|m=5|p=6|GET:e", "canonical": "a=6|c=4|e=0|g=1|h=5|k=9|m=5|p=6|GET:e", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "n=8\nh=5\ni=3\na=1\nGET h", "answer": "5", "fact_group": "a=1|h=5|i=3|n=8|GET:h", "canonical": "a=1|h=5|i=3|n=8|GET:h", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "f=7\nk=4\ng=3\nj=1\nGET f", "answer": "7", "fact_group": "f=7|g=3|j=1|k=4|GET:f", "canonical": "f=7|g=3|j=1|k=4|GET:f", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "n=3\nh=1\nk=8\nd=7\nGET d", "answer": "7", "fact_group": "d=7|h=1|k=8|n=3|GET:d", "canonical": "d=7|h=1|k=8|n=3|GET:d", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "g=3\nn=0\nf=2\nj=9\nGET n", "answer": "0", "fact_group": "f=2|g=3|j=9|n=0|GET:n", "canonical": "f=2|g=3|j=9|n=0|GET:n", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "k=5\nh=8\ne=6\ng=6\nGET k", "answer": "5", "fact_group": "e=6|g=6|h=8|k=5|GET:k", "canonical": "e=6|g=6|h=8|k=5|GET:k", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "f=0\na=6\no=2\np=4\nGET o", "answer": "2", "fact_group": "a=6|f=0|o=2|p=4|GET:o", "canonical": "a=6|f=0|o=2|p=4|GET:o", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "d=1\nl=5\nk=1\nm=2\nGET d", "answer": "1", "fact_group": "d=1|k=1|l=5|m=2|GET:d", "canonical": "d=1|k=1|l=5|m=2|GET:d", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "d=9\nh=6\ni=3\no=0\nf=8\nc=1\nk=0\ng=5\nGET i", "answer": "3", "fact_group": "c=1|d=9|f=8|g=5|h=6|i=3|k=0|o=0|GET:i", "canonical": "c=1|d=9|f=8|g=5|h=6|i=3|k=0|o=0|GET:i", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "j=4\nc=7\np=2\nk=0\na=4\ng=1\no=0\ni=8\nGET k", "answer": "0", "fact_group": "a=4|c=7|g=1|i=8|j=4|k=0|o=0|p=2|GET:k", "canonical": "a=4|c=7|g=1|i=8|j=4|k=0|o=0|p=2|GET:k", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "p=3\nm=0\no=7\ng=0\nj=3\nl=5\nc=1\ni=8\nGET g", "answer": "0", "fact_group": "c=1|g=0|i=8|j=3|l=5|m=0|o=7|p=3|GET:g", "canonical": "c=1|g=0|i=8|j=3|l=5|m=0|o=7|p=3|GET:g", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "a=7\nn=5\np=3\nh=3\nm=9\ne=5\nl=8\no=2\nGET m", "answer": "9", "fact_group": "a=7|e=5|h=3|l=8|m=9|n=5|o=2|p=3|GET:m", "canonical": "a=7|e=5|h=3|l=8|m=9|n=5|o=2|p=3|GET:m", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "n=1\ng=2\nc=1\nb=4\nd=2\no=9\nm=1\nj=9\nGET o", "answer": "9", "fact_group": "b=4|c=1|d=2|g=2|j=9|m=1|n=1|o=9|GET:o", "canonical": "b=4|c=1|d=2|g=2|j=9|m=1|n=1|o=9|GET:o", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "g=4\np=3\ni=8\nh=1\nGET i", "answer": "8", "fact_group": "g=4|h=1|i=8|p=3|GET:i", "canonical": "g=4|h=1|i=8|p=3|GET:i", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "p=9\nf=8\nj=6\nk=4\nm=1\nl=0\nc=2\ng=6\nGET g", "answer": "6", "fact_group": "c=2|f=8|g=6|j=6|k=4|l=0|m=1|p=9|GET:g", "canonical": "c=2|f=8|g=6|j=6|k=4|l=0|m=1|p=9|GET:g", "meta": {"n_vars": 8, "interference": true}}
+{"task": "D_interference", "prompt": "h=9\nf=7\nm=5\nl=5\nGET h", "answer": "9", "fact_group": "f=7|h=9|l=5|m=5|GET:h", "canonical": "f=7|h=9|l=5|m=5|GET:h", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "o=8\nn=6\ng=2\na=9\nGET o", "answer": "8", "fact_group": "a=9|g=2|n=6|o=8|GET:o", "canonical": "a=9|g=2|n=6|o=8|GET:o", "meta": {"n_vars": 4, "interference": true}}
+{"task": "D_interference", "prompt": "p=0\nd=5\nc=8\ng=5\nGET c", "answer": "8", "fact_group": "c=8|d=5|g=5|p=0|GET:c", "canonical": "c=8|d=5|g=5|p=0|GET:c", "meta": {"n_vars": 4, "interference": true}}

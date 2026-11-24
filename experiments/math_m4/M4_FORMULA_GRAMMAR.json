@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "allowed_operators": [
+    "Add",
+    "Dot",
+    "Gate",
+    "Gather",
+    "Hadamard",
+    "Input",
+    "KernelMap",
+    "LowRank",
+    "MatMul",
+    "Normalize",
+    "Outer",
+    "Projection",
+    "Reduce",
+    "Residual",
+    "Softmax",
+    "Subtract"
+  ],
+  "static_check": {
+    "op_count": 3,
+    "ops": [
+      "Input",
+      "MatMul",
+      "Softmax"
+    ],
+    "forbidden_ops": [],
+    "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+    "accesses_answer": false,
+    "executes_external_code": false,
+    "pass": true
+  },
+  "example_expr": "MatMul(Softmax(MatMul(Input(name=Q),Input(name=K))),Input(name=V))"
+}

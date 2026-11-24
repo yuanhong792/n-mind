@@ -1,0 +1,181 @@
+{
+  "status": "COMPLETE",
+  "max_candidates": 64,
+  "n_generated": 29,
+  "candidates": [
+    {
+      "id": "F01",
+      "tag": "softmax_ref",
+      "description": "标准 softmax 注意力（参考）",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F02",
+      "tag": "lowrank_score_r4",
+      "description": "对 score 矩阵做 rank-4 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=4)),Input(name=V))"
+    },
+    {
+      "id": "F03",
+      "tag": "lowrank_score_r8",
+      "description": "对 score 矩阵做 rank-8 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=8)),Input(name=V))"
+    },
+    {
+      "id": "F04",
+      "tag": "lowrank_score_r16",
+      "description": "对 score 矩阵做 rank-16 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=16)),Input(name=V))"
+    },
+    {
+      "id": "F05",
+      "tag": "lowrank_score_r32",
+      "description": "对 score 矩阵做 rank-32 SVD；注意不省 QK 乘法",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True),r=32)),Input(name=V))"
+    },
+    {
+      "id": "F06",
+      "tag": "lowrank_value_r4",
+      "description": "Value 降至 rank-4",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=4))"
+    },
+    {
+      "id": "F07",
+      "tag": "lowrank_value_r8",
+      "description": "Value 降至 rank-8",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=8))"
+    },
+    {
+      "id": "F08",
+      "tag": "lowrank_value_r16",
+      "description": "Value 降至 rank-16",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=16))"
+    },
+    {
+      "id": "F09",
+      "tag": "lowrank_value_r32",
+      "description": "Value 降至 rank-32",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),LowRank(Input(name=V),r=32))"
+    },
+    {
+      "id": "F10",
+      "tag": "kernel_qrelu_kraw",
+      "description": "Q 核=relu, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F11",
+      "tag": "kernel_qrelu_krelu",
+      "description": "Q 核=relu, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F12",
+      "tag": "kernel_qrelu_kelu1",
+      "description": "Q 核=relu, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=relu),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F13",
+      "tag": "kernel_qelu1_kraw",
+      "description": "Q 核=elu1, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F14",
+      "tag": "kernel_qelu1_krelu",
+      "description": "Q 核=elu1, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F15",
+      "tag": "kernel_qelu1_kelu1",
+      "description": "Q 核=elu1, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=elu1),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F16",
+      "tag": "kernel_qtanh_kraw",
+      "description": "Q 核=tanh, K 核=raw",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),Input(name=K),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F17",
+      "tag": "kernel_qtanh_krelu",
+      "description": "Q 核=tanh, K 核=relu",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),KernelMap(Input(name=K),name=relu),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F18",
+      "tag": "kernel_qtanh_kelu1",
+      "description": "Q 核=tanh, K 核=elu1",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=tanh),KernelMap(Input(name=K),name=elu1),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F19",
+      "tag": "normalize_q",
+      "description": "Q 做 L2 归一化",
+      "expr": "MatMul(Softmax(MatMul(Normalize(Input(name=Q)),Input(name=K),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F20",
+      "tag": "normalize_k",
+      "description": "K 做 L2 归一化",
+      "expr": "MatMul(Softmax(MatMul(Input(name=Q),Normalize(Input(name=K)),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F21",
+      "tag": "gate_value",
+      "description": "输出用 V 做 sigmoid 门控",
+      "expr": "Gate(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V))"
+    },
+    {
+      "id": "F22",
+      "tag": "residual_v",
+      "description": "加 V 的低权重残差",
+      "expr": "Residual(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V),scale=0.1)"
+    },
+    {
+      "id": "F23",
+      "tag": "group_mean_interaction",
+      "description": "Q/K 按序列维求均值后交互，测试分组摘要极限",
+      "expr": "MatMul(Softmax(MatMul(Reduce(Input(name=Q),dim=-2),Reduce(Input(name=K),dim=-2),transpose_b=True)),Input(name=V))"
+    },
+    {
+      "id": "F24",
+      "tag": "v_then_score",
+      "description": "Value 先归一化再做聚合",
+      "expr": "MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Normalize(Input(name=V)))"
+    },
+    {
+      "id": "F25",
+      "tag": "hadamard_gate",
+      "description": "输出与门控结果逐元素乘",
+      "expr": "Hadamard(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Gate(MatMul(Softmax(MatMul(KernelMap(Input(name=Q),name=raw),KernelMap(Input(name=K),name=raw),transpose_b=True)),Input(name=V)),Input(name=V)))"
+    },
+    {
+      "id": "F26",
+      "tag": "kernel_qrelu_score_lr8",
+      "description": "核映射 + score rank-8 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True),r=8)),Input(name=V))"
+    },
+    {
+      "id": "F27",
+      "tag": "kernel_qelu1_score_lr8",
+      "description": "核映射 + score rank-8 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True),r=8)),Input(name=V))"
+    },
+    {
+      "id": "F28",
+      "tag": "kernel_qrelu_score_lr16",
+      "description": "核映射 + score rank-16 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=relu),Input(name=K),transpose_b=True),r=16)),Input(name=V))"
+    },
+    {
+      "id": "F29",
+      "tag": "kernel_qelu1_score_lr16",
+      "description": "核映射 + score rank-16 组合",
+      "expr": "MatMul(Softmax(LowRank(MatMul(KernelMap(Input(name=Q),name=elu1),Input(name=K),transpose_b=True),r=16)),Input(name=V))"
+    }
+  ]
+}

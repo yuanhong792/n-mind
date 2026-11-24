@@ -1,0 +1,105 @@
+{
+  "status": "COMPLETE",
+  "n_tests": 24,
+  "n_pass": 24,
+  "n_fail": 0,
+  "tests": {
+    "01_low_rank_dimension": {
+      "pass": true,
+      "error": null
+    },
+    "02_numerical_gradient": {
+      "pass": true,
+      "error": null
+    },
+    "03_extreme_input_stability": {
+      "pass": true,
+      "error": null
+    },
+    "04_causality": {
+      "pass": true,
+      "error": null
+    },
+    "05_future_token_isolation": {
+      "pass": true,
+      "error": null
+    },
+    "06_padding_isolation": {
+      "pass": true,
+      "error": null
+    },
+    "07_batch_vs_single": {
+      "pass": true,
+      "error": null
+    },
+    "08_full_vs_incremental": {
+      "pass": true,
+      "error": null
+    },
+    "09_kv_cache_correctness": {
+      "pass": true,
+      "error": null
+    },
+    "10_sparse_actual_skip": {
+      "pass": true,
+      "error": null
+    },
+    "11_route_gradient": {
+      "pass": true,
+      "error": null
+    },
+    "12_train_deploy_consistency": {
+      "pass": true,
+      "error": null
+    },
+    "13_group_summary_causality": {
+      "pass": true,
+      "error": null
+    },
+    "14_denominator_stability": {
+      "pass": true,
+      "error": null
+    },
+    "15_orthogonal_projection": {
+      "pass": true,
+      "error": null
+    },
+    "16_head_optimization_equivalence": {
+      "pass": true,
+      "error": null
+    },
+    "17_gradient_equivalence": {
+      "pass": true,
+      "error": null
+    },
+    "18_answer_supervision_alignment": {
+      "pass": true,
+      "error": null
+    },
+    "19_natural_eos_match": {
+      "pass": true,
+      "error": null
+    },
+    "20_checkpoint_tensor_restore": {
+      "pass": true,
+      "error": null
+    },
+    "21_cost_statistics_consistency": {
+      "pass": true,
+      "error": null
+    },
+    "22_no_hardcoded_answer_path": {
+      "pass": true,
+      "error": null
+    },
+    "23_formula_equivalence": {
+      "pass": true,
+      "error": null
+    },
+    "24_determinism": {
+      "pass": true,
+      "error": null
+    }
+  },
+  "gate": "关键项失败则候选不得进入正式训练"
+}

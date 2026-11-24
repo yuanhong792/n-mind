@@ -1,0 +1,9 @@
+[cost] T=16 B1 median=1.034ms B16 median=1.805ms
+[cost] T=32 B1 median=1.091ms B16 median=2.313ms
+[cost] T=64 B1 median=1.225ms B16 median=3.199ms
+[cost] T=128 B1 median=1.558ms B16 median=4.210ms
+[cost] T=256 B1 median=1.971ms B16 median=7.770ms
+[cost] T=512 B1 median=2.778ms B16 median=29.735ms
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\profiler\profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+[cost] 写出 D:\cpu本地模型开发\n-mind\experiments\math_m4\M4_TRANSFORMER_COST_ANALYSIS.json

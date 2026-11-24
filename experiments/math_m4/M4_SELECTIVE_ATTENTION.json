@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETE",
+  "output_cosine_to_dense": 0.646056,
+  "output_relative_l2": 1.62946,
+  "fixed_window_relative_l2": 0.725058,
+  "causality_future_perturbation_max": 0.0,
+  "causality_pass": true,
+  "ste_gradient_norm": 0.02329,
+  "ste_gradient_pass": true,
+  "routing_cost": {
+    "summary_build": 16384,
+    "summary_update": 2048,
+    "coarse_retrieval": 32768,
+    "topk": 2048,
+    "gather": 32768,
+    "exact_attention": 65536,
+    "dense_attention": 262144,
+    "full_qk_forbidden": false
+  },
+  "skipped_attention_ratio": 0.75,
+  "note_cost": "统计已含摘要/粗检索/top-k/gather；不得只报精确注意力节省",
+  "fixed_window_capability": "NOT_RUN（未获训练预算，不得伪造能力对照）"
+}

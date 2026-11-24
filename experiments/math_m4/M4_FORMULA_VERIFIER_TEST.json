@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE",
+  "good": {
+    "static": {
+      "op_count": 3,
+      "ops": [
+        "Input",
+        "MatMul",
+        "Softmax"
+      ],
+      "forbidden_ops": [],
+      "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+      "accesses_answer": false,
+      "executes_external_code": false,
+      "pass": true
+    },
+    "pass": true,
+    "output_shape": [
+      2,
+      4,
+      32,
+      16
+    ],
+    "shape_ok": true,
+    "finite": true,
+    "nan_count": 0,
+    "causal_max_delta": 0.0,
+    "causal": true,
+    "sample_isolation_max_delta": 0.0,
+    "sample_isolation": true,
+    "gradient_norm": 0.050661,
+    "gradient_ok": true,
+    "learning_mode": "differentiable"
+  },
+  "suspect": {
+    "static": {
+      "op_count": 3,
+      "ops": [
+        "Gather",
+        "Input",
+        "MatMul"
+      ],
+      "forbidden_ops": [],
+      "causal_by_construction": "Softmax 应用 causal_mask；其余算子逐位置或降维，无未来访问",
+      "accesses_answer": false,
+      "executes_external_code": false,
+      "pass": true
+    },
+    "pass": false,
+    "eval_error": "The expanded size of the tensor (32) must match the existing size (16) at non-singleton dimension 3.  Target sizes: [2, 4, 32, 32].  Tensor sizes: [2, 4, 32, 16]"
+  }
+}

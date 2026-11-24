@@ -1,0 +1,251 @@
+{
+  "status": "NOT_RUN",
+  "source": "M4_TRAINING_RESULTS.json",
+  "authorization": "NOT_AUTHORIZED",
+  "overall_label": "NOT_COMPARABLE",
+  "comparisons": {
+    "main_R1_gru_reference_s1_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_R1_gru_reference_s2_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_R2_tiny_transformer_s1_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_R2_tiny_transformer_s2_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_M4-A_low_rank_interaction_s1_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_M4-A_low_rank_interaction_s2_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_M4-B_selective_interaction_s1_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "main_M4-B_selective_interaction_s2_iso": {
+      "30%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "40%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "50%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "60%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "70%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "80%": {
+        "status": "TARGET_NOT_REACHED"
+      },
+      "90%": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    }
+  },
+  "efficiency_grades": {
+    "main_R1_gru_reference_s1_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_R1_gru_reference_s2_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_R2_tiny_transformer_s1_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_R2_tiny_transformer_s2_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_M4-A_low_rank_interaction_s1_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_M4-A_low_rank_interaction_s2_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_M4-B_selective_interaction_s1_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    },
+    "main_M4-B_selective_interaction_s2_iso": {
+      "E1": "NOT_AWARDED",
+      "E2": "NOT_AWARDED",
+      "E3": "NOT_AWARDED",
+      "E4": "NOT_AWARDED",
+      "E5": "NOT_AWARDED"
+    }
+  },
+  "note": "训练未授权、step=0；TARGET_NOT_REACHED 不是已训练失败，而是无能力证据。"
+}

@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE",
+  "forbidden_formula": "steps * batch * 32 * per_token_mac * 3",
+  "ledger": {
+    "step_events": 4096,
+    "max_global_step": 4096,
+    "run_end_events": 8
+  },
+  "inflation_by_global_step": {
+    "R1_gru_reference_s1": 1.0,
+    "R1_gru_reference_s2": 2.0,
+    "R2_tiny_transformer_s1": 3.0,
+    "R2_tiny_transformer_s2": 4.0,
+    "M3-A_low_rank_neural_s1": 5.0,
+    "M3-A_low_rank_neural_s2": 6.0,
+    "M3-B_adaptive_computation_s1": 7.0,
+    "M3-B_adaptive_computation_s2": 8.0
+  },
+  "note_inflation": "M3 原始 curve 用全局累计步数乘成本；此处量化相对单模型 512 步的虚增倍数",
+  "actual_batch_sample": {
+    "n_batches": 32,
+    "avg": {
+      "T": 42.88,
+      "n_valid": 790.0,
+      "n_pad": 582.0,
+      "n_supervised": 758.0,
+      "valid_ratio": 0.58
+    },
+    "max_T": 44,
+    "min_valid_ratio": 0.5036
+  },
+  "accounting_separation": {
+    "analytic_mac": "解析 MAC：来自 M3_COMPUTE_ACCOUNTING.json，固定 seq 参考点",
+    "profiler": "Profiler 统计：M3_RESOURCE_BENCHMARK.json，实测算子热点",
+    "wall_clock": "真实墙钟：M3_BUDGET_LEDGER.jsonl，含调度与 I/O",
+    "rule": "三者不得互相替代；M4 必须逐 batch 记录实际有效 Token 与监督 Token"
+  },
+  "m4_requirement": [
+    "实际 Batch Size",
+    "有效 Token 数",
+    "Padding Token 数",
+    "实际张量计算长度",
+    "有效监督 Token 数",
+    "各模块执行次数",
+    "本模型累计成本",
+    "数学估算/Profiler/墙钟分列"
+  ]
+}

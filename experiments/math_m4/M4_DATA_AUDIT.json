@@ -1,0 +1,93 @@
+{
+  "status": "COMPLETE",
+  "seed": 20261124,
+  "n_rows": {
+    "train": 1392,
+    "val": 464,
+    "sealed": 464,
+    "counterfactual_pairs": 400,
+    "distance": 420,
+    "generalization": 600
+  },
+  "task_counts": {
+    "train": {
+      "A1_copy1": 48,
+      "A2_copy2": 96,
+      "A3_copyN": 96,
+      "A5_repeat": 96,
+      "A4_reverse": 96,
+      "A6_index": 96,
+      "B2_bind": 96,
+      "B4_bind": 96,
+      "B8_bind": 96,
+      "B_rename": 96,
+      "C_history_current": 96,
+      "C_reassign": 96,
+      "C_indirect": 96,
+      "D_distance": 96,
+      "D_interference": 96
+    },
+    "val": {
+      "A1_copy1": 16,
+      "A2_copy2": 32,
+      "A3_copyN": 32,
+      "A5_repeat": 32,
+      "A4_reverse": 32,
+      "A6_index": 32,
+      "B2_bind": 32,
+      "B4_bind": 32,
+      "B8_bind": 32,
+      "B_rename": 32,
+      "C_history_current": 32,
+      "C_reassign": 32,
+      "C_indirect": 32,
+      "D_distance": 32,
+      "D_interference": 32
+    },
+    "sealed": {
+      "A1_copy1": 16,
+      "A2_copy2": 32,
+      "A3_copyN": 32,
+      "A5_repeat": 32,
+      "A4_reverse": 32,
+      "A6_index": 32,
+      "B2_bind": 32,
+      "B4_bind": 32,
+      "B8_bind": 32,
+      "B_rename": 32,
+      "C_history_current": 32,
+      "C_reassign": 32,
+      "C_indirect": 32,
+      "D_distance": 32,
+      "D_interference": 32
+    }
+  },
+  "canonical_overlap": {
+    "train_vs_val": 0,
+    "train_vs_sealed": 0,
+    "val_vs_sealed": 0
+  },
+  "counterfactual_types": {
+    "same_query_fact_change": 100,
+    "unrelated_fact_change": 100,
+    "query_switch": 100,
+    "order_swap": 100
+  },
+  "counterfactual_query_positions": {
+    "first": 136,
+    "middle": 132,
+    "last": 132
+  },
+  "distance_distances": {
+    "0": 60,
+    "4": 60,
+    "8": 60,
+    "16": 60,
+    "32": 60,
+    "64": 60,
+    "128": 60
+  },
+  "distance_pair_ids": 60,
+  "a5_repeat_train": 96,
+  "note": "canonical 为零重合；距离按 pair_id 严格配对；四类反事实分别统计"
+}

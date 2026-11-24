@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETE_ZERO_GRADIENT",
+  "proxy_disclaimer": "以下均为可观测代理，不是互信息或能力的等价测量",
+  "information_proxies": {
+    "status": "COMPLETE",
+    "disclaimer": "以下均为可观测代理，不是互信息或能力的等价测量",
+    "state_effective_rank": {
+      "effective_rank": 64,
+      "matrix_rank": 64,
+      "top_singular": 19.4461,
+      "tail_energy_ratio": 0.18035793,
+      "normalized_spectrum": [
+        1.0,
+        0.95661,
+        0.93787,
+        0.90415,
+        0.87961,
+        0.85676,
+        0.84898,
+        0.83125,
+        0.81766,
+        0.8037
+      ]
+    },
+    "attention_query_discriminability": {
+      "mean_pairwise_cosine": 0.356797,
+      "distinct_queries": 12,
+      "note": "高相似度意味着 query 无法区分不同历史位置"
+    },
+    "attention_entropy": {
+      "mean_entropy": 3.029502,
+      "max_entropy": 3.369733,
+      "note": "熵接近 log(T) 表示近乎均匀；不能单独作为能力证据"
+    },
+    "compression_retention": {
+      "k4": {
+        "k": 4,
+        "relative_frobenius_error": 0.913477,
+        "energy_retained": 0.16556
+      },
+      "k8": {
+        "k": 8,
+        "relative_frobenius_error": 0.837036,
+        "energy_retained": 0.29937
+      },
+      "k16": {
+        "k": 16,
+        "relative_frobenius_error": 0.695035,
+        "energy_retained": 0.516927
+      },
+      "k32": {
+        "k": 32,
+        "relative_frobenius_error": 0.450263,
+        "energy_retained": 0.797263
+      }
+    }
+  },
+  "operator_observations": {
+    "low_rank": "reduce_qk_dim 是唯一同时降低 score MAC 的机制；但 Value/FFN/Head 不变时全图收益远低于 score 层收益；factorize_projection 与 approximate_score 不得冒充省 QK 计算。",
+    "selective": "统计已含摘要/粗检索/top-k/gather；不得只报精确注意力节省",
+    "incremental": "NOT_RUN in main model（需授权后单独预登记）",
+    "orthogonal": {
+      "rule": "若 compression+reconstruction 成本 > 被省计算，或事实读取误差显著，淘汰该配置",
+      "result": "主模型 NOT_RUN（待任务能力实验）"
+    }
+  },
+  "formula_pareto_operator_stage": [
+    "F01",
+    "F17"
+  ],
+  "trained_capability": "NOT_RUN",
+  "conclusion": "信息代理只能初筛，不能证明任务能力或无损压缩。"
+}

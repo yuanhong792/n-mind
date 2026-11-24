@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE",
+  "disclaimer": "本算子属已有线性注意力方向，不宣称与 softmax attention 等价；以下误差是数值观察，不是等价性证明。",
+  "configs": {
+    "elu1_f64": {
+      "output_relative_l2_to_softmax": 0.127,
+      "min_denominator": 127.60242462,
+      "denominator_stable": true,
+      "state_effective_rank": 31.0,
+      "state_dim": 2048,
+      "note": "误差大不等于机制无效，也不等于有效；需任务能力实验"
+    },
+    "elu1_f128": {
+      "output_relative_l2_to_softmax": 0.1182,
+      "min_denominator": 223.15785217,
+      "denominator_stable": true,
+      "state_effective_rank": 31.0,
+      "state_dim": 4096,
+      "note": "误差大不等于机制无效，也不等于有效；需任务能力实验"
+    },
+    "relu_f64": {
+      "output_relative_l2_to_softmax": 0.3293,
+      "min_denominator": 2.03218412,
+      "denominator_stable": true,
+      "state_effective_rank": 32.0,
+      "state_dim": 2048,
+      "note": "误差大不等于机制无效，也不等于有效；需任务能力实验"
+    },
+    "identity_f32": {
+      "output_relative_l2_to_softmax": 46.5494,
+      "min_denominator": -13.9964838,
+      "denominator_stable": false,
+      "state_effective_rank": 31.0,
+      "state_dim": 1024,
+      "note": "误差大不等于机制无效，也不等于有效；需任务能力实验"
+    }
+  },
+  "long_sequence_interference": {
+    "retrieval_norm_by_length": {
+      "16": 1415.5818,
+      "64": 2237.8223,
+      "256": 5369.0103
+    },
+    "note": "固定容量状态随长度增长是否饱和/漂移的代理指标；非能力结论"
+  },
+  "cost_scaling": {
+    "state_bytes_fp32_d32_f64": 8192,
+    "per_token_macs": 8192,
+    "note": "状态固定，成本随长度线性；与 softmax 的 T^2 对比需实测墙钟"
+  },
+  "decision": "NOT_RUN in main model（需授权后单独预登记）"
+}

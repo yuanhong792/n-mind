@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE",
+  "target": "M3 counterfactual shortcut audit",
+  "stats": {
+    "n_pairs": 400,
+    "query_position": {
+      "first": 400
+    },
+    "base_first_shortcut_ok": 400,
+    "cf_first_shortcut_ok": 400,
+    "both_first_shortcut_ok": 400,
+    "query_switch_pairs": 0,
+    "facts_changed": {
+      "2": 400
+    },
+    "target_changed_when_query_same": 400,
+    "unrelated_fact_change_pairs": 0,
+    "order_swap_pairs": 400,
+    "n_vars": {
+      "2": 400
+    },
+    "query_var_matches_first": 400
+  },
+  "rates": {
+    "query_first_ratio": 1.0,
+    "base_first_value_shortcut": 1.0,
+    "cf_first_value_shortcut": 1.0,
+    "pair_first_value_shortcut": 1.0,
+    "query_switch_coverage": 0.0,
+    "unrelated_fact_change_coverage": 0.0
+  },
+  "m4_requirement": {
+    "query_position_balance": "first/middle/last 每类占比 >= 0.25",
+    "same_query_fact_change": "目标变量单值修改必须覆盖",
+    "unrelated_fact_invariance": "必须覆盖",
+    "query_switch": "必须覆盖且单独统计",
+    "order_swap": "必须覆盖且保持语义结果",
+    "pair_rule": "配对两条都正确才计通过"
+  }
+}

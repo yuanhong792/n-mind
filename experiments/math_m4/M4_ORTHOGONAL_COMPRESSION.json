@@ -1,0 +1,60 @@
+{
+  "status": "COMPLETE",
+  "note": "有效秩低不等于无损压缩；所有误差为实测",
+  "configs": {
+    "k4": {
+      "frobenius_relative_error": 0.591253,
+      "fact_read_mae": 0.661702,
+      "position_read_mae": 1.960554,
+      "state_elements": 2048,
+      "compression_median_us": 17.7,
+      "reconstruction_median_us": 20.75,
+      "compression_plus_reconstruction_us": 38.45
+    },
+    "k8": {
+      "frobenius_relative_error": 0.065563,
+      "fact_read_mae": 0.000331,
+      "position_read_mae": 0.288125,
+      "state_elements": 4096,
+      "compression_median_us": 19.3,
+      "reconstruction_median_us": 21.8,
+      "compression_plus_reconstruction_us": 41.1
+    },
+    "k16": {
+      "frobenius_relative_error": 0.057837,
+      "fact_read_mae": 0.000291,
+      "position_read_mae": 0.249243,
+      "state_elements": 8192,
+      "compression_median_us": 15.4,
+      "reconstruction_median_us": 16.2,
+      "compression_plus_reconstruction_us": 31.6
+    },
+    "k32": {
+      "frobenius_relative_error": 0.043039,
+      "fact_read_mae": 0.000225,
+      "position_read_mae": 0.197849,
+      "state_elements": 16384,
+      "compression_median_us": 20.6,
+      "reconstruction_median_us": 24.15,
+      "compression_plus_reconstruction_us": 44.75
+    },
+    "k64": {
+      "frobenius_relative_error": 0.0,
+      "fact_read_mae": 1e-06,
+      "position_read_mae": 2e-06,
+      "state_elements": 32768,
+      "compression_median_us": 27.2,
+      "reconstruction_median_us": 16.75,
+      "compression_plus_reconstruction_us": 43.95
+    }
+  },
+  "subspace_update": {
+    "full_svd_median_us": 657.75,
+    "incremental_qr_median_us": 122.6,
+    "note": "增量 QR 本例不快于全量 SVD（小矩阵）；不得假设增量一定更省"
+  },
+  "decision_rule": {
+    "rule": "若 compression+reconstruction 成本 > 被省计算，或事实读取误差显著，淘汰该配置",
+    "result": "主模型 NOT_RUN（待任务能力实验）"
+  }
+}

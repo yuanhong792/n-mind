@@ -1,0 +1,184 @@
+{
+  "status": "COMPLETE",
+  "n_rows": {
+    "train": 5575,
+    "val": 1469,
+    "sealed": 1117,
+    "generalization": 3412
+  },
+  "splits": {
+    "train": {
+      "unique_prompt": 4781,
+      "unique_token_seq": 4781,
+      "unique_canonical": 4085,
+      "duplicate_prompt_rate": 0.1424,
+      "duplicate_canonical_rate": 0.2673,
+      "fact_group_unique": 4184
+    },
+    "val": {
+      "unique_prompt": 1069,
+      "unique_token_seq": 1069,
+      "unique_canonical": 1002,
+      "duplicate_prompt_rate": 0.2723,
+      "duplicate_canonical_rate": 0.3179,
+      "fact_group_unique": 945
+    },
+    "sealed": {
+      "unique_prompt": 973,
+      "unique_token_seq": 973,
+      "unique_canonical": 910,
+      "duplicate_prompt_rate": 0.1289,
+      "duplicate_canonical_rate": 0.1853,
+      "fact_group_unique": 871
+    },
+    "generalization": {
+      "unique_prompt": 2527,
+      "unique_token_seq": 2527,
+      "unique_canonical": 2527,
+      "duplicate_prompt_rate": 0.2594,
+      "duplicate_canonical_rate": 0.2594,
+      "fact_group_unique": 2527
+    }
+  },
+  "pairwise": {
+    "train_vs_val": {
+      "prompt": 0,
+      "token": 0,
+      "canonical": 47
+    },
+    "train_vs_sealed": {
+      "prompt": 2,
+      "token": 2,
+      "canonical": 54
+    },
+    "train_vs_generalization": {
+      "prompt": 0,
+      "token": 0,
+      "canonical": 0
+    },
+    "val_vs_sealed": {
+      "prompt": 0,
+      "token": 0,
+      "canonical": 27
+    },
+    "val_vs_generalization": {
+      "prompt": 0,
+      "token": 0,
+      "canonical": 0
+    },
+    "sealed_vs_generalization": {
+      "prompt": 0,
+      "token": 0,
+      "canonical": 0
+    }
+  },
+  "task_coverage": {
+    "train": {
+      "D_distance": 391,
+      "A4_reverse": 586,
+      "C_reassign": 495,
+      "B8_bind": 245,
+      "C_indirect": 239,
+      "A3_copyN": 492,
+      "C_history_current": 1408,
+      "D_interference": 769,
+      "A6_index": 113,
+      "B4_bind": 278,
+      "B_rename": 164,
+      "A1_copy1": 47,
+      "A2_copy2": 48,
+      "B2_bind": 150,
+      "B_query_switch": 77,
+      "B_counterfactual": 73
+    },
+    "val": {
+      "D_distance": 74,
+      "B4_bind": 184,
+      "C_reassign": 107,
+      "B8_bind": 84,
+      "A4_reverse": 113,
+      "B_rename": 53,
+      "A3_copyN": 74,
+      "D_interference": 111,
+      "C_history_current": 236,
+      "C_indirect": 84,
+      "A2_copy2": 19,
+      "A6_index": 14,
+      "A1_copy1": 6,
+      "A5_repeat": 240,
+      "B2_bind": 35,
+      "B_query_switch": 18,
+      "B_counterfactual": 17
+    },
+    "sealed": {
+      "B_rename": 50,
+      "C_indirect": 88,
+      "B4_bind": 167,
+      "D_interference": 120,
+      "C_reassign": 95,
+      "B8_bind": 78,
+      "B2_bind": 29,
+      "B_query_switch": 15,
+      "A4_reverse": 88,
+      "D_distance": 55,
+      "A3_copyN": 77,
+      "C_history_current": 156,
+      "A1_copy1": 13,
+      "A6_index": 8,
+      "A2_copy2": 4,
+      "A5_repeat": 60,
+      "B_counterfactual": 14
+    },
+    "generalization": {
+      "A3_copyN": 640,
+      "A4_reverse": 600,
+      "A5_repeat": 900,
+      "A6_index": 492,
+      "D_distance": 780
+    }
+  },
+  "query_position_distribution": {
+    "train": {
+      "first": 2071,
+      "middle": 320,
+      "last": 251
+    },
+    "val": {
+      "first": 445,
+      "last": 75,
+      "middle": 163
+    },
+    "sealed": {
+      "first": 398,
+      "last": 82,
+      "middle": 143
+    },
+    "generalization": {
+      "first": 780
+    }
+  },
+  "duplicate_rate": {},
+  "counterfactual_fact_family": {
+    "n_canonical": 730,
+    "n_canonical_with_multiple_fact_groups": 70,
+    "note": "同一规范化事实族若对应多个 fact_group 字符串，说明字符串隔离不可作为语义隔离证据"
+  },
+  "core_tasks_missing_in_train": [
+    "A5_repeat"
+  ],
+  "scope": "M3 历史数据审计 + M4 新数据 canonical 复核",
+  "m4_new_data_canonical_overlap": {
+    "train_vs_val": 0,
+    "train_vs_sealed": 0,
+    "val_vs_sealed": 0
+  },
+  "m4_new_data_n_rows": {
+    "train": 1392,
+    "val": 464,
+    "sealed": 464,
+    "counterfactual_pairs": 400,
+    "distance": 420,
+    "generalization": 600
+  },
+  "conclusion": "M3 字符串 prompt 零重合不等于语义隔离；M4 新数据 canonical 重合为 0。"
+}

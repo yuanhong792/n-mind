@@ -1,0 +1,755 @@
+{
+  "status": "COMPLETE",
+  "precision": "FP32",
+  "hardware": {
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1",
+    "logical_cores": 28,
+    "torch_threads": 20,
+    "torch": "2.10.0+cpu"
+  },
+  "model": {
+    "params": 79718,
+    "d_model": 64,
+    "nhead": 4,
+    "layers": 2,
+    "vocab": 102,
+    "qkv": "fused Linear(d,3d)"
+  },
+  "method": {
+    "wall": "model.eval()+inference_mode, 预热5次, 重复30次, 中位数/P95",
+    "profiler": "torch.profiler CPU, 5 次前向累积",
+    "analytic": "逐模块 MAC 公式；因果有效三角区与实际稠密执行量分列"
+  },
+  "by_length": {
+    "16": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 196608,
+            "rope_elementwise": 2048,
+            "score_qk_dense": 16384,
+            "score_qk_causal_effective": 8704,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 16384,
+            "attn_v_causal_effective": 8704,
+            "out_proj": 65536,
+            "ffn_up": 131072,
+            "ffn_down": 131072,
+            "layernorm_elementwise": 4096,
+            "attention_block_total_dense": 294912,
+            "ffn_total": 262144
+          },
+          "model_without_head": 563200,
+          "vocab_head_all_positions": 104448,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4688
+        },
+        "wall": {
+          "median_sec": 0.001034,
+          "p95_sec": 0.001158,
+          "min_sec": 0.001008,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 1572864,
+            "rope_elementwise": 16384,
+            "score_qk_dense": 131072,
+            "score_qk_causal_effective": 69632,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 131072,
+            "attn_v_causal_effective": 69632,
+            "out_proj": 524288,
+            "ffn_up": 1048576,
+            "ffn_down": 1048576,
+            "layernorm_elementwise": 32768,
+            "attention_block_total_dense": 2359296,
+            "ffn_total": 2097152
+          },
+          "model_without_head": 4505600,
+          "vocab_head_all_positions": 835584,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4688
+        },
+        "wall": {
+          "median_sec": 0.001388,
+          "p95_sec": 0.001647,
+          "min_sec": 0.000668,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 3145728,
+            "rope_elementwise": 32768,
+            "score_qk_dense": 262144,
+            "score_qk_causal_effective": 139264,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 262144,
+            "attn_v_causal_effective": 139264,
+            "out_proj": 1048576,
+            "ffn_up": 2097152,
+            "ffn_down": 2097152,
+            "layernorm_elementwise": 65536,
+            "attention_block_total_dense": 4718592,
+            "ffn_total": 4194304
+          },
+          "model_without_head": 9011200,
+          "vocab_head_all_positions": 1671168,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4688
+        },
+        "wall": {
+          "median_sec": 0.001805,
+          "p95_sec": 0.001985,
+          "min_sec": 0.001755,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    },
+    "32": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 393216,
+            "rope_elementwise": 4096,
+            "score_qk_dense": 65536,
+            "score_qk_causal_effective": 33792,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 65536,
+            "attn_v_causal_effective": 33792,
+            "out_proj": 131072,
+            "ffn_up": 262144,
+            "ffn_down": 262144,
+            "layernorm_elementwise": 8192,
+            "attention_block_total_dense": 655360,
+            "ffn_total": 524288
+          },
+          "model_without_head": 1191936,
+          "vocab_head_all_positions": 208896,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4844
+        },
+        "wall": {
+          "median_sec": 0.001091,
+          "p95_sec": 0.001344,
+          "min_sec": 0.001064,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 3145728,
+            "rope_elementwise": 32768,
+            "score_qk_dense": 524288,
+            "score_qk_causal_effective": 270336,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 524288,
+            "attn_v_causal_effective": 270336,
+            "out_proj": 1048576,
+            "ffn_up": 2097152,
+            "ffn_down": 2097152,
+            "layernorm_elementwise": 65536,
+            "attention_block_total_dense": 5242880,
+            "ffn_total": 4194304
+          },
+          "model_without_head": 9535488,
+          "vocab_head_all_positions": 1671168,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4844
+        },
+        "wall": {
+          "median_sec": 0.001825,
+          "p95_sec": 0.002033,
+          "min_sec": 0.001805,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 6291456,
+            "rope_elementwise": 65536,
+            "score_qk_dense": 1048576,
+            "score_qk_causal_effective": 540672,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 1048576,
+            "attn_v_causal_effective": 540672,
+            "out_proj": 2097152,
+            "ffn_up": 4194304,
+            "ffn_down": 4194304,
+            "layernorm_elementwise": 131072,
+            "attention_block_total_dense": 10485760,
+            "ffn_total": 8388608
+          },
+          "model_without_head": 19070976,
+          "vocab_head_all_positions": 3342336,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4844
+        },
+        "wall": {
+          "median_sec": 0.002313,
+          "p95_sec": 0.002552,
+          "min_sec": 0.001275,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    },
+    "64": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 786432,
+            "rope_elementwise": 8192,
+            "score_qk_dense": 262144,
+            "score_qk_causal_effective": 133120,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 262144,
+            "attn_v_causal_effective": 133120,
+            "out_proj": 262144,
+            "ffn_up": 524288,
+            "ffn_down": 524288,
+            "layernorm_elementwise": 16384,
+            "attention_block_total_dense": 1572864,
+            "ffn_total": 1048576
+          },
+          "model_without_head": 2646016,
+          "vocab_head_all_positions": 417792,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4922
+        },
+        "wall": {
+          "median_sec": 0.001225,
+          "p95_sec": 0.001291,
+          "min_sec": 0.000663,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 6291456,
+            "rope_elementwise": 65536,
+            "score_qk_dense": 2097152,
+            "score_qk_causal_effective": 1064960,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 2097152,
+            "attn_v_causal_effective": 1064960,
+            "out_proj": 2097152,
+            "ffn_up": 4194304,
+            "ffn_down": 4194304,
+            "layernorm_elementwise": 131072,
+            "attention_block_total_dense": 12582912,
+            "ffn_total": 8388608
+          },
+          "model_without_head": 21168128,
+          "vocab_head_all_positions": 3342336,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4922
+        },
+        "wall": {
+          "median_sec": 0.00154,
+          "p95_sec": 0.001805,
+          "min_sec": 0.001277,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 12582912,
+            "rope_elementwise": 131072,
+            "score_qk_dense": 4194304,
+            "score_qk_causal_effective": 2129920,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 4194304,
+            "attn_v_causal_effective": 2129920,
+            "out_proj": 4194304,
+            "ffn_up": 8388608,
+            "ffn_down": 8388608,
+            "layernorm_elementwise": 262144,
+            "attention_block_total_dense": 25165824,
+            "ffn_total": 16777216
+          },
+          "model_without_head": 42336256,
+          "vocab_head_all_positions": 6684672,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4922
+        },
+        "wall": {
+          "median_sec": 0.003199,
+          "p95_sec": 0.003738,
+          "min_sec": 0.001931,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    },
+    "128": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 1572864,
+            "rope_elementwise": 16384,
+            "score_qk_dense": 1048576,
+            "score_qk_causal_effective": 528384,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 1048576,
+            "attn_v_causal_effective": 528384,
+            "out_proj": 524288,
+            "ffn_up": 1048576,
+            "ffn_down": 1048576,
+            "layernorm_elementwise": 32768,
+            "attention_block_total_dense": 4194304,
+            "ffn_total": 2097152
+          },
+          "model_without_head": 6340608,
+          "vocab_head_all_positions": 835584,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4961
+        },
+        "wall": {
+          "median_sec": 0.001558,
+          "p95_sec": 0.001723,
+          "min_sec": 0.001486,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 12582912,
+            "rope_elementwise": 131072,
+            "score_qk_dense": 8388608,
+            "score_qk_causal_effective": 4227072,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 8388608,
+            "attn_v_causal_effective": 4227072,
+            "out_proj": 4194304,
+            "ffn_up": 8388608,
+            "ffn_down": 8388608,
+            "layernorm_elementwise": 262144,
+            "attention_block_total_dense": 33554432,
+            "ffn_total": 16777216
+          },
+          "model_without_head": 50724864,
+          "vocab_head_all_positions": 6684672,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4961
+        },
+        "wall": {
+          "median_sec": 0.003317,
+          "p95_sec": 0.003737,
+          "min_sec": 0.002397,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 25165824,
+            "rope_elementwise": 262144,
+            "score_qk_dense": 16777216,
+            "score_qk_causal_effective": 8454144,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 16777216,
+            "attn_v_causal_effective": 8454144,
+            "out_proj": 8388608,
+            "ffn_up": 16777216,
+            "ffn_down": 16777216,
+            "layernorm_elementwise": 524288,
+            "attention_block_total_dense": 67108864,
+            "ffn_total": 33554432
+          },
+          "model_without_head": 101449728,
+          "vocab_head_all_positions": 13369344,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.4961
+        },
+        "wall": {
+          "median_sec": 0.00421,
+          "p95_sec": 0.004708,
+          "min_sec": 0.003244,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    },
+    "256": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 3145728,
+            "rope_elementwise": 32768,
+            "score_qk_dense": 4194304,
+            "score_qk_causal_effective": 2105344,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 4194304,
+            "attn_v_causal_effective": 2105344,
+            "out_proj": 1048576,
+            "ffn_up": 2097152,
+            "ffn_down": 2097152,
+            "layernorm_elementwise": 65536,
+            "attention_block_total_dense": 12582912,
+            "ffn_total": 4194304
+          },
+          "model_without_head": 16875520,
+          "vocab_head_all_positions": 1671168,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.498
+        },
+        "wall": {
+          "median_sec": 0.001971,
+          "p95_sec": 0.002197,
+          "min_sec": 0.00107,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 25165824,
+            "rope_elementwise": 262144,
+            "score_qk_dense": 33554432,
+            "score_qk_causal_effective": 16842752,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 33554432,
+            "attn_v_causal_effective": 16842752,
+            "out_proj": 8388608,
+            "ffn_up": 16777216,
+            "ffn_down": 16777216,
+            "layernorm_elementwise": 524288,
+            "attention_block_total_dense": 100663296,
+            "ffn_total": 33554432
+          },
+          "model_without_head": 135004160,
+          "vocab_head_all_positions": 13369344,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.498
+        },
+        "wall": {
+          "median_sec": 0.004971,
+          "p95_sec": 0.005486,
+          "min_sec": 0.004012,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 50331648,
+            "rope_elementwise": 524288,
+            "score_qk_dense": 67108864,
+            "score_qk_causal_effective": 33685504,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 67108864,
+            "attn_v_causal_effective": 33685504,
+            "out_proj": 16777216,
+            "ffn_up": 33554432,
+            "ffn_down": 33554432,
+            "layernorm_elementwise": 1048576,
+            "attention_block_total_dense": 201326592,
+            "ffn_total": 67108864
+          },
+          "model_without_head": 270008320,
+          "vocab_head_all_positions": 26738688,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.498
+        },
+        "wall": {
+          "median_sec": 0.00777,
+          "p95_sec": 0.00852,
+          "min_sec": 0.006882,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    },
+    "512": {
+      "B1": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 6291456,
+            "rope_elementwise": 65536,
+            "score_qk_dense": 16777216,
+            "score_qk_causal_effective": 8404992,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 16777216,
+            "attn_v_causal_effective": 8404992,
+            "out_proj": 2097152,
+            "ffn_up": 4194304,
+            "ffn_down": 4194304,
+            "layernorm_elementwise": 131072,
+            "attention_block_total_dense": 41943040,
+            "ffn_total": 8388608
+          },
+          "model_without_head": 50528256,
+          "vocab_head_all_positions": 3342336,
+          "vocab_head_answer_only_estimate": 26112,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.499
+        },
+        "wall": {
+          "median_sec": 0.002778,
+          "p95_sec": 0.003002,
+          "min_sec": 0.001763,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B8": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 50331648,
+            "rope_elementwise": 524288,
+            "score_qk_dense": 134217728,
+            "score_qk_causal_effective": 67239936,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 134217728,
+            "attn_v_causal_effective": 67239936,
+            "out_proj": 16777216,
+            "ffn_up": 33554432,
+            "ffn_down": 33554432,
+            "layernorm_elementwise": 1048576,
+            "attention_block_total_dense": 335544320,
+            "ffn_total": 67108864
+          },
+          "model_without_head": 404226048,
+          "vocab_head_all_positions": 26738688,
+          "vocab_head_answer_only_estimate": 208896,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.499
+        },
+        "wall": {
+          "median_sec": 0.014973,
+          "p95_sec": 0.017585,
+          "min_sec": 0.012903,
+          "repeats": 30,
+          "warmup": 5
+        }
+      },
+      "B16": {
+        "analytic": {
+          "per_layer": {
+            "qkv_proj": 100663296,
+            "rope_elementwise": 1048576,
+            "score_qk_dense": 268435456,
+            "score_qk_causal_effective": 134479872,
+            "softmax_non_mac": 0,
+            "attn_v_dense": 268435456,
+            "attn_v_causal_effective": 134479872,
+            "out_proj": 33554432,
+            "ffn_up": 67108864,
+            "ffn_down": 67108864,
+            "layernorm_elementwise": 2097152,
+            "attention_block_total_dense": 671088640,
+            "ffn_total": 134217728
+          },
+          "model_without_head": 808452096,
+          "vocab_head_all_positions": 53477376,
+          "vocab_head_answer_only_estimate": 417792,
+          "note": "Answer-only 估计按每样本4个监督位置；实际值由数据分布决定",
+          "causal_savings_ratio": 0.499
+        },
+        "wall": {
+          "median_sec": 0.029735,
+          "p95_sec": 0.033168,
+          "min_sec": 0.028218,
+          "repeats": 30,
+          "warmup": 5
+        }
+      }
+    }
+  },
+  "incremental": {
+    "16": {
+      "L": 16,
+      "median_sec": 0.000978,
+      "p95_sec": 0.001649
+    },
+    "64": {
+      "L": 64,
+      "median_sec": 0.00097,
+      "p95_sec": 0.001089
+    },
+    "256": {
+      "L": 256,
+      "median_sec": 0.000983,
+      "p95_sec": 0.001481
+    }
+  },
+  "profiler": {
+    "B1_T32": {
+      "top": [
+        {
+          "name": "aten::native_layer_norm",
+          "self_cpu_us": 1081.0,
+          "share": 0.0828
+        },
+        {
+          "name": "aten::addmm",
+          "self_cpu_us": 927.7,
+          "share": 0.0711
+        },
+        {
+          "name": "aten::mm",
+          "self_cpu_us": 753.6,
+          "share": 0.0577
+        },
+        {
+          "name": "aten::arange",
+          "self_cpu_us": 625.7,
+          "share": 0.0479
+        },
+        {
+          "name": "aten::index_select",
+          "self_cpu_us": 619.1,
+          "share": 0.0474
+        },
+        {
+          "name": "aten::bmm",
+          "self_cpu_us": 612.6,
+          "share": 0.0469
+        },
+        {
+          "name": "aten::gelu",
+          "self_cpu_us": 556.9,
+          "share": 0.0427
+        },
+        {
+          "name": "aten::embedding",
+          "self_cpu_us": 553.7,
+          "share": 0.0424
+        },
+        {
+          "name": "aten::mul",
+          "self_cpu_us": 535.7,
+          "share": 0.041
+        },
+        {
+          "name": "aten::linear",
+          "self_cpu_us": 488.3,
+          "share": 0.0374
+        },
+        {
+          "name": "aten::_to_copy",
+          "self_cpu_us": 423.8,
+          "share": 0.0325
+        },
+        {
+          "name": "aten::masked_fill",
+          "self_cpu_us": 381.5,
+          "share": 0.0292
+        }
+      ],
+      "total_self_cpu_us": 13054.9
+    },
+    "B8_T128": {
+      "top": [
+        {
+          "name": "aten::mul",
+          "self_cpu_us": 6553.2,
+          "share": 0.2068
+        },
+        {
+          "name": "aten::copy_",
+          "self_cpu_us": 3022.5,
+          "share": 0.0954
+        },
+        {
+          "name": "aten::_softmax",
+          "self_cpu_us": 2546.9,
+          "share": 0.0804
+        },
+        {
+          "name": "aten::addmm",
+          "self_cpu_us": 2374.2,
+          "share": 0.0749
+        },
+        {
+          "name": "aten::mm",
+          "self_cpu_us": 1996.2,
+          "share": 0.063
+        },
+        {
+          "name": "aten::bmm",
+          "self_cpu_us": 1980.1,
+          "share": 0.0625
+        },
+        {
+          "name": "aten::native_layer_norm",
+          "self_cpu_us": 1406.2,
+          "share": 0.0444
+        },
+        {
+          "name": "aten::masked_fill_",
+          "self_cpu_us": 1295.9,
+          "share": 0.0409
+        },
+        {
+          "name": "aten::gelu",
+          "self_cpu_us": 1065.1,
+          "share": 0.0336
+        },
+        {
+          "name": "aten::div",
+          "self_cpu_us": 965.2,
+          "share": 0.0305
+        },
+        {
+          "name": "aten::add",
+          "self_cpu_us": 901.1,
+          "share": 0.0284
+        },
+        {
+          "name": "aten::matmul",
+          "self_cpu_us": 768.2,
+          "share": 0.0242
+        }
+      ],
+      "total_self_cpu_us": 31694.4
+    }
+  },
+  "bottleneck_short_seq": {
+    "attention_share": 0.5525,
+    "ffn_share": 0.442,
+    "head_share": 0.0055,
+    "note": "短序列若 FFN/Head 占比更大，不得盲目优化注意力矩阵"
+  },
+  "bottleneck_long_seq": {
+    "attention_share": 0.7814,
+    "ffn_share": 0.1563,
+    "head_share": 0.0623
+  }
+}

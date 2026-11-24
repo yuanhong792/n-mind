@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETE",
+  "static": {
+    "macs": 144
+  },
+  "wall": {
+    "median_us": 100.0,
+    "p95_us": 122.9
+  }
+}

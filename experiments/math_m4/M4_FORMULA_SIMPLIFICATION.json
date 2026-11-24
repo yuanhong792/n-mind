@@ -1,0 +1,7 @@
+{
+  "status": "COMPLETE",
+  "original": "Residual(MatMul(Softmax(MatMul(Input(name=Q),Input(name=K),transpose_b=True)),Input(name=V)),Input(name=V),scale=0.0)",
+  "simplified": "MatMul(Softmax(MatMul(Input(name=Q),Input(name=K),transpose_b=True)),Input(name=V))",
+  "max_abs_diff": 0.0,
+  "numerically_equivalent": true
+}

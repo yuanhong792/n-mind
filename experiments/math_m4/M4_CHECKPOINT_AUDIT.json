@@ -1,0 +1,95 @@
+{
+  "status": "M4_NOT_AVAILABLE_M3_HISTORICAL_AUDIT_COMPLETE",
+  "m4_checkpoint_dir": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\checkpoints",
+  "m4_checkpoint_files": [],
+  "m4_training_status": "DRY_RUN_COMPLETE",
+  "m4_authorization": "NOT_AUTHORIZED",
+  "m3_historical_audit": {
+    "n_checkpoints": 16,
+    "panel": "val 每任务5条共85条，仅用于证据链复核，非能力排名",
+    "note": "权重路径与 SHA 为准；meta 声明的 macro 与重评测差异如实记录",
+    "best_final_relations": [
+      {
+        "arch": "M3-A_low_rank_neural",
+        "seed": 1,
+        "best_file": "M3-A_low_rank_neural_s1_best.pt",
+        "final_file": "M3-A_low_rank_neural_s1_final.pt",
+        "tensor_identical": false,
+        "best_macro": 0.0912,
+        "final_macro": 0.0253,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "M3-A_low_rank_neural",
+        "seed": 2,
+        "best_file": "M3-A_low_rank_neural_s2_best.pt",
+        "final_file": "M3-A_low_rank_neural_s2_final.pt",
+        "tensor_identical": false,
+        "best_macro": 0.095,
+        "final_macro": 0.0555,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "M3-B_adaptive_computation",
+        "seed": 1,
+        "best_file": "M3-B_adaptive_computation_s1_best.pt",
+        "final_file": "M3-B_adaptive_computation_s1_final.pt",
+        "tensor_identical": true,
+        "best_macro": 0.2407,
+        "final_macro": 0.2407,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "M3-B_adaptive_computation",
+        "seed": 2,
+        "best_file": "M3-B_adaptive_computation_s2_best.pt",
+        "final_file": "M3-B_adaptive_computation_s2_final.pt",
+        "tensor_identical": true,
+        "best_macro": 0.2831,
+        "final_macro": 0.2831,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "R1_gru_reference",
+        "seed": 1,
+        "best_file": "R1_gru_reference_s1_best.pt",
+        "final_file": "R1_gru_reference_s1_final.pt",
+        "tensor_identical": false,
+        "best_macro": 0.1192,
+        "final_macro": 0.0757,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "R1_gru_reference",
+        "seed": 2,
+        "best_file": "R1_gru_reference_s2_best.pt",
+        "final_file": "R1_gru_reference_s2_final.pt",
+        "tensor_identical": false,
+        "best_macro": 0.1317,
+        "final_macro": 0.0949,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "R2_tiny_transformer",
+        "seed": 1,
+        "best_file": "R2_tiny_transformer_s1_best.pt",
+        "final_file": "R2_tiny_transformer_s1_final.pt",
+        "tensor_identical": true,
+        "best_macro": 0.5083,
+        "final_macro": 0.5083,
+        "role_labels_match_steps": true
+      },
+      {
+        "arch": "R2_tiny_transformer",
+        "seed": 2,
+        "best_file": "R2_tiny_transformer_s2_best.pt",
+        "final_file": "R2_tiny_transformer_s2_final.pt",
+        "tensor_identical": false,
+        "best_macro": 0.5043,
+        "final_macro": 0.4972,
+        "role_labels_match_steps": true
+      }
+    ]
+  },
+  "conclusion": "M3 checkpoint 证据链已复核；M4 尚无真实训练权重，任何 M4 Best/Final 能力结果均 NOT_AVAILABLE。"
+}

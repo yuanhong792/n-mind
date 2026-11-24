@@ -1,0 +1,70 @@
+{
+  "status": "COMPLETE_ZERO_GRADIENT",
+  "reference": "R2 TinyTransformerM3, FP32, CPU",
+  "transformer_cost": {
+    "short_seq": {
+      "attention_share": 0.5525,
+      "ffn_share": 0.442,
+      "head_share": 0.0055,
+      "note": "短序列若 FFN/Head 占比更大，不得盲目优化注意力矩阵"
+    },
+    "long_seq": {
+      "attention_share": 0.7814,
+      "ffn_share": 0.1563,
+      "head_share": 0.0623
+    },
+    "causal_savings_by_length": {
+      "16": 0.4688,
+      "32": 0.4844,
+      "64": 0.4922,
+      "128": 0.4961,
+      "256": 0.498,
+      "512": 0.499
+    }
+  },
+  "low_rank_interaction": {
+    "mechanism": "reduce_qk_dim（不是投影分解，也不是 score 低秩近似）",
+    "full_graph_reduction": {
+      "4": 0.6042,
+      "8": 0.5417,
+      "16": 0.4167,
+      "32": 0.1667,
+      "64": -0.3333
+    },
+    "output_relative_l2": {
+      "4": 1.794891,
+      "8": 1.939049,
+      "16": 1.813404,
+      "32": 2.033907,
+      "64": 2.026672
+    },
+    "frozen_main_r": 16,
+    "trained_capability": "NOT_RUN"
+  },
+  "selective_interaction": {
+    "exact_attention_skipped_ratio": 0.75,
+    "routing_macs": {
+      "summary_build": 16384,
+      "summary_update": 2048,
+      "coarse_retrieval": 32768,
+      "topk": 2048,
+      "gather": 32768,
+      "exact_attention": 65536,
+      "dense_attention": 262144,
+      "full_qk_forbidden": false
+    },
+    "routing_plus_exact_macs": 151552,
+    "dense_attention_macs": 262144,
+    "routing_plus_exact_vs_dense_saving": 0.4219,
+    "causality_pass": true,
+    "ste_gradient_pass": true,
+    "fixed_window_capability": "NOT_RUN（未获训练预算，不得伪造能力对照）",
+    "trained_capability": "NOT_RUN"
+  },
+  "incremental_kernel": {
+    "status": "COMPLETE",
+    "decision": "NOT_RUN in main model（需授权后单独预登记）",
+    "disclaimer": "本算子属已有线性注意力方向，不宣称与 softmax attention 等价；以下误差是数值观察，不是等价性证明。"
+  },
+  "conclusion": "注意力成本确实随长度成为主瓶颈，但只降低 QK 维度不会等比例降低全图；选择性交互跳过 75% 精确注意力，但需计入路由成本；训练后能力均未测。"
+}
