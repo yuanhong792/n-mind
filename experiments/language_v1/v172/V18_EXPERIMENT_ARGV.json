@@ -1,0 +1,112 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "main_model_optimizer_steps": 0,
+  "experiments": [
+    {
+      "id": "V18_A",
+      "name": "原始 N-Cell + 修复后的训练协议",
+      "single_variable": "仅训练协议修复；模型结构、初始化、父权重、数据、预算与 V1.7 完全同口径",
+      "config": {
+        "n_blocks": 2,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": false,
+        "vocab_size": 4096
+      },
+      "parameter_count_actual": 279363,
+      "checkpoint_compatible_with_parent": true,
+      "seed": 20261124,
+      "max_steps": 96,
+      "max_wall_seconds": 300,
+      "data": "experiments/language_v1/v172/data/v172_*.jsonl (SHA frozen in V172_DATA_AUDIT.json)",
+      "argv": [
+        "experiments\\language_v1\\v172\\train_v172.py",
+        "--execute-train",
+        "--authorized",
+        "--experiment",
+        "V18_A",
+        "--seed",
+        "20261124",
+        "--max-steps",
+        "96",
+        "--max-wall",
+        "300"
+      ],
+      "executed": false
+    },
+    {
+      "id": "V18_B",
+      "name": "真正具有选择空间的稀疏 Router",
+      "single_variable": "仅 top_k；A 组 top_k=2 (n_blocks=2) 对 B 组 top_k=1 (n_blocks=2)，或 n_blocks=4/top_k=2 对照（二选一，需预先固定）",
+      "config": {
+        "vocab_size": 4096,
+        "n_blocks": 4,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": false
+      },
+      "parameter_count_actual": 289797,
+      "checkpoint_compatible_with_parent": false,
+      "seed": 20261124,
+      "max_steps": 96,
+      "max_wall_seconds": 300,
+      "data": "experiments/language_v1/v172/data/v172_*.jsonl (SHA frozen in V172_DATA_AUDIT.json)",
+      "argv": [
+        "experiments\\language_v1\\v172\\train_v172.py",
+        "--execute-train",
+        "--authorized",
+        "--experiment",
+        "V18_B",
+        "--seed",
+        "20261124",
+        "--max-steps",
+        "96",
+        "--max-wall",
+        "300"
+      ],
+      "executed": false
+    },
+    {
+      "id": "V18_C",
+      "name": "不同读出机制或 Workspace 信息保持机制",
+      "single_variable": "仅一项：workspace_slots 2->4 或 query_readout false->true（二选一，不得同时改）",
+      "config": {
+        "vocab_size": 4096,
+        "n_blocks": 4,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": true
+      },
+      "parameter_count_actual": 292389,
+      "checkpoint_compatible_with_parent": false,
+      "seed": 20261124,
+      "max_steps": 96,
+      "max_wall_seconds": 300,
+      "data": "experiments/language_v1/v172/data/v172_*.jsonl (SHA frozen in V172_DATA_AUDIT.json)",
+      "argv": [
+        "experiments\\language_v1\\v172\\train_v172.py",
+        "--execute-train",
+        "--authorized",
+        "--experiment",
+        "V18_C",
+        "--seed",
+        "20261124",
+        "--max-steps",
+        "96",
+        "--max-wall",
+        "300"
+      ],
+      "executed": false
+    }
+  ],
+  "note": "参数量按实际配置计算；B/C 的 checkpoint 与父模型不兼容，必须按预登记范围重新初始化。"
+}

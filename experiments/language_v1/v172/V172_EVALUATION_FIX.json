@@ -1,0 +1,136 @@
+{
+  "status": "EVALUATION_FIX_DONE",
+  "metric_names": [
+    "binding_accuracy",
+    "counterfactual_pair_accuracy",
+    "position_accuracy",
+    "dialogue_accuracy",
+    "context_accuracy",
+    "free_generation_accuracy",
+    "immediate_eos_rate",
+    "full_answer_conditional_accuracy"
+  ],
+  "proxy_names_distinguished": [
+    "DISCRIMINATIVE_TOKEN_PROXY",
+    "FIRST_TOKEN_PROXY_LEGACY"
+  ],
+  "candidates_with_discriminative_position_gt_zero": {
+    "紫色": 1,
+    "白色": 1
+  },
+  "per_candidate": [
+    {
+      "candidate": "红色",
+      "answer_token_ids": [
+        298,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -5.827926,
+      "correct_conditional_logprob": -5.827926,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "绿色",
+      "answer_token_ids": [
+        326,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -5.720254,
+      "correct_conditional_logprob": -5.720254,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "蓝色",
+      "answer_token_ids": [
+        327,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -5.912184,
+      "correct_conditional_logprob": -5.912184,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "黄色",
+      "answer_token_ids": [
+        329,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -6.198183,
+      "correct_conditional_logprob": -6.198183,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "紫色",
+      "answer_token_ids": [
+        235,
+        184,
+        175,
+        284
+      ],
+      "discriminative_position": 1,
+      "legacy_prompt_tail_logprob": -5.544044,
+      "correct_conditional_logprob": -5.602799,
+      "abs_error": 0.058755,
+      "legacy_proxy_valid": false
+    },
+    {
+      "candidate": "橙色",
+      "answer_token_ids": [
+        234,
+        173,
+        157,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -5.50304,
+      "correct_conditional_logprob": -5.50304,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "黑色",
+      "answer_token_ids": [
+        237,
+        191,
+        149,
+        284
+      ],
+      "discriminative_position": 0,
+      "legacy_prompt_tail_logprob": -6.063559,
+      "correct_conditional_logprob": -6.063559,
+      "abs_error": 0.0,
+      "legacy_proxy_valid": true
+    },
+    {
+      "candidate": "白色",
+      "answer_token_ids": [
+        235,
+        157,
+        193,
+        284
+      ],
+      "discriminative_position": 1,
+      "legacy_prompt_tail_logprob": -5.810008,
+      "correct_conditional_logprob": -5.811933,
+      "abs_error": 0.001925,
+      "legacy_proxy_valid": false
+    }
+  ],
+  "legacy_proxy_invalid_count": 2,
+  "full_answer_conditional_with_eos": -17.282969,
+  "full_answer_conditional_without_eos": -11.573441,
+  "eos_included": true,
+  "best_checkpoint_rule": "fixed VAL metric only; SEALED never used for selection",
+  "denominator_rule": "parent/candidate/final scored on identical fixed split and candidate set",
+  "teacher_forced_prob_is_not_free_generation": true,
+  "weights_source": "random_init_same_config_ARCHITECTURE_ONLY",
+  "parent_checkpoint_available": false
+}

@@ -1,0 +1,37 @@
+{
+  "status": "ARCHITECTURE_AUDIT_DONE",
+  "config": {
+    "vocab_size": 4096,
+    "d_model": 32,
+    "n_blocks": 2,
+    "block_hidden": 32,
+    "workspace_dim": 16,
+    "workspace_slots": 2,
+    "top_k": 2,
+    "query_readout": false
+  },
+  "config_status": "INFERRED_FROM_HISTORICAL_PARAM_COUNT",
+  "has_sparse_space": false,
+  "router_findings": {
+    "top_k_equals_n_blocks": true,
+    "has_sparse_selection_space": false,
+    "activation_ratio": 1.0,
+    "router_score_std_across_tokens": 0.12379557,
+    "distinct_selected_set_count": 2,
+    "router_score_change_changes_forward_logits": false,
+    "swap_selected_order_changes_workspace": false,
+    "router_has_nonzero_gradient": true,
+    "temporary_copy_one_step_route_changed": false
+  },
+  "workspace_findings": {
+    "overflow_dropped": true,
+    "overflow_events": [
+      60,
+      164,
+      268,
+      476,
+      892
+    ]
+  },
+  "parent_checkpoint_available": false
+}

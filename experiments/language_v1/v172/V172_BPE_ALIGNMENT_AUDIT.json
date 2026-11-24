@@ -1,0 +1,88 @@
+{
+  "status": "BPE_ALIGNMENT_AUDIT_DONE",
+  "protocol_fixed": "prompt_ids + answer_ids + [EOS] (segmented encode, then concat)",
+  "protocol_legacy": "tok.encode(prompt + answer, add_eos=True)",
+  "tokenizer_hash": "26af116ebd13ff00",
+  "tokenizer_unchanged": true,
+  "splits": {
+    "train": {
+      "total": 5418,
+      "affected": 0,
+      "affected_ratio": 0.0,
+      "examples": []
+    },
+    "val": {
+      "total": 901,
+      "affected": 0,
+      "affected_ratio": 0.0,
+      "examples": []
+    },
+    "sealed": {
+      "total": 902,
+      "affected": 0,
+      "affected_ratio": 0.0,
+      "examples": []
+    },
+    "counter": {
+      "total": 300,
+      "affected": 0,
+      "affected_ratio": 0.0,
+      "examples": []
+    }
+  },
+  "total_affected": 0,
+  "total_rows": 7521,
+  "legacy_call_sites_found": [
+    {
+      "file": "experiments\\language_v1\\v16\\_diag_all.py",
+      "line": 70,
+      "snippet": "seq = tok.encode(prompt + answer, add_eos=True)"
+    },
+    {
+      "file": "experiments\\language_v1\\v17\\evaluate_v17.py",
+      "line": 48,
+      "snippet": "seq = tok.encode(r[\"prompt\"]+r[\"answer\"], add_eos=True)"
+    },
+    {
+      "file": "experiments\\language_v1\\v17\\train_v17.py",
+      "line": 49,
+      "snippet": "seqs = [tok.encode(r[\"prompt\"] + r[\"answer\"], add_eos=True) for r in (rows[i] for i in idxs)]"
+    },
+    {
+      "file": "experiments\\language_v1\\v17\\train_v17.py",
+      "line": 78,
+      "snippet": "order.sort(key=lambda i: len(tok.encode(rows[i][\"prompt\"] + rows[i][\"answer\"], add_eos=True)))"
+    },
+    {
+      "file": "experiments\\language_v1\\v171\\_eos_audit.py",
+      "line": 51,
+      "snippet": "seq = tok.encode(row[\"prompt\"] + row[\"answer\"], add_eos=True)"
+    },
+    {
+      "file": "experiments\\language_v1\\v172\\audit_eval_bpe_eos.py",
+      "line": 3,
+      "snippet": "- 扫描真实 v171 数据集统计旧口径 encode(prompt+answer) 与新口径"
+    },
+    {
+      "file": "experiments\\language_v1\\v172\\audit_eval_bpe_eos.py",
+      "line": 72,
+      "snippet": "\"protocol_legacy\": \"tok.encode(prompt + answer, add_eos=True)\","
+    },
+    {
+      "file": "experiments\\language_v1\\v172\\v172_protocol.py",
+      "line": 4,
+      "snippet": "`tok.encode(prompt + answer, add_eos=True)` 或拿 prompt 末尾 logits 当"
+    },
+    {
+      "file": "experiments\\language_v1\\v172\\v172_protocol.py",
+      "line": 57,
+      "snippet": "legacy_sequence: tuple[int, ...] | None = None  # 旧口径 encode(prompt+answer) 仅用于审计"
+    },
+    {
+      "file": "experiments\\language_v1\\v172\\v172_protocol.py",
+      "line": 70,
+      "snippet": "legacy = list(tok.encode(prompt + answer, add_eos=True)) if audit_legacy else None"
+    }
+  ],
+  "checkpoint_modified": false
+}

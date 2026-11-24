@@ -1,0 +1,64 @@
+{
+  "status": "DRY_RUN_NO_TRAIN",
+  "main_model_optimizer_steps": 0,
+  "parent_checkpoint": "D:\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\v15\\candidate_v15_baseline.pt",
+  "parent_checkpoint_available": false,
+  "parent_sha256_expected": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+  "data_dir": "D:\\cpu本地模型开发\\n-mind\\experiments\\language_v1\\v172\\data",
+  "data_counts": {
+    "train": 5998,
+    "val": 998,
+    "sealed": 1000,
+    "counter": 300
+  },
+  "tokenizer_hash": "26af116ebd13ff00",
+  "model_config": {
+    "vocab_size": 4096,
+    "d_model": 32,
+    "n_blocks": 2,
+    "block_hidden": 32,
+    "workspace_dim": 16,
+    "workspace_slots": 2,
+    "top_k": 2,
+    "query_readout": false
+  },
+  "batch_shape": [
+    2,
+    120
+  ],
+  "supervised_targets": 8,
+  "weights_unique": [
+    0.25,
+    1.0,
+    2.0
+  ],
+  "metrics": [
+    "binding_accuracy",
+    "counterfactual_pair_accuracy",
+    "position_accuracy",
+    "dialogue_accuracy",
+    "context_accuracy",
+    "free_generation_accuracy",
+    "immediate_eos_rate",
+    "full_answer_conditional_accuracy"
+  ],
+  "checkpoint_safety": {
+    "parent_sha_recorded": true,
+    "optimizer_steps_recorded": true,
+    "phase_checkpoints": [
+      64,
+      512,
+      96
+    ],
+    "final_saved_before_best": true,
+    "optimizer_and_rng_state_saved": true,
+    "atomic_save_with_tensor_verify": true,
+    "hard_wall_stop_seconds": 300
+  },
+  "mode_management": {
+    "preserved_mode_contextmanager": true,
+    "per_sample_state_isolated": true,
+    "router_stats_restored_after_eval": true
+  },
+  "note": "父权重缺失，本轮不训练；程序已具备执行条件但需先恢复父 checkpoint 并重新授权。"
+}

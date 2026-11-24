@@ -1,0 +1,228 @@
+{
+  "status": "DATA_AUDIT_AND_REPAIR_DONE",
+  "source": {
+    "source": "experiments/language_v1/v171/data (UNCHANGED)",
+    "counts": {
+      "train": {
+        "C_counter": 1198,
+        "B_bind": 1800,
+        "D_position": 1500,
+        "E_context": 900,
+        "A_dialogue": 20
+      },
+      "val": {
+        "C_counter": 198,
+        "B_bind": 300,
+        "D_position": 250,
+        "E_context": 150,
+        "A_dialogue": 3
+      },
+      "sealed": {
+        "C_counter": 200,
+        "D_position": 250,
+        "B_bind": 300,
+        "E_context": 150,
+        "A_dialogue": 2
+      },
+      "counter": {
+        "C_counter": 300
+      }
+    },
+    "quotas": {
+      "train": {
+        "A_dialogue": 600,
+        "B_bind": 1800,
+        "C_counter": 1200,
+        "D_position": 1500,
+        "E_context": 900
+      },
+      "val": {
+        "A_dialogue": 100,
+        "B_bind": 300,
+        "C_counter": 200,
+        "D_position": 250,
+        "E_context": 150
+      },
+      "sealed": {
+        "A_dialogue": 100,
+        "B_bind": 300,
+        "C_counter": 200,
+        "D_position": 250,
+        "E_context": 150
+      },
+      "counter": {
+        "A_dialogue": 0,
+        "B_bind": 0,
+        "C_counter": 300,
+        "D_position": 0,
+        "E_context": 0
+      }
+    },
+    "gaps": {
+      "train": {
+        "A_dialogue": 580,
+        "B_bind": 0,
+        "C_counter": 2,
+        "D_position": 0,
+        "E_context": 0
+      },
+      "val": {
+        "A_dialogue": 97,
+        "B_bind": 0,
+        "C_counter": 2,
+        "D_position": 0,
+        "E_context": 0
+      },
+      "sealed": {
+        "A_dialogue": 98,
+        "B_bind": 0,
+        "C_counter": 0,
+        "D_position": 0,
+        "E_context": 0
+      },
+      "counter": {
+        "A_dialogue": 0,
+        "B_bind": 0,
+        "C_counter": 0,
+        "D_position": 0,
+        "E_context": 0
+      }
+    },
+    "prompt_overlap": {
+      "train_val": 0,
+      "train_sealed": 0,
+      "train_counter": 0,
+      "val_sealed": 0,
+      "val_counter": 0,
+      "sealed_counter": 0
+    },
+    "normalized_fact_overlap": {
+      "train_val": 0,
+      "train_sealed": 0,
+      "train_counter": 0,
+      "val_sealed": 0,
+      "val_counter": 0,
+      "sealed_counter": 0
+    },
+    "counterfactual_pairs": {
+      "train": {
+        "groups": 599,
+        "valid_pairs": 599
+      },
+      "val": {
+        "groups": 99,
+        "valid_pairs": 99
+      },
+      "sealed": {
+        "groups": 100,
+        "valid_pairs": 100
+      },
+      "counter": {
+        "groups": 150,
+        "valid_pairs": 150
+      }
+    },
+    "v171_frozen_sha256": {
+      "train": "122b4eed51509706fea9d1d87ec1cbf4eb5ae41aa3d1115fd14aee6fccb26252",
+      "val": "4b57a1cfc674eb10c3b59b075d391a2d40c8a545ee226991f0510ec4529fc151",
+      "sealed": "111eba51826abcfd01fa47c0d9d3fc6d0b066fe7eb5b612c910bdfbf670a630b",
+      "counter": "489f039ef3dac26d805011120ee4802977865f00f144a6f4bfe72702cbbb183f"
+    },
+    "source_preserved": true
+  },
+  "generator_families": {
+    "greet": {
+      "variants": 30,
+      "answer": "你好！"
+    },
+    "identity": {
+      "variants": 30,
+      "answer": "我叫N-MIND。"
+    },
+    "thanks": {
+      "variants": 28,
+      "answer": "不客气！"
+    },
+    "status": {
+      "variants": 26,
+      "answer": "我很好，谢谢！"
+    },
+    "capability": {
+      "variants": 28,
+      "answer": "我可以陪你聊天、回答问题。"
+    }
+  },
+  "context_variants": 16,
+  "new_dialogue_generated": {
+    "val": 329,
+    "train": 1576,
+    "sealed": 341
+  },
+  "v172_counts": {
+    "train": {
+      "C_counter": 1198,
+      "B_bind": 1800,
+      "D_position": 1500,
+      "E_context": 900,
+      "A_dialogue": 600
+    },
+    "val": {
+      "C_counter": 198,
+      "B_bind": 300,
+      "D_position": 250,
+      "E_context": 150,
+      "A_dialogue": 100
+    },
+    "sealed": {
+      "C_counter": 200,
+      "D_position": 250,
+      "B_bind": 300,
+      "E_context": 150,
+      "A_dialogue": 100
+    },
+    "counter": {
+      "C_counter": 300
+    }
+  },
+  "v172_remaining_gaps": {
+    "train": {
+      "A_dialogue": 0,
+      "B_bind": 0,
+      "C_counter": 2,
+      "D_position": 0,
+      "E_context": 0
+    },
+    "val": {
+      "A_dialogue": 0,
+      "B_bind": 0,
+      "C_counter": 2,
+      "D_position": 0,
+      "E_context": 0
+    },
+    "sealed": {
+      "A_dialogue": 0,
+      "B_bind": 0,
+      "C_counter": 0,
+      "D_position": 0,
+      "E_context": 0
+    },
+    "counter": {
+      "A_dialogue": 0,
+      "B_bind": 0,
+      "C_counter": 0,
+      "D_position": 0,
+      "E_context": 0
+    }
+  },
+  "v172_frozen_sha256": {
+    "train": "14ae7041b1cc541afb4e5ad296eb2cb38be1a8884ce791beadbf9dae7c6b4f7e",
+    "val": "333e824f7cf698ea358210438eac19b8440bed198692190be3142641b53aedae",
+    "sealed": "7006b89530ce0b53e6992e619afb0b3344d2a612b0a352e3460f490ead45c393",
+    "counter": "489f039ef3dac26d805011120ee4802977865f00f144a6f4bfe72702cbbb183f"
+  },
+  "v171_original_preserved": true,
+  "data_version_loaded_by_training": "experiments/language_v1/v172/data/v172_*.jsonl",
+  "no_copy_no_punctuation_noise": true,
+  "tokenizer_unchanged": true,
+  "note": "C_counter 原始 1198/1200 缺口 2 如实保留，不用伪造样本补齐。"
+}

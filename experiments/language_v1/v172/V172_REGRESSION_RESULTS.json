@@ -1,0 +1,65 @@
+{
+  "status": "REGRESSION_COMPLETED",
+  "environment": {
+    "project_path_actual": "D:/cpu本地模型开发/n-mind",
+    "project_path_in_taskbook": "D:/脉脑/cpu本地模型开发/cpu本地模型开发/n-mind (NOT PRESENT)",
+    "python": "C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe (3.12.10)",
+    "venv_in_taskbook": ".venv-gate24 (NOT PRESENT)",
+    "torch": "2.10.0+cpu, cuda_available=false",
+    "branch": "experiment/language-v172-core-repair"
+  },
+  "new_tests": {
+    "file": "tests/test_v172_protocol.py",
+    "command": "python -m pytest tests/test_v172_protocol.py -q",
+    "result": "10 passed / 0 failed",
+    "coverage": [
+      "BPE 分段拼接与 EOS 位置",
+      "目标掩码起点",
+      "teacher forcing 与增量推理一致性",
+      "preserved_mode 恢复训练态与 router 统计",
+      "样本间状态隔离",
+      "判别位非首位时旧代理评分错误",
+      "dry-run optimizer.step=0",
+      "checkpoint 记录 optimizer.step 与可恢复状态"
+    ]
+  },
+  "full_suite": {
+    "command": "python -m pytest tests -q --tb=no --disable-warnings",
+    "existing_failures": [
+      {
+        "test": "tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss",
+        "reason": "20 并发提交仅落 7 个唯一 UUID，store.py 共享 sqlite 连接无锁",
+        "introduced_by_this_round": false
+      },
+      {
+        "test": "tests/test_bot_v1_web.py::test_chat_message_full_protocol",
+        "reason": "顺序/时序相关，单独运行可通过",
+        "introduced_by_this_round": false
+      }
+    ],
+    "setup_errors": {
+      "count": 10,
+      "files": ["tests/test_v171_checkpoint.py", "tests/test_v171_protocol.py"],
+      "reason": "测试模块顶层依赖 experiments/language_v1/v15/candidate_v15_baseline.pt，该文件本地缺失（*.pt 被 .gitignore 忽略）",
+      "introduced_by_this_round": false,
+      "not_masked": true
+    },
+    "v172_tests_passed": true
+  },
+  "compile_check": {
+    "command": "python -m compileall -q experiments/language_v1/v172 src tests",
+    "result": "PASS"
+  },
+  "diagnostic_scripts_executed": [
+    "audit_core.py -> V172_ROUTER_PROBE.json / V172_WORKSPACE_PROBE.json / V172_ARCHITECTURE_AUDIT.json",
+    "probe_temporal_memory.py -> V172_NCELL_MEMORY_PROBE.json",
+    "audit_eval_bpe_eos.py -> V172_BPE_ALIGNMENT_AUDIT.json / V172_EVALUATION_FIX.json / V172_EOS_AUDIT.json",
+    "prepare_data_v172.py -> V172_DATA_AUDIT.json + data/v172_*.jsonl",
+    "train_v172.py -> V172_TRAIN_DRY_RUN.json (optimizer.step=0)",
+    "prepare_v172_experiments.py -> V18_EXPERIMENT_ARGV.json"
+  ],
+  "main_model_optimizer_steps": 0,
+  "parent_checkpoint_updated": false,
+  "stable_modified": false,
+  "training_executed": false
+}

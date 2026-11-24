@@ -1,0 +1,140 @@
+{
+  "overflow_field_consumed_by_language_model": false,
+  "overflow_dropped_at": "src/nmind/language/neural_dialogue.py:wr = self.workspace.write(ws, payload)",
+  "capacity": 1.5,
+  "decay": 0.9,
+  "slots": 2,
+  "cases": [
+    {
+      "distractor_tokens": 0,
+      "input_tokens": 31,
+      "overflow_events": 60,
+      "assignments_total": 62.0,
+      "occupied_first": [
+        1.0159,
+        0.9841
+      ],
+      "occupied_last": [
+        0.9112,
+        0.9069
+      ],
+      "used_slots_last": 2,
+      "max_occupied_last": 0.9112,
+      "slot_content_norm_last": [
+        0.094224,
+        0.094046
+      ],
+      "last_read_attn": [
+        0.500019,
+        0.499981
+      ],
+      "logit_delta_when_workspace_read_zeroed": 0.0,
+      "overflow_consumed_by_language_model": false
+    },
+    {
+      "distractor_tokens": 8,
+      "input_tokens": 83,
+      "overflow_events": 164,
+      "assignments_total": 166.0,
+      "occupied_first": [
+        1.0159,
+        0.9841
+      ],
+      "occupied_last": [
+        0.9112,
+        0.9069
+      ],
+      "used_slots_last": 2,
+      "max_occupied_last": 0.9112,
+      "slot_content_norm_last": [
+        0.094238,
+        0.09406
+      ],
+      "last_read_attn": [
+        0.500019,
+        0.499981
+      ],
+      "logit_delta_when_workspace_read_zeroed": 0.0,
+      "overflow_consumed_by_language_model": false
+    },
+    {
+      "distractor_tokens": 16,
+      "input_tokens": 135,
+      "overflow_events": 268,
+      "assignments_total": 270.0,
+      "occupied_first": [
+        1.0159,
+        0.9841
+      ],
+      "occupied_last": [
+        0.9112,
+        0.9069
+      ],
+      "used_slots_last": 2,
+      "max_occupied_last": 0.9112,
+      "slot_content_norm_last": [
+        0.094238,
+        0.09406
+      ],
+      "last_read_attn": [
+        0.500019,
+        0.499981
+      ],
+      "logit_delta_when_workspace_read_zeroed": 0.0,
+      "overflow_consumed_by_language_model": false
+    },
+    {
+      "distractor_tokens": 32,
+      "input_tokens": 239,
+      "overflow_events": 476,
+      "assignments_total": 478.0,
+      "occupied_first": [
+        1.0159,
+        0.9841
+      ],
+      "occupied_last": [
+        0.9112,
+        0.9069
+      ],
+      "used_slots_last": 2,
+      "max_occupied_last": 0.9112,
+      "slot_content_norm_last": [
+        0.094238,
+        0.09406
+      ],
+      "last_read_attn": [
+        0.500019,
+        0.499981
+      ],
+      "logit_delta_when_workspace_read_zeroed": 0.0,
+      "overflow_consumed_by_language_model": false
+    },
+    {
+      "distractor_tokens": 64,
+      "input_tokens": 447,
+      "overflow_events": 892,
+      "assignments_total": 894.0,
+      "occupied_first": [
+        1.0159,
+        0.9841
+      ],
+      "occupied_last": [
+        0.9112,
+        0.9069
+      ],
+      "used_slots_last": 2,
+      "max_occupied_last": 0.9112,
+      "slot_content_norm_last": [
+        0.094238,
+        0.09406
+      ],
+      "last_read_attn": [
+        0.500019,
+        0.499981
+      ],
+      "logit_delta_when_workspace_read_zeroed": 0.0,
+      "overflow_consumed_by_language_model": false
+    }
+  ],
+  "note": "overflow 记录被丢弃；N-Cell h 仍保留全部历史输入的信息（未做可解码性断言）。"
+}

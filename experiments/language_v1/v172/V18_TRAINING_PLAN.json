@@ -1,0 +1,122 @@
+{
+  "status": "PRE_REGISTERED_NOT_EXECUTED",
+  "version": "V1.8",
+  "created_from": "V1.7.2 engineering repair round",
+  "main_model_optimizer_steps_this_round": 0,
+  "authorization_required_before_any_training": true,
+  "parent_checkpoint": {
+    "path": "experiments/language_v1/v15/candidate_v15_baseline.pt",
+    "sha256_expected": "5681f656fbb35f4f4a033e16212897f2d7cc02eac6754b9d860fb980d6f6a611",
+    "local_availability": false,
+    "blocker": "父模型权重文件未同步到本机（*.pt 被 .gitignore 忽略，V171_FAIR_COMPARISON 记录 LOST_weights_equal_parent）",
+    "action": "恢复父权重并校验 SHA 后才具备执行条件"
+  },
+  "shared_protocol": {
+    "tokenizer": "V1.5 ByteBPETokenizer hash=26af116ebd13ff00 (FROZEN, 不得修改词表)",
+    "bpe": "prompt_ids + answer_ids + [EOS] (分段编码后拼接)",
+    "loss": "constrained CE on effective vocab, answer+EOS supervised, discriminative weight 2.0, EOS weight 0.25",
+    "data": "experiments/language_v1/v172/data/v172_*.jsonl (SHA frozen in V172_DATA_AUDIT.json)",
+    "seed": 20261124,
+    "max_steps": 96,
+    "max_wall_seconds": 300,
+    "eval_protocol": "VAL only during training; SEALED scored ONCE on best checkpoint; identical denominator for parent/candidate/final",
+    "metrics": [
+      "binding_accuracy",
+      "counterfactual_pair_accuracy",
+      "position_accuracy",
+      "dialogue_accuracy",
+      "context_accuracy",
+      "free_generation_accuracy",
+      "immediate_eos_rate",
+      "full_answer_conditional_accuracy"
+    ],
+    "proxy_metrics_kept_separate": ["DISCRIMINATIVE_TOKEN_PROXY", "FIRST_TOKEN_PROXY_LEGACY"],
+    "no_external_pretrained_weights": true,
+    "no_distillation": true,
+    "stable_read_only": true
+  },
+  "experiments": [
+    {
+      "id": "V18_A",
+      "name": "原始 N-Cell + 修复后的训练协议",
+      "purpose": "隔离工程缺陷（Router 梯度断路、BPE 边界、快速评分、模式污染）修正带来的收益，不改变架构",
+      "single_variable": "仅训练协议修复；模型结构、初始化、父权重、数据、预算与 V1.7 完全同口径",
+      "config": {
+        "n_blocks": 2,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": false
+      },
+      "architecture_change": false,
+      "parameter_count": 279363,
+      "checkpoint_compatible_with_parent": true
+    },
+    {
+      "id": "V18_B",
+      "name": "真正具有选择空间的稀疏 Router",
+      "purpose": "验证 top_k < n_blocks 是否为实体绑定能力的必要结构条件",
+      "single_variable": "仅 top_k；A 组 top_k=2 (n_blocks=2) 对 B 组 top_k=1 (n_blocks=2)，或 n_blocks=4/top_k=2 对照（二选一，需预先固定）",
+      "fixed_choice": {
+        "vocab_size": 4096,
+        "n_blocks": 4,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": false
+      },
+      "architecture_change": true,
+      "parameter_count_estimate": "需运行 scripts 中的参数计数后写入，不得猜测",
+      "checkpoint_compatible_with_parent": false,
+      "reinitialized_scope": "blocks.*, router.*, block_to_ws.*, head.*（全部随机初始化）；tok_emb 与 tokenizer 词表沿用父模型",
+      "must_report": ["参数量", "checkpoint 不兼容原因", "重新初始化范围", "与 A 组严格相同的种子/数据/预算"]
+    },
+    {
+      "id": "V18_C",
+      "name": "不同读出机制或 Workspace 信息保持机制",
+      "purpose": "在 A 或 B 的胜出配置上单独改变一处读出/保持机制",
+      "single_variable": "仅一项：workspace_slots 2->4 或 query_readout false->true（二选一，不得同时改）",
+      "fixed_choice": {
+        "vocab_size": 4096,
+        "n_blocks": 4,
+        "top_k": 2,
+        "d_model": 32,
+        "block_hidden": 32,
+        "workspace_dim": 16,
+        "workspace_slots": 2,
+        "query_readout": true
+      },
+      "architecture_change": true,
+      "parameter_count_estimate": "需在脚本中按实际配置计算后写入",
+      "checkpoint_compatible_with_parent": false,
+      "reinitialized_scope": "query_readout_proj 新增，其余沿用胜出组 checkpoint（strict=False 且必须校验 missing/unexpected 白名单）",
+      "must_report": ["新增参数量", "只改变单一机制", "与胜出组对照的因果解释边界"]
+    }
+  ],
+  "controls": {
+    "random_initialization": "torch.manual_seed(seed) + random.seed(seed), 每组独立但同组一致",
+    "data_identical": true,
+    "budget_identical": true,
+    "evaluation_identical": true,
+    "checkpoint_saved": true,
+    "sealed_scored_once": true,
+    "selection_metric": "VAL full_answer_conditional_accuracy (预先固定)",
+    "forbidden": [
+      "用 SEALED 选最佳模型",
+      "用 DISCRIMINATIVE_TOKEN_PROXY 冒充完整答案能力",
+      "把 teacher-forced 概率当作自由生成成绩",
+      "一次修改多个核心机制后宣称找到根因"
+    ]
+  },
+  "order": ["V18_A", "V18_B", "V18_C"],
+  "stop_rule": "若 V18_A 已达标，B/C 仍须按预登记执行以检验结构贡献；若 A 未达标，先报告工程修复的独立效应，不得跳过。",
+  "execution_scripts": [
+    "experiments/language_v1/v172/train_v172.py (入口，需 --execute-train --authorized)",
+    "experiments/language_v1/v172/v172_protocol.py (统一协议)",
+    "experiments/language_v1/v172/prepare_v172_experiments.py (按本计划生成具体 argv，不执行训练)"
+  ]
+}
