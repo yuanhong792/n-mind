@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import time
 import urllib.error
 import urllib.request
 
@@ -113,11 +114,12 @@ def test_chat_message_full_protocol(server):
                 {"text": "请计算：7乘8等于多少？"})
     mid = out["message_id"]
     rec = None
-    for _ in range(50):
+    for _ in range(150):
         rr = _get(url, f"/api/chat/messages/{mid}")
         if rr.get("status") != "PENDING":
             rec = rr
             break
+        time.sleep(0.02)
     assert rec is not None
     assert rec["response_source"] == "tool"
     assert "56" in rec["text"]
