@@ -1,0 +1,65 @@
+[
+  {
+    "task": "m52_s0",
+    "checks": {
+      "oracle_em": true,
+      "shortcuts_le_random_plus_005": false,
+      "effective_samples_ge_500": false,
+      "combination_overlap_zero": false,
+      "counterfactual_pairs_present": false,
+      "unk_rate_zero": true
+    },
+    "valid": false,
+    "failed": [
+      "shortcuts_le_random_plus_005",
+      "effective_samples_ge_500",
+      "combination_overlap_zero",
+      "counterfactual_pairs_present"
+    ]
+  },
+  {
+    "task": "m52_s1",
+    "checks": {
+      "oracle_em": true,
+      "shortcuts_le_random_plus_005": false,
+      "effective_samples_ge_500": false,
+      "combination_overlap_zero": false,
+      "counterfactual_pairs_present": true,
+      "unk_rate_zero": true
+    },
+    "valid": false,
+    "failed": [
+      "shortcuts_le_random_plus_005",
+      "effective_samples_ge_500",
+      "combination_overlap_zero"
+    ]
+  },
+  {
+    "task": "m1_grid_mask",
+    "status": "INSUFFICIENT_N",
+    "failed": [
+      "oracle_em",
+      "shortcuts",
+      "effective_samples",
+      "combination_overlap",
+      "counterfactual_pairs_present",
+      "unk_rate"
+    ],
+    "note": "统一组合级指纹与词表报告尚未存在，未擅自判定通过"
+  },
+  {
+    "task": "binding_composition_holdout",
+    "checks": {
+      "oracle_em": true,
+      "shortcuts_le_random_plus_005": false,
+      "effective_samples_ge_500": true,
+      "combination_overlap_zero": true,
+      "counterfactual_pairs_present": true,
+      "unk_rate_zero": true
+    },
+    "valid": false,
+    "failed": [
+      "shortcuts_le_random_plus_005"
+    ]
+  }
+]

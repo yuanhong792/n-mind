@@ -1,0 +1,34 @@
+{
+  "timing_only": true,
+  "optimizer_step_cap": 20,
+  "rows": [
+    {
+      "model": "gru",
+      "steps": 20,
+      "wall_s": 0.15,
+      "timing_only": true,
+      "checkpoint_saved": false
+    },
+    {
+      "model": "transformer",
+      "steps": 20,
+      "wall_s": 0.2772,
+      "timing_only": true,
+      "checkpoint_saved": false
+    },
+    {
+      "model": "delta_rule",
+      "steps": 20,
+      "wall_s": 0.1106,
+      "timing_only": true,
+      "checkpoint_saved": false
+    },
+    {
+      "model": "nmind",
+      "steps": 20,
+      "wall_s": 4.361,
+      "timing_only": true,
+      "checkpoint_saved": false
+    }
+  ]
+}
