@@ -1,0 +1,56 @@
+[
+  {
+    "model": "gru",
+    "params": 62048,
+    "batch": 16,
+    "seq_len": 32,
+    "threads": 1,
+    "sparse_routing": false,
+    "steps": 20,
+    "wall_s": 0.0998,
+    "per_step_ms": 4.989,
+    "profile_self_ms": {
+      "forward": 34.221,
+      "loss": 2.413,
+      "backward": 55.716,
+      "optimizer": 7.394,
+      "python_loop": 0.028
+    }
+  },
+  {
+    "model": "transformer",
+    "params": 279008,
+    "batch": 16,
+    "seq_len": 32,
+    "threads": 1,
+    "sparse_routing": false,
+    "steps": 20,
+    "wall_s": 0.2806,
+    "per_step_ms": 14.03,
+    "profile_self_ms": {
+      "forward": 153.212,
+      "loss": 1.925,
+      "backward": 100.954,
+      "optimizer": 24.48,
+      "python_loop": 0.033
+    }
+  },
+  {
+    "model": "nmind",
+    "params": 434553,
+    "batch": 16,
+    "seq_len": 32,
+    "threads": 1,
+    "sparse_routing": true,
+    "steps": 20,
+    "wall_s": 3.9595,
+    "per_step_ms": 197.974,
+    "profile_self_ms": {
+      "forward": 2043.196,
+      "loss": 13.48,
+      "backward": 1788.131,
+      "optimizer": 114.636,
+      "python_loop": 0.044
+    }
+  }
+]

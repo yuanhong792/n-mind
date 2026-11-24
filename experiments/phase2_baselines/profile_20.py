@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json,time,sys
+import argparse
 from pathlib import Path
 import torch
 ROOT=Path(__file__).resolve().parents[2]; sys.path.insert(0,str(ROOT/'src')); sys.path.insert(0,str(Path(__file__).parent))
@@ -17,5 +18,6 @@ def run(name,m,V=32,B=16,T=32):
  keys=parts
  return {'model':name,'params':sum(x.numel() for x in m.parameters()),'batch':B,'seq_len':T,'threads':torch.get_num_threads(),'sparse_routing':name=='nmind','steps':20,'wall_s':round(total,4),'per_step_ms':round(total*1000/20,3),'profile_self_ms':keys}
 def main():
- V=32; rows=[run('gru',GRUBaseline(V)),run('transformer',CausalTransformerBaseline(V)),run('nmind',NMindLM(LMConfig(vocab_size=V)))]; p=ROOT/'experiments/phase2_baselines/profile_20_20261124.json'; p.write_text(json.dumps(rows,indent=2),encoding='utf8'); print(json.dumps(rows,indent=2))
+ ap=argparse.ArgumentParser(); ap.add_argument('--threads',type=int,default=20); a=ap.parse_args(); torch.set_num_threads(a.threads)
+ V=32; rows=[run('gru',GRUBaseline(V)),run('transformer',CausalTransformerBaseline(V)),run('nmind',NMindLM(LMConfig(vocab_size=V)))]; p=ROOT/f'experiments/phase2_baselines/profile_20_threads{a.threads}_20261124.json'; p.write_text(json.dumps(rows,indent=2),encoding='utf8'); print(json.dumps(rows,indent=2))
 if __name__=='__main__': main()

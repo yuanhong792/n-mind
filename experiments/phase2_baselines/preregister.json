@@ -1,6 +1,7 @@
 {
   "protocol": "N-MIND-vs-size-matched-baselines-v1",
   "status": "ABORTED_BY_POSITIVE_CONTROL_20261124",
+  "amendment_v2": {"proposed_after":"phase2.1_100_steps_single_sample_batch","reason":"EM口径与随机水平不一致且训练设置存在缺陷，不因失败本身提出","v1":{"em_min":0.8,"follow_rate_min":0.7},"v2":{"rank_ci_lower_gt_strongest_shortcut_plus":0.1,"follow_ci_lower_gt_random_plus":0.1,"min_seeds_passing":2},"classification":["v1_satisfied","v2_only","neither"]},
   "models": ["nmind_r1", "gru", "causal_transformer", "delta_rule_linear"],
   "tasks": ["binding_composition_holdout"],
   "smoke_only": ["m1_grid_mask", "m52_s0", "m52_s1", "binding_composition_holdout"],
@@ -16,6 +17,8 @@
     "smoke":{"seeds":1,"entry":"validity_passed","stop":"any_cap_or_artifact_failure","status":"PENDING_APPROVAL"},
     "pilot":{"seeds":3,"entry":"smoke_passed_and_positive_control_passed","stop":"dev_no_improvement_or_cap","status":"PENDING_APPROVAL"},
     "formal":{"seeds":10,"entry":"pilot_locked_config_and_positive_control_passed","stop":"any_budget_or_integrity_violation","status":"PENDING_APPROVAL"},
+    "total_wall_clock_cap_minutes":40,"lr_selection_cap_minutes":5,"lr_selection":{"seeds":1,"steps_per_lr":1000,"learning_rates":[0.0003,0.001,0.003],"selection":"dev_only"},
+    "training_protocol":{"batch_size_min":16,"sampling":"shuffle_without_replacement_each_epoch","train_samples":20000,"test_samples":600,"combo_overlap":0,"overfit_debug_samples":32,"overfit_loss_target":0.05,"overfit_before_staircase":true},
     "artifact_rule":"every arm, including negative control, must save checkpoint and per-sample logits; missing invalidates run",
     "timing_estimates":{"basis":"timing_only_20261124.json; 20 steps, batch16x32","smoke":{"optimizer_steps_per_model_task":20,"wall_multiplier":1},"pilot":{"optimizer_steps_per_model_task":60,"wall_multiplier":3},"formal":{"optimizer_steps_per_model_task":200,"wall_multiplier":10},"disk_estimate":"checkpoint+logits measured only after approval; timing_only artifacts cannot be promoted"}}
 }
