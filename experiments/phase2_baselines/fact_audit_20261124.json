@@ -1,0 +1,15 @@
+{
+  "facts": {
+    "train": 13,
+    "dev": 4,
+    "test": 4
+  },
+  "fact_pairs": {
+    "train": 31,
+    "dev": 3,
+    "test": 3
+  },
+  "test_pair_in_train_ratio": 0.6666666666666666,
+  "dev_pair_in_train_ratio": 0.6666666666666666,
+  "test_unique_statements_in_train": 0
+}

@@ -1,0 +1,10 @@
+{
+  "model": "gru",
+  "lr": 0.0003,
+  "seed": 20270501,
+  "steps": 1000,
+  "dev_rank_accuracy": 0.0,
+  "dev_loss": 0.6841931497057279,
+  "wall_s": 63.858029699993494,
+  "complete": true
+}

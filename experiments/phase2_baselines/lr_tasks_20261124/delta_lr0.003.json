@@ -1,0 +1,10 @@
+{
+  "model": "delta",
+  "lr": 0.003,
+  "seed": 20270501,
+  "steps": 1000,
+  "dev_rank_accuracy": 0.0,
+  "dev_loss": 0.9556316377719244,
+  "wall_s": 60.54004910000367,
+  "complete": true
+}

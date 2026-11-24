@@ -1,6 +1,6 @@
 {
   "protocol": "N-MIND-vs-size-matched-baselines-v1",
-  "status": "INCONCLUSIVE_BUDGET_LR_SELECTION_20261124",
+  "status": "INCONCLUSIVE_BUDGET_LADDER_20261124",
   "amendment_v2": {"proposed_after":"phase2.1_100_steps_single_sample_batch","reason":"EM口径与随机水平不一致且训练设置存在缺陷，不因失败本身提出","v1":{"em_min":0.8,"follow_rate_min":0.7},"v2":{"rank_ci_lower_gt_strongest_shortcut_plus":0.1,"follow_ci_lower_gt_random_plus":0.1,"min_seeds_passing":2},"classification":["v1_satisfied","v2_only","neither"]},
   "models": ["nmind_r1", "gru", "causal_transformer", "delta_rule_linear"],
   "reference_config": {"model":"nmind_r1","vocab_size":32,"d_model":96,"n_blocks":8,"block_hidden":96,"workspace_dim":64,"workspace_slots":4,"top_k":2,"parameter_count":434553,"locked_commit":"7e2db4c"},

@@ -1,0 +1,10 @@
+{
+  "model": "transformer",
+  "lr": 0.0003,
+  "seed": 20270501,
+  "steps": 1000,
+  "dev_rank_accuracy": 0.04833333333333333,
+  "dev_loss": 0.5553110063572725,
+  "wall_s": 75.29071599999588,
+  "complete": true
+}
