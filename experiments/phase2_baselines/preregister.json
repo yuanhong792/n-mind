@@ -1,8 +1,8 @@
 {
   "protocol": "N-MIND-vs-size-matched-baselines-v1",
-  "status": "PREREGISTERED_NOT_RUN",
+  "status": "ABORTED_BY_POSITIVE_CONTROL_20261124",
   "models": ["nmind_r1", "gru", "causal_transformer", "delta_rule_linear"],
-  "tasks": [],
+  "tasks": ["binding_composition_holdout"],
   "smoke_only": ["m1_grid_mask", "m52_s0", "m52_s1", "binding_composition_holdout"],
   "task_validity": "src/nmind/evaluation/phase2_validity.py",
   "positive_control": {"model":"causal_transformer","task":"binding_composition_holdout","budget":"relaxed_pre_registered","em_min":0.80,"follow_rate_min":0.70,"failure_action":"ABORT_PHASE_2"},

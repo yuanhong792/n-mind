@@ -1,0 +1,96 @@
+{
+  "total_steps": 900,
+  "wall_s": 17.427,
+  "rows": [
+    {
+      "model": "gru",
+      "seed": 20270101,
+      "steps": 100,
+      "wall_s": 1.562,
+      "em": 0.07333333333333333,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "gru_seed20270101.pt",
+      "logits": "gru_seed20270101_logits.json"
+    },
+    {
+      "model": "gru",
+      "seed": 20270102,
+      "steps": 100,
+      "wall_s": 1.884,
+      "em": 0.04666666666666667,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "gru_seed20270102.pt",
+      "logits": "gru_seed20270102_logits.json"
+    },
+    {
+      "model": "gru",
+      "seed": 20270103,
+      "steps": 100,
+      "wall_s": 2.573,
+      "em": 0.07333333333333333,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "gru_seed20270103.pt",
+      "logits": "gru_seed20270103_logits.json"
+    },
+    {
+      "model": "transformer",
+      "seed": 20270101,
+      "steps": 100,
+      "wall_s": 1.658,
+      "em": 0.06,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "transformer_seed20270101.pt",
+      "logits": "transformer_seed20270101_logits.json"
+    },
+    {
+      "model": "transformer",
+      "seed": 20270102,
+      "steps": 100,
+      "wall_s": 1.639,
+      "em": 0.08,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "transformer_seed20270102.pt",
+      "logits": "transformer_seed20270102_logits.json"
+    },
+    {
+      "model": "transformer",
+      "seed": 20270103,
+      "steps": 100,
+      "wall_s": 1.649,
+      "em": 0.07333333333333333,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "transformer_seed20270103.pt",
+      "logits": "transformer_seed20270103_logits.json"
+    },
+    {
+      "model": "delta_rule",
+      "seed": 20270101,
+      "steps": 100,
+      "wall_s": 1.842,
+      "em": 0.05333333333333334,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "delta_rule_seed20270101.pt",
+      "logits": "delta_rule_seed20270101_logits.json"
+    },
+    {
+      "model": "delta_rule",
+      "seed": 20270102,
+      "steps": 100,
+      "wall_s": 1.819,
+      "em": 0.04666666666666667,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "delta_rule_seed20270102.pt",
+      "logits": "delta_rule_seed20270102_logits.json"
+    },
+    {
+      "model": "delta_rule",
+      "seed": 20270103,
+      "steps": 100,
+      "wall_s": 1.831,
+      "em": 0.07333333333333333,
+      "follow_rate": "NOT_COMPUTED_FROM_SINGLE_EXAMPLES",
+      "checkpoint": "delta_rule_seed20270103.pt",
+      "logits": "delta_rule_seed20270103_logits.json"
+    }
+  ]
+}

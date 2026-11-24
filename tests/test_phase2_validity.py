@@ -5,3 +5,15 @@ def test_validity_gate_rejects_shortcut_task():
 def test_validity_gate_accepts_control_shape():
     r=task_validity_check({'name':'large','oracle_em':1,'random_level':.05,'shortcut_ems':{'recent':.07,'majority':.05,'fixed':.05,'random':.05},'effective_samples':500,'combination_overlap':0,'counterfactual_pairs_present':True,'unk_rate':0})
     assert r['valid']
+
+def test_synthetic_no_shortcut_task_passes_bidirectionally():
+    r=task_validity_check({'name':'synthetic_independent','oracle_em':1,'random_level':.25,
+        'shortcut_ems':{'recent':.25,'majority':.25,'fixed':.25,'random':.25},
+        'effective_samples':500,'combination_overlap':0,'counterfactual_pairs_present':True,'unk_rate':0})
+    assert r['valid']
+
+def test_synthetic_recent_entity_shortcut_fails():
+    r=task_validity_check({'name':'synthetic_recent','oracle_em':1,'random_level':.25,
+        'shortcut_ems':{'recent':1.0,'majority':.25,'fixed':.25,'random':.25},
+        'effective_samples':500,'combination_overlap':0,'counterfactual_pairs_present':True,'unk_rate':0})
+    assert not r['valid']

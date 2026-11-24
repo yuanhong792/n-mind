@@ -51,15 +51,13 @@
     "task": "binding_composition_holdout",
     "checks": {
       "oracle_em": true,
-      "shortcuts_le_random_plus_005": false,
+      "shortcuts_le_random_plus_005": true,
       "effective_samples_ge_500": true,
       "combination_overlap_zero": true,
       "counterfactual_pairs_present": true,
       "unk_rate_zero": true
     },
-    "valid": false,
-    "failed": [
-      "shortcuts_le_random_plus_005"
-    ]
+    "valid": true,
+    "failed": []
   }
 ]
