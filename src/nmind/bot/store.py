@@ -4,9 +4,24 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import threading
 import time
 from pathlib import Path
 from typing import Any
+
+
+def _shared_connection_lock(fn):
+    """Serialize every access to BotStore's shared sqlite connection.
+
+    RLock is intentional: public methods call other public methods during normal
+    operation (for example enqueue_message -> create_session).
+    """
+    def wrapped(self, *args, **kwargs):
+        with self._conn_lock:
+            return fn(self, *args, **kwargs)
+    wrapped.__name__ = fn.__name__
+    wrapped.__doc__ = fn.__doc__
+    return wrapped
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
@@ -78,6 +93,7 @@ CREATE INDEX IF NOT EXISTS idx_chat_messages_status ON chat_messages(status);
 
 class BotStore:
     def __init__(self, db_path: str | Path) -> None:
+        self._conn_lock = threading.RLock()
         self.path = Path(db_path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = sqlite3.connect(str(self.path), isolation_level=None, check_same_thread=False)
@@ -108,12 +124,14 @@ class BotStore:
             if col not in cap_cols:
                 self.conn.execute(f"ALTER TABLE capabilities ADD COLUMN {col} {decl}")
 
+    @_shared_connection_lock
     def event(self, run_id: str, kind: str, payload: dict[str, Any]) -> None:
         self.conn.execute(
             "INSERT INTO events (ts, run_id, kind, payload) VALUES (?,?,?,?)",
             (time.strftime("%Y-%m-%dT%H:%M:%S%z"), run_id, kind,
              json.dumps(payload, ensure_ascii=False)))
 
+    @_shared_connection_lock
     def upsert_capability(self, rec: dict[str, Any]) -> None:
         """字段补全后写库：调用方给不全也不允许 sqlite 报缺参（历史 bug：
         tracker.summary() 只有 5 个字段，直接绑定时 ProgrammingError 打断空闲循环）。"""
@@ -162,10 +180,12 @@ class BotStore:
                 learning_target=excluded.learning_target,
                 capability_state=excluded.capability_state""", merged)
 
+    @_shared_connection_lock
     def capabilities(self) -> list[dict[str, Any]]:
         return [dict(r) for r in self.conn.execute(
             "SELECT * FROM capabilities ORDER BY task_family, capability_id")]
 
+    @_shared_connection_lock
     def set_state(self, key: str, value: Any) -> None:
         self.conn.execute(
             "INSERT INTO kv (key, value, updated_at) VALUES (?,?,?) "
@@ -173,10 +193,12 @@ class BotStore:
             (key, json.dumps(value, ensure_ascii=False),
              time.strftime("%Y-%m-%dT%H:%M:%S%z")))
 
+    @_shared_connection_lock
     def get_state(self, key: str, default: Any = None) -> Any:
         row = self.conn.execute("SELECT value FROM kv WHERE key=?", (key,)).fetchone()
         return json.loads(row["value"]) if row else default
 
+    @_shared_connection_lock
     def list_events(self, *, limit: int = 20, kind: str | None = None) -> list[dict[str, Any]]:
         sql = "SELECT ts, run_id, kind, payload FROM events"
         args: tuple = ()
@@ -192,6 +214,7 @@ class BotStore:
             out.append(rec)
         return out
 
+    @_shared_connection_lock
     def prune_events(self, *, keep: int = 5000) -> int:
         """日志容量上限：只保留最近 keep 条事件（任务书 §6 防无限增长）。"""
         cur = self.conn.execute("SELECT COUNT(*) AS c FROM events").fetchone()
@@ -203,11 +226,13 @@ class BotStore:
             "(SELECT id FROM events ORDER BY id DESC LIMIT ?)", (int(keep),))
         return total - keep
 
+    @_shared_connection_lock
     def capability(self, capability_id: str) -> dict[str, Any] | None:
         row = self.conn.execute("SELECT * FROM capabilities WHERE capability_id=?",
                                  (capability_id,)).fetchone()
         return dict(row) if row else None
 
+    @_shared_connection_lock
     def mark_task_done(self, task_id: str, task_family: str, outcome: str,
                       fingerprint: str = "") -> None:
         fp = fingerprint or task_id
@@ -216,20 +241,24 @@ class BotStore:
             " fingerprint) VALUES (?,?,?,?,?)",
             (task_id, time.strftime("%Y-%m-%dT%H:%M:%S%z"), task_family, outcome, fp))
 
+    @_shared_connection_lock
     def task_done(self, task_id: str) -> bool:
         row = self.conn.execute("SELECT 1 FROM completed_tasks WHERE task_id=?",
                                  (task_id,)).fetchone()
         return row is not None
 
+    @_shared_connection_lock
     def task_seen(self, fingerprint: str) -> bool:
         """按内容指纹判断该任务实例是否已练过（重启/重复运行的幂等依据）。"""
         row = self.conn.execute(
             "SELECT 1 FROM completed_tasks WHERE fingerprint=? LIMIT 1", (fingerprint,)).fetchone()
         return row is not None
 
+    @_shared_connection_lock
     def completed_count(self) -> int:
         return int(self.conn.execute("SELECT COUNT(*) AS c FROM completed_tasks").fetchone()["c"])
 
+    @_shared_connection_lock
     def close(self) -> None:
         self.conn.close()
 
@@ -243,48 +272,63 @@ class BotStore:
             "WHERE role='user' AND status IN ('QUEUED','RUNNING')",
             (time.strftime("%Y-%m-%dT%H:%M:%S%z"),))
 
+    @_shared_connection_lock
     def create_session(self, session_id: str, title: str) -> None:
         now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         self.conn.execute(
             "INSERT OR IGNORE INTO chat_sessions (session_id, title, created_at, updated_at) "
             "VALUES (?,?,?,?)", (session_id, title, now, now))
 
+    @_shared_connection_lock
     def list_sessions(self) -> list[dict[str, Any]]:
         return [dict(r) for r in self.conn.execute(
             "SELECT * FROM chat_sessions ORDER BY updated_at DESC")]
 
+    @_shared_connection_lock
     def delete_session(self, session_id: str) -> int:
         cur = self.conn.execute("DELETE FROM chat_messages WHERE session_id=?", (session_id,))
         self.conn.execute("DELETE FROM chat_sessions WHERE session_id=?", (session_id,))
         return cur.rowcount
 
+    @_shared_connection_lock
     def rename_session(self, session_id: str, title: str) -> None:
         self.conn.execute(
             "UPDATE chat_sessions SET title=?, updated_at=? WHERE session_id=?",
             (title, time.strftime("%Y-%m-%dT%H:%M:%S%z"), session_id))
 
+    @_shared_connection_lock
     def session_title(self, session_id: str) -> str | None:
         row = self.conn.execute("SELECT title FROM chat_sessions WHERE session_id=?",
                                 (session_id,)).fetchone()
         return row["title"] if row else None
 
+    @_shared_connection_lock
     def enqueue_message(self, message_id: str, session_id: str, text: str) -> dict[str, Any]:
         """入队用户消息（原子追加；同会话自动建目录并刷新 updated_at）。"""
         now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
-        self.create_session(session_id, text[:20] or "新会话")
-        seq = self.conn.execute(
-            "SELECT COALESCE(MAX(seq),0)+1 AS s FROM chat_messages WHERE session_id=?",
-            (session_id,)).fetchone()["s"]
-        with self.conn:
+        self.conn.execute("BEGIN IMMEDIATE")
+        try:
+            self.conn.execute(
+                "INSERT INTO chat_sessions (session_id,title,created_at,updated_at) "
+                "VALUES (?,?,?,?) ON CONFLICT(session_id) DO NOTHING",
+                (session_id, text[:20] or "新会话", now, now))
+            seq = self.conn.execute(
+                "SELECT COALESCE(MAX(seq),0)+1 AS s FROM chat_messages WHERE session_id=?",
+                (session_id,)).fetchone()["s"]
             self.conn.execute(
                 "INSERT INTO chat_messages (message_id, session_id, role, text, status, "
                 "created_at, seq) VALUES (?,?,?,?,?,?,?)",
                 (message_id, session_id, "user", text, "QUEUED", now, int(seq)))
-        self.conn.execute("UPDATE chat_sessions SET updated_at=? WHERE session_id=?",
-                          (now, session_id))
+            self.conn.execute("UPDATE chat_sessions SET updated_at=? WHERE session_id=?",
+                              (now, session_id))
+            self.conn.execute("COMMIT")
+        except Exception:
+            self.conn.execute("ROLLBACK")
+            raise
         return {"message_id": message_id, "session_id": session_id, "status": "QUEUED",
                 "seq": int(seq)}
 
+    @_shared_connection_lock
     def claim_next_message(self) -> dict[str, Any] | None:
         """领取下一条待处理消息（QUEUED/RETRYABLE 中最早一条）→ RUNNING。
         BEGIN IMMEDIATE 保证两个进程/线程不会领到同一条。"""
@@ -307,6 +351,7 @@ class BotStore:
         rec["status"] = "RUNNING"
         return rec
 
+    @_shared_connection_lock
     def finish_message(self, message_id: str, *, reply_text: str, response_source: str,
                        citations: list[dict[str, Any]] | None = None, model_sha: str = "",
                        protocol_id: str = "", latency_ms: float = 0.0,
@@ -343,6 +388,7 @@ class BotStore:
                 "UPDATE chat_messages SET status='DONE', updated_at=? "
                 "WHERE message_id=? AND role='user'", (now, message_id))
 
+    @_shared_connection_lock
     def fail_message(self, message_id: str, error: str) -> None:
         now = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         with self.conn:
@@ -350,6 +396,7 @@ class BotStore:
                 "UPDATE chat_messages SET status='FAILED', updated_at=?, error=? "
                 "WHERE message_id=? AND role='user'", (now, error[:2000], message_id))
 
+    @_shared_connection_lock
     def get_reply(self, message_id: str) -> dict[str, Any] | None:
         """用 message_id 领取对应回复（没有就 None——调用方继续等，不拿别的消息冒充）。"""
         row = self.conn.execute(
@@ -380,12 +427,23 @@ class BotStore:
                 rec["note"] = ""
         return rec
 
+    @_shared_connection_lock
     def message_status(self, message_id: str) -> str | None:
         row = self.conn.execute(
             "SELECT status FROM chat_messages WHERE message_id=? AND role='user'",
             (message_id,)).fetchone()
         return row["status"] if row else None
 
+    @_shared_connection_lock
+    def cancel_message(self, message_id: str) -> bool:
+        cur = self.conn.execute(
+            "UPDATE chat_messages SET status='CANCELLED', updated_at=? "
+            "WHERE message_id=? AND role='user' AND status IN ('QUEUED','RETRYABLE')",
+            (time.strftime("%Y-%m-%dT%H:%M:%S%z"), message_id))
+        self.conn.commit()
+        return cur.rowcount > 0
+
+    @_shared_connection_lock
     def list_messages(self, session_id: str, *, limit: int = 200) -> list[dict[str, Any]]:
         rows = self.conn.execute(
             "SELECT * FROM chat_messages WHERE session_id=? ORDER BY seq LIMIT ?",
@@ -409,6 +467,7 @@ class BotStore:
             out.append(rec)
         return out
 
+    @_shared_connection_lock
     def queue_len(self) -> int:
         row = self.conn.execute(
             "SELECT COUNT(*) AS c FROM chat_messages WHERE role='user' "

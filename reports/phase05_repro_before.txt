@@ -1,0 +1,233 @@
+=== chat ===
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________________ test_concurrent_submit_no_loss ________________________
+
+tmp_root = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-104/test_concurrent_submit_no_loss0/bot_v1')
+
+    def test_concurrent_submit_no_loss(tmp_root):
+        """20 �������ύ��ȫ����⡢�������أ�SQLite ����֤����"""
+        client = BotClient(tmp_root)
+        mids: list[str] = []
+        lock = threading.Lock()
+    
+        def worker(i):
+            out = client.submit(f"������Ϣ{i}", session_id="c")
+            with lock:
+                mids.append(out["message_id"])
+    
+        threads = [threading.Thread(target=worker, args=(i,)) for i in range(20)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+>       assert len(set(mids)) == 20                 # UUID ���ظ�
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 12 == 20
+E        +  where 12 = len({'0e60de7627ec4af5afad63ea1f616b00', '5d029ee3e42c4d249e0c5791a55c5200', '6bb656d4e5a74708addd60bf04460b87', '7113ad73abe040708e7459e3c6da32e6', '726dd4962b17406d988536afac3e0a2c', '7955a5d98f71425caed9334489a854b0', ...})
+E        +    where {'0e60de7627ec4af5afad63ea1f616b00', '5d029ee3e42c4d249e0c5791a55c5200', '6bb656d4e5a74708addd60bf04460b87', '7113ad73abe040708e7459e3c6da32e6', '726dd4962b17406d988536afac3e0a2c', '7955a5d98f71425caed9334489a854b0', ...} = set(['0e60de7627ec4af5afad63ea1f616b00', 'bf39f7d69c194b82abbe6626dc939705', '5d029ee3e42c4d249e0c5791a55c5200', '726dd4962b17406d988536afac3e0a2c', '8cc5e3915d04478d99e3e15e03058919', '7113ad73abe040708e7459e3c6da32e6', ...])
+
+tests\test_bot_v1_chat.py:79: AssertionError
+============================== warnings summary ===============================
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\pytest_plugin.py:14
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-13 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 279, in enqueue_message
+      self.conn.execute(
+  sqlite3.InterfaceError: bad parameter or other API misuse
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-4 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 275, in enqueue_message
+      seq = self.conn.execute(
+            ^^^^^^^^^^^^^^^^^^
+  TypeError: 'NoneType' object is not subscriptable
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-8 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 282, in enqueue_message
+      (message_id, session_id, "user", text, "QUEUED", now, int(seq)))
+                                                            ^^^^^^^^
+  TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-2 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 283, in enqueue_message
+      self.conn.execute("UPDATE chat_sessions SET updated_at=? WHERE session_id=?",
+  sqlite3.InterfaceError: bad parameter or other API misuse
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-11 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 38, in submit
+      "status": out["status"], "queue_position": self._store.queue_len()}
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 416, in queue_len
+      return int(row["c"])
+                 ~~~^^^^^
+  TypeError: 'NoneType' object is not subscriptable
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-17 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 279, in enqueue_message
+      self.conn.execute(
+  sqlite3.InterfaceError: bad parameter or other API misuse
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-20 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 275, in enqueue_message
+      seq = self.conn.execute(
+            ^^^^^^^^^^^^^^^^^^
+  sqlite3.InterfaceError: bad parameter or other API misuse
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\threadexception.py:54: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-5 (worker)
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "D:\cpu����ģ�Ϳ���\n-mind\tests\test_bot_v1_chat.py", line 70, in worker
+      out = client.submit(f"������Ϣ{i}", session_id="c")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\client.py", line 36, in submit
+      out = self._store.enqueue_message(req.message_id, session_id, text)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "D:\cpu����ģ�Ϳ���\n-mind\src\nmind\bot\store.py", line 275, in enqueue_message
+      seq = self.conn.execute(
+            ^^^^^^^^^^^^^^^^^^
+  sqlite3.InterfaceError: bad parameter or other API misuse
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_bot_v1_chat.py::test_concurrent_submit_no_loss - AssertionE...
+=== web ===
+.                                                                        [100%]
+============================== warnings summary ===============================
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\pytest_plugin.py:14
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html

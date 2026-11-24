@@ -35,7 +35,8 @@ class BotClient:
         req = ChatRequest.new(session_id, text)
         out = self._store.enqueue_message(req.message_id, session_id, text)
         return {"message_id": req.message_id, "session_id": session_id,
-                "status": out["status"], "queue_position": self._store.queue_len()}
+                "seq": out["seq"], "status": out["status"],
+                "queue_position": self._store.queue_len()}
 
     def wait_reply(self, message_id: str, *, timeout_s: float = 120.0,
                    poll_s: float = 0.15) -> dict[str, Any] | None:
@@ -57,11 +58,7 @@ class BotClient:
         """只有还没被领取的消息能取消；RUNNING 不可取消（服务在安全边界自行处理）。"""
         status = self.message_status(message_id)
         if status in ("QUEUED", "RETRYABLE"):
-            self._store.conn.execute(
-                "UPDATE chat_messages SET status='CANCELLED', updated_at=? "
-                "WHERE message_id=? AND role='user' AND status IN ('QUEUED','RETRYABLE')",
-                (time.strftime("%Y-%m-%dT%H:%M:%S%z"), message_id))
-            return True
+            return self._store.cancel_message(message_id)
         return False
 
     def message_status(self, message_id: str) -> str | None:

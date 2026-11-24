@@ -83,6 +83,82 @@ def test_concurrent_submit_no_loss(tmp_root):
     assert n == 20
 
 
+@pytest.mark.parametrize("count", [20, 100])
+def test_concurrent_submit_seq_is_unique_and_contiguous(tmp_root, count):
+    """并发入队的序号必须在单会话内连续，且线程异常不能被吞掉。"""
+    client = BotClient(tmp_root)
+    results: list[dict] = []
+    errors: list[BaseException] = []
+    lock = threading.Lock()
+
+    def worker(i):
+        try:
+            result = client.submit(f"压力消息{i}", session_id="pressure")
+            with lock:
+                results.append(result)
+        except BaseException as exc:  # make failures visible to the test
+            with lock:
+                errors.append(exc)
+
+    threads = [threading.Thread(target=worker, args=(i,)) for i in range(count)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert errors == []
+    assert len(results) == count
+    seqs = sorted(item["seq"] for item in results)
+    assert seqs == list(range(1, count + 1))
+    assert len({item["message_id"] for item in results}) == count
+
+
+def test_mixed_submit_read_and_confirm_stress(tmp_root):
+    """提交、读取、确认同时发生时，消息和状态仍然完整。"""
+    client = BotClient(tmp_root)
+    submitted: list[str] = []
+    errors: list[BaseException] = []
+    lock = threading.Lock()
+
+    def submitter(i):
+        try:
+            mid = client.submit(f"混合压力{i}", session_id="mixed")["message_id"]
+            with lock:
+                submitted.append(mid)
+        except BaseException as exc:
+            with lock:
+                errors.append(exc)
+
+    def reader():
+        try:
+            for _ in range(80):
+                client.history("mixed")
+                client.queue_len()
+        except BaseException as exc:
+            with lock:
+                errors.append(exc)
+
+    def confirmer():
+        try:
+            for _ in range(80):
+                for mid in list(submitted):
+                    if client.message_status(mid) in ("QUEUED", "RETRYABLE"):
+                        client._store.finish_message(mid, reply_text="确认", response_source="rule")
+        except BaseException as exc:
+            with lock:
+                errors.append(exc)
+
+    threads = ([threading.Thread(target=submitter, args=(i,)) for i in range(40)] +
+               [threading.Thread(target=reader) for _ in range(4)] +
+               [threading.Thread(target=confirmer) for _ in range(4)])
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert errors == []
+    assert len(set(submitted)) == 40
+    assert len(client.history("mixed")) >= 40
+
+
 def test_restart_recovery_retryable(tmp_root):
     """断电式重启：QUEUED/RUNNING 记录恢复为 RETRYABLE，不静默消失。"""
     client = BotClient(tmp_root)
