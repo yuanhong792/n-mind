@@ -1,0 +1,228 @@
+{
+  "status": "PARENT_AUDIT_DONE",
+  "checkpoints": {
+    "best": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c1\\candidate_compute_best.pt",
+      "steps": 1152,
+      "role": "best",
+      "saved_at": "2026-11-24T11:05:07+0800",
+      "tokenizer_sha": "7daa9040116a02ae",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      }
+    },
+    "final": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c1\\candidate_compute_final.pt",
+      "steps": 2048,
+      "role": "final",
+      "saved_at": "2026-11-24T11:05:06+0800",
+      "tokenizer_sha": "7daa9040116a02ae",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      }
+    },
+    "last": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c1\\candidate_compute_last.pt",
+      "steps": 2048,
+      "role": null,
+      "saved_at": "2026-11-24T11:05:06+0800",
+      "tokenizer_sha": "7daa9040116a02ae",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      }
+    }
+  },
+  "tensor_equality": {
+    "best_equals_final": false,
+    "last_equals_final": true
+  },
+  "param_delta_vs_random_init_l1": {
+    "best": 1158795.5,
+    "final": 2123138.25,
+    "last": 2123138.25
+  },
+  "router_load_buffer": {
+    "best": [
+      399228.0,
+      140543.0,
+      447214.0,
+      164503.0
+    ],
+    "final": [
+      708825.0,
+      260039.0,
+      820619.0,
+      324565.0
+    ],
+    "last": [
+      708825.0,
+      260039.0,
+      820619.0,
+      324565.0
+    ]
+  },
+  "fixed_panel": {
+    "size": 410,
+    "tasks": [
+      "A1_copy1",
+      "A2_copyN",
+      "A3_index",
+      "A4_reverse",
+      "B2_bind",
+      "B2_counter",
+      "B4_bind",
+      "B5_reassign",
+      "B6_indirect"
+    ],
+    "per_task_n": 50
+  },
+  "evaluation": {
+    "best": {
+      "per_task": {
+        "A1_copy1": {
+          "n": 10,
+          "accuracy": 0.2,
+          "immediate_eos_rate": 0.1,
+          "empty_rate": 0.1
+        },
+        "A2_copyN": {
+          "n": 50,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.3,
+          "empty_rate": 0.3
+        },
+        "A3_index": {
+          "n": 50,
+          "accuracy": 0.36,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "A4_reverse": {
+          "n": 50,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 1.0,
+          "empty_rate": 1.0
+        },
+        "B2_bind": {
+          "n": 50,
+          "accuracy": 0.6,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 50,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_counter": {
+          "n": 50,
+          "accuracy": 0.54,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B5_reassign": {
+          "n": 50,
+          "accuracy": 0.26,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B6_indirect": {
+          "n": 50,
+          "accuracy": 0.32,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      },
+      "macro_accuracy": 0.2978,
+      "micro_accuracy": 0.3073,
+      "immediate_eos_rate": 0.161,
+      "total_n": 410,
+      "total_ok": 126
+    },
+    "final": {
+      "per_task": {
+        "A1_copy1": {
+          "n": 10,
+          "accuracy": 0.1,
+          "immediate_eos_rate": 0.1,
+          "empty_rate": 0.1
+        },
+        "A2_copyN": {
+          "n": 50,
+          "accuracy": 0.02,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "A3_index": {
+          "n": 50,
+          "accuracy": 0.46,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "A4_reverse": {
+          "n": 50,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_bind": {
+          "n": 50,
+          "accuracy": 0.52,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 50,
+          "accuracy": 0.34,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_counter": {
+          "n": 50,
+          "accuracy": 0.48,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B5_reassign": {
+          "n": 50,
+          "accuracy": 0.14,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B6_indirect": {
+          "n": 50,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      },
+      "macro_accuracy": 0.26,
+      "micro_accuracy": 0.2756,
+      "immediate_eos_rate": 0.0024,
+      "total_n": 410,
+      "total_ok": 113
+    }
+  },
+  "selection_rule": "fixed_panel_macro_accuracy; tie -> later optimizer step",
+  "selected_parent": "best",
+  "note": "统一面板保证 Best/Final 同口径；不按文件 SHA 推断权重相同，逐张量核验。"
+}

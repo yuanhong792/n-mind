@@ -1,0 +1,788 @@
+{
+  "status": "TRAINING_COMPLETED",
+  "seed": 20261124,
+  "parent": {
+    "name": "best",
+    "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c1\\candidate_compute_best.pt",
+    "steps": 1152,
+    "sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78"
+  },
+  "optimizer_steps_executed": 2048,
+  "global_budget_steps": 2048,
+  "stop_reason": "step_budget",
+  "wall_seconds": 478.7,
+  "budget": {
+    "steps_used": 2048,
+    "max_steps": 2048,
+    "steps_remaining": 0,
+    "wall_used": 478.7,
+    "max_wall": 1800,
+    "sessions": 1
+  },
+  "config": {
+    "vocab_size": 101,
+    "d_model": 64,
+    "n_blocks": 4,
+    "block_hidden": 64,
+    "workspace_dim": 32,
+    "workspace_slots": 8,
+    "top_k": 2
+  },
+  "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+  "params": 106410,
+  "lr": 0.001,
+  "batch_size": 16,
+  "clip": 1.0,
+  "loss_supervision": {
+    "first_answer_token": 2.0,
+    "other_answer_tokens": 1.0,
+    "eos": 0.25,
+    "normalization": "sum(weight*token_loss)/sum(weight) per sample, then batch mean"
+  },
+  "padding_policy": "valid_mask=False positions do not write workspace, do not update router load, and carry zero loss weight",
+  "sampling_policy": "focus60/failing20/replay20; stable requires two consecutive eval points",
+  "fixed_panel": {
+    "size": 490,
+    "per_task": 60,
+    "tasks": [
+      "A1_copy1",
+      "A2_copyN",
+      "A3_index",
+      "A4_reverse",
+      "B2_bind",
+      "B2_counter",
+      "B4_bind",
+      "B5_reassign",
+      "B6_indirect"
+    ]
+  },
+  "selection": {
+    "best": {
+      "score": 0.3963,
+      "step": 2048,
+      "rule": "fixed_panel_macro_accuracy"
+    },
+    "best_copy": {
+      "score": 0.45,
+      "step": 768,
+      "rule": "copy_line_macro"
+    },
+    "best_binding": {
+      "score": 0.4233,
+      "step": 768,
+      "rule": "binding_line_macro"
+    }
+  },
+  "history": [
+    {
+      "step": 0,
+      "stage": "parent",
+      "focus": [],
+      "val_macro": 0.2852,
+      "val_copy": 0.1,
+      "val_binding": 0.3933,
+      "val_per_task": {
+        "A1_copy1": 0.2,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5667,
+        "B4_bind": 0.3667,
+        "B2_counter": 0.5167,
+        "B5_reassign": 0.2333,
+        "B6_indirect": 0.2833
+      },
+      "stable": [],
+      "train_loss_last100": null,
+      "wall": 0.0
+    },
+    {
+      "step": 128,
+      "stage": "S1",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "B2_bind"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.2944,
+      "val_copy": 0.2,
+      "val_binding": 0.37,
+      "val_per_task": {
+        "A1_copy1": 0.4,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5167,
+        "B4_bind": 0.2667,
+        "B2_counter": 0.5833,
+        "B5_reassign": 0.2333,
+        "B6_indirect": 0.25
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0347,
+      "train_loss_last100": 1.90679,
+      "wall": 22.3
+    },
+    {
+      "step": 256,
+      "stage": "S2",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3019,
+      "val_copy": 0.25,
+      "val_binding": 0.37,
+      "val_per_task": {
+        "A1_copy1": 0.5,
+        "A2_copyN": 0.0,
+        "A3_index": 0.3667,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.6,
+        "B4_bind": 0.2833,
+        "B2_counter": 0.55,
+        "B5_reassign": 0.15,
+        "B6_indirect": 0.2667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0143,
+      "train_loss_last100": 1.66835,
+      "wall": 45.5
+    },
+    {
+      "step": 384,
+      "stage": "S2",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3222,
+      "val_copy": 0.3,
+      "val_binding": 0.3667,
+      "val_per_task": {
+        "A1_copy1": 0.6,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4667,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5167,
+        "B4_bind": 0.2833,
+        "B2_counter": 0.5167,
+        "B5_reassign": 0.1667,
+        "B6_indirect": 0.35
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0224,
+      "train_loss_last100": 1.49066,
+      "wall": 68.6
+    },
+    {
+      "step": 512,
+      "stage": "S2",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3333,
+      "val_copy": 0.35,
+      "val_binding": 0.3667,
+      "val_per_task": {
+        "A1_copy1": 0.7,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4667,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5667,
+        "B4_bind": 0.2,
+        "B2_counter": 0.4667,
+        "B5_reassign": 0.2333,
+        "B6_indirect": 0.3667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0082,
+      "train_loss_last100": 1.36518,
+      "wall": 91.0
+    },
+    {
+      "step": 640,
+      "stage": "S2",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3648,
+      "val_copy": 0.35,
+      "val_binding": 0.4167,
+      "val_per_task": {
+        "A1_copy1": 0.7,
+        "A2_copyN": 0.0,
+        "A3_index": 0.5,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.4833,
+        "B4_bind": 0.4,
+        "B2_counter": 0.5833,
+        "B5_reassign": 0.3,
+        "B6_indirect": 0.3167
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0082,
+      "train_loss_last100": 1.26399,
+      "wall": 113.3
+    },
+    {
+      "step": 768,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3815,
+      "val_copy": 0.45,
+      "val_binding": 0.4233,
+      "val_per_task": {
+        "A1_copy1": 0.9,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4167,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.55,
+        "B4_bind": 0.3333,
+        "B2_counter": 0.5833,
+        "B5_reassign": 0.3333,
+        "B6_indirect": 0.3167
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0102,
+      "train_loss_last100": 1.06407,
+      "wall": 140.2
+    },
+    {
+      "step": 896,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3333,
+      "val_copy": 0.4,
+      "val_binding": 0.35,
+      "val_per_task": {
+        "A1_copy1": 0.8,
+        "A2_copyN": 0.0,
+        "A3_index": 0.45,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5,
+        "B4_bind": 0.2333,
+        "B2_counter": 0.3833,
+        "B5_reassign": 0.3667,
+        "B6_indirect": 0.2667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0122,
+      "train_loss_last100": 1.07338,
+      "wall": 176.7
+    },
+    {
+      "step": 1024,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3741,
+      "val_copy": 0.4,
+      "val_binding": 0.4167,
+      "val_per_task": {
+        "A1_copy1": 0.8,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4833,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.55,
+        "B4_bind": 0.35,
+        "B2_counter": 0.55,
+        "B5_reassign": 0.2833,
+        "B6_indirect": 0.35
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0122,
+      "train_loss_last100": 1.08012,
+      "wall": 213.6
+    },
+    {
+      "step": 1152,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3519,
+      "val_copy": 0.35,
+      "val_binding": 0.4,
+      "val_per_task": {
+        "A1_copy1": 0.7,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4667,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.4833,
+        "B4_bind": 0.3167,
+        "B2_counter": 0.5167,
+        "B5_reassign": 0.3,
+        "B6_indirect": 0.3833
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0061,
+      "train_loss_last100": 1.08425,
+      "wall": 249.6
+    },
+    {
+      "step": 1280,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.363,
+      "val_copy": 0.45,
+      "val_binding": 0.3933,
+      "val_per_task": {
+        "A1_copy1": 0.9,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.4667,
+        "B4_bind": 0.2833,
+        "B2_counter": 0.5333,
+        "B5_reassign": 0.3333,
+        "B6_indirect": 0.35
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0061,
+      "train_loss_last100": 1.04869,
+      "wall": 285.6
+    },
+    {
+      "step": 1408,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3611,
+      "val_copy": 0.4,
+      "val_binding": 0.4,
+      "val_per_task": {
+        "A1_copy1": 0.8,
+        "A2_copyN": 0.0,
+        "A3_index": 0.45,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.6,
+        "B4_bind": 0.25,
+        "B2_counter": 0.4167,
+        "B5_reassign": 0.3667,
+        "B6_indirect": 0.3667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0102,
+      "train_loss_last100": 1.01354,
+      "wall": 311.7
+    },
+    {
+      "step": 1536,
+      "stage": "S3",
+      "focus": [
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3241,
+      "val_copy": 0.2,
+      "val_binding": 0.4033,
+      "val_per_task": {
+        "A1_copy1": 0.4,
+        "A2_copyN": 0.0,
+        "A3_index": 0.5,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5167,
+        "B4_bind": 0.25,
+        "B2_counter": 0.5333,
+        "B5_reassign": 0.35,
+        "B6_indirect": 0.3667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0082,
+      "train_loss_last100": 1.03323,
+      "wall": 338.7
+    },
+    {
+      "step": 1664,
+      "stage": "S4",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3204,
+      "val_copy": 0.3,
+      "val_binding": 0.3766,
+      "val_per_task": {
+        "A1_copy1": 0.6,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.4833,
+        "B4_bind": 0.1833,
+        "B2_counter": 0.4333,
+        "B5_reassign": 0.3333,
+        "B6_indirect": 0.45
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0041,
+      "train_loss_last100": 1.12942,
+      "wall": 374.2
+    },
+    {
+      "step": 1792,
+      "stage": "S4",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3593,
+      "val_copy": 0.4,
+      "val_binding": 0.4033,
+      "val_per_task": {
+        "A1_copy1": 0.8,
+        "A2_copyN": 0.0,
+        "A3_index": 0.4167,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5167,
+        "B4_bind": 0.3167,
+        "B2_counter": 0.4833,
+        "B5_reassign": 0.3167,
+        "B6_indirect": 0.3833
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.002,
+      "train_loss_last100": 1.12048,
+      "wall": 409.7
+    },
+    {
+      "step": 1920,
+      "stage": "S4",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3352,
+      "val_copy": 0.4,
+      "val_binding": 0.3767,
+      "val_per_task": {
+        "A1_copy1": 0.8,
+        "A2_copyN": 0.0,
+        "A3_index": 0.3333,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.4667,
+        "B4_bind": 0.1833,
+        "B2_counter": 0.5667,
+        "B5_reassign": 0.2833,
+        "B6_indirect": 0.3833
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0041,
+      "train_loss_last100": 1.12091,
+      "wall": 444.8
+    },
+    {
+      "step": 2048,
+      "stage": "S4",
+      "focus": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "failing": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "val_macro": 0.3963,
+      "val_copy": 0.45,
+      "val_binding": 0.4233,
+      "val_per_task": {
+        "A1_copy1": 0.9,
+        "A2_copyN": 0.0,
+        "A3_index": 0.55,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.5833,
+        "B4_bind": 0.2333,
+        "B2_counter": 0.4667,
+        "B5_reassign": 0.3667,
+        "B6_indirect": 0.4667
+      },
+      "stable": [],
+      "immediate_eos_rate": 0.0,
+      "train_loss_last100": 1.05456,
+      "wall": 478.6
+    }
+  ],
+  "stage_log": [
+    {
+      "id": "S1",
+      "start_step": 0,
+      "until": 128,
+      "note": "确认参数更新/Loss下降/非空输出"
+    },
+    {
+      "id": "S2",
+      "start_step": 128,
+      "until": 640,
+      "note": "复制/位置/双字符反转；变量回放"
+    },
+    {
+      "id": "S3",
+      "start_step": 640,
+      "until": 1536,
+      "note": "多变量/反事实/重赋值/间接引用；序列回放"
+    },
+    {
+      "id": "S4",
+      "start_step": 1536,
+      "until": 2048,
+      "note": "补齐未达标基础能力，不进入数学/编程"
+    }
+  ],
+  "checkpoint_sha256": {
+    "best": "250a16d1f3645bba38fea29be347fb510e6d9c8ffed633f9645ceb98b8345e6f",
+    "final": "e88c5843ff98d2dbd13e2088bafe6dc25cb87a145f1ccc89d3b030806be5d02c",
+    "last": "0dca8071dd0f4cf46f9f05975d135e31ab9d0e40f7b4c124f3533bb49336b2b4",
+    "best_copy": "07e3570c5b5a15fd76c2228b74f935b452c753f3ff93e850b63f4ae6fc0e0d68",
+    "best_binding": "0f8877fa4c702eb78832e98519cf32f8bf3415bee827356925515c77b3000c58"
+  },
+  "stable_modified": [
+    "model_compute.forward(valid_mask=...)"
+  ],
+  "external_models": 0,
+  "model_weights_uploaded": false
+}

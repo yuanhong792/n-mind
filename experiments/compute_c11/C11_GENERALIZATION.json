@@ -1,0 +1,2497 @@
+{
+  "status": "GENERALIZATION_DONE",
+  "counterfactual": {
+    "parent": {
+      "pairs": 400,
+      "paired_accuracy": 0.0175,
+      "results": [
+        {
+          "key": "'B2|a=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,e=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "2",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=5,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=2,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=6,a=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "6",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=1,h=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "1",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "3",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,c=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "1",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=2,d=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "0"
+            },
+            {
+              "expected": "2",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,h=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "0",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=7,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=3,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "2"
+            },
+            {
+              "expected": "3",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "0",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=9,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "9",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "1"
+            },
+            {
+              "expected": "1",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,f=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "3",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=4,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "4",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,g=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "3",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=8,g=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "8"
+            },
+            {
+              "expected": "8",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=7,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,e=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "9",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "4",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=7,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=0,a=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "0",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "8",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,e=7'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=4,f=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=2,g=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "4"
+            },
+            {
+              "expected": "2",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,c=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "0"
+            },
+            {
+              "expected": "4",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,g=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "0"
+            },
+            {
+              "expected": "5",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=1,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "1",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=8,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "8"
+            },
+            {
+              "expected": "8",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,b=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "6"
+            },
+            {
+              "expected": "3",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=2,e=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "2",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=7,f=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,g=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=5,g=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=7,a=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=0,h=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "8"
+            },
+            {
+              "expected": "8",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        }
+      ],
+      "ok": 7
+    },
+    "best": {
+      "pairs": 400,
+      "paired_accuracy": 0.0675,
+      "results": [
+        {
+          "key": "'B2|a=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "4",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,e=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "2",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=5,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=2,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=6,a=8'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "6",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=1,h=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "1",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,c=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "1"
+            },
+            {
+              "expected": "1",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=2,d=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,h=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=7,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=3,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=9,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "1"
+            },
+            {
+              "expected": "1",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,f=5'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=4,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,g=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=8,g=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "8",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "2",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=7,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "2"
+            },
+            {
+              "expected": "7",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,e=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=7,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=0,a=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "0",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "8",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,e=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=4,f=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "4",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "2",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=2,g=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,c=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,g=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=1,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "88"
+            },
+            {
+              "expected": "1",
+              "got": "88"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=8,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "8",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,b=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=2,e=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "2",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=7,f=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "7",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,g=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "4",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=5,g=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "5",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=7,a=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "77"
+            },
+            {
+              "expected": "7",
+              "got": "77"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=0,h=5'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "8",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        }
+      ],
+      "ok": 27
+    },
+    "final": {
+      "pairs": 400,
+      "paired_accuracy": 0.0675,
+      "results": [
+        {
+          "key": "'B2|a=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "4",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,e=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "2",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=5,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=2,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=6,a=8'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "6",
+              "got": "6"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,f=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=1,h=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "8"
+            },
+            {
+              "expected": "1",
+              "got": "8"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,c=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "1"
+            },
+            {
+              "expected": "1",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=2,d=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,h=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=7,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=3,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=0,f=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "0"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=9,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=1,h=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "1"
+            },
+            {
+              "expected": "1",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,f=5'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,c=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=4,a=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=3,g=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=0,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=8,g=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "8",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=2,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "2",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=7,f=2'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "2",
+              "got": "2"
+            },
+            {
+              "expected": "7",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,e=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=7,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "7"
+            },
+            {
+              "expected": "7",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=0,a=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "0",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,d=5'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "8",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,e=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=4,f=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "4",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=2,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "2",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=2,g=4'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "4",
+              "got": "2"
+            },
+            {
+              "expected": "2",
+              "got": "2"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,c=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,g=0'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "0",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "5"
+            }
+          ]
+        },
+        {
+          "key": "'B2|h=5,a=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "5"
+            },
+            {
+              "expected": "5",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=1,e=8'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "8",
+              "got": "88"
+            },
+            {
+              "expected": "1",
+              "got": "88"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=8,c=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "8",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=3,b=6'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "6",
+              "got": "3"
+            },
+            {
+              "expected": "3",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=2,e=7'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "7",
+              "got": "7"
+            },
+            {
+              "expected": "2",
+              "got": "7"
+            }
+          ]
+        },
+        {
+          "key": "'B2|a=7,f=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "7",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|e=4,g=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "1"
+            },
+            {
+              "expected": "4",
+              "got": "1"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=5,g=9'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "9",
+              "got": "9"
+            },
+            {
+              "expected": "5",
+              "got": "9"
+            }
+          ]
+        },
+        {
+          "key": "'B2|g=7,a=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "77"
+            },
+            {
+              "expected": "7",
+              "got": "77"
+            }
+          ]
+        },
+        {
+          "key": "'B2|f=9,a=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "9"
+            },
+            {
+              "expected": "9",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|d=0,h=5'",
+          "pair_ok": true,
+          "details": [
+            {
+              "expected": "5",
+              "got": "5"
+            },
+            {
+              "expected": "0",
+              "got": "0"
+            }
+          ]
+        },
+        {
+          "key": "'B2|c=8,e=3'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "3",
+              "got": "3"
+            },
+            {
+              "expected": "8",
+              "got": "3"
+            }
+          ]
+        },
+        {
+          "key": "'B2|b=4,f=1'",
+          "pair_ok": false,
+          "details": [
+            {
+              "expected": "1",
+              "got": "4"
+            },
+            {
+              "expected": "4",
+              "got": "4"
+            }
+          ]
+        }
+      ],
+      "ok": 27
+    }
+  },
+  "length generalization": {
+    "parent": {
+      "per_task": {
+        "A2_copyN": {
+          "n": 500,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.466
+        },
+        "A4_reverse": {
+          "n": 400,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 1.0
+        }
+      },
+      "macro_accuracy": 0.0,
+      "n": 900,
+      "ok": 0
+    },
+    "best": {
+      "per_task": {
+        "A2_copyN": {
+          "n": 500,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.004
+        },
+        "A4_reverse": {
+          "n": 400,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.005
+        }
+      },
+      "macro_accuracy": 0.0,
+      "n": 900,
+      "ok": 0
+    },
+    "final": {
+      "per_task": {
+        "A2_copyN": {
+          "n": 500,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.004
+        },
+        "A4_reverse": {
+          "n": 400,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.005
+        }
+      },
+      "macro_accuracy": 0.0,
+      "n": 900,
+      "ok": 0
+    }
+  },
+  "variable_rename": {
+    "parent": {
+      "B7_rename": {
+        "n": 43,
+        "ok": 21,
+        "accuracy": 0.4884,
+        "immediate_eos_rate": 0.0
+      }
+    },
+    "best": {
+      "B7_rename": {
+        "n": 43,
+        "ok": 20,
+        "accuracy": 0.4651,
+        "immediate_eos_rate": 0.0
+      }
+    },
+    "final": {
+      "B7_rename": {
+        "n": 43,
+        "ok": 20,
+        "accuracy": 0.4651,
+        "immediate_eos_rate": 0.0
+      }
+    }
+  },
+  "unseen_format": {
+    "parent": {
+      "A1_copy1_unseenfmt": {
+        "n": 1,
+        "ok": 0,
+        "accuracy": 0.0,
+        "immediate_eos_rate": 0.0
+      }
+    },
+    "best": {
+      "A1_copy1_unseenfmt": {
+        "n": 1,
+        "ok": 0,
+        "accuracy": 0.0,
+        "immediate_eos_rate": 0.0
+      }
+    },
+    "final": {
+      "A1_copy1_unseenfmt": {
+        "n": 1,
+        "ok": 0,
+        "accuracy": 0.0,
+        "immediate_eos_rate": 0.0
+      }
+    }
+  },
+  "sealed_by_task": {
+    "parent": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.206,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 55
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0038,
+          "immediate_eos_rate": 0.3057,
+          "empty_rate": 0.3057,
+          "ok": 1
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 1.0,
+          "empty_rate": 1.0,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.3857,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 81
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5127,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 162
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4684,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 148
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.2183,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 31
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.0588,
+          "immediate_eos_rate": 0.1176,
+          "empty_rate": 0.1176,
+          "ok": 1
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3955,
+          "immediate_eos_rate": 0.0299,
+          "empty_rate": 0.0299,
+          "ok": 53
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4884,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 21
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.2489,
+      "micro_accuracy": 0.2839,
+      "immediate_eos_rate": 0.1663,
+      "total_n": 1948,
+      "total_ok": 553
+    },
+    "best": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.1985,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 53
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0075,
+          "immediate_eos_rate": 0.0038,
+          "empty_rate": 0.0038,
+          "ok": 2
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0042,
+          "empty_rate": 0.0042,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.419,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 88
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 158
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4937,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 156
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.4014,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 57
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.5882,
+          "immediate_eos_rate": 0.0588,
+          "empty_rate": 0.0588,
+          "ok": 10
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3731,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 50
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4651,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 20
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.3133,
+      "micro_accuracy": 0.3049,
+      "immediate_eos_rate": 0.0015,
+      "total_n": 1948,
+      "total_ok": 594
+    },
+    "final": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.1985,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 53
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0075,
+          "immediate_eos_rate": 0.0038,
+          "empty_rate": 0.0038,
+          "ok": 2
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0042,
+          "empty_rate": 0.0042,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.419,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 88
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 158
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4937,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 156
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.4014,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 57
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.5882,
+          "immediate_eos_rate": 0.0588,
+          "empty_rate": 0.0588,
+          "ok": 10
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3731,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 50
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4651,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 20
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.3133,
+      "micro_accuracy": 0.3049,
+      "immediate_eos_rate": 0.0015,
+      "total_n": 1948,
+      "total_ok": 594
+    }
+  }
+}

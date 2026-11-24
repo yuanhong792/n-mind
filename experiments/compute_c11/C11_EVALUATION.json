@@ -1,0 +1,582 @@
+{
+  "status": "UNIFIED_EVALUATION_DONE",
+  "protocol": {
+    "free_generation": true,
+    "teacher_forcing": false,
+    "fixed_panel": {
+      "n": 490,
+      "per_task": 60,
+      "tasks": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B2_counter",
+        "B4_bind",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "seed": 20261124
+    },
+    "sealed_n": 1948,
+    "same_order": true
+  },
+  "models": {
+    "parent": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c1\\candidate_compute_best.pt",
+      "role": "best",
+      "optimizer_steps_executed": 1152,
+      "sha256_state": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d"
+    },
+    "best": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_best.pt",
+      "role": "best",
+      "optimizer_steps_executed": 2048,
+      "sha256_state": "54fbb2bd64e70c626b2c44287ebef2c80174b95c27ae22e293ffcc91f3a21c9c",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d"
+    },
+    "final": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_final.pt",
+      "role": "final",
+      "optimizer_steps_executed": 2048,
+      "sha256_state": "54fbb2bd64e70c626b2c44287ebef2c80174b95c27ae22e293ffcc91f3a21c9c",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d"
+    }
+  },
+  "fixed_panel": {
+    "parent": {
+      "per_task": {
+        "A1_copy1": {
+          "n": 10,
+          "accuracy": 0.2,
+          "immediate_eos_rate": 0.1,
+          "empty_rate": 0.1,
+          "ok": 2
+        },
+        "A2_copyN": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.3167,
+          "empty_rate": 0.3167,
+          "ok": 0
+        },
+        "A3_index": {
+          "n": 60,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 24
+        },
+        "A4_reverse": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 1.0,
+          "empty_rate": 1.0,
+          "ok": 0
+        },
+        "B2_bind": {
+          "n": 60,
+          "accuracy": 0.5667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 34
+        },
+        "B4_bind": {
+          "n": 60,
+          "accuracy": 0.3667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 22
+        },
+        "B2_counter": {
+          "n": 60,
+          "accuracy": 0.5167,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 31
+        },
+        "B5_reassign": {
+          "n": 60,
+          "accuracy": 0.2333,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 14
+        },
+        "B6_indirect": {
+          "n": 60,
+          "accuracy": 0.2833,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 17
+        }
+      },
+      "macro_accuracy": 0.2852,
+      "micro_accuracy": 0.2939,
+      "immediate_eos_rate": 0.1633,
+      "total_n": 490,
+      "total_ok": 144
+    },
+    "best": {
+      "per_task": {
+        "A1_copy1": {
+          "n": 10,
+          "accuracy": 0.9,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 9
+        },
+        "A2_copyN": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        },
+        "A3_index": {
+          "n": 60,
+          "accuracy": 0.55,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 33
+        },
+        "A4_reverse": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        },
+        "B2_bind": {
+          "n": 60,
+          "accuracy": 0.5833,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 35
+        },
+        "B4_bind": {
+          "n": 60,
+          "accuracy": 0.2333,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 14
+        },
+        "B2_counter": {
+          "n": 60,
+          "accuracy": 0.4667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 28
+        },
+        "B5_reassign": {
+          "n": 60,
+          "accuracy": 0.3667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 22
+        },
+        "B6_indirect": {
+          "n": 60,
+          "accuracy": 0.4667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 28
+        }
+      },
+      "macro_accuracy": 0.3963,
+      "micro_accuracy": 0.3449,
+      "immediate_eos_rate": 0.0,
+      "total_n": 490,
+      "total_ok": 169
+    },
+    "final": {
+      "per_task": {
+        "A1_copy1": {
+          "n": 10,
+          "accuracy": 0.9,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 9
+        },
+        "A2_copyN": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        },
+        "A3_index": {
+          "n": 60,
+          "accuracy": 0.55,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 33
+        },
+        "A4_reverse": {
+          "n": 60,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        },
+        "B2_bind": {
+          "n": 60,
+          "accuracy": 0.5833,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 35
+        },
+        "B4_bind": {
+          "n": 60,
+          "accuracy": 0.2333,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 14
+        },
+        "B2_counter": {
+          "n": 60,
+          "accuracy": 0.4667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 28
+        },
+        "B5_reassign": {
+          "n": 60,
+          "accuracy": 0.3667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 22
+        },
+        "B6_indirect": {
+          "n": 60,
+          "accuracy": 0.4667,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 28
+        }
+      },
+      "macro_accuracy": 0.3963,
+      "micro_accuracy": 0.3449,
+      "immediate_eos_rate": 0.0,
+      "total_n": 490,
+      "total_ok": 169
+    }
+  },
+  "sealed": {
+    "parent": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.206,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 55
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0038,
+          "immediate_eos_rate": 0.3057,
+          "empty_rate": 0.3057,
+          "ok": 1
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 1.0,
+          "empty_rate": 1.0,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.3857,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 81
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5127,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 162
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4684,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 148
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.2183,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 31
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.0588,
+          "immediate_eos_rate": 0.1176,
+          "empty_rate": 0.1176,
+          "ok": 1
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3955,
+          "immediate_eos_rate": 0.0299,
+          "empty_rate": 0.0299,
+          "ok": 53
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4884,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 21
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.2489,
+      "micro_accuracy": 0.2839,
+      "immediate_eos_rate": 0.1663,
+      "total_n": 1948,
+      "total_ok": 553
+    },
+    "best": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.1985,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 53
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0075,
+          "immediate_eos_rate": 0.0038,
+          "empty_rate": 0.0038,
+          "ok": 2
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0042,
+          "empty_rate": 0.0042,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.419,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 88
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 158
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4937,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 156
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.4014,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 57
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.5882,
+          "immediate_eos_rate": 0.0588,
+          "empty_rate": 0.0588,
+          "ok": 10
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3731,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 50
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4651,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 20
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.3133,
+      "micro_accuracy": 0.3049,
+      "immediate_eos_rate": 0.0015,
+      "total_n": 1948,
+      "total_ok": 594
+    },
+    "final": {
+      "per_task": {
+        "B4_bind": {
+          "n": 267,
+          "accuracy": 0.1985,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 53
+        },
+        "A2_copyN": {
+          "n": 265,
+          "accuracy": 0.0075,
+          "immediate_eos_rate": 0.0038,
+          "empty_rate": 0.0038,
+          "ok": 2
+        },
+        "A4_reverse": {
+          "n": 237,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0042,
+          "empty_rate": 0.0042,
+          "ok": 0
+        },
+        "B6_indirect": {
+          "n": 210,
+          "accuracy": 0.419,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 88
+        },
+        "B2_bind": {
+          "n": 316,
+          "accuracy": 0.5,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 158
+        },
+        "B2_counter": {
+          "n": 316,
+          "accuracy": 0.4937,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 156
+        },
+        "B5_reassign": {
+          "n": 142,
+          "accuracy": 0.4014,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 57
+        },
+        "A1_copy1": {
+          "n": 17,
+          "accuracy": 0.5882,
+          "immediate_eos_rate": 0.0588,
+          "empty_rate": 0.0588,
+          "ok": 10
+        },
+        "A3_index": {
+          "n": 134,
+          "accuracy": 0.3731,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 50
+        },
+        "B7_rename": {
+          "n": 43,
+          "accuracy": 0.4651,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 20
+        },
+        "A1_copy1_unseenfmt": {
+          "n": 1,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "ok": 0
+        }
+      },
+      "macro_accuracy": 0.3133,
+      "micro_accuracy": 0.3049,
+      "immediate_eos_rate": 0.0015,
+      "total_n": 1948,
+      "total_ok": 594
+    }
+  },
+  "shortcut_baselines_on_fixed_panel": {
+    "fixed_answer": {
+      "n": 490,
+      "ok": 31,
+      "accuracy": 0.0633
+    },
+    "first_digit": {
+      "n": 300,
+      "ok": 106,
+      "accuracy": 0.3533
+    },
+    "last_digit": {
+      "n": 300,
+      "ok": 106,
+      "accuracy": 0.3533
+    },
+    "nearest_assign": {
+      "n": 300,
+      "ok": 108,
+      "accuracy": 0.36
+    },
+    "random_guess": {
+      "n": 490,
+      "ok": null,
+      "accuracy": 0.0073
+    }
+  },
+  "model_beats_all_applicable_shortcuts": true,
+  "gru_reference": "NOT_RUN"
+}

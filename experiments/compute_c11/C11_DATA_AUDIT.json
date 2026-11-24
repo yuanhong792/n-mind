@@ -1,0 +1,83 @@
+{
+  "status": "DATA_GENERATED",
+  "seed": 20261124,
+  "counts": {
+    "train": 14366,
+    "val": 1837,
+    "sealed": 1948
+  },
+  "by_task": {
+    "train": {
+      "A3_index": 1105,
+      "A2_copyN": 1941,
+      "B6_indirect": 1586,
+      "B5_reassign": 1102,
+      "B4_bind": 1894,
+      "A4_reverse": 1647,
+      "B2_bind": 2331,
+      "B2_counter": 2331,
+      "B7_rename": 326,
+      "A1_copy1": 70,
+      "A1_copy1_unseenfmt": 33
+    },
+    "val": {
+      "B5_reassign": 156,
+      "B6_indirect": 204,
+      "A2_copyN": 286,
+      "A4_reverse": 214,
+      "B4_bind": 239,
+      "A3_index": 141,
+      "B7_rename": 31,
+      "B2_bind": 275,
+      "B2_counter": 275,
+      "A1_copy1": 10,
+      "A1_copy1_unseenfmt": 6
+    },
+    "sealed": {
+      "B4_bind": 267,
+      "A2_copyN": 265,
+      "A4_reverse": 237,
+      "B6_indirect": 210,
+      "B2_bind": 316,
+      "B2_counter": 316,
+      "B5_reassign": 142,
+      "A1_copy1": 17,
+      "A3_index": 134,
+      "B7_rename": 43,
+      "A1_copy1_unseenfmt": 1
+    }
+  },
+  "counterfactual_test_pairs": 400,
+  "length_gen_samples": 900,
+  "frozen_sha256": {
+    "train": "73f63780c38cef929776928ab46ef5a810cec4b4356ec15d25c2bdec9e5fe48a",
+    "val": "ab8c4c6f7328015d38d096543f1af77dc8c393e9d9f129f8c7e9864a0edc274d",
+    "sealed": "eaefd80e2cdf36292b5d13bbbd3bddaf9a522a0873dbcaa849b7cd3651b39255",
+    "counterfactual": "9d305a8e2f577b40b78f40fb999f56feddb212805975a0960efbac8ba00cc3d8",
+    "length_gen": "9cc20d73b19537ec603a9793ddf4c5844f10231f319594617061b0306e68d8a7"
+  },
+  "semantic_group_cross_split_overlap": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "c1_train_prompt_overlap": {
+    "train": 0,
+    "val": 0,
+    "sealed": 0
+  },
+  "baselines_train": {
+    "fixed_answer": 0.0821,
+    "first_digit": 0.2718,
+    "last_digit": 0.2525,
+    "nearest_assign": 0.2502,
+    "random_guess": 0.0003
+  },
+  "baselines_sealed": {
+    "fixed_answer": 0.0857,
+    "first_digit": 0.2731,
+    "last_digit": 0.251,
+    "nearest_assign": 0.25,
+    "random_guess": 0.002
+  }
+}

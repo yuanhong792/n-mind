@@ -1,0 +1,94 @@
+{
+  "status": "ROUTER_AUDIT_DONE",
+  "models": {
+    "parent": {
+      "top_k": 2,
+      "n_blocks": 4,
+      "sparse_space": true,
+      "panel_route_counts": [
+        4574,
+        2523,
+        4042,
+        3547
+      ],
+      "panel_route_share": [
+        0.3115,
+        0.1718,
+        0.2752,
+        0.2415
+      ],
+      "blocks_used": 4,
+      "unused_blocks": 0,
+      "imbalance_max_min": 1.813,
+      "workspace_mean_occupied": 1.0222,
+      "workspace_max_occupied": 1.4759,
+      "checkpoint_block_load_count": [
+        399228.0,
+        140543.0,
+        447214.0,
+        164503.0
+      ],
+      "ste_gradient_norm": 0.375919
+    },
+    "best": {
+      "top_k": 2,
+      "n_blocks": 4,
+      "sparse_space": true,
+      "panel_route_counts": [
+        4595,
+        2205,
+        4196,
+        3690
+      ],
+      "panel_route_share": [
+        0.3129,
+        0.1501,
+        0.2857,
+        0.2513
+      ],
+      "blocks_used": 4,
+      "unused_blocks": 0,
+      "imbalance_max_min": 2.083,
+      "workspace_mean_occupied": 1.028,
+      "workspace_max_occupied": 1.4821,
+      "checkpoint_block_load_count": [
+        697332.0,
+        346685.0,
+        753544.0,
+        383621.0
+      ],
+      "ste_gradient_norm": 1.142308
+    },
+    "final": {
+      "top_k": 2,
+      "n_blocks": 4,
+      "sparse_space": true,
+      "panel_route_counts": [
+        4595,
+        2205,
+        4196,
+        3690
+      ],
+      "panel_route_share": [
+        0.3129,
+        0.1501,
+        0.2857,
+        0.2513
+      ],
+      "blocks_used": 4,
+      "unused_blocks": 0,
+      "imbalance_max_min": 2.083,
+      "workspace_mean_occupied": 1.028,
+      "workspace_max_occupied": 1.4821,
+      "checkpoint_block_load_count": [
+        697332.0,
+        346685.0,
+        753544.0,
+        383621.0
+      ],
+      "ste_gradient_norm": 1.142308
+    }
+  },
+  "gradient_path": "STE weights active only in train()",
+  "verdict": "sparse_space_present"
+}

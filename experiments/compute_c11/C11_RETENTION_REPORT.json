@@ -1,0 +1,144 @@
+{
+  "status": "RETENTION_DONE",
+  "comparisons": {
+    "parent_to_best": {
+      "deltas": {
+        "A1_copy1": 0.7,
+        "A2_copyN": 0.0,
+        "A3_index": 0.15,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.0166,
+        "B4_bind": -0.1334,
+        "B2_counter": -0.05,
+        "B5_reassign": 0.1334,
+        "B6_indirect": 0.1834
+      },
+      "improved": [
+        "A1_copy1",
+        "A3_index",
+        "B2_bind",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "regressed": [
+        "B4_bind",
+        "B2_counter"
+      ],
+      "unchanged": [
+        "A2_copyN",
+        "A4_reverse"
+      ],
+      "macro_delta": 0.1111
+    },
+    "parent_to_final": {
+      "deltas": {
+        "A1_copy1": 0.7,
+        "A2_copyN": 0.0,
+        "A3_index": 0.15,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.0166,
+        "B4_bind": -0.1334,
+        "B2_counter": -0.05,
+        "B5_reassign": 0.1334,
+        "B6_indirect": 0.1834
+      },
+      "improved": [
+        "A1_copy1",
+        "A3_index",
+        "B2_bind",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "regressed": [
+        "B4_bind",
+        "B2_counter"
+      ],
+      "unchanged": [
+        "A2_copyN",
+        "A4_reverse"
+      ],
+      "macro_delta": 0.1111
+    },
+    "best_to_final": {
+      "deltas": {
+        "A1_copy1": 0.0,
+        "A2_copyN": 0.0,
+        "A3_index": 0.0,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.0,
+        "B4_bind": 0.0,
+        "B2_counter": 0.0,
+        "B5_reassign": 0.0,
+        "B6_indirect": 0.0
+      },
+      "improved": [],
+      "regressed": [],
+      "unchanged": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "macro_delta": 0.0
+    },
+    "final_to_best": {
+      "deltas": {
+        "A1_copy1": 0.0,
+        "A2_copyN": 0.0,
+        "A3_index": 0.0,
+        "A4_reverse": 0.0,
+        "B2_bind": 0.0,
+        "B4_bind": 0.0,
+        "B2_counter": 0.0,
+        "B5_reassign": 0.0,
+        "B6_indirect": 0.0
+      },
+      "improved": [],
+      "regressed": [],
+      "unchanged": [
+        "A1_copy1",
+        "A2_copyN",
+        "A3_index",
+        "A4_reverse",
+        "B2_bind",
+        "B4_bind",
+        "B2_counter",
+        "B5_reassign",
+        "B6_indirect"
+      ],
+      "macro_delta": 0.0
+    }
+  },
+  "shortcut_baselines": {
+    "fixed_answer": {
+      "n": 490,
+      "ok": 31,
+      "accuracy": 0.0633
+    },
+    "first_digit": {
+      "n": 300,
+      "ok": 106,
+      "accuracy": 0.3533
+    },
+    "last_digit": {
+      "n": 300,
+      "ok": 106,
+      "accuracy": 0.3533
+    },
+    "nearest_assign": {
+      "n": 300,
+      "ok": 108,
+      "accuracy": 0.36
+    },
+    "random_guess": {
+      "n": 490,
+      "ok": null,
+      "accuracy": 0.0073
+    }
+  }
+}

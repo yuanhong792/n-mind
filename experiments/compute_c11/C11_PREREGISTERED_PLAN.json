@@ -1,0 +1,68 @@
+{
+  "status": "RECONSTRUCTED_FROM_TASK_SPEC",
+  "honest_note": "本文件在 C1.1 训练完成后依据原始任务书重建，未伪装为训练前生成的历史文件；用于交付预登记规则的可审计文本。",
+  "experiment": "N-MIND C1.1",
+  "budget": {
+    "max_optimizer_steps": 2048,
+    "max_wall_seconds": 1800,
+    "shared_ledger": "C11_BUDGET_LEDGER.jsonl",
+    "carry_over_policy": "跨重启累计；异常中断保守计入",
+    "reserve_seconds": 60
+  },
+  "parent_selection": {
+    "rule": "fixed_panel_macro_accuracy; tie -> later optimizer step",
+    "candidates": ["C1.0 best", "C1.0 final", "C1.0 last"],
+    "selected": "best"
+  },
+  "data": {
+    "split_by": "fact_group; no counterfactual or counterfactual bind crosses split",
+    "exclude_c10_history_prompts": true,
+    "counterfactual_test_pairs_min": 300,
+    "length_generalization_min": 300,
+    "variable_rename_test": true
+  },
+  "supervision": {
+    "first_answer_token_weight": 2.0,
+    "other_answer_token_weight": 1.0,
+    "eos_weight": 0.25,
+    "loss_normalization": "per-sample weighted sum divided by weight sum, then batch mean",
+    "padding": "zero loss weight; no workspace write; no router load update"
+  },
+  "sampling": {
+    "current_focus_ratio": 0.6,
+    "failing_base_ratio": 0.2,
+    "replay_ratio": 0.2,
+    "stable_requires_consecutive_eval_points": 2
+  },
+  "gates": {
+    "A1_copy1": 0.98,
+    "A2_copyN_2char": 0.95,
+    "A3_index": 0.9,
+    "A4_reverse": 0.9,
+    "B2_bind": 0.9,
+    "B4_bind": 0.8,
+    "B2_counter_paired": 0.8,
+    "B5_reassign": 0.85,
+    "B6_indirect": 0.8
+  },
+  "selection": {
+    "primary_metric": "fixed_panel_equal_task_macro_accuracy",
+    "secondary": ["copy_line_macro", "binding_line_macro"],
+    "sealed_used_for_model_selection": false
+  },
+  "checkpoints": [
+    "candidate_c11_best.pt",
+    "candidate_c11_final.pt",
+    "candidate_c11_last.pt",
+    "candidate_c11_best_copy.pt",
+    "candidate_c11_best_binding.pt"
+  ],
+  "not_run": [
+    "C4_logic_training",
+    "C5_program_understanding_training",
+    "C6_code_generation_training",
+    "C7_C9_self_learning",
+    "independent_gru_training"
+  ],
+  "model_weights_upload": false
+}

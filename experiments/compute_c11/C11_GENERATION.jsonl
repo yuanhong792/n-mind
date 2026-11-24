@@ -1,0 +1,45 @@
+{"model": "parent", "task": "A1_copy1", "prompt": "ECHO W", "expected": "W", "predicted": "W", "ok": true, "finish": "eos", "token_ids": [61]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT 1", "expected": "1", "predicted": "1", "ok": true, "finish": "eos", "token_ids": [23]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 22 2", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "token_ids": [24]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 73 1", "expected": "7", "predicted": "7", "ok": true, "finish": "eos", "token_ids": [29]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 257474 4", "expected": "4", "predicted": "4", "ok": true, "finish": "eos", "token_ids": [26]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 0571 3", "expected": "7", "predicted": "7", "ok": true, "finish": "eos", "token_ids": [29]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 33 2", "expected": "3", "predicted": "3", "ok": true, "finish": "eos", "token_ids": [25]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 73 1", "expected": "7", "predicted": "7", "ok": true, "finish": "eos", "token_ids": [29]}
+{"model": "parent", "task": "A3_index", "prompt": "INDEX 12 2", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "token_ids": [24]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT P", "expected": "P", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT N", "expected": "N", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT T", "expected": "T", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT 6", "expected": "6", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT =", "expected": "=", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "parent", "task": "A1_copy1", "prompt": "PRINT /", "expected": "/", "predicted": "I", "ok": false, "finish": "eos", "token_ids": [47]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT P", "expected": "P", "predicted": "P", "ok": true, "finish": "eos", "token_ids": [54]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT T", "expected": "T", "predicted": "T", "ok": true, "finish": "eos", "token_ids": [58]}
+{"model": "best", "task": "A1_copy1", "prompt": "ECHO W", "expected": "W", "predicted": "W", "ok": true, "finish": "eos", "token_ids": [61]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT 6", "expected": "6", "predicted": "6", "ok": true, "finish": "eos", "token_ids": [28]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT =", "expected": "=", "predicted": "=", "ok": true, "finish": "eos", "token_ids": [35]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT 1", "expected": "1", "predicted": "1", "ok": true, "finish": "eos", "token_ids": [23]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT /", "expected": "/", "predicted": "/", "ok": true, "finish": "eos", "token_ids": [21]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT V", "expected": "V", "predicted": "V", "ok": true, "finish": "eos", "token_ids": [60]}
+{"model": "best", "task": "A1_copy1", "prompt": "ECHO G", "expected": "G", "predicted": "G", "ok": true, "finish": "eos", "token_ids": [45]}
+{"model": "best", "task": "A1_copy1", "prompt": "PRINT N", "expected": "N", "predicted": "NN", "ok": false, "finish": "eos", "token_ids": [52, 52]}
+{"model": "best", "task": "A2_copyN", "prompt": "COPY 2KRR", "expected": "2KRR", "predicted": "KKKKKKKKKKKK", "ok": false, "finish": "max_tokens", "token_ids": [49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]}
+{"model": "best", "task": "A2_copyN", "prompt": "COPY 3D", "expected": "3D", "predicted": "333333333333", "ok": false, "finish": "max_tokens", "token_ids": [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]}
+{"model": "best", "task": "A2_copyN", "prompt": "COPY JJ", "expected": "JJ", "predicted": "JJJJJJJJJJJJ", "ok": false, "finish": "max_tokens", "token_ids": [48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48]}
+{"model": "best", "task": "A2_copyN", "prompt": "COPY VHCJ", "expected": "VHCJ", "predicted": "VVVVVVVVVVVV", "ok": false, "finish": "max_tokens", "token_ids": [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]}
+{"model": "best", "task": "A2_copyN", "prompt": "COPY 6V", "expected": "6V", "predicted": "666666666666", "ok": false, "finish": "max_tokens", "token_ids": [28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT P", "expected": "P", "predicted": "P", "ok": true, "finish": "eos", "token_ids": [54]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT T", "expected": "T", "predicted": "T", "ok": true, "finish": "eos", "token_ids": [58]}
+{"model": "final", "task": "A1_copy1", "prompt": "ECHO W", "expected": "W", "predicted": "W", "ok": true, "finish": "eos", "token_ids": [61]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT 6", "expected": "6", "predicted": "6", "ok": true, "finish": "eos", "token_ids": [28]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT =", "expected": "=", "predicted": "=", "ok": true, "finish": "eos", "token_ids": [35]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT 1", "expected": "1", "predicted": "1", "ok": true, "finish": "eos", "token_ids": [23]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT /", "expected": "/", "predicted": "/", "ok": true, "finish": "eos", "token_ids": [21]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT V", "expected": "V", "predicted": "V", "ok": true, "finish": "eos", "token_ids": [60]}
+{"model": "final", "task": "A1_copy1", "prompt": "ECHO G", "expected": "G", "predicted": "G", "ok": true, "finish": "eos", "token_ids": [45]}
+{"model": "final", "task": "A1_copy1", "prompt": "PRINT N", "expected": "N", "predicted": "NN", "ok": false, "finish": "eos", "token_ids": [52, 52]}
+{"model": "final", "task": "A2_copyN", "prompt": "COPY 2KRR", "expected": "2KRR", "predicted": "KKKKKKKKKKKK", "ok": false, "finish": "max_tokens", "token_ids": [49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]}
+{"model": "final", "task": "A2_copyN", "prompt": "COPY 3D", "expected": "3D", "predicted": "333333333333", "ok": false, "finish": "max_tokens", "token_ids": [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]}
+{"model": "final", "task": "A2_copyN", "prompt": "COPY JJ", "expected": "JJ", "predicted": "JJJJJJJJJJJJ", "ok": false, "finish": "max_tokens", "token_ids": [48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48]}
+{"model": "final", "task": "A2_copyN", "prompt": "COPY VHCJ", "expected": "VHCJ", "predicted": "VVVVVVVVVVVV", "ok": false, "finish": "max_tokens", "token_ids": [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]}
+{"model": "final", "task": "A2_copyN", "prompt": "COPY 6V", "expected": "6V", "predicted": "666666666666", "ok": false, "finish": "max_tokens", "token_ids": [28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28]}

@@ -1,0 +1,42 @@
+{
+  "status": "MEMORY_AUDIT_DONE",
+  "padding_isolation": {
+    "padded_h_zero": true,
+    "padded_workspace_zero": true,
+    "pad_load_contribution": 6.0,
+    "expected_load_contribution": 6.0,
+    "verdict": "PASS"
+  },
+  "workspace_occupancy_by_model": {
+    "parent": {
+      "workspace_mean_occupied": 1.0222,
+      "workspace_max_occupied": 1.4759
+    },
+    "best": {
+      "workspace_mean_occupied": 1.028,
+      "workspace_max_occupied": 1.4821
+    },
+    "final": {
+      "workspace_mean_occupied": 1.028,
+      "workspace_max_occupied": 1.4821
+    }
+  },
+  "counterfactual_workspace_cosine": {
+    "parent": {
+      "pairs": 50,
+      "mean_cosine": 1.0,
+      "max_cosine": 1.0
+    },
+    "best": {
+      "pairs": 50,
+      "mean_cosine": 0.9994,
+      "max_cosine": 1.0
+    },
+    "final": {
+      "pairs": 50,
+      "mean_cosine": 0.9994,
+      "max_cosine": 1.0
+    }
+  },
+  "note": "ComputeLM 的 forward 已忽略 padding 位置写入；但 workspace.write 返回的 overflow 仍未接入情景记忆消费者，信息保持缺陷未完全消除。"
+}

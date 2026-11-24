@@ -74,7 +74,11 @@ class ComputeLM(nn.Module):
                 "ws": self.workspace.initial_state(batch, device)}
 
     def forward(self, tokens: torch.Tensor, state: dict | None = None,
-                collect_stats: bool = False):
+                collect_stats: bool = False, valid_mask: torch.Tensor | None = None):
+        """valid_mask: [B, T] bool；False 位置不写 Workspace、不计 Router 负载。
+
+        兼容旧调用：valid_mask=None 时行为与 C1.0 完全一致。
+        """
         B, T = tokens.shape
         dev = tokens.device
         st = state if state is not None else self.initial_state(B, dev)
@@ -85,26 +89,40 @@ class ComputeLM(nn.Module):
         logits: list[torch.Tensor] = []
         route_log: list[list[int]] = []
         occ_log: list[float] = []
+
+        def keep_valid(old: torch.Tensor, new: torch.Tensor, flag: torch.Tensor) -> torch.Tensor:
+            shape = (B,) + (1,) * (old.dim() - 1)
+            return torch.where(flag.view(shape), new, old)
+
         for t in range(T):
+            valid_t = None if valid_mask is None else valid_mask[:, t].to(torch.bool)
+            old_h, old_ws = h, ws
             z = self.tok_emb(tokens[:, t])
             w_read = self.workspace.read(ws, z)
             route = self.router.route(z, h, w_read.value, err, unc, k=self.top_k)
             w_arg = route.weights if (self.router_gradient_path_enabled and self.training) else None
-            h, _g, _m, _p, _n = self.blocks.forward_sparse(
+            new_h, _g, _m, _p, _n = self.blocks.forward_sparse(
                 z, h, w_read.value, route.indices, weights=w_arg)
-            payload = self.block_to_ws(h[rows, route.indices.reshape(-1)]).view(B, self.top_k, -1)
-            wr = self.workspace.write(ws, payload)
-            ws = {"content": wr.state["content"], "occupied": wr.occupied, "utility": wr.utility}
+            payload = self.block_to_ws(new_h[rows, route.indices.reshape(-1)]).view(B, self.top_k, -1)
+            strengths = (None if valid_t is None else
+                         valid_t.float().unsqueeze(-1).expand(B, self.top_k))
+            wr = self.workspace.write(ws, payload, strengths=strengths)
+            new_ws = {"content": wr.state["content"], "occupied": wr.occupied, "utility": wr.utility}
+            if valid_t is None:
+                h, ws = new_h, new_ws
+            else:
+                h = keep_valid(old_h, new_h, valid_t)
+                ws = {k: keep_valid(old_ws[k], new_ws[k], valid_t) for k in old_ws}
             if self.training and self.use_router_load_update:
+                idx_flat = route.indices.reshape(-1)
+                load_vals = (torch.ones_like(idx_flat, dtype=torch.float32) if valid_t is None
+                             else valid_t.float().unsqueeze(-1).expand(B, self.top_k).reshape(-1))
                 load = torch.zeros(self.cfg.n_blocks, device=dev)
-                load.scatter_add_(0, route.indices.reshape(-1),
-                                  torch.ones_like(route.indices.reshape(-1), dtype=load.dtype))
-                load = load / max(1.0, float(route.indices.numel()))
+                load.scatter_add_(0, idx_flat, load_vals)
+                load = load / max(1.0, float(load_vals.sum().item()))
                 with torch.no_grad():
                     self.router.update_load_bias(load)
-                    self.block_load_count.scatter_add_(
-                        0, route.indices.reshape(-1),
-                        torch.ones_like(route.indices.reshape(-1), dtype=self.block_load_count.dtype))
+                    self.block_load_count.scatter_add_(0, idx_flat, load_vals)
             decoded = h.mean(dim=1)
             logits.append(self.head(decoded))
             if collect_stats:

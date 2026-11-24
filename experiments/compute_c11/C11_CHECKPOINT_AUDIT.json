@@ -1,0 +1,165 @@
+{
+  "status": "CHECKPOINT_AUDIT_DONE",
+  "checkpoints": {
+    "best": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_best.pt",
+      "file_sha256": "250a16d1f3645bba38fea29be347fb510e6d9c8ffed633f9645ceb98b8345e6f",
+      "bytes": 439253,
+      "role": "best",
+      "optimizer_steps_executed": 2048,
+      "saved_at": "2026-11-24T11:29:52+0800",
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tensor_count": 25,
+      "all_finite": true,
+      "optimizer_state_saved": false,
+      "torch_rng_state_saved": true,
+      "extra": {
+        "role": "best",
+        "selection": "fixed_panel_macro_accuracy",
+        "selected_score": 0.3963,
+        "parent": "best",
+        "parent_sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78"
+      }
+    },
+    "final": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_final.pt",
+      "file_sha256": "e88c5843ff98d2dbd13e2088bafe6dc25cb87a145f1ccc89d3b030806be5d02c",
+      "bytes": 1311000,
+      "role": "final",
+      "optimizer_steps_executed": 2048,
+      "saved_at": "2026-11-24T11:29:52+0800",
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tensor_count": 25,
+      "all_finite": true,
+      "optimizer_state_saved": true,
+      "torch_rng_state_saved": true,
+      "extra": {
+        "role": "final",
+        "parent": "best",
+        "parent_sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78",
+        "stop_reason": "step_budget",
+        "wall_seconds": 478.7
+      }
+    },
+    "last": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_last.pt",
+      "file_sha256": "0dca8071dd0f4cf46f9f05975d135e31ab9d0e40f7b4c124f3533bb49336b2b4",
+      "bytes": 1311000,
+      "role": "last",
+      "optimizer_steps_executed": 2048,
+      "saved_at": "2026-11-24T11:29:52+0800",
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tensor_count": 25,
+      "all_finite": true,
+      "optimizer_state_saved": true,
+      "torch_rng_state_saved": true,
+      "extra": {
+        "role": "last",
+        "parent": "best",
+        "parent_sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78",
+        "stop_reason": "step_budget",
+        "wall_seconds": 478.7
+      }
+    },
+    "best_copy": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_best_copy.pt",
+      "file_sha256": "07e3570c5b5a15fd76c2228b74f935b452c753f3ff93e850b63f4ae6fc0e0d68",
+      "bytes": 439253,
+      "role": "best_copy",
+      "optimizer_steps_executed": 768,
+      "saved_at": "2026-11-24T11:29:52+0800",
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tensor_count": 25,
+      "all_finite": true,
+      "optimizer_state_saved": false,
+      "torch_rng_state_saved": true,
+      "extra": {
+        "role": "best_copy",
+        "selection": "copy_line_macro",
+        "selected_score": 0.45,
+        "parent": "best",
+        "parent_sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78"
+      }
+    },
+    "best_binding": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\compute_c11\\candidate_c11_best_binding.pt",
+      "file_sha256": "0f8877fa4c702eb78832e98519cf32f8bf3415bee827356925515c77b3000c58",
+      "bytes": 439253,
+      "role": "best_binding",
+      "optimizer_steps_executed": 768,
+      "saved_at": "2026-11-24T11:29:52+0800",
+      "tokenizer_sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d",
+      "config": {
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "tensor_count": 25,
+      "all_finite": true,
+      "optimizer_state_saved": false,
+      "torch_rng_state_saved": true,
+      "extra": {
+        "role": "best_binding",
+        "selection": "binding_line_macro",
+        "selected_score": 0.4233,
+        "parent": "best",
+        "parent_sha256": "c05d612796c4b0034e805d7d1f35b4ffa72673e72cf1d57c1eaa488e47699b78"
+      }
+    }
+  },
+  "tensor_equality": {
+    "best==final": true,
+    "best==last": true,
+    "best==best_copy": false,
+    "best==best_binding": false,
+    "final==last": true,
+    "final==best_copy": false,
+    "final==best_binding": false,
+    "last==best_copy": false,
+    "last==best_binding": false,
+    "best_copy==best_binding": true
+  },
+  "all_tokenizer_sha_match": true,
+  "model_weights_uploaded": false,
+  "verdict": "PASS"
+}
