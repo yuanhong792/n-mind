@@ -24,3 +24,8 @@ class DeltaRuleLinearBaseline(nn.Module):
 
 def parameter_count(model): return sum(p.numel() for p in model.parameters())
 def within_tolerance(count, reference, tolerance=0.05): return abs(count-reference)/reference <= tolerance
+def assert_reference_match(models, reference=434553, tolerance=0.05):
+    counts={name: parameter_count(model) for name,model in models.items()}
+    bad={name:n for name,n in counts.items() if not within_tolerance(n,reference,tolerance)}
+    if bad: raise ValueError(f'parameter hard gate failed: {bad}')
+    return counts
