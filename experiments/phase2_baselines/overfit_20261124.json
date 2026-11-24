@@ -1,0 +1,23 @@
+[
+  {
+    "model": "gru",
+    "steps": 79,
+    "loss": 0.04891849309206009,
+    "wall_s": 10.398,
+    "passed": true
+  },
+  {
+    "model": "transformer",
+    "steps": 51,
+    "loss": 0.04646780714392662,
+    "wall_s": 6.863,
+    "passed": true
+  },
+  {
+    "model": "delta_rule",
+    "steps": 240,
+    "loss": 0.04895089194178581,
+    "wall_s": 35.6,
+    "passed": true
+  }
+]
