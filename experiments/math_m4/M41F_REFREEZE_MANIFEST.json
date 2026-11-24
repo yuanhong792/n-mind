@@ -1,0 +1,49 @@
+{
+  "status": "REFROZEN",
+  "base_commit": "a55c42a",
+  "generator": "dataset_m4.py",
+  "seed": 20261124,
+  "files": {
+    "m4_counterfactual.jsonl": {
+      "sha256": "89da56d7061064583b0319e37f32f1845d33d6c379f4dfae1e4048e1a5d8888c",
+      "bytes": 265484
+    },
+    "m4_counterfactual_sealed.jsonl": {
+      "sha256": "4bb86e2220da2e9c3c9ffad9e70753ed17782a47054abfffff446a6e5992f27d",
+      "bytes": 53849
+    },
+    "m4_counterfactual_val.jsonl": {
+      "sha256": "8de5bbcc1173b0cf84c9decddd76159bc00dcfaa044672d22a52998912c6d152",
+      "bytes": 211635
+    },
+    "m4_distance.jsonl": {
+      "sha256": "c1725e377432d59415ffde45eb9f994bbee005269e202ee6be8866ffd43b3cab",
+      "bytes": 113820
+    },
+    "m4_distance_sealed.jsonl": {
+      "sha256": "4b001661d541b27850e68063d122eb0357249baae32862a978acc6340581fe0a",
+      "bytes": 13279
+    },
+    "m4_distance_val.jsonl": {
+      "sha256": "0fec9d8a125350b062007ff1b51445d859d0499c074e6e6c0ba25bc50cb26566",
+      "bytes": 100541
+    },
+    "m4_generalization.jsonl": {
+      "sha256": "22a0b938065e90d720281bc9a11ecbb9d8ddfc8b615d0c79e5288622db6b1b6f",
+      "bytes": 123502
+    },
+    "m4_sealed.jsonl": {
+      "sha256": "477debcb0abdb7899b5e8c0a4bfb063fcaa5ea6ca4ebbe70b8ed81643ddb0366",
+      "bytes": 96318
+    },
+    "m4_train.jsonl": {
+      "sha256": "8baa837cda4c77aae661706ed15d83cd9bbe75b09fbac0e6207b4192ee67b00a",
+      "bytes": 288165
+    },
+    "m4_val.jsonl": {
+      "sha256": "dc12bbbacebc32ae15a781445c5984e72a36b7dd3ae445a30e03e14683fe3f9d",
+      "bytes": 95670
+    }
+  },
+  "note": "历史快照在 data_snapshot_a55c42a；本轮只重新冻结语义修复后的数据。"
+}

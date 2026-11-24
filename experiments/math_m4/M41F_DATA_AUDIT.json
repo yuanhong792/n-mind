@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE",
+  "seed": 20261124,
+  "n_rows": {
+    "train": 1392,
+    "val": 464,
+    "sealed": 464,
+    "counterfactual_pairs": 400,
+    "distance": 420,
+    "generalization": 600
+  },
+  "task_counts": {
+    "train": {
+      "A1_copy1": 48,
+      "A2_copy2": 96,
+      "A3_copyN": 96,
+      "A5_repeat": 96,
+      "A4_reverse": 96,
+      "A6_index": 96,
+      "B2_bind": 96,
+      "B4_bind": 96,
+      "B8_bind": 96,
+      "B_rename": 96,
+      "C_history_current": 96,
+      "C_reassign": 96,
+      "C_indirect": 96,
+      "D_distance": 96,
+      "D_interference": 96
+    },
+    "val": {
+      "A1_copy1": 16,
+      "A2_copy2": 32,
+      "A3_copyN": 32,
+      "A5_repeat": 32,
+      "A4_reverse": 32,
+      "A6_index": 32,
+      "B2_bind": 32,
+      "B4_bind": 32,
+      "B8_bind": 32,
+      "B_rename": 32,
+      "C_history_current": 32,
+      "C_reassign": 32,
+      "C_indirect": 32,
+      "D_distance": 32,
+      "D_interference": 32
+    },
+    "sealed": {
+      "A1_copy1": 16,
+      "A2_copy2": 32,
+      "A3_copyN": 32,
+      "A5_repeat": 32,
+      "A4_reverse": 32,
+      "A6_index": 32,
+      "B2_bind": 32,
+      "B4_bind": 32,
+      "B8_bind": 32,
+      "B_rename": 32,
+      "C_history_current": 32,
+      "C_reassign": 32,
+      "C_indirect": 32,
+      "D_distance": 32,
+      "D_interference": 32
+    }
+  },
+  "canonical_overlap": {
+    "train_vs_val": 0,
+    "train_vs_sealed": 0,
+    "val_vs_sealed": 0
+  },
+  "semantics": {
+    "C_indirect": "变量引用值复制，源变量后续覆盖",
+    "C_history_current": "GET v~OLD / GET v~NEW 查询历史/当前值",
+    "C_reassign": "目标重赋值后追加无关赋值",
+    "B_rename": "一对一变量重命名"
+  },
+  "reference_interpreter": "reference_interpreter.reference_answer（仅数据/评测）",
+  "note": "M41F 重新冻结；历史 M4_DATA_AUDIT.json 与 M41 审计未覆盖。"
+}

@@ -136,7 +136,7 @@ def audit():
            "conclusion": ("共享预算、唯一入口与零步状态通过审计"
                           if status == "PASS" else "预算/入口审计失败，禁止授权训练"),
            "note": "审计使用临时账本，不修改真实 M4_BUDGET_LEDGER.jsonl。"}
-    p = HERE / "M41_BUDGET_AUDIT.json"
+    p = HERE / "M41F_BUDGET_AUDIT.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[m41-budget] status={status} 写出 {p}")
     return out

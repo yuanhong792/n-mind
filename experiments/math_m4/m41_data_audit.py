@@ -13,6 +13,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from tokenizer_m4 import M4Tokenizer
+from reference_interpreter import canonical, reference_answer
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
@@ -23,25 +24,6 @@ EXPECTED = {"train": 1392, "val": 464, "sealed": 464}
 def load(name):
     return [json.loads(l) for l in (DATA / f"m4_{name}.jsonl").read_text(
         encoding="utf-8").splitlines() if l.strip()]
-
-
-def canonical(prompt: str) -> str:
-    assigns = {}
-    query = None
-    matched = 0
-    for line in prompt.strip().splitlines():
-        s = line.strip()
-        m = re.fullmatch(r"([a-z])=([0-9])", s)
-        if m:
-            assigns[m.group(1)] = m.group(2)
-            matched += 1
-        elif s.startswith("GET "):
-            query = s.split()[-1]
-            matched += 1
-    if matched == 0:
-        return "RAW|" + prompt
-    return "|".join(f"{k}={v}" for k, v in sorted(assigns.items())) + \
-        f"|GET:{query or '-'}"
 
 
 def assignments(prompt):
@@ -82,6 +64,23 @@ def audit():
     counts = {k: len(v) for k, v in splits.items()}
     checks["SPLIT_COUNTS"] = {"pass": counts == EXPECTED,
                               "observed": counts, "required": EXPECTED}
+
+    ref_fail = []
+    for split, rows in splits.items():
+        for r in rows:
+            try:
+                exp = reference_answer(r["task"], r["prompt"])
+            except Exception as exc:
+                exp = f"ERROR:{exc}"
+            if exp != r["answer"]:
+                ref_fail.append({"split": split, "task": r["task"], "prompt": r["prompt"],
+                                 "stored": r["answer"], "reference": exp})
+    checks["REFERENCE_INTERPRETER_LABELS"] = {
+        "pass": not ref_fail,
+        "observed": {"n_checked": sum(len(v) for v in splits.values()),
+                     "n_mismatch": len(ref_fail), "samples": ref_fail[:10]},
+        "required": {"n_mismatch": 0},
+    }
 
     train = splits["train"]
     checks["A5_REPEAT_COVERAGE"] = {
@@ -294,7 +293,7 @@ def audit():
     status = "PASS" if all(v["pass"] for v in checks.values()) else "FAILED"
     out = {"status": status, "checks": checks, "shortcut_baselines": baselines,
            "note": "捷径基线仅用于识别数据集可被非神经规则利用的程度，不参与模型推理。"}
-    p = HERE / "M41_DATA_AUDIT.json"
+    p = HERE / "M41F_DATA_AUDIT_FULL.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[m41-data] status={status} 写出 {p}")
     return out

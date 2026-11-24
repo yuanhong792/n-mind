@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "checks": {
+    "CURRENT_PREFLIGHT_VALID": true,
+    "STALE_CODE_REJECTED": true,
+    "STALE_DATA_REJECTED": true,
+    "MISSING_REFERENCE_MODEL_REJECTED": true,
+    "PARTIAL_POSITIVE_REPORT_REJECTED": true,
+    "MAIN_GATE_REJECTED_WITHOUT_POSITIVE": true,
+    "STATUS_COMPLETED": true,
+    "STATUS_PARTIALLY_COMPLETED": true,
+    "STATUS_POSITIVE_FAILED": true,
+    "STATUS_OVER_BUDGET": true,
+    "STATUS_ABORTED_EXCEPTION": true
+  },
+  "detail": {
+    "current_preflight": {
+      "pass": true,
+      "checks": {
+        "status_pass": true,
+        "code_current": true,
+        "data_current": true,
+        "plan_current": true,
+        "gates_all_pass": true
+      },
+      "current_code_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+      "current_data_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+      "recorded_code_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+      "recorded_data_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+      "report_status": "PREFLIGHT_PASS_AWAITING_AUTHORIZATION",
+      "reason": null
+    },
+    "current_entry_without_positive": {
+      "preflight": {
+        "pass": true,
+        "checks": {
+          "status_pass": true,
+          "code_current": true,
+          "data_current": true,
+          "plan_current": true,
+          "gates_all_pass": true
+        },
+        "current_code_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+        "current_data_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+        "recorded_code_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+        "recorded_data_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+        "report_status": "PREFLIGHT_PASS_AWAITING_AUTHORIZATION",
+        "reason": null
+      },
+      "plan": {
+        "pass": true,
+        "checks": {
+          "status_awaiting": true,
+          "auth_not_granted": true,
+          "max_steps_4096": true,
+          "max_wall_3600": true,
+          "positive_256": true,
+          "main_3840": true
+        },
+        "plan": "M41F_PREFLIGHT_READY_AWAITING_AUTHORIZATION",
+        "authorization": {
+          "required": true,
+          "status": "NOT_YET_GRANTED",
+          "command": "python train_m4.py --authorize",
+          "inherits_m3_or_m2": false,
+          "note": "本轮任务书第九阶段要求确认正式训练授权；当前仅执行第一至第八阶段零梯度工作。"
+        }
+      },
+      "budget": {
+        "pass": true,
+        "checks": {
+          "steps_within_limit": true,
+          "wall_within_limit": true,
+          "not_over_total": true
+        },
+        "summary": {
+          "steps_used": 0,
+          "pending_unconfirmed": 0,
+          "max_steps": 4096,
+          "steps_remaining": 4096,
+          "wall_used": 0.0,
+          "max_wall": 3600,
+          "stages": {},
+          "sessions": 0,
+          "runs": []
+        }
+      },
+      "positive_control": {
+        "pass": false,
+        "checks": {
+          "both_reference_models_present": true,
+          "all_gates_pass": false,
+          "report_complete": false
+        },
+        "missing": [],
+        "failed": [
+          "positive_R1_gru_reference_s1",
+          "positive_R2_tiny_transformer_s1"
+        ],
+        "status": "NOT_RUN_TRAINING",
+        "reason": "正控制未完整通过，主训练门禁拒绝"
+      },
+      "manifests": {
+        "code": {
+          "combined_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+          "files": {
+            "train_m4.py": {
+              "sha256": "dc6bd2a430d462d9f444917f60dce016422ec5bb514e377c57fdc415037fc373",
+              "bytes": 17552
+            },
+            "preflight_guard.py": {
+              "sha256": "222b660c0abe0c4754774aaa70dee539e62293212f6c6bdc8e5bab9aa298d15b",
+              "bytes": 7027
+            },
+            "evaluate_m4.py": {
+              "sha256": "4ff7b67a2caa4ff2badfb3863ed51b97e48910fd1a2bd22057f4406240926496",
+              "bytes": 14144
+            },
+            "compute_accounting_m4.py": {
+              "sha256": "72445f2982edab0fe351618791937f789d027eff5120ea55a47a13eaea02c35e",
+              "bytes": 12436
+            },
+            "budget_manager.py": {
+              "sha256": "8625635c30e78e7d9324810b55696624bf05d1d0f1d0448c23d2f7e5b5afc2c1",
+              "bytes": 7529
+            },
+            "positive_control.py": {
+              "sha256": "ef020d0669d8277d58c6dd3afd04142bdc636a74063531825aced87d04187bed",
+              "bytes": 4784
+            },
+            "dataset_m4.py": {
+              "sha256": "fb5f40548dc7d98e089e180b584c0ba193c61c27047a0ee1961b1912f9416c74",
+              "bytes": 14928
+            },
+            "reference_interpreter.py": {
+              "sha256": "63ac9c9c18625c404d2d9aaacfd3522679e395448cbf82dffff82dd949e8d595",
+              "bytes": 2858
+            },
+            "tokenizer_m4.py": {
+              "sha256": "5ca2e3492a383f6b91d5e136d617a3a2245d6388154d403ab0c27eb893e404c4",
+              "bytes": 2150
+            },
+            "models/gru_reference.py": {
+              "sha256": "0efe6bd57a656fb45df4fc4077b44c4d0358822abe7836e873eb7f85ed77075f",
+              "bytes": 1671
+            },
+            "models/transformer_reference.py": {
+              "sha256": "d159f89a51803f34a8a1c33574207d719f73dde717200b5591cb604c6d722c44",
+              "bytes": 6065
+            },
+            "models/low_rank_interaction.py": {
+              "sha256": "798d5e0acc77de787d6f25b94eb2d28ab174e579a5fca70ba5a4c00421aff6be",
+              "bytes": 7038
+            },
+            "models/selective_interaction.py": {
+              "sha256": "fdd4364daee7664912b936566d90646386f575be00b87c84ca3e8e93439913b8",
+              "bytes": 15737
+            },
+            "models/base.py": {
+              "sha256": "a9c06ac5cb636a528cfc0c4de1c8d95d55d662d7fc41ba244408bb5c0e370630",
+              "bytes": 328
+            }
+          }
+        },
+        "data": {
+          "combined_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+          "files": {
+            "data/m4_train.jsonl": {
+              "sha256": "8baa837cda4c77aae661706ed15d83cd9bbe75b09fbac0e6207b4192ee67b00a",
+              "bytes": 288165
+            },
+            "data/m4_val.jsonl": {
+              "sha256": "dc12bbbacebc32ae15a781445c5984e72a36b7dd3ae445a30e03e14683fe3f9d",
+              "bytes": 95670
+            },
+            "data/m4_sealed.jsonl": {
+              "sha256": "477debcb0abdb7899b5e8c0a4bfb063fcaa5ea6ca4ebbe70b8ed81643ddb0366",
+              "bytes": 96318
+            },
+            "data/m4_counterfactual_val.jsonl": {
+              "sha256": "8de5bbcc1173b0cf84c9decddd76159bc00dcfaa044672d22a52998912c6d152",
+              "bytes": 211635
+            },
+            "data/m4_counterfactual_sealed.jsonl": {
+              "sha256": "4bb86e2220da2e9c3c9ffad9e70753ed17782a47054abfffff446a6e5992f27d",
+              "bytes": 53849
+            },
+            "data/m4_distance_val.jsonl": {
+              "sha256": "0fec9d8a125350b062007ff1b51445d859d0499c074e6e6c0ba25bc50cb26566",
+              "bytes": 100541
+            },
+            "data/m4_distance_sealed.jsonl": {
+              "sha256": "4b001661d541b27850e68063d122eb0357249baae32862a978acc6340581fe0a",
+              "bytes": 13279
+            },
+            "data/m4_generalization.jsonl": {
+              "sha256": "22a0b938065e90d720281bc9a11ecbb9d8ddfc8b615d0c79e5288622db6b1b6f",
+              "bytes": 123502
+            }
+          }
+        },
+        "plan": {
+          "combined_sha256": "4aac1b946bbd0ce283425da4949b0e6f9feb96822367d9736e9aae93fee6a3e8",
+          "files": {
+            "M4_PREREGISTERED_PLAN.json": {
+              "sha256": "f1962f10aaa6fcb7a6cbb317419f81d6b16a82b0139ead3f2bfe193bd7b8322d",
+              "bytes": 7160
+            }
+          }
+        }
+      },
+      "require_positive_pass": true,
+      "pass": false
+    },
+    "positive_report_status": "NOT_RUN_TRAINING"
+  },
+  "note": "当前未授权/未训练，主训练门禁应拒绝；授权后正控制通过才会放行。"
+}

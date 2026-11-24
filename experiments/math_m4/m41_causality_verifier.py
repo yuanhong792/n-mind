@@ -2,7 +2,7 @@
 
 不测试 math_lab 简化算子；只测试 R1/R2/M4-A/M4-B 正式类。
 所有比较先检查 shape 完全相同，再计算逐位置最大绝对误差，禁止广播掩盖形状错误。
-输出 M41_CAUSALITY_AUDIT.json，不覆盖 M4_MATH_TESTS.json。
+输出 M41F_CAUSALITY_AUDIT.json；历史 M41_CAUSALITY_AUDIT.json 与 M4_MATH_TESTS.json 不覆盖。
 """
 
 from __future__ import annotations
@@ -233,7 +233,7 @@ def main():
         "decision": "任一模型 FAILED 即禁止进入正式训练" if not all_pass
                     else "全部正式模型通过强制因果/增量审计",
     }
-    p = HERE / "M41_CAUSALITY_AUDIT.json"
+    p = HERE / "M41F_CAUSALITY_AUDIT.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({k: v["status"] for k, v in records.items()}, ensure_ascii=False))
     print(f"[m41] 写出 {p}")

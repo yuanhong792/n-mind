@@ -123,7 +123,7 @@ def audit():
         "scale_rule": "score=sqrt(reduced_head_dim)，value_aggregation=value_head_dim",
         "cases": cases,
     }
-    p = HERE / "M41_KV_CACHE_AUDIT.json"
+    p = HERE / "M41F_KV_CACHE_AUDIT.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[m41-kv] status={status} 写出 {p}")
     return out

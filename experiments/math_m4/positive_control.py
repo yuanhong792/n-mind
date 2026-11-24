@@ -110,7 +110,8 @@ def main():
     out = {"status": "NOT_RUN_TRAINING", "reason": "唯一正式训练入口是 train_m4.py，需用户明确授权",
            "n_samples": len(rows), "alignment": alignment_report(tok, rows),
            "gate": gate_spec(), "note": "本文件不训练、不创建 optimizer、不调用 step。"}
-    p = HERE / "M4_POSITIVE_CONTROL.json"
+    # 不覆盖训练入口写出的真实门禁报告；本文件只提供规范检查。
+    p = HERE / "M41F_POSITIVE_CONTROL_SPEC.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[positive] status={out['status']} aligned={out['alignment']['answer_only_alignment']} "
           f"写出 {p}")

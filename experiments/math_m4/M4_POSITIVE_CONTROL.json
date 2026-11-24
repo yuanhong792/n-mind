@@ -1,6 +1,7 @@
 {
   "status": "NOT_RUN_TRAINING",
-  "reason": "唯一正式训练入口是 train_m4.py，需用户明确授权",
+  "reason": "未授权，未执行正控制训练",
+  "sole_training_entry": "train_m4.py",
   "n_samples": 64,
   "alignment": {
     "n_samples": 64,
@@ -12,7 +13,7 @@
     ],
     "supervised_tokens": 200
   },
-  "gate": {
+  "gate_spec": {
     "tf_accuracy_min": 0.95,
     "natural_eos_full_accuracy_min": 0.9,
     "gradient_finite_and_nonzero_required": true,
@@ -23,5 +24,67 @@
     "abort_main_on_reference_failure": true,
     "sole_training_entry": "train_m4.py"
   },
-  "note": "本文件不训练、不创建 optimizer、不调用 step。"
+  "gates": {
+    "positive_R1_gru_reference_s1": {
+      "pass": false,
+      "checks": {
+        "tf_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.95
+        },
+        "natural_eos_full_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.9
+        },
+        "gradient_finite_and_nonzero": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "parameter_updated": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "no_future_leakage": {
+          "pass": true,
+          "observed": true,
+          "required": true
+        }
+      }
+    },
+    "positive_R2_tiny_transformer_s1": {
+      "pass": false,
+      "checks": {
+        "tf_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.95
+        },
+        "natural_eos_full_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.9
+        },
+        "gradient_finite_and_nonzero": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "parameter_updated": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "no_future_leakage": {
+          "pass": true,
+          "observed": true,
+          "required": true
+        }
+      }
+    }
+  },
+  "note": "正控制权重不进入主实验；成绩不等于未见数据泛化"
 }

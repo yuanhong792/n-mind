@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "checks": {
+    "UNAUTHORIZED_ZERO_STEP": {
+      "pass": true,
+      "observed": {
+        "ledger_steps": 0,
+        "pending": 0,
+        "training_result_steps": 0,
+        "plan_status": "M41F_PREFLIGHT_READY_AWAITING_AUTHORIZATION"
+      },
+      "required": {
+        "ledger_steps": 0,
+        "training_result_steps": 0,
+        "plan_status_contains": "AWAITING_AUTHORIZATION"
+      }
+    },
+    "SOLE_TRAINING_ENTRY": {
+      "pass": true,
+      "observed": [
+        {
+          "file": "train_m4.py",
+          "line": 204,
+          "receiver": "opt"
+        }
+      ],
+      "required": "唯一 optimizer.step 位于 train_m4.py"
+    },
+    "RESERVE_BEFORE_CONFIRM": {
+      "pass": true,
+      "observed": {
+        "event_types": [
+          "reserve",
+          "step"
+        ],
+        "steps_used": 1,
+        "pending": 0
+      },
+      "required": {
+        "event_types": [
+          "reserve",
+          "step"
+        ],
+        "steps_used": 1,
+        "pending": 0
+      }
+    },
+    "UNCONFIRMED_CONSERVATIVE": {
+      "pass": true,
+      "observed": {
+        "steps_used_after_restart": 2,
+        "pending_after_restart": 1,
+        "rid": "probe2:positive:1:8cab09e5"
+      },
+      "required": {
+        "steps_used_after_restart": 2,
+        "pending_after_restart": 1
+      }
+    },
+    "SHARED_BUDGET_CAPS": {
+      "pass": true,
+      "observed": {
+        "steps_used": 4096,
+        "stages": {
+          "positive": 256,
+          "main": 3840
+        },
+        "positive_rejected": true,
+        "main_rejected": true
+      },
+      "required": {
+        "positive": 256,
+        "main": 3840,
+        "total": 4096,
+        "max_wall_seconds": 3600
+      }
+    }
+  },
+  "conclusion": "共享预算、唯一入口与零步状态通过审计",
+  "note": "审计使用临时账本，不修改真实 M4_BUDGET_LEDGER.jsonl。"
+}

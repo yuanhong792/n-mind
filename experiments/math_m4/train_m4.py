@@ -31,7 +31,8 @@ sys.path.insert(0, str(HERE / "models"))
 
 from tokenizer_m4 import M4Tokenizer  # noqa: E402
 from budget_manager import BudgetManager  # noqa: E402
-from evaluate_m4 import (load_rows, build_fixed_panel, make_batch, grouped_loss,  # noqa: E402
+from evaluate_m4 import (load_rows, load_counterfactual, load_distance,  # noqa: E402
+                         build_fixed_panel, make_batch, grouped_loss,
                          eval_rows, tf_position_accuracy, iso_record,
                          critical_metrics, counterfactual_eval, distance_eval)
 from compute_accounting_m4 import batch_cost  # noqa: E402
@@ -42,6 +43,7 @@ from low_rank_interaction import LowRankInteractionM4  # noqa: E402
 from selective_interaction import SelectiveInteractionM4  # noqa: E402
 from positive_control import (control_rows, alignment_report, gate_spec,  # noqa: E402
                               evaluate_gate, N_CONTROL)
+from preflight_guard import assert_training_entry  # noqa: E402
 
 MODELS = {
     "R1_gru_reference": GRUReferenceM3,
@@ -91,6 +93,27 @@ def gradient_health(model):
         norms.append(n)
     total = sum(norms) ** 0.5 if norms else 0.0
     return {"finite": finite, "nonzero": total > 0.0, "total_norm": round(total, 6)}
+
+
+def classify_status(results, budget_summary, authorized, stage, positive_ok,
+                    exception=None):
+    """明确区分完成/部分完成/正控制失败/超预算/异常中止。"""
+    if exception is not None:
+        return "ABORTED_EXCEPTION"
+    if not authorized:
+        return "DRY_RUN_COMPLETE"
+    if not positive_ok:
+        return "POSITIVE_CONTROL_FAILED"
+    if stage == "positive":
+        return "COMPLETED"
+    main_keys = [k for k in results.get("models", {}) if k.startswith("main_")]
+    all_done = len(main_keys) == 8 and all(
+        results["models"][k].get("status") == "DONE" for k in main_keys)
+    if all_done:
+        return "COMPLETED"
+    if budget_summary.get("steps_used", 0) >= budget_summary.get("max_steps", 4096):
+        return "OVER_BUDGET"
+    return "PARTIALLY_COMPLETED"
 
 
 def causality_ok():
@@ -156,7 +179,7 @@ def train_one(arch, seed, stage, budget, tok, train_rows, eval_rows_arg,
         bptr += 1
         x, valid, w, tgt = make_batch(tok, batch, "A")
         model.train()
-        logits, _ = model(x[:, :-1], valid_mask=valid[:, :-1])
+        logits, fwd_state = model(x[:, :-1], valid_mask=valid[:, :-1])
         loss = grouped_loss(logits, tgt[:, 1:], w[:, 1:])
         opt.zero_grad()
         loss.backward()
@@ -166,8 +189,11 @@ def train_one(arch, seed, stage, budget, tok, train_rows, eval_rows_arg,
             print(f"  [{run_id}] 梯度异常，停止：{health}", flush=True)
             break
         grad_health.append(health)
+        # M4-B 直接复用这次真实训练前向的 stats，禁止再跑一次模型来统计成本。
+        fwd_stats = fwd_state.get("stats") if isinstance(fwd_state, dict) else None
         bc = batch_cost(model, x, valid, w, backward=True, optimizer=True,
-                        input_len=x.shape[1] - 1, hard_gate=True)
+                        input_len=x.shape[1] - 1, hard_gate=True,
+                        forward_stats=fwd_stats)
         batch_info = {"B": bc.batch_size, "T": bc.tensor_length,
                       "valid": bc.valid_tokens, "supervised": bc.supervised_tokens}
         macs = int(bc.analytic_fwd_macs + bc.analytic_bwd_macs + bc.optimizer_macs)
@@ -260,77 +286,105 @@ def main():
     panel = build_fixed_panel(val, per_task=20)
     pos_rows = control_rows(tok, n=N_CONTROL)
     alignment = alignment_report(tok, pos_rows)
-    cf_pairs = [json.loads(l) for l in
-                (HERE / "data" / "m4_counterfactual.jsonl").read_text(encoding="utf-8").splitlines()
-                if l.strip()]
-    distance_rows = [json.loads(l) for l in
-                     (HERE / "data" / "m4_distance.jsonl").read_text(encoding="utf-8").splitlines()
-                     if l.strip()]
+    # 训练期只能使用验证反事实/距离；封存集留到训练与选模完成后。
+    cf_pairs = load_counterfactual("val")
+    distance_rows = load_distance("val")
     budget = BudgetManager()
     base_total = budget.steps_used
     print(f"[train_m4] authorized={args.authorize} stage={args.stage} "
           f"budget used={budget.steps_used}/{budget.max_steps}", flush=True)
     if not alignment["answer_only_alignment"]:
         raise RuntimeError(f"正控制监督对齐失败：{alignment['failures'][:3]}")
-    if args.authorize:
-        budget.start_session("M41 authorized training")
 
     results = {"status": "TRAINING" if args.authorize else "DRY_RUN",
                "authorization": "explicit --authorize" if args.authorize else "NOT_AUTHORIZED",
                "sole_training_entry": "train_m4.py",
+               "stage_scope": args.stage,
                "tokenizer_sha": tok.vocab_sha, "panel_n": len(panel),
                "positive_n": len(pos_rows), "models": {}, "positive_gates": {}}
 
-    positive_ok = True
-    if args.stage in ("all", "positive"):
-        for arch in REFERENCE:
-            for seed in (1,):
-                r = train_one(arch, seed, "positive", budget, tok, pos_rows,
-                              pos_rows, cf_pairs, distance_rows, args.authorize)
-                key = f"positive_{arch}_s{seed}"
-                results["models"][key] = r
-                gate = r.get("positive_gate", {"pass": False,
-                                               "reason": "未授权训练，未产生门禁结果"})
-                results["positive_gates"][key] = gate
-                positive_ok = positive_ok and gate["pass"]
-        save_positive_gate_result(tok, pos_rows, results["positive_gates"],
-                                  alignment, args.authorize)
-
-    if args.stage == "main":
-        prior = load_positive_gate_status()
-        positive_ok = prior["pass"]
-        results["positive_prior"] = prior
-
-    if not positive_ok and args.authorize:
-        results["status"] = "ABORTED_POSITIVE_CONTROL_FAILED"
-        budget.end_session("aborted_positive_control_failed")
+    def write_results():
         results["budget_final"] = budget.summary()
         results["optimizer_steps_executed"] = budget.steps_used - base_total
         p = HERE / "M4_TRAINING_RESULTS.json"
         p.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"[train_m4] 正控制门禁未通过，正式训练中止；写出 {p}", flush=True)
-        return
-    if not positive_ok and not args.authorize:
-        results["dry_run_note"] = "未授权，正控制门禁未实际评测；继续零步 dry-run 以检查入口完整性"
-
-    if args.stage in ("all", "main"):
-        for arch in MODELS:
-            for seed in (1, 2):
-                ok, _ = budget.can_step("main")
-                if not ok:
-                    break
-                r = train_one(arch, seed, "main", budget, tok, train, panel,
-                              cf_pairs, distance_rows, args.authorize)
-                results["models"][f"main_{arch}_s{seed}"] = r
+        print(f"[train_m4] status={results['status']} steps="
+              f"{results['optimizer_steps_executed']} 写出 {p}", flush=True)
 
     if args.authorize:
-        budget.end_session()
-    results["status"] = "TRAINING_DONE" if args.authorize else "DRY_RUN_COMPLETE"
-    results["budget_final"] = budget.summary()
-    results["optimizer_steps_executed"] = budget.steps_used - base_total
-    p = HERE / "M4_TRAINING_RESULTS.json"
-    p.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[train_m4] 写出 {p}")
+        try:
+            results["entry_guard"] = assert_training_entry(
+                require_positive_pass=(args.stage == "main"))
+        except Exception as exc:
+            results["status"] = "PREFLIGHT_REJECTED"
+            results["guard_error"] = str(exc)
+            write_results()
+            return
+        budget.start_session("M41F authorized training")
+
+    try:
+        positive_ok = True
+        if args.stage in ("all", "positive"):
+            for arch in REFERENCE:
+                for seed in (1,):
+                    r = train_one(arch, seed, "positive", budget, tok, pos_rows,
+                                  pos_rows, cf_pairs, distance_rows, args.authorize)
+                    key = f"positive_{arch}_s{seed}"
+                    results["models"][key] = r
+                    gate = r.get("positive_gate", {"pass": False,
+                                                   "reason": "未授权训练，未产生门禁结果"})
+                    results["positive_gates"][key] = gate
+                    positive_ok = positive_ok and gate["pass"]
+            save_positive_gate_result(tok, pos_rows, results["positive_gates"],
+                                      alignment, args.authorize)
+
+        if args.stage == "main":
+            prior = load_positive_gate_status()
+            positive_ok = prior["pass"]
+            results["positive_prior"] = prior
+
+        if not positive_ok and args.authorize:
+            results["status"] = "POSITIVE_CONTROL_FAILED"
+            budget.end_session("aborted_positive_control_failed")
+            write_results()
+            return
+        if not positive_ok and not args.authorize:
+            results["dry_run_note"] = (
+                "未授权，正控制门禁未实际评测；继续零步 dry-run 以检查入口完整性")
+
+        if args.authorize and args.stage == "all":
+            # 正控制通过后，进入主训练前必须再次用最新正控制报告过门禁。
+            try:
+                results["main_entry_guard"] = assert_training_entry(True)
+            except Exception as exc:
+                results["status"] = "POSITIVE_CONTROL_FAILED"
+                results["positive_gate_error"] = str(exc)
+                budget.end_session("positive_gate_rejected")
+                write_results()
+                return
+
+        if args.stage in ("all", "main"):
+            for arch in MODELS:
+                for seed in (1, 2):
+                    ok, _ = budget.can_step("main")
+                    if not ok:
+                        break
+                    r = train_one(arch, seed, "main", budget, tok, train, panel,
+                                  cf_pairs, distance_rows, args.authorize)
+                    results["models"][f"main_{arch}_s{seed}"] = r
+
+        if args.authorize:
+            budget.end_session()
+        results["status"] = classify_status(
+            results, budget.summary(), args.authorize, args.stage, positive_ok)
+        write_results()
+    except Exception as exc:
+        results["status"] = "ABORTED_EXCEPTION"
+        results["exception"] = repr(exc)
+        if args.authorize:
+            budget.end_session("aborted_exception")
+        write_results()
+        raise
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 {
   "plan_name": "N-MIND M4 Minimum Sufficient Information Interaction",
-  "status": "M41_PREFLIGHT_READY_AWAITING_AUTHORIZATION",
+  "status": "M41F_PREFLIGHT_READY_AWAITING_AUTHORIZATION",
   "created_before_training": true,
   "date": "2026-11-24",
   "note": "本方案在真实训练启动前冻结，防止事后选择偏差。4096步预算需用户明确授权；未授权时所有训练标 NOT_RUN。",
@@ -10,6 +10,14 @@
     "sole_training_entry": "train_m4.py",
     "budget_ledger": "M4_BUDGET_LEDGER.jsonl",
     "note": "M4.1 修复不改变冻结目标；只修复模型因果性、成本统计、预算、严格指标与数据审计。训练未授权。"
+  },
+  "m41f_update": {
+    "status": "FINAL_DATA_SEMANTICS_AND_GATE_REPAIR",
+    "preflight_report": "M41F_PREFLIGHT_REPORT.json",
+    "data_snapshot": "M41F_DATA_SNAPSHOT.json",
+    "eval_split": "M41F_EVAL_SPLIT_AUDIT.json",
+    "reference_interpreter": "reference_interpreter.py 仅用于数据/评测",
+    "note": "重新冻结数据语义；不增加架构、不扩大预算；训练仍等待明确授权。"
   },
 
   "authorization": {

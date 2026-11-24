@@ -1,47 +1,34 @@
-"""M4 数据生成与冻结：修复 M3 的四类数据缺陷。
+"""M4/M41F 数据生成与冻结（M41F 语义修复版）。
 
-1. 所有核心任务（含 A5_repeat）训练样本充足，不重复凑数。
-2. 反事实四类配对：同查询目标改值 / 无关事实改值 / 查询切换 / 赋值顺序交换；
-   查询位置首/中/末均衡；配对两条都对才算通过。
-3. 距离严格配对：同一事实、同一查询，仅干扰数量 0/4/8/16/32/64/128 变化，共享 pair_id。
-4. 规范化语义族全局去重：train/val/sealed/generalization 之间 canonical 零重合；
-   fact_group 字符串不作为隔离证据。
+保留 M4 冻结纪律；M41F 只修复任务语义：
+- C_indirect：真实变量引用 + 值复制，源变量后续被覆盖；
+- C_history_current：GET v~OLD / GET v~NEW 查询真实历史值/当前值；
+- C_reassign：目标重赋值后追加随机无关赋值，破坏末尾数字捷径；
+- B_rename：一对一变量重命名，禁止多个原变量映射到同名；
+- 所有任务标签由独立参考解释器核验。
 
-运行：python dataset_m4.py
+参考解释器仅用于数据生成/审计/评测，不参与模型推理。
+输出写入 M41F_DATA_AUDIT.json，不覆盖历史 M4_DATA_AUDIT.json。
 """
 
 from __future__ import annotations
 
 import json
 import random
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
+
+from reference_interpreter import canonical as ref_canonical
+from reference_interpreter import reference_answer
 
 HERE = Path(__file__).resolve().parents[0]
 DATA = HERE / "data"
 DATA.mkdir(exist_ok=True)
 
-VARS = list("abcdefghijklmnop")  # 16 变量：8 用于训练绑定，12 用于未见变量数组合
+VARS = list("abcdefghijklmnop")
 DIGITS = list("0123456789")
-CHARS = [chr(c) for c in range(33, 127) if chr(c) != "="]  # 可打印 ASCII，tokenizer 全覆盖
+CHARS = [chr(c) for c in range(33, 127) if chr(c) != "="]
 SEED = 20261124
-
-
-def canonical(prompt: str) -> str:
-    assigns: dict[str, str] = {}
-    query = None
-    matched = 0
-    for line in prompt.strip().splitlines():
-        s = line.strip()
-        if len(s) >= 3 and s[0] in VARS and s[1] == "=" and s[2] in DIGITS:
-            assigns[s[0]] = s[2]
-            matched += 1
-        elif s.startswith("GET "):
-            query = s.split()[-1]
-            matched += 1
-    if matched == 0:
-        return "RAW|" + prompt
-    return "|".join(f"{k}={v}" for k, v in sorted(assigns.items())) + f"|GET:{query or '-'}"
 
 
 class Generator:
@@ -50,26 +37,34 @@ class Generator:
         self.used: set[str] = set()
 
     def row(self, task, prompt, answer, meta=None, group=None):
-        c = canonical(prompt)
+        expected = reference_answer(task, prompt)
+        if expected != answer:
+            raise RuntimeError(f"参考解释器核验失败 {task}: expected={expected!r} got={answer!r} "
+                               f"prompt={prompt!r}")
+        c = ref_canonical(prompt)
         return {"task": task, "prompt": prompt, "answer": answer,
                 "fact_group": group or c, "canonical": c, "meta": meta or {}}
 
     def take(self, task, prompt, answer, meta=None, group=None):
-        """全局语义去重：canonical 已存在则拒绝（返回 None）。"""
-        c = canonical(prompt)
+        c = ref_canonical(prompt)
         if c in self.used:
             return None
+        expected = reference_answer(task, prompt)
+        if expected != answer:
+            raise RuntimeError(f"参考解释器核验失败 {task}: expected={expected!r} got={answer!r} "
+                               f"prompt={prompt!r}")
         self.used.add(c)
         return self.row(task, prompt, answer, meta, group)
 
-    def assignments(self, n: int) -> list[tuple[str, str]]:
+    def assignments(self, n: int):
         vs = self.rng.sample(VARS, n)
         return [(v, self.rng.choice(DIGITS)) for v in vs]
 
     def bind_prompt(self, assigns, query, interleave=0):
         items = [f"{v}={d}" for v, d in assigns]
         if interleave:
-            noise = [(self.rng.choice(VARS), self.rng.choice(DIGITS)) for _ in range(interleave)]
+            noise = [(self.rng.choice(VARS), self.rng.choice(DIGITS))
+                     for _ in range(interleave)]
             all_items = items + [f"{v}={d}" for v, d in noise]
             self.rng.shuffle(all_items)
             items = all_items
@@ -107,31 +102,55 @@ class Generator:
                              {"n_vars": n, "query_pos": [v for v, _ in assigns].index(q)})
         if task == "B_rename":
             assigns = self.assignments(4)
-            q = assigns[r.randrange(4)][0]
-            ans = dict(assigns)[q]
-            renamed = [(r.choice([v for v in VARS if v not in [x[0] for x in assigns]]), d)
-                       for v, d in assigns]
-            # 语义族相同（值映射与查询角色相同），但变量名不同 → canonical 会不同，属"未见组合"
-            return self.take(task, self.bind_prompt(renamed, renamed[[v for v, _ in assigns].index(q)][0]),
-                             ans, {"n_vars": 4, "renamed": True})
-        if task == "C_history_current":
-            v = r.choice(VARS)
-            old, new = r.choice(DIGITS), r.choice(DIGITS)
-            others = [(x, r.choice(DIGITS)) for x in r.sample([x for x in VARS if x != v], 3)]
-            p = self.bind_prompt([(v, old)] + others + [(v, new)], v)
-            return self.take(task, p, new, {"n_vars": 4, "current": True})
-        if task == "C_reassign":
-            v = r.choice(VARS)
-            old, new = r.choice(DIGITS), r.choice(DIGITS)
-            others = [(x, r.choice(DIGITS)) for x in r.sample([x for x in VARS if x != v], 3)]
-            return self.take(task, self.bind_prompt([(v, old)] + others + [(v, new)], v), new,
-                             {"n_vars": 5, "reassign": True})
+            orig = [v for v, _ in assigns]
+            pool = [v for v in VARS if v not in orig]
+            renamed_vars = r.sample(pool, 4)  # 一对一，且不与原始变量名重合
+            mapping = dict(zip(orig, renamed_vars))
+            pos = r.randrange(4)
+            q_orig = orig[pos]
+            q_new = mapping[q_orig]
+            ans = dict(assigns)[q_orig]
+            renamed = [(mapping[v], d) for v, d in assigns]
+            prompt = self.bind_prompt(renamed, q_new)
+            return self.take(task, prompt, ans, {"n_vars": 4, "renamed": True,
+                                                  "mapping": mapping})
         if task == "C_indirect":
-            a, b = r.sample(VARS, 2)
-            d1, d2 = r.choice(DIGITS), r.choice(DIGITS)
-            others = [(x, r.choice(DIGITS)) for x in r.sample([x for x in VARS if x not in (a, b)], 2)]
-            p = self.bind_prompt([(a, d1)] + others + [(b, d2)], a)
-            return self.take(task, p, d1, {"indirect": True})
+            src, target = r.sample(VARS, 2)
+            d1 = r.choice(DIGITS)
+            d2 = r.choice([d for d in DIGITS if d != d1])
+            noise_vars = r.sample([v for v in VARS if v not in (src, target)], 2)
+            items = [(src, d1), (target, src)] + \
+                    [(v, r.choice(DIGITS)) for v in noise_vars] + [(src, d2)]
+            prompt = self.bind_prompt(items, target)
+            return self.take(task, prompt, d1,
+                             {"indirect_reference": True, "source": src, "target": target,
+                              "copied_value": d1, "source_overwritten_to": d2})
+        if task == "C_history_current":
+            target = r.choice(VARS)
+            old = r.choice(DIGITS)
+            new = r.choice([d for d in DIGITS if d != old])
+            others = [(v, r.choice(DIGITS)) for v in
+                      r.sample([v for v in VARS if v != target], 3)]
+            mode = r.choice(["OLD", "NEW"])
+            items = [(target, old)] + others + [(target, new)]
+            prompt = self.bind_prompt(items, f"{target}~{mode}")
+            return self.take(task, prompt, old if mode == "OLD" else new,
+                             {"mode": mode, "historical_value": old, "current_value": new,
+                              "n_vars": 4})
+        if task == "C_reassign":
+            target = r.choice(VARS)
+            old = r.choice(DIGITS)
+            new = r.choice([d for d in DIGITS if d != old])
+            used = [target] + r.sample([v for v in VARS if v != target], 3)
+            others = [(v, r.choice(DIGITS)) for v in used[1:]]
+            trailing_vars = r.sample([v for v in VARS if v not in used], 2)
+            trailing = [(v, r.choice([d for d in DIGITS if d != new]))
+                        for v in trailing_vars]
+            items = [(target, old)] + others + [(target, new)] + trailing
+            prompt = self.bind_prompt(items, target)
+            return self.take(task, prompt, new,
+                             {"reassign": True, "old_value": old, "new_value": new,
+                              "trailing_unrelated_assignments": 2})
         if task == "D_interference":
             n = r.choice([4, 8])
             assigns = self.assignments(n)
@@ -139,7 +158,7 @@ class Generator:
             return self.take(task, self.bind_prompt(assigns, q), dict(assigns)[q],
                              {"n_vars": n, "interference": True})
         if task == "D_distance":
-            n = r.choice([4, 8])  # 16+ 只在 dist 严格配对中用重复变量生成
+            n = r.choice([4, 8])
             assigns = self.assignments(n)
             q = assigns[r.randrange(n)][0]
             return self.take(task, self.bind_prompt(assigns, q), dict(assigns)[q],
@@ -147,7 +166,6 @@ class Generator:
         raise ValueError(task)
 
     def gen_counterfactual(self, n_per_type=100):
-        """四类真反事实配对；查询首/中/末均衡；配对 id 共享。"""
         pairs = []
         for typ in ("same_query_fact_change", "unrelated_fact_change", "query_switch", "order_swap"):
             for i in range(n_per_type):
@@ -158,55 +176,57 @@ class Generator:
                 base_prompt = self.bind_prompt(assigns, q)
                 base_ans = dict(assigns)[q]
                 if typ == "same_query_fact_change":
-                    new_val = str((int(base_ans) + 1 + i) % 10)
+                    new_val = str((int(base_ans) + 1 + (i % 9)) % 10)
                     cf_assigns = [(k, new_val if k == q else v) for k, v in assigns]
                     cf_prompt, cf_ans, switched = self.bind_prompt(cf_assigns, q), new_val, None
                 elif typ == "unrelated_fact_change":
                     other = [k for k, _ in assigns if k != q][0]
-                    cf_assigns = [(k, str((int(v) + 1) % 10) if k == other else v) for k, v in assigns]
+                    cf_assigns = [(k, str((int(v) + 1) % 10) if k == other else v)
+                                  for k, v in assigns]
                     cf_prompt, cf_ans, switched = self.bind_prompt(cf_assigns, q), base_ans, None
                 elif typ == "query_switch":
                     other = [k for k, _ in assigns if k != q][0]
                     cf_prompt = self.bind_prompt(assigns, other)
                     cf_ans, switched = dict(assigns)[other], True
-                else:  # order_swap：语义结果不变
+                else:
                     swapped = list(reversed(assigns))
                     cf_prompt = self.bind_prompt(swapped, q)
                     cf_ans, switched = base_ans, None
                 pair_id = f"CF_{typ}_{i:03d}"
                 pairs.append({
-                    "pair_id": pair_id, "type": typ, "query_position": ["first", "middle", "last"][i % 3],
+                    "pair_id": pair_id, "type": typ,
+                    "query_position": ["first", "middle", "last"][i % 3],
                     "n_vars": n,
-                    "base": [self.row(task="B_counterfactual", prompt=base_prompt, answer=base_ans,
-                                      meta={"role": "base", "type": typ}, group=pair_id)],
-                    "counterfactual": [self.row(task="B_counterfactual", prompt=cf_prompt, answer=cf_ans,
-                                                meta={"role": "counterfactual", "type": typ}, group=pair_id)],
-                    "query_switch": [self.row(task="B_query_switch", prompt=cf_prompt, answer=cf_ans,
-                                              meta={"role": "query_switch"}, group=pair_id)] if switched else [],
+                    "base": [self.row("B_counterfactual", base_prompt, base_ans,
+                                      {"role": "base", "type": typ}, pair_id)],
+                    "counterfactual": [self.row("B_counterfactual", cf_prompt, cf_ans,
+                                                {"role": "counterfactual", "type": typ}, pair_id)],
+                    "query_switch": [self.row("B_query_switch", cf_prompt, cf_ans,
+                                              {"role": "query_switch"}, pair_id)]
+                    if switched else [],
                 })
         return pairs
 
     def gen_distance(self, n_base=60):
-        """严格配对：同一事实与查询，干扰数 0/4/8/16/32/64/128。"""
         rows = []
         for i in range(n_base):
             v = self.rng.choice(VARS)
             d = self.rng.choice(DIGITS)
-            facts = [(v, d)]
             pid = f"DIST_{i:03d}"
             for dist in (0, 4, 8, 16, 32, 64, 128):
-                noise = [(self.rng.choice(VARS), self.rng.choice(DIGITS))
+                # 干扰变量不得覆盖目标事实，否则答案会被破坏。
+                pool = [x for x in VARS if x != v]
+                noise = [(self.rng.choice(pool), self.rng.choice(DIGITS))
                          for _ in range(dist // 4)]
                 items = [(v, d)] + noise
                 self.rng.shuffle(items)
                 p = "\n".join(f"{k}={x}" for k, x in items) + f"\nGET {v}"
                 rows.append(self.row("D_distance", p, d,
-                                     {"pair_id": pid, "distance": dist, "n_noise_assignments": len(noise)},
-                                     group=pid))
+                                     {"pair_id": pid, "distance": dist,
+                                      "n_noise_assignments": len(noise)}, pid))
         return rows
 
     def gen_generalization(self, n=600):
-        """未见长度/未见组合：长复制、长反转、更多变量、未见格式。"""
         g = Generator(SEED + 777)
         rows = []
         for i in range(n):
@@ -216,7 +236,8 @@ class Generator:
                 rows.append(g.row("A3_copyN", f"COPY {s}", s, {"unseen_length": True}))
             elif kind == 1:
                 s = "".join(g.rng.choices(CHARS, k=g.rng.randint(7, 12)))
-                rows.append(g.row("A4_reverse", f"REVERSE {s}", s[::-1], {"unseen_length": True}))
+                rows.append(g.row("A4_reverse", f"REVERSE {s}", s[::-1],
+                                  {"unseen_length": True}))
             elif kind == 2:
                 assigns = g.assignments(12)
                 q = assigns[g.rng.randrange(12)][0]
@@ -234,38 +255,35 @@ CORE16 = ["A1_copy1", "A2_copy2", "A3_copyN", "A5_repeat", "A4_reverse", "A6_ind
 
 
 def write_jsonl(path, rows):
-    path.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
+    path.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n",
+                    encoding="utf-8")
 
 
 def main():
     g = Generator()
     splits = {k: [] for k in ("train", "val", "sealed")}
-    # 每任务：train 96 / val 32 / sealed 32，全局 canonical 不重复
-    # A1_copy1 的语义空间 = 字符表大小（约93），不能强求每分割 96/32/32 个唯一实验
     QUOTAS = {"A1_copy1": (48, 16, 16), "A2_copy2": (96, 32, 32)}
     for task in CORE16:
         for split, n in zip(("train", "val", "sealed"), QUOTAS.get(task, (96, 32, 32))):
-            got = 0
-            tries = 0
-            while got < n and tries < n * 80:
+            got, tries = 0, 0
+            while got < n and tries < n * 200:
                 tries += 1
                 r = g.gen_task(task)
                 if r is not None:
                     splits[split].append(r)
                     got += 1
             if got < n:
-                print(f"[warn] {task}/{split} 只生成 {got}/{n}")
+                raise RuntimeError(f"{task}/{split} 只生成 {got}/{n}，语义修复后唯一空间不足")
+
     cf = g.gen_counterfactual()
     dist = g.gen_distance()
     gen = g.gen_generalization()
-
     for s, rows in splits.items():
         write_jsonl(DATA / f"m4_{s}.jsonl", rows)
     write_jsonl(DATA / "m4_counterfactual.jsonl", cf)
     write_jsonl(DATA / "m4_distance.jsonl", dist)
     write_jsonl(DATA / "m4_generalization.jsonl", gen)
 
-    # 审计
     def canons(rows):
         return {r["canonical"] for r in rows}
     overlap = {}
@@ -273,28 +291,27 @@ def main():
     for i, a in enumerate(names):
         for b in names[i + 1:]:
             overlap[f"{a}_vs_{b}"] = len(canons(splits[a]) & canons(splits[b]))
-    counts = {s: dict(Counter(r["task"] for r in rows)) for s, rows in splits.items()}
-    qpos = Counter()
-    for p in cf:
-        qpos[p["query_position"]] += 1
     audit = {
         "status": "COMPLETE", "seed": SEED,
         "n_rows": {s: len(rows) for s, rows in splits.items()} |
-                  {"counterfactual_pairs": len(cf), "distance": len(dist), "generalization": len(gen)},
-        "task_counts": counts,
+                  {"counterfactual_pairs": len(cf), "distance": len(dist),
+                   "generalization": len(gen)},
+        "task_counts": {s: dict(Counter(r["task"] for r in rows))
+                        for s, rows in splits.items()},
         "canonical_overlap": overlap,
-        "counterfactual_types": dict(Counter(p["type"] for p in cf)),
-        "counterfactual_query_positions": dict(qpos),
-        "distance_distances": dict(Counter(r["meta"]["distance"] for r in dist)),
-        "distance_pair_ids": len({r["meta"]["pair_id"] for r in dist}),
-        "a5_repeat_train": counts["train"].get("A5_repeat", 0),
-        "note": "canonical 为零重合；距离按 pair_id 严格配对；四类反事实分别统计",
+        "semantics": {
+            "C_indirect": "变量引用值复制，源变量后续覆盖",
+            "C_history_current": "GET v~OLD / GET v~NEW 查询历史/当前值",
+            "C_reassign": "目标重赋值后追加无关赋值",
+            "B_rename": "一对一变量重命名",
+        },
+        "reference_interpreter": "reference_interpreter.reference_answer（仅数据/评测）",
+        "note": "M41F 重新冻结；历史 M4_DATA_AUDIT.json 与 M41 审计未覆盖。",
     }
-    (HERE / "M4_DATA_AUDIT.json").write_text(
+    (HERE / "M41F_DATA_AUDIT.json").write_text(
         json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[data] train={len(splits['train'])} val={len(splits['val'])} sealed={len(splits['sealed'])} "
-          f"cf={len(cf)} dist={len(dist)} gen={len(gen)}")
-    print(f"[data] canonical overlap={overlap} A5_train={audit['a5_repeat_train']}")
+    print(f"[data-m41f] train={len(splits['train'])} val={len(splits['val'])} "
+          f"sealed={len(splits['sealed'])} canonical_overlap={overlap}")
 
 
 if __name__ == "__main__":

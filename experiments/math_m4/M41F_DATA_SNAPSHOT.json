@@ -1,0 +1,32 @@
+{
+  "status": "SNAPSHOT_PRESERVED",
+  "base_commit": "a55c42a",
+  "source": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\data",
+  "snapshot": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\data_snapshot_a55c42a",
+  "files": {
+    "m4_counterfactual.jsonl": {
+      "sha256": "3bb867d55e02461fe68ec2824552175e395ca429a40ad907456365ed87962453",
+      "bytes": 266424
+    },
+    "m4_distance.jsonl": {
+      "sha256": "579067336a69cc9ce098b2196e3fda78ef0572248e1e34b079cb4af5b8237f47",
+      "bytes": 107036
+    },
+    "m4_generalization.jsonl": {
+      "sha256": "bb4b6d99723b8d5f11714290ff0f6c5e7274133799634e96e798d94b9ca04d28",
+      "bytes": 122602
+    },
+    "m4_sealed.jsonl": {
+      "sha256": "5d42921339366a3e7b81068d63fc48bbc27d4485e1a839bbe15b0e99772ee796",
+      "bytes": 85358
+    },
+    "m4_train.jsonl": {
+      "sha256": "9f3de49a95006d86c0d403a9284642546ef1f95e6fc3ae00b5509edffc86b7fc",
+      "bytes": 255289
+    },
+    "m4_val.jsonl": {
+      "sha256": "f8504d0ec7ad67ca27331c0f4f63ce75c86cf4adea41f60b289f574c59f3da9c",
+      "bytes": 85414
+    }
+  }
+}

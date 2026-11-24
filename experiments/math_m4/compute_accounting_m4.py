@@ -100,8 +100,12 @@ def low_rank_forward_macs(B, T, d, h, layers, vocab, rh):
 
 
 def batch_cost(model, x, valid, weights, backward=False, optimizer=False,
-               input_len=None, hard_gate=True) -> BatchCost:
-    """返回逐 batch 成本。input_len 为实际喂给模型的长度；训练传 T-1。"""
+               input_len=None, hard_gate=True, forward_stats=None) -> BatchCost:
+    """返回逐 batch 成本。input_len 为实际喂给模型的长度；训练传 T-1。
+
+    M41F：M4-B 必须传入真实训练前向的 state["stats"]，禁止为了统计成本
+    再额外执行一次模型前向。
+    """
     B, T_full = x.shape
     T = T_full if input_len is None else min(input_len, T_full)
     xin = x[:, :T]
@@ -126,26 +130,32 @@ def batch_cost(model, x, valid, weights, backward=False, optimizer=False,
     else:
         c = _cfg(model)
         d, h = c["d_model"], c["nhead"]
-        with torch.no_grad():
-            _, state = model(xin, hard_gate=hard_gate)
-        sb = state["stats"]["blocks"]
+        stats_were_provided = forward_stats is not None
+        if forward_stats is None:
+            with torch.no_grad():
+                _, state = model(xin, hard_gate=hard_gate)
+            forward_stats = state["stats"]
+        sb = forward_stats["blocks"]
         qkv = 3 * B * T * d * d
         out_proj = B * T * d * d
         ffn = 4 * B * T * d * d
         sel_attn = sum(s["executed_macs"] for s in sb)
         controller = sum(s["controller_macs"] for s in sb)
-        gather = sum(s["gather_elements"] for s in sb)
         head = B * T * vocab * d
         core = qkv + out_proj + ffn + sel_attn
         details = {
             "qkv": qkv, "out_proj": out_proj, "ffn": ffn,
             "selective_executed_attention_and_controller": sel_attn,
-            "controller_macs": controller, "gather_elements": gather,
+            "controller_macs": controller,
             "theoretical_selection_ratio": round(
                 sum(s["theoretical_selection_ratio"] for s in sb) / max(1, len(sb)), 4),
             "actual_compute_ratio": round(
                 sum(s["actual_compute_ratio"] for s in sb) / max(1, len(sb)), 4),
             "output_head": head, "core": core, "total": core + head,
+            "cost_source": "actual_training_forward" if stats_were_provided
+            else "extra_forward_for_audit_only",
+            "gather_elements": forward_stats.get("gather_new_elements", 0),
+            "gather_copy_bytes": forward_stats.get("gather_copy_bytes", 0),
             "note": "gather_elements 是数据搬运元素数，不与 MAC 相加作为计算量。",
         }
 
@@ -296,7 +306,7 @@ def main():
         "profiler_cross_check": pf,
         "energy": "NOT_AVAILABLE",
     }
-    p = HERE / "M41_COST_ACCOUNTING_AUDIT.json"
+    p = HERE / "M41F_COST_ACCOUNTING_AUDIT.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[m41-cost] status={out['status']} 写出 {p}")
 

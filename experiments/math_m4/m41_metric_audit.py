@@ -182,7 +182,7 @@ def audit():
     out = {"status": status, "checks": checks,
            "critical_minimums": load_critical_minimums(),
            "note": "指标测试使用预设 logits 的桩模型，不执行训练，不代表任务能力。"}
-    p = HERE / "M41_METRIC_AUDIT.json"
+    p = HERE / "M41F_METRIC_AUDIT.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[m41-metric] status={status} 写出 {p}")
     return out

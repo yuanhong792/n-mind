@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "rule": "sha256(family) % 5 == 0 -> sealed; otherwise val; CF family=pair_id; distance family=target_fact(GET var|answer)",
+  "counts": {
+    "counterfactual_val_pairs": 320,
+    "counterfactual_sealed_pairs": 80,
+    "distance_val_rows": 371,
+    "distance_sealed_rows": 49
+  },
+  "checks": {
+    "CF_PAIR_ID_ISOLATION": true,
+    "CF_CANONICAL_ISOLATION": true,
+    "DISTANCE_PAIR_ID_ISOLATION": true,
+    "DISTANCE_CANONICAL_ISOLATION": true,
+    "CF_PAIR_COVERAGE": true,
+    "DISTANCE_COVERAGE": true
+  },
+  "file_sha256": {
+    "m4_counterfactual_val.jsonl": "3c5df645e17b01a5a94754754f3f9ee2350d185029d8633059ab980f1cfdd041",
+    "m4_counterfactual_sealed.jsonl": "49a48f238f9db2d657f063370f4217ac4ea52a8309c19ed00bc54b340044378a",
+    "m4_distance_val.jsonl": "f82623275d95e0ab171c9ae7ac991032f95bc9fe62e6acc358a54449f6e73826",
+    "m4_distance_sealed.jsonl": "86d5653e785822bb26598ffd04943da2c2e5c586811cbd36c1e4232c09c5c149"
+  },
+  "usage": {
+    "val": "允许参与能力门槛与模型选择",
+    "sealed": "只能在所有训练与选模完成后评估"
+  },
+  "note": "历史 m4_counterfactual.jsonl / m4_distance.jsonl 保留作为全量证据。"
+}

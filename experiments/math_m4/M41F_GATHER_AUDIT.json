@@ -1,0 +1,254 @@
+{
+  "status": "PASS",
+  "checks": {
+    "GATHER_LOGITS_EQUAL": true,
+    "NEW_MEMORY_LE_NOT_OLD": true,
+    "NEW_GATHER_ELEMENTS_LE_OLD": true,
+    "TRUE_MATMUL_COUNT_EQUAL": true
+  },
+  "note": "直接索引避免为每个 query 物化全部历史；但内存访问仍有成本，是否值得必须结合训练后真实能力/延迟判断。",
+  "gather_shapes": {
+    "B": 2,
+    "h": 4,
+    "T": 17,
+    "L": 32,
+    "S": 12,
+    "dh": 16
+  },
+  "elements": {
+    "old_expand_elements": 139264,
+    "new_gather_elements": 52224,
+    "saved_elements": 87040,
+    "new_copy_bytes": 208896
+  },
+  "profiler_memory": {
+    "new_direct_index": {
+      "allocated_bytes_total": 1050240,
+      "allocated_bytes_per_call": 210048.0,
+      "ops": [
+        {
+          "name": "aten::index",
+          "self_cpu_memory_bytes": 1044480,
+          "count": 10
+        },
+        {
+          "name": "aten::empty",
+          "self_cpu_memory_bytes": 5440,
+          "count": 10
+        },
+        {
+          "name": "aten::resize_",
+          "self_cpu_memory_bytes": 320,
+          "count": 5
+        }
+      ]
+    },
+    "old_expand_reshape": {
+      "allocated_bytes_total": 3829760,
+      "allocated_bytes_per_call": 765952.0,
+      "ops": [
+        {
+          "name": "aten::empty",
+          "self_cpu_memory_bytes": 2785280,
+          "count": 10
+        },
+        {
+          "name": "aten::gather",
+          "self_cpu_memory_bytes": 1044480,
+          "count": 10
+        }
+      ]
+    },
+    "saved_bytes_per_call": 555904.0
+  },
+  "logits_max_abs_diff_old_vs_new": 0.0,
+  "gather_output_max_abs_diff": 0.0,
+  "true_matmul_macs": {
+    "new": 107520,
+    "old": 107520,
+    "dense_reference": 147968
+  },
+  "compute_overhead_by_length": {
+    "short_T17_B2_actual_executed_macs": 107520,
+    "short_T17_B2_dense_attention_macs": 147968,
+    "short_T17_B2_ratio": 0.7266,
+    "short_sequence_controller_overhead_exceeds_dense": false,
+    "prefill_T64_B1_actual_executed_macs": 303104,
+    "prefill_T64_B1_dense_attention_macs": 1048576,
+    "prefill_T64_B1_ratio": 0.2891
+  },
+  "latency": {
+    "prefill_T64_new_direct_ms": {
+      "median_ms": 4.1959,
+      "p95_ms": 4.3752
+    },
+    "prefill_T64_old_expand_ms": {
+      "median_ms": 4.5671,
+      "p95_ms": 4.8035
+    },
+    "incremental_prefill_plus_16_new_ms": {
+      "median_ms": 44.5011,
+      "p95_ms": 58.6234
+    },
+    "incremental_prefill_plus_16_old_ms": {
+      "median_ms": 43.7304,
+      "p95_ms": 57.3332
+    },
+    "prefill_delta_pct": -8.13,
+    "incremental_delta_pct": 1.76
+  },
+  "gather_stats_new": {
+    "gather_old_expand_elements": 295936,
+    "gather_new_elements": 104448,
+    "gather_copy_bytes": 417792
+  },
+  "gather_stats_old": {
+    "gather_old_expand_elements": 295936,
+    "gather_new_elements": 104448,
+    "gather_copy_bytes": 417792
+  },
+  "prefill_stats": {
+    "new": {
+      "blocks": [
+        {
+          "theoretical_selected_positions": 2016,
+          "theoretical_dense_positions": 16384,
+          "theoretical_selection_ratio": 0.123,
+          "actual_tensor_slots_per_query": 8,
+          "actual_executed_positions": 2048,
+          "actual_score_macs": 32768,
+          "actual_value_macs": 32768,
+          "actual_attention_macs": 65536,
+          "dense_attention_macs": 524288,
+          "actual_compute_ratio": 0.125,
+          "summary_macs": 20480,
+          "coarse_retrieval_macs": 65536,
+          "topk_comparisons": 8192,
+          "gather_positions": 2048,
+          "gather_elements": 98304,
+          "gather_old_expand_elements": 1048576,
+          "gather_saved_elements": 950272,
+          "gather_copy_bytes": 393216,
+          "gather_direct_indexing": true,
+          "controller_macs": 86016,
+          "executed_macs": 151552,
+          "full_qk_forbidden": true,
+          "joint_normalization": true,
+          "train_deploy_route_identical": true,
+          "unselected_path_gradient": false,
+          "future_groups_visible": false,
+          "padding_in_summary": false,
+          "hard_gate": true
+        },
+        {
+          "theoretical_selected_positions": 2016,
+          "theoretical_dense_positions": 16384,
+          "theoretical_selection_ratio": 0.123,
+          "actual_tensor_slots_per_query": 8,
+          "actual_executed_positions": 2048,
+          "actual_score_macs": 32768,
+          "actual_value_macs": 32768,
+          "actual_attention_macs": 65536,
+          "dense_attention_macs": 524288,
+          "actual_compute_ratio": 0.125,
+          "summary_macs": 20480,
+          "coarse_retrieval_macs": 65536,
+          "topk_comparisons": 8192,
+          "gather_positions": 2048,
+          "gather_elements": 98304,
+          "gather_old_expand_elements": 1048576,
+          "gather_saved_elements": 950272,
+          "gather_copy_bytes": 393216,
+          "gather_direct_indexing": true,
+          "controller_macs": 86016,
+          "executed_macs": 151552,
+          "full_qk_forbidden": true,
+          "joint_normalization": true,
+          "train_deploy_route_identical": true,
+          "unselected_path_gradient": false,
+          "future_groups_visible": false,
+          "padding_in_summary": false,
+          "hard_gate": true
+        }
+      ],
+      "total_executed_macs": 303104,
+      "total_controller_macs": 172032,
+      "theoretical_selection_ratio": 0.123,
+      "actual_compute_ratio": 0.125,
+      "gather_old_expand_elements": 2097152,
+      "gather_new_elements": 196608,
+      "gather_copy_bytes": 786432
+    },
+    "old": {
+      "blocks": [
+        {
+          "theoretical_selected_positions": 2016,
+          "theoretical_dense_positions": 16384,
+          "theoretical_selection_ratio": 0.123,
+          "actual_tensor_slots_per_query": 8,
+          "actual_executed_positions": 2048,
+          "actual_score_macs": 32768,
+          "actual_value_macs": 32768,
+          "actual_attention_macs": 65536,
+          "dense_attention_macs": 524288,
+          "actual_compute_ratio": 0.125,
+          "summary_macs": 20480,
+          "coarse_retrieval_macs": 65536,
+          "topk_comparisons": 8192,
+          "gather_positions": 2048,
+          "gather_elements": 98304,
+          "gather_old_expand_elements": 1048576,
+          "gather_saved_elements": 950272,
+          "gather_copy_bytes": 393216,
+          "gather_direct_indexing": true,
+          "controller_macs": 86016,
+          "executed_macs": 151552,
+          "full_qk_forbidden": true,
+          "joint_normalization": true,
+          "train_deploy_route_identical": true,
+          "unselected_path_gradient": false,
+          "future_groups_visible": false,
+          "padding_in_summary": false,
+          "hard_gate": true
+        },
+        {
+          "theoretical_selected_positions": 2016,
+          "theoretical_dense_positions": 16384,
+          "theoretical_selection_ratio": 0.123,
+          "actual_tensor_slots_per_query": 8,
+          "actual_executed_positions": 2048,
+          "actual_score_macs": 32768,
+          "actual_value_macs": 32768,
+          "actual_attention_macs": 65536,
+          "dense_attention_macs": 524288,
+          "actual_compute_ratio": 0.125,
+          "summary_macs": 20480,
+          "coarse_retrieval_macs": 65536,
+          "topk_comparisons": 8192,
+          "gather_positions": 2048,
+          "gather_elements": 98304,
+          "gather_old_expand_elements": 1048576,
+          "gather_saved_elements": 950272,
+          "gather_copy_bytes": 393216,
+          "gather_direct_indexing": true,
+          "controller_macs": 86016,
+          "executed_macs": 151552,
+          "full_qk_forbidden": true,
+          "joint_normalization": true,
+          "train_deploy_route_identical": true,
+          "unselected_path_gradient": false,
+          "future_groups_visible": false,
+          "padding_in_summary": false,
+          "hard_gate": true
+        }
+      ],
+      "total_executed_macs": 303104,
+      "total_controller_macs": 172032,
+      "theoretical_selection_ratio": 0.123,
+      "actual_compute_ratio": 0.125,
+      "gather_old_expand_elements": 2097152,
+      "gather_new_elements": 196608,
+      "gather_copy_bytes": 786432
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": {
+    "train_entry_uses_actual_forward": true,
+    "batch_cost_does_not_forward_again": true
+  },
+  "observed": {
+    "second_model_forward_calls": 0,
+    "cost_source": "actual_training_forward",
+    "gather_elements": 98304,
+    "gather_copy_bytes": 393216
+  },
+  "note": "审计桩在 batch_cost 前替换了 forward；若被多调用一次会立即暴露。"
+}

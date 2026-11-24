@@ -1,0 +1,27 @@
+{
+  "status": "NOT_RUN_TRAINING",
+  "reason": "唯一正式训练入口是 train_m4.py，需用户明确授权",
+  "n_samples": 64,
+  "alignment": {
+    "n_samples": 64,
+    "answer_only_alignment": true,
+    "failures": [],
+    "batch": [
+      64,
+      16
+    ],
+    "supervised_tokens": 200
+  },
+  "gate": {
+    "tf_accuracy_min": 0.95,
+    "natural_eos_full_accuracy_min": 0.9,
+    "gradient_finite_and_nonzero_required": true,
+    "parameter_update_required": true,
+    "future_leakage_forbidden": true,
+    "evaluate_on_same_64_rows": true,
+    "weights_enter_main_experiment": false,
+    "abort_main_on_reference_failure": true,
+    "sole_training_entry": "train_m4.py"
+  },
+  "note": "本文件不训练、不创建 optimizer、不调用 step。"
+}

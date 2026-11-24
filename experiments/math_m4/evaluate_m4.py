@@ -32,6 +32,20 @@ def load_rows(split: str) -> list[dict]:
     return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
+def load_counterfactual(split: str = "val") -> list[dict]:
+    """split=val 用于训练期能力门槛；sealed 只能在训练/选模完成后评估。"""
+    if split not in ("val", "sealed"):
+        raise ValueError(split)
+    return load_rows(f"counterfactual_{split}")
+
+
+def load_distance(split: str = "val") -> list[dict]:
+    """split=val 用于训练期能力门槛；sealed 只能在训练/选模完成后评估。"""
+    if split not in ("val", "sealed"):
+        raise ValueError(split)
+    return load_rows(f"distance_{split}")
+
+
 def build_fixed_panel(rows: list[dict], per_task: int = 20) -> list[dict]:
     from collections import defaultdict
     by = defaultdict(list)

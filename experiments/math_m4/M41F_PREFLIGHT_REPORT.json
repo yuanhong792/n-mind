@@ -1,0 +1,1911 @@
+{
+  "status": "PREFLIGHT_PASS_AWAITING_AUTHORIZATION",
+  "optimizer_step": 0,
+  "training_status": "AWAITING_AUTHORIZATION",
+  "authorization_note": "预检通过不等于训练授权；唯一入口是 python train_m4.py --authorize。",
+  "gates": {
+    "CAUSALITY_PASS": true,
+    "INCREMENTAL_PARITY_PASS": true,
+    "KV_CACHE_PASS": true,
+    "PADDING_ISOLATION_PASS": true,
+    "ROUTING_GRADIENT_PASS": true,
+    "ACTUAL_COST_ACCOUNTING_PASS": true,
+    "STRICT_EOS_METRIC_PASS": true,
+    "DATA_LEAKAGE_AUDIT_PASS": true,
+    "SHARED_BUDGET_PASS": true,
+    "POSITIVE_CONTROL_GATE_READY": true
+  },
+  "manifests": {
+    "code": {
+      "combined_sha256": "c09f79b9045eaff957ac95520ca9a8159024cdeb72b1e4238632f68615a0a823",
+      "files": {
+        "train_m4.py": {
+          "sha256": "dc6bd2a430d462d9f444917f60dce016422ec5bb514e377c57fdc415037fc373",
+          "bytes": 17552
+        },
+        "preflight_guard.py": {
+          "sha256": "222b660c0abe0c4754774aaa70dee539e62293212f6c6bdc8e5bab9aa298d15b",
+          "bytes": 7027
+        },
+        "evaluate_m4.py": {
+          "sha256": "4ff7b67a2caa4ff2badfb3863ed51b97e48910fd1a2bd22057f4406240926496",
+          "bytes": 14144
+        },
+        "compute_accounting_m4.py": {
+          "sha256": "72445f2982edab0fe351618791937f789d027eff5120ea55a47a13eaea02c35e",
+          "bytes": 12436
+        },
+        "budget_manager.py": {
+          "sha256": "8625635c30e78e7d9324810b55696624bf05d1d0f1d0448c23d2f7e5b5afc2c1",
+          "bytes": 7529
+        },
+        "positive_control.py": {
+          "sha256": "ef020d0669d8277d58c6dd3afd04142bdc636a74063531825aced87d04187bed",
+          "bytes": 4784
+        },
+        "dataset_m4.py": {
+          "sha256": "fb5f40548dc7d98e089e180b584c0ba193c61c27047a0ee1961b1912f9416c74",
+          "bytes": 14928
+        },
+        "reference_interpreter.py": {
+          "sha256": "63ac9c9c18625c404d2d9aaacfd3522679e395448cbf82dffff82dd949e8d595",
+          "bytes": 2858
+        },
+        "tokenizer_m4.py": {
+          "sha256": "5ca2e3492a383f6b91d5e136d617a3a2245d6388154d403ab0c27eb893e404c4",
+          "bytes": 2150
+        },
+        "models/gru_reference.py": {
+          "sha256": "0efe6bd57a656fb45df4fc4077b44c4d0358822abe7836e873eb7f85ed77075f",
+          "bytes": 1671
+        },
+        "models/transformer_reference.py": {
+          "sha256": "d159f89a51803f34a8a1c33574207d719f73dde717200b5591cb604c6d722c44",
+          "bytes": 6065
+        },
+        "models/low_rank_interaction.py": {
+          "sha256": "798d5e0acc77de787d6f25b94eb2d28ab174e579a5fca70ba5a4c00421aff6be",
+          "bytes": 7038
+        },
+        "models/selective_interaction.py": {
+          "sha256": "fdd4364daee7664912b936566d90646386f575be00b87c84ca3e8e93439913b8",
+          "bytes": 15737
+        },
+        "models/base.py": {
+          "sha256": "a9c06ac5cb636a528cfc0c4de1c8d95d55d662d7fc41ba244408bb5c0e370630",
+          "bytes": 328
+        }
+      }
+    },
+    "data": {
+      "combined_sha256": "7107aab75e1e72ef2236e8e767e818ab40294e4bb69d3d2e7d9fbe6d5df7206b",
+      "files": {
+        "data/m4_train.jsonl": {
+          "sha256": "8baa837cda4c77aae661706ed15d83cd9bbe75b09fbac0e6207b4192ee67b00a",
+          "bytes": 288165
+        },
+        "data/m4_val.jsonl": {
+          "sha256": "dc12bbbacebc32ae15a781445c5984e72a36b7dd3ae445a30e03e14683fe3f9d",
+          "bytes": 95670
+        },
+        "data/m4_sealed.jsonl": {
+          "sha256": "477debcb0abdb7899b5e8c0a4bfb063fcaa5ea6ca4ebbe70b8ed81643ddb0366",
+          "bytes": 96318
+        },
+        "data/m4_counterfactual_val.jsonl": {
+          "sha256": "8de5bbcc1173b0cf84c9decddd76159bc00dcfaa044672d22a52998912c6d152",
+          "bytes": 211635
+        },
+        "data/m4_counterfactual_sealed.jsonl": {
+          "sha256": "4bb86e2220da2e9c3c9ffad9e70753ed17782a47054abfffff446a6e5992f27d",
+          "bytes": 53849
+        },
+        "data/m4_distance_val.jsonl": {
+          "sha256": "0fec9d8a125350b062007ff1b51445d859d0499c074e6e6c0ba25bc50cb26566",
+          "bytes": 100541
+        },
+        "data/m4_distance_sealed.jsonl": {
+          "sha256": "4b001661d541b27850e68063d122eb0357249baae32862a978acc6340581fe0a",
+          "bytes": 13279
+        },
+        "data/m4_generalization.jsonl": {
+          "sha256": "22a0b938065e90d720281bc9a11ecbb9d8ddfc8b615d0c79e5288622db6b1b6f",
+          "bytes": 123502
+        }
+      }
+    },
+    "plan": {
+      "combined_sha256": "4aac1b946bbd0ce283425da4949b0e6f9feb96822367d9736e9aae93fee6a3e8",
+      "files": {
+        "M4_PREREGISTERED_PLAN.json": {
+          "sha256": "f1962f10aaa6fcb7a6cbb317419f81d6b16a82b0139ead3f2bfe193bd7b8322d",
+          "bytes": 7160
+        }
+      }
+    }
+  },
+  "history_preserved": {
+    "pass": true,
+    "M4_MATH_TESTS_sha256": "ff59cdbb68b8530a85bae4e0b9e184eedc694164a15a8a43cae6cbd87fe5e39a",
+    "expected": "ff59cdbb68b8530a85bae4e0b9e184eedc694164a15a8a43cae6cbd87fe5e39a",
+    "base_commit": "a55c42a"
+  },
+  "evidence": {
+    "causality": {
+      "source": "M41F_CAUSALITY_AUDIT.json",
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        15,
+        16,
+        17,
+        32,
+        64,
+        128
+      ],
+      "models": {
+        "R1_gru_reference": {
+          "status": "PASS"
+        },
+        "R2_tiny_transformer": {
+          "status": "PASS"
+        },
+        "M4-A_low_rank_interaction": {
+          "status": "PASS"
+        },
+        "M4-B_selective_interaction": {
+          "status": "PASS"
+        }
+      },
+      "tolerance": 0.0001
+    },
+    "kv": {
+      "source": "M41F_KV_CACHE_AUDIT.json",
+      "cases": [
+        {
+          "B": 1,
+          "T": 16,
+          "inc_diff": 7.152557373046875e-07,
+          "chunk_diff": 7.152557373046875e-07,
+          "cache_shapes": {
+            "ck": [
+              1,
+              4,
+              16,
+              4
+            ],
+            "cv": [
+              1,
+              4,
+              16,
+              16
+            ]
+          }
+        },
+        {
+          "B": 2,
+          "T": 17,
+          "inc_diff": 9.238719940185547e-07,
+          "chunk_diff": 7.152557373046875e-07,
+          "cache_shapes": {
+            "ck": [
+              2,
+              4,
+              17,
+              4
+            ],
+            "cv": [
+              2,
+              4,
+              17,
+              16
+            ]
+          }
+        },
+        {
+          "B": 3,
+          "T": 32,
+          "inc_diff": 8.344650268554688e-07,
+          "chunk_diff": 8.344650268554688e-07,
+          "cache_shapes": {
+            "ck": [
+              3,
+              4,
+              32,
+              4
+            ],
+            "cv": [
+              3,
+              4,
+              32,
+              16
+            ]
+          }
+        }
+      ]
+    },
+    "cost": {
+      "source": [
+        "M41F_COST_ACCOUNTING_AUDIT.json",
+        "M41F_COST_SOURCE_AUDIT.json"
+      ],
+      "backward": {
+        "status": "ESTIMATED",
+        "central_multiplier": 2.0,
+        "range": [
+          1.5,
+          2.5
+        ],
+        "note": "未做逐算子反向解析，禁止当作精确值"
+      },
+      "optimizer": {
+        "status": "ESTIMATED",
+        "adamw_macs_per_param": 8
+      },
+      "cost_source_checks": {
+        "train_entry_uses_actual_forward": true,
+        "batch_cost_does_not_forward_again": true
+      },
+      "cost_source_observed": {
+        "second_model_forward_calls": 0,
+        "cost_source": "actual_training_forward",
+        "gather_elements": 98304,
+        "gather_copy_bytes": 393216
+      }
+    },
+    "metric": {
+      "source": "M41F_METRIC_AUDIT.json",
+      "checks": {
+        "STRICT_TOKEN_EOS_OK": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              2
+            ],
+            "expected_ids": [
+              29,
+              2
+            ],
+            "strict_ok": true,
+            "finish_reason": "eos",
+            "forward_calls": [
+              {
+                "T": 7,
+                "hard_gate": true
+              },
+              {
+                "T": 1,
+                "hard_gate": true
+              }
+            ]
+          }
+        },
+        "DECODE_FILTER_CANNOT_HIDE_SPECIAL_TOKEN": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              1,
+              2
+            ],
+            "expected_ids": [
+              29,
+              2
+            ],
+            "decoded_content_ok": true,
+            "strict_ok": false,
+            "invalid_special_tokens": [
+              1
+            ]
+          }
+        },
+        "PAD_CANNOT_BE_FILTERED": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              1,
+              2
+            ],
+            "strict_ok": false,
+            "invalid_special_tokens": [
+              1
+            ]
+          }
+        },
+        "NO_NATURAL_EOS_REJECTED": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              30
+            ],
+            "finish_reason": "length"
+          }
+        },
+        "HARD_GATE_DEFAULT": {
+          "pass": true,
+          "observed": {
+            "forward_calls": [
+              {
+                "T": 7,
+                "hard_gate": true
+              },
+              {
+                "T": 1,
+                "hard_gate": true
+              }
+            ],
+            "eval_rows_default": "True",
+            "strict_macro": 1.0
+          }
+        },
+        "ISO_TWO_CONSECUTIVE_POINTS": {
+          "pass": true,
+          "observed": {
+            "status": "REACHED_STABLE",
+            "seed": 1,
+            "first_confirmation_step": 64,
+            "confirmed_step": 128,
+            "strict_macro": 0.82,
+            "cost": 1600,
+            "cost_source": "cumulative_macs@second_confirmation",
+            "evidence": [
+              {
+                "step": 64,
+                "strict_macro": 0.8,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              },
+              {
+                "step": 128,
+                "strict_macro": 0.82,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              }
+            ],
+            "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+          }
+        },
+        "ISO_FINAL_SINGLE_POINT_REJECTED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 192,
+              "strict_macro": 0.85,
+              "critical_snapshot": {
+                "A3_copyN": 1.0,
+                "A4_reverse": 1.0,
+                "A5_repeat": 1.0,
+                "B2_bind": 1.0,
+                "B4_bind": 1.0,
+                "counterfactual_same_query_fact_change": 1.0,
+                "counterfactual_unrelated_fact_invariance": 1.0,
+                "query_switch": 1.0,
+                "C_reassign": 1.0
+              }
+            }
+          }
+        },
+        "ISO_CRITICAL_FLOOR_REQUIRED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 128,
+              "problems": [
+                "critical_below_floor:C_reassign"
+              ]
+            }
+          }
+        },
+        "ISO_HARD_GATE_REQUIRED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 128,
+              "problems": [
+                "hard_gate_not_true"
+              ]
+            }
+          }
+        },
+        "ISO_NO_FICTIONAL_COST": {
+          "pass": true,
+          "observed": {
+            "status": "REACHED_STABLE_COST_UNAVAILABLE",
+            "seed": 1,
+            "first_confirmation_step": 64,
+            "confirmed_step": 128,
+            "strict_macro": 0.85,
+            "cost": null,
+            "cost_source": "cost_macs@second_confirmation",
+            "evidence": [
+              {
+                "step": 64,
+                "strict_macro": 0.85,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              },
+              {
+                "step": 128,
+                "strict_macro": 0.85,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              }
+            ],
+            "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+          }
+        },
+        "ISO_SEED_INDEPENDENT": {
+          "pass": true,
+          "observed": {
+            "seed1": 1,
+            "seed2": 2,
+            "status1": "REACHED_STABLE",
+            "status2": "REACHED_STABLE"
+          }
+        }
+      }
+    },
+    "data": {
+      "source": [
+        "M41F_DATA_AUDIT_FULL.json",
+        "M41F_BASELINE_AUDIT.json",
+        "M41F_EVAL_SPLIT_AUDIT.json"
+      ],
+      "checks": {
+        "SPLIT_COUNTS": {
+          "pass": true,
+          "observed": {
+            "train": 1392,
+            "val": 464,
+            "sealed": 464
+          },
+          "required": {
+            "train": 1392,
+            "val": 464,
+            "sealed": 464
+          }
+        },
+        "REFERENCE_INTERPRETER_LABELS": {
+          "pass": true,
+          "observed": {
+            "n_checked": 2320,
+            "n_mismatch": 0,
+            "samples": []
+          },
+          "required": {
+            "n_mismatch": 0
+          }
+        },
+        "A5_REPEAT_COVERAGE": {
+          "pass": true,
+          "observed": {
+            "train_A5": 96
+          },
+          "required": {
+            "train_A5_min": 96
+          }
+        },
+        "QUERY_POSITION_BALANCE": {
+          "pass": true,
+          "observed": {
+            "bindings": {
+              "B2_bind": {
+                "1": 77,
+                "0": 83
+              },
+              "B4_bind": {
+                "0": 51,
+                "1": 35,
+                "3": 36,
+                "2": 38
+              },
+              "B8_bind": {
+                "1": 21,
+                "4": 29,
+                "2": 20,
+                "0": 15,
+                "5": 18,
+                "3": 21,
+                "6": 18,
+                "7": 18
+              }
+            },
+            "counterfactual_global": {
+              "first": 136,
+              "middle": 132,
+              "last": 132
+            },
+            "counterfactual_per_type": {
+              "same_query_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "unrelated_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "query_switch": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "order_swap": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              }
+            }
+          },
+          "required": "每类反事实 first/middle/last 近似均衡；主绑定任务分布仅作观察"
+        },
+        "CANONICAL_SPLIT_ISOLATION": {
+          "pass": true,
+          "observed": {
+            "train_vs_val": 0,
+            "train_vs_sealed": 0,
+            "train_vs_generalization": 0,
+            "val_vs_sealed": 0,
+            "val_vs_generalization": 0,
+            "sealed_vs_generalization": 0
+          },
+          "required": "所有集合间 canonical 重合为 0"
+        },
+        "NO_PROMPT_ANSWER_CONFLICT": {
+          "pass": true,
+          "observed": {
+            "n_conflicts": 0,
+            "samples": []
+          },
+          "required": {
+            "n_conflicts": 0
+          }
+        },
+        "NO_CROSS_TASK_SEMANTIC_LEAK": {
+          "pass": true,
+          "observed": {
+            "n_cross_task_prompts": 0,
+            "samples": [],
+            "n_cf_main_prompt_overlap": 0,
+            "cf_main_samples": [],
+            "note": "CF 内部 B_counterfactual/B_query_switch 别名按同一 pair_id 排除"
+          },
+          "required": {
+            "n_cross_task_prompts": 0,
+            "n_cf_main_prompt_overlap": 0
+          }
+        },
+        "COUNTERFACTUAL_FAMILY_ISOLATION": {
+          "pass": true,
+          "observed": {
+            "n_pairs": 400,
+            "unique_pair_ids": 400,
+            "types": {
+              "same_query_fact_change": 100,
+              "unrelated_fact_change": 100,
+              "query_switch": 100,
+              "order_swap": 100
+            },
+            "query_positions_per_type": {
+              "same_query_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "unrelated_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "query_switch": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "order_swap": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              }
+            },
+            "failures": []
+          },
+          "required": "400 唯一 pair_id；四类各 100；查询位置均衡；语义变化符合类型定义"
+        },
+        "DISTANCE_PAIRED_IDS": {
+          "pass": true,
+          "observed": {
+            "n_pairs": 60,
+            "n_rows": 420,
+            "failures": []
+          },
+          "required": {
+            "n_pairs": 60,
+            "distances": [
+              0,
+              4,
+              8,
+              16,
+              32,
+              64,
+              128
+            ]
+          }
+        },
+        "NO_SILENT_TRUNCATION": {
+          "pass": true,
+          "observed": {
+            "max_len": {
+              "train": 40,
+              "val": 40,
+              "sealed": 40
+            },
+            "limit": 96,
+            "failures": []
+          },
+          "required": "train/val/sealed 全部 <= 96"
+        }
+      },
+      "split": {
+        "status": "PASS",
+        "rule": "sha256(family) % 5 == 0 -> sealed; otherwise val; CF family=pair_id; distance family=target_fact(GET var|answer)",
+        "counts": {
+          "counterfactual_val_pairs": 320,
+          "counterfactual_sealed_pairs": 80,
+          "distance_val_rows": 371,
+          "distance_sealed_rows": 49
+        },
+        "checks": {
+          "CF_PAIR_ID_ISOLATION": true,
+          "CF_CANONICAL_ISOLATION": true,
+          "DISTANCE_PAIR_ID_ISOLATION": true,
+          "DISTANCE_CANONICAL_ISOLATION": true,
+          "CF_PAIR_COVERAGE": true,
+          "DISTANCE_COVERAGE": true
+        },
+        "file_sha256": {
+          "m4_counterfactual_val.jsonl": "3c5df645e17b01a5a94754754f3f9ee2350d185029d8633059ab980f1cfdd041",
+          "m4_counterfactual_sealed.jsonl": "49a48f238f9db2d657f063370f4217ac4ea52a8309c19ed00bc54b340044378a",
+          "m4_distance_val.jsonl": "f82623275d95e0ab171c9ae7ac991032f95bc9fe62e6acc358a54449f6e73826",
+          "m4_distance_sealed.jsonl": "86d5653e785822bb26598ffd04943da2c2e5c586811cbd36c1e4232c09c5c149"
+        },
+        "usage": {
+          "val": "允许参与能力门槛与模型选择",
+          "sealed": "只能在所有训练与选模完成后评估"
+        },
+        "note": "历史 m4_counterfactual.jsonl / m4_distance.jsonl 保留作为全量证据。"
+      },
+      "baseline_A_positional": {
+        "first_digit": {
+          "correct": 223,
+          "usable": 771,
+          "accuracy": 0.2892,
+          "coverage": 0.8308,
+          "per_task": {
+            "A1_copy1": {
+              "ok": 4,
+              "n": 4,
+              "accuracy": 1.0
+            },
+            "A2_copy2": {
+              "ok": 0,
+              "n": 12,
+              "accuracy": 0.0
+            },
+            "A3_copyN": {
+              "ok": 0,
+              "n": 20,
+              "accuracy": 0.0
+            },
+            "A4_reverse": {
+              "ok": 0,
+              "n": 31,
+              "accuracy": 0.0
+            },
+            "A5_repeat": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A6_index": {
+              "ok": 1,
+              "n": 64,
+              "accuracy": 0.0156
+            },
+            "B2_bind": {
+              "ok": 36,
+              "n": 64,
+              "accuracy": 0.5625
+            },
+            "B4_bind": {
+              "ok": 24,
+              "n": 64,
+              "accuracy": 0.375
+            },
+            "B8_bind": {
+              "ok": 7,
+              "n": 64,
+              "accuracy": 0.1094
+            },
+            "B_rename": {
+              "ok": 14,
+              "n": 64,
+              "accuracy": 0.2188
+            },
+            "C_history_current": {
+              "ok": 34,
+              "n": 64,
+              "accuracy": 0.5312
+            },
+            "C_indirect": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "C_reassign": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "D_distance": {
+              "ok": 19,
+              "n": 64,
+              "accuracy": 0.2969
+            },
+            "D_interference": {
+              "ok": 20,
+              "n": 64,
+              "accuracy": 0.3125
+            }
+          }
+        },
+        "last_digit": {
+          "correct": 167,
+          "usable": 771,
+          "accuracy": 0.2166,
+          "coverage": 0.8308,
+          "per_task": {
+            "A1_copy1": {
+              "ok": 4,
+              "n": 4,
+              "accuracy": 1.0
+            },
+            "A2_copy2": {
+              "ok": 0,
+              "n": 12,
+              "accuracy": 0.0
+            },
+            "A3_copyN": {
+              "ok": 0,
+              "n": 20,
+              "accuracy": 0.0
+            },
+            "A4_reverse": {
+              "ok": 0,
+              "n": 31,
+              "accuracy": 0.0
+            },
+            "A5_repeat": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A6_index": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "B2_bind": {
+              "ok": 34,
+              "n": 64,
+              "accuracy": 0.5312
+            },
+            "B4_bind": {
+              "ok": 20,
+              "n": 64,
+              "accuracy": 0.3125
+            },
+            "B8_bind": {
+              "ok": 12,
+              "n": 64,
+              "accuracy": 0.1875
+            },
+            "B_rename": {
+              "ok": 29,
+              "n": 64,
+              "accuracy": 0.4531
+            },
+            "C_history_current": {
+              "ok": 30,
+              "n": 64,
+              "accuracy": 0.4688
+            },
+            "C_indirect": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "C_reassign": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "D_distance": {
+              "ok": 15,
+              "n": 64,
+              "accuracy": 0.2344
+            },
+            "D_interference": {
+              "ok": 23,
+              "n": 64,
+              "accuracy": 0.3594
+            }
+          }
+        },
+        "fixed_position_0": {
+          "correct": 218,
+          "usable": 576,
+          "accuracy": 0.3785,
+          "coverage": 0.6207,
+          "per_task": {
+            "B2_bind": {
+              "ok": 36,
+              "n": 64,
+              "accuracy": 0.5625
+            },
+            "B4_bind": {
+              "ok": 24,
+              "n": 64,
+              "accuracy": 0.375
+            },
+            "B8_bind": {
+              "ok": 7,
+              "n": 64,
+              "accuracy": 0.1094
+            },
+            "B_rename": {
+              "ok": 14,
+              "n": 64,
+              "accuracy": 0.2188
+            },
+            "C_history_current": {
+              "ok": 34,
+              "n": 64,
+              "accuracy": 0.5312
+            },
+            "C_indirect": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "C_reassign": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "D_distance": {
+              "ok": 19,
+              "n": 64,
+              "accuracy": 0.2969
+            },
+            "D_interference": {
+              "ok": 20,
+              "n": 64,
+              "accuracy": 0.3125
+            }
+          }
+        },
+        "fixed_position_1": {
+          "correct": 141,
+          "usable": 576,
+          "accuracy": 0.2448,
+          "coverage": 0.6207,
+          "per_task": {
+            "B2_bind": {
+              "ok": 34,
+              "n": 64,
+              "accuracy": 0.5312
+            },
+            "B4_bind": {
+              "ok": 17,
+              "n": 64,
+              "accuracy": 0.2656
+            },
+            "B8_bind": {
+              "ok": 14,
+              "n": 64,
+              "accuracy": 0.2188
+            },
+            "B_rename": {
+              "ok": 17,
+              "n": 64,
+              "accuracy": 0.2656
+            },
+            "C_history_current": {
+              "ok": 5,
+              "n": 64,
+              "accuracy": 0.0781
+            },
+            "C_indirect": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "C_reassign": {
+              "ok": 12,
+              "n": 64,
+              "accuracy": 0.1875
+            },
+            "D_distance": {
+              "ok": 24,
+              "n": 64,
+              "accuracy": 0.375
+            },
+            "D_interference": {
+              "ok": 18,
+              "n": 64,
+              "accuracy": 0.2812
+            }
+          }
+        },
+        "fixed_position_2": {
+          "correct": 100,
+          "usable": 512,
+          "accuracy": 0.1953,
+          "coverage": 0.5517,
+          "per_task": {
+            "B4_bind": {
+              "ok": 22,
+              "n": 64,
+              "accuracy": 0.3438
+            },
+            "B8_bind": {
+              "ok": 16,
+              "n": 64,
+              "accuracy": 0.25
+            },
+            "B_rename": {
+              "ok": 14,
+              "n": 64,
+              "accuracy": 0.2188
+            },
+            "C_history_current": {
+              "ok": 7,
+              "n": 64,
+              "accuracy": 0.1094
+            },
+            "C_indirect": {
+              "ok": 9,
+              "n": 64,
+              "accuracy": 0.1406
+            },
+            "C_reassign": {
+              "ok": 3,
+              "n": 64,
+              "accuracy": 0.0469
+            },
+            "D_distance": {
+              "ok": 14,
+              "n": 64,
+              "accuracy": 0.2188
+            },
+            "D_interference": {
+              "ok": 15,
+              "n": 64,
+              "accuracy": 0.2344
+            }
+          }
+        },
+        "constant_most_common": {
+          "correct": 69,
+          "usable": 928,
+          "accuracy": 0.0744,
+          "coverage": 1.0,
+          "per_task": {
+            "A1_copy1": {
+              "ok": 0,
+              "n": 32,
+              "accuracy": 0.0
+            },
+            "A2_copy2": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A3_copyN": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A4_reverse": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A5_repeat": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A6_index": {
+              "ok": 1,
+              "n": 64,
+              "accuracy": 0.0156
+            },
+            "B2_bind": {
+              "ok": 11,
+              "n": 64,
+              "accuracy": 0.1719
+            },
+            "B4_bind": {
+              "ok": 8,
+              "n": 64,
+              "accuracy": 0.125
+            },
+            "B8_bind": {
+              "ok": 6,
+              "n": 64,
+              "accuracy": 0.0938
+            },
+            "B_rename": {
+              "ok": 11,
+              "n": 64,
+              "accuracy": 0.1719
+            },
+            "C_history_current": {
+              "ok": 8,
+              "n": 64,
+              "accuracy": 0.125
+            },
+            "C_indirect": {
+              "ok": 2,
+              "n": 64,
+              "accuracy": 0.0312
+            },
+            "C_reassign": {
+              "ok": 9,
+              "n": 64,
+              "accuracy": 0.1406
+            },
+            "D_distance": {
+              "ok": 5,
+              "n": 64,
+              "accuracy": 0.0781
+            },
+            "D_interference": {
+              "ok": 8,
+              "n": 64,
+              "accuracy": 0.125
+            }
+          }
+        },
+        "random_digit": {
+          "correct": 59,
+          "usable": 928,
+          "accuracy": 0.0636,
+          "coverage": 1.0,
+          "per_task": {
+            "A1_copy1": {
+              "ok": 0,
+              "n": 32,
+              "accuracy": 0.0
+            },
+            "A2_copy2": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A3_copyN": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A4_reverse": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A5_repeat": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "A6_index": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "B2_bind": {
+              "ok": 7,
+              "n": 64,
+              "accuracy": 0.1094
+            },
+            "B4_bind": {
+              "ok": 6,
+              "n": 64,
+              "accuracy": 0.0938
+            },
+            "B8_bind": {
+              "ok": 6,
+              "n": 64,
+              "accuracy": 0.0938
+            },
+            "B_rename": {
+              "ok": 6,
+              "n": 64,
+              "accuracy": 0.0938
+            },
+            "C_history_current": {
+              "ok": 8,
+              "n": 64,
+              "accuracy": 0.125
+            },
+            "C_indirect": {
+              "ok": 5,
+              "n": 64,
+              "accuracy": 0.0781
+            },
+            "C_reassign": {
+              "ok": 9,
+              "n": 64,
+              "accuracy": 0.1406
+            },
+            "D_distance": {
+              "ok": 2,
+              "n": 64,
+              "accuracy": 0.0312
+            },
+            "D_interference": {
+              "ok": 10,
+              "n": 64,
+              "accuracy": 0.1562
+            }
+          }
+        }
+      },
+      "baseline_B_semantic": {
+        "query_specified_variable": {
+          "correct": 512,
+          "usable": 512,
+          "accuracy": 1.0,
+          "coverage": 0.5517,
+          "per_task": {
+            "B2_bind": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "B4_bind": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "B8_bind": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "B_rename": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "C_indirect": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "C_reassign": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "D_distance": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            },
+            "D_interference": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            }
+          }
+        },
+        "nearest_assignment": {
+          "correct": 163,
+          "usable": 576,
+          "accuracy": 0.283,
+          "coverage": 0.6207,
+          "per_task": {
+            "B2_bind": {
+              "ok": 34,
+              "n": 64,
+              "accuracy": 0.5312
+            },
+            "B4_bind": {
+              "ok": 20,
+              "n": 64,
+              "accuracy": 0.3125
+            },
+            "B8_bind": {
+              "ok": 12,
+              "n": 64,
+              "accuracy": 0.1875
+            },
+            "B_rename": {
+              "ok": 29,
+              "n": 64,
+              "accuracy": 0.4531
+            },
+            "C_history_current": {
+              "ok": 30,
+              "n": 64,
+              "accuracy": 0.4688
+            },
+            "C_indirect": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "C_reassign": {
+              "ok": 0,
+              "n": 64,
+              "accuracy": 0.0
+            },
+            "D_distance": {
+              "ok": 15,
+              "n": 64,
+              "accuracy": 0.2344
+            },
+            "D_interference": {
+              "ok": 23,
+              "n": 64,
+              "accuracy": 0.3594
+            }
+          }
+        },
+        "indirect_reference_interpreter": {
+          "correct": 64,
+          "usable": 64,
+          "accuracy": 1.0,
+          "coverage": 0.069,
+          "per_task": {
+            "C_indirect": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            }
+          }
+        },
+        "history_state_interpreter": {
+          "correct": 64,
+          "usable": 64,
+          "accuracy": 1.0,
+          "coverage": 0.069,
+          "per_task": {
+            "C_history_current": {
+              "ok": 64,
+              "n": 64,
+              "accuracy": 1.0
+            }
+          }
+        }
+      },
+      "B_rename_original": {
+        "source": "data_snapshot_a55c42a",
+        "n_one_to_one_violations": 76,
+        "n_label_mismatches": 18,
+        "seven_requested_cases": [
+          {
+            "split": "train",
+            "prompt": "m=5\nm=4\nd=2\np=7\nGET m",
+            "stored_answer": "5",
+            "reference_answer": "4",
+            "variables": [
+              "m",
+              "m",
+              "d",
+              "p"
+            ],
+            "query": "m",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "f=7\nf=3\nc=0\nd=7\nGET f",
+            "stored_answer": "7",
+            "reference_answer": "3",
+            "variables": [
+              "f",
+              "f",
+              "c",
+              "d"
+            ],
+            "query": "f",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "k=3\nj=9\nk=5\nk=2\nGET k",
+            "stored_answer": "3",
+            "reference_answer": "2",
+            "variables": [
+              "k",
+              "j",
+              "k",
+              "k"
+            ],
+            "query": "k",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "j=4\nj=3\nc=1\nc=0\nGET c",
+            "stored_answer": "1",
+            "reference_answer": "0",
+            "variables": [
+              "j",
+              "j",
+              "c",
+              "c"
+            ],
+            "query": "c",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "c=2\nc=1\nc=5\ni=8\nGET c",
+            "stored_answer": "2",
+            "reference_answer": "5",
+            "variables": [
+              "c",
+              "c",
+              "c",
+              "i"
+            ],
+            "query": "c",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "n=2\nb=7\nl=6\nb=5\nGET b",
+            "stored_answer": "7",
+            "reference_answer": "5",
+            "variables": [
+              "n",
+              "b",
+              "l",
+              "b"
+            ],
+            "query": "b",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "h=7\nk=9\nn=6\nh=8\nGET h",
+            "stored_answer": "7",
+            "reference_answer": "8",
+            "variables": [
+              "h",
+              "k",
+              "n",
+              "h"
+            ],
+            "query": "h",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          }
+        ],
+        "all_label_mismatches": [
+          {
+            "split": "train",
+            "prompt": "m=5\nm=4\nd=2\np=7\nGET m",
+            "stored_answer": "5",
+            "reference_answer": "4",
+            "variables": [
+              "m",
+              "m",
+              "d",
+              "p"
+            ],
+            "query": "m",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "f=7\nf=3\nc=0\nd=7\nGET f",
+            "stored_answer": "7",
+            "reference_answer": "3",
+            "variables": [
+              "f",
+              "f",
+              "c",
+              "d"
+            ],
+            "query": "f",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "k=3\nj=9\nk=5\nk=2\nGET k",
+            "stored_answer": "3",
+            "reference_answer": "2",
+            "variables": [
+              "k",
+              "j",
+              "k",
+              "k"
+            ],
+            "query": "k",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "j=4\nj=3\nc=1\nc=0\nGET c",
+            "stored_answer": "1",
+            "reference_answer": "0",
+            "variables": [
+              "j",
+              "j",
+              "c",
+              "c"
+            ],
+            "query": "c",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "c=2\nc=1\nc=5\ni=8\nGET c",
+            "stored_answer": "2",
+            "reference_answer": "5",
+            "variables": [
+              "c",
+              "c",
+              "c",
+              "i"
+            ],
+            "query": "c",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "n=2\nb=7\nl=6\nb=5\nGET b",
+            "stored_answer": "7",
+            "reference_answer": "5",
+            "variables": [
+              "n",
+              "b",
+              "l",
+              "b"
+            ],
+            "query": "b",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "h=7\nk=9\nn=6\nh=8\nGET h",
+            "stored_answer": "7",
+            "reference_answer": "8",
+            "variables": [
+              "h",
+              "k",
+              "n",
+              "h"
+            ],
+            "query": "h",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "c=0\nk=3\nc=8\na=6\nGET c",
+            "stored_answer": "0",
+            "reference_answer": "8",
+            "variables": [
+              "c",
+              "k",
+              "c",
+              "a"
+            ],
+            "query": "c",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "k=7\nk=5\nf=4\nm=6\nGET k",
+            "stored_answer": "7",
+            "reference_answer": "5",
+            "variables": [
+              "k",
+              "k",
+              "f",
+              "m"
+            ],
+            "query": "k",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "d=1\nd=8\nn=1\nj=9\nGET d",
+            "stored_answer": "1",
+            "reference_answer": "8",
+            "variables": [
+              "d",
+              "d",
+              "n",
+              "j"
+            ],
+            "query": "d",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "train",
+            "prompt": "n=7\ng=4\nn=3\no=3\nGET n",
+            "stored_answer": "7",
+            "reference_answer": "3",
+            "variables": [
+              "n",
+              "g",
+              "n",
+              "o"
+            ],
+            "query": "n",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "val",
+            "prompt": "e=8\ne=9\np=5\nk=5\nGET e",
+            "stored_answer": "8",
+            "reference_answer": "9",
+            "variables": [
+              "e",
+              "e",
+              "p",
+              "k"
+            ],
+            "query": "e",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "val",
+            "prompt": "b=7\nb=8\na=5\np=6\nGET b",
+            "stored_answer": "7",
+            "reference_answer": "8",
+            "variables": [
+              "b",
+              "b",
+              "a",
+              "p"
+            ],
+            "query": "b",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "val",
+            "prompt": "p=5\ne=1\ne=3\nh=6\nGET e",
+            "stored_answer": "1",
+            "reference_answer": "3",
+            "variables": [
+              "p",
+              "e",
+              "e",
+              "h"
+            ],
+            "query": "e",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "val",
+            "prompt": "h=1\nh=8\nn=0\ng=3\nGET h",
+            "stored_answer": "1",
+            "reference_answer": "8",
+            "variables": [
+              "h",
+              "h",
+              "n",
+              "g"
+            ],
+            "query": "h",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "sealed",
+            "prompt": "p=8\nj=2\nb=3\np=6\nGET p",
+            "stored_answer": "8",
+            "reference_answer": "6",
+            "variables": [
+              "p",
+              "j",
+              "b",
+              "p"
+            ],
+            "query": "p",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "sealed",
+            "prompt": "d=1\no=7\nd=6\ni=4\nGET d",
+            "stored_answer": "1",
+            "reference_answer": "6",
+            "variables": [
+              "d",
+              "o",
+              "d",
+              "i"
+            ],
+            "query": "d",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          },
+          {
+            "split": "sealed",
+            "prompt": "f=5\nf=2\ne=4\nd=3\nGET f",
+            "stored_answer": "5",
+            "reference_answer": "2",
+            "variables": [
+              "f",
+              "f",
+              "e",
+              "d"
+            ],
+            "query": "f",
+            "reason": "目标变量被重复赋值：标签使用重命名前旧值，参考解释器按题面最后一次赋值取新值"
+          }
+        ],
+        "note": "用户提到 7 条；独立扫描实际发现 18 条标签错误和 76 条一对一违规，全部列出。"
+      }
+    },
+    "gather": {
+      "source": "M41F_GATHER_AUDIT.json",
+      "status": "PASS",
+      "checks": {
+        "GATHER_LOGITS_EQUAL": true,
+        "NEW_MEMORY_LE_NOT_OLD": true,
+        "NEW_GATHER_ELEMENTS_LE_OLD": true,
+        "TRUE_MATMUL_COUNT_EQUAL": true
+      },
+      "elements": {
+        "old_expand_elements": 139264,
+        "new_gather_elements": 52224,
+        "saved_elements": 87040,
+        "new_copy_bytes": 208896
+      },
+      "profiler_memory": {
+        "new_direct_index": {
+          "allocated_bytes_total": 1050240,
+          "allocated_bytes_per_call": 210048.0,
+          "ops": [
+            {
+              "name": "aten::index",
+              "self_cpu_memory_bytes": 1044480,
+              "count": 10
+            },
+            {
+              "name": "aten::empty",
+              "self_cpu_memory_bytes": 5440,
+              "count": 10
+            },
+            {
+              "name": "aten::resize_",
+              "self_cpu_memory_bytes": 320,
+              "count": 5
+            }
+          ]
+        },
+        "old_expand_reshape": {
+          "allocated_bytes_total": 3829760,
+          "allocated_bytes_per_call": 765952.0,
+          "ops": [
+            {
+              "name": "aten::empty",
+              "self_cpu_memory_bytes": 2785280,
+              "count": 10
+            },
+            {
+              "name": "aten::gather",
+              "self_cpu_memory_bytes": 1044480,
+              "count": 10
+            }
+          ]
+        },
+        "saved_bytes_per_call": 555904.0
+      },
+      "latency": {
+        "prefill_T64_new_direct_ms": {
+          "median_ms": 4.1959,
+          "p95_ms": 4.3752
+        },
+        "prefill_T64_old_expand_ms": {
+          "median_ms": 4.5671,
+          "p95_ms": 4.8035
+        },
+        "incremental_prefill_plus_16_new_ms": {
+          "median_ms": 44.5011,
+          "p95_ms": 58.6234
+        },
+        "incremental_prefill_plus_16_old_ms": {
+          "median_ms": 43.7304,
+          "p95_ms": 57.3332
+        },
+        "prefill_delta_pct": -8.13,
+        "incremental_delta_pct": 1.76
+      }
+    },
+    "budget": {
+      "source": "M41F_BUDGET_AUDIT.json",
+      "checks": {
+        "UNAUTHORIZED_ZERO_STEP": {
+          "pass": true,
+          "observed": {
+            "ledger_steps": 0,
+            "pending": 0,
+            "training_result_steps": 0,
+            "plan_status": "M41F_PREFLIGHT_READY_AWAITING_AUTHORIZATION"
+          },
+          "required": {
+            "ledger_steps": 0,
+            "training_result_steps": 0,
+            "plan_status_contains": "AWAITING_AUTHORIZATION"
+          }
+        },
+        "SOLE_TRAINING_ENTRY": {
+          "pass": true,
+          "observed": [
+            {
+              "file": "train_m4.py",
+              "line": 204,
+              "receiver": "opt"
+            }
+          ],
+          "required": "唯一 optimizer.step 位于 train_m4.py"
+        },
+        "RESERVE_BEFORE_CONFIRM": {
+          "pass": true,
+          "observed": {
+            "event_types": [
+              "reserve",
+              "step"
+            ],
+            "steps_used": 1,
+            "pending": 0
+          },
+          "required": {
+            "event_types": [
+              "reserve",
+              "step"
+            ],
+            "steps_used": 1,
+            "pending": 0
+          }
+        },
+        "UNCONFIRMED_CONSERVATIVE": {
+          "pass": true,
+          "observed": {
+            "steps_used_after_restart": 2,
+            "pending_after_restart": 1,
+            "rid": "probe2:positive:1:8cab09e5"
+          },
+          "required": {
+            "steps_used_after_restart": 2,
+            "pending_after_restart": 1
+          }
+        },
+        "SHARED_BUDGET_CAPS": {
+          "pass": true,
+          "observed": {
+            "steps_used": 4096,
+            "stages": {
+              "positive": 256,
+              "main": 3840
+            },
+            "positive_rejected": true,
+            "main_rejected": true
+          },
+          "required": {
+            "positive": 256,
+            "main": 3840,
+            "total": 4096,
+            "max_wall_seconds": 3600
+          }
+        }
+      },
+      "live": {
+        "pass": true,
+        "checks": {
+          "steps_within_limit": true,
+          "wall_within_limit": true,
+          "not_over_total": true
+        },
+        "summary": {
+          "steps_used": 0,
+          "pending_unconfirmed": 0,
+          "max_steps": 4096,
+          "steps_remaining": 4096,
+          "wall_used": 0.0,
+          "max_wall": 3600,
+          "stages": {},
+          "sessions": 0,
+          "runs": []
+        }
+      }
+    },
+    "positive_control": {
+      "source": "M41F_POSITIVE_CONTROL_SPEC.json",
+      "alignment": {
+        "n_samples": 64,
+        "answer_only_alignment": true,
+        "failures": [],
+        "batch": [
+          64,
+          16
+        ],
+        "supervised_tokens": 200
+      },
+      "gate_spec": {
+        "tf_accuracy_min": 0.95,
+        "natural_eos_full_accuracy_min": 0.9,
+        "gradient_finite_and_nonzero_required": true,
+        "parameter_update_required": true,
+        "future_leakage_forbidden": true,
+        "evaluate_on_same_64_rows": true,
+        "weights_enter_main_experiment": false,
+        "abort_main_on_reference_failure": true,
+        "sole_training_entry": "train_m4.py"
+      },
+      "ready_but_not_executed": true,
+      "must_have_both_reference_models": true
+    }
+  }
+}

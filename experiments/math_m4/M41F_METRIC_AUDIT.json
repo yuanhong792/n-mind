@@ -1,0 +1,284 @@
+{
+  "status": "PASS",
+  "checks": {
+    "STRICT_TOKEN_EOS_OK": {
+      "pass": true,
+      "observed": {
+        "raw_ids": [
+          29,
+          2
+        ],
+        "expected_ids": [
+          29,
+          2
+        ],
+        "strict_ok": true,
+        "finish_reason": "eos",
+        "forward_calls": [
+          {
+            "T": 7,
+            "hard_gate": true
+          },
+          {
+            "T": 1,
+            "hard_gate": true
+          }
+        ]
+      },
+      "required": {
+        "strict_ok": true,
+        "finish_reason": "eos",
+        "ids_equal": true
+      }
+    },
+    "DECODE_FILTER_CANNOT_HIDE_SPECIAL_TOKEN": {
+      "pass": true,
+      "observed": {
+        "raw_ids": [
+          29,
+          1,
+          2
+        ],
+        "expected_ids": [
+          29,
+          2
+        ],
+        "decoded_content_ok": true,
+        "strict_ok": false,
+        "invalid_special_tokens": [
+          1
+        ]
+      },
+      "required": "decode 文本相同也必须因 SEP/PAD/BOS/UNK 原始 token 判失败"
+    },
+    "PAD_CANNOT_BE_FILTERED": {
+      "pass": true,
+      "observed": {
+        "raw_ids": [
+          29,
+          1,
+          2
+        ],
+        "strict_ok": false,
+        "invalid_special_tokens": [
+          1
+        ]
+      },
+      "required": {
+        "strict_ok": false
+      }
+    },
+    "NO_NATURAL_EOS_REJECTED": {
+      "pass": true,
+      "observed": {
+        "raw_ids": [
+          29,
+          30
+        ],
+        "finish_reason": "length"
+      },
+      "required": {
+        "finish_reason": "length",
+        "strict_ok": false
+      }
+    },
+    "HARD_GATE_DEFAULT": {
+      "pass": true,
+      "observed": {
+        "forward_calls": [
+          {
+            "T": 7,
+            "hard_gate": true
+          },
+          {
+            "T": 1,
+            "hard_gate": true
+          }
+        ],
+        "eval_rows_default": "True",
+        "strict_macro": 1.0
+      },
+      "required": {
+        "hard_gate": true,
+        "eval_rows_default": true
+      }
+    },
+    "ISO_TWO_CONSECUTIVE_POINTS": {
+      "pass": true,
+      "observed": {
+        "status": "REACHED_STABLE",
+        "seed": 1,
+        "first_confirmation_step": 64,
+        "confirmed_step": 128,
+        "strict_macro": 0.82,
+        "cost": 1600,
+        "cost_source": "cumulative_macs@second_confirmation",
+        "evidence": [
+          {
+            "step": 64,
+            "strict_macro": 0.8,
+            "critical_snapshot": {
+              "A3_copyN": 1.0,
+              "A4_reverse": 1.0,
+              "A5_repeat": 1.0,
+              "B2_bind": 1.0,
+              "B4_bind": 1.0,
+              "counterfactual_same_query_fact_change": 1.0,
+              "counterfactual_unrelated_fact_invariance": 1.0,
+              "query_switch": 1.0,
+              "C_reassign": 1.0
+            }
+          },
+          {
+            "step": 128,
+            "strict_macro": 0.82,
+            "critical_snapshot": {
+              "A3_copyN": 1.0,
+              "A4_reverse": 1.0,
+              "A5_repeat": 1.0,
+              "B2_bind": 1.0,
+              "B4_bind": 1.0,
+              "counterfactual_same_query_fact_change": 1.0,
+              "counterfactual_unrelated_fact_invariance": 1.0,
+              "query_switch": 1.0,
+              "C_reassign": 1.0
+            }
+          }
+        ],
+        "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+      },
+      "required": {
+        "status": "REACHED_STABLE",
+        "confirmed_step": 128,
+        "cost": 1600
+      }
+    },
+    "ISO_FINAL_SINGLE_POINT_REJECTED": {
+      "pass": true,
+      "observed": {
+        "status": "TARGET_NOT_REACHED",
+        "seed": 1,
+        "rule": "需要连续两个独立验证点同时达标",
+        "last_point": {
+          "step": 192,
+          "strict_macro": 0.85,
+          "critical_snapshot": {
+            "A3_copyN": 1.0,
+            "A4_reverse": 1.0,
+            "A5_repeat": 1.0,
+            "B2_bind": 1.0,
+            "B4_bind": 1.0,
+            "counterfactual_same_query_fact_change": 1.0,
+            "counterfactual_unrelated_fact_invariance": 1.0,
+            "query_switch": 1.0,
+            "C_reassign": 1.0
+          }
+        }
+      },
+      "required": {
+        "status": "TARGET_NOT_REACHED"
+      }
+    },
+    "ISO_CRITICAL_FLOOR_REQUIRED": {
+      "pass": true,
+      "observed": {
+        "status": "TARGET_NOT_REACHED",
+        "seed": 1,
+        "rule": "需要连续两个独立验证点同时达标",
+        "last_point": {
+          "step": 128,
+          "problems": [
+            "critical_below_floor:C_reassign"
+          ]
+        }
+      },
+      "required": "C_reassign 低于预登记下限不得达标"
+    },
+    "ISO_HARD_GATE_REQUIRED": {
+      "pass": true,
+      "observed": {
+        "status": "TARGET_NOT_REACHED",
+        "seed": 1,
+        "rule": "需要连续两个独立验证点同时达标",
+        "last_point": {
+          "step": 128,
+          "problems": [
+            "hard_gate_not_true"
+          ]
+        }
+      },
+      "required": "软门结果不得计入部署能力"
+    },
+    "ISO_NO_FICTIONAL_COST": {
+      "pass": true,
+      "observed": {
+        "status": "REACHED_STABLE_COST_UNAVAILABLE",
+        "seed": 1,
+        "first_confirmation_step": 64,
+        "confirmed_step": 128,
+        "strict_macro": 0.85,
+        "cost": null,
+        "cost_source": "cost_macs@second_confirmation",
+        "evidence": [
+          {
+            "step": 64,
+            "strict_macro": 0.85,
+            "critical_snapshot": {
+              "A3_copyN": 1.0,
+              "A4_reverse": 1.0,
+              "A5_repeat": 1.0,
+              "B2_bind": 1.0,
+              "B4_bind": 1.0,
+              "counterfactual_same_query_fact_change": 1.0,
+              "counterfactual_unrelated_fact_invariance": 1.0,
+              "query_switch": 1.0,
+              "C_reassign": 1.0
+            }
+          },
+          {
+            "step": 128,
+            "strict_macro": 0.85,
+            "critical_snapshot": {
+              "A3_copyN": 1.0,
+              "A4_reverse": 1.0,
+              "A5_repeat": 1.0,
+              "B2_bind": 1.0,
+              "B4_bind": 1.0,
+              "counterfactual_same_query_fact_change": 1.0,
+              "counterfactual_unrelated_fact_invariance": 1.0,
+              "query_switch": 1.0,
+              "C_reassign": 1.0
+            }
+          }
+        ],
+        "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+      },
+      "required": {
+        "cost": null,
+        "status": "REACHED_STABLE_COST_UNAVAILABLE"
+      }
+    },
+    "ISO_SEED_INDEPENDENT": {
+      "pass": true,
+      "observed": {
+        "seed1": 1,
+        "seed2": 2,
+        "status1": "REACHED_STABLE",
+        "status2": "REACHED_STABLE"
+      },
+      "required": "每个 seed 单独记录，不做平均值判定"
+    }
+  },
+  "critical_minimums": {
+    "A3_copyN": 0.3,
+    "A4_reverse": 0.2,
+    "A5_repeat": 0.2,
+    "B2_bind": 0.4,
+    "B4_bind": 0.3,
+    "counterfactual_same_query_fact_change": 0.4,
+    "counterfactual_unrelated_fact_invariance": 0.4,
+    "query_switch": 0.3,
+    "C_reassign": 0.3
+  },
+  "note": "指标测试使用预设 logits 的桩模型，不执行训练，不代表任务能力。"
+}

@@ -38,15 +38,29 @@ class GroupedSelectiveAttention(nn.Module):
 
     @staticmethod
     def _gather(Kt, Vt, pos):
-        """pos: [B,h,T,S]，返回 K/V [B,h,T,S,dh]。"""
+        """pos: [B,h,T,S]，直接按 (batch,head) 索引，返回 K/V [B,h,T,S,dh]。
+
+        M41F：禁止 `Kt.unsqueeze(2).expand(...).reshape(...)`。
+        旧写法会为每个 query 物化全部历史 L，临时张量 B*h*T*L*dh；
+        新写法只复制被选槽位，临时张量 B*h*T*S*dh。
+        """
         B, h, T, S = pos.shape
         L, dh = Kt.shape[2], Kt.shape[-1]
-        idx = pos.reshape(B * h * T, S).unsqueeze(-1).expand(-1, -1, dh)
-        k_exp = Kt.unsqueeze(2).expand(B, h, T, L, dh).reshape(B * h * T, L, dh)
-        v_exp = Vt.unsqueeze(2).expand(B, h, T, L, dh).reshape(B * h * T, L, dh)
-        k_flat = k_exp.gather(1, idx)
-        v_flat = v_exp.gather(1, idx)
-        return k_flat.reshape(B, h, T, S, dh), v_flat.reshape(B, h, T, S, dh)
+        flat_pos = pos.reshape(B * h * T, S)
+        bh = torch.arange(B * h, device=Kt.device).repeat_interleave(T)
+        k_flat = Kt.reshape(B * h, L, dh)[bh[:, None], flat_pos]
+        v_flat = Vt.reshape(B * h, L, dh)[bh[:, None], flat_pos]
+        old_elements = 2 * B * h * T * L * dh
+        new_elements = 2 * B * h * T * S * dh
+        meta = {
+            "old_expand_elements": old_elements,
+            "new_gather_elements": new_elements,
+            "saved_elements": old_elements - new_elements,
+            "copy_bytes": int(new_elements * Kt.element_size()),
+            "slots_per_query": S,
+        }
+        return (k_flat.reshape(B, h, T, S, dh),
+                v_flat.reshape(B, h, T, S, dh), meta)
 
     def forward(self, x, cache_k=None, cache_v=None, pos_start=0,
                 valid_mask=None, cache_valid=None, hard_gate=False,
@@ -81,6 +95,7 @@ class GroupedSelectiveAttention(nn.Module):
         G = L // self.gs
         k = min(self.top_k, G)
         summary_macs = coarse_macs = topk_comparisons = 0
+        gather_old = gather_new = gather_bytes = 0
         sel_K = sel_V = None
         sel_key_ok = None
         route = None
@@ -116,7 +131,10 @@ class GroupedSelectiveAttention(nn.Module):
             pos = idx[..., None] * self.gs + torch.arange(
                 self.gs, device=x.device).view(1, 1, 1, 1, self.gs)
             pos = pos.clamp(max=max(0, L - 1)).reshape(B, self.h, T, k * self.gs)
-            sel_K, sel_V = self._gather(Kt, Vt, pos)
+            sel_K, sel_V, gm = self._gather(Kt, Vt, pos)
+            gather_old += gm["old_expand_elements"]
+            gather_new += gm["new_gather_elements"]
+            gather_bytes += gm["copy_bytes"]
             gv_sel = key_ok.gather(1, pos.reshape(B, -1)).reshape(B, self.h, T, k * self.gs)
             sel_group_mask = (sel_group_ok[..., None]
                               .expand(B, self.h, T, k, self.gs)
@@ -131,7 +149,10 @@ class GroupedSelectiveAttention(nn.Module):
         loc_pos_gather = loc_pos_raw.clamp(max=max(0, L - 1))
         loc_pos_bh = loc_pos_gather[None, None, :, :].expand(
             B, self.h, T, self.gs).reshape(B, self.h, T, self.gs)
-        loc_K, loc_V = self._gather(Kt, Vt, loc_pos_bh)
+        loc_K, loc_V, gm = self._gather(Kt, Vt, loc_pos_bh)
+        gather_old += gm["old_expand_elements"]
+        gather_new += gm["new_gather_elements"]
+        gather_bytes += gm["copy_bytes"]
         loc_key_ok = key_ok[:, loc_pos_gather].reshape(B, 1, T, self.gs)
         arrived = (loc_pos_raw <= q_abs[:, None]) & (loc_pos_raw < L)
         loc_key_ok = loc_key_ok & arrived[None, :, :]
@@ -188,7 +209,12 @@ class GroupedSelectiveAttention(nn.Module):
                 "summary_macs": summary_macs,
                 "coarse_retrieval_macs": coarse_macs,
                 "topk_comparisons": topk_comparisons,
-                "gather_elements": actual_positions,
+                "gather_positions": actual_positions,
+                "gather_elements": gather_new,
+                "gather_old_expand_elements": gather_old,
+                "gather_saved_elements": gather_old - gather_new,
+                "gather_copy_bytes": gather_bytes,
+                "gather_direct_indexing": True,
                 "controller_macs": summary_macs + coarse_macs,
                 "executed_macs": actual_macs + summary_macs + coarse_macs,
                 "full_qk_forbidden": True,
@@ -257,7 +283,13 @@ class SelectiveInteractionM4(M4Base):
                      max(1, len(stats_list)), 4),
                  "actual_compute_ratio": round(
                      sum(s["actual_compute_ratio"] for s in stats_list) /
-                     max(1, len(stats_list)), 4)}
+                     max(1, len(stats_list)), 4),
+                 "gather_old_expand_elements": sum(
+                     s["gather_old_expand_elements"] for s in stats_list),
+                 "gather_new_elements": sum(
+                     s["gather_elements"] for s in stats_list),
+                 "gather_copy_bytes": sum(
+                     s["gather_copy_bytes"] for s in stats_list)}
         cache = {"ck": nck, "cv": ncv, "pos": pos_start + T,
                  "key_valid": key_valid, "stats": stats}
         return logits, cache

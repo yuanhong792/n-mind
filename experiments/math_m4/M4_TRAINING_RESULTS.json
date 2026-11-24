@@ -2,6 +2,7 @@
   "status": "DRY_RUN_COMPLETE",
   "authorization": "NOT_AUTHORIZED",
   "sole_training_entry": "train_m4.py",
+  "stage_scope": "all",
   "tokenizer_sha": "81f4265301086f8688412dcf21b4c696b57c54e1210027da1daa8e8d6c03541d",
   "panel_n": 296,
   "positive_n": 64,
