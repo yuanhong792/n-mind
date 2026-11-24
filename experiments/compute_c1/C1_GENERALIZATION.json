@@ -1,0 +1,14 @@
+{
+  "C0_copyN_len>4": {
+    "n": 56,
+    "acc": 0.0
+  },
+  "C0_reverse_len>4": {
+    "n": 60,
+    "acc": 0.0
+  },
+  "C2_bindN_unseen": {
+    "n": 100,
+    "acc": 0.43
+  }
+}

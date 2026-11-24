@@ -1,0 +1,29 @@
+{
+  "device": "cpu",
+  "torch_version": "2.10.0+cpu",
+  "cpu_threads": 20,
+  "process_rss_mb": 197.0,
+  "params_nmind": 106410,
+  "avg_infer_seconds_per_sample": {
+    "C0_index": 0.00083,
+    "C3_var_arith": 0.00098,
+    "C0_copyN": 0.00269,
+    "C2_bindN": 0.00106,
+    "C2_counter": 0.00106,
+    "C2_reassign": 0.00101,
+    "C2_indirect": 0.00102,
+    "C0_reverse": 6e-05,
+    "C3_arith": 0.00087,
+    "C0_copy1": 0.00727,
+    "C2_bind1": 0.00112,
+    "C0_next": 6e-05
+  },
+  "train_wall_seconds": 451.1,
+  "optimizer_steps": 2048,
+  "batches_per_step": 16,
+  "checkpoint_files": [
+    "candidate_compute_best.pt",
+    "candidate_compute_final.pt",
+    "candidate_compute_last.pt"
+  ]
+}

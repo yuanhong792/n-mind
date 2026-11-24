@@ -1,0 +1,36 @@
+{
+  "status": "EXECUTED",
+  "version": "C1.0 Compute-First",
+  "branch": "experiment/compute-first-c1",
+  "authorization": {
+    "max_optimizer_steps": 2048,
+    "max_wall_seconds": 1800,
+    "optimizer_steps_executed": 2048,
+    "wall_seconds_actual": 451.1,
+    "within_budget": true
+  },
+  "model": {
+    "architecture": "N-Cell + BlockRouter + GlobalWorkspace + learned embedding/head",
+    "config": {"vocab_size": 101, "d_model": 64, "n_blocks": 4, "block_hidden": 64,
+               "workspace_dim": 32, "workspace_slots": 8, "top_k": 2},
+    "sparse_space_confirmed": "1 <= top_k(2) < n_blocks(4)",
+    "params": 106410,
+    "random_init": true,
+    "no_pretrained_weights": true,
+    "gru_reference_params": 93989
+  },
+  "tokenizer": {"type": "character", "vocab_size": 101, "sha256": "7daa9040116a02ae835a22445455564b854cdcba2d50c91bd194fa775faf912d"},
+  "curriculum": [
+    {"stage": "C0_foundation", "steps": "0-256", "tasks": ["C0_copy1", "C0_copyN", "C0_reverse", "C0_index", "C0_next"]},
+    {"stage": "C2_binding", "steps": "256-768", "tasks": ["C0_copyN", "C0_index", "C2_bind1", "C2_bindN", "C2_counter", "C2_reassign", "C2_indirect"]},
+    {"stage": "C3_math", "steps": "768-1536", "tasks": ["C0_copyN", "C0_index", "C2_bind1", "C2_bindN", "C2_counter", "C2_reassign", "C3_arith", "C3_var_arith"]},
+    {"stage": "C3_consolidate", "steps": "1536-2048", "tasks": ["C0_copyN", "C0_reverse", "C0_index", "C2_bindN", "C2_counter", "C2_reassign", "C3_arith", "C3_var_arith"]}
+  ],
+  "hyperparameters": {"optimizer": "AdamW", "lr": 0.001, "batch_size": 16,
+                      "grad_clip": 1.0, "seed": 20261124, "device": "cpu (torch 2.10.0+cpu)"},
+  "evaluation": {"primary_metric": "greedy free generation", "selection": "VAL taught-task accuracy (SEALED never used for selection)",
+                 "sealed_scored_once_on_best": true, "best_step": 1152},
+  "checkpoints": ["candidate_compute_best.pt", "candidate_compute_final.pt", "candidate_compute_last.pt"],
+  "safety": {"stable_modified": false, "model_weights_uploaded": false,
+             "external_llm_calls": 0, "distillation": false}
+}

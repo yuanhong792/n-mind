@@ -1,0 +1,78 @@
+{
+  "status": "DATA_GENERATED",
+  "seed": 20261124,
+  "counts": {
+    "train": 13213,
+    "val": 1895,
+    "sealed": 1747
+  },
+  "by_task": {
+    "train": {
+      "C3_var_arith": 1790,
+      "C2_bindN": 3738,
+      "C2_counter": 2264,
+      "C2_indirect": 539,
+      "C0_reverse": 1157,
+      "C0_copyN": 1104,
+      "C0_index": 1237,
+      "C2_reassign": 930,
+      "C3_arith": 272,
+      "C2_bind1": 126,
+      "C0_copy1": 34,
+      "C0_next": 22
+    },
+    "val": {
+      "C3_var_arith": 275,
+      "C2_bindN": 540,
+      "C2_counter": 326,
+      "C0_copyN": 168,
+      "C0_reverse": 163,
+      "C0_index": 179,
+      "C2_indirect": 71,
+      "C2_bind1": 16,
+      "C2_reassign": 125,
+      "C0_next": 3,
+      "C3_arith": 25,
+      "C0_copy1": 4
+    },
+    "sealed": {
+      "C0_index": 166,
+      "C3_var_arith": 243,
+      "C0_copyN": 156,
+      "C2_bindN": 467,
+      "C2_counter": 275,
+      "C2_reassign": 129,
+      "C2_indirect": 72,
+      "C0_reverse": 173,
+      "C3_arith": 39,
+      "C0_copy1": 7,
+      "C2_bind1": 18,
+      "C0_next": 2
+    }
+  },
+  "counterfactual_pairs": 2898,
+  "shortcut_baselines_train": {
+    "fixed_answer": 0.1007,
+    "nearest_assignment": 0.2949,
+    "first_assignment": 0.2332,
+    "random_guess": 0.0004
+  },
+  "shortcut_baselines_sealed": {
+    "fixed_answer": 0.1082,
+    "nearest_assignment": 0.2828,
+    "first_assignment": 0.2324,
+    "random_guess": 0.0026
+  },
+  "frozen_sha256": {
+    "train": "a820fc7035b8fd57b4ba40fe5450c439dbbcfcad14ba7e2308a68482d29ccadb",
+    "val": "8aa3a1a5d2d9040ce96f99414ca5a29929d059fed58021036c7c7955cfc02e97",
+    "sealed": "1d63d1bf637ba1ce0a529fc822448d708d0ad6ea227cc57916b928d51fb23e08",
+    "counterfactual": "04bbdb72f875c3efd5ac5da448bbebd8fba1d78c12a0fe66c31b11314e2ae71e"
+  },
+  "prompt_overlap": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "data_deterministic": true
+}

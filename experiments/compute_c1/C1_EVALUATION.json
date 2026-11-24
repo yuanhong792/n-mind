@@ -1,0 +1,770 @@
+{
+  "status": "EVALUATION_DONE",
+  "checkpoint": "candidate_compute_best.pt",
+  "checkpoint_step": 1152,
+  "optimizer_steps_executed": 2048,
+  "per_task": {
+    "C0_index": {
+      "n": 166,
+      "free_generation_accuracy": 0.2651,
+      "immediate_eos_rate": 0.1687,
+      "empty_rate": 0.1687,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00083
+    },
+    "C3_var_arith": {
+      "n": 243,
+      "free_generation_accuracy": 0.4198,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00098
+    },
+    "C0_copyN": {
+      "n": 156,
+      "free_generation_accuracy": 0.0,
+      "immediate_eos_rate": 0.3397,
+      "empty_rate": 0.3397,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00269
+    },
+    "C2_bindN": {
+      "n": 467,
+      "free_generation_accuracy": 0.3555,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00106
+    },
+    "C2_counter": {
+      "n": 275,
+      "free_generation_accuracy": 0.4036,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00106
+    },
+    "C2_reassign": {
+      "n": 129,
+      "free_generation_accuracy": 0.6357,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00101
+    },
+    "C2_indirect": {
+      "n": 72,
+      "free_generation_accuracy": 1.0,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00102
+    },
+    "C0_reverse": {
+      "n": 173,
+      "free_generation_accuracy": 0.0,
+      "immediate_eos_rate": 1.0,
+      "empty_rate": 1.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 6e-05
+    },
+    "C3_arith": {
+      "n": 39,
+      "free_generation_accuracy": 0.2564,
+      "immediate_eos_rate": 0.0513,
+      "empty_rate": 0.0513,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00087
+    },
+    "C0_copy1": {
+      "n": 7,
+      "free_generation_accuracy": 0.1429,
+      "immediate_eos_rate": 0.1429,
+      "empty_rate": 0.1429,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00727
+    },
+    "C2_bind1": {
+      "n": 18,
+      "free_generation_accuracy": 1.0,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00112
+    },
+    "C0_next": {
+      "n": 2,
+      "free_generation_accuracy": 0.0,
+      "immediate_eos_rate": 1.0,
+      "empty_rate": 1.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 6e-05
+    }
+  },
+  "overall_free_generation_accuracy": 0.3469,
+  "counterfactual": {
+    "pairs": 500,
+    "paired_accuracy": 0.142
+  },
+  "generation_samples": [
+    {
+      "task": "C0_index",
+      "prompt": "INDEX SQ2P 3",
+      "expected": "2",
+      "predicted": "Q",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        55
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "p=0\nf=4\nADD p f",
+      "expected": "4",
+      "predicted": "4",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "g=4\nl=4\nMUL g l",
+      "expected": "16",
+      "predicted": "4",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C0_copyN",
+      "prompt": "COPY 1XJ",
+      "expected": "1XJ",
+      "predicted": "JJ",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        48,
+        48
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "c=4\ni=9\nGET i",
+      "expected": "9",
+      "predicted": "4",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C2_counter",
+      "prompt": "c=9\ni=4\nGET i",
+      "expected": "4",
+      "predicted": "4",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "j=0\nm=5\nSUB j m",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C0_index",
+      "prompt": "INDEX Q2 2",
+      "expected": "2",
+      "predicted": "2",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        24
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "e=2\nh=9\no=1\ng=5\nn=1\nk=4\nj=8\nf=9\nGET f",
+      "expected": "9",
+      "predicted": "4",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C2_reassign",
+      "prompt": "f=3\nk=7\nf=4\nf=4\nGET f",
+      "expected": "4",
+      "predicted": "4",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C2_indirect",
+      "prompt": "p=2\ni=p\nGET i",
+      "expected": "2",
+      "predicted": "2",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        24
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "i=2\nc=7\nGET c",
+      "expected": "7",
+      "predicted": "7",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        29
+      ]
+    },
+    {
+      "task": "C2_counter",
+      "prompt": "i=7\nc=2\nGET c",
+      "expected": "2",
+      "predicted": "7",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        29
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "p=5\na=8\nf=0\nm=1\nGET a",
+      "expected": "8",
+      "predicted": "0",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "g=2\na=5\nMUL g a",
+      "expected": "10",
+      "predicted": "5",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "i=2\nj=5\nh=0\nn=7\nGET h",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C2_counter",
+      "prompt": "i=2\nj=5\nh=7\nn=0\nGET h",
+      "expected": "7",
+      "predicted": "0",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "p=5\ng=5\nMUL p g",
+      "expected": "25",
+      "predicted": "5",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "p=3\ni=5\nMUL p i",
+      "expected": "15",
+      "predicted": "5",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "o=2\na=7\ni=3\nd=2\nGET i",
+      "expected": "3",
+      "predicted": "2",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        24
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "a=0\nk=7\nn=7\nl=3\nj=3\nh=4\nd=1\nm=6\nGET d",
+      "expected": "1",
+      "predicted": "4",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "k=4\nl=3\nSUB k l",
+      "expected": "1",
+      "predicted": "0",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "o=8\nl=4\np=2\nd=4\nGET l",
+      "expected": "4",
+      "predicted": "4",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "g=8\nn=2\nDIV g n",
+      "expected": "4",
+      "predicted": "8",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        30
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "l=1\nd=5\nMUL l d",
+      "expected": "5",
+      "predicted": "5",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C0_reverse",
+      "prompt": "REVERSE TM",
+      "expected": "MT",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "d=8\nj=9\no=2\na=2\nm=7\nc=7\nl=2\ng=7\nGET g",
+      "expected": "7",
+      "predicted": "7",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        29
+      ]
+    },
+    {
+      "task": "C2_indirect",
+      "prompt": "a=7\nb=a\nGET b",
+      "expected": "7",
+      "predicted": "7",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        29
+      ]
+    },
+    {
+      "task": "C0_index",
+      "prompt": "INDEX O9ILV 3",
+      "expected": "I",
+      "predicted": "9",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        31
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "i=3\nh=3\nSUB i h",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "a=3\nm=3\nh=4\nb=6\nGET m",
+      "expected": "3",
+      "predicted": "6",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        28
+      ]
+    },
+    {
+      "task": "C0_reverse",
+      "prompt": "REVERSE EK8",
+      "expected": "8KE",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "i=6\nj=4\nb=1\np=5\nk=3\nc=6\no=0\ng=5\nGET p",
+      "expected": "5",
+      "predicted": "5",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C0_reverse",
+      "prompt": "REVERSE 130Q",
+      "expected": "Q031",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    },
+    {
+      "task": "C0_copyN",
+      "prompt": "COPY G9",
+      "expected": "G9",
+      "predicted": "99999999",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "o=1\nf=1\nDIV o f",
+      "expected": "1",
+      "predicted": "1",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        23
+      ]
+    },
+    {
+      "task": "C0_copyN",
+      "prompt": "COPY TOD",
+      "expected": "TOD",
+      "predicted": "TT",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        58,
+        58
+      ]
+    },
+    {
+      "task": "C2_indirect",
+      "prompt": "k=2\nm=k\nGET m",
+      "expected": "2",
+      "predicted": "2",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        24
+      ]
+    },
+    {
+      "task": "C0_reverse",
+      "prompt": "REVERSE B0G4D",
+      "expected": "D4G0B",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "h=1\ni=0\nADD h i",
+      "expected": "1",
+      "predicted": "0",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C2_reassign",
+      "prompt": "n=8\nk=1\nn=2\nn=1\nGET n",
+      "expected": "1",
+      "predicted": "8",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        30
+      ]
+    },
+    {
+      "task": "C2_reassign",
+      "prompt": "f=7\nl=9\nf=8\nf=9\nGET f",
+      "expected": "9",
+      "predicted": "9",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        31
+      ]
+    },
+    {
+      "task": "C2_reassign",
+      "prompt": "g=7\nj=9\ng=3\ng=0\nGET g",
+      "expected": "0",
+      "predicted": "9",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        31
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "p=3\nn=2\nj=3\nd=3\nm=5\no=6\nb=9\ne=8\nGET b",
+      "expected": "9",
+      "predicted": "8",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        30
+      ]
+    },
+    {
+      "task": "C3_arith",
+      "prompt": "ADD 5 2",
+      "expected": "7",
+      "predicted": "1",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        23
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "b=5\nc=4\nMUL b c",
+      "expected": "20",
+      "predicted": "5",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "b=0\nl=2\nDIV b l",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "b=2\nj=1\nSUB b j",
+      "expected": "1",
+      "predicted": "0",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C3_arith",
+      "prompt": "ADD 2 6",
+      "expected": "8",
+      "predicted": "1",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        23
+      ]
+    },
+    {
+      "task": "C0_copyN",
+      "prompt": "COPY ZC4",
+      "expected": "ZC4",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "f=3\nk=2\no=6\nc=6\nGET c",
+      "expected": "6",
+      "predicted": "6",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        28
+      ]
+    },
+    {
+      "task": "C0_index",
+      "prompt": "INDEX ZF7 1",
+      "expected": "Z",
+      "predicted": "7",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        29
+      ]
+    },
+    {
+      "task": "C3_var_arith",
+      "prompt": "e=0\nk=3\nMUL e k",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C0_copyN",
+      "prompt": "COPY Q80L3",
+      "expected": "Q80L3",
+      "predicted": "88",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        30,
+        30
+      ]
+    },
+    {
+      "task": "C2_indirect",
+      "prompt": "k=0\np=k\nGET p",
+      "expected": "0",
+      "predicted": "0",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        22
+      ]
+    },
+    {
+      "task": "C0_index",
+      "prompt": "INDEX B5 2",
+      "expected": "5",
+      "predicted": "5",
+      "ok": true,
+      "finish": "eos",
+      "tokens": [
+        27
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "h=3\nm=5\nf=1\no=4\nGET f",
+      "expected": "1",
+      "predicted": "4",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        26
+      ]
+    },
+    {
+      "task": "C2_bindN",
+      "prompt": "c=8\nd=2\nm=8\no=3\nn=7\np=4\na=5\nb=2\nGET a",
+      "expected": "5",
+      "predicted": "8",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        30
+      ]
+    },
+    {
+      "task": "C0_index",
+      "prompt": "INDEX 6L 2",
+      "expected": "L",
+      "predicted": "6",
+      "ok": false,
+      "finish": "eos",
+      "tokens": [
+        28
+      ]
+    },
+    {
+      "task": "C0_reverse",
+      "prompt": "REVERSE ZG6",
+      "expected": "6GZ",
+      "predicted": "",
+      "ok": false,
+      "finish": "eos",
+      "tokens": []
+    }
+  ],
+  "protocol": "greedy free generation; full answer incl. EOS; no teacher forcing"
+}

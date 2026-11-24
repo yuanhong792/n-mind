@@ -1,0 +1,49 @@
+{
+  "status": "MEMORY_AUDIT_DONE",
+  "workspace_mean_occupied": 1.0471,
+  "workspace_occupied_first": 0.25,
+  "workspace_occupied_last": 0.9449,
+  "binding_task_accuracy": {
+    "C2_bindN": {
+      "n": 467,
+      "free_generation_accuracy": 0.3555,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00106
+    },
+    "C2_counter": {
+      "n": 275,
+      "free_generation_accuracy": 0.4036,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00106
+    },
+    "C2_reassign": {
+      "n": 129,
+      "free_generation_accuracy": 0.6357,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00101
+    },
+    "C2_indirect": {
+      "n": 72,
+      "free_generation_accuracy": 1.0,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00102
+    },
+    "C2_bind1": {
+      "n": 18,
+      "free_generation_accuracy": 1.0,
+      "immediate_eos_rate": 0.0,
+      "empty_rate": 0.0,
+      "utf8_legal_rate": 1.0,
+      "avg_infer_seconds": 0.00112
+    }
+  },
+  "note": "N-Cell 块平均读出 / Workspace 读出 / LM Head 未逐层对比可解码性；本轮以自由生成绑定准确率作为功能口径，层级归因列为 NOT_YET_VERIFIED。"
+}
