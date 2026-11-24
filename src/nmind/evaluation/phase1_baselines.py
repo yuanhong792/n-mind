@@ -1,6 +1,7 @@
 """Shortcut baselines and counterfactual binding probes."""
 from __future__ import annotations
 import random
+import math
 from collections import Counter
 
 
@@ -44,3 +45,25 @@ def counterfactual_follow_rate(pairs, predictions_by_fingerprint):
             ok &= pred == item["target"]
         hits += int(ok)
     return {"status": "OK", "n": len(pairs), "follow_rate": hits / len(pairs)}
+
+def wilson_interval(successes: int, n: int, z: float = 1.959963984540054):
+    if n <= 0:
+        return (float("nan"), float("nan"))
+    p = successes / n; den = 1 + z*z/n
+    c = (p + z*z/(2*n))/den
+    h = z*math.sqrt(p*(1-p)/n + z*z/(4*n*n))/den
+    return (c-h, c+h)
+
+def combinatorial_probe_pairs(n_pairs: int = 200, seed: int = 20262402):
+    """Deterministic probe generator with entity x position combinations."""
+    rng = random.Random(seed)
+    entities = [f"实体{i:02d}" for i in range(10)]
+    positions = [f"位置{i:02d}" for i in range(10)]
+    rows = []
+    while len(rows) < n_pairs:
+        a, b = rng.sample(entities, 2); pa, pb = rng.sample(positions, 2)
+        q = a if len(rows) % 2 == 0 else b
+        rows.append({"id": len(rows), "a": a, "b": b, "pa": pa, "pb": pb,
+                     "query": q, "answer_a": pa if q == a else pb,
+                     "answer_b": pb if q == a else pa})
+    return rows
