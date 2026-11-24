@@ -1,0 +1,281 @@
+{
+  "status": "PASS",
+  "precision": "FP32",
+  "input_rule": "训练成本按 x[:, :-1] 的实际长度统计",
+  "backward": {
+    "status": "ESTIMATED",
+    "central_multiplier": 2.0,
+    "range": [
+      1.5,
+      2.5
+    ],
+    "note": "未做逐算子反向解析，禁止当作精确值"
+  },
+  "optimizer": {
+    "status": "ESTIMATED",
+    "adamw_macs_per_param": 8
+  },
+  "samples_training_input": {
+    "R1_GRU": {
+      "batch_size": 16,
+      "tensor_length": 7,
+      "valid_tokens": 112,
+      "padding_tokens": 0,
+      "supervised_tokens": 16,
+      "module_executions": {
+        "embedding": 16,
+        "output_head": 112,
+        "model_layers": 1
+      },
+      "analytic_fwd_macs": 11554816,
+      "analytic_bwd_macs": 23109632,
+      "optimizer_macs": 885552,
+      "wall_sec": 0.0,
+      "details": {
+        "gru_gates": 8257536,
+        "mix": 1835008,
+        "output_head": 1462272,
+        "total": 11554816
+      },
+      "bwd_estimation": "ESTIMATED: bwd=2.0x fwd, range 1.5x-2.5x"
+    },
+    "R2_transformer": {
+      "batch_size": 16,
+      "tensor_length": 7,
+      "valid_tokens": 112,
+      "padding_tokens": 0,
+      "supervised_tokens": 16,
+      "module_executions": {
+        "embedding": 16,
+        "output_head": 112,
+        "model_layers": 2
+      },
+      "analytic_fwd_macs": 8271872,
+      "analytic_bwd_macs": 16543744,
+      "optimizer_macs": 637744,
+      "wall_sec": 0.0,
+      "details": {
+        "qkv": 1376256,
+        "score": 50176,
+        "attn_v": 50176,
+        "out_proj": 458752,
+        "ffn": 1835008,
+        "per_layer": 3770368,
+        "layers": 2,
+        "core": 7540736,
+        "output_head": 731136,
+        "total": 8271872
+      },
+      "bwd_estimation": "ESTIMATED: bwd=2.0x fwd, range 1.5x-2.5x"
+    },
+    "M4_A_low_rank": {
+      "batch_size": 16,
+      "tensor_length": 7,
+      "valid_tokens": 112,
+      "padding_tokens": 0,
+      "supervised_tokens": 16,
+      "module_executions": {
+        "embedding": 16,
+        "output_head": 112,
+        "model_layers": 2
+      },
+      "analytic_fwd_macs": 6820352,
+      "analytic_bwd_macs": 13640704,
+      "optimizer_macs": 539440,
+      "wall_sec": 0.0,
+      "details": {
+        "qk_proj": 229376,
+        "score": 12544,
+        "value_proj": 458752,
+        "value_aggregation": 50176,
+        "out_proj": 458752,
+        "ffn": 1835008,
+        "reduced_head_dim": 4,
+        "value_head_dim": 16,
+        "per_layer": 3044608,
+        "layers": 2,
+        "core": 6089216,
+        "output_head": 731136,
+        "total": 6820352
+      },
+      "bwd_estimation": "ESTIMATED: bwd=2.0x fwd, range 1.5x-2.5x"
+    },
+    "M4_B_selective": {
+      "batch_size": 16,
+      "tensor_length": 7,
+      "valid_tokens": 112,
+      "padding_tokens": 0,
+      "supervised_tokens": 16,
+      "module_executions": {
+        "embedding": 16,
+        "output_head": 112,
+        "model_layers": 2
+      },
+      "analytic_fwd_macs": 4685824,
+      "analytic_bwd_macs": 9371648,
+      "optimizer_macs": 641840,
+      "wall_sec": 0.0,
+      "details": {
+        "qkv": 1376256,
+        "out_proj": 458752,
+        "ffn": 1835008,
+        "selective_executed_attention_and_controller": 284672,
+        "controller_macs": 55296,
+        "gather_elements": 7168,
+        "theoretical_selection_ratio": 0.3265,
+        "actual_compute_ratio": 1.1429,
+        "output_head": 731136,
+        "core": 3954688,
+        "total": 4685824,
+        "note": "gather_elements 是数据搬运元素数，不与 MAC 相加作为计算量。"
+      },
+      "bwd_estimation": "ESTIMATED: bwd=2.0x fwd, range 1.5x-2.5x"
+    }
+  },
+  "hand_checks": {
+    "R1_GRU": {
+      "hand_macs": 2304,
+      "function_macs": 2304,
+      "pass": true
+    },
+    "R2_transformer": {
+      "hand_macs": 2816,
+      "function_macs": 2816,
+      "pass": true
+    },
+    "M4_A_low_rank": {
+      "hand_macs": 2496,
+      "function_macs": 2496,
+      "pass": true
+    },
+    "M4_B_selective": {
+      "hand_macs": "读取真实执行 stats",
+      "function_macs": 2976,
+      "selective_stats": {
+        "theoretical_selection_ratio": 0.4375,
+        "actual_compute_ratio": 1.0,
+        "selective_executed_attention_and_controller": 416
+      },
+      "pass": true
+    }
+  },
+  "profiler_cross_check": {
+    "R1_GRU": {
+      "top_ops": [
+        {
+          "name": "aten::gelu",
+          "self_cpu_us": 1148.13
+        },
+        {
+          "name": "aten::addmm",
+          "self_cpu_us": 1036.23
+        },
+        {
+          "name": "aten::gru_cell",
+          "self_cpu_us": 987.92
+        },
+        {
+          "name": "aten::as_strided",
+          "self_cpu_us": 387.51
+        },
+        {
+          "name": "aten::linear",
+          "self_cpu_us": 386.41
+        },
+        {
+          "name": "aten::copy_",
+          "self_cpu_us": 381.51
+        }
+      ],
+      "finite": true
+    },
+    "R2_transformer": {
+      "top_ops": [
+        {
+          "name": "aten::nan_to_num",
+          "self_cpu_us": 742.21
+        },
+        {
+          "name": "aten::native_layer_norm",
+          "self_cpu_us": 250.41
+        },
+        {
+          "name": "aten::mul",
+          "self_cpu_us": 190.9
+        },
+        {
+          "name": "aten::copy_",
+          "self_cpu_us": 145.4
+        },
+        {
+          "name": "aten::view",
+          "self_cpu_us": 139.5
+        },
+        {
+          "name": "aten::as_strided",
+          "self_cpu_us": 138.2
+        }
+      ],
+      "finite": true
+    },
+    "M4_A_low_rank": {
+      "top_ops": [
+        {
+          "name": "aten::matmul",
+          "self_cpu_us": 230.4
+        },
+        {
+          "name": "aten::view",
+          "self_cpu_us": 203.61
+        },
+        {
+          "name": "aten::mul",
+          "self_cpu_us": 201.1
+        },
+        {
+          "name": "aten::arange",
+          "self_cpu_us": 195.71
+        },
+        {
+          "name": "aten::native_layer_norm",
+          "self_cpu_us": 181.8
+        },
+        {
+          "name": "aten::copy_",
+          "self_cpu_us": 157.2
+        }
+      ],
+      "finite": true
+    },
+    "M4_B_selective": {
+      "top_ops": [
+        {
+          "name": "aten::einsum",
+          "self_cpu_us": 343.01
+        },
+        {
+          "name": "aten::copy_",
+          "self_cpu_us": 187.6
+        },
+        {
+          "name": "aten::mul",
+          "self_cpu_us": 169.31
+        },
+        {
+          "name": "aten::view",
+          "self_cpu_us": 166.9
+        },
+        {
+          "name": "aten::unsqueeze",
+          "self_cpu_us": 158.81
+        },
+        {
+          "name": "aten::reshape",
+          "self_cpu_us": 152.51
+        }
+      ],
+      "finite": true
+    }
+  },
+  "energy": "NOT_AVAILABLE"
+}

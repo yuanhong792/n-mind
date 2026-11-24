@@ -35,7 +35,8 @@ class CausalSelfAttentionKV(nn.Module):
         self.qkv = nn.Linear(d_model, 3 * d_model, bias=False)
         self.proj = nn.Linear(d_model, d_model, bias=False)
 
-    def forward(self, x, cache_k=None, cache_v=None, pos_start=0):
+    def forward(self, x, cache_k=None, cache_v=None, pos_start=0,
+                valid_mask=None, cache_valid=None):
         B, T, d = x.shape
         qkv = self.qkv(x).reshape(B, T, 3, self.h, self.dh)
         q, k, v = qkv[:, :, 0], qkv[:, :, 1], qkv[:, :, 2]   # [B,T,h,dh]
@@ -46,9 +47,15 @@ class CausalSelfAttentionKV(nn.Module):
         cos = torch.cos(ang)[None, :, None, :].expand(B, T, self.h, -1)
         sin = torch.sin(ang)[None, :, None, :].expand(B, T, self.h, -1)
         q, k = rope_rotate(q, cos, sin), rope_rotate(k, cos, sin)
+        cache_len = cache_k.shape[1] if cache_k is not None else 0
         if cache_k is not None:
             k = torch.cat([cache_k, k], dim=1)
             v = torch.cat([cache_v, v], dim=1)
+        key_ok = torch.ones(B, k.shape[1], dtype=torch.bool, device=x.device)
+        if cache_valid is not None:
+            key_ok[:, :cache_len] = cache_valid
+        if valid_mask is not None:
+            key_ok[:, cache_len:] = valid_mask
         # 注意力：q[B,T,h,dh] @ k[B,L,h,dh]^T
         qt = q.transpose(1, 2)          # [B,h,T,dh]
         kt = k.transpose(1, 2)          # [B,h,L,dh]
@@ -58,9 +65,9 @@ class CausalSelfAttentionKV(nn.Module):
         # 因果 mask：query 位置 (pos_start + i) 只能看 key 位置 j ≤ pos_start+i
         qpos = torch.arange(pos_start, pos_start + T, device=x.device)[:, None]
         kpos = torch.arange(0, L, device=x.device)[None, :]
-        mask = kpos > qpos
+        mask = (kpos > qpos) | (~key_ok[:, None, None, :])
         scores = scores.masked_fill(mask, float("-inf"))
-        attn = torch.softmax(scores, dim=-1)
+        attn = torch.nan_to_num(torch.softmax(scores, dim=-1), nan=0.0)
         out = (attn @ vt).transpose(1, 2).reshape(B, T, d)
         return self.proj(out), k, v
 
@@ -74,8 +81,9 @@ class TransformerBlock(nn.Module):
                                 nn.Linear(d_model * 2, d_model))
         self.ln2 = nn.LayerNorm(d_model)
 
-    def forward(self, x, ck=None, cv=None, pos_start=0):
-        a, k, v = self.attn(self.ln1(x), ck, cv, pos_start)
+    def forward(self, x, ck=None, cv=None, pos_start=0,
+                valid_mask=None, cache_valid=None):
+        a, k, v = self.attn(self.ln1(x), ck, cv, pos_start, valid_mask, cache_valid)
         x = x + a
         x = x + self.ff(self.ln2(x))
         return x, k, v
@@ -93,19 +101,25 @@ class TinyTransformerM3(M3Base):
     def forward(self, tokens, state=None, valid_mask=None, collect_stats=False):
         B, T = tokens.shape
         pos_start = state["pos"] if state else 0
+        cur_valid = valid_mask if valid_mask is not None else torch.ones(
+            B, T, dtype=torch.bool, device=tokens.device)
+        cache_valid = state.get("key_valid") if state else None
         x = self.emb(tokens)
         new_ck, new_cv = [], []
         for i, blk in enumerate(self.blocks):
             ck = state["ck"][i] if state and state["ck"] is not None else None
             cv = state["cv"][i] if state and state["cv"] is not None else None
-            x, k, v = blk(x, ck, cv, pos_start)
+            x, k, v = blk(x, ck, cv, pos_start, cur_valid, cache_valid)
             new_ck.append(k); new_cv.append(v)
         logits = self.head(self.ln(x))
-        cache = {"ck": new_ck, "cv": new_cv, "pos": pos_start + T}
+        key_valid = (torch.cat([cache_valid, cur_valid], dim=1)
+                     if cache_valid is not None else cur_valid)
+        cache = {"ck": new_ck, "cv": new_cv, "pos": pos_start + T,
+                 "key_valid": key_valid}
         return logits, cache
 
     def initial_state(self, batch, device):
-        return {"ck": None, "cv": None, "pos": 0}
+        return {"ck": None, "cv": None, "pos": 0, "key_valid": None}
 
     def n_params(self):
         return sum(p.numel() for p in self.parameters())

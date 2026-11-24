@@ -1,0 +1,7 @@
+{
+  "original_file": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\data\\m4_counterfactual.jsonl",
+  "original_sha256": "84b902ca4833748091a582a211c0b0a82a92647174fcc9534eed4add5627d251",
+  "original_bytes": 265484,
+  "reason": "10 个 same_query_fact_change 配对的新值等于旧值，未构成事实变化",
+  "scope": "仅修改 m4_counterfactual.jsonl；train/val/sealed/distance/generalization 不变"
+}

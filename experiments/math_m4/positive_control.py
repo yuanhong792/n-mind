@@ -1,17 +1,16 @@
-"""P11：可学习性正控制实验（独立入口）。
+"""M41：可学习性正控制数据/门禁定义（无训练入口）。
 
-32/64 条无歧义双字符复制 + 双变量绑定，验证训练器/监督/优化器是否工作。
-检查：能否拟合小训练集、TF 准确率、首/次 Token、EOS、自由生成、梯度与参数更新。
-正控制所有 optimizer.step 计入 M4 预算；正控制权重不得用于主实验（主实验重新随机初始化）。
-正控制成绩不能当作未见数据泛化成绩。
+M4.1 修复：
+- 本文件不再创建 optimizer，不再调用 optimizer.step；
+- 唯一正式训练入口是 train_m4.py，所有 step 必须先经 BudgetManager reserve；
+- 正控制固定使用 64 条样本，并在同一 64 条样本上评测拟合能力；
+- 正控制权重不进入主实验；成绩不等于未见数据泛化。
 
-未授权时只做零步检查（数据/监督对齐），标 NOT_RUN_TRAINING。
-运行：python positive_control.py [--authorize]
+未授权时只检查数据/监督对齐，标 NOT_RUN_TRAINING。
 """
 
 from __future__ import annotations
 
-import argparse
 import json
 import sys
 from pathlib import Path
@@ -20,17 +19,16 @@ import torch
 
 HERE = Path(__file__).resolve().parents[0]
 sys.path.insert(0, str(HERE))
-from evaluate_m4 import make_batch, grouped_loss, eval_rows, tf_position_accuracy  # noqa: E402
+from evaluate_m4 import make_batch  # noqa: E402
 from tokenizer_m4 import M4Tokenizer, SEP  # noqa: E402
-from models.gru_reference import GRUReferenceM3  # noqa: E402
-from models.transformer_reference import TinyTransformerM3  # noqa: E402
 
-MODELS = {"R1": GRUReferenceM3, "R2": TinyTransformerM3}
-CFG = {"R1": {}, "R2": {"d_model": 64, "nhead": 4, "layers": 2}}
+N_CONTROL = 64
+TF_MIN = 0.95
+NATURAL_EOS_FULL_MIN = 0.90
 
 
-def control_rows(tok, n=64):
-    """覆盖双字符复制、多字符复制、双变量绑定的小型正控制集。"""
+def control_rows(tok, n=N_CONTROL):
+    """覆盖双字符复制、多字符复制、双变量绑定的小型固定正控制集。"""
     rows = []
     n_copy2 = max(1, n // 2)
     n_copyn = max(1, n // 4)
@@ -61,48 +59,61 @@ def control_rows(tok, n=64):
     return rows[:n]
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--authorize", action="store_true")
-    args = ap.parse_args()
-    torch.set_num_threads(20)
-    tok = M4Tokenizer()
-    rows = control_rows(tok)
+def alignment_report(tok, rows):
+    """检查 answer-only 监督是否从 SEP 之后开始，并核对每个样本对齐。"""
     x, valid, w, tgt = make_batch(tok, rows, "A")
-    alignment = True
+    failures = []
     for i, r in enumerate(rows):
         seq, _ = tok.encode_pair(r["prompt"], r["answer"])
         sep = seq.index(SEP)
         if w[i, :sep + 1].sum() != 0 or w[i, sep + 1:].sum() <= 0:
-            alignment = False
-            break
-    out = {"status": "NOT_RUN_TRAINING" if not args.authorize else "COMPLETE",
-           "reason": "需明确授权" if not args.authorize else None,
-           "n_samples": len(rows), "answer_only_alignment": alignment,
-           "note": "正控制权重不进入主实验；成绩不等于泛化", "models": {}}
-    if args.authorize:
-        for name, cls in MODELS.items():
-            torch.manual_seed(1)
-            m = cls(tok.vocab_size, **CFG[name])
-            opt = torch.optim.AdamW(m.parameters(), lr=0.003)
-            losses = []
-            for _ in range(128):
-                m.train()
-                logits, _ = m(x[:, :-1], valid_mask=valid[:, :-1])
-                loss = grouped_loss(logits, tgt[:, 1:], w[:, 1:])
-                opt.zero_grad(); loss.backward(); opt.step()
-                losses.append(float(loss.item()))
-            tf = tf_position_accuracy(m, tok, rows)
-            ev = eval_rows(m, tok, rows)
-            out["models"][name] = {"train_loss_first": round(losses[0], 4),
-                                   "train_loss_last": round(losses[-1], 4),
-                                   "teacher_forced": tf, "free_generation": {
-                                       "content_accuracy": ev["content_accuracy"],
-                                       "full_answer_natural_eos": ev["full_answer_natural_eos"]},
-                                   "gradient_steps": 128}
+            failures.append({"i": i, "prompt": r["prompt"], "sep": sep})
+    return {"n_samples": len(rows), "answer_only_alignment": not failures,
+            "failures": failures, "batch": list(x.shape),
+            "supervised_tokens": int(w.sum())}
+
+
+def gate_spec():
+    return {"tf_accuracy_min": TF_MIN,
+            "natural_eos_full_accuracy_min": NATURAL_EOS_FULL_MIN,
+            "gradient_finite_and_nonzero_required": True,
+            "parameter_update_required": True,
+            "future_leakage_forbidden": True,
+            "evaluate_on_same_64_rows": True,
+            "weights_enter_main_experiment": False,
+            "abort_main_on_reference_failure": True,
+            "sole_training_entry": "train_m4.py"}
+
+
+def evaluate_gate(tf_accuracy, natural_eos_full_accuracy, gradient_ok,
+                  parameter_updated, causality_pass):
+    spec = gate_spec()
+    checks = {
+        "tf_accuracy": (float(tf_accuracy) >= spec["tf_accuracy_min"],
+                        float(tf_accuracy), spec["tf_accuracy_min"]),
+        "natural_eos_full_accuracy": (
+            float(natural_eos_full_accuracy) >= spec["natural_eos_full_accuracy_min"],
+            float(natural_eos_full_accuracy), spec["natural_eos_full_accuracy_min"]),
+        "gradient_finite_and_nonzero": (bool(gradient_ok), gradient_ok, True),
+        "parameter_updated": (bool(parameter_updated), parameter_updated, True),
+        "no_future_leakage": (bool(causality_pass), causality_pass, True),
+    }
+    return {"pass": all(v[0] for v in checks.values()),
+            "checks": {k: {"pass": v[0], "observed": v[1], "required": v[2]}
+                       for k, v in checks.items()}}
+
+
+def main():
+    torch.set_num_threads(20)
+    tok = M4Tokenizer()
+    rows = control_rows(tok)
+    out = {"status": "NOT_RUN_TRAINING", "reason": "唯一正式训练入口是 train_m4.py，需用户明确授权",
+           "n_samples": len(rows), "alignment": alignment_report(tok, rows),
+           "gate": gate_spec(), "note": "本文件不训练、不创建 optimizer、不调用 step。"}
     p = HERE / "M4_POSITIVE_CONTROL.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[positive] status={out['status']} alignment={alignment} 写出 {p}")
+    print(f"[positive] status={out['status']} aligned={out['alignment']['answer_only_alignment']} "
+          f"写出 {p}")
 
 
 if __name__ == "__main__":

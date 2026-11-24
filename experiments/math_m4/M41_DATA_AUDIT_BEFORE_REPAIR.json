@@ -1,0 +1,781 @@
+{
+  "status": "FAILED",
+  "checks": {
+    "SPLIT_COUNTS": {
+      "pass": true,
+      "observed": {
+        "train": 1392,
+        "val": 464,
+        "sealed": 464
+      },
+      "required": {
+        "train": 1392,
+        "val": 464,
+        "sealed": 464
+      }
+    },
+    "A5_REPEAT_COVERAGE": {
+      "pass": true,
+      "observed": {
+        "train_A5": 96
+      },
+      "required": {
+        "train_A5_min": 96
+      }
+    },
+    "QUERY_POSITION_BALANCE": {
+      "pass": false,
+      "observed": {
+        "bindings": {
+          "B2_bind": {
+            "1": 77,
+            "0": 83
+          },
+          "B4_bind": {
+            "0": 51,
+            "1": 35,
+            "3": 36,
+            "2": 38
+          },
+          "B8_bind": {
+            "1": 21,
+            "4": 29,
+            "2": 20,
+            "0": 15,
+            "5": 18,
+            "3": 21,
+            "6": 18,
+            "7": 18
+          }
+        },
+        "counterfactual": {
+          "first": 136,
+          "middle": 132,
+          "last": 132
+        }
+      },
+      "required": "绑定任务位置近似均衡；反事实 first/middle/last 各 100"
+    },
+    "CANONICAL_SPLIT_ISOLATION": {
+      "pass": true,
+      "observed": {
+        "train_vs_val": 0,
+        "train_vs_sealed": 0,
+        "train_vs_generalization": 0,
+        "val_vs_sealed": 0,
+        "val_vs_generalization": 0,
+        "sealed_vs_generalization": 0
+      },
+      "required": "所有集合间 canonical 重合为 0"
+    },
+    "NO_PROMPT_ANSWER_CONFLICT": {
+      "pass": true,
+      "observed": {
+        "n_conflicts": 0,
+        "samples": []
+      },
+      "required": {
+        "n_conflicts": 0
+      }
+    },
+    "NO_CROSS_TASK_SEMANTIC_LEAK": {
+      "pass": false,
+      "observed": {
+        "n_cross_task_prompts": 100,
+        "samples": [
+          [
+            "m=9\nf=3\nGET f",
+            [
+              "B_counterfactual",
+              "B_query_switch"
+            ]
+          ],
+          [
+            "a=9\no=1\nh=9\nl=4\nGET a",
+            [
+              "B_counterfactual",
+              "B_query_switch"
+            ]
+          ],
+          [
+            "b=1\nn=6\nf=9\nk=9\nj=6\nc=9\nd=3\ng=5\nGET b",
+            [
+              "B_counterfactual",
+              "B_query_switch"
+            ]
+          ],
+          [
+            "k=1\nh=3\nGET h",
+            [
+              "B_counterfactual",
+              "B_query_switch"
+            ]
+          ],
+          [
+            "h=1\nj=2\np=6\nf=9\nGET h",
+            [
+              "B_counterfactual",
+              "B_query_switch"
+            ]
+          ]
+        ]
+      },
+      "required": {
+        "n_cross_task_prompts": 0
+      }
+    },
+    "COUNTERFACTUAL_FAMILY_ISOLATION": {
+      "pass": false,
+      "observed": {
+        "n_pairs": 400,
+        "unique_pair_ids": 400,
+        "types": {
+          "same_query_fact_change": 100,
+          "unrelated_fact_change": 100,
+          "query_switch": 100,
+          "order_swap": 100
+        },
+        "query_positions_per_type": {
+          "same_query_fact_change": {
+            "first": 34,
+            "middle": 33,
+            "last": 33
+          },
+          "unrelated_fact_change": {
+            "first": 34,
+            "middle": 33,
+            "last": 33
+          },
+          "query_switch": {
+            "first": 34,
+            "middle": 33,
+            "last": 33
+          },
+          "order_swap": {
+            "first": 34,
+            "middle": 33,
+            "last": 33
+          }
+        },
+        "failures": [
+          {
+            "pair_id": "CF_same_query_fact_change_009",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_019",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_029",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_039",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_049",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_059",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_069",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_079",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_089",
+            "reason": "same_query_answer_unchanged"
+          },
+          {
+            "pair_id": "CF_same_query_fact_change_099",
+            "reason": "same_query_answer_unchanged"
+          }
+        ]
+      },
+      "required": "400 唯一 pair_id；四类各 100；查询位置均衡；语义变化符合类型定义"
+    },
+    "DISTANCE_PAIRED_IDS": {
+      "pass": true,
+      "observed": {
+        "n_pairs": 60,
+        "n_rows": 420,
+        "failures": []
+      },
+      "required": {
+        "n_pairs": 60,
+        "distances": [
+          0,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ]
+      }
+    },
+    "NO_SILENT_TRUNCATION": {
+      "pass": true,
+      "observed": {
+        "max_len": {
+          "train": 40,
+          "val": 40,
+          "sealed": 40
+        },
+        "limit": 96,
+        "failures": []
+      },
+      "required": "train/val/sealed 全部 <= 96"
+    }
+  },
+  "shortcut_baselines": {
+    "first_digit": {
+      "correct": 204,
+      "usable": 771,
+      "accuracy": 0.2646,
+      "coverage": 0.8308,
+      "per_task": {
+        "A1_copy1": {
+          "ok": 4,
+          "n": 4,
+          "accuracy": 1.0
+        },
+        "A2_copy2": {
+          "ok": 0,
+          "n": 12,
+          "accuracy": 0.0
+        },
+        "A3_copyN": {
+          "ok": 0,
+          "n": 20,
+          "accuracy": 0.0
+        },
+        "A4_reverse": {
+          "ok": 0,
+          "n": 31,
+          "accuracy": 0.0
+        },
+        "A5_repeat": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A6_index": {
+          "ok": 1,
+          "n": 64,
+          "accuracy": 0.0156
+        },
+        "B2_bind": {
+          "ok": 36,
+          "n": 64,
+          "accuracy": 0.5625
+        },
+        "B4_bind": {
+          "ok": 24,
+          "n": 64,
+          "accuracy": 0.375
+        },
+        "B8_bind": {
+          "ok": 7,
+          "n": 64,
+          "accuracy": 0.1094
+        },
+        "B_rename": {
+          "ok": 28,
+          "n": 64,
+          "accuracy": 0.4375
+        },
+        "C_history_current": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        },
+        "C_indirect": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "C_reassign": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        },
+        "D_distance": {
+          "ok": 12,
+          "n": 64,
+          "accuracy": 0.1875
+        },
+        "D_interference": {
+          "ok": 18,
+          "n": 64,
+          "accuracy": 0.2812
+        }
+      }
+    },
+    "last_digit": {
+      "correct": 261,
+      "usable": 771,
+      "accuracy": 0.3385,
+      "coverage": 0.8308,
+      "per_task": {
+        "A1_copy1": {
+          "ok": 4,
+          "n": 4,
+          "accuracy": 1.0
+        },
+        "A2_copy2": {
+          "ok": 0,
+          "n": 12,
+          "accuracy": 0.0
+        },
+        "A3_copyN": {
+          "ok": 0,
+          "n": 20,
+          "accuracy": 0.0
+        },
+        "A4_reverse": {
+          "ok": 0,
+          "n": 31,
+          "accuracy": 0.0
+        },
+        "A5_repeat": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A6_index": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "B2_bind": {
+          "ok": 34,
+          "n": 64,
+          "accuracy": 0.5312
+        },
+        "B4_bind": {
+          "ok": 20,
+          "n": 64,
+          "accuracy": 0.3125
+        },
+        "B8_bind": {
+          "ok": 12,
+          "n": 64,
+          "accuracy": 0.1875
+        },
+        "B_rename": {
+          "ok": 22,
+          "n": 64,
+          "accuracy": 0.3438
+        },
+        "C_history_current": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "C_indirect": {
+          "ok": 8,
+          "n": 64,
+          "accuracy": 0.125
+        },
+        "C_reassign": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "D_distance": {
+          "ok": 17,
+          "n": 64,
+          "accuracy": 0.2656
+        },
+        "D_interference": {
+          "ok": 16,
+          "n": 64,
+          "accuracy": 0.25
+        }
+      }
+    },
+    "fixed_position_0": {
+      "correct": 199,
+      "usable": 576,
+      "accuracy": 0.3455,
+      "coverage": 0.6207,
+      "per_task": {
+        "B2_bind": {
+          "ok": 36,
+          "n": 64,
+          "accuracy": 0.5625
+        },
+        "B4_bind": {
+          "ok": 24,
+          "n": 64,
+          "accuracy": 0.375
+        },
+        "B8_bind": {
+          "ok": 7,
+          "n": 64,
+          "accuracy": 0.1094
+        },
+        "B_rename": {
+          "ok": 28,
+          "n": 64,
+          "accuracy": 0.4375
+        },
+        "C_history_current": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        },
+        "C_indirect": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "C_reassign": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        },
+        "D_distance": {
+          "ok": 12,
+          "n": 64,
+          "accuracy": 0.1875
+        },
+        "D_interference": {
+          "ok": 18,
+          "n": 64,
+          "accuracy": 0.2812
+        }
+      }
+    },
+    "fixed_position_1": {
+      "correct": 130,
+      "usable": 576,
+      "accuracy": 0.2257,
+      "coverage": 0.6207,
+      "per_task": {
+        "B2_bind": {
+          "ok": 34,
+          "n": 64,
+          "accuracy": 0.5312
+        },
+        "B4_bind": {
+          "ok": 17,
+          "n": 64,
+          "accuracy": 0.2656
+        },
+        "B8_bind": {
+          "ok": 14,
+          "n": 64,
+          "accuracy": 0.2188
+        },
+        "B_rename": {
+          "ok": 17,
+          "n": 64,
+          "accuracy": 0.2656
+        },
+        "C_history_current": {
+          "ok": 4,
+          "n": 64,
+          "accuracy": 0.0625
+        },
+        "C_indirect": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "C_reassign": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "D_distance": {
+          "ok": 24,
+          "n": 64,
+          "accuracy": 0.375
+        },
+        "D_interference": {
+          "ok": 8,
+          "n": 64,
+          "accuracy": 0.125
+        }
+      }
+    },
+    "fixed_position_2": {
+      "correct": 98,
+      "usable": 512,
+      "accuracy": 0.1914,
+      "coverage": 0.5517,
+      "per_task": {
+        "B4_bind": {
+          "ok": 22,
+          "n": 64,
+          "accuracy": 0.3438
+        },
+        "B8_bind": {
+          "ok": 16,
+          "n": 64,
+          "accuracy": 0.25
+        },
+        "B_rename": {
+          "ok": 14,
+          "n": 64,
+          "accuracy": 0.2188
+        },
+        "C_history_current": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "C_indirect": {
+          "ok": 8,
+          "n": 64,
+          "accuracy": 0.125
+        },
+        "C_reassign": {
+          "ok": 7,
+          "n": 64,
+          "accuracy": 0.1094
+        },
+        "D_distance": {
+          "ok": 10,
+          "n": 64,
+          "accuracy": 0.1562
+        },
+        "D_interference": {
+          "ok": 15,
+          "n": 64,
+          "accuracy": 0.2344
+        }
+      }
+    },
+    "nearest_assignment": {
+      "correct": 569,
+      "usable": 576,
+      "accuracy": 0.9878,
+      "coverage": 0.6207,
+      "per_task": {
+        "B2_bind": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "B4_bind": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "B8_bind": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "B_rename": {
+          "ok": 57,
+          "n": 64,
+          "accuracy": 0.8906
+        },
+        "C_history_current": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "C_indirect": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "C_reassign": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "D_distance": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        },
+        "D_interference": {
+          "ok": 64,
+          "n": 64,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "constant_most_common": {
+      "correct": 60,
+      "usable": 928,
+      "accuracy": 0.0647,
+      "coverage": 1.0,
+      "per_task": {
+        "A1_copy1": {
+          "ok": 0,
+          "n": 32,
+          "accuracy": 0.0
+        },
+        "A2_copy2": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A3_copyN": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A4_reverse": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A5_repeat": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A6_index": {
+          "ok": 1,
+          "n": 64,
+          "accuracy": 0.0156
+        },
+        "B2_bind": {
+          "ok": 11,
+          "n": 64,
+          "accuracy": 0.1719
+        },
+        "B4_bind": {
+          "ok": 8,
+          "n": 64,
+          "accuracy": 0.125
+        },
+        "B8_bind": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "B_rename": {
+          "ok": 4,
+          "n": 64,
+          "accuracy": 0.0625
+        },
+        "C_history_current": {
+          "ok": 4,
+          "n": 64,
+          "accuracy": 0.0625
+        },
+        "C_indirect": {
+          "ok": 8,
+          "n": 64,
+          "accuracy": 0.125
+        },
+        "C_reassign": {
+          "ok": 2,
+          "n": 64,
+          "accuracy": 0.0312
+        },
+        "D_distance": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "D_interference": {
+          "ok": 10,
+          "n": 64,
+          "accuracy": 0.1562
+        }
+      }
+    },
+    "random_digit": {
+      "correct": 47,
+      "usable": 928,
+      "accuracy": 0.0506,
+      "coverage": 1.0,
+      "per_task": {
+        "A1_copy1": {
+          "ok": 0,
+          "n": 32,
+          "accuracy": 0.0
+        },
+        "A2_copy2": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A3_copyN": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A4_reverse": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A5_repeat": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "A6_index": {
+          "ok": 0,
+          "n": 64,
+          "accuracy": 0.0
+        },
+        "B2_bind": {
+          "ok": 7,
+          "n": 64,
+          "accuracy": 0.1094
+        },
+        "B4_bind": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "B8_bind": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "B_rename": {
+          "ok": 3,
+          "n": 64,
+          "accuracy": 0.0469
+        },
+        "C_history_current": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "C_indirect": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        },
+        "C_reassign": {
+          "ok": 6,
+          "n": 64,
+          "accuracy": 0.0938
+        },
+        "D_distance": {
+          "ok": 3,
+          "n": 64,
+          "accuracy": 0.0469
+        },
+        "D_interference": {
+          "ok": 5,
+          "n": 64,
+          "accuracy": 0.0781
+        }
+      }
+    }
+  },
+  "note": "捷径基线仅用于识别数据集可被非神经规则利用的程度，不参与模型推理。"
+}

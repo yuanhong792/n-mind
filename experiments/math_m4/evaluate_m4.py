@@ -105,17 +105,28 @@ def generate(model, tok: M4Tokenizer, prompt: str, gen_limit=GEN_LIMIT, hard_gat
         x = torch.tensor([[tid]], dtype=torch.long)
         valid = torch.ones(1, 1, dtype=torch.bool)
         logits, state = model(x, state=state, valid_mask=valid, **kw)
+    invalid_special = [i for i, tid in enumerate(out)
+                       if tid in (PAD, SEP, 1, 3) and not (tid == EOS and i == len(out) - 1)]
     return {"text": tok.decode(out, skip_special=True), "ids": out,
             "finish_reason": "eos" if finished else "length",
-            "immediate_eos": len(out) == 1 and out[0] == EOS}
+            "immediate_eos": len(out) == 1 and out[0] == EOS,
+            "invalid_special_tokens": invalid_special}
 
 
 def eval_one(model, tok, row, hard_gate=True):
     g = generate(model, tok, row["prompt"], hard_gate=hard_gate)
-    got, exp = g["text"], row["answer"]
-    return {"task": row["task"], "prompt": row["prompt"], "expected": exp,
-            "predicted": got, "content_ok": got == exp,
-            "full_ok": got == exp and g["finish_reason"] == "eos",
+    expected_ids = tok.encode(row["answer"]) + [EOS]
+    strict_ok = (
+        g["ids"] == expected_ids
+        and g["finish_reason"] == "eos"
+        and not g["invalid_special_tokens"]
+    )
+    got = g["text"]
+    return {"task": row["task"], "prompt": row["prompt"], "expected": row["answer"],
+            "predicted": got, "raw_ids": g["ids"], "expected_ids": expected_ids,
+            "decoded_content_ok": got == row["answer"],
+            "content_ok": strict_ok, "full_ok": strict_ok, "strict_ok": strict_ok,
+            "invalid_special_tokens": g["invalid_special_tokens"],
             "finish_reason": g["finish_reason"], "immediate_eos": g["immediate_eos"],
             "overlong": g["finish_reason"] == "length"}
 
@@ -126,32 +137,39 @@ def eval_rows(model, tok, rows, hard_gate=True):
         e = eval_one(model, tok, r, hard_gate)
         all_results.append(e)
         d = per.setdefault(e["task"], {"n": 0, "ok": 0, "full_ok": 0,
-                                        "immediate_eos": 0, "overlong": 0})
+                                        "immediate_eos": 0, "overlong": 0,
+                                        "decoded_ok": 0})
         d["n"] += 1
-        d["ok"] += int(e["content_ok"])
-        d["full_ok"] += int(e["full_ok"])
+        d["ok"] += int(e["strict_ok"])
+        d["full_ok"] += int(e["strict_ok"])
+        d["decoded_ok"] += int(e["decoded_content_ok"])
         d["immediate_eos"] += int(e["immediate_eos"])
         d["overlong"] += int(e["overlong"])
     n = len(all_results)
-    ok = sum(e["content_ok"] for e in all_results)
+    ok = sum(e["strict_ok"] for e in all_results)
+    decoded_ok = sum(e["decoded_content_ok"] for e in all_results)
     full = sum(e["full_ok"] for e in all_results)
     macro = sum(d["ok"] / d["n"] for d in per.values()) / len(per) if per else 0.0
     return {"n": n, "ok": ok, "content_accuracy": round(ok / max(1, n), 4),
+            "decoded_content_accuracy": round(decoded_ok / max(1, n), 4),
             "full_answer_natural_eos": round(full / max(1, n), 4),
             "macro_accuracy": round(macro, 4),
+            "strict_macro": round(macro, 4),
             "immediate_eos_rate": round(sum(e["immediate_eos"] for e in all_results) / max(1, n), 4),
             "overlong_rate": round(sum(e["overlong"] for e in all_results) / max(1, n), 4),
             "per_task": per, "results": all_results}
 
 
-def tf_position_accuracy(model, tok, rows, protocol="A"):
-    """Teacher-forced 逐位置准确率（答案位置），与自由生成分开报告。"""
+def tf_position_accuracy(model, tok, rows, protocol="A", hard_gate=True):
+    """Teacher-forced 逐位置准确率（原始 token id，答案位置），与自由生成分开报告。"""
     correct = total = 0
+    kw = {"hard_gate": hard_gate} if "hard_gate" in model.forward.__code__.co_varnames else {}
     for r in rows:
         seq, _ = tok.encode_pair(r["prompt"], r["answer"])
         sep = seq.index(SEP)
         x = torch.tensor([seq[:-1]])
-        logits, _ = model(x)
+        valid = torch.ones(1, x.size(1), dtype=torch.bool)
+        logits, _ = model(x, valid_mask=valid, **kw)
         pred = logits[0].argmax(-1).tolist()
         for j in range(sep + 1, len(seq) - 1):
             total += 1
@@ -192,19 +210,99 @@ def distance_eval(model, tok, rows):
 ISO_TARGETS = [0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90]
 
 
-def iso_record(curve):
+def load_critical_minimums():
+    """从冻结预登记方案读取关键任务下限，避免代码与方案漂移。"""
+    p = HERE / "M4_PREREGISTERED_PLAN.json"
+    if not p.exists():
+        raise FileNotFoundError(p)
+    plan = json.loads(p.read_text(encoding="utf-8"))
+    return plan["capability_gate"]["critical_tasks_minimums"]
+
+
+def critical_metrics(model, tok, panel, cf_pairs, distance_rows, hard_gate=True):
+    """关键能力指标：严格 token + 自然 EOS；反事实按配对两条都正确计。"""
+    ev = eval_rows(model, tok, panel, hard_gate=hard_gate)
+    cf = counterfactual_eval(model, tok, cf_pairs)
+    dist = distance_eval(model, tok, distance_rows)
+    out = {}
+    for task, cell in ev["per_task"].items():
+        out[task] = round(cell["ok"] / cell["n"], 4)
+    out["counterfactual_same_query_fact_change"] = cf.get(
+        "same_query_fact_change", {}).get("pair_rate", 0.0)
+    out["counterfactual_unrelated_fact_invariance"] = cf.get(
+        "unrelated_fact_change", {}).get("pair_rate", 0.0)
+    out["query_switch"] = cf.get("query_switch", {}).get("query_switch_rate", 0.0)
+    out["order_swap_invariance"] = cf.get("order_swap", {}).get("pair_rate", 0.0)
+    return {
+        "critical": out,
+        "strict_macro": ev["strict_macro"],
+        "decoded_content_accuracy": ev["decoded_content_accuracy"],
+        "full_answer_natural_eos": ev["full_answer_natural_eos"],
+        "counterfactual": cf,
+        "distance": dist,
+    }
+
+
+def iso_record(curve, seed=None, critical_minimums=None):
+    """M41 严格 ISO 判定。
+
+    只接受连续两个独立验证点；成本计入第二个确认点；单 seed 独立判断。
+    strict_macro 必须来自原始生成 token 序列 + 自然 EOS；
+    critical 必须来自预登记关键任务下限；hard_gate 必须为 True。
+    """
+    mins = critical_minimums if critical_minimums is not None else load_critical_minimums()
     out = {}
     for tgt in ISO_TARGETS:
-        reached = None
-        for i, pt in enumerate(curve):
-            if pt.get("macro", 0) >= tgt:
-                if i + 1 < len(curve) and curve[i + 1].get("macro", 0) >= tgt:
-                    reached = pt; break
-                if i == len(curve) - 1:
-                    reached = pt
-        out[f"{int(tgt*100)}%"] = ({"status": "TARGET_NOT_REACHED"} if reached is None else
-                                   {"status": "REACHED", "step": reached.get("step"),
-                                    "macro": reached.get("macro")})
+        hits, reasons = [], []
+        for pt in curve:
+            problems = []
+            if pt.get("hard_gate") is not True:
+                problems.append("hard_gate_not_true")
+            strict = pt.get("strict_macro")
+            if strict is None:
+                problems.append("strict_macro_missing")
+            elif float(strict) < tgt:
+                problems.append("strict_macro_below_target")
+            crit = pt.get("critical")
+            if not isinstance(crit, dict):
+                problems.append("critical_metrics_missing")
+            else:
+                for task, floor in mins.items():
+                    if float(crit.get(task, 0.0)) < float(floor):
+                        problems.append(f"critical_below_floor:{task}")
+            if not problems:
+                hits.append(True)
+                reasons.append({"step": pt.get("step"), "strict_macro": strict,
+                                "critical_snapshot": {
+                                    k: crit.get(k) for k in mins}})
+            else:
+                hits.append(False)
+                reasons.append({"step": pt.get("step"), "problems": problems})
+
+        pair = next((i for i in range(len(hits) - 1) if hits[i] and hits[i + 1]), None)
+        key = f"{int(tgt * 100)}%"
+        if pair is None:
+            out[key] = {"status": "TARGET_NOT_REACHED", "seed": seed,
+                        "rule": "需要连续两个独立验证点同时达标",
+                        "last_point": reasons[-1] if reasons else None}
+            continue
+        first, second = curve[pair], curve[pair + 1]
+        cost = second.get("cumulative_macs")
+        cost_source = "cumulative_macs@second_confirmation"
+        if cost is None:
+            cost = second.get("cost_macs")
+            cost_source = "cost_macs@second_confirmation"
+        out[key] = {
+            "status": "REACHED_STABLE" if cost is not None else "REACHED_STABLE_COST_UNAVAILABLE",
+            "seed": seed,
+            "first_confirmation_step": first.get("step"),
+            "confirmed_step": second.get("step"),
+            "strict_macro": second.get("strict_macro"),
+            "cost": cost,
+            "cost_source": cost_source,
+            "evidence": reasons[pair:pair + 2],
+            "note": "末尾单点达标不算稳定；成本只取第二个确认点。",
+        }
     return out
 
 

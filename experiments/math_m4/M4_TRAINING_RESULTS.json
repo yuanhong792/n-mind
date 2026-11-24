@@ -1,306 +1,680 @@
 {
   "status": "DRY_RUN_COMPLETE",
   "authorization": "NOT_AUTHORIZED",
+  "sole_training_entry": "train_m4.py",
   "tokenizer_sha": "81f4265301086f8688412dcf21b4c696b57c54e1210027da1daa8e8d6c03541d",
   "panel_n": 296,
+  "positive_n": 64,
   "models": {
     "positive_R1_gru_reference_s1": {
       "arch": "R1_gru_reference",
       "seed": 1,
       "stage": "positive",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "aa6247e88a657585",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "positive_gate": {
+        "pass": false,
+        "checks": {
+          "tf_accuracy": {
+            "pass": false,
+            "observed": 0.0,
+            "required": 0.95
+          },
+          "natural_eos_full_accuracy": {
+            "pass": false,
+            "observed": 0.0,
+            "required": 0.9
+          },
+          "gradient_finite_and_nonzero": {
+            "pass": false,
+            "observed": false,
+            "required": true
+          },
+          "parameter_updated": {
+            "pass": false,
+            "observed": false,
+            "required": true
+          },
+          "no_future_leakage": {
+            "pass": true,
+            "observed": true,
+            "required": true
+          }
+        }
+      }
     },
     "positive_R2_tiny_transformer_s1": {
       "arch": "R2_tiny_transformer",
       "seed": 1,
       "stage": "positive",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "0e899788ac9ea313",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "positive_gate": {
+        "pass": false,
+        "checks": {
+          "tf_accuracy": {
+            "pass": false,
+            "observed": 0.0,
+            "required": 0.95
+          },
+          "natural_eos_full_accuracy": {
+            "pass": false,
+            "observed": 0.0,
+            "required": 0.9
+          },
+          "gradient_finite_and_nonzero": {
+            "pass": false,
+            "observed": false,
+            "required": true
+          },
+          "parameter_updated": {
+            "pass": false,
+            "observed": false,
+            "required": true
+          },
+          "no_future_leakage": {
+            "pass": true,
+            "observed": true,
+            "required": true
+          }
+        }
+      }
     },
     "main_R1_gru_reference_s1": {
       "arch": "R1_gru_reference",
       "seed": 1,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "aa6247e88a657585",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_R1_gru_reference_s2": {
       "arch": "R1_gru_reference",
       "seed": 2,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "9770198d817a2b58",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_R2_tiny_transformer_s1": {
       "arch": "R2_tiny_transformer",
       "seed": 1,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "0e899788ac9ea313",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_R2_tiny_transformer_s2": {
       "arch": "R2_tiny_transformer",
       "seed": 2,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "944d0360ceaac25d",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_M4-A_low_rank_interaction_s1": {
       "arch": "M4-A_low_rank_interaction",
       "seed": 1,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "5a4e51813d1f6c9b",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_M4-A_low_rank_interaction_s2": {
       "arch": "M4-A_low_rank_interaction",
       "seed": 2,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "1472209262542dad",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_M4-B_selective_interaction_s1": {
       "arch": "M4-B_selective_interaction",
       "seed": 1,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "733008a942e98b62",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 1,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     },
     "main_M4-B_selective_interaction_s2": {
       "arch": "M4-B_selective_interaction",
       "seed": 2,
       "stage": "main",
       "status": "DRY_RUN",
-      "steps": 0,
+      "optimizer_steps": 0,
+      "ledger_steps_delta": 0,
       "init_sha": "19ad328c7b509563",
-      "best_macro": -1.0,
+      "best_score": -1.0,
       "curve": [],
-      "best_path": null
+      "gradient_health": {
+        "n_checked": 0,
+        "all_finite_nonzero": false,
+        "last": null
+      },
+      "parameter_updated": false,
+      "best_path": null,
+      "final_path": null,
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED",
+          "seed": 2,
+          "rule": "需要连续两个独立验证点同时达标",
+          "last_point": null
+        }
+      }
     }
   },
-  "main_R1_gru_reference_s1_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
+  "positive_gates": {
+    "positive_R1_gru_reference_s1": {
+      "pass": false,
+      "checks": {
+        "tf_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.95
+        },
+        "natural_eos_full_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.9
+        },
+        "gradient_finite_and_nonzero": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "parameter_updated": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "no_future_leakage": {
+          "pass": true,
+          "observed": true,
+          "required": true
+        }
+      }
     },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
+    "positive_R2_tiny_transformer_s1": {
+      "pass": false,
+      "checks": {
+        "tf_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.95
+        },
+        "natural_eos_full_accuracy": {
+          "pass": false,
+          "observed": 0.0,
+          "required": 0.9
+        },
+        "gradient_finite_and_nonzero": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "parameter_updated": {
+          "pass": false,
+          "observed": false,
+          "required": true
+        },
+        "no_future_leakage": {
+          "pass": true,
+          "observed": true,
+          "required": true
+        }
+      }
     }
   },
-  "main_R1_gru_reference_s2_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_R2_tiny_transformer_s1_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_R2_tiny_transformer_s2_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_M4-A_low_rank_interaction_s1_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_M4-A_low_rank_interaction_s2_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_M4-B_selective_interaction_s1_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
-  "main_M4-B_selective_interaction_s2_iso": {
-    "30%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "40%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "50%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "60%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "70%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "80%": {
-      "status": "TARGET_NOT_REACHED"
-    },
-    "90%": {
-      "status": "TARGET_NOT_REACHED"
-    }
-  },
+  "dry_run_note": "未授权，正控制门禁未实际评测；继续零步 dry-run 以检查入口完整性",
   "budget_final": {
     "steps_used": 0,
+    "pending_unconfirmed": 0,
     "max_steps": 4096,
     "steps_remaining": 4096,
     "wall_used": 0.0,
@@ -308,5 +682,6 @@
     "stages": {},
     "sessions": 0,
     "runs": []
-  }
+  },
+  "optimizer_steps_executed": 0
 }

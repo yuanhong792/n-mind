@@ -1,0 +1,871 @@
+{
+  "status": "PREFLIGHT_PASS_AWAITING_AUTHORIZATION",
+  "optimizer_step": 0,
+  "training_status": "AWAITING_AUTHORIZATION",
+  "authorization_note": "预检就绪不是训练授权；用户明确授权前不得执行 train_m4.py --authorize。",
+  "gates": {
+    "CAUSALITY_PASS": true,
+    "INCREMENTAL_PARITY_PASS": true,
+    "KV_CACHE_PASS": true,
+    "PADDING_ISOLATION_PASS": true,
+    "ROUTING_GRADIENT_PASS": true,
+    "ACTUAL_COST_ACCOUNTING_PASS": true,
+    "STRICT_EOS_METRIC_PASS": true,
+    "DATA_LEAKAGE_AUDIT_PASS": true,
+    "SHARED_BUDGET_PASS": true,
+    "POSITIVE_CONTROL_GATE_READY": true
+  },
+  "history_preserved": {
+    "pass": true,
+    "sha256": "ff59cdbb68b8530a85bae4e0b9e184eedc694164a15a8a43cae6cbd87fe5e39a",
+    "expected_sha256": "ff59cdbb68b8530a85bae4e0b9e184eedc694164a15a8a43cae6cbd87fe5e39a",
+    "n_pass": 24,
+    "n_tests": 24
+  },
+  "evidence": {
+    "causality": {
+      "source": "M41_CAUSALITY_AUDIT.json",
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        15,
+        16,
+        17,
+        32,
+        64,
+        128
+      ],
+      "tolerance": 0.0001,
+      "scope": "formal_model_instances_only",
+      "models": {
+        "R1_gru_reference": {
+          "max_abs_diff": 8.94e-08,
+          "n_failed_assertions": 0,
+          "failure_examples": [],
+          "status": "PASS",
+          "causality_lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            15,
+            16,
+            17,
+            32,
+            64,
+            128
+          ],
+          "routing_gradient": {
+            "pass": true,
+            "note": "无路由参数。"
+          }
+        },
+        "R2_tiny_transformer": {
+          "max_abs_diff": 7.153e-07,
+          "n_failed_assertions": 0,
+          "failure_examples": [],
+          "status": "PASS",
+          "causality_lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            15,
+            16,
+            17,
+            32,
+            64,
+            128
+          ],
+          "routing_gradient": {
+            "pass": true,
+            "note": "无路由参数。"
+          }
+        },
+        "M4-A_low_rank_interaction": {
+          "max_abs_diff": 1.1921e-06,
+          "n_failed_assertions": 0,
+          "failure_examples": [],
+          "status": "PASS",
+          "causality_lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            15,
+            16,
+            17,
+            32,
+            64,
+            128
+          ],
+          "routing_gradient": {
+            "pass": true,
+            "note": "无路由参数。"
+          }
+        },
+        "M4-B_selective_interaction": {
+          "max_abs_diff": 9.537e-07,
+          "n_failed_assertions": 0,
+          "failure_examples": [],
+          "status": "PASS",
+          "causality_lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            15,
+            16,
+            17,
+            32,
+            64,
+            128
+          ],
+          "routing_gradient": {
+            "finite": true,
+            "total_grad_norm": 1.0467748646478867,
+            "route_param_grad_norms": [
+              0.00025311936042271554,
+              0.00021434704831335694
+            ],
+            "pass": true
+          }
+        }
+      }
+    },
+    "incremental_and_kv": {
+      "source": [
+        "M41_CAUSALITY_AUDIT.json",
+        "M41_KV_CACHE_AUDIT.json"
+      ],
+      "kv_cases": [
+        {
+          "B": 1,
+          "T": 16,
+          "seed": 20261130,
+          "chunks": [
+            1,
+            3,
+            4,
+            5,
+            3
+          ],
+          "max_abs_diff_incremental": 7.152557373046875e-07,
+          "max_abs_diff_chunked": 7.152557373046875e-07,
+          "expected_cache_shapes": {
+            "ck": [
+              1,
+              4,
+              16,
+              4
+            ],
+            "cv": [
+              1,
+              4,
+              16,
+              16
+            ]
+          },
+          "cache_bytes_fp32_per_block": [
+            5120,
+            5120
+          ]
+        },
+        {
+          "B": 2,
+          "T": 17,
+          "seed": 20261131,
+          "chunks": [
+            1,
+            3,
+            4,
+            5,
+            4
+          ],
+          "max_abs_diff_incremental": 7.450580596923828e-07,
+          "max_abs_diff_chunked": 8.344650268554688e-07,
+          "expected_cache_shapes": {
+            "ck": [
+              2,
+              4,
+              17,
+              4
+            ],
+            "cv": [
+              2,
+              4,
+              17,
+              16
+            ]
+          },
+          "cache_bytes_fp32_per_block": [
+            10880,
+            10880
+          ]
+        },
+        {
+          "B": 3,
+          "T": 32,
+          "seed": 20261132,
+          "chunks": [
+            1,
+            3,
+            4,
+            5,
+            7,
+            8,
+            4
+          ],
+          "max_abs_diff_incremental": 1.3113021850585938e-06,
+          "max_abs_diff_chunked": 8.344650268554688e-07,
+          "expected_cache_shapes": {
+            "ck": [
+              3,
+              4,
+              32,
+              4
+            ],
+            "cv": [
+              3,
+              4,
+              32,
+              16
+            ]
+          },
+          "cache_bytes_fp32_per_block": [
+            30720,
+            30720
+          ]
+        }
+      ]
+    },
+    "cost": {
+      "source": "M41_COST_ACCOUNTING_AUDIT.json",
+      "precision": "FP32",
+      "backward": {
+        "status": "ESTIMATED",
+        "central_multiplier": 2.0,
+        "range": [
+          1.5,
+          2.5
+        ],
+        "note": "未做逐算子反向解析，禁止当作精确值"
+      },
+      "optimizer": {
+        "status": "ESTIMATED",
+        "adamw_macs_per_param": 8
+      },
+      "hand_checks": {
+        "R1_GRU": {
+          "hand_macs": 2304,
+          "function_macs": 2304,
+          "pass": true
+        },
+        "R2_transformer": {
+          "hand_macs": 2816,
+          "function_macs": 2816,
+          "pass": true
+        },
+        "M4_A_low_rank": {
+          "hand_macs": 2496,
+          "function_macs": 2496,
+          "pass": true
+        },
+        "M4_B_selective": {
+          "hand_macs": "读取真实执行 stats",
+          "function_macs": 2976,
+          "selective_stats": {
+            "theoretical_selection_ratio": 0.4375,
+            "actual_compute_ratio": 1.0,
+            "selective_executed_attention_and_controller": 416
+          },
+          "pass": true
+        }
+      },
+      "samples_training_input": {
+        "R1_GRU": {
+          "input_len": 7,
+          "analytic_fwd_macs": 11554816,
+          "analytic_bwd_macs_ESTIMATED": 23109632,
+          "optimizer_macs_ESTIMATED": 885552,
+          "score_or_selective_macs": null,
+          "value_aggregation_macs": null,
+          "actual_compute_ratio": null
+        },
+        "R2_transformer": {
+          "input_len": 7,
+          "analytic_fwd_macs": 8271872,
+          "analytic_bwd_macs_ESTIMATED": 16543744,
+          "optimizer_macs_ESTIMATED": 637744,
+          "score_or_selective_macs": 50176,
+          "value_aggregation_macs": null,
+          "actual_compute_ratio": null
+        },
+        "M4_A_low_rank": {
+          "input_len": 7,
+          "analytic_fwd_macs": 6820352,
+          "analytic_bwd_macs_ESTIMATED": 13640704,
+          "optimizer_macs_ESTIMATED": 539440,
+          "score_or_selective_macs": 12544,
+          "value_aggregation_macs": 50176,
+          "actual_compute_ratio": null
+        },
+        "M4_B_selective": {
+          "input_len": 7,
+          "analytic_fwd_macs": 4685824,
+          "analytic_bwd_macs_ESTIMATED": 9371648,
+          "optimizer_macs_ESTIMATED": 641840,
+          "score_or_selective_macs": 284672,
+          "value_aggregation_macs": null,
+          "actual_compute_ratio": 1.1429
+        }
+      }
+    },
+    "metric": {
+      "source": "M41_METRIC_AUDIT.json",
+      "checks": {
+        "STRICT_TOKEN_EOS_OK": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              2
+            ],
+            "expected_ids": [
+              29,
+              2
+            ],
+            "strict_ok": true,
+            "finish_reason": "eos",
+            "forward_calls": [
+              {
+                "T": 7,
+                "hard_gate": true
+              },
+              {
+                "T": 1,
+                "hard_gate": true
+              }
+            ]
+          }
+        },
+        "DECODE_FILTER_CANNOT_HIDE_SPECIAL_TOKEN": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              1,
+              2
+            ],
+            "expected_ids": [
+              29,
+              2
+            ],
+            "decoded_content_ok": true,
+            "strict_ok": false,
+            "invalid_special_tokens": [
+              1
+            ]
+          }
+        },
+        "PAD_CANNOT_BE_FILTERED": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              1,
+              2
+            ],
+            "strict_ok": false,
+            "invalid_special_tokens": [
+              1
+            ]
+          }
+        },
+        "NO_NATURAL_EOS_REJECTED": {
+          "pass": true,
+          "observed": {
+            "raw_ids": [
+              29,
+              30
+            ],
+            "finish_reason": "length"
+          }
+        },
+        "HARD_GATE_DEFAULT": {
+          "pass": true,
+          "observed": {
+            "forward_calls": [
+              {
+                "T": 7,
+                "hard_gate": true
+              },
+              {
+                "T": 1,
+                "hard_gate": true
+              }
+            ],
+            "eval_rows_default": "True",
+            "strict_macro": 1.0
+          }
+        },
+        "ISO_TWO_CONSECUTIVE_POINTS": {
+          "pass": true,
+          "observed": {
+            "status": "REACHED_STABLE",
+            "seed": 1,
+            "first_confirmation_step": 64,
+            "confirmed_step": 128,
+            "strict_macro": 0.82,
+            "cost": 1600,
+            "cost_source": "cumulative_macs@second_confirmation",
+            "evidence": [
+              {
+                "step": 64,
+                "strict_macro": 0.8,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              },
+              {
+                "step": 128,
+                "strict_macro": 0.82,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              }
+            ],
+            "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+          }
+        },
+        "ISO_FINAL_SINGLE_POINT_REJECTED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 192,
+              "strict_macro": 0.85,
+              "critical_snapshot": {
+                "A3_copyN": 1.0,
+                "A4_reverse": 1.0,
+                "A5_repeat": 1.0,
+                "B2_bind": 1.0,
+                "B4_bind": 1.0,
+                "counterfactual_same_query_fact_change": 1.0,
+                "counterfactual_unrelated_fact_invariance": 1.0,
+                "query_switch": 1.0,
+                "C_reassign": 1.0
+              }
+            }
+          }
+        },
+        "ISO_CRITICAL_FLOOR_REQUIRED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 128,
+              "problems": [
+                "critical_below_floor:C_reassign"
+              ]
+            }
+          }
+        },
+        "ISO_HARD_GATE_REQUIRED": {
+          "pass": true,
+          "observed": {
+            "status": "TARGET_NOT_REACHED",
+            "seed": 1,
+            "rule": "需要连续两个独立验证点同时达标",
+            "last_point": {
+              "step": 128,
+              "problems": [
+                "hard_gate_not_true"
+              ]
+            }
+          }
+        },
+        "ISO_NO_FICTIONAL_COST": {
+          "pass": true,
+          "observed": {
+            "status": "REACHED_STABLE_COST_UNAVAILABLE",
+            "seed": 1,
+            "first_confirmation_step": 64,
+            "confirmed_step": 128,
+            "strict_macro": 0.85,
+            "cost": null,
+            "cost_source": "cost_macs@second_confirmation",
+            "evidence": [
+              {
+                "step": 64,
+                "strict_macro": 0.85,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              },
+              {
+                "step": 128,
+                "strict_macro": 0.85,
+                "critical_snapshot": {
+                  "A3_copyN": 1.0,
+                  "A4_reverse": 1.0,
+                  "A5_repeat": 1.0,
+                  "B2_bind": 1.0,
+                  "B4_bind": 1.0,
+                  "counterfactual_same_query_fact_change": 1.0,
+                  "counterfactual_unrelated_fact_invariance": 1.0,
+                  "query_switch": 1.0,
+                  "C_reassign": 1.0
+                }
+              }
+            ],
+            "note": "末尾单点达标不算稳定；成本只取第二个确认点。"
+          }
+        },
+        "ISO_SEED_INDEPENDENT": {
+          "pass": true,
+          "observed": {
+            "seed1": 1,
+            "seed2": 2,
+            "status1": "REACHED_STABLE",
+            "status2": "REACHED_STABLE"
+          }
+        }
+      }
+    },
+    "data": {
+      "source": "M41_DATA_AUDIT.json",
+      "checks": {
+        "SPLIT_COUNTS": {
+          "pass": true,
+          "observed": {
+            "train": 1392,
+            "val": 464,
+            "sealed": 464
+          }
+        },
+        "A5_REPEAT_COVERAGE": {
+          "pass": true,
+          "observed": {
+            "train_A5": 96
+          }
+        },
+        "QUERY_POSITION_BALANCE": {
+          "pass": true,
+          "observed": {
+            "bindings": {
+              "B2_bind": {
+                "1": 77,
+                "0": 83
+              },
+              "B4_bind": {
+                "0": 51,
+                "1": 35,
+                "3": 36,
+                "2": 38
+              },
+              "B8_bind": {
+                "1": 21,
+                "4": 29,
+                "2": 20,
+                "0": 15,
+                "5": 18,
+                "3": 21,
+                "6": 18,
+                "7": 18
+              }
+            },
+            "counterfactual_global": {
+              "first": 136,
+              "middle": 132,
+              "last": 132
+            },
+            "counterfactual_per_type": {
+              "same_query_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "unrelated_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "query_switch": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "order_swap": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              }
+            }
+          }
+        },
+        "CANONICAL_SPLIT_ISOLATION": {
+          "pass": true,
+          "observed": {
+            "train_vs_val": 0,
+            "train_vs_sealed": 0,
+            "train_vs_generalization": 0,
+            "val_vs_sealed": 0,
+            "val_vs_generalization": 0,
+            "sealed_vs_generalization": 0
+          }
+        },
+        "NO_PROMPT_ANSWER_CONFLICT": {
+          "pass": true,
+          "observed": {
+            "n_conflicts": 0,
+            "samples": []
+          }
+        },
+        "NO_CROSS_TASK_SEMANTIC_LEAK": {
+          "pass": true,
+          "observed": {
+            "n_cross_task_prompts": 0,
+            "samples": [],
+            "n_cf_main_prompt_overlap": 0,
+            "cf_main_samples": [],
+            "note": "CF 内部 B_counterfactual/B_query_switch 别名按同一 pair_id 排除"
+          }
+        },
+        "COUNTERFACTUAL_FAMILY_ISOLATION": {
+          "pass": true,
+          "observed": {
+            "n_pairs": 400,
+            "unique_pair_ids": 400,
+            "types": {
+              "same_query_fact_change": 100,
+              "unrelated_fact_change": 100,
+              "query_switch": 100,
+              "order_swap": 100
+            },
+            "query_positions_per_type": {
+              "same_query_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "unrelated_fact_change": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "query_switch": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              },
+              "order_swap": {
+                "first": 34,
+                "middle": 33,
+                "last": 33
+              }
+            },
+            "failures": []
+          }
+        },
+        "DISTANCE_PAIRED_IDS": {
+          "pass": true,
+          "observed": {
+            "n_pairs": 60,
+            "n_rows": 420,
+            "failures": []
+          }
+        },
+        "NO_SILENT_TRUNCATION": {
+          "pass": true,
+          "observed": {
+            "max_len": {
+              "train": 40,
+              "val": 40,
+              "sealed": 40
+            },
+            "limit": 96,
+            "failures": []
+          }
+        }
+      },
+      "shortcut_baseline_accuracy": {
+        "first_digit": 0.2646,
+        "last_digit": 0.3385,
+        "fixed_position_0": 0.3455,
+        "fixed_position_1": 0.2257,
+        "fixed_position_2": 0.1914,
+        "nearest_assignment": 0.9878,
+        "constant_most_common": 0.0647,
+        "random_digit": 0.0506
+      },
+      "repair": {
+        "source": "M41_DATA_REPAIR_AUDIT.json",
+        "before_sha256": "84b902ca4833748091a582a211c0b0a82a92647174fcc9534eed4add5627d251",
+        "after_sha256": "3bb867d55e02461fe68ec2824552175e395ca429a40ad907456365ed87962453",
+        "n_repaired": 10
+      }
+    },
+    "budget": {
+      "source": "M41_BUDGET_AUDIT.json",
+      "checks": {
+        "UNAUTHORIZED_ZERO_STEP": {
+          "pass": true,
+          "observed": {
+            "ledger_steps": 0,
+            "pending": 0,
+            "training_result_steps": 0,
+            "plan_status": "M41_PREFLIGHT_READY_AWAITING_AUTHORIZATION"
+          },
+          "required": {
+            "ledger_steps": 0,
+            "training_result_steps": 0,
+            "plan_status_contains": "AWAITING_AUTHORIZATION"
+          }
+        },
+        "SOLE_TRAINING_ENTRY": {
+          "pass": true,
+          "observed": [
+            {
+              "file": "train_m4.py",
+              "line": 178,
+              "receiver": "opt"
+            }
+          ],
+          "required": "唯一 optimizer.step 位于 train_m4.py"
+        },
+        "RESERVE_BEFORE_CONFIRM": {
+          "pass": true,
+          "observed": {
+            "event_types": [
+              "reserve",
+              "step"
+            ],
+            "steps_used": 1,
+            "pending": 0
+          },
+          "required": {
+            "event_types": [
+              "reserve",
+              "step"
+            ],
+            "steps_used": 1,
+            "pending": 0
+          }
+        },
+        "UNCONFIRMED_CONSERVATIVE": {
+          "pass": true,
+          "observed": {
+            "steps_used_after_restart": 2,
+            "pending_after_restart": 1,
+            "rid": "probe2:positive:1:e143c1d8"
+          },
+          "required": {
+            "steps_used_after_restart": 2,
+            "pending_after_restart": 1
+          }
+        },
+        "SHARED_BUDGET_CAPS": {
+          "pass": true,
+          "observed": {
+            "steps_used": 4096,
+            "stages": {
+              "positive": 256,
+              "main": 3840
+            },
+            "positive_rejected": true,
+            "main_rejected": true
+          },
+          "required": {
+            "positive": 256,
+            "main": 3840,
+            "total": 4096,
+            "max_wall_seconds": 3600
+          }
+        }
+      },
+      "live_ledger": {
+        "steps_used": 0,
+        "pending_unconfirmed": 0,
+        "max_steps": 4096,
+        "steps_remaining": 4096,
+        "wall_used": 0.0,
+        "max_wall": 3600,
+        "stages": {},
+        "sessions": 0,
+        "runs": []
+      }
+    },
+    "positive_control": {
+      "source": "M4_POSITIVE_CONTROL.json",
+      "alignment": {
+        "n_samples": 64,
+        "answer_only_alignment": true,
+        "failures": [],
+        "batch": [
+          64,
+          16
+        ],
+        "supervised_tokens": 200
+      },
+      "gate_spec": {
+        "tf_accuracy_min": 0.95,
+        "natural_eos_full_accuracy_min": 0.9,
+        "gradient_finite_and_nonzero_required": true,
+        "parameter_update_required": true,
+        "future_leakage_forbidden": true,
+        "evaluate_on_same_64_rows": true,
+        "weights_enter_main_experiment": false,
+        "abort_main_on_reference_failure": true,
+        "sole_training_entry": "train_m4.py"
+      },
+      "ready_but_not_executed": true,
+      "note": "梯度、参数更新与 95%/90% 门禁将在授权后的正控制阶段实测。"
+    }
+  }
+}

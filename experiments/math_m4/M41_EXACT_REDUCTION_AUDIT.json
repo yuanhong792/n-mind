@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE",
+  "category": "A_数学等价优化（非近似，非算法创新）",
+  "logits_max_abs_diff": 4.77e-07,
+  "loss_max_abs_diff": 0.0,
+  "gradient_max_abs_diff": 3e-08,
+  "parameter_update_max_abs_diff": 7e-09,
+  "greedy_next_token_equal": true,
+  "full_forward": {
+    "median_us": 1670.95,
+    "p95_us": 2495.2
+  },
+  "optimized_forward": {
+    "median_us": 2235.05,
+    "p95_us": 2684.9
+  },
+  "measured_time_reduction": -0.3376,
+  "verdict": "REJECT_NO_MEASURED_BENEFIT",
+  "note": "词表102时 head 占比极低；索引开销可能超过节省，负收益必须如实淘汰"
+}

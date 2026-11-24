@@ -1,10 +1,14 @@
-"""M4-A：Low-Rank Information Interaction 模型。
+"""M4-A：Low-Rank Information Interaction 模型（M4.1 修复版）。
 
 与 R2 完全相同的层数/Embedding/FFN/Value 维度/位置编码/输出 Head，
 唯一变量是 Q/K 交互维度 r（Value 表达维度保持 d）。
 不加入低秩投影分解或正交压缩（那些只在 math_lab 做算子验证）。
 
-来源：LoRA(2022)/VN-SST(2026) 为思想背景，本项目独立实现，不宣称原创。
+M4.1 修复：
+- transpose 后 K/V cache 必须沿序列维 dim=2 拼接，不能沿头维 dim=1；
+- QK score 缩放使用实际 reduced_head_dim，而不是 Value 维度；
+- 完整统计 Q/K 投影、score、Value 聚合、输出投影与 cache 字节；
+- valid_mask 屏蔽 padding key，保证 padding isolation。
 """
 
 from __future__ import annotations
@@ -37,32 +41,62 @@ class LowRankQKAttention(nn.Module):
             nn.init.xavier_uniform_(p)
 
     def forward(self, x, cache_k=None, cache_v=None, pos_start=0,
-                hard_gate=False, collect_stats=False):
+                valid_mask=None, cache_valid=None, hard_gate=False,
+                collect_stats=False):
         B, T, d = x.shape
         Q = (x @ self.Uq).view(B, T, self.h, self.rh)
         K = (x @ self.Uk).view(B, T, self.h, self.rh)
         V = (x @ self.Wv).view(B, T, self.h, self.dh).transpose(1, 2)
-        # 相对 RoPE 在 transpose 之前作用（cos/sin 形状 [B,T,h,rh/2]，与 rope_rotate 约定一致）
         pos = torch.arange(pos_start, pos_start + T, device=x.device).float()
         inv = 1.0 / (10000 ** (torch.arange(0, self.rh, 2, device=x.device).float() / self.rh))
         ang = pos[:, None] * inv[None, :]
         cos = torch.cos(ang)[None, :, None, :].expand(B, T, self.h, -1)
         sin = torch.sin(ang)[None, :, None, :].expand(B, T, self.h, -1)
         Q, K = rope_rotate(Q, cos, sin), rope_rotate(K, cos, sin)
+        # 先 RoPE，再换到 [B,h,T,*]；此后序列维固定为 dim=2。
         Q, K = Q.transpose(1, 2), K.transpose(1, 2)
+
+        cache_len = cache_k.shape[2] if cache_k is not None else 0
         if cache_k is not None:
-            K = torch.cat([cache_k, K], dim=1)
-            V = torch.cat([cache_v, V], dim=1)
-        S = (Q @ K.transpose(-1, -2)) / math.sqrt(self.dh)
+            # 修复点：K/V 已经是 [B,h,L,*]，必须沿序列维 dim=2 拼接。
+            K = torch.cat([cache_k, K], dim=2)
+            V = torch.cat([cache_v, V], dim=2)
+
+        key_ok = torch.ones(B, K.shape[2], dtype=torch.bool, device=x.device)
+        if cache_valid is not None:
+            key_ok[:, :cache_len] = cache_valid
+        if valid_mask is not None:
+            key_ok[:, cache_len:] = valid_mask
+
         L = K.shape[2]
+        S = (Q @ K.transpose(-1, -2)) / math.sqrt(self.rh)
         qpos = torch.arange(pos_start, pos_start + T, device=x.device)[:, None]
         kpos = torch.arange(0, L, device=x.device)[None, :]
-        S = S.masked_fill(kpos > qpos, float("-inf"))
-        A = torch.softmax(S, -1)
+        mask = (kpos > qpos) | (~key_ok[:, None, None, :])
+        S = S.masked_fill(mask, float("-inf"))
+        A = torch.nan_to_num(torch.softmax(S, -1), nan=0.0)
         O = (A @ V).transpose(1, 2).reshape(B, T, d)
-        stats = {"score_macs": B * self.h * T * L * self.rh,
-                 "full_graph_macs": B * T * d * 2 * self.rh + 2 * B * self.h * T * L * self.rh +
-                                    B * T * d * d * 2}
+
+        qk_proj_macs = 2 * B * T * d * self.h * self.rh
+        score_macs = B * self.h * T * L * self.rh
+        value_proj_macs = B * T * d * d
+        value_aggregation_macs = B * self.h * T * L * self.dh
+        output_proj_macs = B * T * d * d
+        total_macs = (qk_proj_macs + score_macs + value_proj_macs +
+                      value_aggregation_macs + output_proj_macs)
+        stats = {
+            "reduced_head_dim": self.rh,
+            "value_head_dim": self.dh,
+            "qk_proj_macs": qk_proj_macs,
+            "score_macs": score_macs,
+            "dense_reference_score_macs": B * self.h * T * L * self.dh,
+            "value_proj_macs": value_proj_macs,
+            "value_aggregation_macs": value_aggregation_macs,
+            "output_proj_macs": output_proj_macs,
+            "total_macs": total_macs,
+            "cache_elements": int(K.numel() + V.numel()),
+            "cache_bytes_fp32": int((K.numel() + V.numel()) * K.element_size()),
+        }
         return O @ self.proj, K, V, stats
 
 
@@ -75,8 +109,10 @@ class LRBlock(nn.Module):
                                 nn.Linear(d_model * 2, d_model))
         self.ln2 = nn.LayerNorm(d_model)
 
-    def forward(self, x, ck=None, cv=None, pos_start=0):
-        a, k, v, stats = self.attn(self.ln1(x), ck, cv, pos_start)
+    def forward(self, x, ck=None, cv=None, pos_start=0,
+                valid_mask=None, cache_valid=None, hard_gate=False):
+        a, k, v, stats = self.attn(self.ln1(x), ck, cv, pos_start,
+                                   valid_mask, cache_valid, hard_gate)
         x = x + a
         x = x + self.ff(self.ln2(x))
         return x, k, v, stats
@@ -94,15 +130,22 @@ class LowRankInteractionM4(M4Base):
     def forward(self, tokens, state=None, valid_mask=None, collect_stats=False):
         B, T = tokens.shape
         pos_start = state["pos"] if state else 0
+        cur_valid = valid_mask if valid_mask is not None else torch.ones(
+            B, T, dtype=torch.bool, device=tokens.device)
+        cache_valid = state.get("key_valid") if state else None
         x = self.emb(tokens)
         nck, ncv, stats = [], [], {}
         for i, blk in enumerate(self.blocks):
             ck = state["ck"][i] if state and state["ck"] is not None else None
             cv = state["cv"][i] if state and state["cv"] is not None else None
-            x, k, v, s = blk(x, ck, cv, pos_start)
+            x, k, v, s = blk(x, ck, cv, pos_start, cur_valid, cache_valid)
             nck.append(k); ncv.append(v); stats[f"block{i}"] = s
         logits = self.head(self.ln(x))
-        return logits, {"ck": nck, "cv": ncv, "pos": pos_start + T, "stats": stats}
+        key_valid = (torch.cat([cache_valid, cur_valid], dim=1)
+                     if cache_valid is not None else cur_valid)
+        cache = {"ck": nck, "cv": ncv, "pos": pos_start + T,
+                 "key_valid": key_valid, "stats": stats}
+        return logits, cache
 
     def initial_state(self, batch, device):
-        return {"ck": None, "cv": None, "pos": 0}
+        return {"ck": None, "cv": None, "pos": 0, "key_valid": None}

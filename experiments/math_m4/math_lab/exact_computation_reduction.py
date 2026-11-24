@@ -86,10 +86,16 @@ def run_self_test():
             grad_diffs[n1] = (p1.grad - p2.grad).abs().max().item()
     max_grad_diff = max(grad_diffs.values()) if grad_diffs else 0.0
 
-    # 参数更新一致
-    o1 = torch.optim.SGD(m1.parameters(), lr=0.01)
-    o2 = torch.optim.SGD(m2.parameters(), lr=0.01)
-    o1.step(); o2.step()
+    # 参数更新一致：M41 起禁止 math_lab 调用 optimizer.step，
+    # 否则会绕过共享预算。这里用等价的显式 SGD 更新公式只做数值比较。
+    lr = 0.01
+    with torch.no_grad():
+        for p in m1.parameters():
+            if p.grad is not None:
+                p.sub_(lr * p.grad)
+        for p in m2.parameters():
+            if p.grad is not None:
+                p.sub_(lr * p.grad)
     upd_diff = max((a - b).abs().max().item() for a, b in
                    zip(m1.parameters(), m2.parameters()))
 
@@ -132,7 +138,8 @@ def run_self_test():
 if __name__ == "__main__":
     import json
     res = run_self_test()
-    p = HERE / "M4_EXACT_REDUCTION.json"
+    # M41 不覆盖 M4 历史证据；重新审计写入独立文件。
+    p = HERE / "M41_EXACT_REDUCTION_AUDIT.json"
     p.write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[exact] logits_diff={res['logits_max_abs_diff']} grad_diff={res['gradient_max_abs_diff']} "
           f"time_reduction={res['measured_time_reduction']} verdict={res['verdict']}")

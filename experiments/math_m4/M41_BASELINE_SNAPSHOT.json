@@ -1,0 +1,9 @@
+{
+  "status": "HISTORY_PRESERVED",
+  "file": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\M4_MATH_TESTS.json",
+  "sha256": "ff59cdbb68b8530a85bae4e0b9e184eedc694164a15a8a43cae6cbd87fe5e39a",
+  "n_pass": 24,
+  "n_tests": 24,
+  "note": "M4.1 不得覆盖此文件；M41 审计写入独立文件。",
+  "base_commit": "caf7d48b35b11ce5d247aa0e12ec30ca3cb3b8f8"
+}

@@ -1,0 +1,158 @@
+{
+  "status": "COMPLETE",
+  "file": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m4\\data\\m4_counterfactual.jsonl",
+  "before_sha256": "84b902ca4833748091a582a211c0b0a82a92647174fcc9534eed4add5627d251",
+  "after_sha256": "3bb867d55e02461fe68ec2824552175e395ca429a40ad907456365ed87962453",
+  "n_rows": 400,
+  "n_repaired": 10,
+  "scope": "仅 m4_counterfactual.jsonl 中退化的 same_query_fact_change 配对",
+  "untouched": [
+    "m4_train.jsonl",
+    "m4_val.jsonl",
+    "m4_sealed.jsonl",
+    "m4_distance.jsonl",
+    "m4_generalization.jsonl"
+  ],
+  "repaired_pairs": [
+    {
+      "pair_id": "CF_same_query_fact_change_009",
+      "query": "c",
+      "before": {
+        "prompt": "c=9\no=8\nGET c",
+        "answer": "9",
+        "canonical": "c=9|o=8|GET:c"
+      },
+      "after": {
+        "prompt": "c=0\no=8\nGET c",
+        "answer": "0",
+        "canonical": "c=0|o=8|GET:c"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_019",
+      "query": "b",
+      "before": {
+        "prompt": "p=7\nk=1\nb=9\nf=1\nGET b",
+        "answer": "9",
+        "canonical": "b=9|f=1|k=1|p=7|GET:b"
+      },
+      "after": {
+        "prompt": "p=7\nk=1\nb=1\nf=1\nGET b",
+        "answer": "1",
+        "canonical": "b=1|f=1|k=1|p=7|GET:b"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_029",
+      "query": "f",
+      "before": {
+        "prompt": "i=0\nm=7\ne=4\na=5\nl=2\ng=5\nh=0\nf=3\nGET f",
+        "answer": "3",
+        "canonical": "a=5|e=4|f=3|g=5|h=0|i=0|l=2|m=7|GET:f"
+      },
+      "after": {
+        "prompt": "i=0\nm=7\ne=4\na=5\nl=2\ng=5\nh=0\nf=6\nGET f",
+        "answer": "6",
+        "canonical": "a=5|e=4|f=6|g=5|h=0|i=0|l=2|m=7|GET:f"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_039",
+      "query": "i",
+      "before": {
+        "prompt": "i=0\nd=7\nGET i",
+        "answer": "0",
+        "canonical": "d=7|i=0|GET:i"
+      },
+      "after": {
+        "prompt": "i=4\nd=7\nGET i",
+        "answer": "4",
+        "canonical": "d=7|i=4|GET:i"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_049",
+      "query": "g",
+      "before": {
+        "prompt": "n=0\nj=6\ng=2\nk=8\nGET g",
+        "answer": "2",
+        "canonical": "g=2|j=6|k=8|n=0|GET:g"
+      },
+      "after": {
+        "prompt": "n=0\nj=6\ng=7\nk=8\nGET g",
+        "answer": "7",
+        "canonical": "g=7|j=6|k=8|n=0|GET:g"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_059",
+      "query": "e",
+      "before": {
+        "prompt": "h=7\nj=1\no=5\nd=4\na=4\nc=0\nl=1\ne=1\nGET e",
+        "answer": "1",
+        "canonical": "a=4|c=0|d=4|e=1|h=7|j=1|l=1|o=5|GET:e"
+      },
+      "after": {
+        "prompt": "h=7\nj=1\no=5\nd=4\na=4\nc=0\nl=1\ne=7\nGET e",
+        "answer": "7",
+        "canonical": "a=4|c=0|d=4|e=7|h=7|j=1|l=1|o=5|GET:e"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_069",
+      "query": "d",
+      "before": {
+        "prompt": "d=1\nn=5\nGET d",
+        "answer": "1",
+        "canonical": "d=1|n=5|GET:d"
+      },
+      "after": {
+        "prompt": "d=8\nn=5\nGET d",
+        "answer": "8",
+        "canonical": "d=8|n=5|GET:d"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_079",
+      "query": "l",
+      "before": {
+        "prompt": "e=7\nk=8\nl=8\np=7\nGET l",
+        "answer": "8",
+        "canonical": "e=7|k=8|l=8|p=7|GET:l"
+      },
+      "after": {
+        "prompt": "e=7\nk=8\nl=6\np=7\nGET l",
+        "answer": "6",
+        "canonical": "e=7|k=8|l=6|p=7|GET:l"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_089",
+      "query": "m",
+      "before": {
+        "prompt": "j=4\nd=6\np=9\nb=0\nh=4\nn=5\ng=5\nm=4\nGET m",
+        "answer": "4",
+        "canonical": "b=0|d=6|g=5|h=4|j=4|m=4|n=5|p=9|GET:m"
+      },
+      "after": {
+        "prompt": "j=4\nd=6\np=9\nb=0\nh=4\nn=5\ng=5\nm=3\nGET m",
+        "answer": "3",
+        "canonical": "b=0|d=6|g=5|h=4|j=4|m=3|n=5|p=9|GET:m"
+      }
+    },
+    {
+      "pair_id": "CF_same_query_fact_change_099",
+      "query": "e",
+      "before": {
+        "prompt": "e=0\nm=2\nGET e",
+        "answer": "0",
+        "canonical": "e=0|m=2|GET:e"
+      },
+      "after": {
+        "prompt": "e=1\nm=2\nGET e",
+        "answer": "1",
+        "canonical": "e=1|m=2|GET:e"
+      }
+    }
+  ]
+}
