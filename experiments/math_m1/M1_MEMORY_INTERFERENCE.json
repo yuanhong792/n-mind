@@ -1,0 +1,193 @@
+{
+  "status": "M1_MEMORY_INTERFERENCE_DONE",
+  "models": {
+    "M1-B": {
+      "distance_curve": {
+        "0": {
+          "n": 5,
+          "ok": 5,
+          "accuracy": 1.0
+        },
+        "4": {
+          "n": 49,
+          "ok": 39,
+          "accuracy": 0.7959
+        },
+        "8": {
+          "n": 43,
+          "ok": 26,
+          "accuracy": 0.6047
+        },
+        "16": {
+          "n": 260,
+          "ok": 140,
+          "accuracy": 0.5385
+        },
+        "32": {
+          "n": 260,
+          "ok": 111,
+          "accuracy": 0.4269
+        },
+        "64": {
+          "n": 260,
+          "ok": 81,
+          "accuracy": 0.3115
+        }
+      },
+      "binding_by_variable_count": {
+        "B1_bind1": {
+          "n": 6,
+          "ok": 6,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_bind": {
+          "n": 109,
+          "ok": 51,
+          "accuracy": 0.4679,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 48,
+          "ok": 15,
+          "accuracy": 0.3125,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 90,
+          "ok": 7,
+          "accuracy": 0.0778,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      },
+      "update_tasks": {
+        "B_swap": {
+          "n": 109,
+          "ok": 48,
+          "accuracy": 0.4404,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_query_switch": {
+          "n": 52,
+          "ok": 7,
+          "accuracy": 0.1346,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 123,
+          "ok": 5,
+          "accuracy": 0.0407,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 252,
+          "ok": 108,
+          "accuracy": 0.4286,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      }
+    },
+    "M0": {
+      "distance_curve": {
+        "0": {
+          "n": 5,
+          "ok": 5,
+          "accuracy": 1.0
+        },
+        "4": {
+          "n": 49,
+          "ok": 37,
+          "accuracy": 0.7551
+        },
+        "8": {
+          "n": 43,
+          "ok": 27,
+          "accuracy": 0.6279
+        },
+        "16": {
+          "n": 260,
+          "ok": 177,
+          "accuracy": 0.6808
+        },
+        "32": {
+          "n": 260,
+          "ok": 136,
+          "accuracy": 0.5231
+        },
+        "64": {
+          "n": 260,
+          "ok": 131,
+          "accuracy": 0.5038
+        }
+      },
+      "binding_by_variable_count": {
+        "B1_bind1": {
+          "n": 6,
+          "ok": 6,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_bind": {
+          "n": 109,
+          "ok": 44,
+          "accuracy": 0.4037,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 48,
+          "ok": 13,
+          "accuracy": 0.2708,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 90,
+          "ok": 8,
+          "accuracy": 0.0889,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      },
+      "update_tasks": {
+        "B_swap": {
+          "n": 109,
+          "ok": 51,
+          "accuracy": 0.4679,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "B2_query_switch": {
+          "n": 52,
+          "ok": 4,
+          "accuracy": 0.0769,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 123,
+          "ok": 10,
+          "accuracy": 0.0813,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 252,
+          "ok": 104,
+          "accuracy": 0.4127,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0
+        }
+      }
+    }
+  }
+}

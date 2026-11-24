@@ -1,0 +1,93 @@
+{
+  "status": "FROZEN_BEFORE_TRAINING",
+  "created_at": "2026-11-24T11:40:01+08:00",
+  "experiment": "N-MIND M1 Mathematical Intelligence Architecture",
+  "branch": "experiment/mathematical-architecture-m1",
+  "principles": {
+    "random_initialization_only": true,
+    "external_llm_or_pretrained_weights": false,
+    "distillation": false,
+    "hardcoded_rules_as_model_output": false,
+    "stable_read_only": true,
+    "weights_uploaded": false
+  },
+  "budget": {
+    "max_optimizer_steps_total": 2048,
+    "max_wall_seconds_total": 1800,
+    "reserve_seconds": 90,
+    "ledger": "M1_BUDGET_LEDGER.jsonl",
+    "shared_across_all_runs": true,
+    "stage1": {
+      "architectures": ["M0", "M1-A", "M1-B", "M1-C"],
+      "steps_per_architecture": 128,
+      "total_steps": 512,
+      "seed": 20261124
+    },
+    "stage2": {
+      "architectures": "best_new_architecture + best_reference_architecture",
+      "seeds": [20261125, 20261126],
+      "steps_per_architecture_per_seed": 384,
+      "total_steps": 1536,
+      "reinitialize_randomly": true
+    }
+  },
+  "candidates": {
+    "M0": {"type": "ncell_reference", "source": "C1.0 NCell/Router/Workspace", "state": "fixed"},
+    "M1-A": {"type": "gru_reference", "purpose": "matched-parameter control", "state": "fixed"},
+    "M1-B": {"type": "delta_matrix_memory", "gate": "shared", "conv_kernel": 1, "uncertainty": false},
+    "M1-C": {"type": "delta_matrix_memory", "gate": "independent_erase_write", "conv_kernel": 1, "uncertainty": false}
+  },
+  "single_variable_rule": "M1-B vs M1-C differ only in gate structure; M0/M1-A are controls; short convolution, uncertainty memory, and alternative readouts are NOT_RUN in main comparison.",
+  "data": {
+    "tokenizer": "independent M1 character tokenizer, shared by all models",
+    "split_by": "normalized semantic fact group; counterfactual pairs stay in same split",
+    "train_lengths": "pre-registered only",
+    "test_lengths": "strictly unseen lengths for length generalization",
+    "frozen_sha_before_training": true,
+    "model_selection_split": "validation only",
+    "sealed_used_for_selection": false
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "batch_size": 16,
+    "gradient_clip": 1.0,
+    "loss": "answer tokens + EOS; first token 2.0, content 1.0, EOS 0.25; per-sample normalized",
+    "checkpoint_every_steps": 64,
+    "final_before_best": true,
+    "tensor_verification_after_save": true
+  },
+  "curriculum": {
+    "order": ["two_variables", "four_variables", "interference", "distance", "reassign", "indirect"],
+    "same_for_all_models": true,
+    "gate_requirement": "stable for two consecutive evaluation points"
+  },
+  "metrics": {
+    "primary": "greedy free generation exact match with natural EOS",
+    "secondary": ["full_answer_logprob_including_eos", "shortcut_baselines", "immediate_eos_rate", "empty_output_rate"],
+    "selection": "fixed validation panel macro accuracy; tie -> later step",
+    "pareto_objectives": ["accuracy", "counterfactual_generalization", "memory_retention", "trainable_params", "state_elements", "cpu_latency", "train_time"]
+  },
+  "acceptance_targets": {
+    "A2_copyN_2char": 0.95,
+    "A2_copyN_multi": 0.80,
+    "B2_bind": 0.90,
+    "B4_bind": 0.80,
+    "counterfactual_paired": 0.80,
+    "B5_reassign": 0.85,
+    "B6_indirect": 0.80,
+    "immediate_eos_rate_max": 0.05
+  },
+  "architecture_search": {
+    "method": "deterministic finite enumeration",
+    "external_llm_generation": false,
+    "max_candidates": 4,
+    "elimination": ["math_verifier failure", "resource benchmark failure", "below fixed-panel floor"]
+  },
+  "not_run": [
+    "uncertainty_memory_in_main_model",
+    "short_causal_conv_in_main_model",
+    "C4_code_generation",
+    "unbounded_autonomous_learning_loop"
+  ]
+}

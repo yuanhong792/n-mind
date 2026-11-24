@@ -1,0 +1,91 @@
+{
+  "status": "RESOURCE_BENCHMARK_DONE",
+  "seconds": 1.43,
+  "torch_threads": 4,
+  "models": {
+    "M0": {
+      "architecture": "M0",
+      "trainable_params": 106410,
+      "state_elements": 528,
+      "model_config": {
+        "model_type": "M0_ncell_reference",
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "forward_batch_ms": 26.11,
+      "per_token_forward_ms": 0.08589,
+      "generation_tokens_per_second": 1769.29,
+      "train_forward_backward_seconds": 0.091,
+      "train_tokens_per_second": 3427.68,
+      "peak_rss_mb": 271.66,
+      "peak_cuda_mb": "NOT_AVAILABLE"
+    },
+    "M1-A": {
+      "architecture": "M1-A",
+      "trainable_params": 127013,
+      "state_elements": 128,
+      "model_config": {
+        "model_type": "M1-A_gru_reference",
+        "d_model": 64,
+        "hidden": 128,
+        "layers": 1
+      },
+      "forward_batch_ms": 3.476,
+      "per_token_forward_ms": 0.01143,
+      "generation_tokens_per_second": 9389.67,
+      "train_forward_backward_seconds": 0.0146,
+      "train_tokens_per_second": 21367.67,
+      "peak_rss_mb": 264.89,
+      "peak_cuda_mb": "NOT_AVAILABLE"
+    },
+    "M1-B": {
+      "architecture": "M1-B",
+      "trainable_params": 83127,
+      "state_elements": 2400,
+      "model_config": {
+        "model_type": "M1-B_delta_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "shared",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "forward_batch_ms": 7.521,
+      "per_token_forward_ms": 0.02474,
+      "generation_tokens_per_second": 3030.19,
+      "train_forward_backward_seconds": 0.0336,
+      "train_tokens_per_second": 9286.88,
+      "peak_rss_mb": 245.97,
+      "peak_cuda_mb": "NOT_AVAILABLE"
+    },
+    "M1-C": {
+      "architecture": "M1-C",
+      "trainable_params": 92342,
+      "state_elements": 2400,
+      "model_config": {
+        "model_type": "M1-C_decoupled_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "independent",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "forward_batch_ms": 7.923,
+      "per_token_forward_ms": 0.02606,
+      "generation_tokens_per_second": 7123.14,
+      "train_forward_backward_seconds": 0.0339,
+      "train_tokens_per_second": 9191.39,
+      "peak_rss_mb": 249.16,
+      "peak_cuda_mb": "NOT_AVAILABLE"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "LEAKAGE_AUDIT_DONE",
+  "cross_split_fact_group_overlap": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "history_prompt_overlap": {
+    "train": 0,
+    "val": 0,
+    "sealed": 0,
+    "counterfactual": 0,
+    "length_gen": 0
+  },
+  "counterfactual_group_isolated": true,
+  "length_generalization_reserved_before_split": true,
+  "verdict": "PASS"
+}

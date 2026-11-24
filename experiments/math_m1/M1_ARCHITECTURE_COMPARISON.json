@@ -1,0 +1,130 @@
+{
+  "status": "M1_ARCHITECTURE_COMPARISON_DONE",
+  "stage1_single_seed_128_steps": [
+    {
+      "architecture": "M0",
+      "best_val_macro": 0.0733,
+      "best_step": 128,
+      "params": 106410,
+      "state_elements": 528,
+      "panel_macro": 0.0733,
+      "sealed_macro": 0.1225
+    },
+    {
+      "architecture": "M1-A",
+      "best_val_macro": 0.0667,
+      "best_step": 128,
+      "params": 127013,
+      "state_elements": 128,
+      "panel_macro": 0.0667,
+      "sealed_macro": 0.0445
+    },
+    {
+      "architecture": "M1-B",
+      "best_val_macro": 0.0533,
+      "best_step": 128,
+      "params": 83127,
+      "state_elements": 2400,
+      "panel_macro": 0.0533,
+      "sealed_macro": 0.0534
+    },
+    {
+      "architecture": "M1-C",
+      "best_val_macro": 0.0467,
+      "best_step": 128,
+      "params": 92342,
+      "state_elements": 2400,
+      "panel_macro": 0.0467,
+      "sealed_macro": 0.0533
+    }
+  ],
+  "stage2_two_seed_384_steps": {
+    "M1-B": {
+      "seeds": [
+        20261125,
+        20261126
+      ],
+      "validation_best_macro_mean": 0.2878,
+      "panel_macro_mean": 0.2878,
+      "sealed_macro_mean": 0.2793,
+      "wall_mean": 35.5,
+      "params": 83127,
+      "state_elements": 2400
+    },
+    "M0": {
+      "seeds": [
+        20261125,
+        20261126
+      ],
+      "validation_best_macro_mean": 0.2489,
+      "panel_macro_mean": 0.2489,
+      "sealed_macro_mean": 0.2543,
+      "wall_mean": 100.2,
+      "params": 106410,
+      "state_elements": 528
+    }
+  },
+  "selection": {
+    "best_new": "M1-B",
+    "best_reference": "M0",
+    "rule": "stage1 fixed-panel macro; tie -> later step"
+  },
+  "pareto": {
+    "records": {
+      "M1-B": {
+        "accuracy": 0.2878,
+        "counterfactual": 0.03,
+        "retention": 0.5385,
+        "trainable_params": 83127,
+        "state_elements": 2400,
+        "cpu_latency_ms": 7.521,
+        "train_time": 35.5
+      },
+      "M0": {
+        "accuracy": 0.2489,
+        "counterfactual": 0.0175,
+        "retention": 0.6808,
+        "trainable_params": 106410,
+        "state_elements": 528,
+        "cpu_latency_ms": 26.11,
+        "train_time": 100.2
+      }
+    },
+    "front": {
+      "front": [
+        "M1-B",
+        "M0"
+      ],
+      "dominated": {
+        "M1-B": false,
+        "M0": false
+      },
+      "maximize": [
+        "accuracy",
+        "counterfactual",
+        "retention"
+      ],
+      "minimize": [
+        "trainable_params",
+        "state_elements",
+        "cpu_latency_ms",
+        "train_time"
+      ]
+    }
+  },
+  "checkpoint_integrity": {
+    "M1-B": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261126_best.pt",
+      "state_sha256": "da2162e3c16cc66784878769266d35353c4c939d33b35fb1367794b990040999",
+      "saved_step": 384,
+      "seed": 20261126
+    },
+    "M0": {
+      "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261126_best.pt",
+      "state_sha256": "4649aa3568b4d4f429e5c470840046497c3240d5504a3b0eb6e0553c071895f4",
+      "saved_step": 384,
+      "seed": 20261126
+    }
+  },
+  "model_weights_uploaded": false
+}

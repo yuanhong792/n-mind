@@ -1,0 +1,44 @@
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A1_copy1", "prompt": "PRINT U", "expected": "U", "predicted": "U", "ok": true, "finish": "eos", "tokens": [59]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 204 3", "expected": "4", "predicted": "4", "ok": true, "finish": "eos", "tokens": [26]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 40 2", "expected": "0", "predicted": "0", "ok": true, "finish": "eos", "tokens": [22]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 225 3", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 5445 2", "expected": "4", "predicted": "4", "ok": true, "finish": "eos", "tokens": [26]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 521 2", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "tokens": [24]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 1333 3", "expected": "3", "predicted": "3", "ok": true, "finish": "eos", "tokens": [25]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A3_index", "prompt": "INDEX 432 1", "expected": "4", "predicted": "4", "ok": true, "finish": "eos", "tokens": [26]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "B1_bind1", "prompt": "g=9\nGET g", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "B1_bind1", "prompt": "f=9\nGET f", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A1_copy1", "prompt": "PRINT W", "expected": "W", "predicted": "J", "ok": false, "finish": "eos", "tokens": [48]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A1_copy1", "prompt": "PRINT 9", "expected": "9", "predicted": "6", "ok": false, "finish": "eos", "tokens": [28]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A1_copy1", "prompt": "PRINT T", "expected": "T", "predicted": "J", "ok": false, "finish": "eos", "tokens": [48]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A1_copy1", "prompt": "PRINT 1", "expected": "1", "predicted": "6", "ok": false, "finish": "eos", "tokens": [28]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY EVHT", "expected": "EVHT", "predicted": "J", "ok": false, "finish": "eos", "tokens": [48]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY 5M", "expected": "5M", "predicted": "444444444444", "ok": false, "finish": "max_tokens", "tokens": [26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26]}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY 3H3", "expected": "3H3", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY DB", "expected": "DB", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY A877", "expected": "A877", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY WF90", "expected": "WF90", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M1-B", "run_id": "S2_M1-B_s20261126", "task": "A2_copyN", "prompt": "COPY K5KK", "expected": "K5KK", "predicted": "6", "ok": false, "finish": "eos", "tokens": [28]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "g=9\nGET g", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "f=9\nGET f", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "g=9\nGET g", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "f=9\nGET f", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "g=9\nGET g", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "f=9\nGET f", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "B1_bind1", "prompt": "a=5\nGET a", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A1_copy1", "prompt": "PRINT W", "expected": "W", "predicted": "O", "ok": false, "finish": "eos", "tokens": [53]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A1_copy1", "prompt": "PRINT 9", "expected": "9", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A1_copy1", "prompt": "PRINT T", "expected": "T", "predicted": "OO", "ok": false, "finish": "eos", "tokens": [53, 53]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A1_copy1", "prompt": "PRINT 1", "expected": "1", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A1_copy1", "prompt": "PRINT U", "expected": "U", "predicted": "O", "ok": false, "finish": "eos", "tokens": [53]}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY EVHT", "expected": "EVHT", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY 5M", "expected": "5M", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY 3H3", "expected": "3H3", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY DB", "expected": "DB", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY A877", "expected": "A877", "predicted": "", "ok": false, "finish": "eos", "tokens": []}
+{"architecture": "M0", "run_id": "S2_M0_s20261126", "task": "A2_copyN", "prompt": "COPY WF90", "expected": "WF90", "predicted": "", "ok": false, "finish": "eos", "tokens": []}

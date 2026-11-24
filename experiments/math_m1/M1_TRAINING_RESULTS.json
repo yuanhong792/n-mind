@@ -1,0 +1,1482 @@
+{
+  "status": "M1_TRAINING_COMPLETED",
+  "tokenizer_sha256": "cf15624c9c4cac6f0fd688a14b5fa484fb9dc24b120e7df63e04357a9b707f9c",
+  "fixed_panel": {
+    "n": 410,
+    "per_task": 30,
+    "tasks": [
+      "A1_copy1",
+      "A2_copyN",
+      "A3_index",
+      "A4_reverse",
+      "A5_repeat",
+      "B1_bind1",
+      "B2_bind",
+      "B4_bind",
+      "B8_bind",
+      "B2_query_switch",
+      "B_swap",
+      "B_rename",
+      "C_reassign",
+      "D_indirect",
+      "E_distance"
+    ]
+  },
+  "budget": {
+    "steps_used": 2048,
+    "max_steps": 2048,
+    "steps_remaining": 0,
+    "wall_used": 382.47,
+    "max_wall": 1800,
+    "sessions": 1,
+    "runs": [
+      {
+        "run_id": "S1_M0",
+        "architecture": "M0",
+        "seed": 20261124,
+        "steps": 128,
+        "wall": 32.91,
+        "stop_reason": "max_steps",
+        "best_score": 0.0733
+      },
+      {
+        "run_id": "S1_M1-A",
+        "architecture": "M1-A",
+        "seed": 20261124,
+        "steps": 128,
+        "wall": 6.55,
+        "stop_reason": "max_steps",
+        "best_score": 0.0667
+      },
+      {
+        "run_id": "S1_M1-B",
+        "architecture": "M1-B",
+        "seed": 20261124,
+        "steps": 128,
+        "wall": 11.55,
+        "stop_reason": "max_steps",
+        "best_score": 0.0533
+      },
+      {
+        "run_id": "S1_M1-C",
+        "architecture": "M1-C",
+        "seed": 20261124,
+        "steps": 128,
+        "wall": 13.04,
+        "stop_reason": "max_steps",
+        "best_score": 0.0467
+      },
+      {
+        "run_id": "S2_M1-B_s20261125",
+        "architecture": "M1-B",
+        "seed": 20261125,
+        "steps": 384,
+        "wall": 35.09,
+        "stop_reason": "max_steps",
+        "best_score": 0.2444
+      },
+      {
+        "run_id": "S2_M1-B_s20261126",
+        "architecture": "M1-B",
+        "seed": 20261126,
+        "steps": 384,
+        "wall": 35.86,
+        "stop_reason": "max_steps",
+        "best_score": 0.3311
+      },
+      {
+        "run_id": "S2_M0_s20261125",
+        "architecture": "M0",
+        "seed": 20261125,
+        "steps": 384,
+        "wall": 101.88,
+        "stop_reason": "max_steps",
+        "best_score": 0.1978
+      },
+      {
+        "run_id": "S2_M0_s20261126",
+        "architecture": "M0",
+        "seed": 20261126,
+        "steps": 384,
+        "wall": 98.39,
+        "stop_reason": "max_steps",
+        "best_score": 0.3
+      }
+    ]
+  },
+  "stage1": [
+    {
+      "run_id": "S1_M0",
+      "architecture": "M0",
+      "seed": 20261124,
+      "stage": "stage1",
+      "steps": 128,
+      "stop_reason": "max_steps",
+      "wall_seconds": 32.9,
+      "params": 106410,
+      "state_elements": 528,
+      "config": {
+        "model_type": "M0_ncell_reference",
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "init_sha256": "953a26be18d815ca574c93a094454ed25ded5bd800c8fc6e7beb698d709fe3cd",
+      "best_score": 0.0733,
+      "best_step": 128,
+      "final_score": 0.0733,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0133,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0,
+            "B_rename": 0.0333,
+            "B_swap": 0.0,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0333
+          },
+          "immediate_eos_rate": 0.1976,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 25.7
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0733,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.1333,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.1333,
+            "B8_bind": 0.0333,
+            "B_rename": 0.0,
+            "B_swap": 0.1333,
+            "C_reassign": 0.1,
+            "D_indirect": 0.1,
+            "E_distance": 0.1
+          },
+          "immediate_eos_rate": 0.4244,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 44.5
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M0_last.pt",
+          "sha256": "95a19e169c206fe67bd656c4ab0490ec3439352e9b938316c83f6d274944a0b1",
+          "bytes": 1307096,
+          "step": 128
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M0_final.pt",
+          "sha256": "3726019ab58a79ee4a809ac9f3df0586f41822fd7a443f0b3e6d3b15eb07a08f",
+          "bytes": 1307096,
+          "step": 128
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M0_best.pt",
+          "sha256": "9f2fc9ae9d11d19ff0d6a252a88af26e224fbfdf210d3b371ec3a894af7d2f06",
+          "bytes": 439125,
+          "step": 128
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S1_M1-A",
+      "architecture": "M1-A",
+      "seed": 20261124,
+      "stage": "stage1",
+      "steps": 128,
+      "stop_reason": "max_steps",
+      "wall_seconds": 6.6,
+      "params": 127013,
+      "state_elements": 128,
+      "config": {
+        "model_type": "M1-A_gru_reference",
+        "d_model": 64,
+        "hidden": 128,
+        "layers": 1
+      },
+      "init_sha256": "72c6f636ee9a7e3be13519f3061cff750311bbeeaf27de073373b807f06d52c8",
+      "best_score": 0.0667,
+      "best_step": 128,
+      "final_score": 0.0667,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0356,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0333,
+            "B2_query_switch": 0.0333,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.0667,
+            "B_rename": 0.0667,
+            "B_swap": 0.1,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0667
+          },
+          "immediate_eos_rate": 0.1268,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 49.3
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0667,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.1333,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.1333,
+            "B_rename": 0.1,
+            "B_swap": 0.0667,
+            "C_reassign": 0.1,
+            "D_indirect": 0.1,
+            "E_distance": 0.2
+          },
+          "immediate_eos_rate": 0.2171,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 52.9
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-A_last.pt",
+          "sha256": "4c23a437b3257f58494635a4d51bfc6cae6191ace20d8fea353506708956658e",
+          "bytes": 1542300,
+          "step": 256
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-A_final.pt",
+          "sha256": "c9eefcd12b9ed0a0e669225e9931f10d60ea55f395ed7bb75acb28b980ccd133",
+          "bytes": 1542300,
+          "step": 256
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-A_best.pt",
+          "sha256": "def0753766d944d98b5fa9aff6452c8e9d1e0ad264313bf448a6fd5a6fa509a8",
+          "bytes": 517503,
+          "step": 128
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S1_M1-B",
+      "architecture": "M1-B",
+      "seed": 20261124,
+      "stage": "stage1",
+      "steps": 128,
+      "stop_reason": "max_steps",
+      "wall_seconds": 11.5,
+      "params": 83127,
+      "state_elements": 2400,
+      "config": {
+        "model_type": "M1-B_delta_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "shared",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "init_sha256": "8bf0edf4dc4e251869cddc8d5d1eeb53c276796e1f6a71ca5a1fec700ddc9dd9",
+      "best_score": 0.0533,
+      "best_step": 128,
+      "final_score": 0.0533,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0356,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.1667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0333,
+            "B_rename": 0.1,
+            "B_swap": 0.0333,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0667
+          },
+          "immediate_eos_rate": 0.1366,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 60.8
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0533,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.1,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.1,
+            "B8_bind": 0.1333,
+            "B_rename": 0.0667,
+            "B_swap": 0.0667,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.0667,
+            "E_distance": 0.1
+          },
+          "immediate_eos_rate": 0.2732,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 67.5
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-B_last.pt",
+          "sha256": "376937a081cff49ae312e8f2d3cfb8d7e43c235a36be480d8c8aaab7c9614ecb",
+          "bytes": 1024316,
+          "step": 384
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-B_final.pt",
+          "sha256": "42dc2f2e011c15de5319323abc95247f6901ed0ff7ecec2653c76718a77c11a3",
+          "bytes": 1024380,
+          "step": 384
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-B_best.pt",
+          "sha256": "604f3db7010c6745b87b14a3c154b6b92266917d558aedb7ddb459ee3c42c1f7",
+          "bytes": 344167,
+          "step": 128
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S1_M1-C",
+      "architecture": "M1-C",
+      "seed": 20261124,
+      "stage": "stage1",
+      "steps": 128,
+      "stop_reason": "max_steps",
+      "wall_seconds": 13.0,
+      "params": 92342,
+      "state_elements": 2400,
+      "config": {
+        "model_type": "M1-C_decoupled_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "independent",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "init_sha256": "e800012a3cb33f85aca8a8471cd57bff0043088f405abb491675e4dc682caeb9",
+      "best_score": 0.0467,
+      "best_step": 128,
+      "final_score": 0.0467,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0378,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.0333,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.1,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0333
+          },
+          "immediate_eos_rate": 0.1659,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 76.7
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0467,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.1333,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.1,
+            "B_rename": 0.0,
+            "B_swap": 0.0333,
+            "C_reassign": 0.1,
+            "D_indirect": 0.1333,
+            "E_distance": 0.0333
+          },
+          "immediate_eos_rate": 0.3024,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 83.9
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-C_last.pt",
+          "sha256": "5ffbb8af46a4bfac478bba902fd91816e094c1b205366f0615621a32b1f755b0",
+          "bytes": 1137124,
+          "step": 512
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-C_final.pt",
+          "sha256": "7a09d232220ed16301d2b8f4876cde7676f2fad3efdf67ac2b8163ecbd63ddfe",
+          "bytes": 1137124,
+          "step": 512
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S1_M1-C_best.pt",
+          "sha256": "c52a77ce78f1d11c37a8091b6f65d66d8db9160231caf97eabdca9f839505e9c",
+          "bytes": 381601,
+          "step": 128
+        }
+      },
+      "model_weights_uploaded": false
+    }
+  ],
+  "selection": {
+    "best_new": "M1-B",
+    "best_reference": "M0",
+    "rule": "stage1 fixed-panel macro; tie -> later step"
+  },
+  "stage2": [
+    {
+      "run_id": "S2_M1-B_s20261125",
+      "architecture": "M1-B",
+      "seed": 20261125,
+      "stage": "stage2",
+      "steps": 384,
+      "stop_reason": "max_steps",
+      "wall_seconds": 35.1,
+      "params": 83127,
+      "state_elements": 2400,
+      "config": {
+        "model_type": "M1-B_delta_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "shared",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "init_sha256": "b207e96da1f8019cff7504c7a16e630e9abf124abe76ca8ba9529a6f9278c054",
+      "best_score": 0.2444,
+      "best_step": 384,
+      "final_score": 0.2444,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0778,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.1,
+            "B2_query_switch": 0.0667,
+            "B4_bind": 0.1,
+            "B8_bind": 0.1,
+            "B_rename": 0.0,
+            "B_swap": 0.1,
+            "C_reassign": 0.1667,
+            "D_indirect": 0.0667,
+            "E_distance": 0.2
+          },
+          "immediate_eos_rate": 0.2244,
+          "stable": [],
+          "stage": "Q2_four_vars",
+          "wall": 90.9
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0578,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.1,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0333,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.1,
+            "B_rename": 0.0667,
+            "B_swap": 0.1,
+            "C_reassign": 0.1667,
+            "D_indirect": 0.1667,
+            "E_distance": 0.0667
+          },
+          "immediate_eos_rate": 0.2317,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 95.6
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1245,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.1333,
+            "B2_query_switch": 0.1667,
+            "B4_bind": 0.1,
+            "B8_bind": 0.0667,
+            "B_rename": 0.2667,
+            "B_swap": 0.2,
+            "C_reassign": 0.1667,
+            "D_indirect": 0.0667,
+            "E_distance": 0.1667
+          },
+          "immediate_eos_rate": 0.178,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 100.4
+        },
+        {
+          "step": 256,
+          "val_macro": 0.1667,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.1667,
+            "B2_query_switch": 0.1333,
+            "B4_bind": 0.1333,
+            "B8_bind": 0.1,
+            "B_rename": 0.3667,
+            "B_swap": 0.2667,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.1,
+            "E_distance": 0.2333
+          },
+          "immediate_eos_rate": 0.1122,
+          "stable": [],
+          "stage": "Q4_distance",
+          "wall": 107.6
+        },
+        {
+          "step": 320,
+          "val_macro": 0.1711,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.2333,
+            "B2_query_switch": 0.0333,
+            "B4_bind": 0.2333,
+            "B8_bind": 0.1333,
+            "B_rename": 0.2333,
+            "B_swap": 0.3667,
+            "C_reassign": 0.0333,
+            "D_indirect": 0.2667,
+            "E_distance": 0.3
+          },
+          "immediate_eos_rate": 0.1463,
+          "stable": [],
+          "stage": "Q5_reassign",
+          "wall": 115.0
+        },
+        {
+          "step": 384,
+          "val_macro": 0.2444,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.2667,
+            "B2_query_switch": 0.1333,
+            "B4_bind": 0.2667,
+            "B8_bind": 0.1333,
+            "B_rename": 0.5333,
+            "B_swap": 0.3667,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.4,
+            "E_distance": 0.5
+          },
+          "immediate_eos_rate": 0.1537,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 122.0
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261125_last.pt",
+          "sha256": "0fd253c185dcecfc277ba335f291a64cbd9d7d81125f57b9396fd6a31b772713",
+          "bytes": 1024316,
+          "step": 896
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261125_final.pt",
+          "sha256": "a8b3ec234692860602044a72540ae72713a58ccbe2d17fcf463b3b6f54b6a12b",
+          "bytes": 1024380,
+          "step": 896
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261125_best.pt",
+          "sha256": "173862aeb7a4bb91b5b4ae97a39191b08e0c02fd1353ef354c14fef492496f74",
+          "bytes": 344167,
+          "step": 384
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M1-B_s20261126",
+      "architecture": "M1-B",
+      "seed": 20261126,
+      "stage": "stage2",
+      "steps": 384,
+      "stop_reason": "max_steps",
+      "wall_seconds": 35.9,
+      "params": 83127,
+      "state_elements": 2400,
+      "config": {
+        "model_type": "M1-B_delta_memory",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 48,
+        "dv": 48,
+        "gate": "shared",
+        "conv_kernel": 1,
+        "uncertainty": false
+      },
+      "init_sha256": "16f3b564686c0b0f9d7fdcbe0580f2e51e6dce3df791223ce3691c8cbfe5e627",
+      "best_score": 0.3311,
+      "best_step": 384,
+      "final_score": 0.3311,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0711,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0667,
+            "B2_query_switch": 0.1333,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0667,
+            "B_rename": 0.2667,
+            "B_swap": 0.1333,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.1333,
+            "E_distance": 0.1
+          },
+          "immediate_eos_rate": 0.239,
+          "stable": [],
+          "stage": "Q2_four_vars",
+          "wall": 129.3
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0533,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2333,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0333,
+            "B2_query_switch": 0.0667,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.0667,
+            "B_rename": 0.0333,
+            "B_swap": 0.0667,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0667
+          },
+          "immediate_eos_rate": 0.161,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 134.3
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1244,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.3,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.2,
+            "B2_query_switch": 0.3667,
+            "B4_bind": 0.1,
+            "B8_bind": 0.0667,
+            "B_rename": 0.3,
+            "B_swap": 0.2333,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.1,
+            "E_distance": 0.1333
+          },
+          "immediate_eos_rate": 0.1146,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 139.4
+        },
+        {
+          "step": 256,
+          "val_macro": 0.26,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.3667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.2,
+            "B2_query_switch": 0.2333,
+            "B4_bind": 0.3,
+            "B8_bind": 0.0667,
+            "B_rename": 0.8667,
+            "B_swap": 0.4,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.3333,
+            "E_distance": 0.5333
+          },
+          "immediate_eos_rate": 0.1,
+          "stable": [],
+          "stage": "Q4_distance",
+          "wall": 146.6
+        },
+        {
+          "step": 320,
+          "val_macro": 0.2689,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 1.0,
+            "B2_bind": 0.2667,
+            "B2_query_switch": 0.2333,
+            "B4_bind": 0.2667,
+            "B8_bind": 0.1333,
+            "B_rename": 0.3,
+            "B_swap": 0.4,
+            "C_reassign": 0.0333,
+            "D_indirect": 0.4333,
+            "E_distance": 0.5667
+          },
+          "immediate_eos_rate": 0.1146,
+          "stable": [],
+          "stage": "Q5_reassign",
+          "wall": 154.0
+        },
+        {
+          "step": 384,
+          "val_macro": 0.3311,
+          "val_per_task": {
+            "A1_copy1": 0.2,
+            "A2_copyN": 0.0,
+            "A3_index": 0.2333,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 1.0,
+            "B2_bind": 0.3667,
+            "B2_query_switch": 0.3,
+            "B4_bind": 0.3333,
+            "B8_bind": 0.1667,
+            "B_rename": 0.8667,
+            "B_swap": 0.4333,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.4333,
+            "E_distance": 0.5667
+          },
+          "immediate_eos_rate": 0.1122,
+          "stable": [
+            "B1_bind1"
+          ],
+          "stage": "Q6_indirect",
+          "wall": 160.9
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261126_last.pt",
+          "sha256": "4964e9b102103fe6022177c4a188d1438b9ef25fb71c199aba8cfbaa7fdf1419",
+          "bytes": 1024316,
+          "step": 1280
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261126_final.pt",
+          "sha256": "e8b7c93595db82cd1108bf242fee4ead805435e1b8a8f7e331dfe73cf0343702",
+          "bytes": 1024380,
+          "step": 1280
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M1-B_s20261126_best.pt",
+          "sha256": "33835db7446e6bb76e416f9694e22b7c10e9be53357c99a68e9d7dfba10122f1",
+          "bytes": 344167,
+          "step": 384
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M0_s20261125",
+      "architecture": "M0",
+      "seed": 20261125,
+      "stage": "stage2",
+      "steps": 384,
+      "stop_reason": "max_steps",
+      "wall_seconds": 101.9,
+      "params": 106410,
+      "state_elements": 528,
+      "config": {
+        "model_type": "M0_ncell_reference",
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "init_sha256": "91d37da37aa67ec650a12782b87fb3d3dc30c6c948ffb708c78a4cb0443fa3c2",
+      "best_score": 0.1978,
+      "best_step": 384,
+      "final_score": 0.1978,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0267,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0333,
+            "B2_query_switch": 0.0667,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0667,
+            "B_rename": 0.0,
+            "B_swap": 0.1,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0
+          },
+          "immediate_eos_rate": 0.3146,
+          "stable": [],
+          "stage": "Q2_four_vars",
+          "wall": 184.1
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0178,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0333,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0333,
+            "B_rename": 0.0,
+            "B_swap": 0.0667,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.0333,
+            "E_distance": 0.0333
+          },
+          "immediate_eos_rate": 0.0341,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 200.0
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0911,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.1333,
+            "B2_query_switch": 0.1333,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0667,
+            "B_rename": 0.2,
+            "B_swap": 0.1667,
+            "C_reassign": 0.2333,
+            "D_indirect": 0.0333,
+            "E_distance": 0.1
+          },
+          "immediate_eos_rate": 0.2049,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 213.6
+        },
+        {
+          "step": 256,
+          "val_macro": 0.1244,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0333,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.2,
+            "B2_query_switch": 0.2,
+            "B4_bind": 0.1333,
+            "B8_bind": 0.0,
+            "B_rename": 0.2,
+            "B_swap": 0.2,
+            "C_reassign": 0.0667,
+            "D_indirect": 0.1667,
+            "E_distance": 0.1333
+          },
+          "immediate_eos_rate": 0.4098,
+          "stable": [],
+          "stage": "Q4_distance",
+          "wall": 234.0
+        },
+        {
+          "step": 320,
+          "val_macro": 0.1689,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.1,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.2,
+            "B2_query_switch": 0.4,
+            "B4_bind": 0.1,
+            "B8_bind": 0.1,
+            "B_rename": 0.2,
+            "B_swap": 0.3333,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.1333,
+            "E_distance": 0.3
+          },
+          "immediate_eos_rate": 0.3098,
+          "stable": [],
+          "stage": "Q5_reassign",
+          "wall": 253.7
+        },
+        {
+          "step": 384,
+          "val_macro": 0.1978,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.5333,
+            "B2_bind": 0.2333,
+            "B2_query_switch": 0.2333,
+            "B4_bind": 0.3,
+            "B8_bind": 0.2,
+            "B_rename": 0.3,
+            "B_swap": 0.4333,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.3333,
+            "E_distance": 0.2667
+          },
+          "immediate_eos_rate": 0.2805,
+          "stable": [],
+          "stage": "Q6_indirect",
+          "wall": 273.4
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261125_last.pt",
+          "sha256": "7ded996bfd3e3bcc51343d31403a6e8fbe16d1dbba192f8f86f550cd1fba3a4d",
+          "bytes": 1307096,
+          "step": 1664
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261125_final.pt",
+          "sha256": "b648fc355aa9b9c0bb94c86e819c02798982546eb3aea6b092fb736b23f69560",
+          "bytes": 1307096,
+          "step": 1664
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261125_best.pt",
+          "sha256": "8898d99a622944c8c46d6746553ee0a12fb19f13a25b9dc926b42ecc41fcd73a",
+          "bytes": 439125,
+          "step": 384
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M0_s20261126",
+      "architecture": "M0",
+      "seed": 20261126,
+      "stage": "stage2",
+      "steps": 384,
+      "stop_reason": "max_steps",
+      "wall_seconds": 98.4,
+      "params": 106410,
+      "state_elements": 528,
+      "config": {
+        "model_type": "M0_ncell_reference",
+        "vocab_size": 101,
+        "d_model": 64,
+        "n_blocks": 4,
+        "block_hidden": 64,
+        "workspace_dim": 32,
+        "workspace_slots": 8,
+        "top_k": 2
+      },
+      "init_sha256": "16c196c3a427556372c3fb7f0d9c4d410427b94788e22ffb0663b247dd74068e",
+      "best_score": 0.3,
+      "best_step": 384,
+      "final_score": 0.3,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "stable": []
+        },
+        {
+          "step": 64,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.0,
+            "B2_query_switch": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_rename": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0
+          },
+          "immediate_eos_rate": 0.2195,
+          "stable": [],
+          "stage": "Q2_four_vars",
+          "wall": 297.0
+        },
+        {
+          "step": 128,
+          "val_macro": 0.0689,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0667,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.1,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.1,
+            "B_rename": 0.0333,
+            "B_swap": 0.2,
+            "C_reassign": 0.1667,
+            "D_indirect": 0.1667,
+            "E_distance": 0.0667
+          },
+          "immediate_eos_rate": 0.4,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 310.6
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0533,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.0,
+            "B2_bind": 0.1,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.0333,
+            "B8_bind": 0.0333,
+            "B_rename": 0.0667,
+            "B_swap": 0.1667,
+            "C_reassign": 0.1667,
+            "D_indirect": 0.1333,
+            "E_distance": 0.0
+          },
+          "immediate_eos_rate": 0.4341,
+          "stable": [],
+          "stage": "Q3_interference",
+          "wall": 323.7
+        },
+        {
+          "step": 256,
+          "val_macro": 0.14,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 0.2667,
+            "B2_bind": 0.1667,
+            "B2_query_switch": 0.1667,
+            "B4_bind": 0.0667,
+            "B8_bind": 0.1,
+            "B_rename": 0.6,
+            "B_swap": 0.2667,
+            "C_reassign": 0.0333,
+            "D_indirect": 0.1667,
+            "E_distance": 0.2667
+          },
+          "immediate_eos_rate": 0.2317,
+          "stable": [],
+          "stage": "Q4_distance",
+          "wall": 343.3
+        },
+        {
+          "step": 320,
+          "val_macro": 0.2155,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 1.0,
+            "B2_bind": 0.2333,
+            "B2_query_switch": 0.2333,
+            "B4_bind": 0.1,
+            "B8_bind": 0.1333,
+            "B_rename": 0.4,
+            "B_swap": 0.2333,
+            "C_reassign": 0.2333,
+            "D_indirect": 0.4,
+            "E_distance": 0.2667
+          },
+          "immediate_eos_rate": 0.2049,
+          "stable": [],
+          "stage": "Q5_reassign",
+          "wall": 362.8
+        },
+        {
+          "step": 384,
+          "val_macro": 0.3,
+          "val_per_task": {
+            "A1_copy1": 0.0,
+            "A2_copyN": 0.0,
+            "A3_index": 0.0,
+            "A4_reverse": 0.0,
+            "A5_repeat": 0.0,
+            "B1_bind1": 1.0,
+            "B2_bind": 0.3667,
+            "B2_query_switch": 0.1,
+            "B4_bind": 0.3667,
+            "B8_bind": 0.1667,
+            "B_rename": 0.8,
+            "B_swap": 0.3333,
+            "C_reassign": 0.1333,
+            "D_indirect": 0.6667,
+            "E_distance": 0.5667
+          },
+          "immediate_eos_rate": 0.2537,
+          "stable": [
+            "B1_bind1"
+          ],
+          "stage": "Q6_indirect",
+          "wall": 382.1
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261126_last.pt",
+          "sha256": "a87eff7bc38110b51af0f62a65e8173011ac42577f9893a3a75ad81e0b3e13d9",
+          "bytes": 1307096,
+          "step": 2048
+        },
+        "final": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261126_final.pt",
+          "sha256": "954ee28d03fce957316cc7dcf52be6d085e92fbcfaa2c2381d580192b66efe50",
+          "bytes": 1307096,
+          "step": 2048
+        },
+        "best": {
+          "path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m1\\checkpoints\\S2_M0_s20261126_best.pt",
+          "sha256": "7e634cc37c610d55f2ec30a8f5c1aa9a33d3fe5baadef6dc1230bea6770e7987",
+          "bytes": 439125,
+          "step": 384
+        }
+      },
+      "model_weights_uploaded": false
+    }
+  ],
+  "not_run": [
+    "uncertainty_memory_in_main_model",
+    "short_conv_in_main_model",
+    "unbounded_autonomous_learning"
+  ],
+  "model_weights_uploaded": false
+}

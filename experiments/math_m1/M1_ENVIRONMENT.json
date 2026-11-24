@@ -1,0 +1,30 @@
+{
+  "status": "ENVIRONMENT_RECORDED",
+  "timestamp": "2026-11-24T11:40:01+08:00",
+  "project_path": "D:\\cpu本地模型开发\\n-mind",
+  "repository": "https://github.com/yuanhong792/n-mind",
+  "branch": "experiment/mathematical-architecture-m1",
+  "branch_base_commit": "e4b0aee",
+  "base_branch_before": "experiment/compute-first-c11",
+  "python": "3.12.10",
+  "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "torch": "2.10.0+cpu",
+  "cuda_available": false,
+  "cpu_count": 28,
+  "ram_gb": 31.83,
+  "os": "Windows",
+  "directories": [
+    "experiments/math_m1/models",
+    "experiments/math_m1/math_lab",
+    "experiments/math_m1/checkpoints",
+    "experiments/math_m1/data",
+    "experiments/math_m1/results"
+  ],
+  "preserved": [
+    "C1.0",
+    "C1.1",
+    "history language models",
+    "Stable"
+  ],
+  "weights_upload_policy": "local_only"
+}

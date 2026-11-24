@@ -1,0 +1,217 @@
+{
+  "status": "M1_DATA_FROZEN",
+  "seed": 20261124,
+  "tokenizer": {
+    "version": "nmind-math-m1-char/1",
+    "vocab_size": 101,
+    "sha256": "cf15624c9c4cac6f0fd688a14b5fa484fb9dc24b120e7df63e04357a9b707f9c",
+    "roundtrip": true
+  },
+  "counts": {
+    "train": 9505,
+    "val": 1386,
+    "sealed": 1452
+  },
+  "by_task": {
+    "train": {
+      "A2_copyN": 1267,
+      "D_indirect": 1708,
+      "B8_bind": 715,
+      "A5_repeat": 499,
+      "A4_reverse": 1117,
+      "A1_copy1": 18,
+      "B4_bind": 314,
+      "C_reassign": 950,
+      "A3_index": 452,
+      "E_distance": 704,
+      "B2_bind": 569,
+      "B2_query_switch": 283,
+      "B_swap": 569,
+      "B_rename": 295,
+      "B1_bind1": 45
+    },
+    "val": {
+      "D_indirect": 234,
+      "A2_copyN": 192,
+      "E_distance": 94,
+      "B8_bind": 95,
+      "B4_bind": 43,
+      "A3_index": 80,
+      "A4_reverse": 149,
+      "B2_bind": 90,
+      "B2_query_switch": 43,
+      "B_swap": 90,
+      "C_reassign": 127,
+      "A5_repeat": 82,
+      "B_rename": 47,
+      "B1_bind1": 15,
+      "A1_copy1": 5
+    },
+    "sealed": {
+      "A2_copyN": 183,
+      "A3_index": 56,
+      "D_indirect": 252,
+      "C_reassign": 123,
+      "A4_reverse": 157,
+      "B8_bind": 90,
+      "B2_bind": 109,
+      "B2_query_switch": 52,
+      "B_swap": 109,
+      "E_distance": 97,
+      "A5_repeat": 119,
+      "A1_copy1": 4,
+      "B4_bind": 48,
+      "B_rename": 47,
+      "B1_bind1": 6
+    }
+  },
+  "reserved": {
+    "counterfactual_pairs": 400,
+    "length_generalization": 2204
+  },
+  "frozen_sha256": {
+    "train": "2867b0f1d36402a876f100dbb11b764bdd49351073c57bbba5699af748a0cee1",
+    "val": "d43e50ca148a19f58e85360b1dbd77f030b514d1cf379fb4f39c0152c22bc4d8",
+    "sealed": "84825f38a6de4b969596053b4aaaaf99de16e123da8f8126c2ffe33c077965aa",
+    "counterfactual": "fdc40af9d3d62e9f283ce92120ed39d20a9173df49dc4c51c11c2bbaf44eb03a",
+    "length_gen": "236bf105ba591b33379de279bbba67f72108a63a42f2a2be31ea1b9f1543bcdf"
+  },
+  "cross_split_fact_group_overlap": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "history_prompt_overlap": {
+    "train": 0,
+    "val": 0,
+    "sealed": 0,
+    "counterfactual": 0,
+    "length_gen": 0
+  },
+  "baselines_train": {
+    "fixed_answer": 0.0777,
+    "first_digit": 0.278,
+    "last_digit": 0.1411,
+    "nearest_assign": 0.212,
+    "random_guess": 0.0004
+  },
+  "baselines_by_task_train": {
+    "A1_copy1": {
+      "fixed_answer": 0.1111,
+      "first_digit": 0.2222,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.0625
+    },
+    "A2_copyN": {
+      "fixed_answer": 0.0032,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.0008
+    },
+    "A3_index": {
+      "fixed_answer": 0.1881,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.1667
+    },
+    "A4_reverse": {
+      "fixed_answer": 0.0054,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.001
+    },
+    "A5_repeat": {
+      "fixed_answer": 0.02,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.0093
+    },
+    "B1_bind1": {
+      "fixed_answer": 0.3556,
+      "first_digit": 1.0,
+      "last_digit": 1.0,
+      "nearest_assign": 1.0,
+      "random_guess": 0.1429
+    },
+    "B2_bind": {
+      "fixed_answer": 0.1301,
+      "first_digit": 0.5026,
+      "last_digit": 0.4974,
+      "nearest_assign": 0.4974,
+      "random_guess": 0.1
+    },
+    "B2_query_switch": {
+      "fixed_answer": 0.1555,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 1.0,
+      "random_guess": 0.1
+    },
+    "B4_bind": {
+      "fixed_answer": 0.1242,
+      "first_digit": 0.2611,
+      "last_digit": 0.2229,
+      "nearest_assign": 0.2229,
+      "random_guess": 0.1
+    },
+    "B8_bind": {
+      "fixed_answer": 0.1189,
+      "first_digit": 0.1203,
+      "last_digit": 0.1245,
+      "nearest_assign": 0.1245,
+      "random_guess": 0.1
+    },
+    "B_rename": {
+      "fixed_answer": 0.1458,
+      "first_digit": 1.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.1
+    },
+    "B_swap": {
+      "fixed_answer": 0.1283,
+      "first_digit": 0.5026,
+      "last_digit": 0.0,
+      "nearest_assign": 0.4974,
+      "random_guess": 0.1
+    },
+    "C_reassign": {
+      "fixed_answer": 0.1221,
+      "first_digit": 0.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.0,
+      "random_guess": 0.1
+    },
+    "D_indirect": {
+      "fixed_answer": 0.1189,
+      "first_digit": 0.5,
+      "last_digit": 0.5,
+      "nearest_assign": 0.5,
+      "random_guess": 0.1
+    },
+    "E_distance": {
+      "fixed_answer": 0.1207,
+      "first_digit": 1.0,
+      "last_digit": 0.0,
+      "nearest_assign": 0.1534,
+      "random_guess": 0.1
+    }
+  },
+  "length_train_range": "2-4",
+  "length_test_range": "5-6",
+  "distance_train": [
+    0,
+    4,
+    8
+  ],
+  "distance_test": [
+    16,
+    32,
+    64
+  ]
+}
