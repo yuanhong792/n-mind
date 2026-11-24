@@ -1,0 +1,14 @@
+{
+  "protocol": "N-MIND-vs-size-matched-baselines-v1",
+  "status": "PREREGISTERED_NOT_RUN",
+  "models": ["nmind_r1", "gru", "causal_transformer", "delta_rule_linear"],
+  "tasks": ["m1_grid_mask", "m52_s0", "m52_s1", "binding_composition_holdout"],
+  "seeds": [20270101,20270102,20270103,20270104,20270105,20270106,20270107,20270108,20270109,20270110],
+  "lr_grid": [0.0003, 0.001, 0.003],
+  "fairness": {"same_data_order":true,"same_optimizer":"AdamW","same_loss":"token_cross_entropy",
+    "selection":"dev_only","sealed_evaluations_per_config":1,"parameter_tolerance":0.05},
+  "primary_metrics": ["counterfactual_follow_rate", "free_generation_em_gain_vs_strongest_shortcut"],
+  "secondary_metrics": ["nll", "candidate_rank", "char_edit_distance"],
+  "budget": {"formal_training":"PENDING_APPROVAL", "smoke":"PENDING_APPROVAL",
+    "timing_20_steps":"NOT_RUN_NO_TRAINING_CONSTRAINT"}
+}
