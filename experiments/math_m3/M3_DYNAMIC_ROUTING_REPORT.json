@@ -1,0 +1,47 @@
+{
+  "status": "TRAINED",
+  "checkpoint": "M3-B_adaptive_computation_s2_best.pt",
+  "routing": {
+    "dense": {
+      "path_counts": {
+        "0": 256,
+        "1": 256,
+        "2": 256
+      },
+      "executed_macs": 10248192,
+      "controller_macs": 147456
+    },
+    "hard_gate": {
+      "path_counts": {
+        "0": 6,
+        "1": 223,
+        "2": 27
+      },
+      "path_utilization": {
+        "0": 0.0234,
+        "1": 0.8711,
+        "2": 0.1055
+      },
+      "executed_macs": 1787904,
+      "controller_macs": 147456,
+      "skipped_mac_ratio": 0.8255
+    },
+    "always_expensive": {
+      "path_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 256
+      },
+      "executed_macs": 10248192
+    },
+    "scheduling_note": "硬门使用逐样本 Python 索引调度，存在调度开销；实际 CPU 速度变化见 compute_accounting"
+  },
+  "soft_vs_hard": {
+    "n": 51,
+    "soft_gate_acc": 0.3333,
+    "hard_gate_acc": 0.2157,
+    "diff": 0.1176,
+    "note": "训练后 checkpoint 实测；每任务取前3条；硬门成绩为准，软门仅对照"
+  },
+  "note": "硬门报告以 hard_gate 为准；软门仅作对照，不得替代硬门成绩"
+}

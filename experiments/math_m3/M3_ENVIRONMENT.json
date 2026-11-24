@@ -1,0 +1,37 @@
+{
+  "status": "ENVIRONMENT_RECORDED",
+  "timestamp": "2026-11-24T13:35:48+08:00",
+  "project_path": "D:\\cpu本地模型开发\\n-mind",
+  "repository": "https://github.com/yuanhong792/n-mind",
+  "branch": "experiment/minimum-sufficient-computation-m3",
+  "branch_base_commit": "23c7d09858e38d704020f4a1424e4dc3c50c41d0",
+  "base_branch_before": "experiment/dual-memory-architecture-m2",
+  "python": "3.12.10",
+  "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "torch": "2.10.0+cpu",
+  "cuda_available": false,
+  "logical_cpu": 28,
+  "os": "Windows",
+  "directories": [
+    "experiments/math_m3/audit",
+    "experiments/math_m3/models",
+    "experiments/math_m3/math_lab",
+    "experiments/math_m3/formula_lab",
+    "experiments/math_m3/checkpoints",
+    "experiments/math_m3/data",
+    "experiments/math_m3/results"
+  ],
+  "inherits_from_m2": {
+    "commit": "23c7d09",
+    "reference_architecture": "R2 tiny Transformer (37.39% screen, 90342 params, 34605 tok/s)",
+    "key_lesson": "增加复杂神经记忆结构在 M2 短训中未获得更好能力或吞吐；R2 为效率参考；不得把 M2 短初筛解释为所有记忆架构无价值"
+  },
+  "training_budget": {
+    "max_steps": 4096,
+    "max_wall_seconds": 3600,
+    "authorization": "PENDING_EXPLICIT_USER_AUTHORIZATION",
+    "note": "P13 明确不继承 M2 授权；未授权前仅做代码/数学验证/M2.1 复现/无梯度基准"
+  },
+  "preserved": ["C1.0", "C1.1", "V1.7.2", "M1", "M2", "history language models", "Stable"],
+  "weights_upload_policy": "local_only"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "M21_INCREMENTAL_INFERENCE_AUDIT_DONE",
+  "m2_transformer": {
+    "full_vs_incremental_max_diff": 0.0,
+    "consistent": true,
+    "note": "M2 通过保存历史 token 并重算实现增量，非标准 KV Cache"
+  },
+  "position_encoding": {
+    "max_len": 16,
+    "pos_max_len_1": [
+      0.7894116640090942,
+      -1.8472535610198975,
+      0.25515303015708923,
+      0.27083075046539307
+    ],
+    "pos_max_len": [
+      0.7894116640090942,
+      -1.8472535610198975,
+      0.25515303015708923,
+      0.27083075046539307
+    ],
+    "collision_detected": true,
+    "note": "超过 max_len 的位置被 clamp 到 max_len-1，产生位置编码碰撞"
+  },
+  "padding": {
+    "all_finite": true,
+    "note": "M2 模型有 valid_mask 保护；本测试仅确认无 NaN/Inf 传播，严格的 padding 零写入在 math_verifier 中验证"
+  },
+  "conclusion": "M2 Transformer 的增量推理通过保存 token 重算实现（非 KV Cache），功能上一致但 O(L²) 重复计算；位置编码在 max_len 截断后碰撞。M3 参考 Transformer 必须实现正确 KV Cache 并通过完整前向等价测试。"
+}

@@ -1,0 +1,195 @@
+{
+  "status": "M3_MATH_TESTS_PASS",
+  "n_tests": 20,
+  "n_pass": 20,
+  "seconds": 0.02,
+  "tests": [
+    {
+      "name": "low_rank_compute_correctness",
+      "pass": true,
+      "metrics": {
+        "shape": [
+          4,
+          64
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "low_rank_complexity",
+      "pass": true,
+      "metrics": {
+        "low_rank_macs": 1088,
+        "dense_macs": 4096,
+        "ratio": 0.2656
+      },
+      "error": null
+    },
+    {
+      "name": "dense_equivalence",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 9.5367431640625e-07
+      },
+      "error": null
+    },
+    {
+      "name": "diagonal_state_transform",
+      "pass": true,
+      "metrics": {
+        "shape": [
+          4,
+          32
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "state_effective_rank",
+      "pass": true,
+      "metrics": {
+        "effective_rank_95": 54
+      },
+      "error": null
+    },
+    {
+      "name": "state_compression_retention",
+      "pass": true,
+      "metrics": {
+        "k": 16,
+        "energy_retained": 0.73085,
+        "max_recon_error": 1.929255
+      },
+      "error": null
+    },
+    {
+      "name": "state_decodability_proxy",
+      "pass": true,
+      "metrics": {
+        "proxy_type": "LINEAR_DECODABILITY_R2",
+        "r2": 0.41942
+      },
+      "error": null
+    },
+    {
+      "name": "state_stability_gradient",
+      "pass": true,
+      "metrics": {
+        "grad_finite": true
+      },
+      "error": null
+    },
+    {
+      "name": "jacobian_numerical",
+      "pass": true,
+      "metrics": {
+        "jacobian_shape": [
+          12,
+          12
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "hard_gate_vs_soft_gate",
+      "pass": true,
+      "metrics": {
+        "soft_hard_diff": 110.751,
+        "note": "软门会混入昂贵路径；硬门部署实际跳过"
+      },
+      "error": null
+    },
+    {
+      "name": "router_gradient",
+      "pass": true,
+      "metrics": {
+        "router_grad_finite": true
+      },
+      "error": null
+    },
+    {
+      "name": "orthogonal_memory_math",
+      "pass": true,
+      "metrics": {
+        "denominator": 3.7379720211029053,
+        "norm_u": 1.933381,
+        "projection_cost_macs": 3072,
+        "safe_degenerate": false
+      },
+      "error": null
+    },
+    {
+      "name": "orthogonal_projection_protects_keys",
+      "pass": true,
+      "metrics": {
+        "protected_key_annihilation": 7.348135113716125e-07,
+        "idempotency_error": 9.229406714439392e-07
+      },
+      "error": null
+    },
+    {
+      "name": "orthogonal_safe_degenerate",
+      "pass": true,
+      "metrics": {
+        "denominator": 1.0056057817564579e-06,
+        "norm_u": 1e-06,
+        "projection_cost_macs": 840,
+        "safe_degenerate": true
+      },
+      "error": null
+    },
+    {
+      "name": "transformer_kv_cache_equivalence",
+      "pass": true,
+      "metrics": {
+        "status": "DEFERRED_TO_MODEL",
+        "note": "由 transformer_reference 的 self-test 覆盖"
+      },
+      "error": null
+    },
+    {
+      "name": "sample_isolation",
+      "pass": true,
+      "metrics": {
+        "sample1_delta": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "causality",
+      "pass": true,
+      "metrics": {
+        "note": "未来 token 不影响当前状态"
+      },
+      "error": null
+    },
+    {
+      "name": "state_dynamics_stability",
+      "pass": true,
+      "metrics": {
+        "final_norm": 8.551,
+        "exploded": false
+      },
+      "error": null
+    },
+    {
+      "name": "checkpoint_strict_load",
+      "pass": true,
+      "metrics": {
+        "tensors_equal": true
+      },
+      "error": null
+    },
+    {
+      "name": "formula_equivalence_and_cost_accounting",
+      "pass": true,
+      "metrics": {
+        "canonical_equal": true,
+        "mac_exact": 1088,
+        "cost_ok": true
+      },
+      "error": null
+    }
+  ],
+  "rule": "任一 FAIL 禁止进入正式训练"
+}

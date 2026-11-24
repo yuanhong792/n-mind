@@ -1,0 +1,84 @@
+{
+  "plan_name": "N-MIND M3 Minimum Sufficient Neural Computation",
+  "status": "PREREGISTERED",
+  "created_before_training": true,
+  "note": "本方案在真实训练启动前固定，防止事后选择偏差。任何变更需记录原因。",
+
+  "budget": {
+    "max_optimizer_steps": 4096,
+    "max_wall_seconds": 3600,
+    "authorization_required": true,
+    "note": "不自动继承 M2 授权，需用户明确授权后启动梯度训练"
+  },
+
+  "training_protocol": {
+    "architectures": ["R1_gru_reference", "R2_tiny_transformer", "M3-A_low_rank_neural", "M3-B_adaptive_computation"],
+    "seeds": [1, 2],
+    "steps_per_arch_seed": 512,
+    "total_steps": 4096,
+    "fairness": {
+      "same_samples": true,
+      "same_pregenerated_batch_order": true,
+      "same_supervised_targets": true,
+      "same_tokenizer": "M3Tokenizer SEP 协议",
+      "same_validation_panel": true,
+      "same_sealed_set": true,
+      "same_optimizer_tuning_opportunity": true
+    },
+    "eval_interval": 64,
+    "curve_checkpoints": [64, 128, 256, 384, 512]
+  },
+
+  "iso_capability_targets": [0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90],
+  "iso_stability_rule": "连续 2 个测量点 macro >= target 视为稳定达标；末尾点达标亦接受",
+  "iso_not_reached_label": "TARGET_NOT_REACHED",
+  "iso_forbidden": "不得外推虚构的达到目标所需成本",
+
+  "model_selection_rule": {
+    "primary_metric": "固定验证面板 macro_accuracy",
+    "best_selection": "各架构各 seed 取曲线上 macro 最高的 checkpoint（best）",
+    "sealed_set_usage": "封存集仅用于最终报告，不参与公式/模型选择",
+    "cross_seed_aggregation": "每架构取两 seed 的宏均值进行架构间比较"
+  },
+
+  "efficiency_calculation": {
+    "efficiency_train": "Reference_compute_to_target / Candidate_compute_to_target",
+    "efficiency_inference": "Reference_inference_cost / Candidate_inference_cost",
+    "precondition": "双方在相同任务上达到约定能力标准才允许计算并宣称同等能力效率收益",
+    "efficiency_grades": {
+      "E1": "≥20% 计算减少",
+      "E2": "≥50%",
+      "E3": "≥90%",
+      "E4": "≥99%",
+      "E5": "≥99.9%"
+    }
+  },
+
+  "pareto_objectives": {
+    "maximize": ["capability"],
+    "minimize": ["training_compute", "inference_compute", "state_memory", "cpu_latency"]
+  },
+
+  "metric_definitions": {
+    "content_accuracy": "生成内容与答案逐字符一致（不管 EOS）",
+    "full_answer_natural_eos": "内容一致且以自然 EOS 结束",
+    "macro_accuracy": "按任务先求 acc 再平均",
+    "micro_accuracy": "所有样本一起算 acc",
+    "counterfactual_pair_rate": "反事实成对正确率，查询对象不变只改事实",
+    "repeat_rate": "重复输出率",
+    "overlong_rate": "超长输出率",
+    "immediate_eos_rate": "立即 EOS 率",
+    "all_rates_provide": "n 与 ok"
+  },
+
+  "discipline": [
+    "不将更小参数量直接等同更低计算成本",
+    "不将更低训练 Loss 直接等同更强智能能力",
+    "不将门控值接近 0 直接等同实际节省计算",
+    "能力低于参考模型时，不通过参数量或运行时间宣称同等能力效率突破",
+    "硬门部署导致准确率下降时，不使用软门成绩代替硬门成绩",
+    "权重仅保存本地，不上传公开仓库",
+    "Stable 始终只读",
+    "不使用现有大模型预训练权重作为神经核心，坚持随机初始化、独立学习"
+  ]
+}

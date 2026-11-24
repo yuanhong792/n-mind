@@ -1,0 +1,144 @@
+{
+  "note": "状态效率代理指标；互信息未直接估计，不冒充真实互信息",
+  "dim_16": {
+    "label": "随机动力系统状态 dim=16",
+    "n_states": 200,
+    "state_dim": 16,
+    "effective_rank": 11,
+    "effective_rank_95": 11,
+    "singular_value_top5": [
+      5.0288,
+      4.5061,
+      3.578,
+      3.1521,
+      2.3886
+    ],
+    "compression_retention": {
+      "8": 0.9078,
+      "16": 1.0,
+      "32": 1.0
+    },
+    "linear_decodability_r2": 0.9998,
+    "perturbation_growth_factor": 1.5753,
+    "perturbation_stable": true
+  },
+  "dim_32": {
+    "label": "随机动力系统状态 dim=32",
+    "n_states": 200,
+    "state_dim": 32,
+    "effective_rank": 17,
+    "effective_rank_95": 17,
+    "singular_value_top5": [
+      7.3198,
+      5.2526,
+      4.3068,
+      3.272,
+      3.055
+    ],
+    "compression_retention": {
+      "8": 0.8301,
+      "16": 0.9468,
+      "32": 1.0
+    },
+    "linear_decodability_r2": 0.9999,
+    "perturbation_growth_factor": 2.4502,
+    "perturbation_stable": false
+  },
+  "dim_64": {
+    "label": "随机动力系统状态 dim=64",
+    "n_states": 200,
+    "state_dim": 64,
+    "effective_rank": 23,
+    "effective_rank_95": 23,
+    "singular_value_top5": [
+      9.3764,
+      7.9673,
+      6.9338,
+      5.2824,
+      4.9122
+    ],
+    "compression_retention": {
+      "8": 0.8039,
+      "16": 0.9169,
+      "32": 0.9754
+    },
+    "linear_decodability_r2": 1.0,
+    "perturbation_growth_factor": 3.6032,
+    "perturbation_stable": false
+  },
+  "dim_96": {
+    "label": "随机动力系统状态 dim=96",
+    "n_states": 200,
+    "state_dim": 96,
+    "effective_rank": 27,
+    "effective_rank_95": 27,
+    "singular_value_top5": [
+      11.021,
+      9.1851,
+      7.4352,
+      6.2171,
+      5.3145
+    ],
+    "compression_retention": {
+      "8": 0.7762,
+      "16": 0.8948,
+      "32": 0.9626
+    },
+    "linear_decodability_r2": 1.0,
+    "perturbation_growth_factor": 4.3986,
+    "perturbation_stable": false
+  },
+  "dim_128": {
+    "label": "随机动力系统状态 dim=128",
+    "n_states": 200,
+    "state_dim": 128,
+    "effective_rank": 30,
+    "effective_rank_95": 30,
+    "singular_value_top5": [
+      11.3911,
+      10.099,
+      9.4789,
+      8.0795,
+      6.917
+    ],
+    "compression_retention": {
+      "8": 0.7682,
+      "16": 0.8903,
+      "32": 0.9566
+    },
+    "linear_decodability_r2": 1.0,
+    "perturbation_growth_factor": 5.0661,
+    "perturbation_stable": false
+  },
+  "tradeoff_summary": {
+    "note": "状态维度 vs 有效秩 vs 16维压缩保持率",
+    "rows": [
+      {
+        "dim": 16,
+        "eff_rank": 11,
+        "retain16": 1.0
+      },
+      {
+        "dim": 32,
+        "eff_rank": 17,
+        "retain16": 0.9468
+      },
+      {
+        "dim": 64,
+        "eff_rank": 23,
+        "retain16": 0.9169
+      },
+      {
+        "dim": 96,
+        "eff_rank": 27,
+        "retain16": 0.8948
+      },
+      {
+        "dim": 128,
+        "eff_rank": 30,
+        "retain16": 0.8903
+      }
+    ],
+    "finding": "状态维度增大时有效秩与可压缩性变化，需结合任务能力判断最小充分维度"
+  }
+}

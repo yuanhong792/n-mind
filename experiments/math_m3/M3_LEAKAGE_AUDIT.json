@@ -1,0 +1,23 @@
+{
+  "status": "LEAKAGE_AUDIT_DONE",
+  "cross_split": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "history_overlap": {
+    "train": 0,
+    "val": 0,
+    "sealed": 0
+  },
+  "counterfactual_group_isolated": true,
+  "generalization_reserved_before_split": true,
+  "p0_4_fixes": {
+    "counterfactual_query_object_unchanged": true,
+    "query_switch_is_separate_task": true,
+    "distance_strict_pairing": true,
+    "distance_interference_does_not_reassign_target": true,
+    "history_current_explicitly_marked": true
+  },
+  "verdict": "PASS"
+}

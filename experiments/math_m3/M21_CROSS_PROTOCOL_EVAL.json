@@ -1,0 +1,1831 @@
+{
+  "status": "M21_CROSS_PROTOCOL_EVAL_DONE",
+  "note": "两个协议各 256 step，同 R1 GRU 架构/同数据/同 seed 20261201；面板来自 M2 val，封存面板来自 M2 sealed，均不参与选模。",
+  "best_selection_contamination": "M2 训练时 Legacy/SEP 的 Best 都由 SEP 推理评测选出；Legacy Best 可能不是 Legacy 推理下的最优 checkpoint → 主比较同时报告 Final。",
+  "panel_n": 267,
+  "sealed_panel_n": 291,
+  "cross": {
+    "legacy_best": {
+      "status": "OK",
+      "source": "math_m2\\checkpoints\\S1_R1_legacy_best.pt",
+      "by_infer_protocol": {
+        "legacy": {
+          "val_macro": 0.0836,
+          "val_micro": 0.0861,
+          "val_n": 267,
+          "val_ok": 23,
+          "val_immediate_eos": 0.0562,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.0
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 2,
+              "accuracy": 0.08,
+              "immediate_eos_rate": 0.0
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.0
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 9,
+              "accuracy": 0.36,
+              "immediate_eos_rate": 0.0
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.16
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.04
+            }
+          },
+          "sealed_macro": 0.0567,
+          "sealed_micro": 0.0584,
+          "sealed_n": 291,
+          "sealed_ok": 17,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "222222222222",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "FFFFFFFFFFFF",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "WWWWWWWWWWWW",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "VVVVVVVVVVVV",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "BBBBBBBBBBBB",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "444444444444",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "SSSSSSSSSSSS",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "NN",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "99",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "OOOOOOOOOOOO",
+              "ok": false
+            }
+          ]
+        },
+        "sep": {
+          "val_macro": 0.1108,
+          "val_micro": 0.1124,
+          "val_n": 267,
+          "val_ok": 30,
+          "val_immediate_eos": 0.2884,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.04
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.32
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.48
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.16
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 8,
+              "accuracy": 0.32,
+              "immediate_eos_rate": 0.36
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 9,
+              "accuracy": 0.36,
+              "immediate_eos_rate": 0.32
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 1,
+              "accuracy": 0.0588,
+              "immediate_eos_rate": 0.2353
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.04
+            }
+          },
+          "sealed_macro": 0.0967,
+          "sealed_micro": 0.0997,
+          "sealed_n": 291,
+          "sealed_ok": 29,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "222222222222",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "FFFFFFFFFFF",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "VVVVVVVVVVVV",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "BBBBBBBBBBBB",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "444444444444",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "SSSSSSSSSSSS",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "9",
+              "ok": true
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "OOOOOOOOOOOO",
+              "ok": false
+            }
+          ]
+        }
+      }
+    },
+    "legacy_final": {
+      "status": "OK",
+      "source": "math_m2\\checkpoints\\S1_R1_legacy_final.pt",
+      "by_infer_protocol": {
+        "legacy": {
+          "val_macro": 0.0836,
+          "val_micro": 0.0861,
+          "val_n": 267,
+          "val_ok": 23,
+          "val_immediate_eos": 0.0562,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.0
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 2,
+              "accuracy": 0.08,
+              "immediate_eos_rate": 0.0
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.0
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 9,
+              "accuracy": 0.36,
+              "immediate_eos_rate": 0.0
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.16
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.04
+            }
+          },
+          "sealed_macro": 0.0567,
+          "sealed_micro": 0.0584,
+          "sealed_n": 291,
+          "sealed_ok": 17,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "222222222222",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "FFFFFFFFFFFF",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "WWWWWWWWWWWW",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "VVVVVVVVVVVV",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "BBBBBBBBBBBB",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "444444444444",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "SSSSSSSSSSSS",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "NN",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "99",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "OOOOOOOOOOOO",
+              "ok": false
+            }
+          ]
+        },
+        "sep": {
+          "val_macro": 0.1108,
+          "val_micro": 0.1124,
+          "val_n": 267,
+          "val_ok": 30,
+          "val_immediate_eos": 0.2884,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.04
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.32
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.48
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.16
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 8,
+              "accuracy": 0.32,
+              "immediate_eos_rate": 0.36
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 9,
+              "accuracy": 0.36,
+              "immediate_eos_rate": 0.32
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 1,
+              "accuracy": 0.0588,
+              "immediate_eos_rate": 0.2353
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.4
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.04
+            }
+          },
+          "sealed_macro": 0.0967,
+          "sealed_micro": 0.0997,
+          "sealed_n": 291,
+          "sealed_ok": 29,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "222222222222",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "FFFFFFFFFFF",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "VVVVVVVVVVVV",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "BBBBBBBBBBBB",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "444444444444",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "SSSSSSSSSSSS",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "9",
+              "ok": true
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "888888888888",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "OOOOOOOOOOOO",
+              "ok": false
+            }
+          ]
+        }
+      }
+    },
+    "sep_best": {
+      "status": "OK",
+      "source": "math_m2\\checkpoints\\S1_R1_sep_best.pt",
+      "by_infer_protocol": {
+        "legacy": {
+          "val_macro": 0.0937,
+          "val_micro": 0.0824,
+          "val_n": 267,
+          "val_ok": 22,
+          "val_immediate_eos": 0.6592,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.68
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 2,
+              "accuracy": 0.08,
+              "immediate_eos_rate": 0.84
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.92
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.68
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.92
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.84
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.96
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 8,
+              "accuracy": 0.4706,
+              "immediate_eos_rate": 0.1765
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.08
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 1.0
+            }
+          },
+          "sealed_macro": 0.066,
+          "sealed_micro": 0.0584,
+          "sealed_n": 291,
+          "sealed_ok": 17,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "AA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "F",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "V",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "7",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "B",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "4",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "S",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "N",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "8",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "000000000000",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "CCCCCCCCCCCC",
+              "ok": false
+            }
+          ]
+        },
+        "sep": {
+          "val_macro": 0.4511,
+          "val_micro": 0.4382,
+          "val_n": 267,
+          "val_ok": 117,
+          "val_immediate_eos": 0.0,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 15,
+              "accuracy": 0.6,
+              "immediate_eos_rate": 0.0
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 7,
+              "accuracy": 0.28,
+              "immediate_eos_rate": 0.0
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.0
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 16,
+              "accuracy": 0.64,
+              "immediate_eos_rate": 0.0
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 25,
+              "accuracy": 1.0,
+              "immediate_eos_rate": 0.0
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 22,
+              "accuracy": 0.88,
+              "immediate_eos_rate": 0.0
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 15,
+              "accuracy": 0.8824,
+              "immediate_eos_rate": 0.0
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 11,
+              "accuracy": 0.44,
+              "immediate_eos_rate": 0.0
+            }
+          },
+          "sealed_macro": 0.354,
+          "sealed_micro": 0.3436,
+          "sealed_n": 291,
+          "sealed_ok": 100,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "2",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "F",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "M",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "W",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "L",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "V",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "7",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "U",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "B",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "M",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "4",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "S",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "I",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "8",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "8",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "9",
+              "ok": true
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "7",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "0",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "CCCCCCCCCCCC",
+              "ok": false
+            }
+          ]
+        }
+      }
+    },
+    "sep_final": {
+      "status": "OK",
+      "source": "math_m2\\checkpoints\\S1_R1_sep_final.pt",
+      "by_infer_protocol": {
+        "legacy": {
+          "val_macro": 0.0937,
+          "val_micro": 0.0824,
+          "val_n": 267,
+          "val_ok": 22,
+          "val_immediate_eos": 0.6592,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 3,
+              "accuracy": 0.12,
+              "immediate_eos_rate": 0.68
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 2,
+              "accuracy": 0.08,
+              "immediate_eos_rate": 0.84
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.92
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.68
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.92
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 4,
+              "accuracy": 0.16,
+              "immediate_eos_rate": 0.84
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.96
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 8,
+              "accuracy": 0.4706,
+              "immediate_eos_rate": 0.1765
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.08
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 1.0
+            }
+          },
+          "sealed_macro": 0.066,
+          "sealed_micro": 0.0584,
+          "sealed_n": 291,
+          "sealed_ok": 17,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "AA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "F",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "MMMMMMMMMMMM",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "LLLLLLLLLLLL",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "V",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "7",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "UUUUUUUUUUUU",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "B",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "4",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "S",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "IIIIIIIIIIII",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "N",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "8",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "777777777777",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "000000000000",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "CCCCCCCCCCCC",
+              "ok": false
+            }
+          ]
+        },
+        "sep": {
+          "val_macro": 0.4511,
+          "val_micro": 0.4382,
+          "val_n": 267,
+          "val_ok": 117,
+          "val_immediate_eos": 0.0,
+          "val_per_task": {
+            "B2_bind": {
+              "n": 25,
+              "ok": 15,
+              "accuracy": 0.6,
+              "immediate_eos_rate": 0.0
+            },
+            "B4_bind": {
+              "n": 25,
+              "ok": 7,
+              "accuracy": 0.28,
+              "immediate_eos_rate": 0.0
+            },
+            "B8_bind": {
+              "n": 25,
+              "ok": 5,
+              "accuracy": 0.2,
+              "immediate_eos_rate": 0.0
+            },
+            "B_swap": {
+              "n": 25,
+              "ok": 16,
+              "accuracy": 0.64,
+              "immediate_eos_rate": 0.0
+            },
+            "C_reassign": {
+              "n": 25,
+              "ok": 1,
+              "accuracy": 0.04,
+              "immediate_eos_rate": 0.0
+            },
+            "D_indirect": {
+              "n": 25,
+              "ok": 25,
+              "accuracy": 1.0,
+              "immediate_eos_rate": 0.0
+            },
+            "E_distance": {
+              "n": 25,
+              "ok": 22,
+              "accuracy": 0.88,
+              "immediate_eos_rate": 0.0
+            },
+            "S1_copy1": {
+              "n": 17,
+              "ok": 15,
+              "accuracy": 0.8824,
+              "immediate_eos_rate": 0.0
+            },
+            "S2_copyN": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S3_reverse": {
+              "n": 25,
+              "ok": 0,
+              "accuracy": 0.0,
+              "immediate_eos_rate": 0.0
+            },
+            "S4_index": {
+              "n": 25,
+              "ok": 11,
+              "accuracy": 0.44,
+              "immediate_eos_rate": 0.0
+            }
+          },
+          "sealed_macro": 0.354,
+          "sealed_micro": 0.3436,
+          "sealed_n": 291,
+          "sealed_ok": 100,
+          "details": [
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 2",
+              "expected": "2",
+              "predicted": "2",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT F",
+              "expected": "F",
+              "predicted": "F",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY M",
+              "expected": "M",
+              "predicted": "M",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT W",
+              "expected": "W",
+              "predicted": "W",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT L",
+              "expected": "L",
+              "predicted": "L",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY V",
+              "expected": "V",
+              "predicted": "V",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 7",
+              "expected": "7",
+              "predicted": "7",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY U",
+              "expected": "U",
+              "predicted": "U",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY A",
+              "expected": "A",
+              "predicted": "AAAAAAAAAAAA",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY B",
+              "expected": "B",
+              "predicted": "B",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT M",
+              "expected": "M",
+              "predicted": "M",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "EMIT 4",
+              "expected": "4",
+              "predicted": "4",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT S",
+              "expected": "S",
+              "predicted": "S",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "RELAY I",
+              "expected": "I",
+              "predicted": "I",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "ECHO2 N",
+              "expected": "N",
+              "predicted": "8",
+              "ok": false
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 8",
+              "expected": "8",
+              "predicted": "8",
+              "ok": true
+            },
+            {
+              "task": "S1_copy1",
+              "prompt": "OUT 9",
+              "expected": "9",
+              "predicted": "9",
+              "ok": true
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY ZP7B",
+              "expected": "ZP7B",
+              "predicted": "7",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY W8T0",
+              "expected": "W8T0",
+              "predicted": "0",
+              "ok": false
+            },
+            {
+              "task": "S2_copyN",
+              "prompt": "COPY OCF",
+              "expected": "OCF",
+              "predicted": "CCCCCCCCCCCC",
+              "ok": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  "checkpoint_sources": {
+    "legacy_best": "math_m2\\checkpoints\\S1_R1_legacy_best.pt",
+    "legacy_final": "math_m2\\checkpoints\\S1_R1_legacy_final.pt",
+    "sep_best": "math_m2\\checkpoints\\S1_R1_sep_best.pt",
+    "sep_final": "math_m2\\checkpoints\\S1_R1_sep_final.pt"
+  },
+  "fair_comparison": {
+    "legacy_final": {
+      "val_macro": 0.0836,
+      "sealed_macro": 0.0567
+    },
+    "legacy_best": {
+      "val_macro": 0.0836,
+      "sealed_macro": 0.0567
+    },
+    "sep_final": {
+      "val_macro": 0.4511,
+      "sealed_macro": 0.354
+    },
+    "sep_best": {
+      "val_macro": 0.4511,
+      "sealed_macro": 0.354
+    }
+  },
+  "fair_verdict": {
+    "legacy_final_val_macro": 0.0836,
+    "sep_final_val_macro": 0.4511,
+    "sep_advantage": 0.3675,
+    "holds_under_correct_protocol": true
+  }
+}

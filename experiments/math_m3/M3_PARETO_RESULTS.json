@@ -1,0 +1,66 @@
+{
+  "status": "TRAINED",
+  "note": "能力=固定验证面板 macro（两seed代表best）；未达30%门槛者 cost_train=null，Pareto计算按+inf处理，不外推",
+  "models": {
+    "R1_gru_reference": {
+      "capability": 0.1317,
+      "sealed_capability": 0.1198,
+      "cost_train": null,
+      "cost_train_full": 162269233152,
+      "cost_infer": 103168,
+      "state_elems": 128,
+      "latency": 0.00525,
+      "params": 110694
+    },
+    "R2_tiny_transformer": {
+      "capability": 0.5083,
+      "sealed_capability": 0.4885,
+      "cost_train": 54660169728,
+      "cost_train_full": 145760452608,
+      "cost_infer": 92672,
+      "state_elems": 32768,
+      "latency": 0.001693,
+      "params": 79718
+    },
+    "M3-A_low_rank_neural": {
+      "capability": 0.095,
+      "sealed_capability": 0.0631,
+      "cost_train": null,
+      "cost_train_full": 49375346688,
+      "cost_infer": 31392,
+      "state_elems": 96,
+      "latency": 0.00406,
+      "params": 41478
+    },
+    "M3-B_adaptive_computation": {
+      "capability": 0.2831,
+      "sealed_capability": 0.2909,
+      "cost_train": null,
+      "cost_train_full": 79272345600,
+      "cost_infer": 50400,
+      "state_elems": 96,
+      "latency": 0.013467,
+      "params": 69897
+    }
+  },
+  "pareto_front": [
+    "R1_gru_reference",
+    "R2_tiny_transformer",
+    "M3-A_low_rank_neural",
+    "M3-B_adaptive_computation"
+  ],
+  "efficiency_vs_R1": {
+    "M3-A_low_rank_neural": {
+      "status": "NOT_COMPARABLE_OR_TARGET_NOT_REACHED",
+      "reason": "能力未达参考或双方未达同一 ISO 门槛，禁止宣称同等能力效率收益"
+    },
+    "M3-B_adaptive_computation": {
+      "status": "NOT_COMPARABLE_OR_TARGET_NOT_REACHED",
+      "reason": "能力未达参考或双方未达同一 ISO 门槛，禁止宣称同等能力效率收益"
+    },
+    "R2_tiny_transformer": {
+      "status": "NOT_COMPARABLE_OR_TARGET_NOT_REACHED",
+      "reason": "能力未达参考或双方未达同一 ISO 门槛，禁止宣称同等能力效率收益"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[final] checkpoint 审计 n=16
+[final] R1_gru_reference seed2 best panel=0.1317 sealed=0.1198
+[final] R2_tiny_transformer seed1 best panel=0.5083 sealed=0.4885
+[final] M3-A_low_rank_neural seed2 best panel=0.095 sealed=0.0631
+[final] M3-B_adaptive_computation seed2 best panel=0.2831 sealed=0.2909
+[final] 生成样例 48 组，正确 7
+[final] 训练后硬门跳过率=0.8255
+[final] 全部训练后交付物生成完成

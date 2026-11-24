@@ -1,0 +1,47 @@
+{
+  "threads": 20,
+  "vocab": 102,
+  "profile": {
+    "R1_gru_reference": {
+      "total_median_sec": 0.010136,
+      "head_projection_ratio": 0.0029,
+      "per_token_python_loop_ratio": 0.4477,
+      "note": "loop_ratio 为逐 token Python 调度开销的近似占比"
+    },
+    "R2_tiny_transformer": {
+      "total_median_sec": 0.00243,
+      "head_projection_ratio": 0.0176,
+      "per_token_python_loop_ratio": 0.0,
+      "note": "loop_ratio 为逐 token Python 调度开销的近似占比"
+    },
+    "M3-A_low_rank_neural": {
+      "total_median_sec": 0.008882,
+      "head_projection_ratio": 0.005,
+      "per_token_python_loop_ratio": 0.0,
+      "note": "loop_ratio 为逐 token Python 调度开销的近似占比"
+    },
+    "M3-B_adaptive_computation": {
+      "total_median_sec": 0.013715,
+      "head_projection_ratio": 0.0031,
+      "per_token_python_loop_ratio": 0.0,
+      "note": "loop_ratio 为逐 token Python 调度开销的近似占比"
+    }
+  },
+  "optimizations": {
+    "OPT-1_M3-A_head_once": {
+      "baseline_full_projection_sec": 0.009056,
+      "optimized_head_once_sec": 0.008487,
+      "latency_reduction_pct": 6.29,
+      "numeric_consistency_max_diff": 0.0,
+      "note": "仅适用于只需末步 logits 的推理基准；训练仍需逐 token 投影"
+    },
+    "OPT-2_low_rank_reuse": {
+      "baseline_sec": 2.4e-05,
+      "optimized_sec": 2.4e-05,
+      "latency_reduction_pct": 0.82,
+      "numeric_consistency_max_diff": 0.0,
+      "note": "工程优化（张量分配复用），非数学公式变更"
+    }
+  },
+  "discipline": "工程优化收益与数学公式收益分开报告；Python 重构提速不宣称为数学突破"
+}

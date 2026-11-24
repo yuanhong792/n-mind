@@ -1,0 +1,568 @@
+{
+  "status": "TRAINED",
+  "iso_targets": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "stability_rule": "连续 2 个测量点 macro >= target；末尾点达标亦接受",
+  "aggregation": "每架构两 seed 按 local_step 对齐取宏均值",
+  "cost_accounting_fix": "原始训练曲线按全局累计步数记账，本文件按 local_step 重算单模型样本/Token/MAC；wall 仍为全局累计墙钟",
+  "forbidden": "未达门槛不得外推虚构成本",
+  "models": {
+    "R1_gru_reference": {
+      "status": "TRAINED",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      },
+      "curve": [
+        {
+          "step": 64,
+          "local_step": 64,
+          "macro": 0.07665,
+          "content_acc": 0.07645,
+          "samples": 2048,
+          "tokens": 65536,
+          "macs": 20283654144,
+          "wall": 23.12,
+          "global_step": 64,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 128,
+          "local_step": 128,
+          "macro": 0.06935,
+          "content_acc": 0.06845,
+          "samples": 4096,
+          "tokens": 131072,
+          "macs": 40567308288,
+          "wall": 27.6,
+          "global_step": 128,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 192,
+          "local_step": 192,
+          "macro": 0.10415,
+          "content_acc": 0.10035,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 60850962432,
+          "wall": 32.04,
+          "global_step": 192,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 256,
+          "local_step": 256,
+          "macro": 0.0885,
+          "content_acc": 0.0892,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 81134616576,
+          "wall": 36.62,
+          "global_step": 256,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 320,
+          "local_step": 320,
+          "macro": 0.0843,
+          "content_acc": 0.0764,
+          "samples": 10240,
+          "tokens": 327680,
+          "macs": 101418270720,
+          "wall": 41.12,
+          "global_step": 320,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 384,
+          "local_step": 384,
+          "macro": 0.0981,
+          "content_acc": 0.0812,
+          "samples": 12288,
+          "tokens": 393216,
+          "macs": 121701924864,
+          "wall": 45.54,
+          "global_step": 384,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 448,
+          "local_step": 448,
+          "macro": 0.11345,
+          "content_acc": 0.09075,
+          "samples": 14336,
+          "tokens": 458752,
+          "macs": 141985579008,
+          "wall": 50.03,
+          "global_step": 448,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 512,
+          "local_step": 512,
+          "macro": 0.0853,
+          "content_acc": 0.0605,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 162269233152,
+          "wall": 54.51,
+          "global_step": 512,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        }
+      ],
+      "per_token_mac": 103168
+    },
+    "R2_tiny_transformer": {
+      "status": "TRAINED",
+      "iso": {
+        "30%": {
+          "status": "REACHED",
+          "step": 192,
+          "macro": 0.3923,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 54660169728,
+          "wall_sec": 93.24
+        },
+        "40%": {
+          "status": "REACHED",
+          "step": 256,
+          "macro": 0.42525,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 72880226304,
+          "wall_sec": 96.12
+        },
+        "50%": {
+          "status": "REACHED",
+          "step": 512,
+          "macro": 0.50275,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 145760452608,
+          "wall_sec": 107.38
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      },
+      "curve": [
+        {
+          "step": 64,
+          "local_step": 64,
+          "macro": 0.1112,
+          "content_acc": 0.1067,
+          "samples": 2048,
+          "tokens": 65536,
+          "macs": 18220056576,
+          "wall": 87.72,
+          "global_step": 1088,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 128,
+          "local_step": 128,
+          "macro": 0.23,
+          "content_acc": 0.22455,
+          "samples": 4096,
+          "tokens": 131072,
+          "macs": 36440113152,
+          "wall": 90.39,
+          "global_step": 1152,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 192,
+          "local_step": 192,
+          "macro": 0.3923,
+          "content_acc": 0.3901,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 54660169728,
+          "wall": 93.24,
+          "global_step": 1216,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 256,
+          "local_step": 256,
+          "macro": 0.42525,
+          "content_acc": 0.42675,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 72880226304,
+          "wall": 96.12,
+          "global_step": 1280,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 320,
+          "local_step": 320,
+          "macro": 0.47,
+          "content_acc": 0.46495,
+          "samples": 10240,
+          "tokens": 327680,
+          "macs": 91100282880,
+          "wall": 98.99,
+          "global_step": 1344,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 384,
+          "local_step": 384,
+          "macro": 0.49345,
+          "content_acc": 0.48725,
+          "samples": 12288,
+          "tokens": 393216,
+          "macs": 109320339456,
+          "wall": 101.77,
+          "global_step": 1408,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 448,
+          "local_step": 448,
+          "macro": 0.4914,
+          "content_acc": 0.4809,
+          "samples": 14336,
+          "tokens": 458752,
+          "macs": 127540396032,
+          "wall": 104.61,
+          "global_step": 1472,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 512,
+          "local_step": 512,
+          "macro": 0.50275,
+          "content_acc": 0.5,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 145760452608,
+          "wall": 107.38,
+          "global_step": 1536,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        }
+      ],
+      "per_token_mac": 92672
+    },
+    "M3-A_low_rank_neural": {
+      "status": "TRAINED",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      },
+      "curve": [
+        {
+          "step": 64,
+          "local_step": 64,
+          "macro": 0.06615,
+          "content_acc": 0.0637,
+          "samples": 2048,
+          "tokens": 65536,
+          "macs": 6171918336,
+          "wall": 135.22,
+          "global_step": 2112,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 128,
+          "local_step": 128,
+          "macro": 0.0795,
+          "content_acc": 0.0796,
+          "samples": 4096,
+          "tokens": 131072,
+          "macs": 12343836672,
+          "wall": 138.36,
+          "global_step": 2176,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 192,
+          "local_step": 192,
+          "macro": 0.0834,
+          "content_acc": 0.08435,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 18515755008,
+          "wall": 141.6,
+          "global_step": 2240,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 256,
+          "local_step": 256,
+          "macro": 0.0868,
+          "content_acc": 0.09075,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 24687673344,
+          "wall": 144.87,
+          "global_step": 2304,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 320,
+          "local_step": 320,
+          "macro": 0.0652,
+          "content_acc": 0.0637,
+          "samples": 10240,
+          "tokens": 327680,
+          "macs": 30859591680,
+          "wall": 148.08,
+          "global_step": 2368,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 384,
+          "local_step": 384,
+          "macro": 0.0551,
+          "content_acc": 0.05255,
+          "samples": 12288,
+          "tokens": 393216,
+          "macs": 37031510016,
+          "wall": 151.31,
+          "global_step": 2432,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 448,
+          "local_step": 448,
+          "macro": 0.0517,
+          "content_acc": 0.0541,
+          "samples": 14336,
+          "tokens": 458752,
+          "macs": 43203428352,
+          "wall": 154.55,
+          "global_step": 2496,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 512,
+          "local_step": 512,
+          "macro": 0.0404,
+          "content_acc": 0.03825,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 49375346688,
+          "wall": 157.75,
+          "global_step": 2560,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        }
+      ],
+      "per_token_mac": 31392
+    },
+    "M3-B_adaptive_computation": {
+      "status": "TRAINED",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      },
+      "curve": [
+        {
+          "step": 64,
+          "local_step": 64,
+          "macro": 0.06805,
+          "content_acc": 0.0637,
+          "samples": 2048,
+          "tokens": 65536,
+          "macs": 9909043200,
+          "wall": 198.88,
+          "global_step": 3136,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 128,
+          "local_step": 128,
+          "macro": 0.1219,
+          "content_acc": 0.11465,
+          "samples": 4096,
+          "tokens": 131072,
+          "macs": 19818086400,
+          "wall": 204.62,
+          "global_step": 3200,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 192,
+          "local_step": 192,
+          "macro": 0.1504,
+          "content_acc": 0.14335,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 29727129600,
+          "wall": 210.29,
+          "global_step": 3264,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 256,
+          "local_step": 256,
+          "macro": 0.14525,
+          "content_acc": 0.13215,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 39636172800,
+          "wall": 215.91,
+          "global_step": 3328,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 320,
+          "local_step": 320,
+          "macro": 0.16585,
+          "content_acc": 0.1624,
+          "samples": 10240,
+          "tokens": 327680,
+          "macs": 49545216000,
+          "wall": 221.6,
+          "global_step": 3392,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 384,
+          "local_step": 384,
+          "macro": 0.2026,
+          "content_acc": 0.19585,
+          "samples": 12288,
+          "tokens": 393216,
+          "macs": 59454259200,
+          "wall": 227.24,
+          "global_step": 3456,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 448,
+          "local_step": 448,
+          "macro": 0.1977,
+          "content_acc": 0.1943,
+          "samples": 14336,
+          "tokens": 458752,
+          "macs": 69363302400,
+          "wall": 232.98,
+          "global_step": 3520,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        },
+        {
+          "step": 512,
+          "local_step": 512,
+          "macro": 0.2619,
+          "content_acc": 0.25955,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 79272345600,
+          "wall": 238.62,
+          "global_step": 3584,
+          "wall_note": "预算台账全局累计墙钟（含此前架构），非单模型训练时间",
+          "seeds": 2
+        }
+      ],
+      "per_token_mac": 50400
+    }
+  }
+}

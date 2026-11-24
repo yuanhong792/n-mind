@@ -1,0 +1,86 @@
+[train_m3] 授权=True 预算 4096步/3600s 已用 0步/0.0s
+[train_m3] 训练 R1_gru_reference seed1 ...
+D:\cpu本地模型开发\n-mind\experiments\math_m3\train_m3.py:131: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  budget.record_step(arch, arch, seed, step, float(loss))
+  [R1_gru_reference seed1] step 64 macro 0.0677 loss_done wall 5.3s
+  [R1_gru_reference seed1] step 128 macro 0.0562 loss_done wall 9.8s
+  [R1_gru_reference seed1] step 192 macro 0.1192 loss_done wall 14.3s
+  [R1_gru_reference seed1] step 256 macro 0.0917 loss_done wall 18.9s
+  [R1_gru_reference seed1] step 320 macro 0.0817 loss_done wall 23.3s
+  [R1_gru_reference seed1] step 384 macro 0.0676 loss_done wall 27.7s
+  [R1_gru_reference seed1] step 448 macro 0.0952 loss_done wall 32.1s
+  [R1_gru_reference seed1] step 512 macro 0.0757 loss_done wall 36.5s
+[train_m3] R1_gru_reference seed1 steps=512 best_macro=0.1192
+[train_m3] 训练 R1_gru_reference seed2 ...
+  [R1_gru_reference seed2] step 64 macro 0.0856 loss_done wall 40.9s
+  [R1_gru_reference seed2] step 128 macro 0.0825 loss_done wall 45.4s
+  [R1_gru_reference seed2] step 192 macro 0.0891 loss_done wall 49.8s
+  [R1_gru_reference seed2] step 256 macro 0.0853 loss_done wall 54.3s
+  [R1_gru_reference seed2] step 320 macro 0.0869 loss_done wall 58.9s
+  [R1_gru_reference seed2] step 384 macro 0.1286 loss_done wall 63.4s
+  [R1_gru_reference seed2] step 448 macro 0.1317 loss_done wall 67.9s
+  [R1_gru_reference seed2] step 512 macro 0.0949 loss_done wall 72.5s
+[train_m3] R1_gru_reference seed2 steps=512 best_macro=0.1317
+[train_m3] 训练 R2_tiny_transformer seed1 ...
+  [R2_tiny_transformer seed1] step 64 macro 0.0621 loss_done wall 75.9s
+  [R2_tiny_transformer seed1] step 128 macro 0.2347 loss_done wall 78.6s
+  [R2_tiny_transformer seed1] step 192 macro 0.449 loss_done wall 81.3s
+  [R2_tiny_transformer seed1] step 256 macro 0.4579 loss_done wall 84.3s
+  [R2_tiny_transformer seed1] step 320 macro 0.4577 loss_done wall 87.3s
+  [R2_tiny_transformer seed1] step 384 macro 0.4826 loss_done wall 89.9s
+  [R2_tiny_transformer seed1] step 448 macro 0.4969 loss_done wall 92.8s
+  [R2_tiny_transformer seed1] step 512 macro 0.5083 loss_done wall 95.5s
+[train_m3] R2_tiny_transformer seed1 steps=512 best_macro=0.5083
+[train_m3] 训练 R2_tiny_transformer seed2 ...
+  [R2_tiny_transformer seed2] step 64 macro 0.1603 loss_done wall 99.5s
+  [R2_tiny_transformer seed2] step 128 macro 0.2253 loss_done wall 102.2s
+  [R2_tiny_transformer seed2] step 192 macro 0.3356 loss_done wall 105.1s
+  [R2_tiny_transformer seed2] step 256 macro 0.3926 loss_done wall 108.0s
+  [R2_tiny_transformer seed2] step 320 macro 0.4823 loss_done wall 110.7s
+  [R2_tiny_transformer seed2] step 384 macro 0.5043 loss_done wall 113.6s
+  [R2_tiny_transformer seed2] step 448 macro 0.4859 loss_done wall 116.4s
+  [R2_tiny_transformer seed2] step 512 macro 0.4972 loss_done wall 119.2s
+[train_m3] R2_tiny_transformer seed2 steps=512 best_macro=0.5043
+[train_m3] 训练 M3-A_low_rank_neural seed1 ...
+  [M3-A_low_rank_neural seed1] step 64 macro 0.0663 loss_done wall 122.4s
+  [M3-A_low_rank_neural seed1] step 128 macro 0.0794 loss_done wall 125.5s
+  [M3-A_low_rank_neural seed1] step 192 macro 0.0718 loss_done wall 128.8s
+  [M3-A_low_rank_neural seed1] step 256 macro 0.0912 loss_done wall 132.0s
+  [M3-A_low_rank_neural seed1] step 320 macro 0.0745 loss_done wall 135.3s
+  [M3-A_low_rank_neural seed1] step 384 macro 0.0341 loss_done wall 138.5s
+  [M3-A_low_rank_neural seed1] step 448 macro 0.0698 loss_done wall 141.7s
+  [M3-A_low_rank_neural seed1] step 512 macro 0.0253 loss_done wall 144.9s
+[train_m3] M3-A_low_rank_neural seed1 steps=512 best_macro=0.0912
+[train_m3] 训练 M3-A_low_rank_neural seed2 ...
+  [M3-A_low_rank_neural seed2] step 64 macro 0.066 loss_done wall 148.1s
+  [M3-A_low_rank_neural seed2] step 128 macro 0.0796 loss_done wall 151.2s
+  [M3-A_low_rank_neural seed2] step 192 macro 0.095 loss_done wall 154.4s
+  [M3-A_low_rank_neural seed2] step 256 macro 0.0824 loss_done wall 157.8s
+  [M3-A_low_rank_neural seed2] step 320 macro 0.0559 loss_done wall 160.9s
+  [M3-A_low_rank_neural seed2] step 384 macro 0.0761 loss_done wall 164.1s
+  [M3-A_low_rank_neural seed2] step 448 macro 0.0336 loss_done wall 167.4s
+  [M3-A_low_rank_neural seed2] step 512 macro 0.0555 loss_done wall 170.6s
+[train_m3] M3-A_low_rank_neural seed2 steps=512 best_macro=0.095
+[train_m3] 训练 M3-B_adaptive_computation seed1 ...
+  [M3-B_adaptive_computation seed1] step 64 macro 0.0719 loss_done wall 176.3s
+  [M3-B_adaptive_computation seed1] step 128 macro 0.109 loss_done wall 182.3s
+  [M3-B_adaptive_computation seed1] step 192 macro 0.1372 loss_done wall 188.0s
+  [M3-B_adaptive_computation seed1] step 256 macro 0.1488 loss_done wall 193.6s
+  [M3-B_adaptive_computation seed1] step 320 macro 0.1688 loss_done wall 199.4s
+  [M3-B_adaptive_computation seed1] step 384 macro 0.194 loss_done wall 204.9s
+  [M3-B_adaptive_computation seed1] step 448 macro 0.1839 loss_done wall 210.5s
+  [M3-B_adaptive_computation seed1] step 512 macro 0.2407 loss_done wall 216.0s
+[train_m3] M3-B_adaptive_computation seed1 steps=512 best_macro=0.2407
+[train_m3] 训练 M3-B_adaptive_computation seed2 ...
+  [M3-B_adaptive_computation seed2] step 64 macro 0.0642 loss_done wall 221.5s
+  [M3-B_adaptive_computation seed2] step 128 macro 0.1348 loss_done wall 227.0s
+  [M3-B_adaptive_computation seed2] step 192 macro 0.1636 loss_done wall 232.6s
+  [M3-B_adaptive_computation seed2] step 256 macro 0.1417 loss_done wall 238.2s
+  [M3-B_adaptive_computation seed2] step 320 macro 0.1629 loss_done wall 243.8s
+  [M3-B_adaptive_computation seed2] step 384 macro 0.2112 loss_done wall 249.6s
+  [M3-B_adaptive_computation seed2] step 448 macro 0.2115 loss_done wall 255.5s
+  [M3-B_adaptive_computation seed2] step 512 macro 0.2831 loss_done wall 261.2s
+[train_m3] M3-B_adaptive_computation seed2 steps=512 best_macro=0.2831
+[train_m3] 预算耗尽，停止。
+[train_m3] 写出 D:\cpu本地模型开发\n-mind\experiments\math_m3\M3_TRAINING_RESULTS.json

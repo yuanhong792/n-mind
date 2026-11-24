@@ -1,0 +1,1093 @@
+{
+  "status": "M3_FORMULA_REGISTRY",
+  "formulas": {
+    "F1_h_plus_lowrank": {
+      "name": "F1_h_plus_lowrank",
+      "formula": "residual(lowrank(;id=0))",
+      "canonical": "residual(lowrank(;id=0))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "F2_gated_lowrank": {
+      "name": "F2_gated_lowrank",
+      "formula": "gate(identity(),tanh(lowrank(;id=0)),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),tanh(lowrank(;id=0)),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 2624,
+      "cost_vs_dense": 0.6406,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "F3_gate_diag_low_input": {
+      "name": "F3_gate_diag_low_input",
+      "formula": "gate(identity(),tanh(add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0)))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),tanh(add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx))),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M03": {
+      "name": "M03",
+      "formula": "residual(sigmoid(lowrank(;id=0)))",
+      "canonical": "residual(sigmoid(lowrank(;id=0)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M04": {
+      "name": "M04",
+      "formula": "residual(tanh(lowrank(;id=0)))",
+      "canonical": "residual(tanh(lowrank(;id=0)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M05": {
+      "name": "M05",
+      "formula": "gate(identity(),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M06": {
+      "name": "M06",
+      "formula": "residual(relu(tanh(lowrank(;id=0))))",
+      "canonical": "residual(relu(tanh(lowrank(;id=0))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M07": {
+      "name": "M07",
+      "formula": "gate(identity(),sigmoid(tanh(lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),sigmoid(tanh(lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 2624,
+      "cost_vs_dense": 0.6406,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M08": {
+      "name": "M08",
+      "formula": "residual(sigmoid(relu(tanh(lowrank(;id=0)))))",
+      "canonical": "residual(sigmoid(relu(tanh(lowrank(;id=0)))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M09": {
+      "name": "M09",
+      "formula": "residual(tanh(sigmoid(lowrank(;id=0))))",
+      "canonical": "residual(tanh(sigmoid(lowrank(;id=0))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M10": {
+      "name": "M10",
+      "formula": "gate(gelu(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(gelu(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M11": {
+      "name": "M11",
+      "formula": "residual(relu(tanh(sigmoid(lowrank(;id=0)))))",
+      "canonical": "residual(relu(tanh(sigmoid(lowrank(;id=0)))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M12": {
+      "name": "M12",
+      "formula": "residual(gelu(sigmoid(relu(tanh(lowrank(;id=0))))))",
+      "canonical": "residual(gelu(sigmoid(relu(tanh(lowrank(;id=0))))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M13": {
+      "name": "M13",
+      "formula": "residual(norm(sigmoid(lowrank(;id=0))))",
+      "canonical": "residual(norm(sigmoid(lowrank(;id=0))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M14": {
+      "name": "M14",
+      "formula": "gate(tanh(gelu(identity())),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(tanh(gelu(identity())),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M15": {
+      "name": "M15",
+      "formula": "gate(gelu(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),input_proj(;W=Wg))",
+      "canonical": "gate(gelu(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),input_proj(;W=Wg))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M16": {
+      "name": "M16",
+      "formula": "gate(identity(),gelu(tanh(add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),gelu(tanh(add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)))),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M17": {
+      "name": "M17",
+      "formula": "residual(norm(tanh(sigmoid(lowrank(;id=0)))))",
+      "canonical": "residual(norm(tanh(sigmoid(lowrank(;id=0)))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M18": {
+      "name": "M18",
+      "formula": "gate(gelu(gelu(identity())),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),input_proj(;W=Wg))",
+      "canonical": "gate(gelu(gelu(identity())),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),input_proj(;W=Wg))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M19": {
+      "name": "M19",
+      "formula": "gate(identity(),relu(tanh(lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),relu(tanh(lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 2624,
+      "cost_vs_dense": 0.6406,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M20": {
+      "name": "M20",
+      "formula": "residual(tanh(sigmoid(relu(tanh(lowrank(;id=0))))))",
+      "canonical": "residual(tanh(sigmoid(relu(tanh(lowrank(;id=0))))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M21": {
+      "name": "M21",
+      "formula": "residual(relu(relu(tanh(lowrank(;id=0)))))",
+      "canonical": "residual(relu(relu(tanh(lowrank(;id=0)))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M22": {
+      "name": "M22",
+      "formula": "gate(gelu(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),relu(input_proj(;W=Wg)))",
+      "canonical": "gate(gelu(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),relu(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M23": {
+      "name": "M23",
+      "formula": "residual(gelu(norm(tanh(sigmoid(lowrank(;id=0))))))",
+      "canonical": "residual(gelu(norm(tanh(sigmoid(lowrank(;id=0))))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M24": {
+      "name": "M24",
+      "formula": "gate(gelu(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),tanh(relu(input_proj(;W=Wg))))",
+      "canonical": "gate(gelu(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),tanh(relu(input_proj(;W=Wg))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M25": {
+      "name": "M25",
+      "formula": "residual(relu(sigmoid(lowrank(;id=0))))",
+      "canonical": "residual(relu(sigmoid(lowrank(;id=0))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M26": {
+      "name": "M26",
+      "formula": "residual(relu(norm(tanh(sigmoid(lowrank(;id=0))))))",
+      "canonical": "residual(relu(norm(tanh(sigmoid(lowrank(;id=0))))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M27": {
+      "name": "M27",
+      "formula": "gate(gelu(gelu(identity())),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),relu(input_proj(;W=Wg)))",
+      "canonical": "gate(gelu(gelu(identity())),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),relu(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M28": {
+      "name": "M28",
+      "formula": "gate(tanh(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),sigmoid(input_proj(;W=Wg)))",
+      "canonical": "gate(tanh(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),sigmoid(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M29": {
+      "name": "M29",
+      "formula": "gate(gelu(identity()),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),relu(sigmoid(input_proj(;W=Wg))))",
+      "canonical": "gate(gelu(identity()),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),relu(sigmoid(input_proj(;W=Wg))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M30": {
+      "name": "M30",
+      "formula": "gate(identity(),add(input_proj(;W=Wx),add(diag(;a=diag),lowrank(;id=0))),relu(input_proj(;W=Wg)))",
+      "canonical": "gate(identity(),add(add(diag(;a=diag),lowrank(;id=0)),input_proj(;W=Wx)),relu(input_proj(;W=Wg)))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 4736,
+      "cost_vs_dense": 1.1562,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    },
+    "M31": {
+      "name": "M31",
+      "formula": "residual(gelu(tanh(sigmoid(relu(tanh(lowrank(;id=0)))))))",
+      "canonical": "residual(gelu(tanh(sigmoid(relu(tanh(lowrank(;id=0)))))))",
+      "grammar_ok": true,
+      "math_pass": true,
+      "checks": {
+        "shape": true,
+        "finite": true,
+        "gradient": true,
+        "sample_isolation": true,
+        "no_hardcoded_answer": true
+      },
+      "error": null,
+      "equivalent_to": null,
+      "estimated_macs_per_step": 512,
+      "cost_vs_dense": 0.125,
+      "innovation_audit": {
+        "source": "本项目 formula_lab 受控枚举",
+        "prior_art": "低秩适配 LoRA (Hu 2021) + 门控残差 (GRU/LSTM) 的已有组合",
+        "project_change": "把低秩/对角/门控算子限定用于循环神经状态更新并做受控组合搜索",
+        "math_properties": [
+          "dimension_checked",
+          "gradient_checked",
+          "sample_isolation_checked"
+        ],
+        "theoretical_cost": "O(dr) 低秩 + O(d) 对角/门控",
+        "possible_novelty": "组合机制（非基础算子本身）",
+        "unproven_assumptions": [
+          "组合在字符级计算任务上的有效性",
+          "与已有低秩循环网络的性能差异"
+        ]
+      }
+    }
+  }
+}

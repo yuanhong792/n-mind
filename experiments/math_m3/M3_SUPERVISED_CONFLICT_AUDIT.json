@@ -1,0 +1,242 @@
+{
+  "status": "SUPERVISED_CONFLICT_AUDIT_DONE",
+  "definition": "只统计 loss 权重>0 的预测位置；相同受监督历史对应不同目标 token 才算冲突",
+  "n_samples_loaded": 49035,
+  "by_protocol": {
+    "legacy": {
+      "protocol": "legacy",
+      "n_samples": 49035,
+      "n_supervised_positions": 130971,
+      "conflict_prefix_count": 128,
+      "conflict_prefix_rate": 0.000977,
+      "affected_supervised_positions": 299,
+      "affected_position_rate": 0.002283,
+      "affected_samples": 299,
+      "affected_sample_rate": 0.006098,
+      "conflict_token_frequency": {
+        "2": 31,
+        "28": 14,
+        "46": 13,
+        "55": 13,
+        "45": 13,
+        "60": 11,
+        "58": 10,
+        "64": 10,
+        "44": 10,
+        "54": 9,
+        "43": 9,
+        "62": 9,
+        "26": 8,
+        "57": 8,
+        "59": 8,
+        "42": 8,
+        "50": 7,
+        "23": 7,
+        "22": 7,
+        "47": 7
+      },
+      "task_conflict_distribution": {
+        "A2_copyN": 31,
+        "S2_copyN": 29,
+        "A4_reverse": 23,
+        "S3_reverse": 21,
+        "C0_reverse": 8,
+        "C0_copy1": 7,
+        "C0_copyN": 6,
+        "A1_copy1": 3
+      },
+      "conditional_entropy_bits_mean": 0.9728,
+      "theoretical_min_cross_entropy_bits": 0.9728,
+      "uniform_baseline_ce_bits": 1.0,
+      "true_prompt_ambiguity_count": 0,
+      "true_prompt_ambiguity_examples": [],
+      "conflict_examples": [
+        {
+          "history": "COPY W3W",
+          "targets": {
+            "61": 1,
+            "25": 1
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "A2_copyN": 1
+          }
+        },
+        {
+          "history": "REVERSE TBB",
+          "targets": {
+            "40": 1,
+            "58": 1
+          },
+          "tasks": {
+            "S3_reverse": 1,
+            "A4_reverse": 1
+          }
+        },
+        {
+          "history": "COPY VV",
+          "targets": {
+            "60": 3,
+            "2": 1
+          },
+          "tasks": {
+            "S2_copyN": 3,
+            "C0_copy1": 1
+          }
+        },
+        {
+          "history": "REVERSE V44",
+          "targets": {
+            "26": 1,
+            "60": 1
+          },
+          "tasks": {
+            "S3_reverse": 1,
+            "A4_reverse": 1
+          }
+        },
+        {
+          "history": "REVERSE H33",
+          "targets": {
+            "25": 1,
+            "46": 2
+          },
+          "tasks": {
+            "S3_reverse": 1,
+            "A4_reverse": 2
+          }
+        },
+        {
+          "history": "COPY LQL",
+          "targets": {
+            "50": 1,
+            "55": 1
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "C0_copyN": 1
+          }
+        },
+        {
+          "history": "COPY 66",
+          "targets": {
+            "28": 1,
+            "2": 1
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "C0_copy1": 1
+          }
+        },
+        {
+          "history": "REVERSE G66",
+          "targets": {
+            "28": 1,
+            "45": 4
+          },
+          "tasks": {
+            "S3_reverse": 5
+          }
+        },
+        {
+          "history": "REVERSE 3MM",
+          "targets": {
+            "25": 1,
+            "51": 1
+          },
+          "tasks": {
+            "S3_reverse": 2
+          }
+        },
+        {
+          "history": "COPY 99",
+          "targets": {
+            "31": 1,
+            "2": 1
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "C0_copy1": 1
+          }
+        },
+        {
+          "history": "COPY ZZ",
+          "targets": {
+            "64": 2,
+            "2": 1
+          },
+          "tasks": {
+            "S2_copyN": 2,
+            "A1_copy1": 1
+          }
+        },
+        {
+          "history": "COPY GBRG",
+          "targets": {
+            "45": 1,
+            "40": 1
+          },
+          "tasks": {
+            "S2_copyN": 2
+          }
+        },
+        {
+          "history": "COPY WTW",
+          "targets": {
+            "61": 1,
+            "58": 2
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "A2_copyN": 2
+          }
+        },
+        {
+          "history": "COPY YAY",
+          "targets": {
+            "63": 1,
+            "39": 1
+          },
+          "tasks": {
+            "S2_copyN": 2
+          }
+        },
+        {
+          "history": "COPY APA",
+          "targets": {
+            "39": 1,
+            "54": 1
+          },
+          "tasks": {
+            "S2_copyN": 1,
+            "A2_copyN": 1
+          }
+        }
+      ]
+    },
+    "sep": {
+      "protocol": "sep",
+      "n_samples": 49035,
+      "n_supervised_positions": 130971,
+      "conflict_prefix_count": 0,
+      "conflict_prefix_rate": 0.0,
+      "affected_supervised_positions": 0,
+      "affected_position_rate": 0.0,
+      "affected_samples": 0,
+      "affected_sample_rate": 0.0,
+      "conflict_token_frequency": {},
+      "task_conflict_distribution": {},
+      "conditional_entropy_bits_mean": 0.0,
+      "theoretical_min_cross_entropy_bits": 0.0,
+      "uniform_baseline_ce_bits": 0.0,
+      "true_prompt_ambiguity_count": 0,
+      "true_prompt_ambiguity_examples": [],
+      "conflict_examples": []
+    }
+  },
+  "sep_vs_legacy": {
+    "conflict_prefix_reduction": 128,
+    "affected_position_reduction": 299,
+    "note": "SEP 使 answer 首 token 的受监督历史包含 SEP，结构性切断与 prompt 内部延续的共享"
+  }
+}

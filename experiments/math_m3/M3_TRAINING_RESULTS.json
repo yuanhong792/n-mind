@@ -1,0 +1,981 @@
+{
+  "status": "TRAINING_DONE",
+  "code_version": "m3-train/1.0",
+  "formula_version": "m3-formulas/1.0",
+  "budget": {
+    "max_steps": 4096,
+    "max_wall": 3600
+  },
+  "data_sha": "cf39b0dcc740998f",
+  "tokenizer_sha": "511b2a9e5ef396a515d8f50928f038e71a8018ef00cb82f5724127f160a7a885",
+  "models": {
+    "R1_gru_reference_s1": {
+      "arch": "R1_gru_reference",
+      "seed": 1,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 64,
+          "local_step": 64,
+          "macro": 0.0677,
+          "content_acc": 0.0637,
+          "samples": 2048,
+          "tokens": 65536,
+          "macs": 20283654144,
+          "wall": 5.3295515999998315
+        },
+        {
+          "step": 128,
+          "local_step": 128,
+          "macro": 0.0562,
+          "content_acc": 0.0573,
+          "samples": 4096,
+          "tokens": 131072,
+          "macs": 40567308288,
+          "wall": 9.815825300000142
+        },
+        {
+          "step": 192,
+          "local_step": 192,
+          "macro": 0.1192,
+          "content_acc": 0.1115,
+          "samples": 6144,
+          "tokens": 196608,
+          "macs": 60850962432,
+          "wall": 14.300136800000473
+        },
+        {
+          "step": 256,
+          "local_step": 256,
+          "macro": 0.0917,
+          "content_acc": 0.0892,
+          "samples": 8192,
+          "tokens": 262144,
+          "macs": 81134616576,
+          "wall": 18.926660600001924
+        },
+        {
+          "step": 320,
+          "local_step": 320,
+          "macro": 0.0817,
+          "content_acc": 0.0764,
+          "samples": 10240,
+          "tokens": 327680,
+          "macs": 101418270720,
+          "wall": 23.28823950000151
+        },
+        {
+          "step": 384,
+          "local_step": 384,
+          "macro": 0.0676,
+          "content_acc": 0.0637,
+          "samples": 12288,
+          "tokens": 393216,
+          "macs": 121701924864,
+          "wall": 27.689850800001295
+        },
+        {
+          "step": 448,
+          "local_step": 448,
+          "macro": 0.0952,
+          "content_acc": 0.086,
+          "samples": 14336,
+          "tokens": 458752,
+          "macs": 141985579008,
+          "wall": 32.13930059999984
+        },
+        {
+          "step": 512,
+          "local_step": 512,
+          "macro": 0.0757,
+          "content_acc": 0.0573,
+          "samples": 16384,
+          "tokens": 524288,
+          "macs": 162269233152,
+          "wall": 36.46984240000165
+        }
+      ],
+      "best_macro": 0.1192,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R1_gru_reference_s1_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R1_gru_reference_s1_final.pt",
+      "init_sha": "dc58811ad6473b63",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "R1_gru_reference_s2": {
+      "arch": "R1_gru_reference",
+      "seed": 2,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 576,
+          "local_step": 64,
+          "macro": 0.0856,
+          "content_acc": 0.0892,
+          "samples": 18432,
+          "tokens": 589824,
+          "macs": 182552887296,
+          "wall": 40.907463200001075
+        },
+        {
+          "step": 640,
+          "local_step": 128,
+          "macro": 0.0825,
+          "content_acc": 0.0796,
+          "samples": 20480,
+          "tokens": 655360,
+          "macs": 202836541440,
+          "wall": 45.39301329999944
+        },
+        {
+          "step": 704,
+          "local_step": 192,
+          "macro": 0.0891,
+          "content_acc": 0.0892,
+          "samples": 22528,
+          "tokens": 720896,
+          "macs": 223120195584,
+          "wall": 49.78937869999936
+        },
+        {
+          "step": 768,
+          "local_step": 256,
+          "macro": 0.0853,
+          "content_acc": 0.0892,
+          "samples": 24576,
+          "tokens": 786432,
+          "macs": 243403849728,
+          "wall": 54.303485100001126
+        },
+        {
+          "step": 832,
+          "local_step": 320,
+          "macro": 0.0869,
+          "content_acc": 0.0764,
+          "samples": 26624,
+          "tokens": 851968,
+          "macs": 263687503872,
+          "wall": 58.9470782999997
+        },
+        {
+          "step": 896,
+          "local_step": 384,
+          "macro": 0.1286,
+          "content_acc": 0.0987,
+          "samples": 28672,
+          "tokens": 917504,
+          "macs": 283971158016,
+          "wall": 63.3962797000022
+        },
+        {
+          "step": 960,
+          "local_step": 448,
+          "macro": 0.1317,
+          "content_acc": 0.0955,
+          "samples": 30720,
+          "tokens": 983040,
+          "macs": 304254812160,
+          "wall": 67.92272779999985
+        },
+        {
+          "step": 1024,
+          "local_step": 512,
+          "macro": 0.0949,
+          "content_acc": 0.0637,
+          "samples": 32768,
+          "tokens": 1048576,
+          "macs": 324538466304,
+          "wall": 72.54789030000029
+        }
+      ],
+      "best_macro": 0.1317,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R1_gru_reference_s2_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R1_gru_reference_s2_final.pt",
+      "init_sha": "02d664b412e86547",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "R2_tiny_transformer_s1": {
+      "arch": "R2_tiny_transformer",
+      "seed": 1,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 1088,
+          "local_step": 64,
+          "macro": 0.0621,
+          "content_acc": 0.0637,
+          "samples": 34816,
+          "tokens": 1114112,
+          "macs": 309740961792,
+          "wall": 75.89564670000254
+        },
+        {
+          "step": 1152,
+          "local_step": 128,
+          "macro": 0.2347,
+          "content_acc": 0.2325,
+          "samples": 36864,
+          "tokens": 1179648,
+          "macs": 327961018368,
+          "wall": 78.55830609999975
+        },
+        {
+          "step": 1216,
+          "local_step": 192,
+          "macro": 0.449,
+          "content_acc": 0.4522,
+          "samples": 38912,
+          "tokens": 1245184,
+          "macs": 346181074944,
+          "wall": 81.33475969999927
+        },
+        {
+          "step": 1280,
+          "local_step": 256,
+          "macro": 0.4579,
+          "content_acc": 0.449,
+          "samples": 40960,
+          "tokens": 1310720,
+          "macs": 364401131520,
+          "wall": 84.25808640000105
+        },
+        {
+          "step": 1344,
+          "local_step": 320,
+          "macro": 0.4577,
+          "content_acc": 0.4522,
+          "samples": 43008,
+          "tokens": 1376256,
+          "macs": 382621188096,
+          "wall": 87.25404370000251
+        },
+        {
+          "step": 1408,
+          "local_step": 384,
+          "macro": 0.4826,
+          "content_acc": 0.4841,
+          "samples": 45056,
+          "tokens": 1441792,
+          "macs": 400841244672,
+          "wall": 89.94972540000163
+        },
+        {
+          "step": 1472,
+          "local_step": 448,
+          "macro": 0.4969,
+          "content_acc": 0.4936,
+          "samples": 47104,
+          "tokens": 1507328,
+          "macs": 419061301248,
+          "wall": 92.77456610000081
+        },
+        {
+          "step": 1536,
+          "local_step": 512,
+          "macro": 0.5083,
+          "content_acc": 0.5064,
+          "samples": 49152,
+          "tokens": 1572864,
+          "macs": 437281357824,
+          "wall": 95.51152010000078
+        }
+      ],
+      "best_macro": 0.5083,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R2_tiny_transformer_s1_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R2_tiny_transformer_s1_final.pt",
+      "init_sha": "d205264737d60b72",
+      "iso": {
+        "30%": {
+          "status": "REACHED",
+          "step": 1216,
+          "macro": 0.449,
+          "samples": 38912,
+          "tokens": 1245184,
+          "macs": 346181074944,
+          "wall_sec": 81.33475969999927
+        },
+        "40%": {
+          "status": "REACHED",
+          "step": 1216,
+          "macro": 0.449,
+          "samples": 38912,
+          "tokens": 1245184,
+          "macs": 346181074944,
+          "wall_sec": 81.33475969999927
+        },
+        "50%": {
+          "status": "REACHED",
+          "step": 1536,
+          "macro": 0.5083,
+          "samples": 49152,
+          "tokens": 1572864,
+          "macs": 437281357824,
+          "wall_sec": 95.51152010000078
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "R2_tiny_transformer_s2": {
+      "arch": "R2_tiny_transformer",
+      "seed": 2,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 1600,
+          "local_step": 64,
+          "macro": 0.1603,
+          "content_acc": 0.1497,
+          "samples": 51200,
+          "tokens": 1638400,
+          "macs": 455501414400,
+          "wall": 99.53461560000142
+        },
+        {
+          "step": 1664,
+          "local_step": 128,
+          "macro": 0.2253,
+          "content_acc": 0.2166,
+          "samples": 53248,
+          "tokens": 1703936,
+          "macs": 473721470976,
+          "wall": 102.22684970000046
+        },
+        {
+          "step": 1728,
+          "local_step": 192,
+          "macro": 0.3356,
+          "content_acc": 0.328,
+          "samples": 55296,
+          "tokens": 1769472,
+          "macs": 491941527552,
+          "wall": 105.14878519999911
+        },
+        {
+          "step": 1792,
+          "local_step": 256,
+          "macro": 0.3926,
+          "content_acc": 0.4045,
+          "samples": 57344,
+          "tokens": 1835008,
+          "macs": 510161584128,
+          "wall": 107.97763470000064
+        },
+        {
+          "step": 1856,
+          "local_step": 320,
+          "macro": 0.4823,
+          "content_acc": 0.4777,
+          "samples": 59392,
+          "tokens": 1900544,
+          "macs": 528381640704,
+          "wall": 110.72650029999932
+        },
+        {
+          "step": 1920,
+          "local_step": 384,
+          "macro": 0.5043,
+          "content_acc": 0.4904,
+          "samples": 61440,
+          "tokens": 1966080,
+          "macs": 546601697280,
+          "wall": 113.59445740000228
+        },
+        {
+          "step": 1984,
+          "local_step": 448,
+          "macro": 0.4859,
+          "content_acc": 0.4682,
+          "samples": 63488,
+          "tokens": 2031616,
+          "macs": 564821753856,
+          "wall": 116.44108860000051
+        },
+        {
+          "step": 2048,
+          "local_step": 512,
+          "macro": 0.4972,
+          "content_acc": 0.4936,
+          "samples": 65536,
+          "tokens": 2097152,
+          "macs": 583041810432,
+          "wall": 119.2493409000017
+        }
+      ],
+      "best_macro": 0.5043,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R2_tiny_transformer_s2_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\R2_tiny_transformer_s2_final.pt",
+      "init_sha": "4dd062cc1b1cebf2",
+      "iso": {
+        "30%": {
+          "status": "REACHED",
+          "step": 1728,
+          "macro": 0.3356,
+          "samples": 55296,
+          "tokens": 1769472,
+          "macs": 491941527552,
+          "wall_sec": 105.14878519999911
+        },
+        "40%": {
+          "status": "REACHED",
+          "step": 1856,
+          "macro": 0.4823,
+          "samples": 59392,
+          "tokens": 1900544,
+          "macs": 528381640704,
+          "wall_sec": 110.72650029999932
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "M3-A_low_rank_neural_s1": {
+      "arch": "M3-A_low_rank_neural",
+      "seed": 1,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 2112,
+          "local_step": 64,
+          "macro": 0.0663,
+          "content_acc": 0.0669,
+          "samples": 67584,
+          "tokens": 2162688,
+          "macs": 203673305088,
+          "wall": 122.38325950000217
+        },
+        {
+          "step": 2176,
+          "local_step": 128,
+          "macro": 0.0794,
+          "content_acc": 0.0828,
+          "samples": 69632,
+          "tokens": 2228224,
+          "macs": 209845223424,
+          "wall": 125.5215062999996
+        },
+        {
+          "step": 2240,
+          "local_step": 192,
+          "macro": 0.0718,
+          "content_acc": 0.0732,
+          "samples": 71680,
+          "tokens": 2293760,
+          "macs": 216017141760,
+          "wall": 128.82202550000147
+        },
+        {
+          "step": 2304,
+          "local_step": 256,
+          "macro": 0.0912,
+          "content_acc": 0.0955,
+          "samples": 73728,
+          "tokens": 2359296,
+          "macs": 222189060096,
+          "wall": 131.96986620000098
+        },
+        {
+          "step": 2368,
+          "local_step": 320,
+          "macro": 0.0745,
+          "content_acc": 0.0701,
+          "samples": 75776,
+          "tokens": 2424832,
+          "macs": 228360978432,
+          "wall": 135.27318540000124
+        },
+        {
+          "step": 2432,
+          "local_step": 384,
+          "macro": 0.0341,
+          "content_acc": 0.035,
+          "samples": 77824,
+          "tokens": 2490368,
+          "macs": 234532896768,
+          "wall": 138.5370623000017
+        },
+        {
+          "step": 2496,
+          "local_step": 448,
+          "macro": 0.0698,
+          "content_acc": 0.0732,
+          "samples": 79872,
+          "tokens": 2555904,
+          "macs": 240704815104,
+          "wall": 141.71983040000123
+        },
+        {
+          "step": 2560,
+          "local_step": 512,
+          "macro": 0.0253,
+          "content_acc": 0.0255,
+          "samples": 81920,
+          "tokens": 2621440,
+          "macs": 246876733440,
+          "wall": 144.86283009999897
+        }
+      ],
+      "best_macro": 0.0912,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-A_low_rank_neural_s1_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-A_low_rank_neural_s1_final.pt",
+      "init_sha": "8af96b87e50ad20f",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "M3-A_low_rank_neural_s2": {
+      "arch": "M3-A_low_rank_neural",
+      "seed": 2,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 2624,
+          "local_step": 64,
+          "macro": 0.066,
+          "content_acc": 0.0605,
+          "samples": 83968,
+          "tokens": 2686976,
+          "macs": 253048651776,
+          "wall": 148.05195210000238
+        },
+        {
+          "step": 2688,
+          "local_step": 128,
+          "macro": 0.0796,
+          "content_acc": 0.0764,
+          "samples": 86016,
+          "tokens": 2752512,
+          "macs": 259220570112,
+          "wall": 151.1934469000007
+        },
+        {
+          "step": 2752,
+          "local_step": 192,
+          "macro": 0.095,
+          "content_acc": 0.0955,
+          "samples": 88064,
+          "tokens": 2818048,
+          "macs": 265392488448,
+          "wall": 154.38304229999994
+        },
+        {
+          "step": 2816,
+          "local_step": 256,
+          "macro": 0.0824,
+          "content_acc": 0.086,
+          "samples": 90112,
+          "tokens": 2883584,
+          "macs": 271564406784,
+          "wall": 157.76219889999993
+        },
+        {
+          "step": 2880,
+          "local_step": 320,
+          "macro": 0.0559,
+          "content_acc": 0.0573,
+          "samples": 92160,
+          "tokens": 2949120,
+          "macs": 277736325120,
+          "wall": 160.88596909999978
+        },
+        {
+          "step": 2944,
+          "local_step": 384,
+          "macro": 0.0761,
+          "content_acc": 0.0701,
+          "samples": 94208,
+          "tokens": 3014656,
+          "macs": 283908243456,
+          "wall": 164.09292450000066
+        },
+        {
+          "step": 3008,
+          "local_step": 448,
+          "macro": 0.0336,
+          "content_acc": 0.035,
+          "samples": 96256,
+          "tokens": 3080192,
+          "macs": 290080161792,
+          "wall": 167.3756222000011
+        },
+        {
+          "step": 3072,
+          "local_step": 512,
+          "macro": 0.0555,
+          "content_acc": 0.051,
+          "samples": 98304,
+          "tokens": 3145728,
+          "macs": 296252080128,
+          "wall": 170.63827460000175
+        }
+      ],
+      "best_macro": 0.095,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-A_low_rank_neural_s2_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-A_low_rank_neural_s2_final.pt",
+      "init_sha": "ea98907395d9aca0",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "M3-B_adaptive_computation_s1": {
+      "arch": "M3-B_adaptive_computation",
+      "seed": 1,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 3136,
+          "local_step": 64,
+          "macro": 0.0719,
+          "content_acc": 0.0605,
+          "samples": 100352,
+          "tokens": 3211264,
+          "macs": 485543116800,
+          "wall": 176.26339150000058
+        },
+        {
+          "step": 3200,
+          "local_step": 128,
+          "macro": 0.109,
+          "content_acc": 0.1051,
+          "samples": 102400,
+          "tokens": 3276800,
+          "macs": 495452160000,
+          "wall": 182.25021580000248
+        },
+        {
+          "step": 3264,
+          "local_step": 192,
+          "macro": 0.1372,
+          "content_acc": 0.1338,
+          "samples": 104448,
+          "tokens": 3342336,
+          "macs": 505361203200,
+          "wall": 187.98379130000103
+        },
+        {
+          "step": 3328,
+          "local_step": 256,
+          "macro": 0.1488,
+          "content_acc": 0.1369,
+          "samples": 106496,
+          "tokens": 3407872,
+          "macs": 515270246400,
+          "wall": 193.60913140000048
+        },
+        {
+          "step": 3392,
+          "local_step": 320,
+          "macro": 0.1688,
+          "content_acc": 0.1592,
+          "samples": 108544,
+          "tokens": 3473408,
+          "macs": 525179289600,
+          "wall": 199.3843936000012
+        },
+        {
+          "step": 3456,
+          "local_step": 384,
+          "macro": 0.194,
+          "content_acc": 0.1911,
+          "samples": 110592,
+          "tokens": 3538944,
+          "macs": 535088332800,
+          "wall": 204.9211808
+        },
+        {
+          "step": 3520,
+          "local_step": 448,
+          "macro": 0.1839,
+          "content_acc": 0.172,
+          "samples": 112640,
+          "tokens": 3604480,
+          "macs": 544997376000,
+          "wall": 210.48874409999917
+        },
+        {
+          "step": 3584,
+          "local_step": 512,
+          "macro": 0.2407,
+          "content_acc": 0.2261,
+          "samples": 114688,
+          "tokens": 3670016,
+          "macs": 554906419200,
+          "wall": 216.00562730000092
+        }
+      ],
+      "best_macro": 0.2407,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-B_adaptive_computation_s1_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-B_adaptive_computation_s1_final.pt",
+      "init_sha": "261ea6f56b5faad0",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    },
+    "M3-B_adaptive_computation_s2": {
+      "arch": "M3-B_adaptive_computation",
+      "seed": 2,
+      "status": "DONE",
+      "steps": 512,
+      "curve": [
+        {
+          "step": 3648,
+          "local_step": 64,
+          "macro": 0.0642,
+          "content_acc": 0.0669,
+          "samples": 116736,
+          "tokens": 3735552,
+          "macs": 564815462400,
+          "wall": 221.4876914000015
+        },
+        {
+          "step": 3712,
+          "local_step": 128,
+          "macro": 0.1348,
+          "content_acc": 0.1242,
+          "samples": 118784,
+          "tokens": 3801088,
+          "macs": 574724505600,
+          "wall": 226.98566260000007
+        },
+        {
+          "step": 3776,
+          "local_step": 192,
+          "macro": 0.1636,
+          "content_acc": 0.1529,
+          "samples": 120832,
+          "tokens": 3866624,
+          "macs": 584633548800,
+          "wall": 232.6052144000023
+        },
+        {
+          "step": 3840,
+          "local_step": 256,
+          "macro": 0.1417,
+          "content_acc": 0.1274,
+          "samples": 122880,
+          "tokens": 3932160,
+          "macs": 594542592000,
+          "wall": 238.20567999999912
+        },
+        {
+          "step": 3904,
+          "local_step": 320,
+          "macro": 0.1629,
+          "content_acc": 0.1656,
+          "samples": 124928,
+          "tokens": 3997696,
+          "macs": 604451635200,
+          "wall": 243.82004400000005
+        },
+        {
+          "step": 3968,
+          "local_step": 384,
+          "macro": 0.2112,
+          "content_acc": 0.2006,
+          "samples": 126976,
+          "tokens": 4063232,
+          "macs": 614360678400,
+          "wall": 249.56752360000246
+        },
+        {
+          "step": 4032,
+          "local_step": 448,
+          "macro": 0.2115,
+          "content_acc": 0.2166,
+          "samples": 129024,
+          "tokens": 4128768,
+          "macs": 624269721600,
+          "wall": 255.47186240000156
+        },
+        {
+          "step": 4096,
+          "local_step": 512,
+          "macro": 0.2831,
+          "content_acc": 0.293,
+          "samples": 131072,
+          "tokens": 4194304,
+          "macs": 634178764800,
+          "wall": 261.2388174000007
+        }
+      ],
+      "best_macro": 0.2831,
+      "best_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-B_adaptive_computation_s2_best.pt",
+      "final_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\math_m3\\checkpoints\\M3-B_adaptive_computation_s2_final.pt",
+      "init_sha": "cfd5f71b18024c5f",
+      "iso": {
+        "30%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "40%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "50%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "60%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "70%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "80%": {
+          "status": "TARGET_NOT_REACHED"
+        },
+        "90%": {
+          "status": "TARGET_NOT_REACHED"
+        }
+      }
+    }
+  },
+  "iso_targets": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "budget_final": {
+    "steps_used": 4096,
+    "max_steps": 4096,
+    "steps_remaining": 0,
+    "wall_used": 261.44,
+    "max_wall": 3600,
+    "sessions": 2,
+    "runs": []
+  }
+}
