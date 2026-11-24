@@ -1,0 +1,211 @@
+{
+  "status": "M2_MATH_TESTS_PASS",
+  "verifier": "math_verifier_m2.py",
+  "torch": "2.10.0+cpu",
+  "seconds": 0.39,
+  "n_tests": 20,
+  "n_pass": 20,
+  "tests": [
+    {
+      "name": "am_write_dimensions",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "shape": [
+          3,
+          6,
+          8
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "am_protect_zero_keeps_old",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "am_protect_one_equals_candidate",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "am_decay_and_zero_write",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "am_repeated_key_overwrite",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "first_err": 0.0,
+        "second_err": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "am_erase_removes_key_component",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "max_proj_after": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "protection_gate_broadcast",
+      "target": "memory_protection",
+      "pass": true,
+      "metrics": {
+        "scalar_shape": [
+          3,
+          5,
+          7
+        ],
+        "per_value_shape": [
+          3,
+          5,
+          7
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "pointer_content_simplex",
+      "target": "differentiable_pointer",
+      "pass": true,
+      "metrics": {
+        "max_sum_dev": 1e-07
+      },
+      "error": null
+    },
+    {
+      "name": "pointer_shift_preserves_mass",
+      "target": "differentiable_pointer",
+      "pass": true,
+      "metrics": {
+        "max_mass_dev": 1e-07
+      },
+      "error": null
+    },
+    {
+      "name": "pointer_shift_direction",
+      "target": "differentiable_pointer",
+      "pass": true,
+      "metrics": {
+        "argmax": 3
+      },
+      "error": null
+    },
+    {
+      "name": "pointer_batch_equals_single",
+      "target": "differentiable_pointer",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "seq_memory_write_read",
+      "target": "sequence_addressing",
+      "pass": true,
+      "metrics": {
+        "read_err": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "seq_memory_capacity_bounded",
+      "target": "sequence_addressing",
+      "pass": true,
+      "metrics": {
+        "max_abs": 14.818
+      },
+      "error": null
+    },
+    {
+      "name": "pointer_advances_for_sequential_read",
+      "target": "sequence_addressing",
+      "pass": true,
+      "metrics": {
+        "argmax": 1
+      },
+      "error": null
+    },
+    {
+      "name": "causal_conv_no_future_leak",
+      "target": "causal_conv",
+      "pass": true,
+      "metrics": {
+        "earlier_output_delta": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "causal_conv_incremental_consistency",
+      "target": "causal_conv",
+      "pass": true,
+      "metrics": {
+        "max_abs_diff": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "sinusoidal_positional_encoding",
+      "target": "causal_conv",
+      "pass": true,
+      "metrics": {
+        "shape": [
+          32,
+          16
+        ],
+        "max_abs": 1.0
+      },
+      "error": null
+    },
+    {
+      "name": "dynamics_fixed_point_detection",
+      "target": "dynamics_analysis",
+      "pass": true,
+      "metrics": {
+        "static_ratio": 1.0,
+        "changing_ratio": 0.0
+      },
+      "error": null
+    },
+    {
+      "name": "am_write_gradcheck",
+      "target": "associative_memory",
+      "pass": true,
+      "metrics": {
+        "gradcheck": true
+      },
+      "error": null
+    },
+    {
+      "name": "checkpoint_roundtrip_and_sample_isolation",
+      "target": "all",
+      "pass": true,
+      "metrics": {
+        "checkpoint_equal": true,
+        "sample1_delta": 0.0
+      },
+      "error": null
+    }
+  ],
+  "elimination_rule": "FAIL 任一测试即禁止进入正式训练"
+}

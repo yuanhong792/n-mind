@@ -1,0 +1,1223 @@
+{
+  "status": "M2_EVALUATION_DONE",
+  "panel_n": 267,
+  "models": {
+    "S1_R1_legacy": {
+      "architecture": "R1",
+      "protocol": "legacy",
+      "train_best_score": 0.1108
+    },
+    "S1_R1_sep": {
+      "architecture": "R1",
+      "seed": 20261201,
+      "stage": "sep_ab",
+      "protocol": "sep",
+      "train_best_score": 0.4511,
+      "eval_macro": 0.4511,
+      "eval_micro": 0.4382,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.1311,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 15,
+          "accuracy": 0.6,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 5,
+          "accuracy": 0.2,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 16,
+          "accuracy": 0.64,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 22,
+          "accuracy": 0.88,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 15,
+          "accuracy": 0.8824,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0588
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.8
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.56
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 11,
+          "accuracy": 0.44,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_R1": {
+      "architecture": "R1",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.3048,
+      "eval_macro": 0.3048,
+      "eval_micro": 0.3034,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.1086,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 12,
+          "accuracy": 0.48,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 12,
+          "accuracy": 0.48,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 16,
+          "accuracy": 0.64,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 18,
+          "accuracy": 0.72,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 6,
+          "accuracy": 0.3529,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.1176
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.48
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.6
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 10,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_R2": {
+      "architecture": "R2",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.3739,
+      "eval_macro": 0.3739,
+      "eval_micro": 0.3745,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 16,
+          "accuracy": 0.64,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 14,
+          "accuracy": 0.56,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 10,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 21,
+          "accuracy": 0.84,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 15,
+          "accuracy": 0.6,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 6,
+          "accuracy": 0.3529,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 8,
+          "accuracy": 0.32,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_M2-A": {
+      "architecture": "M2-A",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.1343,
+      "eval_macro": 0.1343,
+      "eval_micro": 0.1348,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0861,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 2,
+          "accuracy": 0.1176,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.1176
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.44
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.4
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_M2-B": {
+      "architecture": "M2-B",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.1215,
+      "eval_macro": 0.1215,
+      "eval_micro": 0.1199,
+      "immediate_eos_rate": 0.0037,
+      "overlong_rate": 0.0749,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 3,
+          "accuracy": 0.1765,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.1765
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.04,
+          "empty_rate": 0.04,
+          "overlong_rate": 0.24
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.4
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.04
+        }
+      }
+    },
+    "S2_M2-C": {
+      "architecture": "M2-C",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.0725,
+      "eval_macro": 0.0725,
+      "eval_micro": 0.0712,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.1273,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 2,
+          "accuracy": 0.1176,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.2941
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.4
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.76
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_M2-D": {
+      "architecture": "M2-D",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.0851,
+      "eval_macro": 0.0851,
+      "eval_micro": 0.0824,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0375,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 5,
+          "accuracy": 0.2,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 3,
+          "accuracy": 0.1765,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.24
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.16
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S2_M2-E": {
+      "architecture": "M2-E",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "train_best_score": 0.1232,
+      "eval_macro": 0.1232,
+      "eval_micro": 0.1199,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0562,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 4,
+          "accuracy": 0.2353,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.1176
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.24
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.24
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.04
+        }
+      }
+    },
+    "S3_R2_s20261202": {
+      "architecture": "R2",
+      "seed": 20261202,
+      "stage": "recheck",
+      "protocol": "sep",
+      "train_best_score": 0.52,
+      "eval_macro": 0.52,
+      "eval_micro": 0.5056,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 12,
+          "accuracy": 0.48,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 17,
+          "accuracy": 0.68,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 2,
+          "accuracy": 0.08,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 17,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 10,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 14,
+          "accuracy": 0.56,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S3_R2_s20261203": {
+      "architecture": "R2",
+      "seed": 20261203,
+      "stage": "recheck",
+      "protocol": "sep",
+      "train_best_score": 0.5418,
+      "eval_macro": 0.5418,
+      "eval_micro": 0.5281,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0075,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 16,
+          "accuracy": 0.64,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 3,
+          "accuracy": 0.12,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 15,
+          "accuracy": 0.6,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 13,
+          "accuracy": 0.52,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 21,
+          "accuracy": 0.84,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 17,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 8,
+          "accuracy": 0.32,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 13,
+          "accuracy": 0.52,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.08
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 4,
+          "accuracy": 0.16,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S3_R1_s20261202": {
+      "architecture": "R1",
+      "seed": 20261202,
+      "stage": "recheck",
+      "protocol": "sep",
+      "train_best_score": 0.4456,
+      "eval_macro": 0.4456,
+      "eval_micro": 0.4307,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0824,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 14,
+          "accuracy": 0.56,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 5,
+          "accuracy": 0.2,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 17,
+          "accuracy": 0.68,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 21,
+          "accuracy": 0.84,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 16,
+          "accuracy": 0.9412,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.56
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 1,
+          "accuracy": 0.04,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.32
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 10,
+          "accuracy": 0.4,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    },
+    "S3_R1_s20261203": {
+      "architecture": "R1",
+      "seed": 20261203,
+      "stage": "recheck",
+      "protocol": "sep",
+      "train_best_score": 0.4492,
+      "eval_macro": 0.4492,
+      "eval_micro": 0.4345,
+      "immediate_eos_rate": 0.0,
+      "overlong_rate": 0.0824,
+      "per_task": {
+        "B2_bind": {
+          "n": 25,
+          "ok": 15,
+          "accuracy": 0.6,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B4_bind": {
+          "n": 25,
+          "ok": 7,
+          "accuracy": 0.28,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B8_bind": {
+          "n": 25,
+          "ok": 6,
+          "accuracy": 0.24,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "B_swap": {
+          "n": 25,
+          "ok": 16,
+          "accuracy": 0.64,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "C_reassign": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "D_indirect": {
+          "n": 25,
+          "ok": 25,
+          "accuracy": 1.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "E_distance": {
+          "n": 25,
+          "ok": 20,
+          "accuracy": 0.8,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S1_copy1": {
+          "n": 17,
+          "ok": 16,
+          "accuracy": 0.9412,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        },
+        "S2_copyN": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.4
+        },
+        "S3_reverse": {
+          "n": 25,
+          "ok": 0,
+          "accuracy": 0.0,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.48
+        },
+        "S4_index": {
+          "n": 25,
+          "ok": 11,
+          "accuracy": 0.44,
+          "immediate_eos_rate": 0.0,
+          "empty_rate": 0.0,
+          "overlong_rate": 0.0
+        }
+      }
+    }
+  }
+}

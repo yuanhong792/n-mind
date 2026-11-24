@@ -1,0 +1,102 @@
+{
+  "status": "M2_DATA_FROZEN",
+  "seed": 20261201,
+  "tokenizer": {
+    "version": "nmind-math-m2-sep/1",
+    "vocab_size": 102,
+    "sha256": "c3b7cce24d3ccc28c05525078fbe7e2f58aaed0494d854bb305b18d5647e1c97",
+    "sep": 101,
+    "roundtrip": true
+  },
+  "counts": {
+    "train": 9210,
+    "val": 1294,
+    "sealed": 1447
+  },
+  "by_task": {
+    "train": {
+      "S3_reverse": 1546,
+      "S2_copyN": 1710,
+      "C_reassign": 779,
+      "D_indirect": 688,
+      "B8_bind": 614,
+      "E_distance": 582,
+      "B2_bind": 632,
+      "B_swap": 632,
+      "B4_bind": 1315,
+      "S4_index": 314,
+      "S1_copy1": 111,
+      "S5_repeat": 280,
+      "S1_copy1_unseen": 7
+    },
+    "val": {
+      "S3_reverse": 245,
+      "S2_copyN": 210,
+      "D_indirect": 104,
+      "B8_bind": 90,
+      "B4_bind": 198,
+      "S4_index": 44,
+      "E_distance": 93,
+      "S1_copy1": 17,
+      "C_reassign": 104,
+      "B2_bind": 94,
+      "B_swap": 94,
+      "S1_copy1_unseen": 1
+    },
+    "sealed": {
+      "S1_copy1": 16,
+      "S2_copyN": 258,
+      "B8_bind": 96,
+      "B4_bind": 187,
+      "E_distance": 85,
+      "S3_reverse": 220,
+      "C_reassign": 117,
+      "D_indirect": 98,
+      "S5_repeat": 70,
+      "S4_index": 56,
+      "B2_bind": 122,
+      "B_swap": 122
+    }
+  },
+  "reserved": {
+    "counterfactual_pairs": 400,
+    "length_generalization": 3520
+  },
+  "frozen_sha256": {
+    "train": "7c040f6c9c59e0fb3e41ce1a00df3211121b8f78e1b5036f4a15711def467a7e",
+    "val": "b8cd8642d3c38d67bafaa6b606d4645f18b945b8b287cb4ac656eb50cfe77f35",
+    "sealed": "d42dabdb7ff065218a660e3441a86892bd03d5f7a79bb1c5dd665b21e1dbd6b2",
+    "counterfactual": "aa6376b66c73a200f01afcda3cb5ea753f209d6c00dfeaa735f884e5d6ef5f42",
+    "length_gen": "aa7af452c63d720586f7b20b05da3ff7cd67fc45dda2c335506119ab8d858d8c"
+  },
+  "cross_split_fact_group_overlap": {
+    "train_val": 0,
+    "train_sealed": 0,
+    "val_sealed": 0
+  },
+  "history_prompt_overlap": {
+    "train": 0,
+    "val": 0,
+    "sealed": 0,
+    "counterfactual": 0,
+    "length_gen": 0
+  },
+  "baselines_train": {
+    "fixed_answer": 0.0693,
+    "first_digit": 0.2457,
+    "nearest_assign": 0.1197,
+    "random_guess": 0.0003
+  },
+  "length_train_range": "2-4",
+  "length_test_range": "5-6",
+  "distance_train": [
+    0,
+    4,
+    8
+  ],
+  "distance_test": [
+    16,
+    32,
+    64
+  ]
+}

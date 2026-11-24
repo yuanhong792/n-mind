@@ -1,0 +1,1777 @@
+{
+  "status": "M2_TRAINING_COMPLETED",
+  "tokenizer_sha256": "c3b7cce24d3ccc28c05525078fbe7e2f58aaed0494d854bb305b18d5647e1c97",
+  "fixed_panel": {
+    "n": 267,
+    "per_task": 25,
+    "tasks": [
+      "S1_copy1",
+      "S2_copyN",
+      "S3_reverse",
+      "S4_index",
+      "S5_repeat",
+      "B1_bind",
+      "B2_bind",
+      "B4_bind",
+      "B8_bind",
+      "B_swap",
+      "C_reassign",
+      "D_indirect",
+      "E_distance"
+    ]
+  },
+  "budget": {
+    "steps_used": 4096,
+    "max_steps": 4096,
+    "steps_remaining": 0,
+    "wall_used": 382.83,
+    "max_wall": 3600,
+    "sessions": 1,
+    "runs": [
+      {
+        "run_id": "S1_R1_legacy",
+        "architecture": "R1",
+        "seed": 20261201,
+        "steps": 256,
+        "wall": 16.19,
+        "stop_reason": "max_steps",
+        "best_score": 0.1108
+      },
+      {
+        "run_id": "S1_R1_sep",
+        "architecture": "R1",
+        "seed": 20261201,
+        "steps": 256,
+        "wall": 16.13,
+        "stop_reason": "max_steps",
+        "best_score": 0.4511
+      },
+      {
+        "run_id": "S2_R1",
+        "architecture": "R1",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 11.61,
+        "stop_reason": "max_steps",
+        "best_score": 0.3048
+      },
+      {
+        "run_id": "S2_R2",
+        "architecture": "R2",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 7.38,
+        "stop_reason": "max_steps",
+        "best_score": 0.3739
+      },
+      {
+        "run_id": "S2_M2-A",
+        "architecture": "M2-A",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 17.88,
+        "stop_reason": "max_steps",
+        "best_score": 0.1343
+      },
+      {
+        "run_id": "S2_M2-B",
+        "architecture": "M2-B",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 22.69,
+        "stop_reason": "max_steps",
+        "best_score": 0.1215
+      },
+      {
+        "run_id": "S2_M2-C",
+        "architecture": "M2-C",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 31.31,
+        "stop_reason": "max_steps",
+        "best_score": 0.0725
+      },
+      {
+        "run_id": "S2_M2-D",
+        "architecture": "M2-D",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 44.02,
+        "stop_reason": "max_steps",
+        "best_score": 0.0851
+      },
+      {
+        "run_id": "S2_M2-E",
+        "architecture": "M2-E",
+        "seed": 20261201,
+        "steps": 192,
+        "wall": 45.88,
+        "stop_reason": "max_steps",
+        "best_score": 0.1232
+      },
+      {
+        "run_id": "S3_R2_s20261202",
+        "architecture": "R2",
+        "seed": 20261202,
+        "steps": 560,
+        "wall": 21.77,
+        "stop_reason": "max_steps",
+        "best_score": 0.52
+      },
+      {
+        "run_id": "S3_R2_s20261203",
+        "architecture": "R2",
+        "seed": 20261203,
+        "steps": 560,
+        "wall": 22.94,
+        "stop_reason": "max_steps",
+        "best_score": 0.5418
+      },
+      {
+        "run_id": "S3_R1_s20261202",
+        "architecture": "R1",
+        "seed": 20261202,
+        "steps": 560,
+        "wall": 33.49,
+        "stop_reason": "max_steps",
+        "best_score": 0.4456
+      },
+      {
+        "run_id": "S3_R1_s20261203",
+        "architecture": "R1",
+        "seed": 20261203,
+        "steps": 560,
+        "wall": 33.82,
+        "stop_reason": "max_steps",
+        "best_score": 0.4492
+      }
+    ]
+  },
+  "stage1_sep_ab": [
+    {
+      "run_id": "S1_R1_legacy",
+      "architecture": "R1",
+      "seed": 20261201,
+      "stage": "sep_ab",
+      "protocol": "legacy",
+      "steps": 256,
+      "stop_reason": "max_steps",
+      "wall_seconds": 16.2,
+      "params": 110694,
+      "state_elements": 128,
+      "config": {
+        "model_type": "GRUReferenceM2",
+        "d_model": 64,
+        "hidden": 128
+      },
+      "init_sha256": "c280bb14231a7c4a9856bed4ee74d486b5fc703d886aa26c897f5c0aac1a2c30",
+      "best_score": 0.1108,
+      "best_step": 256,
+      "final_score": 0.1108,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.1236,
+          "overlong_rate": 0.8764,
+          "stage": "M3_index",
+          "wall": 6.4
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.2584,
+          "overlong_rate": 0.7416,
+          "stage": "M5_interference",
+          "wall": 12.4
+        },
+        {
+          "step": 256,
+          "val_macro": 0.1108,
+          "val_per_task": {
+            "B2_bind": 0.2,
+            "B4_bind": 0.04,
+            "B8_bind": 0.12,
+            "B_swap": 0.12,
+            "C_reassign": 0.0,
+            "D_indirect": 0.32,
+            "E_distance": 0.36,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.2884,
+          "overlong_rate": 0.4532,
+          "stage": "M6_distance",
+          "wall": 18.1
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S1_R1_legacy_last.pt",
+          "sha256": "886b09ffd3f59626d7ae0d0c3a51ec6992408015cfc11a9cc7173a949f67f181",
+          "bytes": 1344372,
+          "step": 256
+        },
+        "final": {
+          "path": "checkpoints\\S1_R1_legacy_final.pt",
+          "sha256": "4bcb63a5a03947090f0a270145607e721eb48f9f84e85dfffb268f2510cf6473",
+          "bytes": 1344372,
+          "step": 256
+        },
+        "best": {
+          "path": "checkpoints\\S1_R1_legacy_best.pt",
+          "sha256": "589018b66cec20aa07c65171906699f77f06881a47b08528cc13fd6ac4ec8792",
+          "bytes": 451781,
+          "step": 256
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S1_R1_sep",
+      "architecture": "R1",
+      "seed": 20261201,
+      "stage": "sep_ab",
+      "protocol": "sep",
+      "steps": 256,
+      "stop_reason": "max_steps",
+      "wall_seconds": 16.1,
+      "params": 110694,
+      "state_elements": 128,
+      "config": {
+        "model_type": "GRUReferenceM2",
+        "d_model": 64,
+        "hidden": 128
+      },
+      "init_sha256": "c280bb14231a7c4a9856bed4ee74d486b5fc703d886aa26c897f5c0aac1a2c30",
+      "best_score": 0.4511,
+      "best_step": 256,
+      "final_score": 0.4511,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0126,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.08
+          },
+          "immediate_eos_rate": 0.588,
+          "overlong_rate": 0.3109,
+          "stage": "M3_index",
+          "wall": 25.0
+        },
+        {
+          "step": 192,
+          "val_macro": 0.2952,
+          "val_per_task": {
+            "B2_bind": 0.4,
+            "B4_bind": 0.12,
+            "B8_bind": 0.04,
+            "B_swap": 0.4,
+            "C_reassign": 0.2,
+            "D_indirect": 0.64,
+            "E_distance": 0.36,
+            "S1_copy1": 0.6471,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.44
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0712,
+          "stage": "M5_interference",
+          "wall": 30.6
+        },
+        {
+          "step": 256,
+          "val_macro": 0.4511,
+          "val_per_task": {
+            "B2_bind": 0.6,
+            "B4_bind": 0.28,
+            "B8_bind": 0.2,
+            "B_swap": 0.64,
+            "C_reassign": 0.04,
+            "D_indirect": 1.0,
+            "E_distance": 0.88,
+            "S1_copy1": 0.8824,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.44
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.1311,
+          "stage": "M6_distance",
+          "wall": 36.3
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S1_R1_sep_last.pt",
+          "sha256": "b7da3411c6f0841321ca72c4b640414c4a8e88173ba97274eb40c69a5aebaaba",
+          "bytes": 1344372,
+          "step": 512
+        },
+        "final": {
+          "path": "checkpoints\\S1_R1_sep_final.pt",
+          "sha256": "10558518ba7e8b545fae751b55ad5d7887db368d617ecadcf10f33f74bedc595",
+          "bytes": 1344372,
+          "step": 512
+        },
+        "best": {
+          "path": "checkpoints\\S1_R1_sep_best.pt",
+          "sha256": "98f141469a5c9d65379f190841dd5c164f5710d3537df6829b2ac89e33e913e9",
+          "bytes": 451781,
+          "step": 256
+        }
+      },
+      "model_weights_uploaded": false
+    }
+  ],
+  "stage2_screen": [
+    {
+      "run_id": "S2_R1",
+      "architecture": "R1",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 11.6,
+      "params": 110694,
+      "state_elements": 128,
+      "config": {
+        "model_type": "GRUReferenceM2",
+        "d_model": 64,
+        "hidden": 128
+      },
+      "init_sha256": "c280bb14231a7c4a9856bed4ee74d486b5fc703d886aa26c897f5c0aac1a2c30",
+      "best_score": 0.3048,
+      "best_step": 192,
+      "final_score": 0.3048,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0926,
+          "val_per_task": {
+            "B2_bind": 0.08,
+            "B4_bind": 0.2,
+            "B8_bind": 0.0,
+            "B_swap": 0.12,
+            "C_reassign": 0.08,
+            "D_indirect": 0.16,
+            "E_distance": 0.24,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.08
+          },
+          "immediate_eos_rate": 0.0112,
+          "overlong_rate": 0.2772,
+          "stage": "M4_binding",
+          "wall": 43.0
+        },
+        {
+          "step": 192,
+          "val_macro": 0.3048,
+          "val_per_task": {
+            "B2_bind": 0.48,
+            "B4_bind": 0.12,
+            "B8_bind": 0.12,
+            "B_swap": 0.48,
+            "C_reassign": 0.04,
+            "D_indirect": 0.64,
+            "E_distance": 0.72,
+            "S1_copy1": 0.3529,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.4
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.1086,
+          "stage": "M6_distance",
+          "wall": 49.9
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_R1_last.pt",
+          "sha256": "ce4a263703cecf9aaa35b913e96f5a10a691c504ab31c0c2f5f817a7cc13b507",
+          "bytes": 1344372,
+          "step": 704
+        },
+        "final": {
+          "path": "checkpoints\\S2_R1_final.pt",
+          "sha256": "842d5122505867eb01c0be9c5f6b7a40f0aba243da2d220cc1437e1b155d6e58",
+          "bytes": 1344372,
+          "step": 704
+        },
+        "best": {
+          "path": "checkpoints\\S2_R1_best.pt",
+          "sha256": "12a52f9948043105c6246e537fe3a37dbc55c61193b4f92e07d716407494e4a0",
+          "bytes": 451781,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_R2",
+      "architecture": "R2",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 7.4,
+      "params": 90342,
+      "state_elements": 10240,
+      "config": {
+        "model_type": "TinyTransformerM2",
+        "d_model": 64,
+        "nhead": 4,
+        "layers": 2,
+        "max_len": 160
+      },
+      "init_sha256": "908e495f688188594761a17296b8b33aa677930e2c048c3de0a966f3bd0f0251",
+      "best_score": 0.3739,
+      "best_step": 192,
+      "final_score": 0.3739,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.1161,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.16,
+            "B8_bind": 0.0,
+            "B_swap": 0.16,
+            "C_reassign": 0.2,
+            "D_indirect": 0.16,
+            "E_distance": 0.12,
+            "S1_copy1": 0.1176,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.36
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M4_binding",
+          "wall": 57.2
+        },
+        {
+          "step": 192,
+          "val_macro": 0.3739,
+          "val_per_task": {
+            "B2_bind": 0.64,
+            "B4_bind": 0.24,
+            "B8_bind": 0.16,
+            "B_swap": 0.56,
+            "C_reassign": 0.4,
+            "D_indirect": 0.84,
+            "E_distance": 0.6,
+            "S1_copy1": 0.3529,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.32
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M6_distance",
+          "wall": 61.2
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_R2_last.pt",
+          "sha256": "1464b22b2252b2e30e081fbff67f38ee64348b68ee2c690de72df5692c46983c",
+          "bytes": 1121181,
+          "step": 896
+        },
+        "final": {
+          "path": "checkpoints\\S2_R2_final.pt",
+          "sha256": "62510fc4cfd07fe62b0a71711c8331d871902471e1f57c56e51055a3d15c5d64",
+          "bytes": 1121245,
+          "step": 896
+        },
+        "best": {
+          "path": "checkpoints\\S2_R2_best.pt",
+          "sha256": "1e7bc6bf7c4f0dcd21c1814918c8d882310619054cea160b2c1496927508eafa",
+          "bytes": 375820,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M2-A",
+      "architecture": "M2-A",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 17.9,
+      "params": 84840,
+      "state_elements": 1120,
+      "config": {
+        "model_type": "DualMemoryM2",
+        "variant": "M2-A",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 32,
+        "dv": 32,
+        "seq_len": 16,
+        "d_seq": 32,
+        "conv_kernel": 4,
+        "use_am": true,
+        "protect": false,
+        "use_sm": false,
+        "fuse": false,
+        "conv": false
+      },
+      "init_sha256": "ad6fa5780d9793bc17a7bb597de90bfc1edd9e546add72d3156902612fb2ad06",
+      "best_score": 0.1343,
+      "best_step": 192,
+      "final_score": 0.1343,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0036,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.04,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.0412,
+          "overlong_rate": 0.9176,
+          "stage": "M4_binding",
+          "wall": 73.5
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1343,
+          "val_per_task": {
+            "B2_bind": 0.24,
+            "B4_bind": 0.08,
+            "B8_bind": 0.16,
+            "B_swap": 0.24,
+            "C_reassign": 0.08,
+            "D_indirect": 0.04,
+            "E_distance": 0.24,
+            "S1_copy1": 0.1176,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.28
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0861,
+          "stage": "M6_distance",
+          "wall": 83.3
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_M2-A_last.pt",
+          "sha256": "540246649b45d01772b319927ce8937fbc2eabdd4713266fbba6514fea5ecc8b",
+          "bytes": 1047140,
+          "step": 1088
+        },
+        "final": {
+          "path": "checkpoints\\S2_M2-A_final.pt",
+          "sha256": "be9ccf0a00c45968e5e63ba05563906c91b77aee42606120dbd83d75e69c7c6b",
+          "bytes": 1047140,
+          "step": 1088
+        },
+        "best": {
+          "path": "checkpoints\\S2_M2-A_best.pt",
+          "sha256": "3c0364dcf404271da66decebd6348df0eaa83ddf479dc2dae638df80a549be03",
+          "bytes": 351649,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M2-B",
+      "architecture": "M2-B",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 22.7,
+      "params": 84937,
+      "state_elements": 1120,
+      "config": {
+        "model_type": "DualMemoryM2",
+        "variant": "M2-B",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 32,
+        "dv": 32,
+        "seq_len": 16,
+        "d_seq": 32,
+        "conv_kernel": 4,
+        "use_am": true,
+        "protect": true,
+        "use_sm": false,
+        "fuse": false,
+        "conv": false
+      },
+      "init_sha256": "ecf4471d7daab1ec80876d755d55cac22beb601873719e1ce6370d6a1aa21008",
+      "best_score": 0.1215,
+      "best_step": 192,
+      "final_score": 0.1215,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0291,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.08,
+            "C_reassign": 0.0,
+            "D_indirect": 0.08,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.618,
+          "overlong_rate": 0.1273,
+          "stage": "M4_binding",
+          "wall": 96.7
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1215,
+          "val_per_task": {
+            "B2_bind": 0.28,
+            "B4_bind": 0.08,
+            "B8_bind": 0.12,
+            "B_swap": 0.28,
+            "C_reassign": 0.04,
+            "D_indirect": 0.08,
+            "E_distance": 0.12,
+            "S1_copy1": 0.1765,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.0037,
+          "overlong_rate": 0.0749,
+          "stage": "M6_distance",
+          "wall": 110.5
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_M2-B_last.pt",
+          "sha256": "df26f3bf4a8d39bde1dbaa02ded60b81703e9e9b73ce354b7c06f4b84d542d25",
+          "bytes": 1050444,
+          "step": 1280
+        },
+        "final": {
+          "path": "checkpoints\\S2_M2-B_final.pt",
+          "sha256": "ba51b89de3010fd877570abed93e42b492c95eb4553cec6a797826c53f8124da",
+          "bytes": 1050444,
+          "step": 1280
+        },
+        "best": {
+          "path": "checkpoints\\S2_M2-B_best.pt",
+          "sha256": "ca22995e0d4fcfc64c81df7f18f4569e81fe2158fb6a4d91188e67348d51f6d3",
+          "bytes": 352539,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M2-C",
+      "architecture": "M2-C",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 31.3,
+      "params": 81933,
+      "state_elements": 640,
+      "config": {
+        "model_type": "DualMemoryM2",
+        "variant": "M2-C",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 32,
+        "dv": 32,
+        "seq_len": 16,
+        "d_seq": 32,
+        "conv_kernel": 4,
+        "use_am": false,
+        "protect": false,
+        "use_sm": true,
+        "fuse": false,
+        "conv": false
+      },
+      "init_sha256": "bee41eb16f683fa733ff5f1104c601d4ead582a43bd9fe213fa0143e79621c2a",
+      "best_score": 0.0725,
+      "best_step": 192,
+      "final_score": 0.0725,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0473,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.16,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.04,
+            "D_indirect": 0.08,
+            "E_distance": 0.16,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.08
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.2772,
+          "stage": "M4_binding",
+          "wall": 129.8
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0725,
+          "val_per_task": {
+            "B2_bind": 0.16,
+            "B4_bind": 0.04,
+            "B8_bind": 0.04,
+            "B_swap": 0.16,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.16,
+            "S1_copy1": 0.1176,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.12
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.1273,
+          "stage": "M6_distance",
+          "wall": 148.6
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_M2-C_last.pt",
+          "sha256": "4ad66139d85d99702917bed75ac8165eceb47443c48d952f8f5d0dcdfe5e8c77",
+          "bytes": 1015552,
+          "step": 1472
+        },
+        "final": {
+          "path": "checkpoints\\S2_M2-C_final.pt",
+          "sha256": "462bce7ba36964cd914bf84f4086e94736d1e498790e661c4b93bf7af2361c4b",
+          "bytes": 1015552,
+          "step": 1472
+        },
+        "best": {
+          "path": "checkpoints\\S2_M2-C_best.pt",
+          "sha256": "71fae3a03b890c4cbe45b0efe0f6bed68f72ffa8def7deba9b99900d89461849",
+          "bytes": 340888,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M2-D",
+      "architecture": "M2-D",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 44.0,
+      "params": 100848,
+      "state_elements": 1664,
+      "config": {
+        "model_type": "DualMemoryM2",
+        "variant": "M2-D",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 32,
+        "dv": 32,
+        "seq_len": 16,
+        "d_seq": 32,
+        "conv_kernel": 4,
+        "use_am": true,
+        "protect": true,
+        "use_sm": true,
+        "fuse": false,
+        "conv": false
+      },
+      "init_sha256": "c44f0b3b3ea2dc5b3f518c2e50389386e6ffe270b4200c4168c1a4f2cd3e0172",
+      "best_score": 0.0851,
+      "best_step": 192,
+      "final_score": 0.0851,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0109,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.08,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.04,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.2022,
+          "overlong_rate": 0.618,
+          "stage": "M4_binding",
+          "wall": 175.5
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0851,
+          "val_per_task": {
+            "B2_bind": 0.12,
+            "B4_bind": 0.08,
+            "B8_bind": 0.04,
+            "B_swap": 0.0,
+            "C_reassign": 0.08,
+            "D_indirect": 0.2,
+            "E_distance": 0.12,
+            "S1_copy1": 0.1765,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.12
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0375,
+          "stage": "M6_distance",
+          "wall": 201.6
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_M2-D_last.pt",
+          "sha256": "546da199af01f9347d4674707d32424c10bdcb8b67656bce4a6cfec0d5a0e847",
+          "bytes": 1257933,
+          "step": 1664
+        },
+        "final": {
+          "path": "checkpoints\\S2_M2-D_final.pt",
+          "sha256": "f3b245b7a03514039fcb29540376032f48a77b2988d7e2cbc936baa3e7004cc3",
+          "bytes": 1257933,
+          "step": 1664
+        },
+        "best": {
+          "path": "checkpoints\\S2_M2-D_best.pt",
+          "sha256": "930dc6c42ad619abeb8cddbffff4dee223b63bbf7e3013a51fa2d42e4fff7cfc",
+          "bytes": 420462,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S2_M2-E",
+      "architecture": "M2-E",
+      "seed": 20261201,
+      "stage": "screen",
+      "protocol": "sep",
+      "steps": 192,
+      "stop_reason": "max_steps",
+      "wall_seconds": 45.9,
+      "params": 99217,
+      "state_elements": 1664,
+      "config": {
+        "model_type": "DualMemoryM2",
+        "variant": "M2-E",
+        "d_model": 64,
+        "hidden": 96,
+        "dk": 32,
+        "dv": 32,
+        "seq_len": 16,
+        "d_seq": 32,
+        "conv_kernel": 4,
+        "use_am": true,
+        "protect": true,
+        "use_sm": true,
+        "fuse": true,
+        "conv": true
+      },
+      "init_sha256": "bb2aa5b6b51d22c655b4b397e52d1b5386d6485a6ac5b325ffbf9cc8b79d5eb9",
+      "best_score": 0.1232,
+      "best_step": 192,
+      "final_score": 0.1232,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0145,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.5843,
+          "overlong_rate": 0.1011,
+          "stage": "M4_binding",
+          "wall": 230.4
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1232,
+          "val_per_task": {
+            "B2_bind": 0.28,
+            "B4_bind": 0.12,
+            "B8_bind": 0.08,
+            "B_swap": 0.12,
+            "C_reassign": 0.0,
+            "D_indirect": 0.12,
+            "E_distance": 0.24,
+            "S1_copy1": 0.2353,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0562,
+          "stage": "M6_distance",
+          "wall": 258.3
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S2_M2-E_last.pt",
+          "sha256": "53b2835335e7452981119369ddca6a253883d99f76d43c6769a9ba686e227c56",
+          "bytes": 1243813,
+          "step": 1856
+        },
+        "final": {
+          "path": "checkpoints\\S2_M2-E_final.pt",
+          "sha256": "c337697bc14ead74e805ce329b1da5440416a9bf6d672cda46bfa2a979fbdab9",
+          "bytes": 1243877,
+          "step": 1856
+        },
+        "best": {
+          "path": "checkpoints\\S2_M2-E_best.pt",
+          "sha256": "57ccbcdd970d4073f175a70d2f6a50e6e1d9f4a747ab445896f3bd2457a410ae",
+          "bytes": 415391,
+          "step": 192
+        }
+      },
+      "model_weights_uploaded": false
+    }
+  ],
+  "selection": {
+    "selected": [
+      "R2",
+      "R1"
+    ],
+    "rule": "screen fixed-panel macro; tie -> later step"
+  },
+  "stage3_recheck": [
+    {
+      "run_id": "S3_R2_s20261202",
+      "architecture": "R2",
+      "seed": 20261202,
+      "stage": "recheck",
+      "protocol": "sep",
+      "steps": 560,
+      "stop_reason": "max_steps",
+      "wall_seconds": 21.8,
+      "params": 90342,
+      "state_elements": 10240,
+      "config": {
+        "model_type": "TinyTransformerM2",
+        "d_model": 64,
+        "nhead": 4,
+        "layers": 2,
+        "max_len": 160
+      },
+      "init_sha256": "b1801672808695ebbb09249a3f6984985e6dc519b40a1676bf8ab6ef2b6c17d2",
+      "best_score": 0.52,
+      "best_step": 480,
+      "final_score": 0.4873,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0381,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.12,
+            "B8_bind": 0.0,
+            "B_swap": 0.08,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0974,
+          "stage": "M2_continuous",
+          "wall": 266.2
+        },
+        {
+          "step": 192,
+          "val_macro": 0.151,
+          "val_per_task": {
+            "B2_bind": 0.04,
+            "B4_bind": 0.08,
+            "B8_bind": 0.0,
+            "B_swap": 0.12,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.9412,
+            "S2_copyN": 0.08,
+            "S3_reverse": 0.04,
+            "S4_index": 0.36
+          },
+          "immediate_eos_rate": 0.0037,
+          "overlong_rate": 0.015,
+          "stage": "M3_index",
+          "wall": 269.8
+        },
+        {
+          "step": 288,
+          "val_macro": 0.3418,
+          "val_per_task": {
+            "B2_bind": 0.44,
+            "B4_bind": 0.36,
+            "B8_bind": 0.16,
+            "B_swap": 0.44,
+            "C_reassign": 0.0,
+            "D_indirect": 0.2,
+            "E_distance": 0.24,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.4,
+            "S4_index": 0.52
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M4_binding",
+          "wall": 273.2
+        },
+        {
+          "step": 384,
+          "val_macro": 0.4291,
+          "val_per_task": {
+            "B2_bind": 0.44,
+            "B4_bind": 0.2,
+            "B8_bind": 0.08,
+            "B_swap": 0.68,
+            "C_reassign": 0.52,
+            "D_indirect": 0.56,
+            "E_distance": 0.44,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.08,
+            "S3_reverse": 0.4,
+            "S4_index": 0.32
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M5_interference",
+          "wall": 276.8
+        },
+        {
+          "step": 480,
+          "val_macro": 0.52,
+          "val_per_task": {
+            "B2_bind": 0.48,
+            "B4_bind": 0.24,
+            "B8_bind": 0.24,
+            "B_swap": 0.68,
+            "C_reassign": 0.08,
+            "D_indirect": 1.0,
+            "E_distance": 1.0,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.04,
+            "S3_reverse": 0.4,
+            "S4_index": 0.56
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M6_distance",
+          "wall": 280.8
+        },
+        {
+          "step": 560,
+          "val_macro": 0.4873,
+          "val_per_task": {
+            "B2_bind": 0.44,
+            "B4_bind": 0.24,
+            "B8_bind": 0.0,
+            "B_swap": 0.48,
+            "C_reassign": 0.44,
+            "D_indirect": 1.0,
+            "E_distance": 0.84,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.04,
+            "S3_reverse": 0.52,
+            "S4_index": 0.36
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M6_distance",
+          "wall": 284.3
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S3_R2_s20261202_last.pt",
+          "sha256": "709778ee89c8d0d9db9a277f0b6bd92cab5060cea3e3611c609273f5c3650f8c",
+          "bytes": 1121181,
+          "step": 2416
+        },
+        "final": {
+          "path": "checkpoints\\S3_R2_s20261202_final.pt",
+          "sha256": "4cdb6ef9a69b4af371fb7b817c1dccd0c2c301dc9669c6e24cd6e65726dd8c79",
+          "bytes": 1121245,
+          "step": 2416
+        },
+        "best": {
+          "path": "checkpoints\\S3_R2_s20261202_best.pt",
+          "sha256": "d93374fccdc97a275f85a143ac4989976435ac3d86bde6350e0d03fb22377930",
+          "bytes": 375820,
+          "step": 480
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S3_R2_s20261203",
+      "architecture": "R2",
+      "seed": 20261203,
+      "stage": "recheck",
+      "protocol": "sep",
+      "steps": 560,
+      "stop_reason": "max_steps",
+      "wall_seconds": 22.9,
+      "params": 90342,
+      "state_elements": 10240,
+      "config": {
+        "model_type": "TinyTransformerM2",
+        "d_model": 64,
+        "nhead": 4,
+        "layers": 2,
+        "max_len": 160
+      },
+      "init_sha256": "4d56b9aa89d96b7bc0be3ae55fbd901775aa483c6085e067f25f9f6d8032e678",
+      "best_score": 0.5418,
+      "best_step": 560,
+      "final_score": 0.5418,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.009,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.04
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.3783,
+          "stage": "M2_continuous",
+          "wall": 292.9
+        },
+        {
+          "step": 192,
+          "val_macro": 0.1273,
+          "val_per_task": {
+            "B2_bind": 0.08,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.16,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0037,
+          "stage": "M3_index",
+          "wall": 296.5
+        },
+        {
+          "step": 288,
+          "val_macro": 0.28,
+          "val_per_task": {
+            "B2_bind": 0.4,
+            "B4_bind": 0.16,
+            "B8_bind": 0.2,
+            "B_swap": 0.36,
+            "C_reassign": 0.0,
+            "D_indirect": 0.08,
+            "E_distance": 0.0,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.12,
+            "S3_reverse": 0.4,
+            "S4_index": 0.36
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M4_binding",
+          "wall": 300.0
+        },
+        {
+          "step": 384,
+          "val_macro": 0.3855,
+          "val_per_task": {
+            "B2_bind": 0.44,
+            "B4_bind": 0.24,
+            "B8_bind": 0.24,
+            "B_swap": 0.48,
+            "C_reassign": 0.2,
+            "D_indirect": 0.2,
+            "E_distance": 0.32,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.16,
+            "S3_reverse": 0.48,
+            "S4_index": 0.48
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0,
+          "stage": "M5_interference",
+          "wall": 303.6
+        },
+        {
+          "step": 480,
+          "val_macro": 0.5164,
+          "val_per_task": {
+            "B2_bind": 0.56,
+            "B4_bind": 0.24,
+            "B8_bind": 0.32,
+            "B_swap": 0.52,
+            "C_reassign": 0.32,
+            "D_indirect": 1.0,
+            "E_distance": 0.88,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.04,
+            "S3_reverse": 0.44,
+            "S4_index": 0.36
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0075,
+          "stage": "M6_distance",
+          "wall": 307.7
+        },
+        {
+          "step": 560,
+          "val_macro": 0.5418,
+          "val_per_task": {
+            "B2_bind": 0.64,
+            "B4_bind": 0.24,
+            "B8_bind": 0.12,
+            "B_swap": 0.6,
+            "C_reassign": 0.52,
+            "D_indirect": 1.0,
+            "E_distance": 0.84,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.32,
+            "S3_reverse": 0.52,
+            "S4_index": 0.16
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0075,
+          "stage": "M6_distance",
+          "wall": 311.3
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S3_R2_s20261203_last.pt",
+          "sha256": "2237cebab287f4fe9a8a03998480de89e981568ec3ac48278f685afc9da21c53",
+          "bytes": 1121181,
+          "step": 2976
+        },
+        "final": {
+          "path": "checkpoints\\S3_R2_s20261203_final.pt",
+          "sha256": "53c609b81c1da213031fab18f35a07c013a211a88bad5eb1690ba68b007baa09",
+          "bytes": 1121245,
+          "step": 2976
+        },
+        "best": {
+          "path": "checkpoints\\S3_R2_s20261203_best.pt",
+          "sha256": "2c7e0163803c42f0f13536cf3c7611504eadc33f529461e7d233e713d8199b23",
+          "bytes": 375820,
+          "step": 560
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S3_R1_s20261202",
+      "architecture": "R1",
+      "seed": 20261202,
+      "stage": "recheck",
+      "protocol": "sep",
+      "steps": 560,
+      "stop_reason": "max_steps",
+      "wall_seconds": 33.5,
+      "params": 110694,
+      "state_elements": 128,
+      "config": {
+        "model_type": "GRUReferenceM2",
+        "d_model": 64,
+        "hidden": 128
+      },
+      "init_sha256": "4bf413be94ec4cd0176dc856d992a25058b89ae262e57cf17eefe4d3844dc5b7",
+      "best_score": 0.4456,
+      "best_step": 480,
+      "final_score": 0.4255,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0379,
+          "val_per_task": {
+            "B2_bind": 0.04,
+            "B4_bind": 0.04,
+            "B8_bind": 0.0,
+            "B_swap": 0.08,
+            "C_reassign": 0.0,
+            "D_indirect": 0.04,
+            "E_distance": 0.0,
+            "S1_copy1": 0.1765,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.04
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.4906,
+          "stage": "M2_continuous",
+          "wall": 318.0
+        },
+        {
+          "step": 192,
+          "val_macro": 0.0896,
+          "val_per_task": {
+            "B2_bind": 0.08,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.08,
+            "C_reassign": 0.0,
+            "D_indirect": 0.04,
+            "E_distance": 0.0,
+            "S1_copy1": 0.7059,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.08
+          },
+          "immediate_eos_rate": 0.0037,
+          "overlong_rate": 0.0562,
+          "stage": "M3_index",
+          "wall": 322.7
+        },
+        {
+          "step": 288,
+          "val_macro": 0.3057,
+          "val_per_task": {
+            "B2_bind": 0.4,
+            "B4_bind": 0.28,
+            "B8_bind": 0.12,
+            "B_swap": 0.44,
+            "C_reassign": 0.0,
+            "D_indirect": 0.52,
+            "E_distance": 0.32,
+            "S1_copy1": 0.8824,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.4
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0787,
+          "stage": "M4_binding",
+          "wall": 327.4
+        },
+        {
+          "step": 384,
+          "val_macro": 0.4327,
+          "val_per_task": {
+            "B2_bind": 0.56,
+            "B4_bind": 0.28,
+            "B8_bind": 0.28,
+            "B_swap": 0.64,
+            "C_reassign": 0.04,
+            "D_indirect": 0.88,
+            "E_distance": 0.68,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.4
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0712,
+          "stage": "M5_interference",
+          "wall": 333.0
+        },
+        {
+          "step": 480,
+          "val_macro": 0.4456,
+          "val_per_task": {
+            "B2_bind": 0.56,
+            "B4_bind": 0.24,
+            "B8_bind": 0.2,
+            "B_swap": 0.68,
+            "C_reassign": 0.0,
+            "D_indirect": 1.0,
+            "E_distance": 0.84,
+            "S1_copy1": 0.9412,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.04,
+            "S4_index": 0.4
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0824,
+          "stage": "M6_distance",
+          "wall": 340.3
+        },
+        {
+          "step": 560,
+          "val_macro": 0.4255,
+          "val_per_task": {
+            "B2_bind": 0.6,
+            "B4_bind": 0.24,
+            "B8_bind": 0.2,
+            "B_swap": 0.6,
+            "C_reassign": 0.0,
+            "D_indirect": 1.0,
+            "E_distance": 0.56,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.04,
+            "S3_reverse": 0.0,
+            "S4_index": 0.44
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.015,
+          "stage": "M6_distance",
+          "wall": 346.7
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S3_R1_s20261202_last.pt",
+          "sha256": "9b152a94f4799a37501774028fb641d4d687fe77e44f8989a94011345f28ee9f",
+          "bytes": 1344372,
+          "step": 3536
+        },
+        "final": {
+          "path": "checkpoints\\S3_R1_s20261202_final.pt",
+          "sha256": "53a3ecffb1271c7f7b86f5158189a441fba778315c88e272a196b36ae5f84b2a",
+          "bytes": 1344372,
+          "step": 3536
+        },
+        "best": {
+          "path": "checkpoints\\S3_R1_s20261202_best.pt",
+          "sha256": "da0e60b8643157b97e1b7e51f406d26bfac74aa2da6b51eb19b903df53154e0b",
+          "bytes": 451781,
+          "step": 480
+        }
+      },
+      "model_weights_uploaded": false
+    },
+    {
+      "run_id": "S3_R1_s20261203",
+      "architecture": "R1",
+      "seed": 20261203,
+      "stage": "recheck",
+      "protocol": "sep",
+      "steps": 560,
+      "stop_reason": "max_steps",
+      "wall_seconds": 33.8,
+      "params": 110694,
+      "state_elements": 128,
+      "config": {
+        "model_type": "GRUReferenceM2",
+        "d_model": 64,
+        "hidden": 128
+      },
+      "init_sha256": "9616b983f0d1d0ffe806d2f9e0bdd3f22985f915dce4b671f6d1df5473c23313",
+      "best_score": 0.4492,
+      "best_step": 480,
+      "final_score": 0.4327,
+      "history": [
+        {
+          "step": 0,
+          "val_macro": 0.0
+        },
+        {
+          "step": 96,
+          "val_macro": 0.0053,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.0,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.0588,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.0
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.6929,
+          "stage": "M2_continuous",
+          "wall": 353.6
+        },
+        {
+          "step": 192,
+          "val_macro": 0.093,
+          "val_per_task": {
+            "B2_bind": 0.0,
+            "B4_bind": 0.0,
+            "B8_bind": 0.08,
+            "B_swap": 0.0,
+            "C_reassign": 0.0,
+            "D_indirect": 0.0,
+            "E_distance": 0.0,
+            "S1_copy1": 0.8235,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.12
+          },
+          "immediate_eos_rate": 0.0187,
+          "overlong_rate": 0.0375,
+          "stage": "M3_index",
+          "wall": 358.3
+        },
+        {
+          "step": 288,
+          "val_macro": 0.3455,
+          "val_per_task": {
+            "B2_bind": 0.48,
+            "B4_bind": 0.28,
+            "B8_bind": 0.2,
+            "B_swap": 0.52,
+            "C_reassign": 0.04,
+            "D_indirect": 0.48,
+            "E_distance": 0.36,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.44
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0599,
+          "stage": "M4_binding",
+          "wall": 363.1
+        },
+        {
+          "step": 384,
+          "val_macro": 0.3709,
+          "val_per_task": {
+            "B2_bind": 0.52,
+            "B4_bind": 0.32,
+            "B8_bind": 0.08,
+            "B_swap": 0.44,
+            "C_reassign": 0.04,
+            "D_indirect": 0.76,
+            "E_distance": 0.44,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.48
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0787,
+          "stage": "M5_interference",
+          "wall": 368.7
+        },
+        {
+          "step": 480,
+          "val_macro": 0.4492,
+          "val_per_task": {
+            "B2_bind": 0.6,
+            "B4_bind": 0.28,
+            "B8_bind": 0.24,
+            "B_swap": 0.64,
+            "C_reassign": 0.0,
+            "D_indirect": 1.0,
+            "E_distance": 0.8,
+            "S1_copy1": 0.9412,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.44
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0824,
+          "stage": "M6_distance",
+          "wall": 376.0
+        },
+        {
+          "step": 560,
+          "val_macro": 0.4327,
+          "val_per_task": {
+            "B2_bind": 0.56,
+            "B4_bind": 0.2,
+            "B8_bind": 0.16,
+            "B_swap": 0.68,
+            "C_reassign": 0.0,
+            "D_indirect": 0.96,
+            "E_distance": 0.72,
+            "S1_copy1": 1.0,
+            "S2_copyN": 0.0,
+            "S3_reverse": 0.0,
+            "S4_index": 0.48
+          },
+          "immediate_eos_rate": 0.0,
+          "overlong_rate": 0.0262,
+          "stage": "M6_distance",
+          "wall": 382.5
+        }
+      ],
+      "checkpoints": {
+        "last": {
+          "path": "checkpoints\\S3_R1_s20261203_last.pt",
+          "sha256": "32e3f2356d8cdca00779c851385455e67d0be9774d46923bb56c0432edd097c2",
+          "bytes": 1344372,
+          "step": 4096
+        },
+        "final": {
+          "path": "checkpoints\\S3_R1_s20261203_final.pt",
+          "sha256": "ae9b53648f5fcabba9a183bc68a903733b7744aeef86a7a56928c67bb7cae3e6",
+          "bytes": 1344372,
+          "step": 4096
+        },
+        "best": {
+          "path": "checkpoints\\S3_R1_s20261203_best.pt",
+          "sha256": "7634e42fd49cab607db5b77dbe8c725321f1f26a200ecc3464e8eba828be6344",
+          "bytes": 451781,
+          "step": 480
+        }
+      },
+      "model_weights_uploaded": false
+    }
+  ],
+  "not_run": [
+    "uncertainty_memory_in_main_model",
+    "full_dnc_allocation"
+  ],
+  "model_weights_uploaded": false
+}

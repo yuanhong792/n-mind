@@ -1,0 +1,43 @@
+{
+  "status": "M2_PREREGISTERED",
+  "hypotheses": {
+    "H1_SEP_fixes_prefix_conflict": "显式 SEP 边界消除自回归前缀冲突，提升多字符答案正确率",
+    "H2_protection_gate_reduces_interference": "关联记忆保护门降低重赋值/交换干扰破坏",
+    "H3_sequential_memory_enables_continuous_generation": "固定容量序列记忆+推进指针实现有序连续生成，缓解重复生成",
+    "H4_causal_conv_helps_copy": "短因果卷积提供局部位置信号改善字符级拷贝",
+    "H5_dual_memory_fusion_specializes": "双记忆自适应融合在关联任务与序列任务上分别优于单记忆"
+  },
+  "protocol": {
+    "primary_metric": "自然 EOS 自由生成逐字符精确匹配（macro over panel tasks）",
+    "score_selection": "固定验证面板 macro，同任务同样本同顺序",
+    "answer_context": "prompt_ids + [SEP]",
+    "loss_weights": {"first_answer": 2.0, "content": 1.0, "eos": 0.25},
+    "aux_metrics": ["immediate_eos_rate", "empty_rate", "overlong_rate",
+                    "full_answer_lp", "counterfactual_paired_accuracy",
+                    "length_generalization", "distance_curve"]
+  },
+  "budget": {"max_steps": 4096, "max_wall_seconds": 3600, "shared_ledger": true,
+             "reserve_seconds": 120},
+  "stages": [
+    {"stage": 1, "name": "SEP_AB", "models": ["R1"], "protocols": ["legacy", "sep"],
+     "steps_each": 256, "purpose": "验证 H1：同样本下 SEP vs legacy"},
+    {"stage": 2, "name": "screen", "models": ["R1", "R2", "M2-A", "M2-B", "M2-C", "M2-D", "M2-E"],
+     "steps_each": 192, "purpose": "六架构初筛，选前 2 进复验"},
+    {"stage": 3, "name": "recheck", "seeds": [20261202, 20261203],
+     "purpose": "双种子公平复验，均分剩余预算"}
+  ],
+  "checkpoint_safety": {
+    "final_before_best": true, "tensor_readback_verify": true,
+    "optimizer_and_rng_saved": true, "weights_uploaded": false
+  },
+  "elimination_rules": [
+    "数学验证任一 FAIL 禁止训练",
+    "泄漏审计非 PASS 禁止训练",
+    "非有限 loss 立即终止该 run 并计入不确定预算"
+  ],
+  "no_cheating": {
+    "external_llm": false, "pretrained_weights": false, "distillation": false,
+    "interpreter_answer_in_generation": false, "rule_based_override": false,
+    "stable_readonly": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "ENVIRONMENT_RECORDED",
+  "timestamp": "2026-11-24T13:11:07+08:00",
+  "project_path": "D:\\cpu本地模型开发\\n-mind",
+  "repository": "https://github.com/yuanhong792/n-mind",
+  "branch": "experiment/dual-memory-architecture-m2",
+  "branch_base_commit": "0a61622e557b751aac2e1a6aee8909ae302d6a65",
+  "base_branch_before": "experiment/mathematical-architecture-m1",
+  "python": "3.12.10",
+  "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "torch": "2.10.0+cpu",
+  "cuda_available": false,
+  "cpu_processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "os": "Windows",
+  "directories": [
+    "experiments/math_m2/models",
+    "experiments/math_m2/math_lab",
+    "experiments/math_m2/data",
+    "experiments/math_m2/checkpoints",
+    "experiments/math_m2/results"
+  ],
+  "inherits_from_m1": {
+    "commit": "0a61622",
+    "conclusions": [
+      "12/12 数学验证通过",
+      "M1-B 双种子复验验证宏均值 0.2878 > M0 0.2489",
+      "多字符 COPY/REVERSE/REPEAT 仍为 0.0",
+      "反事实配对仅 0.03，长度泛化 0.2171",
+      "自回归边界无显式 SEP，存在监督前缀冲突风险"
+    ]
+  },
+  "m2_targets": [
+    "SEP 显式边界，消除自回归监督前缀冲突",
+    "关联记忆 AM + 可学习保护门，抗变量干扰",
+    "固定容量序列记忆 SM + 可学习读写指针，实现有序连续生成",
+    "短因果卷积与位置编码",
+    "双记忆自适应融合与消融",
+    "动力学稳定性分析，抑制重复生成",
+    "4096 optimizer.step / 3600s 墙钟预算内真实训练"
+  ],
+  "preserved": [
+    "C1.0",
+    "C1.1",
+    "V1.7.2",
+    "M1",
+    "history language models",
+    "Stable"
+  ],
+  "weights_upload_policy": "local_only"
+}

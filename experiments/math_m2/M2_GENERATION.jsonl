@@ -1,0 +1,58 @@
+{"task": "E_distance", "prompt": "e=9\ng=9\nh=4\nc=9\nd=5\nGET e", "expected": "9", "predicted": "9", "ok": true, "finish": "eos", "tokens": [31]}
+{"task": "S2_copyN", "prompt": "COPY GEB", "expected": "GEB", "predicted": "GEBBG", "ok": false, "finish": "eos", "tokens": [45, 43, 40, 40, 45]}
+{"task": "E_distance", "prompt": "d=1\ne=2\nc=5\ng=0\nh=4\nGET d", "expected": "1", "predicted": "1", "ok": true, "finish": "eos", "tokens": [23]}
+{"task": "S2_copyN", "prompt": "COPY 71XS", "expected": "71XS", "predicted": "71XS", "ok": true, "finish": "eos", "tokens": [29, 23, 62, 57]}
+{"task": "S3_reverse", "prompt": "REVERSE X4A", "expected": "A4X", "predicted": "A4X", "ok": true, "finish": "eos", "tokens": [39, 26, 62]}
+{"task": "S1_copy1", "prompt": "RELAY 3", "expected": "3", "predicted": "3", "ok": true, "finish": "eos", "tokens": [25]}
+{"task": "B8_bind", "prompt": "d=9\nh=6\nb=3\ng=0\nf=1\ne=2\nc=8\na=4\nGET a", "expected": "4", "predicted": "7", "ok": false, "finish": "eos", "tokens": [29]}
+{"task": "S5_repeat", "prompt": "REPEAT 3 4", "expected": "3333", "predicted": "3HH", "ok": false, "finish": "eos", "tokens": [25, 46, 46]}
+{"task": "C_reassign", "prompt": "b=2\na=4\nb=9\nh=5\nf=4\nGET b", "expected": "9", "predicted": "2", "ok": false, "finish": "eos", "tokens": [24]}
+{"task": "B2_bind", "prompt": "h=3\na=6\nGET h", "expected": "3", "predicted": "3", "ok": true, "finish": "eos", "tokens": [25]}
+{"task": "C_reassign", "prompt": "d=7\nh=6\nd=8\nf=0\ne=6\nGET d", "expected": "8", "predicted": "8", "ok": true, "finish": "eos", "tokens": [30]}
+{"task": "B4_bind", "prompt": "e=8\nb=4\nc=9\ng=3\nGET g", "expected": "3", "predicted": "8", "ok": false, "finish": "eos", "tokens": [30]}
+{"task": "S4_index", "prompt": "INDEX 412 3", "expected": "2", "predicted": "1", "ok": false, "finish": "eos", "tokens": [23]}
+{"task": "S2_copyN", "prompt": "COPY UCOW", "expected": "UCOW", "predicted": "U", "ok": false, "finish": "eos", "tokens": [59]}
+{"task": "S3_reverse", "prompt": "REVERSE K3JD", "expected": "DJ3K", "predicted": "DJ3K", "ok": true, "finish": "eos", "tokens": [42, 48, 25, 49]}
+{"task": "S3_reverse", "prompt": "REVERSE H17C", "expected": "C71H", "predicted": "C71H", "ok": true, "finish": "eos", "tokens": [41, 29, 23, 46]}
+{"task": "B2_bind", "prompt": "h=9\nb=2\nGET h", "expected": "9", "predicted": "2", "ok": false, "finish": "eos", "tokens": [24]}
+{"task": "D_indirect", "prompt": "d=2\nh=d\ng=4\nd=0\nGET h", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "tokens": [24]}
+{"task": "S5_repeat", "prompt": "REPEAT 1 5", "expected": "11111", "predicted": "11", "ok": false, "finish": "eos", "tokens": [23, 23]}
+{"task": "B2_bind", "prompt": "d=8\nh=5\nGET h", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"task": "S5_repeat", "prompt": "REPEAT 3 4", "expected": "3333", "predicted": "3HH", "ok": false, "finish": "eos", "tokens": [25, 46, 46]}
+{"task": "B8_bind", "prompt": "b=0\nc=8\nf=9\na=7\ng=2\nh=5\nd=4\ne=3\nGET g", "expected": "2", "predicted": "0", "ok": false, "finish": "eos", "tokens": [22]}
+{"task": "S4_index", "prompt": "INDEX 1552 4", "expected": "2", "predicted": "511", "ok": false, "finish": "eos", "tokens": [27, 23, 23]}
+{"task": "B8_bind", "prompt": "e=6\ng=0\nc=1\nd=4\nb=8\nf=9\na=5\nh=3\nGET e", "expected": "6", "predicted": "6", "ok": true, "finish": "eos", "tokens": [28]}
+{"task": "C_reassign", "prompt": "a=6\nh=1\na=3\ng=0\ne=1\nGET a", "expected": "3", "predicted": "6", "ok": false, "finish": "eos", "tokens": [28]}
+{"task": "B_swap", "prompt": "d=0\na=4\nGET d", "expected": "0", "predicted": "0", "ok": true, "finish": "eos", "tokens": [22]}
+{"task": "S2_copyN", "prompt": "COPY FRQ0C", "expected": "FRQ0C", "predicted": "FQ0", "ok": false, "finish": "eos", "tokens": [44, 55, 22]}
+{"task": "B4_bind", "prompt": "d=0\na=9\ng=2\ne=3\nGET e", "expected": "3", "predicted": "0", "ok": false, "finish": "eos", "tokens": [22]}
+{"task": "E_distance", "prompt": "e=6\na=8\nf=1\nc=4\nd=6\ng=3\nh=6\nb=3\nd=8\ne=9\nb=7\nf=5\ng=0\nh=8\na=3\ng=7\nd=4\nGET e", "expected": "6", "predicted": "66", "ok": false, "finish": "eos", "tokens": [28, 28]}
+{"task": "S1_copy1", "prompt": "OUT B", "expected": "B", "predicted": "B", "ok": true, "finish": "eos", "tokens": [40]}
+{"task": "D_indirect", "prompt": "f=2\na=f\ne=7\nf=9\nGET a", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "tokens": [24]}
+{"task": "S1_copy1", "prompt": "OUT F", "expected": "F", "predicted": "F", "ok": true, "finish": "eos", "tokens": [44]}
+{"task": "B2_bind", "prompt": "a=9\nd=3\nGET a", "expected": "9", "predicted": "3", "ok": false, "finish": "eos", "tokens": [25]}
+{"task": "S3_reverse", "prompt": "REVERSE T2U59", "expected": "95U2T", "predicted": "U2T", "ok": false, "finish": "eos", "tokens": [59, 24, 58]}
+{"task": "S4_index", "prompt": "INDEX 05050 2", "expected": "5", "predicted": "000", "ok": false, "finish": "eos", "tokens": [22, 22, 22]}
+{"task": "S5_repeat", "prompt": "REPEAT 3 4", "expected": "3333", "predicted": "3HH", "ok": false, "finish": "eos", "tokens": [25, 46, 46]}
+{"task": "S2_copyN", "prompt": "COPY 1MAAT", "expected": "1MAAT", "predicted": "AAA", "ok": false, "finish": "eos", "tokens": [39, 39, 39]}
+{"task": "D_indirect", "prompt": "f=0\nd=f\na=4\nf=5\nGET d", "expected": "0", "predicted": "0", "ok": true, "finish": "eos", "tokens": [22]}
+{"task": "D_indirect", "prompt": "f=3\nc=f\na=0\nf=9\nGET c", "expected": "3", "predicted": "3", "ok": true, "finish": "eos", "tokens": [25]}
+{"task": "S4_index", "prompt": "INDEX 221 1", "expected": "2", "predicted": "2", "ok": true, "finish": "eos", "tokens": [24]}
+{"task": "S5_repeat", "prompt": "REPEAT 3 4", "expected": "3333", "predicted": "3HH", "ok": false, "finish": "eos", "tokens": [25, 46, 46]}
+{"task": "S4_index", "prompt": "INDEX 051 3", "expected": "1", "predicted": "5", "ok": false, "finish": "eos", "tokens": [27]}
+{"task": "B_swap", "prompt": "a=6\ng=8\nGET g", "expected": "8", "predicted": "6", "ok": false, "finish": "eos", "tokens": [28]}
+{"task": "B8_bind", "prompt": "a=9\nh=3\nd=5\ne=2\ng=4\nf=1\nc=0\nb=7\nGET e", "expected": "2", "predicted": "7", "ok": false, "finish": "eos", "tokens": [29]}
+{"task": "B_swap", "prompt": "d=7\nc=1\nGET d", "expected": "7", "predicted": "1", "ok": false, "finish": "eos", "tokens": [23]}
+{"task": "S3_reverse", "prompt": "REVERSE 6Y15E", "expected": "E51Y6", "predicted": "1Y6", "ok": false, "finish": "eos", "tokens": [23, 63, 28]}
+{"task": "S1_copy1", "prompt": "RELAY Z", "expected": "Z", "predicted": "Z", "ok": true, "finish": "eos", "tokens": [64]}
+{"task": "S2_copyN", "prompt": "COPY PATT", "expected": "PATT", "predicted": "PATT", "ok": true, "finish": "eos", "tokens": [54, 39, 58, 58]}
+{"task": "E_distance", "prompt": "g=3\nd=0\nc=2\nf=4\ne=1\nGET g", "expected": "3", "predicted": "2", "ok": false, "finish": "eos", "tokens": [24]}
+{"task": "E_distance", "prompt": "g=5\na=1\nf=6\nb=9\nd=2\nc=9\ne=0\nh=3\nh=6\nc=6\nd=2\nh=3\ne=4\nf=8\nf=9\nc=4\nd=2\nf=2\nd=8\na=9\nh=7\nb=0\nb=0\ng=1\ng=8\nf=0\ne=6\nf=1\nb=8\ne=7\ng=1\nc=1\nc=3\nGET g", "expected": "5", "predicted": "5", "ok": true, "finish": "eos", "tokens": [27]}
+{"task": "B4_bind", "prompt": "a=4\nb=5\nf=0\nh=9\nGET h", "expected": "9", "predicted": "4", "ok": false, "finish": "eos", "tokens": [26]}
+{"task": "B4_bind", "prompt": "e=8\na=6\nb=9\ng=4\nGET a", "expected": "6", "predicted": "8", "ok": false, "finish": "eos", "tokens": [30]}
+{"task": "C_reassign", "prompt": "b=7\ng=2\nb=4\na=6\ne=2\nGET b", "expected": "4", "predicted": "4", "ok": true, "finish": "eos", "tokens": [26]}
+{"task": "E_distance", "prompt": "g=1\nc=8\nh=3\ne=3\nb=2\na=7\nd=5\nf=8\nd=9\nGET g", "expected": "1", "predicted": "1", "ok": true, "finish": "eos", "tokens": [23]}
+{"task": "E_distance", "prompt": "f=7\nd=0\nc=9\ng=4\nb=8\nh=8\na=9\ne=1\ng=3\ne=8\nh=1\na=3\nf=5\nb=7\ne=3\nd=4\nb=6\nGET f", "expected": "7", "predicted": "7", "ok": true, "finish": "eos", "tokens": [29]}
+{"task": "S3_reverse", "prompt": "REVERSE Z9UJ", "expected": "JU9Z", "predicted": "JU9Z", "ok": true, "finish": "eos", "tokens": [48, 59, 31, 64]}
+{"task": "B_swap", "prompt": "e=0\nb=1\nGET b", "expected": "1", "predicted": "0", "ok": false, "finish": "eos", "tokens": [22]}
+{"task": "S3_reverse", "prompt": "REVERSE 0CIPN", "expected": "NPIC0", "predicted": "PC0", "ok": false, "finish": "eos", "tokens": [54, 41, 22]}

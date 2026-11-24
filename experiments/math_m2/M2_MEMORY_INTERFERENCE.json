@@ -1,0 +1,13 @@
+{
+  "status": "M2_MEMORY_INTERFERENCE_DONE",
+  "note": "以初筛固定面板 macro 对比单记忆(AM=M2-B, SM=M2-C)与双记忆(M2-D/E)，以及参考(R1/R2)；完整 gamma 逐样本消融见 dynamics_probe。",
+  "screen_macro": {
+    "R1": 0.3048,
+    "R2": 0.3739,
+    "M2-A": 0.1343,
+    "M2-B": 0.1215,
+    "M2-C": 0.0725,
+    "M2-D": 0.0851,
+    "M2-E": 0.1232
+  }
+}

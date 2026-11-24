@@ -1,0 +1,64 @@
+{
+  "status": "M2_RESOURCE_BENCHMARK_DONE",
+  "batch": 8,
+  "seq": 24,
+  "torch": "2.10.0+cpu",
+  "results": [
+    {
+      "architecture": "R1",
+      "params": 110694,
+      "state_elements": 128,
+      "forward_batch_ms": 4.2678,
+      "train_tok_per_s": 10012.53,
+      "finite_loss": true
+    },
+    {
+      "architecture": "R2",
+      "params": 90342,
+      "state_elements": 10240,
+      "forward_batch_ms": 0.871,
+      "train_tok_per_s": 34604.79,
+      "finite_loss": true
+    },
+    {
+      "architecture": "M2-A",
+      "params": 84840,
+      "state_elements": 1120,
+      "forward_batch_ms": 11.2644,
+      "train_tok_per_s": 5387.96,
+      "finite_loss": true
+    },
+    {
+      "architecture": "M2-B",
+      "params": 84937,
+      "state_elements": 1120,
+      "forward_batch_ms": 9.0251,
+      "train_tok_per_s": 4479.27,
+      "finite_loss": true
+    },
+    {
+      "architecture": "M2-C",
+      "params": 81933,
+      "state_elements": 640,
+      "forward_batch_ms": 20.4105,
+      "train_tok_per_s": 4086.99,
+      "finite_loss": true
+    },
+    {
+      "architecture": "M2-D",
+      "params": 100848,
+      "state_elements": 1664,
+      "forward_batch_ms": 18.3058,
+      "train_tok_per_s": 2461.08,
+      "finite_loss": true
+    },
+    {
+      "architecture": "M2-E",
+      "params": 99217,
+      "state_elements": 1664,
+      "forward_batch_ms": 39.5571,
+      "train_tok_per_s": 1449.5,
+      "finite_loss": true
+    }
+  ]
+}

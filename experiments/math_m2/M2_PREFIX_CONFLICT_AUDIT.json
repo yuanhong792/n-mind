@@ -1,0 +1,257 @@
+{
+  "status": "P0_PREFIX_CONFLICT_AUDIT_DONE",
+  "tokenizer_sha256": "c3b7cce24d3ccc28c05525078fbe7e2f58aaed0494d854bb305b18d5647e1c97",
+  "sep_token_id": 101,
+  "sources": {
+    "math_m1\\data\\m1_train.jsonl": {
+      "exists": true,
+      "n": 9505
+    },
+    "math_m1\\data\\m1_val.jsonl": {
+      "exists": true,
+      "n": 1386
+    },
+    "math_m1\\data\\m1_sealed.jsonl": {
+      "exists": true,
+      "n": 1452
+    },
+    "compute_c1\\data\\c1_train.jsonl": {
+      "exists": true,
+      "n": 13213
+    },
+    "compute_c11\\data\\c11_train.jsonl": {
+      "exists": true,
+      "n": 14366
+    }
+  },
+  "total_samples": 39922,
+  "unique_prompts": 36351,
+  "legacy_protocol": {
+    "answer_context": "prompt_ids",
+    "conflict_definition": "完整 prompt 同时是其他 prompt 真前缀，且答案首 token 与 prompt 延续 token 分歧",
+    "conflict_prompt_count": 1663,
+    "conflict_rate": 0.045748,
+    "examples": [
+      {
+        "prompt": "COPY 3I",
+        "answer_first_ids": [
+          25
+        ],
+        "prompt_continuation_ids": [
+          26,
+          43,
+          63
+        ]
+      },
+      {
+        "prompt": "REVERSE MF",
+        "answer_first_ids": [
+          44
+        ],
+        "prompt_continuation_ids": [
+          26,
+          61
+        ]
+      },
+      {
+        "prompt": "REVERSE TM",
+        "answer_first_ids": [
+          51
+        ],
+        "prompt_continuation_ids": [
+          28,
+          40,
+          54
+        ]
+      },
+      {
+        "prompt": "REVERSE 4B",
+        "answer_first_ids": [
+          40
+        ],
+        "prompt_continuation_ids": [
+          25,
+          26,
+          51
+        ]
+      },
+      {
+        "prompt": "REVERSE XA",
+        "answer_first_ids": [
+          39
+        ],
+        "prompt_continuation_ids": [
+          24,
+          53,
+          63
+        ]
+      },
+      {
+        "prompt": "COPY ZG",
+        "answer_first_ids": [
+          64
+        ],
+        "prompt_continuation_ids": [
+          46
+        ]
+      },
+      {
+        "prompt": "REVERSE S12",
+        "answer_first_ids": [
+          24
+        ],
+        "prompt_continuation_ids": [
+          60
+        ]
+      },
+      {
+        "prompt": "COPY C2Q",
+        "answer_first_ids": [
+          41
+        ],
+        "prompt_continuation_ids": [
+          57
+        ]
+      },
+      {
+        "prompt": "REVERSE 3D",
+        "answer_first_ids": [
+          42
+        ],
+        "prompt_continuation_ids": [
+          47,
+          63
+        ]
+      },
+      {
+        "prompt": "REVERSE J4",
+        "answer_first_ids": [
+          26
+        ],
+        "prompt_continuation_ids": [
+          56
+        ]
+      },
+      {
+        "prompt": "REVERSE XY",
+        "answer_first_ids": [
+          63
+        ],
+        "prompt_continuation_ids": [
+          25,
+          51,
+          54
+        ]
+      },
+      {
+        "prompt": "REVERSE XS",
+        "answer_first_ids": [
+          57
+        ],
+        "prompt_continuation_ids": [
+          25,
+          43,
+          51,
+          56
+        ]
+      },
+      {
+        "prompt": "COPY 6L",
+        "answer_first_ids": [
+          28
+        ],
+        "prompt_continuation_ids": [
+          26,
+          45
+        ]
+      },
+      {
+        "prompt": "COPY W2",
+        "answer_first_ids": [
+          61
+        ],
+        "prompt_continuation_ids": [
+          23,
+          24,
+          27,
+          30,
+          39,
+          50
+        ]
+      },
+      {
+        "prompt": "REVERSE V1",
+        "answer_first_ids": [
+          23
+        ],
+        "prompt_continuation_ids": [
+          24,
+          30
+        ]
+      },
+      {
+        "prompt": "REVERSE 2NI",
+        "answer_first_ids": [
+          47
+        ],
+        "prompt_continuation_ids": [
+          45
+        ]
+      },
+      {
+        "prompt": "REVERSE Q84",
+        "answer_first_ids": [
+          26
+        ],
+        "prompt_continuation_ids": [
+          29
+        ]
+      },
+      {
+        "prompt": "REVERSE Y9",
+        "answer_first_ids": [
+          31
+        ],
+        "prompt_continuation_ids": [
+          54
+        ]
+      },
+      {
+        "prompt": "REVERSE 59",
+        "answer_first_ids": [
+          31
+        ],
+        "prompt_continuation_ids": [
+          39,
+          41,
+          42,
+          51,
+          58
+        ]
+      },
+      {
+        "prompt": "COPY 1G",
+        "answer_first_ids": [
+          23
+        ],
+        "prompt_continuation_ids": [
+          26,
+          44
+        ]
+      }
+    ]
+  },
+  "sep_protocol": {
+    "answer_context": "prompt_ids + [SEP]",
+    "sep_in_char_vocab": false,
+    "sep_overlap_with_prompt_strict_prefix": 0,
+    "sep_overlap_with_full_prompt": 0,
+    "structural_conflict_eliminated": true
+  },
+  "true_ambiguity_sep_cannot_fix": {
+    "definition": "完全相同的 prompt 对应多个不同答案首 token",
+    "count": 0,
+    "examples": []
+  },
+  "verdict": "SEP_STRUCTURALLY_FIXES_PREFIX_CONFLICT"
+}
