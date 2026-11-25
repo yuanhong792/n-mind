@@ -1,0 +1,28 @@
+{
+  "status": "PREPARED_NO_TRAINING",
+  "contexts": {"A": -1.0, "B": -0.5, "C": 0.0, "D": 0.5, "E": 1.0},
+  "rule_seed_formula": "610000 + paired_model_seed * 10 + skill_index (1..5); same world IDs across arms",
+  "world_seeds_by_model_seed": {
+    "101": [611011, 611012, 611013, 611014, 611015],
+    "202": [612021, 612022, 612023, 612024, 612025],
+    "303": [613031, 613032, 613033, 613034, 613035]
+  },
+  "preflight_world_seeds": [611011, 611012, 611013, 611014, 611015, 612021, 612022, 612023, 612024, 612025, 613031, 613032, 613033, 613034, 613035],
+  "paired_model_seeds": [101, 202, 303],
+  "comparison_arms": ["ordinary_sgd", "experience_replay_fifo32", "frozen_zero4_G2_selective_update"],
+  "updates_per_world": 8,
+  "sample_stream": "same deterministic pre-shuffled feedback order across arms for each seed and world",
+  "frozen_selective_gates": {
+    "101": {"file": "zero4_G2_101.pt", "sha256": "49af3cdc34824775b179b016f3fa80f51db2145b3061fee8854175cda24d901d"},
+    "202": {"file": "zero4_G2_202.pt", "sha256": "fb7dce483c576465bf0c1cb062ea80a94465671eec368743745d6b35bb11ed99"},
+    "303": {"file": "zero4_G2_303.pt", "sha256": "7d75b45f9f119b61f901b7c5d40653fb52dbe69becbebad4e20585aa11ac9fd7"}
+  },
+  "dataset_rng": "world_seed * 1009 + split_index + 17; independent deterministic generator per split",
+  "splits": {"exploration_pool": 256, "reward_query": 128, "development_query": 128, "sealed_query": 128},
+  "input": "7 random features + one observable context scalar; labels and rule weights are environment-private",
+  "hidden_rule": "world-specific random linear separator over seven dimensions; same task family, independent weights and bias",
+  "agent_capabilities": ["candidate_features", "selected_object_feature", "selected_object_feedback"],
+  "evaluator_capabilities": ["development_query", "sealed_query"],
+  "sealed_policy": "sealed samples are separate generated feature vectors and evaluator labels are not exposed by the agent view",
+  "note": "The linear task family is a minimal skill-learning test, not broad world understanding; A→E share the task family but have independent hidden weights and bias."
+}

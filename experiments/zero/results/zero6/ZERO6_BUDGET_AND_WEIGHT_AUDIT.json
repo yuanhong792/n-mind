@@ -1,0 +1,37 @@
+{
+  "zero6_authorization": {
+    "authorization_id": "zero6-20261125-360-v1",
+    "limit": 360,
+    "reserved": 360,
+    "completed": 360,
+    "uncertain": 0,
+    "failed": 0,
+    "status": "OPEN"
+  },
+  "ledger_path": "experiments\\zero\\results\\zero6\\ZERO6_BUDGET_STATE.jsonl",
+  "ledger_records": 720,
+  "reserve_records": 360,
+  "complete_records": 360,
+  "ledger_reserve_amount": 360,
+  "ledger_complete_amount": 360,
+  "zero5_read_only_state_after": {
+    "authorization_id": "zero5-active-1860-v1",
+    "limit": 1860,
+    "reserved": 1720,
+    "completed": 1720,
+    "uncertain": 0,
+    "status": "OPEN"
+  },
+  "zero5_remaining": 140,
+  "trace_sessions": 9,
+  "trace_steps": 360,
+  "all_task_weight_deltas_positive": true,
+  "gate_hidden_range": [
+    0.5070816278457642,
+    0.8487098813056946
+  ],
+  "gate_output_range": [
+    0.5683212280273438,
+    0.9729884266853333
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "REQUEST_ONLY_NOT_AUTHORIZED",
+  "device": "cpu",
+  "new_updates_requested_max": 360,
+  "formula": "3 paired seeds × 5 worlds × 3 continual-learning mechanisms × 8 updates/world",
+  "arms": [
+    {"name": "ordinary_continual_sgd", "updates": 120, "method": "one new feedback, one SGD update, no replay"},
+    {"name": "limited_experience_replay", "updates": 120, "method": "one new feedback plus up to 4 old samples; FIFO buffer capacity 32"},
+    {"name": "selective_neural_update", "updates": 120, "method": "frozen historical ZERO-4 G2 two-group gate controls hidden/output gradients"}
+  ],
+  "paired_seeds": [101, 202, 303],
+  "world_order": ["A", "B", "C", "D", "E"],
+  "contexts": {"A": -1.0, "B": -0.5, "C": 0.0, "D": 0.5, "E": 1.0},
+  "curve_checkpoints": [0, 1, 2, 4, 8],
+  "primary_outcomes": ["new-skill acquisition", "per-skill retention after each subsequent world", "forgetting/interference", "unseen-world E adaptation"],
+  "development_gate": "For each paired seed, ordinary-SGD mean per-skill development balanced-accuracy gain across A-E must be >=0.05; otherwise stop before reading sealed labels.",
+  "budget_before_gate": 120,
+  "budget_max_if_gate_passes": 360,
+  "zero5_remaining_140": "NOT_USED",
+  "historical_selective_gate_weights": "experiments/zero/checkpoints/zero4_G2_{101,202,303}.pt; checksums frozen in ZERO6_TASK_MANIFEST.json; read-only",
+  "historical_experiment_records": "Read-only; no historical result or checkpoint is overwritten.",
+  "authorization_required": true
+}

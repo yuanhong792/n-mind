@@ -1,0 +1,37 @@
+{
+  "status": "EXPERIMENT_COMPLETE",
+  "parameter_count": 403,
+  "predictor_parameters_trained": 178,
+  "explorer_parameters_retained_not_trained": 225,
+  "same_predictor_across_A_to_E": true,
+  "independent_hidden_rules_and_splits": "PASS_PREFLIGHT",
+  "positive_control_gate": "PASS",
+  "new_skill_gain_per_seed": {
+    "101": 0.12563644498586654,
+    "202": 0.10758730322122574,
+    "303": 0.16239009499549867
+  },
+  "old_skill_forgetting": {
+    "ordinary_sgd": 0.14903012042244276,
+    "experience_replay": 0.03315425664186478,
+    "selective_update": 0.13950942580898604
+  },
+  "final_sealed_balanced_accuracy": {
+    "ordinary_sgd": 0.5629745389024416,
+    "experience_replay": 0.5997005651394526,
+    "selective_update": 0.5633998423814773
+  },
+  "full_matrix": "ZERO6_ANALYSIS.json: arms.*.per_seed.*.development_matrix_5x5",
+  "checkpoint_reload_max_difference": 0.0,
+  "budget": {
+    "authorization_id": "zero6-20261125-360-v1",
+    "limit": 360,
+    "reserved": 360,
+    "completed": 360,
+    "uncertain": 0,
+    "failed": 0,
+    "status": "OPEN"
+  },
+  "zero5_remaining_untouched": 140,
+  "claim": "Single-family continual-learning signal; replay improves mean retention with new-skill trade-off; selective gate no independent advantage."
+}

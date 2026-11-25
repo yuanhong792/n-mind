@@ -1,0 +1,37 @@
+{
+  "status": "FROZEN_REQUEST_ONLY_NOT_AUTHORIZED",
+  "based_on_commit": "14df03832125f2023e54777b511b8d744766965c",
+  "task_manifest_sha256": "0802165e47542755deeae8a1caf56025f25dacea5771b67fa5e26fa95dfa7f0e",
+  "source_hashes": {
+    "zero6_continual.py": "6544172c369e12bcc2c9c7cbbabfac13197e219aa8a7b09282d29bc8f526383c",
+    "zero6_preflight.py": "873deabf584592958013fe85de522a6511fd2db21f7a93cc4ce66d7e542e09e2",
+    "zero6_run.py": "1813194665f535d4e6b8c0954dd773f2d898a8a1116f326f9a39aaeea888c48b",
+    "budget_ledger.py": "e7ee506621aae9e3f1bff2aa07ad60561c260114afefa165c44676459e2bf818",
+    "ZERO5_AGENT.py": "d0ab2934334f30391a65065ece4b3ebea2631f1dec10c2aae0ae1f04c66c60ca",
+    "ZERO5_EXPLORATION.py": "ea6c1fd55f6974fe386cb59915cd1c939dce2a1dfe9caca3acb280d6c307542d",
+    "zero4.py": "5e0e76d19a37d20f49f486845b0effd549233e3e542463363da79b51987a6a99",
+    "AGENTS.md": "e5dcf1f4c77e74c7d6bf7ead25261063e5aedf50f9868590794b6ece7a12b97f"
+  },
+  "new_budget_requested_max": 360,
+  "zero5_remaining_140": "NOT_USED",
+  "arms": [
+    "ordinary_sgd",
+    "experience_replay_fifo32",
+    "frozen_zero4_G2_selective_update"
+  ],
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "worlds": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "primary_metric": "per-skill balanced-accuracy learning curves plus retention after each later world",
+  "sealed_gate": "each paired seed ordinary-SGD mean skill balanced-accuracy development gain >= 0.05",
+  "training_authorized": false
+}

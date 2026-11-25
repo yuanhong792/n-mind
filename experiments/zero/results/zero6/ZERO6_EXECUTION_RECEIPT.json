@@ -1,0 +1,22 @@
+{
+  "command": "python -m experiments.zero.zero6_run --run --authorized --authorization-id zero6-20261125-360-v1 --budget-limit 360",
+  "status": "SCREENING_COMPLETE",
+  "authorization_id": "zero6-20261125-360-v1",
+  "manifest_sha256": "0802165e47542755deeae8a1caf56025f25dacea5771b67fa5e26fa95dfa7f0e",
+  "preregistration_sha256": "1c11946ee3f65f334e0285f94855bcee85c29b62f7690380b9aa9a38e696c380",
+  "authorization_record_sha256": "56982769e7e01a8287a17a1e1ecb71322068606408e42f5b2176ddd3cce5acc3",
+  "python": "3.12.10",
+  "torch": "2.10.0+cpu",
+  "psutil": "7.0.0",
+  "device": "cpu",
+  "budget": {
+    "authorization_id": "zero6-20261125-360-v1",
+    "limit": 360,
+    "reserved": 360,
+    "completed": 360,
+    "uncertain": 0,
+    "failed": 0,
+    "status": "OPEN"
+  },
+  "raw_result_sha256": "922441d2f9c484e68185770ad3e54144fa59e4e8c075efbcd71e6b560a17d037"
+}
