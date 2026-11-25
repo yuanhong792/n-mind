@@ -1,0 +1,177 @@
+{
+  "status": "FAIL",
+  "n_pass": 9,
+  "n_total": 10,
+  "checks": {
+    "wta_exact_k": {
+      "pass": true,
+      "k": 26,
+      "n_active": 26
+    },
+    "seed_reproducible": {
+      "pass": true
+    },
+    "fan_in": {
+      "pass": true,
+      "min": 7,
+      "max": 7
+    },
+    "update_formula": {
+      "pass": true,
+      "max_abs_err": 0.0
+    },
+    "clip_decay": {
+      "pass": true,
+      "max": 0.10000000149011612,
+      "min": 0.10000000149011612
+    },
+    "no_gradient": {
+      "pass": true,
+      "hits": []
+    },
+    "oracle_flv02": {
+      "pass": true,
+      "em": 1.0,
+      "rank": 1.0,
+      "trials": 4000
+    },
+    "shuffle_flv02": {
+      "pass": true,
+      "acc": 0.25075,
+      "expected": 0.25,
+      "trials": 8000
+    },
+    "data_hash": {
+      "pass": true,
+      "sha256": "746f2e5901b8aec475a53aa7074f7aebc31bffb7f246f52ab7b5f4c34d6f43fd",
+      "n_test": 1000
+    },
+    "low_p_recall": {
+      "pass": false,
+      "worst": 0.98,
+      "details": [
+        {
+          "seed": 101,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 101,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 202,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 202,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 303,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 303,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 404,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 404,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 505,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 505,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 606,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 606,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 707,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 707,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 808,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 808,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 909,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 909,
+          "P": 50,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 1010,
+          "P": 10,
+          "recall": 1.0,
+          "epochs": 5
+        },
+        {
+          "seed": 1010,
+          "P": 50,
+          "recall": 0.98,
+          "epochs": 5
+        }
+      ],
+      "checks": 20
+    }
+  }
+}
