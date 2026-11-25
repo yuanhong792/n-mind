@@ -1,1 +1,1 @@
-{"prior_updates":768,"proposed_t2_updates":384,"proposed_t3_updates":384,"proposed_new_updates":768,"approved":false,"device":"cpu"}
+{"prior_updates":768,"t2_updates":384,"t3_updates":384,"new_updates":768,"approved":true,"device":"cpu","status":"EXECUTED_WITHIN_LIMIT"}
