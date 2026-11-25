@@ -1,8 +1,8 @@
 {
   "authorization_id": "zero4-continual-2568-v1",
   "limit": 2568,
-  "reserved": 0,
-  "completed": 0,
+  "reserved": 2568,
+  "completed": 2568,
   "uncertain": 0,
   "status": "OPEN"
 }

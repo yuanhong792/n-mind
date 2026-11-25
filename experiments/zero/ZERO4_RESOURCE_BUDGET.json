@@ -1,1 +1,1 @@
-{"status":"BUDGET_REQUEST","meta_updates":1224,"dev_baseline_updates":384,"sealed_updates":960,"candidate_total":2568,"approved":false,"device":"cpu"}
+{"status":"EXECUTED","meta_updates":1224,"dev_baseline_updates":384,"sealed_updates":960,"total":2568,"approved":true,"device":"cpu"}

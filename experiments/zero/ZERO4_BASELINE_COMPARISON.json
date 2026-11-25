@@ -1,1 +1,1 @@
-{"status":"NOT_RUN_BUDGET","groups":["G0","G1","G2","G3","G4"]}
+{"status":"EXECUTED","mean_joint_balanced_accuracy":{"G0":0.602,"G1":0.594,"G2":0.622,"G3":0.617,"G4":0.620},"interpretation":"G2 exceeds G0/G1 but not G4"}
