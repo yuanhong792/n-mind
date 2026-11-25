@@ -1,0 +1,177 @@
+{
+  "note": "簇级 bootstrap 重算 2.4 EM/跟随 CI；历史 JSON 未改。簇=事实对（ctx 前两条陈述）。",
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "arms": [
+    {
+      "file": "seal_per_sample_delta_seed20270101.json",
+      "model": "delta",
+      "seed": 20270101,
+      "em_point": 0.0,
+      "em_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_delta_seed20270102.json",
+      "model": "delta",
+      "seed": 20270102,
+      "em_point": 0.0,
+      "em_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_delta_seed20270103.json",
+      "model": "delta",
+      "seed": 20270103,
+      "em_point": 0.0,
+      "em_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_gru_seed20270101.json",
+      "model": "gru",
+      "seed": 20270101,
+      "em_point": 0.333333,
+      "em_ci_cluster": [
+        0.192708,
+        0.420573
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_gru_seed20270102.json",
+      "model": "gru",
+      "seed": 20270102,
+      "em_point": 0.288333,
+      "em_ci_cluster": [
+        0.091146,
+        0.392756
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_gru_seed20270103.json",
+      "model": "gru",
+      "seed": 20270103,
+      "em_point": 0.338333,
+      "em_ci_cluster": [
+        0.085227,
+        0.435221
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_transformer_seed20270101.json",
+      "model": "transformer",
+      "seed": 20270101,
+      "em_point": 0.305,
+      "em_ci_cluster": [
+        0.215909,
+        0.358398
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_transformer_seed20270102.json",
+      "model": "transformer",
+      "seed": 20270102,
+      "em_point": 0.363333,
+      "em_ci_cluster": [
+        0.246804,
+        0.440104
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    },
+    {
+      "file": "seal_per_sample_transformer_seed20270103.json",
+      "model": "transformer",
+      "seed": 20270103,
+      "em_point": 0.22,
+      "em_ci_cluster": [
+        0.122396,
+        0.274325
+      ],
+      "n_clusters_em": 4,
+      "follow_point": 0.0,
+      "follow_hits": 0,
+      "n_follow_pairs": 84,
+      "follow_ci_cluster": [
+        0.0,
+        0.0
+      ],
+      "n_clusters_follow": 4
+    }
+  ]
+}

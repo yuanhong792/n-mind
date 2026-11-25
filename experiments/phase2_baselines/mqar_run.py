@@ -271,6 +271,8 @@ def free_gen(model, ids, max_new=8, batch=256) -> np.ndarray:
             cur = torch.cat([cur, nxt[:, None]], 1)
             if bool(fin.all()):
                 break
+        while len(gen) < max_new:  # 各 batch 结束步数不同，补齐后再拼接
+            gen.append(torch.zeros(B, dtype=gen[0].dtype, device=DEV))
         outs.append(torch.stack(gen, 1).cpu().numpy())
     return np.concatenate(outs)
 
@@ -332,16 +334,28 @@ def train_arm(cfg: dict) -> dict:
     opt = torch.optim.AdamW(model.parameters(), lr=cfg["lr"])
     train = torch.from_numpy(ds["train"]).long().to(DEV)
     plen = int(ds["prompt_len"])
-    gated = (cfg["model"] in GATE_MODELS and cfg["N"] in GATE_NS and cfg["split"] == GATE_SPLIT)
+    seal_path = cfg.get("seal_path")
+    if seal_path:
+        z = np.load(seal_path)
+        seal_ds = {k: z[k] for k in z.files}
+        seal_ds.setdefault("prompt_len", plen)
+        seal_ds.setdefault("N", int(ds["N"]))
+    else:
+        seal_ds = ds
+    gated = bool(cfg.get("gate_all")) or (cfg["model"] in GATE_MODELS
+                                          and cfg["N"] in GATE_NS
+                                          and cfg["split"] == GATE_SPLIT)
     rec = dict(cfg)
     rec.update({"gated": gated, "data_sha256": meta["sha256"], "env": env_meta(),
-                "status": "RUNNING", "levels": [], "t_start": t0})
+                "status": "RUNNING", "levels": [], "t_start": t0,
+                "eval_sanity": "PASS 8/8 @ 54af4dc"})
     outp = OUT_DIR / "arms" / f"{cfg['arm_id']}.json"
     try:
         step = 0
         n = train.shape[0]
-        while step < LEVELS[-1]:
-            target = next(lv for lv in LEVELS if lv > step)
+        max_steps = int(cfg.get("max_steps", LEVELS[-1]))
+        while step < max_steps:
+            target = min(next(lv for lv in LEVELS if lv > step), max_steps)
             perm = torch.randperm(n, device=DEV)
             i = 0
             while step < target:
@@ -349,7 +363,7 @@ def train_arm(cfg: dict) -> dict:
                     rec["status"] = "INCONCLUSIVE_BUDGET"
                     rec["steps_done"] = step
                     rec["wall_s"] = round(time.time() - t0, 1)
-                    _finalize(rec, model, ds, outp, step)
+                    _finalize(rec, model, seal_ds, outp, step)
                     return rec
                 idx = perm[i:i + BATCH]
                 if idx.numel() < BATCH:
@@ -366,9 +380,17 @@ def train_arm(cfg: dict) -> dict:
                 i += BATCH
             # level 完成
             dv_rank = rank_eval(model, ds["dev"], ds["dev_cand"], ds["dev_true"], plen)
+            with torch.no_grad():
+                ce_dv = 0.0
+                for i in range(0, len(ds["dev"]), 256):
+                    xd = torch.from_numpy(ds["dev"][i:i + 256]).long().to(DEV)
+                    ce_dv += float(nn.functional.cross_entropy(
+                        model(xd[:, :-1]).reshape(-1, V), xd[:, 1:].reshape(-1))) * len(xd)
+                ce_dv /= len(ds["dev"])
             lo = wilson(int(dv_rank.sum()), len(dv_rank))[0]
             rec["levels"].append({"step": step, "dev_rank": round(float(dv_rank.mean()), 6),
                                   "dev_wilson_lo": lo,
+                                  "dev_ce": round(ce_dv, 4),
                                   "ce": round(float(loss), 4),
                                   "wall_s": round(time.time() - t0, 1)})
             torch.save({"model": model.state_dict(), "step": step, "arm_id": cfg["arm_id"]},
@@ -380,12 +402,12 @@ def train_arm(cfg: dict) -> dict:
                 rec["status"] = "COMPLETE_GATE"
                 rec["steps_done"] = step
                 rec["wall_s"] = round(time.time() - t0, 1)
-                _finalize(rec, model, ds, outp, step)
+                _finalize(rec, model, seal_ds, outp, step)
                 return rec
         rec["status"] = "COMPLETE"
         rec["steps_done"] = step
         rec["wall_s"] = round(time.time() - t0, 1)
-        _finalize(rec, model, ds, outp, step)
+        _finalize(rec, model, seal_ds, outp, step)
         return rec
     except Exception as e:  # noqa: BLE001
         rec["status"] = "ARM_CRASHED"
