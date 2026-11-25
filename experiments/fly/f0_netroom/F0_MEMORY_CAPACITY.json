@@ -1,0 +1,581 @@
+{
+  "eval_sanity": "N/A",
+  "rows": [
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.96,
+      "recall_min": 0.9
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.9933,
+      "recall_min": 0.98
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.9933,
+      "recall_min": 0.98
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.9933,
+      "recall_min": 0.98
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 0.9667,
+      "recall_min": 0.9
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.7667,
+      "recall_min": 0.5
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.7333,
+      "recall_min": 0.5
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.7667,
+      "recall_min": 0.5
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.7867,
+      "recall_min": 0.74
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.92,
+      "recall_min": 0.86
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.8067,
+      "recall_min": 0.58
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.8,
+      "recall_min": 0.58
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 0.3,
+      "recall_min": 0.2
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.0333,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.1667,
+      "recall_min": 0.1
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.1333,
+      "recall_min": 0.1
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.0267,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.0067,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.04,
+      "recall_min": 0.02
+    },
+    {
+      "encoder": "frozen",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.0067,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.8933,
+      "recall_min": 0.84
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.9867,
+      "recall_min": 0.96
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 0.9333,
+      "recall_min": 0.8
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.7,
+      "recall_min": 0.5
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.7333,
+      "recall_min": 0.5
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.8333,
+      "recall_min": 0.7
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.7333,
+      "recall_min": 0.7
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.8933,
+      "recall_min": 0.84
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.84,
+      "recall_min": 0.8
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.7867,
+      "recall_min": 0.56
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 0.2,
+      "recall_min": 0.2
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.1667,
+      "recall_min": 0.1
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.1,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.1,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.02,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.0067,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.02,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "signed",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.02,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.05,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.9,
+      "recall_min": 0.9
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.6,
+      "recall_min": 0.6
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.8,
+      "recall_min": 0.8
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.2,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 1.0,
+      "recall_min": 1.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 1,
+      "recall_mean": 0.9,
+      "recall_min": 0.9
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 5,
+      "recall_mean": 0.1,
+      "recall_min": 0.1
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 20,
+      "recall_mean": 0.0,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 10,
+      "epochs": 50,
+      "recall_mean": 0.0,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 1,
+      "recall_mean": 0.24,
+      "recall_min": 0.24
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 5,
+      "recall_mean": 0.06,
+      "recall_min": 0.06
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 20,
+      "recall_mean": 0.0,
+      "recall_min": 0.0
+    },
+    {
+      "encoder": "random_sparse",
+      "eta": 0.8,
+      "P": 50,
+      "epochs": 50,
+      "recall_mean": 0.02,
+      "recall_min": 0.02
+    }
+  ]
+}

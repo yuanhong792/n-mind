@@ -1,0 +1,89 @@
+{
+  "eval_sanity": "N/A",
+  "rows": [
+    {
+      "encoder": "frozen",
+      "decay": 1.0,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.9667
+    },
+    {
+      "encoder": "frozen",
+      "decay": 1.0,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 0.8
+    },
+    {
+      "encoder": "frozen",
+      "decay": 0.99,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.9667
+    },
+    {
+      "encoder": "frozen",
+      "decay": 0.99,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 1.0
+    },
+    {
+      "encoder": "frozen",
+      "decay": 0.9,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.8667
+    },
+    {
+      "encoder": "frozen",
+      "decay": 0.9,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 1.0
+    },
+    {
+      "encoder": "signed",
+      "decay": 1.0,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.9333
+    },
+    {
+      "encoder": "signed",
+      "decay": 1.0,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 0.8333
+    },
+    {
+      "encoder": "signed",
+      "decay": 0.99,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.9333
+    },
+    {
+      "encoder": "signed",
+      "decay": 0.99,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 1.0
+    },
+    {
+      "encoder": "signed",
+      "decay": 0.9,
+      "epochs": 1,
+      "P": 10,
+      "recall_mean": 0.7333
+    },
+    {
+      "encoder": "signed",
+      "decay": 0.9,
+      "epochs": 10,
+      "P": 10,
+      "recall_mean": 0.9667
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "eval_sanity": "N/A",
+  "plain_outer": {
+    "M": 256,
+    "k": 5,
+    "steps": 50000,
+    "cpu_s": 2.11,
+    "writes_per_s": 23671.4,
+    "curve": [
+      {
+        "step": 5000,
+        "fro_norm": 7.162,
+        "max_abs": 0.116
+      },
+      {
+        "step": 10000,
+        "fro_norm": 7.143,
+        "max_abs": 0.111
+      },
+      {
+        "step": 15000,
+        "fro_norm": 7.159,
+        "max_abs": 0.107
+      },
+      {
+        "step": 20000,
+        "fro_norm": 7.142,
+        "max_abs": 0.113
+      },
+      {
+        "step": 25000,
+        "fro_norm": 7.175,
+        "max_abs": 0.112
+      },
+      {
+        "step": 30000,
+        "fro_norm": 7.158,
+        "max_abs": 0.117
+      },
+      {
+        "step": 35000,
+        "fro_norm": 7.184,
+        "max_abs": 0.122
+      },
+      {
+        "step": 40000,
+        "fro_norm": 7.152,
+        "max_abs": 0.127
+      },
+      {
+        "step": 45000,
+        "fro_norm": 7.138,
+        "max_abs": 0.105
+      },
+      {
+        "step": 50000,
+        "fro_norm": 7.148,
+        "max_abs": 0.112
+      }
+    ],
+    "extrapolated_fro_norm_1e6": 143.0
+  },
+  "normalized_delta": {
+    "M": 256,
+    "k": 5,
+    "steps": 50000,
+    "cpu_s": 2.62,
+    "writes_per_s": 19116.1,
+    "curve": [
+      {
+        "step": 5000,
+        "fro_norm": 2.4,
+        "max_abs": 0.038
+      },
+      {
+        "step": 10000,
+        "fro_norm": 2.392,
+        "max_abs": 0.038
+      },
+      {
+        "step": 15000,
+        "fro_norm": 2.387,
+        "max_abs": 0.04
+      },
+      {
+        "step": 20000,
+        "fro_norm": 2.38,
+        "max_abs": 0.037
+      },
+      {
+        "step": 25000,
+        "fro_norm": 2.386,
+        "max_abs": 0.038
+      },
+      {
+        "step": 30000,
+        "fro_norm": 2.395,
+        "max_abs": 0.04
+      },
+      {
+        "step": 35000,
+        "fro_norm": 2.398,
+        "max_abs": 0.039
+      },
+      {
+        "step": 40000,
+        "fro_norm": 2.385,
+        "max_abs": 0.041
+      },
+      {
+        "step": 45000,
+        "fro_norm": 2.392,
+        "max_abs": 0.04
+      },
+      {
+        "step": 50000,
+        "fro_norm": 2.392,
+        "max_abs": 0.042
+      }
+    ],
+    "extrapolated_fro_norm_1e6": 47.8
+  }
+}

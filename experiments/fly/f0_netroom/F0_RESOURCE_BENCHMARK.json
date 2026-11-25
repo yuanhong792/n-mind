@@ -1,0 +1,34 @@
+{
+  "eval_sanity": "N/A",
+  "rows": [
+    {
+      "M": 2048,
+      "k": 102,
+      "dense_read_ms": 0.21332,
+      "sparse_gather_read_ms": 1.20076,
+      "speedup": 0.18,
+      "dense_mac": 4194304,
+      "ideal_sparse_mac": 208896,
+      "gather_elements": 208896,
+      "matrix_mb_fp32": 16.78
+    },
+    {
+      "M": 512,
+      "k": 10,
+      "dense_read_ms": 0.00641,
+      "sparse_gather_read_ms": 0.00438,
+      "speedup": 1.47,
+      "dense_mac": 262144,
+      "ideal_sparse_mac": 5120,
+      "gather_elements": 5120,
+      "matrix_mb_fp32": 1.05
+    },
+    {
+      "estimator_correction": {
+        "proposal_claim": "Key=128, Value=32 → 32,768 元素 / 128 KiB / 稠密读 32,768 MAC",
+        "arithmetic": "128×32=4096 元素=16 KiB；32,768 对应 1024×32",
+        "corrected": "按提案下拉参数应为 4,096 元素、16 KiB、稠密读 4,096 MAC"
+      }
+    }
+  ]
+}
