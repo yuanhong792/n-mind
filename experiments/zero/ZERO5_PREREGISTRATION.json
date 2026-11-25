@@ -1,0 +1,1 @@
+{"version":"zero5-active-learning-v1","status":"PREPARED_NOT_AUTHORIZED","groups":["P0_random","P1_uncertainty","P2_diversity","P3_random_neural","P4_meta_neural"],"worlds":{"train":12,"dev":6,"sealed":12},"feedback_budget":16,"primary_metric":"unseen_prediction_auc","candidate_updates":1860,"approved":false,"sealed_not_used_for_selection":true}
