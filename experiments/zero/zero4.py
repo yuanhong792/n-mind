@@ -16,7 +16,7 @@ def step(net,gate,x,y,budget,rate=.1,kind='train'):
  budget.reserve(1,kind); net.zero_grad(); loss=nn.functional.cross_entropy(net(x),y); grads=torch.autograd.grad(loss,tuple(net.parameters())); g=gate(torch.stack([loss.detach(),torch.sqrt(sum(z.square().sum() for z in grads)).detach()])) if gate else torch.ones(2)
  for p,z,m in zip(net.parameters(),grads,[g[0],g[0],g[1],g[1]]): p.data.add_(z.data,alpha=-rate*float(m))
  budget.complete(1,kind); return float(loss.detach()),g.detach().tolist()
-def fwd(p,x): return (p['o.weight'] @ torch.tanh(p['h.weight'] @ x.t()+p['h.bias']) + p['o.bias'][:,None]).t()
+def fwd(p,x): return (p['o.weight'] @ torch.tanh(p['h.weight'] @ x.t()+p['h.bias'][:,None]) + p['o.bias'][:,None]).t()
 def functional_adapt(net,gate,x,y):
  p=dict(net.named_parameters()); traces=[]
  for i in range(len(x)):
