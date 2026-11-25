@@ -1,0 +1,100 @@
+{
+  "arm_id": "transformer_N2_heldout_seq_s20270102",
+  "model": "transformer",
+  "N": 2,
+  "split": "heldout_seq",
+  "seed": 20270102,
+  "lr": 0.001,
+  "steps_max": 30000,
+  "deadline_ts": 1795585707.493066,
+  "gated": true,
+  "data_sha256": "7e480f9192be3fd67ce4a097c93f9ffdc77438f2669ccfeb09ad5a2e5f910fe3",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "d4bd6e9",
+    "ts": "2026-11-25T13:18:29+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.559,
+      "dev_wilson_lo": 0.528059,
+      "ce": 1.3436,
+      "wall_s": 13.6
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.544,
+      "dev_wilson_lo": 0.513021,
+      "ce": 1.2807,
+      "wall_s": 37.4
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.533,
+      "dev_wilson_lo": 0.50201,
+      "ce": 1.0824,
+      "wall_s": 120.0
+    },
+    {
+      "step": 30000,
+      "dev_rank": 0.533,
+      "dev_wilson_lo": 0.50201,
+      "ce": 1.0273,
+      "wall_s": 338.8
+    }
+  ],
+  "t_start": 1795583908.8403003,
+  "steps_done": 30000,
+  "wall_s": 338.9,
+  "test": {
+    "n": 1000,
+    "N": 2,
+    "rank_acc": 0.562,
+    "rank_ci95_boot": [
+      0.531,
+      0.593025
+    ],
+    "rank_ci95_wilson": [
+      0.53107,
+      0.592455
+    ],
+    "em_free": 0.446,
+    "em_free_ci95_boot": [
+      0.42,
+      0.475
+    ],
+    "follow": 0.436,
+    "follow_ci95_wilson": [
+      0.405568,
+      0.466922
+    ],
+    "random_rank": 0.5,
+    "random_follow": 0.5
+  },
+  "eval_note": "reeval after fixing free-gen prompt (prompt-only start)"
+}

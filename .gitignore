@@ -52,3 +52,5 @@ _dbg_st.py
 !experiments/math_m4/data/*.jsonl
 !experiments/math_m4/M4_BUDGET_LEDGER.jsonl
 !experiments/math_m4/M4_GENERATION.jsonl
+
+experiments/phase2_baselines/mqar_data/*.npz

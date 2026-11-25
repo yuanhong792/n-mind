@@ -1,0 +1,100 @@
+{
+  "arm_id": "transformer_N4_heldout_seq_s20270101",
+  "model": "transformer",
+  "N": 4,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "lr": 0.001,
+  "steps_max": 30000,
+  "deadline_ts": 1795585707.493066,
+  "gated": true,
+  "data_sha256": "15790585ca3ccc6ac77f83feacd24b664e7dccd4876fab615aedbad7b752a1e1",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "d4bd6e9",
+    "ts": "2026-11-25T13:18:29+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.255,
+      "dev_wilson_lo": 0.228959,
+      "ce": 1.7762,
+      "wall_s": 11.9
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.276,
+      "dev_wilson_lo": 0.249191,
+      "ce": 1.6856,
+      "wall_s": 32.3
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.32,
+      "dev_wilson_lo": 0.291824,
+      "ce": 1.3679,
+      "wall_s": 102.7
+    },
+    {
+      "step": 30000,
+      "dev_rank": 0.373,
+      "dev_wilson_lo": 0.343566,
+      "ce": 1.2751,
+      "wall_s": 303.9
+    }
+  ],
+  "t_start": 1795583908.8413002,
+  "steps_done": 30000,
+  "wall_s": 304.0,
+  "test": {
+    "n": 1000,
+    "N": 4,
+    "rank_acc": 0.361,
+    "rank_ci95_boot": [
+      0.331,
+      0.391025
+    ],
+    "rank_ci95_wilson": [
+      0.331816,
+      0.391248
+    ],
+    "em_free": 0.582,
+    "em_free_ci95_boot": [
+      0.55,
+      0.612
+    ],
+    "follow": 0.599,
+    "follow_ci95_wilson": [
+      0.568301,
+      0.628942
+    ],
+    "random_rank": 0.25,
+    "random_follow": 0.25
+  },
+  "eval_note": "reeval after fixing free-gen prompt (prompt-only start)"
+}

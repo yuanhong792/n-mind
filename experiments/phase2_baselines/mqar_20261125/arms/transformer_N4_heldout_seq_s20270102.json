@@ -1,0 +1,100 @@
+{
+  "arm_id": "transformer_N4_heldout_seq_s20270102",
+  "model": "transformer",
+  "N": 4,
+  "split": "heldout_seq",
+  "seed": 20270102,
+  "lr": 0.001,
+  "steps_max": 30000,
+  "deadline_ts": 1795585707.493066,
+  "gated": true,
+  "data_sha256": "15790585ca3ccc6ac77f83feacd24b664e7dccd4876fab615aedbad7b752a1e1",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "d4bd6e9",
+    "ts": "2026-11-25T13:18:29+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.244,
+      "dev_wilson_lo": 0.218393,
+      "ce": 1.7692,
+      "wall_s": 11.8
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.302,
+      "dev_wilson_lo": 0.274346,
+      "ce": 1.5604,
+      "wall_s": 32.4
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.316,
+      "dev_wilson_lo": 0.287936,
+      "ce": 1.3195,
+      "wall_s": 103.6
+    },
+    {
+      "step": 30000,
+      "dev_rank": 0.328,
+      "dev_wilson_lo": 0.299608,
+      "ce": 1.2828,
+      "wall_s": 306.7
+    }
+  ],
+  "t_start": 1795583908.8808546,
+  "steps_done": 30000,
+  "wall_s": 306.8,
+  "test": {
+    "n": 1000,
+    "N": 4,
+    "rank_acc": 0.32,
+    "rank_ci95_boot": [
+      0.292975,
+      0.348
+    ],
+    "rank_ci95_wilson": [
+      0.291824,
+      0.349554
+    ],
+    "em_free": 0.203,
+    "em_free_ci95_boot": [
+      0.178975,
+      0.228
+    ],
+    "follow": 0.207,
+    "follow_ci95_wilson": [
+      0.183033,
+      0.23321
+    ],
+    "random_rank": 0.25,
+    "random_follow": 0.25
+  },
+  "eval_note": "reeval after fixing free-gen prompt (prompt-only start)"
+}

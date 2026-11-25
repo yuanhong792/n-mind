@@ -164,7 +164,7 @@ GRU / Transformer / Delta-rule = **neither / neither / neither**（v1 需 EM≥0
 
 - EM 是 teacher-forced 答案段逐 token argmax 精确匹配（与 LR 选择同口径），不是自由生成；自由生成跟随率未实现（2.1 已声明不冒充）。
 - 封存集每臂只在停止点评一次；post-hoc 阶梯曲线是额外诊断评估，不入 gates。
-- Transformer 3 臂差 178-227 步到 30000（软 deadline 预留 150s）；EM 与 GRU 同水平，不影响分类。
+- Transformer 3 臂差 178-227 步到 30000（软 deadline 预留 150s）；EM 与 GRU 同水平，不影响分类。2026-11-25 二次会话已批准：接受这三臂的封存读数为有效阶梯读数（标注软截止，不重跑）。
 - 今日计时环境 torch 2.10.0+cu128（11-24 部分会话实测 +cpu）；V=31 与 11-24 计时脚本 V=32 不同。
 - 实体仅 4 个、事实对空间 36，结论范围是已见实体的重组，不是新实体泛化。
 - 数据缓存 data_cache_20261125.pt 是 make_train_test 的逐字节缓存（meta 记 vocab_hash），不是数据改动。

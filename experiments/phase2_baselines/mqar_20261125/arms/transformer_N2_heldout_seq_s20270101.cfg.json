@@ -1,0 +1,10 @@
+{
+  "arm_id": "transformer_N2_heldout_seq_s20270101",
+  "model": "transformer",
+  "N": 2,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "lr": 0.001,
+  "steps_max": 30000,
+  "deadline_ts": 1795585707.493066
+}

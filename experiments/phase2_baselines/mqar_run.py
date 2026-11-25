@@ -246,12 +246,13 @@ def sealed_eval(model, ds) -> dict:
     """封存集只在停止点评测一次：排名（主）、自由生成 EM（次）、跟随（键值互换）。"""
     te, plen = ds["test"], int(ds["prompt_len"])
     rank = rank_eval(model, te, ds["test_cand"], ds["test_true"], plen)
-    gen = free_gen(model, te)
+    prompts = te[:, :plen]  # 自由生成只从 prompt 段开始，不得包含答案
+    gen = free_gen(model, prompts)
     true_ids = ds["test_cand"][np.arange(len(te)), ds["test_true"]]
     true_str = [TOK.decode(list(r)) for r in true_ids]
     gen_str = [TOK.decode(list(r)) for r in gen]
     em = np.asarray([int(g == t) for g, t in zip(gen_str, true_str)])
-    sw = free_gen(model, ds["test_swap"])
+    sw = free_gen(model, ds["test_swap"][:, :plen])
     sw_ans = [TOK.decode(list(r)) for r in ds["test_swap_ans"]]
     sw_gen = [TOK.decode(list(r)) for r in sw]
     follow = np.asarray([int(g == t) for g, t in zip(sw_gen, sw_ans)])
@@ -556,6 +557,100 @@ def write_summary(results, gates, gate_pass, pre) -> None:
         f"crashed={out['n_crashed']} gate={gate_pass}")
 
 
+def cmd_reeval() -> int:
+    """用已存 checkpoint 重评封存集（修复 free-gen 起点含答案的 bug）；不训练。"""
+    import glob
+    n = 0
+    for p in sorted(Path(OUT_DIR / "arms").glob("*.json")):
+        if p.name.endswith((".cfg.json", ".tmp")) or "arms" not in p.name:
+            pass
+        if p.stem.endswith(".cfg") or p.name.endswith(".cfg.json"):
+            continue
+        r = json.loads(p.read_text(encoding="utf-8"))
+        if "test" not in r or "model" not in r:
+            continue
+        ck_path = OUT_DIR / "arms" / f"{r['arm_id']}_step{r.get('steps_done', 0)}.pt"
+        if not ck_path.exists():
+            cands = sorted(Path(OUT_DIR / "arms").glob(f"{r['arm_id']}_step*.pt"))
+            if not cands:
+                log(f"skip {r['arm_id']} no ckpt")
+                continue
+            ck_path = cands[-1]
+        ck = torch.load(ck_path, weights_only=True)
+        model = _model(r["model"])
+        model.load_state_dict(ck["model"])
+        ds, _ = T.load_dataset(r["N"], r["split"])
+        ev = sealed_eval(model, ds)
+        per, logits = ev.pop("per_sample"), ev.pop("logits")
+        (OUT_DIR / "arms" / f"{r['arm_id']}_per_sample.json").write_text(
+            json.dumps({"arm_id": r["arm_id"], "per_sample": per}, ensure_ascii=False),
+            encoding="utf-8")
+        torch.save(logits, OUT_DIR / "arms" / f"{r['arm_id']}_seal_logits.pt")
+        r["test"] = ev
+        r["eval_note"] = "reeval after fixing free-gen prompt (prompt-only start)"
+        atomic_json(p, r)
+        log(f"reeval {r['arm_id']} rank={ev['rank_acc']} em={ev['em_free']} "
+            f"follow={ev['follow']} pred_len_sample={len(per[0]['pred'])}")
+        n += 1
+        del model
+        torch.cuda.empty_cache()
+    log(f"reeval done n={n}")
+    return 0
+
+
+def cmd_plots() -> int:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    s = json.loads((OUT_DIR / "summary.json").read_text(encoding="utf-8"))
+    FIG_DIR.mkdir(parents=True, exist_ok=True)
+    ns = list(T.N_LIST)
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), sharey=True)
+    for ax, split in zip(axes, T.SPLITS):
+        for model in MODELS:
+            xs, ys, es = [], [], []
+            for row in s["table"]:
+                if row["split"] == split and row["model"] == model and row.get("n_seeds"):
+                    xs.append(row["N"]); ys.append(row["mean"]); es.append(row["std"])
+            if xs:
+                ax.errorbar(xs, ys, yerr=es, marker="o", capsize=3, label=model)
+        ax.plot(ns, [1 / n for n in ns], "k--", label="random 1/N")
+        ax.set_xscale("log"); ax.set_title(split); ax.set_xlabel("N")
+        ax.set_xticks(ns); ax.set_xticklabels([str(n) for n in ns])
+        ax.grid(alpha=0.3)
+    axes[0].set_ylabel("sealed candidate rank acc")
+    axes[0].legend(fontsize=8)
+    fig.suptitle("MQAR baselines (seed mean ± std)")
+    fig.tight_layout()
+    fig.savefig(FIG_DIR / "phase25_rank_by_N.png", dpi=150)
+
+    fig2, ax = plt.subplots(figsize=(6.5, 4))
+    for N in GATE_NS:
+        xs, ys, es = [], [], []
+        for step in LEVELS:
+            vals = []
+            for seed in SEEDS:
+                p = OUT_DIR / "arms" / f"transformer_N{N}_{GATE_SPLIT}_s{seed}.json"
+                if not p.exists():
+                    continue
+                r = json.loads(p.read_text(encoding="utf-8"))
+                for lv in r.get("levels", []):
+                    if lv["step"] == step:
+                        vals.append(lv["dev_rank"])
+            if vals:
+                xs.append(step); ys.append(float(np.mean(vals))); es.append(float(np.std(vals)))
+        if xs:
+            ax.errorbar(xs, ys, yerr=es, marker="o", capsize=3, label=f"N={N}")
+    ax.axhline(GATE_MIN_CI, color="r", ls=":", label="gate 0.90 (CI lower)")
+    ax.set_xscale("log"); ax.set_xlabel("steps"); ax.set_ylabel("dev rank acc")
+    ax.set_title("Transformer positive-control (heldout_seq)")
+    ax.legend(fontsize=8); ax.grid(alpha=0.3)
+    fig2.tight_layout()
+    fig2.savefig(FIG_DIR / "phase25_gate_curves.png", dpi=150)
+    log("plots saved")
+    return 0
+
+
 def main() -> int:
     cmd = sys.argv[1]
     if cmd == "gen":
@@ -565,7 +660,16 @@ def main() -> int:
     if cmd == "bench":
         return cmd_bench()
     if cmd == "train":
-        return cmd_train()
+        rc = cmd_train()
+        try:
+            cmd_plots()
+        except Exception as e:  # noqa: BLE001
+            log(f"plots failed {e!r}")
+        return rc
+    if cmd == "plots":
+        return cmd_plots()
+    if cmd == "reeval":
+        return cmd_reeval()
     if cmd == "worker":
         return cmd_worker(sys.argv[sys.argv.index("--cfg") + 1])
     raise SystemExit(f"unknown cmd {cmd}")

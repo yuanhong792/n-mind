@@ -1,0 +1,54 @@
+{
+  "status": "STOPPED",
+  "detail": {
+    "reason": "POSITIVE_CONTROL_FAILED",
+    "gates": {
+      "N2": {
+        "n_pass_seeds": 0,
+        "seeds": [
+          {
+            "seed": 20270101,
+            "dev_wilson_lo": 0.757433,
+            "status": "COMPLETE",
+            "steps": 30000
+          },
+          {
+            "seed": 20270102,
+            "dev_wilson_lo": 0.528059,
+            "status": "COMPLETE",
+            "steps": 30000
+          },
+          {
+            "seed": 20270103,
+            "dev_wilson_lo": 0.675993,
+            "status": "COMPLETE",
+            "steps": 30000
+          }
+        ]
+      },
+      "N4": {
+        "n_pass_seeds": 0,
+        "seeds": [
+          {
+            "seed": 20270101,
+            "dev_wilson_lo": 0.343566,
+            "status": "COMPLETE",
+            "steps": 30000
+          },
+          {
+            "seed": 20270102,
+            "dev_wilson_lo": 0.299608,
+            "status": "COMPLETE",
+            "steps": 30000
+          },
+          {
+            "seed": 20270103,
+            "dev_wilson_lo": 0.472059,
+            "status": "COMPLETE",
+            "steps": 30000
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "arm_id": "transformer_N2_heldout_seq_s20270101",
+  "model": "transformer",
+  "N": 2,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "lr": 0.001,
+  "steps_max": 30000,
+  "deadline_ts": 1795585707.493066,
+  "gated": true,
+  "data_sha256": "7e480f9192be3fd67ce4a097c93f9ffdc77438f2669ccfeb09ad5a2e5f910fe3",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "d4bd6e9",
+    "ts": "2026-11-25T13:18:29+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.484,
+      "dev_wilson_lo": 0.453147,
+      "ce": 1.384,
+      "wall_s": 12.5
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.784,
+      "dev_wilson_lo": 0.757433,
+      "ce": 1.2536,
+      "wall_s": 36.0
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.756,
+      "dev_wilson_lo": 0.728434,
+      "ce": 1.0581,
+      "wall_s": 118.0
+    },
+    {
+      "step": 30000,
+      "dev_rank": 0.743,
+      "dev_wilson_lo": 0.715022,
+      "ce": 1.0284,
+      "wall_s": 336.2
+    }
+  ],
+  "t_start": 1795583908.7946277,
+  "steps_done": 30000,
+  "wall_s": 336.4,
+  "test": {
+    "n": 1000,
+    "N": 2,
+    "rank_acc": 0.766,
+    "rank_ci95_boot": [
+      0.741,
+      0.793025
+    ],
+    "rank_ci95_wilson": [
+      0.738772,
+      0.791192
+    ],
+    "em_free": 0.991,
+    "em_free_ci95_boot": [
+      0.985,
+      0.996
+    ],
+    "follow": 0.986,
+    "follow_ci95_wilson": [
+      0.976638,
+      0.991642
+    ],
+    "random_rank": 0.5,
+    "random_follow": 0.5
+  },
+  "eval_note": "reeval after fixing free-gen prompt (prompt-only start)"
+}
