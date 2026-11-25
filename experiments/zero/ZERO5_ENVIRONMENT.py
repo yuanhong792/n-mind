@@ -5,7 +5,7 @@ class UnknownWorld:
     def observe(self,i): return self.x[i]
     def feedback(self,i): self.seen.add(int(i)); return int((self.x[i]@self.w>0).item())
     def hidden_labels(self): raise RuntimeError('hidden labels are inaccessible')
-*** Add File: D:/cpu本地模型开发/n-mind/experiments/zero/ZERO5_EXPLORATION.py
+ 
 import torch
 from torch import nn
 class Explorer(nn.Module):
