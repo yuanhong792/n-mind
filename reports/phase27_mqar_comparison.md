@@ -1,6 +1,6 @@
 # 阶段 2.7：EM/排名分离分析、基线对比、N-MIND 分阶段（2026-11-25，AutoClaw）
 
-分支 `experiment/minimum-sufficient-interaction-m4`。预注册 `cf5e7a2`（早于训练）。eval_sanity：**PASS 8/8 @ 54af4dc**（本报告全部评测输出均在此套件通过后产生）。
+分支：当前工作分支 `experiment/fly-mushroom-body`（与 `experiment/minimum-sufficient-interaction-m4` 共享至 `cf5e7a2` 的历史）。预注册 `cf5e7a2`（早于训练）。eval_sanity：**PASS 8/8 @ 54af4dc**（本报告全部评测输出均在此套件通过后产生）。
 
 未批未做：N-MIND 多种子、N-MIND N≥4、先导/正式层、Gate-B、晋升、换词表、修改 N-MIND 模型代码。
 
