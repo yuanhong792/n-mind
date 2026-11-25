@@ -1,0 +1,86 @@
+[
+  {
+    "model": "gru",
+    "N": 2,
+    "L": 34,
+    "step_ms": 2.516,
+    "est_30k_s": 75.5
+  },
+  {
+    "model": "gru",
+    "N": 4,
+    "L": 54,
+    "step_ms": 3.335,
+    "est_30k_s": 100.0
+  },
+  {
+    "model": "gru",
+    "N": 8,
+    "L": 94,
+    "step_ms": 5.006,
+    "est_30k_s": 150.2
+  },
+  {
+    "model": "gru",
+    "N": 16,
+    "L": 174,
+    "step_ms": 8.616,
+    "est_30k_s": 258.5
+  },
+  {
+    "model": "transformer",
+    "N": 2,
+    "L": 34,
+    "step_ms": 3.673,
+    "est_30k_s": 110.2
+  },
+  {
+    "model": "transformer",
+    "N": 4,
+    "L": 54,
+    "step_ms": 5.668,
+    "est_30k_s": 170.0
+  },
+  {
+    "model": "transformer",
+    "N": 8,
+    "L": 94,
+    "step_ms": 5.382,
+    "est_30k_s": 161.5
+  },
+  {
+    "model": "transformer",
+    "N": 16,
+    "L": 174,
+    "step_ms": 6.017,
+    "est_30k_s": 180.5
+  },
+  {
+    "model": "delta",
+    "N": 2,
+    "L": 34,
+    "step_ms": 11.601,
+    "est_30k_s": 348.0
+  },
+  {
+    "model": "delta",
+    "N": 4,
+    "L": 54,
+    "step_ms": 17.825,
+    "est_30k_s": 534.8
+  },
+  {
+    "model": "delta",
+    "N": 8,
+    "L": 94,
+    "step_ms": 31.823,
+    "est_30k_s": 954.7
+  },
+  {
+    "model": "delta",
+    "N": 16,
+    "L": 174,
+    "step_ms": 133.155,
+    "est_30k_s": 3994.7
+  }
+]

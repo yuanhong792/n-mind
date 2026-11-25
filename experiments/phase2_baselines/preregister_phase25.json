@@ -1,0 +1,237 @@
+{
+  "status": "PREREGISTERED_20261125_MQAR_AWAITING_EXECUTION",
+  "date": "2026-11-25",
+  "task": "MQAR 键值关联记忆（新构造，不改历史 large_binding 任务与 2.4 结果）",
+  "vocab": {
+    "path": "experiments/m5_language/tokenizer_m52.json",
+    "vocab_hash": "08387866cef10d83",
+    "size": 31,
+    "note": "不扩词表；名字由现有非结构字符组成"
+  },
+  "names": {
+    "chars": "小明红号位置哪里收到好了白了",
+    "len": 4,
+    "pool_each": 2048,
+    "pools": "A/B训练/B测试 六池互不相交"
+  },
+  "n_list": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "splits": {
+    "heldout_seq": "同名字池、序列不相交（上下文读取）；报告训练-测试键值对重叠",
+    "heldout_name": "测试名字池与训练互不相交（新实体泛化）"
+  },
+  "n_train_dev_test": [
+    20000,
+    1000,
+    1000
+  ],
+  "template": "<bos>k1:v1\\n...\\n用户：kq？ + vq<eos>",
+  "data_files": [
+    {
+      "N": 2,
+      "split": "heldout_seq",
+      "sha256": "7e480f9192be3fd67ce4a097c93f9ffdc77438f2669ccfeb09ad5a2e5f910fe3",
+      "L": 34
+    },
+    {
+      "N": 2,
+      "split": "heldout_name",
+      "sha256": "614b5cda1f0f339c008c0b3ff3b544baf803cbf269d3c40e31b51e768d76fbc9",
+      "L": 34
+    },
+    {
+      "N": 4,
+      "split": "heldout_seq",
+      "sha256": "15790585ca3ccc6ac77f83feacd24b664e7dccd4876fab615aedbad7b752a1e1",
+      "L": 54
+    },
+    {
+      "N": 4,
+      "split": "heldout_name",
+      "sha256": "bae09846d9e1041d79d40b1fe7c84cc23ba7d2ae0841c6b844007627e731659d",
+      "L": 54
+    },
+    {
+      "N": 8,
+      "split": "heldout_seq",
+      "sha256": "f18f30ea9f5debc86a639c856dda375f0d1f9a2b836a773005657fea995e86ee",
+      "L": 94
+    },
+    {
+      "N": 8,
+      "split": "heldout_name",
+      "sha256": "0e88cbc476ac4d83bf73d47dc7783819770b03a2dcc107d02c31d1e4814f0627",
+      "L": 94
+    },
+    {
+      "N": 16,
+      "split": "heldout_seq",
+      "sha256": "45abd8919bd713bb6b350db8168e49985bf21fb23a60d5336bd1c75d13e46ff6",
+      "L": 174
+    },
+    {
+      "N": 16,
+      "split": "heldout_name",
+      "sha256": "025cb12078b7a1beab9b3e0ab52a2fb3e3a8492f187b9f2abe4e59900f9c5f2e",
+      "L": 174
+    }
+  ],
+  "audit_all_ok": true,
+  "hash_check": "mqar_task.load_dataset 对每个文件重算 sha256，与 meta 不一致抛 DATA_HASH_MISMATCH；训练 worker 与审计都走该入口（问题2 的代码级检查）",
+  "models": [
+    "gru",
+    "transformer",
+    "delta"
+  ],
+  "param_ref": 434553,
+  "param_tol": 0.05,
+  "lrs": {
+    "gru": 0.001,
+    "transformer": 0.001,
+    "delta": 0.003,
+    "note": "沿用 2.4 选择，MQAR 不做新 LR 搜索（预算）"
+  },
+  "batch": 32,
+  "precision": "fp32 (TF32 off)",
+  "seeds": [
+    20270101,
+    20270102,
+    20270103
+  ],
+  "levels": [
+    1000,
+    3000,
+    10000,
+    30000
+  ],
+  "loss": "全序列 LM 交叉熵（shifted）",
+  "gate": {
+    "model": "transformer",
+    "N": [
+      2,
+      4
+    ],
+    "split": "heldout_seq",
+    "metric": "candidate_rank_accuracy",
+    "criterion": "dev 集 Wilson 95%CI 下界 >= 0.90",
+    "min_seeds": 2,
+    "stop": "达到门槛即停（dev 上判定，封存 test 只在停止点评测一次）",
+    "rationale": "门槛检验上下文读取；留出名字划分只报告不设门槛。若需两划分都设 0.90 门槛，请在结果前提出——本预注册不自行扩门槛"
+  },
+  "metrics": {
+    "primary": "候选排名准确率（候选=序列内 N 个值）",
+    "secondary": "自由生成 EM",
+    "follow": "键值互换后自由生成答案=原键；随机=1/N"
+  },
+  "shortcuts": [
+    "random=1/N",
+    "recent",
+    "first",
+    "global_majority"
+  ],
+  "shortcut_tol": 0.05,
+  "global_cap_s": 1800,
+  "timeout_status": "INCONCLUSIVE_BUDGET",
+  "workers": 6,
+  "priority": "正控制 6 臂先行；之后 N 升序、transformer>gru>delta；delta N=16 最后",
+  "estimates": {
+    "bench_gpu_ms_per_step": [
+      {
+        "model": "gru",
+        "N": 2,
+        "L": 34,
+        "step_ms": 2.516,
+        "est_30k_s": 75.5
+      },
+      {
+        "model": "gru",
+        "N": 4,
+        "L": 54,
+        "step_ms": 3.335,
+        "est_30k_s": 100.0
+      },
+      {
+        "model": "gru",
+        "N": 8,
+        "L": 94,
+        "step_ms": 5.006,
+        "est_30k_s": 150.2
+      },
+      {
+        "model": "gru",
+        "N": 16,
+        "L": 174,
+        "step_ms": 8.616,
+        "est_30k_s": 258.5
+      },
+      {
+        "model": "transformer",
+        "N": 2,
+        "L": 34,
+        "step_ms": 3.673,
+        "est_30k_s": 110.2
+      },
+      {
+        "model": "transformer",
+        "N": 4,
+        "L": 54,
+        "step_ms": 5.668,
+        "est_30k_s": 170.0
+      },
+      {
+        "model": "transformer",
+        "N": 8,
+        "L": 94,
+        "step_ms": 5.382,
+        "est_30k_s": 161.5
+      },
+      {
+        "model": "transformer",
+        "N": 16,
+        "L": 174,
+        "step_ms": 6.017,
+        "est_30k_s": 180.5
+      },
+      {
+        "model": "delta",
+        "N": 2,
+        "L": 34,
+        "step_ms": 11.601,
+        "est_30k_s": 348.0
+      },
+      {
+        "model": "delta",
+        "N": 4,
+        "L": 54,
+        "step_ms": 17.825,
+        "est_30k_s": 534.8
+      },
+      {
+        "model": "delta",
+        "N": 8,
+        "L": 94,
+        "step_ms": 31.823,
+        "est_30k_s": 954.7
+      },
+      {
+        "model": "delta",
+        "N": 16,
+        "L": 174,
+        "step_ms": 133.155,
+        "est_30k_s": 3994.7
+      }
+    ],
+    "total_gpu_work_s": 42232.0,
+    "note": "6 种子×全臂 GPU 工作量远超 1800s；Delta N=16 单臂 30k≈3995s。预期 Delta N=8/16 为 INCONCLUSIVE_BUDGET，不缩小步数/种子/模型"
+  },
+  "stop_conditions": [
+    "正控制不通过→停止后续",
+    "全局 1800s 超时→未完成臂 INCONCLUSIVE_BUDGET",
+    "数据哈希不一致→ARM_CRASHED",
+    "捷径 > 1/N+0.05 已在审计排除"
+  ]
+}

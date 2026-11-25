@@ -1,0 +1,19 @@
+{
+  "N": 16,
+  "split": "heldout_seq",
+  "prompt_len": 169,
+  "L": 174,
+  "n_train": 20000,
+  "n_dev": 1000,
+  "n_test": 1000,
+  "file": "mqar_N16_heldout_seq.npz",
+  "sha256": "45abd8919bd713bb6b350db8168e49985bf21fb23a60d5336bd1c75d13e46ff6",
+  "tokenizer": "D:\\cpu本地模型开发\\n-mind\\experiments\\m5_language\\tokenizer_m52.json",
+  "tokenizer_vocab_hash": "08387866cef10d83",
+  "vocab_size": 31,
+  "name_chars": "小明红号位置哪里收到好了白了",
+  "pool_size": 2048,
+  "possible_sequences": 130513576162317792409977161238691602056072409803051126049580854514607095876324823445892018020796071936000000,
+  "possible_over_train": 6.525678808115889e+102,
+  "template": "<bos>{k1:v1\\n...\\n用户：kq？} + vq<eos>"
+}
