@@ -1,0 +1,15 @@
+{
+  "version": "zero3-meta-v1",
+  "parent_commit": "b1ea10b",
+  "status": "PREPARED_NOT_AUTHORIZED",
+  "task_network": "ZERO-A 178 parameters, fresh per task",
+  "controller": "16-128 parameter bounded positive learning-rate controller",
+  "conditions": ["M0 fixed SGD", "M1 learned global scalar", "M2 learned state-conditioned rate"],
+  "inner_steps": [1,2,4,8],
+  "meta_train_dev_sealed_tasks": [32,8,16],
+  "proposed_controller_seeds": [11,22,33],
+  "proposed_update_budget": "requires explicit approval",
+  "eta_bounds": [0.0001,0.1],
+  "sealed_tasks_never_used_for_selection": true,
+  "first_order_or_full_meta_gradient": "full differentiable update required unless separately preregistered"
+}
