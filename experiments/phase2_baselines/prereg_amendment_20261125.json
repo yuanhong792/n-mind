@@ -1,0 +1,68 @@
+{
+  "protocol": "N-MIND-vs-size-matched-baselines-v1",
+  "amendment_20261125": {
+    "author": "AutoClaw（阶段 2.4 重跑执行者）",
+    "date": "2026-11-25",
+    "purpose": "阶段 2.4 第二次执行（本次指令）：计时重测、预算估算、LR 选择重跑（并行、15 分钟上限）、条件性阶梯（60 分钟上限）与数据审计补报。本文件在任何 optimizer.step 之前提交。",
+    "scope": {
+      "approved": ["matched timing 20 steps", "lr selection rerun parallel cap 15min", "conditional ladder cap 60min", "data audit supplement"],
+      "not_approved": ["any N-MIND training or smoke", "pilot layer", "formal layer", "Gate-B rebuild", "any promotion", "task/data replacement"]
+    },
+    "timing_basis_20261125": {
+      "artifact": "experiments/phase2_baselines/timing_matched_20261125.json",
+      "conditions": "batch=16, seq=32, torch 1 thread, 20 steps x 6 reps discard first, AdamW+CE; machine idle (total CPU 3.6% pre-check)",
+      "torch": "2.10.0+cu128 (2026-11-25 实测；与 20261124 计时环境的构建版本可能不同，见局限)",
+      "vocab_note": "本次计时/训练统一使用 tok.vocab_size=31（stable m52 词表）。20261124 计时脚本硬编码 V=32，导致其参数量（414316/437408/424732）与实际训练参数量略异；本次实际参数量为 gru=413801 / transformer=437151 / delta=423491，相对参考 434553 分别 -4.78%/+0.60%/-2.54%，全部通过 ±5% 硬闸。",
+      "step_ms_median": {"gru": 38.98, "transformer": 41.51, "delta": 37.66},
+      "step_ms_range": {"gru": [28.83, 40.14], "transformer": [40.43, 42.91], "delta": [36.38, 39.21]},
+      "dev600_eval_s": {"gru": 2.67, "transformer": 2.65, "delta": 3.87},
+      "data_build_s_once": 223.06,
+      "slower_than_20261124": "本次单步约为 20261124 计时（15-19ms）的 2.5 倍；可能来自 torch 构建（cu128 vs cpu）、机器状态或 V=31 口径；预算估算一律以本次较慢口径为准（保守）"
+    },
+    "budget_estimates_preregistered": {
+      "lr_selection": {
+        "tasks": "3 models x 3 lr x 1 seed(20270501), 1000 steps each, dev(=组合留出600条)只在1000步结束评一次",
+        "parallel": "9 independent subprocesses, torch 1 thread each (cap: physical cores 20 - 4 = 16 >= 9)",
+        "data_cache": "make_train_test 确定性生成一次性缓存（构建 ~230s，不计入 15 分钟任务上限；内容与直接生成一致，meta 记 vocab_hash）",
+        "per_task_estimate_s": "1000 x 0.039-0.100(9 路并行争用取保守上限) + dev 评估 2.7-3.9 + 启动 ~5 = 47-110",
+        "wall_estimate_s": "230(缓存,一次性) + ceil(9/9) x 110 = 340 约 5.7 分钟",
+        "cap_s": 900,
+        "verdict": "估算 < 15 分钟上限 → 允许执行；超限由执行器硬闸终止并保留已完成任务"
+      },
+      "ladder": {
+        "arms": "3 models x 3 seeds(20270101-03) = 9, 各自独立进程、1 线程",
+        "levels": [1000, 3000, 10000, 30000],
+        "total_optimizer_steps_upper": 270000,
+        "per_arm_estimate_s": "30000 x 0.039-0.100 = 1170-3000 + 每 100 步日志 + 封存评测一次 ~10-20 + checkpoint 保存",
+        "wall_estimate_s": "9 臂全并行 → max(per_arm) = 1170-3000 ≈ 20-50 分钟",
+        "cap_s": 3600,
+        "slope_guard": "臂内每级开始前用已观测斜率外推；预计超出全局 deadline 即停（停止前仍完成封存评测并保留已完成级别 checkpoint）；逐步软 deadline（预留 150s 封存/保存）",
+        "verdict": "估算上限 50 分钟 < 60 分钟 → 允许执行；实际斜率超限则 INCONCLUSIVE_BUDGET（有日志证据）"
+      }
+    },
+    "metrics": {
+      "em": "teacher-forced 答案段逐 token argmax 精确匹配（与 LR 选择 dev_rank_accuracy 同口径；非自由生成）",
+      "candidate_rank_accuracy": "4 个位置候选（{查询实体}在{1-4}号位置。）按答案段总对数概率取 argmax，命中正确候选计 1",
+      "counterfactual_follow_rate": "按 (上下文, 确认语) 分组、组内 ≥2 个不同查询实体构成反事实配对；配对内全部条目 EM 才计 1",
+      "shortcut_baselines": ["recent_entity", "first_entity", "fixed_position(1号)", "majority_position(由训练集目标位置众数)"],
+      "strongest_shortcut": "封存集上四条捷径 EM 的最大值（数据确定性，不读模型）",
+      "follow_random_baseline": 0.0625,
+      "gates_unchanged": {"v1": {"em_min": 0.8, "follow_rate_min": 0.7}, "v2": {"rank_ci_lower_gt_strongest_shortcut_plus": 0.1, "follow_ci_lower_gt_random_plus": 0.1, "min_seeds_passing": 2}, "classification": ["v1_satisfied", "v2_only", "neither"]}
+    },
+    "artifacts": {
+      "timing": "experiments/phase2_baselines/timing_matched_20261125.json",
+      "lr_tasks": "experiments/phase2_baselines/lr_tasks_20261125/（逐任务 JSON + summary.json + 日志）",
+      "ladder": "experiments/phase2_baselines/ladder_20261125/（逐臂 checkpoint/seal_per_sample/seal_logits/arm JSON/每100步日志 + summary.json + gates）",
+      "data_cache": "experiments/phase2_baselines/data_cache_20261125.pt（内容 = make_train_test(20000,600) 逐字节一致，非数据改动）",
+      "fact_audit_supplement": "experiments/phase2_baselines/fact_audit_train_20261125.json（对实际训练数据用 fact_audit_20261124 同一定义补算）"
+    },
+    "stop_conditions": [
+      "LR 任务阶段超 900s：终止未完成任务，保留已完成结果；某模型 3 个 LR 未全部完成 → 该模型 INCONCLUSIVE_BUDGET 不进阶梯",
+      "阶梯任一臂外推或软 deadline 判定无法在 3600s 内完成 → 该臂 INCONCLUSIVE_BUDGET（保留工件）",
+      "全部臂 30000 步后仍不满足 v2 且过拟合排错与数据审计正常 → 报告诊断并给出 MQAR 标准定义方案，不自行替换任务",
+      "与约束冲突或新疑点 → 停止并报告"
+    ],
+    "committed_before_training": true
+  },
+  "status": "PREREGISTERED_20261125_AWAITING_EXECUTION"
+}

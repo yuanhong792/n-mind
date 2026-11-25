@@ -1,0 +1,48 @@
+{
+  "protocol": "20 steps, batch16 x seq32, 6 reps discard first, torch 1 thread",
+  "data_build_s": 223.06,
+  "rows": [
+    {
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 38.979010000002745,
+      "step_ms_min": 28.826075000006313,
+      "step_ms_max": 40.13831500001288,
+      "warmup_discarded": 38.90813499997421,
+      "dev_eval_s": 2.670255100000759,
+      "dev_n": 600,
+      "dev_loss": 3.763102399905523
+    },
+    {
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 41.510334999975385,
+      "step_ms_min": 40.42730000001029,
+      "step_ms_max": 42.90724500001488,
+      "warmup_discarded": 44.75382000000536,
+      "dev_eval_s": 2.650454399999944,
+      "dev_n": 600,
+      "dev_loss": 3.8340474609533945
+    },
+    {
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 37.66200000000026,
+      "step_ms_min": 36.37965500001883,
+      "step_ms_max": 39.20519499997681,
+      "warmup_discarded": 36.09306500002276,
+      "dev_eval_s": 3.874347700000726,
+      "dev_n": 600,
+      "dev_loss": 4.397927498022716
+    }
+  ],
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch_threads": 1,
+    "git_rev": "f002ef6",
+    "ts": "2026-11-25T10:46:23+0800",
+    "logical_cores": 28
+  }
+}
