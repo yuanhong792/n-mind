@@ -1,0 +1,11 @@
+{
+  "N": 4,
+  "split": "heldout_seq_seal2",
+  "prompt_len": 49,
+  "L": 54,
+  "n_test": 1000,
+  "sha256": "82bbca4acee8d3b880ed2705f24da34fc8b923783b8f681b367a9143ad3fea2a",
+  "seed": 20271206,
+  "excluded_fingerprints": 22000,
+  "seq_overlap_with_train_dev_test": 0
+}

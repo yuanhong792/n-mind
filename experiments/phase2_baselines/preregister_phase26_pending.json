@@ -1,0 +1,33 @@
+{
+  "status": "PENDING_APPROVAL",
+  "date": "2026-11-25",
+  "note": "阶段 2.6 C.3：排名 bug 修复后正控制通过（N=2 3/3、N=4 3/3）。按指令只写预注册不运行。GRU/Delta 的 MQAR 运行与 N-MIND 训练均未获批准。",
+  "prereg_version": "phase26_pending_gru_delta_nmind",
+  "mqar_task": {
+    "ref": "experiments/phase2_baselines/preregister_phase25.json",
+    "vocab_unchanged": true,
+    "splits": ["heldout_seq"],
+    "N_list": [2, 4],
+    "n_train_dev_test": [20000, 1000, 1000],
+    "data_files": "沿用 mqar_data/ 既有哈希；若扩 N=8/16 需另批"
+  },
+  "gru_delta": {
+    "models": ["gru", "delta"],
+    "param_gate": "assert_reference_match 434553 ±5%",
+    "lrs": {"gru": 0.001, "delta": 0.003, "note": "沿用 2.4/2.5 预注册；若要网格需另批"},
+    "seeds": [20270101, 20270102, 20270103],
+    "levels": [1000, 3000, 10000, 30000],
+    "batch": 32,
+    "precision": "fp32 TF32 off",
+    "device": "cuda",
+    "gate_for_report_only": "与 transformer 同式（dev 排名 Wilson 下界 ≥0.90，≥2/3 种子）但只报告不作为停止条件（2.5 预注册：其余模型只报告）",
+    "eval": "eval_sanity 必须先过；排名用 candidate_scores（54af4dc 修复版）；封存集 seal2 只读一次；EM/follow 用簇级 bootstrap",
+    "budget": {"global_cap_s": 1800, "workers": 6, "timeout": "INCONCLUSIVE_BUDGET"},
+    "delta_n16_warning": "GPU 基准 133ms/步，30k≈3995s，若跑 N=16 必超时；本预注册只含 N=2,4"
+  },
+  "nmind_on_mqar": {
+    "status": "PENDING_APPROVAL",
+    "note": "N-MIND 的任何训练/冒烟未批准。若批准：MQAR N=2,4 heldout_seq，同数据/词表/指标/封存集，参数量与基线同闸或按 N-MIND 自身配置另定；先冒烟后训练的既有门禁不变；不晋升、不动 stable。"
+  },
+  "not_included": ["N=8/16", "heldout_name 运行", "名字长度缩短", "v2 answer-only 重训（正控制已过，D 不触发）"]
+}
