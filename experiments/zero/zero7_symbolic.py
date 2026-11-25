@@ -136,6 +136,17 @@ class SymbolAgent:
         return {"free_symbol_exact_accuracy": float((logits.argmax(1) == targets).float().mean()),
                 "cross_entropy": float(F.cross_entropy(logits, targets))}
 
+    @torch.no_grad()
+    def evaluate_object_selection(self, world: SymbolWorld, split: str, tokens: tuple[int, ...]) -> dict:
+        success = []
+        for token in tokens:
+            x, t, match = world.query(split, (token,))
+            scores = self.logits(x, t).softmax(1)[:, 1]
+            choice = int(scores.argmax())
+            success.append(int(match[choice]))
+        return {"selected_object_match_rate": sum(success) / len(success),
+                "symbols_evaluated": len(success)}
+
     def feedback_update(self, sample: tuple[torch.Tensor, int, torch.Tensor, int, int], budget: Budget) -> dict:
         x, token, label, relation, canonical = sample
         self.optimizer.zero_grad(set_to_none=True)

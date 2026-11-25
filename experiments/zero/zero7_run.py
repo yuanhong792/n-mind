@@ -50,6 +50,7 @@ def run(budget: Budget) -> dict:
                                    "known_dev": agent.evaluate(world, "dev", tuple(range(9))),
                                    "novel_dev": agent.evaluate(world, "dev", (9, 10, 11)),
                                    "reverse_dev": agent.evaluate_reverse(world, "dev"),
+                                   "object_selection_dev": agent.evaluate_object_selection(world, "dev", tuple(range(9))),
                                    "old_skill_balanced_accuracy": agent.old_skill_accuracy(seed)})
                 if k == 32:
                     break
@@ -61,6 +62,7 @@ def run(budget: Budget) -> dict:
             final = {"known": agent.evaluate(world, "sealed", tuple(range(9))),
                      "novel": agent.evaluate(world, "sealed", (9, 10, 11)),
                      "reverse": agent.evaluate_reverse(world, "sealed")}
+            final["object_selection"] = agent.evaluate_object_selection(world, "sealed", tuple(range(9)))
             RESULTS.mkdir(parents=True, exist_ok=True)
             checkpoint = RESULTS / f"{name}_seed_{seed}.pt"
             fd, tmp = tempfile.mkstemp(dir=RESULTS, suffix=".tmp")
@@ -89,7 +91,8 @@ def run(budget: Budget) -> dict:
         rows.append({"seed": seed, "arm": "frozen_inherited_control", "updates": 0,
                      "final_sealed": {"known": frozen.evaluate(world, "sealed", tuple(range(9))),
                                       "novel": frozen.evaluate(world, "sealed", (9,10,11)),
-                                      "reverse": frozen.evaluate_reverse(world, "sealed")},
+                                      "reverse": frozen.evaluate_reverse(world, "sealed"),
+                                      "object_selection": frozen.evaluate_object_selection(world, "sealed", tuple(range(9)))},
                      "old_skill_balanced_accuracy": frozen.old_skill_accuracy(seed, sealed=True)})
         _, _, forward_labels = world.query("sealed", tuple(range(12)))
         _, _, reverse_labels = world.reverse_query("sealed")

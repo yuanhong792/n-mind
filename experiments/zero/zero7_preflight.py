@@ -32,6 +32,7 @@ def main() -> None:
         known = inherited.evaluate(world, "dev", tuple(range(9)))
         novel = inherited.evaluate(world, "dev", (9, 10, 11))
         reverse = inherited.evaluate_reverse(world, "dev")
+        selected = inherited.evaluate_object_selection(world, "dev", tuple(range(9)))
         sample = world.feedback(0, 0)
         x, token, label, relation, canonical = sample
         diagnostic_loss = (F.cross_entropy(inherited.logits(x[None], torch.tensor([token])), label[None]) +
@@ -50,6 +51,7 @@ def main() -> None:
                        "old_skill_dev_balanced_accuracy": inherited.old_skill_accuracy(seed),
                        "known_dev_forward": known, "novel_dev_forward": novel,
                        "reverse_dev_forward": reverse,
+                       "object_selection_dev_forward": selected,
                        "neural_gradient_tensors_nonzero": active_gradient_tensors,
                        "symbol_head_parameters": sum(p.numel() for p in inherited.head.parameters()),
                        "predictor_weights_unchanged": all(torch.equal(a,b) for a,b in zip(inherited_before,inherited.core.predictor.parameters()))})
@@ -79,7 +81,9 @@ def main() -> None:
             "zero_update_controls":["frozen_inherited_control","random_prediction_control"],
             "support_protocol":"24 feedbacks for tokens 0..8; then 8 feedbacks for novel tokens 9..11; same paired object order",
             "sealed_protocol":"Only final endpoint; not used for parameter selection",
-            "primary_metrics":["novel-symbol sealed accuracy","unseen-object combination accuracy","old ZERO-6 skill retention"],
+            "primary_metrics":["symbol-object match accuracy","symbol-driven object selection match rate",
+                               "object-to-complete-symbol exact accuracy","novel-symbol sealed accuracy",
+                               "unseen-object combination accuracy","old ZERO-6 skill retention"],
             "budget_max":PLAN,"training_authorized":False}
     (HERE/"ZERO7_PREREGISTRATION.json").write_text(json.dumps(prereg,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"status":result["status"],"worlds":len(audits),"updates":0,"budget_request":PLAN}))

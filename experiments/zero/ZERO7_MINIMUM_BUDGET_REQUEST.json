@@ -13,7 +13,7 @@
     "frozen_inherited_model"
   ],
   "feedback_per_arm": "24 known-symbol then 8 novel-symbol",
-  "source_preregistration_sha256": "4cb67c2818e8d9efbef019848180de4bc655cafcbf58122eba3d41043817e067",
+  "source_preregistration_sha256": "d17589e8fcb1dd764ccb4b8cc6d8bfd822f101f14497777427406cee7f226dd0",
   "zero5_remaining_140": "NOT_USED",
   "zero6_checkpoint_read_only": true,
   "additional_new_parameters": 1003,

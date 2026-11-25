@@ -2,9 +2,9 @@
   "status": "FROZEN_REQUEST_ONLY_NOT_AUTHORIZED",
   "zero6_source_commit": "c0d537e07455aa8ccb2f579d84deb22269243bff",
   "source_sha256": {
-    "zero7_symbolic.py": "6a710d8a24c8c38fe60cb25af21b4e2712075e21ce03f10b8dc0d41f5b6bf765",
-    "zero7_run.py": "c84e750ebeee8277e1f03d8d35466dbc3d7dfd1992a4bd48df5ec27a03dac455",
-    "zero7_preflight.py": "1d8b3b3de4968a398f21c98a8313f6ff3a881360fefca9c7dce92eeb9835f7aa"
+    "zero7_symbolic.py": "46aa5eecb3e98f531c7f0b4848ff7f49eddf969d3b50b607049223e7d040c3af",
+    "zero7_run.py": "b22c67196eb41a6197b1968e116bf995d250ee68b4ec45f2c83104546f24fee1",
+    "zero7_preflight.py": "1344e07b7120ed35c7fdcd022f608c633a4291688e4c02c5481f2f570f7e148f"
   },
   "seeds": [
     101,
@@ -24,6 +24,9 @@
   "support_protocol": "24 feedbacks for tokens 0..8; then 8 feedbacks for novel tokens 9..11; same paired object order",
   "sealed_protocol": "Only final endpoint; not used for parameter selection",
   "primary_metrics": [
+    "symbol-object match accuracy",
+    "symbol-driven object selection match rate",
+    "object-to-complete-symbol exact accuracy",
     "novel-symbol sealed accuracy",
     "unseen-object combination accuracy",
     "old ZERO-6 skill retention"

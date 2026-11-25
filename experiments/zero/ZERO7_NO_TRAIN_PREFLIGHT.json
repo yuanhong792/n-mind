@@ -33,6 +33,10 @@
         "free_symbol_exact_accuracy": 0.1006944477558136,
         "cross_entropy": 2.193216323852539
       },
+      "object_selection_dev_forward": {
+        "selected_object_match_rate": 0.3333333333333333,
+        "symbols_evaluated": 9
+      },
       "neural_gradient_tensors_nonzero": 11,
       "symbol_head_parameters": 1003,
       "predictor_weights_unchanged": true
@@ -68,6 +72,10 @@
         "free_symbol_exact_accuracy": 0.1388888955116272,
         "cross_entropy": 2.2282116413116455
       },
+      "object_selection_dev_forward": {
+        "selected_object_match_rate": 0.3333333333333333,
+        "symbols_evaluated": 9
+      },
       "neural_gradient_tensors_nonzero": 11,
       "symbol_head_parameters": 1003,
       "predictor_weights_unchanged": true
@@ -102,6 +110,10 @@
       "reverse_dev_forward": {
         "free_symbol_exact_accuracy": 0.1840277761220932,
         "cross_entropy": 2.1795358657836914
+      },
+      "object_selection_dev_forward": {
+        "selected_object_match_rate": 0.3333333333333333,
+        "symbols_evaluated": 9
       },
       "neural_gradient_tensors_nonzero": 11,
       "symbol_head_parameters": 1003,
