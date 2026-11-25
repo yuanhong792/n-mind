@@ -1,3 +1,3 @@
 # ZERO-5 preparation report
 
-An executable unknown-world environment, real feedback path, random exploration demo and neural explorer skeleton are prepared. No training updates were run because the proposed 1860-update budget is not authorized. The demo only chooses an object before receiving its label and records the real feedback; it does not claim learned exploration.
+The first authorized run stopped at 304 completed task updates after a real policy-gradient computation-graph version error. No result is accepted as a formal P0–P4 experiment. The persistent ledger remains authoritative; it was not reset. The minimal fix is to detach predictor-derived state before the explorer update, then resume only under an explicit recovery protocol.
