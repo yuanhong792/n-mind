@@ -1,0 +1,606 @@
+{
+  "status": "DONE",
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "lrs": {
+    "transformer": 0.0003,
+    "gru": 0.003,
+    "delta": 0.0003
+  },
+  "table": [
+    {
+      "split": "heldout_seq",
+      "model": "transformer",
+      "N": 2,
+      "lr": 0.0003,
+      "n_seeds_done": 5,
+      "n_gate_seeds": 5,
+      "first_gate_steps": [
+        3000,
+        3000,
+        3000,
+        1000,
+        3000
+      ],
+      "rank_mean": 0.9852,
+      "em_mean": 0.4358,
+      "follow_mean": 0.437,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.976,
+          "em": 0.401,
+          "follow": 0.412,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.992,
+          "em": 0.458,
+          "follow": 0.46,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.991,
+          "em": 0.423,
+          "follow": 0.446,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "COMPLETE_GATE",
+          "steps": 1000,
+          "rank": 0.975,
+          "em": 0.453,
+          "follow": 0.416,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270105,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.992,
+          "em": 0.444,
+          "follow": 0.451,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "transformer",
+      "N": 4,
+      "lr": 0.0003,
+      "n_seeds_done": 4,
+      "n_gate_seeds": 3,
+      "first_gate_steps": [
+        3000,
+        30000,
+        10000
+      ],
+      "rank_mean": 0.7827,
+      "em_mean": 0.135,
+      "follow_mean": 0.141,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.93,
+          "em": 0.178,
+          "follow": 0.162,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 30000,
+          "rank": 0.975,
+          "em": 0.174,
+          "follow": 0.186,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.963,
+          "em": 0.188,
+          "follow": 0.216,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.263,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "gru",
+      "N": 2,
+      "lr": 0.003,
+      "n_seeds_done": 5,
+      "n_gate_seeds": 4,
+      "first_gate_steps": [
+        10000,
+        3000,
+        10000,
+        10000
+      ],
+      "rank_mean": 0.9258,
+      "em_mean": 0.0124,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.935,
+          "em": 0.004,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.911,
+          "em": 0.002,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.938,
+          "em": 0.011,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.914,
+          "em": 0.039,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270105,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.931,
+          "em": 0.006,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "gru",
+      "N": 4,
+      "lr": 0.003,
+      "n_seeds_done": 4,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.7332,
+      "em_mean": 0.0008,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.886,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.893,
+          "em": 0.002,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 26435,
+          "rank": 0.909,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.245,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "delta",
+      "N": 2,
+      "lr": 0.0003,
+      "n_seeds_done": 4,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.6475,
+      "em_mean": 0.0005,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.707,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.698,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 20394,
+          "rank": 0.659,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.526,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "delta",
+      "N": 4,
+      "lr": 0.0003,
+      "n_seeds_done": 4,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.412,
+      "em_mean": 0.0,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.478,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.482,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 6350,
+          "rank": 0.429,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.259,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "transformer",
+      "N": 2,
+      "lr": 0.0003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 2,
+      "first_gate_steps": [
+        3000,
+        3000
+      ],
+      "rank_mean": 0.8107,
+      "em_mean": 0.3047,
+      "follow_mean": 0.3093,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.983,
+          "em": 0.444,
+          "follow": 0.459,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "rank": 0.989,
+          "em": 0.47,
+          "follow": 0.469,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.46,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "transformer",
+      "N": 4,
+      "lr": 0.0003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 2,
+      "first_gate_steps": [
+        10000,
+        30000
+      ],
+      "rank_mean": 0.7043,
+      "em_mean": 0.103,
+      "follow_mean": 0.119,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.931,
+          "em": 0.145,
+          "follow": 0.184,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 30000,
+          "rank": 0.94,
+          "em": 0.164,
+          "follow": 0.173,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.242,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "gru",
+      "N": 2,
+      "lr": 0.003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 2,
+      "first_gate_steps": [
+        10000,
+        10000
+      ],
+      "rank_mean": 0.4757,
+      "em_mean": 0.0003,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.463,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "rank": 0.474,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.49,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "gru",
+      "N": 4,
+      "lr": 0.003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.232,
+      "em_mean": 0.0,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.22,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.228,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.248,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "delta",
+      "N": 2,
+      "lr": 0.0003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.4813,
+      "em_mean": 0.0,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.479,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.473,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.492,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "delta",
+      "N": 4,
+      "lr": 0.0003,
+      "n_seeds_done": 3,
+      "n_gate_seeds": 0,
+      "first_gate_steps": [],
+      "rank_mean": 0.2307,
+      "em_mean": 0.0,
+      "follow_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "rank": 0.215,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 18021,
+          "rank": 0.24,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "INCONCLUSIVE_BUDGET",
+          "steps": 0,
+          "rank": 0.237,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ]
+    }
+  ],
+  "resume_note": "机器死机后从 14:23 续跑；跳过已完成；seed-major 调度；剩余预算 3000s",
+  "n8_status": "NOT_RUN_BUDGET",
+  "n_arms": 60,
+  "n_complete": 30,
+  "n_inconclusive": 30,
+  "n_crashed": 0,
+  "ts": "2026-11-25T15:14:08+0800"
+}

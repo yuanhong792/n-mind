@@ -1,0 +1,11 @@
+{
+  "N": 4,
+  "split": "heldout_name_seal3",
+  "prompt_len": 49,
+  "L": 54,
+  "sha256": "ea5d80eafa3c21c7b8aa847b1c3e8f152588d8e7adfdebd87844ad6c893aa3df",
+  "seed": 20271203,
+  "n": 1000,
+  "name_overlap_with_all_pools": 0,
+  "seq_overlap_with_train_dev_test": 0
+}

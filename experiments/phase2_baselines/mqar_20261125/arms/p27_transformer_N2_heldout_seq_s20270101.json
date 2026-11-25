@@ -1,0 +1,94 @@
+{
+  "arm_id": "p27_transformer_N2_heldout_seq_s20270101",
+  "model": "transformer",
+  "lr": 0.0003,
+  "N": 2,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "gate_all": true,
+  "seal_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\phase2_baselines\\mqar_data\\mqar_N2_heldout_seq_seal2.npz",
+  "deadline_ts": 1795590416.9356663,
+  "gated": true,
+  "data_sha256": "7e480f9192be3fd67ce4a097c93f9ffdc77438f2669ccfeb09ad5a2e5f910fe3",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "cf5e7a2",
+    "ts": "2026-11-25T14:07:41+0800"
+  },
+  "status": "COMPLETE_GATE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.645,
+      "dev_wilson_lo": 0.614839,
+      "dev_ce": 1.4275,
+      "ce": 1.4387,
+      "wall_s": 6.4
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.981,
+      "dev_wilson_lo": 0.970516,
+      "dev_ce": 1.3072,
+      "ce": 1.3149,
+      "wall_s": 23.0
+    }
+  ],
+  "t_start": 1795586860.9281151,
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "steps_done": 3000,
+  "wall_s": 23.2,
+  "test": {
+    "n": 1000,
+    "N": 2,
+    "rank_acc": 0.976,
+    "rank_ci95_boot": [
+      0.966975,
+      0.986
+    ],
+    "rank_ci95_wilson": [
+      0.964537,
+      0.98382
+    ],
+    "em_free": 0.401,
+    "em_free_ci95_boot": [
+      0.37,
+      0.431
+    ],
+    "follow": 0.412,
+    "follow_ci95_wilson": [
+      0.381887,
+      0.442786
+    ],
+    "follow_ci95_boot_cluster": [
+      0.382,
+      0.444
+    ],
+    "n_clusters": 1000,
+    "random_rank": 0.5,
+    "random_follow": 0.5
+  }
+}

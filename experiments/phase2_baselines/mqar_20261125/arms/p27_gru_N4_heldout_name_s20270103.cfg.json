@@ -1,0 +1,11 @@
+{
+  "arm_id": "p27_gru_N4_heldout_name_s20270103",
+  "model": "gru",
+  "lr": 0.003,
+  "N": 4,
+  "split": "heldout_name",
+  "seed": 20270103,
+  "gate_all": true,
+  "seal_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\phase2_baselines\\mqar_data\\mqar_N4_heldout_name_seal3.npz",
+  "deadline_ts": 1795590843.8708198
+}

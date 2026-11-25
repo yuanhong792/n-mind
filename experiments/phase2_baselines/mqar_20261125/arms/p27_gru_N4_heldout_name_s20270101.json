@@ -1,0 +1,110 @@
+{
+  "arm_id": "p27_gru_N4_heldout_name_s20270101",
+  "model": "gru",
+  "lr": 0.003,
+  "N": 4,
+  "split": "heldout_name",
+  "seed": 20270101,
+  "gate_all": true,
+  "seal_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\phase2_baselines\\mqar_data\\mqar_N4_heldout_name_seal3.npz",
+  "deadline_ts": 1795590843.8708198,
+  "gated": true,
+  "data_sha256": "bae09846d9e1041d79d40b1fe7c84cc23ba7d2ae0841c6b844007627e731659d",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "cf5e7a2",
+    "ts": "2026-11-25T14:31:57+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.633,
+      "dev_wilson_lo": 0.602671,
+      "dev_ce": 1.7491,
+      "ce": 1.7287,
+      "wall_s": 14.5
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.873,
+      "dev_wilson_lo": 0.850925,
+      "dev_ce": 1.5293,
+      "ce": 1.5217,
+      "wall_s": 41.7
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.889,
+      "dev_wilson_lo": 0.868022,
+      "dev_ce": 1.4858,
+      "ce": 1.4823,
+      "wall_s": 136.2
+    },
+    {
+      "step": 30000,
+      "dev_rank": 0.886,
+      "dev_wilson_lo": 0.864807,
+      "dev_ce": 1.4818,
+      "ce": 1.4604,
+      "wall_s": 404.3
+    }
+  ],
+  "t_start": 1795588317.1105878,
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "steps_done": 30000,
+  "wall_s": 404.4,
+  "test": {
+    "n": 1000,
+    "N": 4,
+    "rank_acc": 0.22,
+    "rank_ci95_boot": [
+      0.196,
+      0.246
+    ],
+    "rank_ci95_wilson": [
+      0.195423,
+      0.246719
+    ],
+    "em_free": 0.0,
+    "em_free_ci95_boot": [
+      0.0,
+      0.0
+    ],
+    "follow": 0.0,
+    "follow_ci95_wilson": [
+      0.0,
+      0.003827
+    ],
+    "follow_ci95_boot_cluster": [
+      0.0,
+      0.0
+    ],
+    "n_clusters": 1000,
+    "random_rank": 0.25,
+    "random_follow": 0.25
+  }
+}

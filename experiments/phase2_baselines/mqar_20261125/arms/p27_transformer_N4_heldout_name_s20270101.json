@@ -1,0 +1,102 @@
+{
+  "arm_id": "p27_transformer_N4_heldout_name_s20270101",
+  "model": "transformer",
+  "lr": 0.0003,
+  "N": 4,
+  "split": "heldout_name",
+  "seed": 20270101,
+  "gate_all": true,
+  "seal_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\phase2_baselines\\mqar_data\\mqar_N4_heldout_name_seal3.npz",
+  "deadline_ts": 1795590843.8708198,
+  "gated": true,
+  "data_sha256": "bae09846d9e1041d79d40b1fe7c84cc23ba7d2ae0841c6b844007627e731659d",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "cf5e7a2",
+    "ts": "2026-11-25T14:30:55+0800"
+  },
+  "status": "COMPLETE_GATE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.267,
+      "dev_wilson_lo": 0.24051,
+      "dev_ce": 1.7963,
+      "ce": 1.8108,
+      "wall_s": 6.4
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.296,
+      "dev_wilson_lo": 0.268531,
+      "dev_ce": 1.7418,
+      "ce": 1.7414,
+      "wall_s": 16.9
+    },
+    {
+      "step": 10000,
+      "dev_rank": 0.929,
+      "dev_wilson_lo": 0.911386,
+      "dev_ce": 1.4201,
+      "ce": 1.4087,
+      "wall_s": 54.5
+    }
+  ],
+  "t_start": 1795588255.1641886,
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "steps_done": 10000,
+  "wall_s": 54.6,
+  "test": {
+    "n": 1000,
+    "N": 4,
+    "rank_acc": 0.931,
+    "rank_ci95_boot": [
+      0.914,
+      0.947
+    ],
+    "rank_ci95_wilson": [
+      0.913585,
+      0.945116
+    ],
+    "em_free": 0.145,
+    "em_free_ci95_boot": [
+      0.123,
+      0.166
+    ],
+    "follow": 0.184,
+    "follow_ci95_wilson": [
+      0.161209,
+      0.20921
+    ],
+    "follow_ci95_boot_cluster": [
+      0.161,
+      0.208
+    ],
+    "n_clusters": 1000,
+    "random_rank": 0.25,
+    "random_follow": 0.25
+  }
+}

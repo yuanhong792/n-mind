@@ -1,0 +1,599 @@
+{
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "rows": [
+    {
+      "split": "heldout_seq",
+      "model": "transformer",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.976,
+          "em": 0.401,
+          "follow": 0.412,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.992,
+          "em": 0.458,
+          "follow": 0.46,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.991,
+          "em": 0.423,
+          "follow": 0.446,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "COMPLETE_GATE",
+          "steps": 1000,
+          "first_gate": 1000,
+          "gate": true,
+          "rank": 0.975,
+          "em": 0.453,
+          "follow": 0.416,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270105,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.992,
+          "em": 0.444,
+          "follow": 0.451,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": []
+    },
+    {
+      "split": "heldout_seq",
+      "model": "transformer",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.93,
+          "em": 0.178,
+          "follow": 0.162,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 30000,
+          "first_gate": 30000,
+          "gate": true,
+          "rank": 0.975,
+          "em": 0.174,
+          "follow": 0.186,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.963,
+          "em": 0.188,
+          "follow": 0.216,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "gru",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.935,
+          "em": 0.004,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.911,
+          "em": 0.002,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270103,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.938,
+          "em": 0.011,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270104,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.914,
+          "em": 0.039,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270105,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.931,
+          "em": 0.006,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": []
+    },
+    {
+      "split": "heldout_seq",
+      "model": "gru",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.886,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.893,
+          "em": 0.002,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 26435,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "delta",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.707,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.698,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 20394,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_seq",
+      "model": "delta",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.478,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.482,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 6350,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "transformer",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.983,
+          "em": 0.444,
+          "follow": 0.459,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 3000,
+          "first_gate": 3000,
+          "gate": true,
+          "rank": 0.989,
+          "em": 0.47,
+          "follow": 0.469,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "transformer",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.931,
+          "em": 0.145,
+          "follow": 0.184,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 30000,
+          "first_gate": 30000,
+          "gate": true,
+          "rank": 0.94,
+          "em": 0.164,
+          "follow": 0.173,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "gru",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.463,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE_GATE",
+          "steps": 10000,
+          "first_gate": 10000,
+          "gate": true,
+          "rank": 0.474,
+          "em": 0.001,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "gru",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.22,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.228,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "delta",
+      "N": 2,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.479,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        },
+        {
+          "seed": 20270102,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.473,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "split": "heldout_name",
+      "model": "delta",
+      "N": 4,
+      "valid": [
+        {
+          "seed": 20270101,
+          "status": "COMPLETE",
+          "steps": 30000,
+          "first_gate": null,
+          "gate": false,
+          "rank": 0.215,
+          "em": 0.0,
+          "follow": 0.0,
+          "n_clusters": 1000
+        }
+      ],
+      "trunc": [
+        {
+          "seed": 20270102,
+          "steps": 18021,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270103,
+          "steps": 0,
+          "status": "INCONCLUSIVE_BUDGET"
+        },
+        {
+          "seed": 20270104,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "seed": 20270105,
+          "steps": 0,
+          "status": "NOT_STARTED"
+        }
+      ]
+    }
+  ],
+  "seal3": {
+    "2": "59c5b935113b",
+    "4": "ea5d80eafa3c"
+  },
+  "seal2": {
+    "2": "746f2e5901b8",
+    "4": "82bbca4acee8"
+  }
+}

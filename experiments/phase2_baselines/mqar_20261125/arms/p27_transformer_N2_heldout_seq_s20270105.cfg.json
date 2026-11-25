@@ -1,0 +1,11 @@
+{
+  "arm_id": "p27_transformer_N2_heldout_seq_s20270105",
+  "model": "transformer",
+  "lr": 0.0003,
+  "N": 2,
+  "split": "heldout_seq",
+  "seed": 20270105,
+  "gate_all": true,
+  "seal_path": "D:\\cpu本地模型开发\\n-mind\\experiments\\phase2_baselines\\mqar_data\\mqar_N2_heldout_seq_seal2.npz",
+  "deadline_ts": 1795590416.9356663
+}
