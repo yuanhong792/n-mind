@@ -16,6 +16,13 @@ def step(net,gate,x,y,budget,rate=.1,kind='train'):
  budget.reserve(1,kind); net.zero_grad(); loss=nn.functional.cross_entropy(net(x),y); grads=torch.autograd.grad(loss,tuple(net.parameters())); g=gate(torch.stack([loss.detach(),torch.sqrt(sum(z.square().sum() for z in grads)).detach()])) if gate else torch.ones(2)
  for p,z,m in zip(net.parameters(),grads,[g[0],g[0],g[1],g[1]]): p.data.add_(z.data,alpha=-rate*float(m))
  budget.complete(1,kind); return float(loss.detach()),g.detach().tolist()
+def fwd(p,x): return p['o.weight'] @ torch.tanh(p['h.weight'] @ x.t()+p['h.bias']) + p['o.bias']
+def functional_adapt(net,gate,x,y):
+ p=dict(net.named_parameters()); traces=[]
+ for i in range(len(x)):
+  loss=nn.functional.cross_entropy(fwd(p,x[i:i+1]),y[i:i+1]); gs=torch.autograd.grad(loss,tuple(p.values()),create_graph=True)
+  st=torch.stack((loss.detach(),torch.sqrt(sum(z.square().sum() for z in gs)).detach())); gates=gate(st); p={k:v-.1*m*g for (k,v),g,m in zip(p.items(),gs,[gates[0],gates[0],gates[1],gates[1]])}; traces.append(gates)
+ return p,traces
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--authorize',action='store_true'); ap.add_argument('--status',action='store_true'); a=ap.parse_args(); b=Budget(AUTH,LIMIT,ROOT/'results'/'ZERO4_BUDGET_STATE.json')
  if a.status: print(json.dumps(b.snapshot(),indent=2)); return
@@ -26,8 +33,8 @@ def main():
    gate=Gate(mode=='G2'); opt=torch.optim.SGD(gate.parameters(),lr=.1)
    for t in range(12):
     net=Net(); sx,sy=sample(s*1000+t*2,16,0); qx,qy=sample(s*1000+t*2+1,16,1)
-    for i in range(16): step(net,gate,sx[i:i+1],sy[i:i+1],b,kind='meta')
-    opt.zero_grad(); q=nn.functional.cross_entropy(net(qx),qy); q.backward(); opt.step(); b.reserve(1,'meta_outer'); b.complete(1,'meta_outer')
+    for i in range(16): b.reserve(1,'meta_inner')
+    p,tr=functional_adapt(net,gate,sx,sy); opt.zero_grad(); q=nn.functional.cross_entropy(fwd(p,qx),qy); q.backward(); opt.step(); b.complete(16,'meta_inner'); b.reserve(1,'meta_outer'); b.complete(1,'meta_outer')
    torch.save(gate.state_dict(),ROOT/'checkpoints'/f'zero4_{mode}_{s}.pt')
  for s in seeds:
   for rate in (.03,.1,.2,.3):
