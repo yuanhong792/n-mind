@@ -207,6 +207,41 @@ def _model(name: str) -> nn.Module:
     return m.to(DEV)
 
 
+def candidate_scores(lp: torch.Tensor, cand: torch.Tensor, plen: int,
+                     name_len: int = 4) -> torch.Tensor:
+    """sc[b,j] = sum_t log p(cand[b,j,t] | lp[b, plen-1+t])。
+
+    v1 bug（已修，勿回退）：`seg.gather(2, cand).sum(-1)` 会把候选序号当答案
+    槽位——候选 0 只在位置 0 打分、候选 1 只在位置 1 打分，N=2 时完全错误
+    （完美模型 EM=1 但 rank=0.865；真 checkpoint 贪心对但排名错 23.3%）。
+    """
+    seg = lp[:, plen - 1:plen - 1 + name_len, :]
+    sc = 0
+    for t in range(name_len):
+        sc = sc + seg[:, t, :].gather(1, cand[:, :, t])
+    return sc
+
+
+def cluster_bootstrap_ci(values, cluster_ids, b: int = 1000, seed: int = 0) -> list[float]:
+    """按簇重采样的 bootstrap 95%CI。
+
+    簇 = 不可视为独立重复的单位（MQAR 的序列 / 2.4 的事实对、(ctx,ack) 组）。
+    返回 [lo, hi]；簇内先取均值再对簇有放回重采样。
+    """
+    vals = np.asarray(list(values), dtype=np.float64)
+    clusters: dict = {}
+    for v, c in zip(vals, cluster_ids):
+        clusters.setdefault(c, []).append(v)
+    means = np.asarray([np.mean(clusters[k]) for k in clusters])
+    if len(means) == 0:
+        return [0.0, 0.0]
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, len(means), (b, len(means)))
+    boots = means[idx].mean(1)
+    return [round(float(np.percentile(boots, 2.5)), 6),
+            round(float(np.percentile(boots, 97.5)), 6)]
+
+
 @torch.no_grad()
 def rank_eval(model, ids, cand, true, plen, batch=256) -> np.ndarray:
     hits = []
@@ -215,8 +250,7 @@ def rank_eval(model, ids, cand, true, plen, batch=256) -> np.ndarray:
         c = torch.from_numpy(cand[i:i + batch]).long().to(DEV)
         t = torch.from_numpy(true[i:i + batch]).to(DEV)
         lp = torch.log_softmax(model(x), -1)
-        seg = lp[:, plen - 1:plen - 1 + T.NAME_LEN, :]
-        sc = seg.gather(2, c).sum(-1)          # [B,N]
+        sc = candidate_scores(lp, c, plen, T.NAME_LEN)
         hits.append((sc.argmax(-1) == t).cpu().numpy())
     return np.concatenate(hits).astype(np.float64)
 
@@ -271,12 +305,14 @@ def sealed_eval(model, ds) -> dict:
     return {
         "n": int(len(te)), "N": int(ds["N"]),
         "rank_acc": round(float(rank.mean()), 6),
-        "rank_ci95_boot": bootstrap_ci(rank, seed=int(ds["N"])),
+        "rank_ci95_boot": cluster_bootstrap_ci(rank, np.arange(len(rank)), seed=int(ds["N"])),
         "rank_ci95_wilson": wilson(int(rank.sum()), len(rank)),
         "em_free": round(float(em.mean()), 6),
-        "em_free_ci95_boot": bootstrap_ci(em, seed=1),
+        "em_free_ci95_boot": cluster_bootstrap_ci(em, np.arange(len(em)), seed=1),
         "follow": round(float(follow.mean()), 6),
         "follow_ci95_wilson": wilson(int(follow.sum()), len(follow)),
+        "follow_ci95_boot_cluster": cluster_bootstrap_ci(follow, np.arange(len(follow)), seed=2),
+        "n_clusters": int(len(rank)),
         "random_rank": 1.0 / int(ds["N"]),
         "random_follow": 1.0 / int(ds["N"]),
         "per_sample": per, "logits": logits,
