@@ -8,8 +8,8 @@ ROOT=Path(__file__).parent; AUTH='zero5-active-1860-v1'; LIMIT=1860
 class Predictor(nn.Module):
  def __init__(self): super().__init__(); self.net=nn.Sequential(nn.Linear(8,16),nn.Tanh(),nn.Linear(16,2))
  def forward(self,x): return self.net(x)
-def run(world_seed,strategy,budget,steps=16,explorer=None,train=True):
- w=UnknownWorld(world_seed); p=Predictor(); opt=torch.optim.SGD(p.parameters(),lr=.1); eopt=torch.optim.SGD(explorer.parameters(),lr=.05) if explorer and train else None; mask=torch.zeros(w.n,dtype=torch.bool); trace=[]; xs=[]; ys=[]
+def run(world_seed,strategy,budget,steps=16,explorer=None,train=True,learning_rate=.1):
+ w=UnknownWorld(world_seed); p=Predictor(); opt=torch.optim.SGD(p.parameters(),lr=learning_rate); eopt=torch.optim.SGD(explorer.parameters(),lr=.05) if explorer and train else None; mask=torch.zeros(w.n,dtype=torch.bool); trace=[]; xs=[]; ys=[]; qx,qy=UnknownWorld(world_seed+999).x[:32],(UnknownWorld(world_seed+999).x[:32]@UnknownWorld(world_seed+999).w>0).long(); logps=[]; rewards=[]
  for k in range(steps):
   feats=w.x; logits=p(feats); uncert=1-torch.softmax(logits,1).max(1).values; state=torch.cat([feats,uncert[:,None],torch.full((w.n,1),1-k/steps),torch.zeros(w.n,2)],1).detach()
   if strategy=='P0': i=random_choice(mask)
@@ -17,9 +17,12 @@ def run(world_seed,strategy,budget,steps=16,explorer=None,train=True):
   elif strategy=='P2': i=diversity_choice(feats,mask)
   else:
    policy_logits=explorer.scores(state,mask.clone()); dist=torch.distributions.Categorical(logits=policy_logits); i=int(dist.sample()); log_prob=dist.log_prob(torch.tensor(i))
-  y=w.feedback(i); mask[i]=True; x=w.observe(i).unsqueeze(0); target=torch.tensor([y]); budget.reserve(1,'agent_task'); opt.zero_grad(); loss=nn.functional.cross_entropy(p(x),target); loss.backward(); opt.step(); budget.complete(1,'agent_task'); xs.append(x.squeeze()); ys.append(y); trace.append({'step':k,'object':i,'feedback':y,'loss':float(loss.detach()),'weight_delta':float(sum(z.grad.norm() for z in p.parameters()))})
+  with torch.no_grad(): before=nn.functional.cross_entropy(p(qx),qy).item()
+  y=w.feedback(i); mask[i]=True; x=w.observe(i).unsqueeze(0); target=torch.tensor([y]); budget.reserve(1,'agent_task'); before_w=[z.detach().clone() for z in p.parameters()]; opt.zero_grad(); loss=nn.functional.cross_entropy(p(x),target); loss.backward(); opt.step(); budget.complete(1,'agent_task');
+  with torch.no_grad(): after=nn.functional.cross_entropy(p(qx),qy).item()
+  reward=before-after-0.001; xs.append(x.squeeze()); ys.append(y); trace.append({'step':k,'object':i,'feedback':y,'loss':float(loss.detach()),'reward':reward,'learning_rate':opt.param_groups[0]['lr'],'weight_delta':float(sum((a-b).norm() for a,b in zip(before_w,p.parameters())))})
   if eopt and k==15:
-   eopt.zero_grad(); reward=-loss.detach(); budget.reserve(1,'strategy'); (-reward*log_prob).backward(); eopt.step(); budget.complete(1,'strategy')
+   eopt.zero_grad(); budget.reserve(1,'strategy'); (-torch.tensor(reward)*log_prob).backward(); eopt.step(); budget.complete(1,'strategy')
  sealed=torch.arange(16,32); acc=float((p(w.x[sealed]).argmax(1)==torch.tensor([int((w.x[j]@w.w>0).item()) for j in sealed])).float().mean())
  return {'world':world_seed,'strategy':strategy,'accuracy':acc,'trace':trace,'predictor':p.state_dict()}
 def main():
