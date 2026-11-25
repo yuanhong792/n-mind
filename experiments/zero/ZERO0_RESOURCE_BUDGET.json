@@ -1,0 +1,9 @@
+{
+  "budget_limit_updates": 768,
+  "used_updates": 384,
+  "seeds": 3,
+  "updates_per_seed": 128,
+  "torch": "2.10.0+cpu",
+  "max_rss_gb": "not instrumented in first run",
+  "gpu": "not used"
+}

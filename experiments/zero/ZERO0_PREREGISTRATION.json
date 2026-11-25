@@ -1,0 +1,12 @@
+{
+  "version": "zero0-e1-v1",
+  "task": "E1 hidden nonlinear binary classification",
+  "model": "ZERO-A two-layer MLP, random initialization",
+  "seeds": [101, 202, 303],
+  "steps_per_seed": 128,
+  "sealed_examples": 512,
+  "budget_updates": 384,
+  "acceptance": {"all_seeds_weight_delta_gt": 0, "mean_sealed_gain_over_initial": 0.05, "mean_sealed_accuracy_ge": 0.70},
+  "sealed_data_never_used_for_training": true,
+  "evaluation_updates_weights": false
+}

@@ -1,0 +1,13 @@
+{
+  "per_seed_sealed_accuracy": {"101": 0.87890625, "202": 0.927734375, "303": 0.8984375},
+  "learning": "PASS",
+  "unseen_same_rule_generalization": "PASS",
+  "weight_update_evidence": "PASS",
+  "reload_retention": "PASS",
+  "new_rule_learning": "NOT_TESTED",
+  "environment_change_adaptation": "NOT_TESTED",
+  "continual_retention": "NOT_TESTED",
+  "meta_learning": "NOT_TESTED",
+  "language": "NOT_TESTED",
+  "autonomy": "NOT_TESTED"
+}
