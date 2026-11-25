@@ -12,15 +12,15 @@ def total():
     return sum(json.loads(x)['amount'] for x in LEDGER.read_text(encoding='utf-8').splitlines() if x.strip())
 
 class Budget:
-    def __init__(self, auth_id, limit):
-        self.auth_id=auth_id; self.limit=int(limit)
-        if STATE.exists():
-            self.s=json.loads(STATE.read_text(encoding='utf-8'))
+    def __init__(self, auth_id, limit, state_path=None):
+        self.auth_id=auth_id; self.limit=int(limit); self.state_path=Path(state_path) if state_path else STATE
+        if self.state_path.exists():
+            self.s=json.loads(self.state_path.read_text(encoding='utf-8'))
             if self.s['authorization_id']!=auth_id or self.s['limit']!=self.limit: raise RuntimeError('BUDGET_AUTH_MISMATCH')
         else:
             self.s={'authorization_id':auth_id,'limit':self.limit,'reserved':0,'completed':0,'uncertain':0,'status':'OPEN'}; self._save()
     def _save(self):
-        tmp=STATE.with_suffix('.tmp'); tmp.write_text(json.dumps(self.s,indent=2),encoding='utf-8'); tmp.replace(STATE)
+        tmp=self.state_path.with_suffix('.tmp'); tmp.write_text(json.dumps(self.s,indent=2),encoding='utf-8'); tmp.replace(self.state_path)
     def reserve(self,n,kind):
         n=int(n)
         if self.s['reserved']+n>self.limit: raise RuntimeError('BUDGET_EXCEEDED')
