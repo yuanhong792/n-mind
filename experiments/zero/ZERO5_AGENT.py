@@ -15,10 +15,11 @@ def run(world_seed,strategy,budget,steps=16,explorer=None,train=True):
   if strategy=='P0': i=random_choice(mask)
   elif strategy=='P1': i=int(uncert.masked_fill(mask,-1).argmax())
   elif strategy=='P2': i=random_choice(mask)
-  else: i=int(explorer.scores(state,mask).argmax())
+  else:
+   policy_logits=explorer.scores(state,mask); i=int(policy_logits.argmax())
   y=w.feedback(i); mask[i]=True; x=w.observe(i).unsqueeze(0); target=torch.tensor([y]); budget.reserve(1,'agent_task'); opt.zero_grad(); loss=nn.functional.cross_entropy(p(x),target); loss.backward(); opt.step(); budget.complete(1,'agent_task'); xs.append(x.squeeze()); ys.append(y); trace.append({'step':k,'object':i,'feedback':y,'loss':float(loss.detach()),'weight_delta':float(sum(z.grad.norm() for z in p.parameters()))})
   if eopt and k==15:
-   eopt.zero_grad(); reward=-loss.detach(); (-reward*torch.log_softmax(explorer.scores(state,mask),0)[i]).backward(); eopt.step(); budget.reserve(1,'strategy'); budget.complete(1,'strategy')
+   eopt.zero_grad(); reward=-loss.detach(); (-reward*torch.log_softmax(policy_logits,0)[i]).backward(); eopt.step(); budget.reserve(1,'strategy'); budget.complete(1,'strategy')
  sealed=torch.arange(16,32); acc=float((p(w.x[sealed]).argmax(1)==torch.tensor([int((w.x[j]@w.w>0).item()) for j in sealed])).float().mean())
  return {'world':world_seed,'strategy':strategy,'accuracy':acc,'trace':trace,'predictor':p.state_dict()}
 def main():
