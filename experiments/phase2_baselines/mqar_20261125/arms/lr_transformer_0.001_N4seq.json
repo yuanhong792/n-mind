@@ -1,0 +1,94 @@
+{
+  "arm_id": "lr_transformer_0.001_N4seq",
+  "model": "transformer",
+  "lr": 0.001,
+  "N": 4,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "max_steps": 3000,
+  "gate_all": false,
+  "deadline_ts": 1795590416.9356663,
+  "gated": true,
+  "data_sha256": "15790585ca3ccc6ac77f83feacd24b664e7dccd4876fab615aedbad7b752a1e1",
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "device": "cuda",
+    "precision": "fp32_tf32_off",
+    "batch": 32,
+    "lrs": {
+      "gru": 0.001,
+      "transformer": 0.001,
+      "delta": 0.003
+    },
+    "seeds": [
+      20270101,
+      20270102,
+      20270103
+    ],
+    "levels": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "git": "cf5e7a2",
+    "ts": "2026-11-25T14:06:58+0800"
+  },
+  "status": "COMPLETE",
+  "levels": [
+    {
+      "step": 1000,
+      "dev_rank": 0.263,
+      "dev_wilson_lo": 0.236657,
+      "dev_ce": 1.7616,
+      "ce": 1.7762,
+      "wall_s": 6.7
+    },
+    {
+      "step": 3000,
+      "dev_rank": 0.914,
+      "dev_wilson_lo": 0.895,
+      "dev_ce": 1.6019,
+      "ce": 1.6081,
+      "wall_s": 28.3
+    }
+  ],
+  "t_start": 1795586818.041208,
+  "eval_sanity": "PASS 8/8 @ 54af4dc",
+  "steps_done": 3000,
+  "wall_s": 28.4,
+  "test": {
+    "n": 1000,
+    "N": 4,
+    "rank_acc": 0.921,
+    "rank_ci95_boot": [
+      0.904,
+      0.937
+    ],
+    "rank_ci95_wilson": [
+      0.902625,
+      0.936153
+    ],
+    "em_free": 0.176,
+    "em_free_ci95_boot": [
+      0.153,
+      0.202
+    ],
+    "follow": 0.168,
+    "follow_ci95_wilson": [
+      0.146108,
+      0.192433
+    ],
+    "follow_ci95_boot_cluster": [
+      0.146,
+      0.192
+    ],
+    "n_clusters": 1000,
+    "random_rank": 0.25,
+    "random_follow": 0.25
+  }
+}

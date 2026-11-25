@@ -1,0 +1,11 @@
+{
+  "arm_id": "lr_delta_0.003_N4seq",
+  "model": "delta",
+  "lr": 0.003,
+  "N": 4,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "max_steps": 3000,
+  "gate_all": false,
+  "deadline_ts": 1795590078.1074579
+}

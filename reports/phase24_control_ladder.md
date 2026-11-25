@@ -177,3 +177,5 @@ GRU / Transformer / Delta-rule = **neither / neither / neither**（v1 需 EM≥0
 - **假设 E（速度）**：匹配后 GRU/T 1 线程最快、Delta 8 线程最快；9 路并行有 4-5 倍争用损耗；未改模型代码。预算差异主要来自真实序列长度与并行争用，不是 N-MIND 的结论；N-MIND forward 小算子调度仍是其自身 8-20 倍于基线的成本来源（2.1 profiling），留待单独的优化批准。
 
 本轮工件：experiments/phase2_baselines/{timing_matched_20261125.json, timing_threads_20261125.json, lr_tasks_20261125/, ladder_20261125/, fact_audit_train_20261125.json, data_cache_20261125.pt, prereg_amendment_20261125.json}；测试 tests/test_lr_select_parallel.py（2 passed）。预注册提交 5e67c30 早于一切训练。
+
+> **2026-11-25 阶段 2.7 A3 注**：EM 与跟随率的簇级 bootstrap CI（簇=事实对，4 簇）已重算在 [phase24_cluster_ci.json](../experiments/phase2_baselines/phase24_cluster_ci.json)，历史 JSON 未改。跟随 0/84 在 4 簇全 0 下 CI 仍为 [0,0]，但有效样本 4 对不作显著性宣称（见 phase26 E 项）。

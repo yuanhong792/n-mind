@@ -1,0 +1,11 @@
+{
+  "arm_id": "lr_gru_0.001_N4seq",
+  "model": "gru",
+  "lr": 0.001,
+  "N": 4,
+  "split": "heldout_seq",
+  "seed": 20270101,
+  "max_steps": 3000,
+  "gate_all": false,
+  "deadline_ts": 1795590078.1074579
+}
