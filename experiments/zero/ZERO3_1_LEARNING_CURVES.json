@@ -1,1 +1,1 @@
-{"status":"NOT_RUN_BUDGET","checkpoints":[0,1,2,4,8],"primary_metric":"paired_query_curve_auc"}
+{"status":"EXECUTED","source":"results/ZERO3_1_RESULTS.json","checkpoints":[0,1,2,4,8],"primary_metric":"normalized_accuracy_auc","auc_mean":{"C0":0.6108,"C1":0.4736,"C2":0.5242,"C3":0.5225,"C4":0.5173}}

@@ -1,1 +1,1 @@
-{"dynamic_update_strategy":"NOT_TESTED_CAUSALLY","meta_gradient":"PASS_HISTORICAL_NONZERO","controller_transfer":"UNVERIFIED","ordinary_learning":"PASS_ZERO0"}
+{"dynamic_update_strategy":"FAILED_COMPETITIVE_THRESHOLD","c2_vs_c4":"PARTIAL_BUT_BELOW_0.01_AUC_THRESHOLD","c2_vs_c3":"PARTIAL_BUT_BELOW_0.01_AUC_THRESHOLD","c2_vs_c0":"FAILED","meta_learning_generalization":"NOT_ESTABLISHED"}
