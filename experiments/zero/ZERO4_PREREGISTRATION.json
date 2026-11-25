@@ -1,0 +1,1 @@
+{"version":"zero4-continual-v1","status":"PREPARED_NOT_AUTHORIZED","groups":["G0","G1","G2","G3","G4"],"lambda_old":0.5,"inner_steps_per_task":16,"primary_metric":"mean_new_old_balanced_accuracy","candidate_budget":2568,"budget_authorization_required":true,"sealed_not_used_for_selection":true}

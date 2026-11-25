@@ -1,0 +1,1 @@
+{"status":"SELF_CHECK_ONLY","groups":{"hidden":"explicit","output":"explicit"},"hard_zero_definition":"applied multiplier exactly 0.0","query_labels_during_adaptation":false,"per_task_checkpoint_memory":false,"meta_gradient":"requires preflight","budget_gate":"ZERO4 authorization gate required"}
