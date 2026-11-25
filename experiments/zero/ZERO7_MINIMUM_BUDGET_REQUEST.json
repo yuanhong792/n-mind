@@ -1,0 +1,22 @@
+{
+  "status": "REQUEST_ONLY_NOT_AUTHORIZED",
+  "device": "cpu",
+  "new_parameter_updates_max": 288,
+  "formula": "3 paired seeds x 3 training arms x 32 feedback updates",
+  "training_arms": {
+    "inherited_no_replay": 96,
+    "inherited_limited_replay": 96,
+    "random_initialization": 96
+  },
+  "zero_update_controls": [
+    "random_prediction",
+    "frozen_inherited_model"
+  ],
+  "feedback_per_arm": "24 known-symbol then 8 novel-symbol",
+  "source_preregistration_sha256": "4cb67c2818e8d9efbef019848180de4bc655cafcbf58122eba3d41043817e067",
+  "zero5_remaining_140": "NOT_USED",
+  "zero6_checkpoint_read_only": true,
+  "additional_new_parameters": 1003,
+  "combined_subject_parameters": 1406,
+  "old_skill_retention": "evaluate ZERO-6 five worlds before and after; development curves and final sealed only"
+}

@@ -1,0 +1,33 @@
+{
+  "status": "FROZEN_REQUEST_ONLY_NOT_AUTHORIZED",
+  "zero6_source_commit": "c0d537e07455aa8ccb2f579d84deb22269243bff",
+  "source_sha256": {
+    "zero7_symbolic.py": "6a710d8a24c8c38fe60cb25af21b4e2712075e21ce03f10b8dc0d41f5b6bf765",
+    "zero7_run.py": "c84e750ebeee8277e1f03d8d35466dbc3d7dfd1992a4bd48df5ec27a03dac455",
+    "zero7_preflight.py": "1d8b3b3de4968a398f21c98a8313f6ff3a881360fefca9c7dce92eeb9835f7aa"
+  },
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "symbol_world_seed_formula": "710000 + model_seed",
+  "arms": [
+    "inherited",
+    "inherited_replay",
+    "random_control"
+  ],
+  "zero_update_controls": [
+    "frozen_inherited_control",
+    "random_prediction_control"
+  ],
+  "support_protocol": "24 feedbacks for tokens 0..8; then 8 feedbacks for novel tokens 9..11; same paired object order",
+  "sealed_protocol": "Only final endpoint; not used for parameter selection",
+  "primary_metrics": [
+    "novel-symbol sealed accuracy",
+    "unseen-object combination accuracy",
+    "old ZERO-6 skill retention"
+  ],
+  "budget_max": 288,
+  "training_authorized": false
+}

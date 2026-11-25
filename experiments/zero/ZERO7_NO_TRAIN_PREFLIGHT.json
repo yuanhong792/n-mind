@@ -1,0 +1,129 @@
+{
+  "status": "PASS_NO_TRAINING",
+  "training_updates": 0,
+  "audits": [
+    {
+      "seed": 710101,
+      "counts": {
+        "pool": 192,
+        "dev": 96,
+        "sealed": 96
+      },
+      "intersections": {
+        "pool:dev": 0,
+        "pool:sealed": 0,
+        "dev:sealed": 0
+      },
+      "hidden_rule_sha256": "57cd2f9e7e304297ca8f1d55408ea6da480d67b5ea345661c19ba7909bb5fe88",
+      "model_seed": 101,
+      "inherited_checkpoint_sha256": "8e2df038e2cf279245bc307ef1eb87de80892f3665d38a5fca9f1a42a701d487",
+      "vocabulary_unique": true,
+      "checkpoint_match": true,
+      "paired_new_head_initialization": true,
+      "old_skill_dev_balanced_accuracy": 0.5643658071756363,
+      "known_dev_forward": {
+        "accuracy": 0.43287035822868347,
+        "cross_entropy": 0.7215477824211121
+      },
+      "novel_dev_forward": {
+        "accuracy": 0.4201388955116272,
+        "cross_entropy": 0.7291284799575806
+      },
+      "reverse_dev_forward": {
+        "free_symbol_exact_accuracy": 0.1006944477558136,
+        "cross_entropy": 2.193216323852539
+      },
+      "neural_gradient_tensors_nonzero": 11,
+      "symbol_head_parameters": 1003,
+      "predictor_weights_unchanged": true
+    },
+    {
+      "seed": 710202,
+      "counts": {
+        "pool": 192,
+        "dev": 96,
+        "sealed": 96
+      },
+      "intersections": {
+        "pool:dev": 0,
+        "pool:sealed": 0,
+        "dev:sealed": 0
+      },
+      "hidden_rule_sha256": "5edf4c91d4a3cfcb8961dc1e0dd5372587f46c09c4d31c09ecc6d65e55cdb111",
+      "model_seed": 202,
+      "inherited_checkpoint_sha256": "99021cfec9418d39dfebd271a700cba3df45344268122c675c31416a4e913ab3",
+      "vocabulary_unique": true,
+      "checkpoint_match": true,
+      "paired_new_head_initialization": true,
+      "old_skill_dev_balanced_accuracy": 0.6646533131599426,
+      "known_dev_forward": {
+        "accuracy": 0.65625,
+        "cross_entropy": 0.6635125279426575
+      },
+      "novel_dev_forward": {
+        "accuracy": 0.6736111044883728,
+        "cross_entropy": 0.664191722869873
+      },
+      "reverse_dev_forward": {
+        "free_symbol_exact_accuracy": 0.1388888955116272,
+        "cross_entropy": 2.2282116413116455
+      },
+      "neural_gradient_tensors_nonzero": 11,
+      "symbol_head_parameters": 1003,
+      "predictor_weights_unchanged": true
+    },
+    {
+      "seed": 710303,
+      "counts": {
+        "pool": 192,
+        "dev": 96,
+        "sealed": 96
+      },
+      "intersections": {
+        "pool:dev": 0,
+        "pool:sealed": 0,
+        "dev:sealed": 0
+      },
+      "hidden_rule_sha256": "fd15fe5655e1a0f1fce7e485a787ce2d655ae82bdcbe937799883ba4672b0d99",
+      "model_seed": 303,
+      "inherited_checkpoint_sha256": "9bf61f3c0cbdf0b94781239651910f8083c2dec55ddf284bc88828c003763f30",
+      "vocabulary_unique": true,
+      "checkpoint_match": true,
+      "paired_new_head_initialization": true,
+      "old_skill_dev_balanced_accuracy": 0.6053436070680618,
+      "known_dev_forward": {
+        "accuracy": 0.3611111044883728,
+        "cross_entropy": 0.8070163726806641
+      },
+      "novel_dev_forward": {
+        "accuracy": 0.3854166567325592,
+        "cross_entropy": 0.794569730758667
+      },
+      "reverse_dev_forward": {
+        "free_symbol_exact_accuracy": 0.1840277761220932,
+        "cross_entropy": 2.1795358657836914
+      },
+      "neural_gradient_tensors_nonzero": 11,
+      "symbol_head_parameters": 1003,
+      "predictor_weights_unchanged": true
+    }
+  ],
+  "cross_world_feature_hash_intersections": {
+    "0:1": 0,
+    "0:2": 0,
+    "1:2": 0
+  },
+  "zero6_budget_unchanged": true,
+  "zero5_budget_unchanged": true,
+  "budget_request": {
+    "status": "REQUEST_ONLY_NOT_AUTHORIZED",
+    "cpu_updates_max": 288,
+    "formula": "3 seeds x 3 paired arms x (24 known-symbol + 8 novel-symbol feedbacks)",
+    "arms": [
+      "inherited",
+      "inherited_replay",
+      "random_control"
+    ],
+    "zero5_remaining_140": "NOT_USED"
+  }
+}
