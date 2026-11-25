@@ -1,1 +1,1 @@
-{"status":"BUDGET_REQUIRED","previous_updates":1536,"proposed_meta_tasks":32,"proposed_controller_seeds":3,"proposed_inner_steps":8,"new_update_budget":"TO_BE_APPROVED","training_started":false}
+{"status":"EXECUTED","previous_updates":1536,"new_updates":768,"m0":144,"m1":162,"m2":162,"evaluation":288,"preflight_reserved":12,"device":"cpu"}

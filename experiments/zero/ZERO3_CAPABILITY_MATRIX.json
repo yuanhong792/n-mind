@@ -1,1 +1,1 @@
-{"ordinary_task_learning":"PASS_ZERO0","transfer":"PARTIAL_ZERO2","learned_update_rule":"NOT_TESTED","controller_generalization":"NOT_TESTED","meta_learning":"NOT_TESTED_BUDGET"}
+{"ordinary_task_learning":"PASS_ZERO0","transfer":"PARTIAL_ZERO2","learned_update_rule":"PARTIAL_META_GRADIENT_AND_UPDATE","controller_generalization":"PARTIAL_PRELIMINARY","meta_learning":"PARTIAL_PRELIMINARY_NOT_REPLICATED"}

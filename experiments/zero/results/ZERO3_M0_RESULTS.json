@@ -1,0 +1,22 @@
+{
+  "status": "EXECUTED",
+  "updates": 144,
+  "rows": [
+    {
+      "rate": 0.003,
+      "mean_query_loss": 0.7181619438860152,
+      "n": 18
+    },
+    {
+      "rate": 0.03,
+      "mean_query_loss": 0.6716251638200548,
+      "n": 18
+    },
+    {
+      "rate": 0.1,
+      "mean_query_loss": 0.6010870122247272,
+      "n": 18
+    }
+  ],
+  "selected_rate": 0.1
+}
