@@ -1,0 +1,11 @@
+{
+  "version": "zero2-transfer-v1",
+  "parent_commit": "ebb1664",
+  "status": "PREPARED_NOT_AUTHORIZED",
+  "tasks": {"A": "E1 seed s", "B": "E1 seed s+1000", "C": "reserved pressure family", "D": "reserved sealed family"},
+  "conditions": ["T0 random", "T1 frozen A", "T2 fresh ZERO-A on B", "T3 inherited A ZERO-A on B"],
+  "seeds": [101,202,303], "updates_per_condition": 128,
+  "proposed_new_updates": 768,
+  "authorization_required": true,
+  "checkpoints_must_exist_for_T3": true
+}

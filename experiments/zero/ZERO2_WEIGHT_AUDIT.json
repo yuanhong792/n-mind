@@ -1,0 +1,1 @@
+{"status":"PREPARED","t3_checkpoint_files":["checkpoints/zero_a_seed101.pt","checkpoints/zero_a_seed202.pt","checkpoints/zero_a_seed303.pt"],"optimizer_reinitialized_for_t3":true,"missing_checkpoint_policy":"invalidate_t3"}
