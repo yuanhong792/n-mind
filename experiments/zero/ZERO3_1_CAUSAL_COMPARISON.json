@@ -1,0 +1,1 @@
+{"status":"NOT_RUN_BUDGET","conditions":["C0","C1","C2","C3","C4"],"interpretation_rules":{"C2_gt_C1_but_not_C3":"rate magnitude evidence only","C2_not_C4":"meta-training gain unproven","C2_gt_C0_C3_C4":"preliminary dynamic evidence"}}

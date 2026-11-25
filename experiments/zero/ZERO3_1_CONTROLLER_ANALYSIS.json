@@ -1,0 +1,1 @@
+{"status":"HISTORICAL_ANALYSIS_ONLY","m1_parameter_count":1,"m2_parameter_count":65,"m2_historical_eta_means":{"101":0.03771193,"202":0.04663801,"303":0.05086069},"dynamic_sensitivity":"not causally tested","step_schedule_confound":"possible","new_training":"not_run"}
