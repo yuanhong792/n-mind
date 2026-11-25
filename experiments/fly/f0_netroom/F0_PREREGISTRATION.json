@@ -1,0 +1,24 @@
+{
+  "status": "PREREGISTERED_20261125_F0_NETROOM_AWAITING_EXECUTION",
+  "owner": "AutoClaw（净室，不 import Caishen 实现）",
+  "frozen_head": "3b471fa289c05e8a797ec6b4f98236b4cf41adf5",
+  "freeze_commit": "0b471c9",
+  "constraints": ["无优化器/无梯度", "CPU float32", "不改 Caishen 文件", "不改验收判据"],
+  "seeds": {"encoder": 20271301, "experiment": [101, 202, 303, 404, 505]},
+  "config_mirror": {"M": 512, "sparsity": 0.02, "k": 10, "fan_in": 6, "eta_grid": [0.05, 0.2, 0.8],
+                    "decay_grid": [1.0, 0.99, 0.9], "clip_grid": [0.05, 0.1, 0.5, 1.0, 4.0, 1e9],
+                    "source": "Caishen eval_sanity low_p_recall 配置"},
+  "encoders": ["frozen(binary fan_in=6 topk tie=index)", "signed(±1 fan_in=6)", "random_sparse", "dense_pm1"],
+  "experiments": {
+    "E1_collision": {"pairs": 2000},
+    "E2_capacity": {"P": [10, 50], "epochs": [1, 5, 20, 50], "eta": [0.05, 0.2, 0.8]},
+    "E3_interference": {"rho": [0.0, 0.3, 0.6, 0.9]},
+    "E4_decay": {"P": 10, "epochs": [1, 10], "decay": [1.0, 0.99, 0.9]},
+    "E5_clip": {"P": 10, "epochs": 5, "clip": [0.05, 0.1, 0.5, 1.0, 4.0, 1e9]},
+    "E6_stability": {"M": 256, "k": 5, "steps": 50000, "record_every": 5000},
+    "E7_resource": {"M": [2048, 512], "iters": 1000}
+  },
+  "netroom_selfcheck": "P=1 时四编码×两公式召回=1.0，否则净室错误",
+  "acceptance": "沿用 Caishen：P=10/50 召回 1.0；失败则定位根因，不达标即不进入训练",
+  "budget": {"cpu_minutes": 15}
+}
