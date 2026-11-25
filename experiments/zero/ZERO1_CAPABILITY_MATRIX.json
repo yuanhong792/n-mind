@@ -1,0 +1,1 @@
+{"local_learning_weight_change":"PASS","sealed_same_rule_generalization":"FAILED_AS_ACCEPTANCE","no_backprop":"PASS_BY_AUDIT","new_rule_transfer":"NOT_TESTED","continual_learning":"NOT_TESTED","reload_retention":"PASS"}

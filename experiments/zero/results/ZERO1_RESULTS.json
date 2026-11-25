@@ -1,0 +1,118 @@
+{
+  "status": "EXECUTED",
+  "task": "E1_hidden_nonlinear",
+  "model": "ZERO-B2",
+  "rows": [
+    {
+      "seed": 101,
+      "steps": 128,
+      "initial_sealed_accuracy": 0.5625,
+      "learned_sealed_accuracy": 0.6640625,
+      "curves": [
+        {
+          "step": 0,
+          "sealed_accuracy": 0.5625
+        },
+        {
+          "step": 10,
+          "sealed_accuracy": 0.44140625
+        },
+        {
+          "step": 50,
+          "sealed_accuracy": 0.51171875
+        },
+        {
+          "step": 100,
+          "sealed_accuracy": 0.5625
+        },
+        {
+          "step": 128,
+          "sealed_accuracy": 0.6640625
+        }
+      ],
+      "weight_l2_delta": 4.053904056549072,
+      "local_updates": 128,
+      "local_synapse_updates": 2048,
+      "backward_calls": 0,
+      "optimizer_steps": 0,
+      "cpu_seconds": 0.024053600000115694,
+      "loss_mean": 2.3435192997312697,
+      "model_parameters": 178
+    },
+    {
+      "seed": 202,
+      "steps": 128,
+      "initial_sealed_accuracy": 0.748046875,
+      "learned_sealed_accuracy": 0.376953125,
+      "curves": [
+        {
+          "step": 0,
+          "sealed_accuracy": 0.748046875
+        },
+        {
+          "step": 10,
+          "sealed_accuracy": 0.748046875
+        },
+        {
+          "step": 50,
+          "sealed_accuracy": 0.869140625
+        },
+        {
+          "step": 100,
+          "sealed_accuracy": 0.58203125
+        },
+        {
+          "step": 128,
+          "sealed_accuracy": 0.376953125
+        }
+      ],
+      "weight_l2_delta": 8.115890502929688,
+      "local_updates": 128,
+      "local_synapse_updates": 2048,
+      "backward_calls": 0,
+      "optimizer_steps": 0,
+      "cpu_seconds": 0.010499600000002829,
+      "loss_mean": 10.731842562468955,
+      "model_parameters": 178
+    },
+    {
+      "seed": 303,
+      "steps": 128,
+      "initial_sealed_accuracy": 0.447265625,
+      "learned_sealed_accuracy": 0.697265625,
+      "curves": [
+        {
+          "step": 0,
+          "sealed_accuracy": 0.447265625
+        },
+        {
+          "step": 10,
+          "sealed_accuracy": 0.513671875
+        },
+        {
+          "step": 50,
+          "sealed_accuracy": 0.451171875
+        },
+        {
+          "step": 100,
+          "sealed_accuracy": 0.498046875
+        },
+        {
+          "step": 128,
+          "sealed_accuracy": 0.697265625
+        }
+      ],
+      "weight_l2_delta": 5.512358665466309,
+      "local_updates": 128,
+      "local_synapse_updates": 2048,
+      "backward_calls": 0,
+      "optimizer_steps": 0,
+      "cpu_seconds": 0.016115399999762303,
+      "loss_mean": 3.8755429132434074,
+      "model_parameters": 178
+    }
+  ],
+  "budget_updates": 384,
+  "budget_limit": 768,
+  "torch": "2.10.0+cpu"
+}

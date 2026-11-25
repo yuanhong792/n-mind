@@ -1,0 +1,10 @@
+{
+  "model": "ZERO-B2",
+  "encoder_parameters_trainable": false,
+  "output_update": "W += gain * (target - (W h + b)) outer h / (||h||^2 + eps); b += gain * error",
+  "backward_calls": 0,
+  "optimizer_steps": 0,
+  "updates_are_local": true,
+  "local_signal": "label and current output error at output synapses",
+  "hidden_layer_receives_error": false
+}

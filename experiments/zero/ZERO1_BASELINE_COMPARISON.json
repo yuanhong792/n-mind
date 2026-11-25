@@ -1,0 +1,7 @@
+{
+  "ZERO-A_mean_sealed_accuracy": 0.9016927083,
+  "ZERO-B2_mean_sealed_accuracy": 0.5794270833,
+  "random_baseline": 0.5,
+  "frozen_control": "reported per seed in ZERO0_RESULTS.json",
+  "comparison_status": "ZERO-B2 failed 0.85 candidate threshold; ZERO-A remains positive control"
+}

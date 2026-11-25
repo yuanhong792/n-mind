@@ -1,0 +1,12 @@
+{
+  "version": "zero1-b2-v1",
+  "parent_commit": "a9abee5",
+  "task": "E1 hidden nonlinear binary classification",
+  "model": "ZERO-B2 frozen random tanh encoder + normalized Delta output update",
+  "seeds": [101, 202, 303],
+  "steps_per_seed": 128,
+  "budget_updates": 384,
+  "acceptance": {"all_seeds_weight_delta_gt": 0, "mean_sealed_accuracy_ge": 0.85, "backward_calls": 0},
+  "sealed_data_never_used_for_training": true,
+  "b1_b3_training": "NOT_RUN_BUDGET"
+}
