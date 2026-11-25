@@ -1,0 +1,126 @@
+{
+  "protocol": "20 steps batch16xseq32, 4 reps discard first, V=31",
+  "rows": [
+    {
+      "threads": 1,
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 15.982,
+      "step_ms_min": 15.895,
+      "step_ms_max": 16.07
+    },
+    {
+      "threads": 1,
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 19.019,
+      "step_ms_min": 18.959,
+      "step_ms_max": 19.12
+    },
+    {
+      "threads": 1,
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 37.962,
+      "step_ms_min": 24.024,
+      "step_ms_max": 43.444
+    },
+    {
+      "threads": 4,
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 20.028,
+      "step_ms_min": 19.863,
+      "step_ms_max": 20.078
+    },
+    {
+      "threads": 4,
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 23.757,
+      "step_ms_min": 23.749,
+      "step_ms_max": 24.056
+    },
+    {
+      "threads": 4,
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 18.287,
+      "step_ms_min": 18.222,
+      "step_ms_max": 18.971
+    },
+    {
+      "threads": 8,
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 16.113,
+      "step_ms_min": 16.062,
+      "step_ms_max": 16.345
+    },
+    {
+      "threads": 8,
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 20.353,
+      "step_ms_min": 20.239,
+      "step_ms_max": 20.366
+    },
+    {
+      "threads": 8,
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 14.521,
+      "step_ms_min": 14.456,
+      "step_ms_max": 14.71
+    },
+    {
+      "threads": 16,
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 20.102,
+      "step_ms_min": 19.937,
+      "step_ms_max": 20.411
+    },
+    {
+      "threads": 16,
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 24.498,
+      "step_ms_min": 24.343,
+      "step_ms_max": 25.156
+    },
+    {
+      "threads": 16,
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 20.898,
+      "step_ms_min": 20.666,
+      "step_ms_max": 21.614
+    },
+    {
+      "threads": 20,
+      "model": "gru",
+      "params": 413801,
+      "step_ms_median": 22.803,
+      "step_ms_min": 21.849,
+      "step_ms_max": 23.085
+    },
+    {
+      "threads": 20,
+      "model": "transformer",
+      "params": 437151,
+      "step_ms_median": 27.508,
+      "step_ms_min": 26.3,
+      "step_ms_max": 27.644
+    },
+    {
+      "threads": 20,
+      "model": "delta",
+      "params": 423491,
+      "step_ms_median": 22.881,
+      "step_ms_min": 22.496,
+      "step_ms_max": 22.925
+    }
+  ],
+  "ts": "2026-11-25T12:03:04+0800"
+}

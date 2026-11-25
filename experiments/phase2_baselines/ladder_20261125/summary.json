@@ -1,0 +1,774 @@
+{
+  "wall_s": 3454.8,
+  "global_cap_s": 3600.0,
+  "timed_out": false,
+  "lrs": {
+    "gru": 0.001,
+    "transformer": 0.001,
+    "delta": 0.003
+  },
+  "rows": [
+    {
+      "model": "gru",
+      "seed": 20270101,
+      "lr": 0.001,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2806.4,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "gru_seed20270101_step1000.pt",
+          "elapsed_s": 78.6
+        },
+        {
+          "level": 3000,
+          "checkpoint": "gru_seed20270101_step3000.pt",
+          "elapsed_s": 221.6
+        },
+        {
+          "level": 10000,
+          "checkpoint": "gru_seed20270101_step10000.pt",
+          "elapsed_s": 780.0
+        },
+        {
+          "level": 30000,
+          "checkpoint": "gru_seed20270101_step30000.pt",
+          "elapsed_s": 2800.1
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.333333,
+        "candidate_rank_accuracy": 0.333333,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 200,
+        "candidate_rank_hits": 200,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 34828,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:50:16+0800"
+      }
+    },
+    {
+      "model": "gru",
+      "seed": 20270103,
+      "lr": 0.001,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2811.3,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "gru_seed20270103_step1000.pt",
+          "elapsed_s": 79.4
+        },
+        {
+          "level": 3000,
+          "checkpoint": "gru_seed20270103_step3000.pt",
+          "elapsed_s": 221.9
+        },
+        {
+          "level": 10000,
+          "checkpoint": "gru_seed20270103_step10000.pt",
+          "elapsed_s": 782.7
+        },
+        {
+          "level": 30000,
+          "checkpoint": "gru_seed20270103_step30000.pt",
+          "elapsed_s": 2805.3
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.338333,
+        "candidate_rank_accuracy": 0.338333,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 203,
+        "candidate_rank_hits": 203,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 39684,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:50:21+0800"
+      }
+    },
+    {
+      "model": "gru",
+      "seed": 20270102,
+      "lr": 0.001,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2815.4,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "gru_seed20270102_step1000.pt",
+          "elapsed_s": 79.0
+        },
+        {
+          "level": 3000,
+          "checkpoint": "gru_seed20270102_step3000.pt",
+          "elapsed_s": 222.2
+        },
+        {
+          "level": 10000,
+          "checkpoint": "gru_seed20270102_step10000.pt",
+          "elapsed_s": 784.4
+        },
+        {
+          "level": 30000,
+          "checkpoint": "gru_seed20270102_step30000.pt",
+          "elapsed_s": 2809.3
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.288333,
+        "candidate_rank_accuracy": 0.288333,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 173,
+        "candidate_rank_hits": 173,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 35092,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:50:25+0800"
+      }
+    },
+    {
+      "model": "delta",
+      "seed": 20270101,
+      "lr": 0.003,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2831.7,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "delta_seed20270101_step1000.pt",
+          "elapsed_s": 79.3
+        },
+        {
+          "level": 3000,
+          "checkpoint": "delta_seed20270101_step3000.pt",
+          "elapsed_s": 219.5
+        },
+        {
+          "level": 10000,
+          "checkpoint": "delta_seed20270101_step10000.pt",
+          "elapsed_s": 772.8
+        },
+        {
+          "level": 30000,
+          "checkpoint": "delta_seed20270101_step30000.pt",
+          "elapsed_s": 2825.5
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.0,
+        "candidate_rank_accuracy": 0.226667,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 0,
+        "candidate_rank_hits": 136,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 35572,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:50:42+0800"
+      }
+    },
+    {
+      "model": "delta",
+      "seed": 20270102,
+      "lr": 0.003,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2844.4,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "delta_seed20270102_step1000.pt",
+          "elapsed_s": 79.6
+        },
+        {
+          "level": 3000,
+          "checkpoint": "delta_seed20270102_step3000.pt",
+          "elapsed_s": 218.7
+        },
+        {
+          "level": 10000,
+          "checkpoint": "delta_seed20270102_step10000.pt",
+          "elapsed_s": 771.1
+        },
+        {
+          "level": 30000,
+          "checkpoint": "delta_seed20270102_step30000.pt",
+          "elapsed_s": 2838.3
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.0,
+        "candidate_rank_accuracy": 0.346667,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 0,
+        "candidate_rank_hits": 208,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 35660,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:50:54+0800"
+      }
+    },
+    {
+      "model": "delta",
+      "seed": 20270103,
+      "lr": 0.003,
+      "steps_done": 30000,
+      "levels_done": [
+        1000,
+        3000,
+        10000,
+        30000
+      ],
+      "stop_reason": "COMPLETE",
+      "status": "COMPLETE",
+      "wall_s": 2857.8,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "delta_seed20270103_step1000.pt",
+          "elapsed_s": 79.0
+        },
+        {
+          "level": 3000,
+          "checkpoint": "delta_seed20270103_step3000.pt",
+          "elapsed_s": 219.5
+        },
+        {
+          "level": 10000,
+          "checkpoint": "delta_seed20270103_step10000.pt",
+          "elapsed_s": 776.3
+        },
+        {
+          "level": 30000,
+          "checkpoint": "delta_seed20270103_step30000.pt",
+          "elapsed_s": 2851.9
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.0,
+        "candidate_rank_accuracy": 0.226667,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 0,
+        "candidate_rank_hits": 136,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 34928,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T11:51:08+0800"
+      }
+    },
+    {
+      "model": "transformer",
+      "seed": 20270101,
+      "lr": 0.001,
+      "steps_done": 29773,
+      "levels_done": [
+        1000,
+        3000,
+        10000
+      ],
+      "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29773)",
+      "status": "INCONCLUSIVE_BUDGET",
+      "wall_s": 3452.3,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "transformer_seed20270101_step1000.pt",
+          "elapsed_s": 92.2
+        },
+        {
+          "level": 3000,
+          "checkpoint": "transformer_seed20270101_step3000.pt",
+          "elapsed_s": 266.3
+        },
+        {
+          "level": 10000,
+          "checkpoint": "transformer_seed20270101_step10000.pt",
+          "elapsed_s": 907.6
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.305,
+        "candidate_rank_accuracy": 0.305,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 183,
+        "candidate_rank_hits": 183,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 35524,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T12:01:02+0800"
+      }
+    },
+    {
+      "model": "transformer",
+      "seed": 20270103,
+      "lr": 0.001,
+      "steps_done": 29822,
+      "levels_done": [
+        1000,
+        3000,
+        10000
+      ],
+      "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29822)",
+      "status": "INCONCLUSIVE_BUDGET",
+      "wall_s": 3452.2,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "transformer_seed20270103_step1000.pt",
+          "elapsed_s": 91.6
+        },
+        {
+          "level": 3000,
+          "checkpoint": "transformer_seed20270103_step3000.pt",
+          "elapsed_s": 265.0
+        },
+        {
+          "level": 10000,
+          "checkpoint": "transformer_seed20270103_step10000.pt",
+          "elapsed_s": 905.9
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.22,
+        "candidate_rank_accuracy": 0.22,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 132,
+        "candidate_rank_hits": 132,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 37408,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T12:01:02+0800"
+      }
+    },
+    {
+      "model": "transformer",
+      "seed": 20270102,
+      "lr": 0.001,
+      "steps_done": 29785,
+      "levels_done": [
+        1000,
+        3000,
+        10000
+      ],
+      "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29785)",
+      "status": "INCONCLUSIVE_BUDGET",
+      "wall_s": 3452.4,
+      "events": [
+        {
+          "level": 1000,
+          "checkpoint": "transformer_seed20270102_step1000.pt",
+          "elapsed_s": 91.2
+        },
+        {
+          "level": 3000,
+          "checkpoint": "transformer_seed20270102_step3000.pt",
+          "elapsed_s": 265.3
+        },
+        {
+          "level": 10000,
+          "checkpoint": "transformer_seed20270102_step10000.pt",
+          "elapsed_s": 908.3
+        }
+      ],
+      "sealed": {
+        "n": 600,
+        "em": 0.363333,
+        "candidate_rank_accuracy": 0.363333,
+        "n_follow_pairs": 84,
+        "follow_rate": 0.0,
+        "follow_hits": 0,
+        "em_hits": 218,
+        "candidate_rank_hits": 218,
+        "shortcut_em": {
+          "recent_entity": 0.231667,
+          "first_entity": 0.253333,
+          "fixed_position": 0.266667,
+          "majority_position": 0.266667
+        }
+      },
+      "env": {
+        "python": "3.12.10",
+        "torch": "2.10.0+cu128",
+        "platform": "Windows-11-10.0.26100-SP0",
+        "torch_threads": 1,
+        "pid": 36240,
+        "git_rev": "5e67c30",
+        "logical_cores": 28,
+        "ts": "2026-11-25T12:01:02+0800"
+      }
+    }
+  ],
+  "gates": {
+    "strongest_shortcut": 0.266667,
+    "shortcut_em": {
+      "recent_entity": 0.231667,
+      "first_entity": 0.253333,
+      "fixed_position": 0.266667,
+      "majority_position": 0.266667
+    },
+    "thresholds": {
+      "v1_em_min": 0.8,
+      "v1_follow_min": 0.7,
+      "v2_margin": 0.1,
+      "follow_random": 0.0625,
+      "min_seeds": 2
+    },
+    "models": {
+      "gru": {
+        "n_seeds_completed_sealed": 3,
+        "arms": [
+          {
+            "seed": 20270101,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.333333,
+            "em_ci95": [
+              0.2968,
+              0.372
+            ],
+            "candidate_rank_accuracy": 0.333333,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270103,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.338333,
+            "em_ci95": [
+              0.3016,
+              0.3771
+            ],
+            "candidate_rank_accuracy": 0.338333,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270102,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.288333,
+            "em_ci95": [
+              0.2535,
+              0.3258
+            ],
+            "candidate_rank_accuracy": 0.288333,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          }
+        ],
+        "n_v1": 0,
+        "n_v2": 0,
+        "classification": "neither"
+      },
+      "transformer": {
+        "n_seeds_completed_sealed": 3,
+        "arms": [
+          {
+            "seed": 20270101,
+            "steps_done": 29773,
+            "status": "INCONCLUSIVE_BUDGET",
+            "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29773)",
+            "em": 0.305,
+            "em_ci95": [
+              0.2695,
+              0.343
+            ],
+            "candidate_rank_accuracy": 0.305,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270103,
+            "steps_done": 29822,
+            "status": "INCONCLUSIVE_BUDGET",
+            "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29822)",
+            "em": 0.22,
+            "em_ci95": [
+              0.1887,
+              0.2549
+            ],
+            "candidate_rank_accuracy": 0.22,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270102,
+            "steps_done": 29785,
+            "status": "INCONCLUSIVE_BUDGET",
+            "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29785)",
+            "em": 0.363333,
+            "em_ci95": [
+              0.3258,
+              0.4026
+            ],
+            "candidate_rank_accuracy": 0.363333,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          }
+        ],
+        "n_v1": 0,
+        "n_v2": 0,
+        "classification": "neither"
+      },
+      "delta": {
+        "n_seeds_completed_sealed": 3,
+        "arms": [
+          {
+            "seed": 20270101,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.0064
+            ],
+            "candidate_rank_accuracy": 0.226667,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270102,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.0064
+            ],
+            "candidate_rank_accuracy": 0.346667,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          },
+          {
+            "seed": 20270103,
+            "steps_done": 30000,
+            "status": "COMPLETE",
+            "stop_reason": "COMPLETE",
+            "em": 0.0,
+            "em_ci95": [
+              0.0,
+              0.0064
+            ],
+            "candidate_rank_accuracy": 0.226667,
+            "follow_rate": 0.0,
+            "follow_ci95": [
+              0.0,
+              0.0437
+            ],
+            "pass_v1": false,
+            "pass_v2": false
+          }
+        ],
+        "n_v1": 0,
+        "n_v2": 0,
+        "classification": "neither"
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "model": "transformer",
+  "seed": 20270101,
+  "lr": 0.001,
+  "steps_done": 29773,
+  "levels_done": [
+    1000,
+    3000,
+    10000
+  ],
+  "stop_reason": "INCONCLUSIVE_BUDGET(soft deadline at step 29773)",
+  "status": "INCONCLUSIVE_BUDGET",
+  "wall_s": 3452.3,
+  "events": [
+    {
+      "level": 1000,
+      "checkpoint": "transformer_seed20270101_step1000.pt",
+      "elapsed_s": 92.2
+    },
+    {
+      "level": 3000,
+      "checkpoint": "transformer_seed20270101_step3000.pt",
+      "elapsed_s": 266.3
+    },
+    {
+      "level": 10000,
+      "checkpoint": "transformer_seed20270101_step10000.pt",
+      "elapsed_s": 907.6
+    }
+  ],
+  "train_losses_tail": [
+    {
+      "step": 28600,
+      "loss": 0.1073
+    },
+    {
+      "step": 28700,
+      "loss": 0.1068
+    },
+    {
+      "step": 28800,
+      "loss": 0.1069
+    },
+    {
+      "step": 28900,
+      "loss": 0.1074
+    },
+    {
+      "step": 29000,
+      "loss": 0.1068
+    },
+    {
+      "step": 29100,
+      "loss": 0.1081
+    },
+    {
+      "step": 29200,
+      "loss": 0.1077
+    },
+    {
+      "step": 29300,
+      "loss": 0.1073
+    },
+    {
+      "step": 29400,
+      "loss": 0.1076
+    },
+    {
+      "step": 29500,
+      "loss": 0.1086
+    },
+    {
+      "step": 29600,
+      "loss": 0.1075
+    },
+    {
+      "step": 29700,
+      "loss": 0.1085
+    }
+  ],
+  "sealed": {
+    "n": 600,
+    "em": 0.305,
+    "candidate_rank_accuracy": 0.305,
+    "n_follow_pairs": 84,
+    "follow_rate": 0.0,
+    "follow_hits": 0,
+    "em_hits": 183,
+    "candidate_rank_hits": 183,
+    "shortcut_em": {
+      "recent_entity": 0.231667,
+      "first_entity": 0.253333,
+      "fixed_position": 0.266667,
+      "majority_position": 0.266667
+    }
+  },
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch_threads": 1,
+    "pid": 35524,
+    "git_rev": "5e67c30",
+    "logical_cores": 28,
+    "ts": "2026-11-25T12:01:02+0800"
+  }
+}

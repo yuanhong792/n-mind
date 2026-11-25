@@ -36,6 +36,9 @@ from nmind.language.large_binding_task import POSITIONS  # noqa: E402
 from nmind.language.tokenizer import CharTokenizer  # noqa: E402
 import lr_select_parallel_v2 as lrdata  # noqa: E402  同目录：数据缓存与路径定义
 
+CLS = {"gru": GRUBaseline, "transformer": CausalTransformerBaseline,
+        "delta": DeltaRuleLinearBaseline}
+
 OUT = ROOT / "experiments" / "phase2_baselines" / "ladder_20261125"
 LR_SUMMARY = ROOT / "experiments" / "phase2_baselines" / "lr_tasks_20261125" / "summary.json"
 TOK = ROOT / "experiments" / "m5_language" / "tokenizer_m52.json"

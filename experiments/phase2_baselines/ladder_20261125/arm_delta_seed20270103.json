@@ -1,0 +1,113 @@
+{
+  "model": "delta",
+  "seed": 20270103,
+  "lr": 0.003,
+  "steps_done": 30000,
+  "levels_done": [
+    1000,
+    3000,
+    10000,
+    30000
+  ],
+  "stop_reason": "COMPLETE",
+  "status": "COMPLETE",
+  "wall_s": 2857.8,
+  "events": [
+    {
+      "level": 1000,
+      "checkpoint": "delta_seed20270103_step1000.pt",
+      "elapsed_s": 79.0
+    },
+    {
+      "level": 3000,
+      "checkpoint": "delta_seed20270103_step3000.pt",
+      "elapsed_s": 219.5
+    },
+    {
+      "level": 10000,
+      "checkpoint": "delta_seed20270103_step10000.pt",
+      "elapsed_s": 776.3
+    },
+    {
+      "level": 30000,
+      "checkpoint": "delta_seed20270103_step30000.pt",
+      "elapsed_s": 2851.9
+    }
+  ],
+  "train_losses_tail": [
+    {
+      "step": 28900,
+      "loss": 0.1861
+    },
+    {
+      "step": 29000,
+      "loss": 0.1867
+    },
+    {
+      "step": 29100,
+      "loss": 0.1874
+    },
+    {
+      "step": 29200,
+      "loss": 0.1861
+    },
+    {
+      "step": 29300,
+      "loss": 0.1866
+    },
+    {
+      "step": 29400,
+      "loss": 0.187
+    },
+    {
+      "step": 29500,
+      "loss": 0.1858
+    },
+    {
+      "step": 29600,
+      "loss": 0.1862
+    },
+    {
+      "step": 29700,
+      "loss": 0.1866
+    },
+    {
+      "step": 29800,
+      "loss": 0.1839
+    },
+    {
+      "step": 29900,
+      "loss": 0.1858
+    },
+    {
+      "step": 30000,
+      "loss": 0.184
+    }
+  ],
+  "sealed": {
+    "n": 600,
+    "em": 0.0,
+    "candidate_rank_accuracy": 0.226667,
+    "n_follow_pairs": 84,
+    "follow_rate": 0.0,
+    "follow_hits": 0,
+    "em_hits": 0,
+    "candidate_rank_hits": 136,
+    "shortcut_em": {
+      "recent_entity": 0.231667,
+      "first_entity": 0.253333,
+      "fixed_position": 0.266667,
+      "majority_position": 0.266667
+    }
+  },
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch_threads": 1,
+    "pid": 34928,
+    "git_rev": "5e67c30",
+    "logical_cores": 28,
+    "ts": "2026-11-25T11:51:08+0800"
+  }
+}

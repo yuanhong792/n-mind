@@ -1,0 +1,22 @@
+{
+  "definition_note": "事实=(实体,位置)；事实对=每条 prompt 头部前两条陈述的搭配（与 fact_audit_20261124.py 同一定义）；本审计对象是 make_train_test(20000,600) 的实际训练/封存数据",
+  "n_train": 20000,
+  "n_test": 600,
+  "facts": {
+    "train": 14,
+    "test": 8
+  },
+  "fact_pairs": {
+    "train": 36,
+    "test": 4
+  },
+  "test_pair_in_train_ratio": 0.0,
+  "test_fact_in_train_ratio": 0.875,
+  "test_unique_statement_heads": 21,
+  "test_heads_in_train": 0,
+  "test_heads_in_train_ratio": 0.0,
+  "combo_overlap_by_construction": 0,
+  "holdout_meaning": "make_train_test 的留出是 combo 级留出；combo key 含查询实体/问法/确认语/重复变体，因此组合不相交 ≈ 样本级不相交。但底层事实对的重叠（见 test_pair_in_train_ratio）说明这不是严格事实对留出，更不是新实体泛化（实体只有 4 个）",
+  "wall_s": 161.5,
+  "ts": "2026-11-25T10:59:42+0800"
+}

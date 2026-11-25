@@ -1,0 +1,20 @@
+{
+  "model": "transformer",
+  "lr": 0.0003,
+  "seed": 20270501,
+  "steps": 1000,
+  "dev_rank_accuracy": 0.075,
+  "dev_loss": 0.5432297479609648,
+  "wall_s": 118.42810770000051,
+  "complete": true,
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch_threads": 1,
+    "pid": 37712,
+    "git_rev": "5e67c30",
+    "logical_cores": 28,
+    "ts": "2026-11-25T11:01:42+0800"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model": "delta",
+  "lr": 0.001,
+  "seed": 20270501,
+  "steps": 1000,
+  "dev_rank_accuracy": 0.0,
+  "dev_loss": 0.8960590703288714,
+  "wall_s": 104.07214149999982,
+  "complete": true,
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.10.0+cu128",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch_threads": 1,
+    "pid": 37060,
+    "git_rev": "5e67c30",
+    "logical_cores": 28,
+    "ts": "2026-11-25T11:01:28+0800"
+  }
+}
