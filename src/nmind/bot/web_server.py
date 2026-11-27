@@ -101,6 +101,22 @@ class _Handler(BaseHTTPRequestHandler):
         if path == "/api/runtime/status":
             self._json(200, self.api.health_payload())
             return
+        # ---- 真实 8B 后端只读接口（数据全部来自本地推理/日志，绝不虚构）----
+        if path == "/api/model/info":
+            self._json(200, self.api.model_info())
+            return
+        if path == "/api/neural/state":
+            self._json(200, self.api.neural_state())
+            return
+        if path == "/api/resource/state":
+            self._json(200, self.api.resource_state())
+            return
+        if path == "/api/learn/state":
+            self._json(200, self.api.learn_state())
+            return
+        if path == "/api/teachers/status":
+            self._json(200, self.api.teachers_status())
+            return
         if path == "/api/cloud/status":
             self._json(200, self.api.cloud_status())
             return
@@ -207,13 +223,71 @@ class _Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         try:
+            if urlparse(self.path).path == "/api/chat/stream":
+                self._chat_stream()
+                return
             self._route_post(urlparse(self.path).path, self._read_body())
         except ValueError as exc:
             self._json(400, {"error": str(exc)})
         except Exception as exc:                    # noqa: BLE001
             self._json(500, {"error": f"{type(exc).__name__}: {exc}"})
 
+    def _chat_stream(self) -> None:
+        """真实 SSE：消费 8B chat_stream 的结构化事件，逐 chunk 推送。
+
+        与 8765 独立服务同口径：think/answer/done/truncated 状态机在神经侧完成，
+        这里只做传输层，不改写内容、不伪装思考链、不虚构答案。
+        """
+        body = self._read_body()
+        sid = str(body.get("session_id") or "stream-default")
+        request_id = str(body.get("request_id") or "")
+        text = str(body.get("text") or "").strip()
+        supplied_messages = body.get("messages") if isinstance(body.get("messages"), list) else None
+        max_new_tokens = max(1, int(body.get("max_new_tokens") or 2048))
+        keep_thinking = bool(body.get("keep_thinking", False))
+        if not text:
+            self._json(400, {"error": "text 不能为空"})
+            return
+        svc = getattr(self.api, "chat_service", None)
+        if svc is None or not hasattr(svc, "stream_reply"):
+            self._json(503, {"error": "当前后端不支持真实流式推理"})
+            return
+        self.send_response(200)
+        self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache")
+        self.send_header("X-Accel-Buffering", "no")
+        self.end_headers()
+        try:
+            queued = {"state":"queued","source":"neural","request_id":request_id}
+            self.wfile.write(f"data: {json.dumps(queued, ensure_ascii=False)}\n\n".encode("utf-8"))
+            self.wfile.flush()
+            for ev in svc.stream_reply(sid, text, keep_thinking=keep_thinking,
+                                       supplied_messages=supplied_messages,
+                                       max_new_tokens=max_new_tokens):
+                ev = {**ev, "request_id": request_id}
+                payload = json.dumps(ev, ensure_ascii=False)
+                self.wfile.write(f"data: {payload}\n\n".encode("utf-8"))
+                self.wfile.flush()
+            closed = {"state": "closed", "request_id": request_id}
+            self.wfile.write(f"data: {json.dumps(closed, ensure_ascii=False)}\n\n".encode("utf-8"))
+            self.wfile.flush()
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+        except Exception as exc:                    # noqa: BLE001
+            err = json.dumps({"error": f"{type(exc).__name__}: {exc}"[:300], "state":"error",
+                              "finish_reason":"error"}, ensure_ascii=False)
+            try:
+                self.wfile.write(f"data: {err}\n\n".encode("utf-8"))
+                self.wfile.flush()
+            except Exception:
+                pass
+
     def _route_post(self, path: str, body: dict[str, Any]) -> None:
+        # 正式产品唯一聊天入口是 /api/chat/stream（DeepSeek 8B）。
+        # 旧 N-Cell 队列和旧 v3 直聊保留历史代码但从活动 API 硬隔离，避免旧页面再次调用。
+        if path == "/api/v3/chat" or (path.startswith("/api/chat/sessions/") and path.endswith("/messages")):
+            self._json(410, {"error": "旧 N-Cell 聊天路径已停用，请使用 /api/chat/stream", "active_model": "N-MIND"})
+            return
         if path == "/api/cloud/configure":
             self._json(200, self.api.configure_cloud(body)); return
         if path == "/api/cloud/test":
@@ -482,13 +556,92 @@ class WebBotServer:
         st["model_loaded"] = self.chat_service.model_loaded
         st["model_sha"] = self.chat_service.model_sha
         st["vocab_size"] = self.chat_service.tok.vocab_size if self.chat_service.tok else None
-        st["generation_protocol_id"] = "freegen-v2-direct-continuation"
+        st["generation_protocol_id"] = "deepseek-r1-qwen3-8b-sse"
         try:
             st.update(self.knowledge.stats())
         except Exception as exc:                    # noqa: BLE001
             print(f"[web] 知识统计刷新失败（状态页降级显示）：{type(exc).__name__}")
         st["quota"] = self.explorer.quota_snapshot()
         return st
+
+    # ---------------------------------------------------------------- 真实神经后端状态
+    def model_info(self) -> dict[str, Any]:
+        """真实模型身份与加载状态；未加载时如实说明，不用旧小模型冒充。"""
+        svc = self.chat_service
+        if hasattr(svc, "load_info"):
+            return svc.load_info()
+        return {"status": "LEGACY_MODEL", "model_loaded": bool(getattr(svc, "model_loaded", False)),
+                "note": "当前为工作台自带旧语言模型；8B 适配器未接入。"}
+
+    def neural_state(self) -> dict[str, Any]:
+        svc = self.chat_service
+        if hasattr(svc, "neural_snapshot"):
+            return svc.neural_snapshot()
+        return {"status": "NOT_AVAILABLE", "note": "当前后端不支持神经活动采集。"}
+
+    def resource_state(self) -> dict[str, Any]:
+        svc = self.chat_service
+        if hasattr(svc, "resource_status"):
+            return svc.resource_status()
+        return {"status": "NOT_AVAILABLE"}
+
+    def learn_state(self) -> dict[str, Any]:
+        """学习工作台状态：直接复用 learning_workbench 的账本/日志读取逻辑。
+
+        不加载模型、不依赖 8766 是否启动；数据来自 product/ 下的真实文件，
+        未训练时明确 NOT_TRAINED，绝不虚构成长曲线。
+        """
+        import sys
+        from pathlib import Path
+        product = Path(__file__).resolve().parents[3] / "product"
+        if str(product) not in sys.path:
+            sys.path.insert(0, str(product))
+        try:
+            from learning_workbench import state as _empty  # noqa: F401
+        except Exception:
+            pass
+        # 直接复刻 learning_workbench.state 的读取口径，保持单一数据源
+        def read_json(p: Path, default=None):
+            if p.exists():
+                try:
+                    return json.loads(p.read_text(encoding="utf-8"))
+                except Exception:
+                    return default
+            return default
+
+        ledger_dir = product / "budgets"
+        ledgers = sorted(ledger_dir.glob("LEDGER_QLORA_*.json")) if ledger_dir.exists() else []
+        latest = read_json(ledgers[-1]) if ledgers else None
+        adapters_dir = product / "checkpoints" / "adapters"
+        adapters = [str(x.name) for x in sorted(adapters_dir.glob("adapter_*"))] \
+            if adapters_dir.exists() else []
+        check = read_json(product / "logs" / "QLORA_STATIC_ZERO_UPDATE_CHECK.json")
+        cache_report = read_json(product / "logs" / "CACHE_BUILD_REPORT.json")
+        budget = read_json(ledger_dir / "BUDGET_QLORA_R1.json")
+        return {
+            "status": "TRAINED" if latest else "NOT_TRAINED",
+            "message": "已有真实学习记录" if latest else "尚未执行训练（0 次 optimizer.step）",
+            "budget_status": budget.get("status") if budget else None,
+            "latest_ledger": latest, "adapters": adapters,
+            "zero_update_check": check, "cache_report": cache_report,
+            "note": "所有数据来自真实日志/账本；未训练时不显示任何虚构曲线。",
+        }
+
+    def teachers_status(self) -> dict[str, Any]:
+        """统一教师引擎状态；无凭据时降级为方法参考，不阻塞学生独立回答。"""
+        import sys
+        from pathlib import Path
+        product = Path(__file__).resolve().parents[3] / "product"
+        if str(product) not in sys.path:
+            sys.path.insert(0, str(product))
+        try:
+            from teacher_unified import UnifiedTeacher
+            ut = UnifiedTeacher.from_env()
+            return {"teachers": [s.__dict__ for s in ut.status()],
+                    "note": "教师关闭后学生仍由本地 8B 独立回答。"}
+        except Exception as exc:  # noqa: BLE001
+            return {"teachers": [], "error": f"{type(exc).__name__}: {exc}",
+                    "note": "教师系统状态读取失败，如实报告。"}
 
     def cloud_status(self) -> dict[str, Any]:
         return {**self.cloud_config, "network_enabled": not self.offline,
@@ -716,9 +869,14 @@ def launch_web_ui(args) -> int:
 
     root_dir = _root(args)
     policy = _policy(args)
-    cloud_explicit = __import__("os").environ.get("NMIND_ENABLE_CLOUD") == "1"
-    if cloud_explicit:
+    os = __import__("os")
+    cloud_explicit = os.environ.get("NMIND_ENABLE_CLOUD") == "1"
+    # 网页探索需要独立于云端模型的联网开关；不能因为允许抓取官方公开资料
+    # 就同时打开外部教师模型。默认仍关闭，只有用户显式设置才启用。
+    network_explicit = os.environ.get("NMIND_ENABLE_NETWORK") == "1"
+    if cloud_explicit or network_explicit:
         policy.network_enabled = True
+    if cloud_explicit:
         policy.allow_remote_model_api = True
     offline = bool(getattr(args, "offline", False)) or (not policy.network_enabled and not cloud_explicit)
     if offline:
@@ -729,8 +887,27 @@ def launch_web_ui(args) -> int:
     client = BotClient(root_dir)
     knowledge = KnowledgeSearch(KnowledgeStore(root_dir / "knowledge.db"))
     registry = SourceRegistry(root_dir / "sources.json")
-    chat_service, explorer = build_web_stack(policy, offline, registry, knowledge,
-                                             root_dir, getattr(args, "config", None))
+    # 保留原有探索器/知识库栈；把聊天神经后端换成真实 DeepSeek 8B。
+    # 云教师 provider 若显式配置仍可经 ChatService 路由（标注来源，不计神经能力）。
+    from .deepseek8b_service import DeepSeek8BChatService
+    from .idle_explorer import IdleWebExplorer
+    from ..memory import MemoryService, MemoryStore
+    from ..bridge.providers import build_provider
+    from ..config import load_config
+    cfg = load_config(getattr(args, "config", None))
+    if offline:
+        cfg = cfg.model_copy(update={"offline_forced": True})
+    cloud_provider = None if cfg.effective_cloud_mode() == "off" else build_provider(
+        cfg.effective_cloud_mode(), cfg)
+    memory_service = MemoryService(MemoryStore(root_dir / "memory.db"))
+    chat_service = DeepSeek8BChatService(
+        knowledge=knowledge, memory_service=memory_service,
+        cloud_provider=cloud_provider,
+        history_provider=lambda sid: client.history(sid, limit=32),
+        lazy_load=True,
+    )
+    explorer = IdleWebExplorer(registry=registry, knowledge_store=knowledge.store,
+                               policy=policy, offline=offline)
     ensure_fixture_pages(knowledge.store)
 
     server = WebBotServer(root_dir=root_dir, client=client, chat_service=chat_service,
